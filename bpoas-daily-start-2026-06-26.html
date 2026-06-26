@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Thursday, 26 June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#E8294C; --brand-dark:#b81e39; --brand-light:#ff6b85;
+    --bg:#0A0A0A; --surface:#141414; --surface2:#1c1c1c; --border:#2a2a2a;
+    --ink:#FFFFFF; --sub:#a0a0a0; --muted:#5a5a5a;
+    --good:#22c55e; --good-bg:#052e13; --good-muted:#16a34a;
+    --warn:#f59e0b; --warn-bg:#2d1f00; --warn-muted:#d97706;
+    --bad:#ef4444; --bad-bg:#2d0808; --bad-muted:#dc2626;
+    --blue:#3b82f6; --blue-bg:#0a1628;
+    --r-sm:10px; --r-md:14px; --r-lg:20px; --pill:9999px;
+    --sh:0 2px 4px rgba(0,0,0,.4),0 8px 32px rgba(0,0,0,.5);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;}
+  .doc{max-width:860px;margin:0 auto;padding:32px 20px 80px;}
+
+  /* ── HERO ── */
+  .hero{border-radius:var(--r-lg);padding:28px 30px;margin-bottom:24px;background:linear-gradient(135deg,#1a0009 0%,#2d0010 40%,color-mix(in srgb,var(--brand) 20%,#1a1a1a) 100%);border:1px solid color-mix(in srgb,var(--brand) 30%,transparent);position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--brand) 18%,transparent),transparent 70%);top:-100px;right:-80px;pointer-events:none;}
+  .hero .kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brand);font-weight:700;margin-bottom:6px;}
+  .hero h1{font-size:clamp(22px,3.5vw,30px);font-weight:800;letter-spacing:-.02em;margin-bottom:4px;}
+  .hero .sub{font-size:13px;color:var(--sub);}
+  .hero .mode-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(232,41,76,.12);border:1px solid rgba(232,41,76,.25);color:var(--brand-light);font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--pill);margin-top:10px;letter-spacing:.06em;}
+
+  /* ── SECTION LABEL ── */
+  .sec{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:28px 0 12px;}
+
+  /* ── CARD ── */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);box-shadow:var(--sh);padding:20px 22px;margin-bottom:14px;}
+  .card.accent-brand{border-left:3px solid var(--brand);}
+  .card.accent-good{border-left:3px solid var(--good);}
+  .card.accent-warn{border-left:3px solid var(--warn);}
+  .card.accent-bad{border-left:3px solid var(--bad);}
+  .card h4{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);margin-bottom:14px;font-weight:700;}
+
+  /* ── REVENUE HERO CARD ── */
+  .rev{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px 26px;margin-bottom:24px;border-top:3px solid var(--brand);}
+  .rev .rev-title{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);font-weight:700;margin-bottom:16px;}
+  .rev-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:18px;}
+  .rev-stat .l{font-size:11px;color:var(--sub);font-weight:600;letter-spacing:.04em;margin-bottom:4px;}
+  .rev-stat .n{font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--ink);}
+  .rev-stat .n.na{color:var(--muted);font-size:18px;}
+  .rev-stat .hint{font-size:11px;color:var(--muted);margin-top:3px;}
+  .rev-status{display:flex;align-items:center;gap:10px;background:var(--surface2);border-radius:var(--r-sm);padding:12px 16px;}
+  .status-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+  .status-dot.unknown{background:var(--muted);}
+  .status-dot.good{background:var(--good);}
+  .status-dot.warn{background:var(--warn);}
+  .status-dot.bad{background:var(--bad);}
+  .rev-status .st-text{font-size:13px;font-weight:600;}
+  .rev-status .st-sub{font-size:12px;color:var(--sub);margin-left:auto;}
+  .rev-note{font-size:12px;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--border);}
+
+  /* ── ROW ── */
+  .row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;font-size:14px;border-bottom:1px solid var(--border);line-height:1.5;}
+  .row:last-child{border-bottom:none;}
+  .row .label{flex:1;}
+  .tagi{font-size:10px;font-weight:700;padding:2px 8px;border-radius:var(--pill);white-space:nowrap;flex-shrink:0;margin-top:2px;}
+  .t-grn{background:var(--good-bg);color:var(--good);}
+  .t-amb{background:var(--warn-bg);color:var(--warn);}
+  .t-red{background:var(--bad-bg);color:var(--bad);}
+  .t-grey{background:var(--surface2);color:var(--sub);}
+  .t-blue{background:var(--blue-bg);color:var(--blue);}
+  .t-brand{background:rgba(232,41,76,.12);color:var(--brand-light);}
+
+  /* ── RUN LOG ── */
+  .log-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);font-size:14px;}
+  .log-row:last-child{border-bottom:none;}
+  .log-icon{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+  .log-icon.ok{background:var(--good-bg);color:var(--good);}
+  .log-icon.skip{background:var(--surface2);color:var(--muted);}
+  .log-icon.err{background:var(--bad-bg);color:var(--bad);}
+  .log-label{flex:1;}
+  .log-label strong{display:block;font-weight:700;}
+  .log-label span{font-size:12px;color:var(--sub);}
+  .log-file{font-size:11px;color:var(--brand-light);font-family:monospace;}
+
+  /* ── FLAGS ── */
+  .flag-card{background:var(--surface);border:1px solid rgba(232,41,76,.25);border-radius:var(--r-md);padding:20px 22px;margin-bottom:12px;border-left:4px solid var(--brand);}
+  .flag-card .f-type{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:6px;}
+  .flag-card .f-what{font-size:15px;font-weight:700;margin-bottom:5px;}
+  .flag-card .f-why{font-size:13px;color:var(--sub);margin-bottom:8px;}
+  .flag-card .f-next{font-size:13px;background:rgba(232,41,76,.08);border-radius:6px;padding:8px 12px;color:var(--ink);}
+  .flag-card .f-next::before{content:"→ ";color:var(--brand);font-weight:700;}
+
+  /* ── LINKEDIN POST ── */
+  .lipost{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:20px 22px;}
+  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .av{width:44px;height:44px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0;}
+  .lihead .nm{font-weight:700;font-size:15px;}
+  .lihead .mt{font-size:12px;color:var(--sub);}
+  .lipost .post-body{font-size:15px;line-height:1.7;white-space:pre-line;color:var(--ink);}
+  .lipost .post-body .hook{font-weight:700;color:#fff;}
+  .post-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--border);}
+  .chip{font-size:11px;font-weight:600;background:var(--surface2);color:var(--sub);padding:4px 10px;border-radius:var(--pill);}
+  .chip.brand{background:rgba(232,41,76,.1);color:var(--brand-light);}
+  .score-pill{display:inline-flex;align-items:center;gap:6px;background:var(--good-bg);color:var(--good);font-weight:700;font-size:12px;padding:5px 12px;border-radius:var(--pill);border:1px solid rgba(34,197,94,.2);}
+
+  /* ── PINNED COMMENTS ── */
+  .comment{background:var(--surface2);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:8px;font-size:13px;color:var(--sub);line-height:1.55;}
+  .comment .c-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+
+  /* ── QUICK LINKS ── */
+  .links-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .link-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:16px 18px;text-decoration:none;color:var(--ink);transition:border-color .2s;}
+  .link-card:hover{border-color:var(--brand);}
+  .link-card .lc-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);margin-bottom:5px;}
+  .link-card .lc-name{font-size:14px;font-weight:700;margin-bottom:3px;}
+  .link-card .lc-file{font-size:11px;color:var(--brand-light);font-family:monospace;}
+
+  /* ── APPROVAL STATUS ── */
+  .approval-bar{display:flex;align-items:center;gap:10px;background:var(--warn-bg);border:1px solid rgba(245,158,11,.2);border-radius:var(--r-sm);padding:12px 16px;margin-top:14px;}
+  .approval-bar .a-icon{font-size:18px;}
+  .approval-bar .a-text{font-size:13px;font-weight:600;color:var(--warn);}
+  .approval-bar .a-sub{font-size:12px;color:var(--sub);}
+
+  footer{text-align:center;padding:36px 20px 10px;color:var(--muted);font-size:12px;}
+  footer b{color:var(--sub);}
+
+  @media(max-width:600px){.rev-grid{grid-template-columns:1fr 1fr;}.links-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- ══ HERO ══ -->
+  <div class="hero">
+    <div class="kicker">BPOAS Daily Start · Automated Routine</div>
+    <h1>Good morning, Mohaina</h1>
+    <div class="sub">Thursday, 26 June 2026 · GST (UAE) · Lean run — Steps 1 + 4</div>
+    <div class="mode-badge">THURSDAY · LEAN RUN · Steps 1 &amp; 4 only</div>
+  </div>
+
+  <!-- ══ REVENUE PULSE ══ -->
+  <div class="sec">Revenue Pulse</div>
+  <div class="rev">
+    <div class="rev-title">Month-to-Date · June 2026</div>
+    <div class="rev-grid">
+      <div class="rev-stat">
+        <div class="l">MTD Received</div>
+        <div class="n na">AED —</div>
+        <div class="hint">Zoho Books not connected</div>
+      </div>
+      <div class="rev-stat">
+        <div class="l">Monthly Target</div>
+        <div class="n na">Not set</div>
+        <div class="hint">Set target in positioning doc</div>
+      </div>
+      <div class="rev-stat">
+        <div class="l">Days Remaining</div>
+        <div class="n">4</div>
+        <div class="hint">End of June: 30 Jun</div>
+      </div>
+    </div>
+    <div class="rev-status">
+      <div class="status-dot unknown"></div>
+      <div class="st-text">Data Unavailable</div>
+      <div class="st-sub">Last CFO data: Monday, 22 June 2026</div>
+    </div>
+    <div class="rev-note">
+      Revenue figures are not visible. Zoho Books is not connected to this system — no invoices, payments, or run rate can be calculated. Pipeline intel from this week: MCM Products signed Wednesday (proposal to invoice), Richemont renewal in final redlines, Cartier meeting Monday 1:30.
+      <br><br>
+      <strong style="color:var(--warn)">Action needed:</strong> Connect Zoho Books so the revenue pulse updates every morning automatically. Until then, figures carry forward as unavailable.
+    </div>
+  </div>
+
+  <!-- ══ STEP 1 · COO MORNING BRIEF ══ -->
+  <div class="sec">Step 1 · COO Morning Brief</div>
+  <div class="card accent-brand">
+    <h4>Today in one line</h4>
+    <p style="font-size:15px;line-height:1.65;">Your afternoon is the final bootcamp session (12–5pm, Zoom). This morning is your only real work window. Two inbox items need a decision from you — both are new business and one is warm.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+    <div class="card">
+      <h4>Calendar — 26 June</h4>
+      <div class="row"><span class="label">10x with AI SG Bootcamp · Session 3 (Ops, Finance, CEO Brain) · Zoom</span><span class="tagi t-amb">12–5 PM</span></div>
+      <div class="row"><span class="label" style="color:var(--sub);font-size:13px;">Nothing else scheduled. Guard the morning.</span></div>
+    </div>
+    <div class="card">
+      <h4>Inbox · Needs You</h4>
+      <div class="row"><span class="label">Ghazal Al Safadi (Cartier, Richemont) — meeting booked Monday 1:30</span><span class="tagi t-grn">booked</span></div>
+      <div class="row"><span class="label">MCM Products — trade license received, KYC complete. Proposal can go.</span><span class="tagi t-amb">decide</span></div>
+      <div class="row"><span class="label">Almosafer claim 2010754 — awaiting client doc for Citibank</span><span class="tagi t-grey">fyi</span></div>
+      <div class="row"><span class="label">Finance mailbox: Menastar + Ridgeway VAT filed, Wicked awaiting sign-off</span><span class="tagi t-grn">on track</span></div>
+    </div>
+  </div>
+
+  <div class="card accent-warn">
+    <h4>Overdue</h4>
+    <div class="row"><span class="label">Reply to Alex re: contract review — she has asked twice</span><span class="tagi t-red">act today</span></div>
+    <div class="row"><span class="label" style="font-size:13px;color:var(--sub);">Also waiting in Notion: homepage copy update · Figma file before design review.</span></div>
+  </div>
+
+  <!-- ══ STEP 4 · CMO DAILY POST ══ -->
+  <div class="sec">Step 4 · CMO Daily Post</div>
+
+  <div class="lipost">
+    <div class="lihead">
+      <div class="av">MA</div>
+      <div>
+        <div class="nm">Mohaina Asira · 1st</div>
+        <div class="mt">Managing Partner, BPO Accounting Services · now</div>
+      </div>
+    </div>
+
+    <div class="post-body"><span class="hook">You can look profitable on paper and still be bleeding.</span>
+
+The owner feels fine. The books say something else, if anyone is reading them.
+
+One client of ours ran a construction company. His secretary kept the books on the side.
+
+He was busy. Sales were coming in. He assumed someone was watching the numbers.
+
+Busy looks like fine. For a long time, it can hide what is actually happening.
+
+Then we went to his office and checked the supporting documents in person. The picture changed.
+
+He had a large amount sitting in accounts receivable. Money he had already earned, and never collected.
+
+He could not see it. His books were never built to tell him. They did not lie to him. They just stayed quiet.
+
+We rebuilt three years of accounts. Once he could see clearly, he started collecting, and he started deciding with real information.
+
+That business went from 8 staff to more than 50.
+
+This is what clarity actually buys you. The ability to decide with facts instead of a feeling.
+
+And the FTA does not wait for you to catch up. Once a return is filed, you cannot change it.
+
+If you cannot say what your own numbers are telling you right now, that is the gap worth closing first.
+
+Message me the word "clarity" and I will tell you the first three things I would check in your books.
+
+P.S. We work like it is ours. When a client loses a dirham, it feels like it came from our own pocket.</div>
+
+    <div class="post-meta">
+      <span class="chip brand">Invisibility Diagnostic: 4 / 4 ✓</span>
+      <span class="chip">1,385 characters</span>
+      <span class="chip">Hook: Pattern Interrupt</span>
+      <span class="chip">No em dashes</span>
+      <span class="chip">One CTA</span>
+    </div>
+
+    <div class="approval-bar" style="margin-top:14px;">
+      <span class="a-icon">⏳</span>
+      <div>
+        <div class="a-text">Awaiting your approval</div>
+        <div class="a-sub">Note: Outlook send-email is not available in the connected M365 tools. Approval email could not be dispatched automatically. Please review this post and reply "approved" — or forward manually to Rei (reinald.onella1@gmail.com).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned Comments -->
+  <div class="sec">Pinned Comments (post one as your first comment)</div>
+  <div class="comment">
+    <div class="c-label">Extend — pull in the curious</div>
+    The first three things I check are simple. Is the accounts receivable real and collectible, is the input VAT actually claimable, and do the filed returns match the books. Most owners have a gap in at least one.
+  </div>
+  <div class="comment">
+    <div class="c-label">Humanise — show the human behind the process</div>
+    The hard part is rarely the numbers. It is sitting across from an owner and telling them the person they trusted was not catching this. I have had that conversation more than once.
+  </div>
+  <div class="comment">
+    <div class="c-label">CTA Amplifier — lower the barrier to reply</div>
+    If "clarity" feels vague, paste me your last VAT return and one bank statement. I can usually point to the gap from those two alone.
+  </div>
+
+  <!-- ══ FLAGS FOR MOHAINA ══ -->
+  <div class="sec" style="color:var(--brand);letter-spacing:.12em;">Flags for Mohaina</div>
+
+  <div class="flag-card">
+    <div class="f-type">Compliance · Content</div>
+    <div class="f-what">Today's LinkedIn post references the FTA and UAE regulatory filing rules</div>
+    <div class="f-why">The post mentions "the FTA does not wait" and "once a return is filed, you cannot change it." These are general and accurate, but the routine flags any post touching UAE law or penalty language for your sign-off before it publishes.</div>
+    <div class="f-next">Read the post above and confirm you're comfortable with the FTA line before Rei publishes.</div>
+  </div>
+
+  <div class="flag-card">
+    <div class="f-type">Cash · Invoice</div>
+    <div class="f-what">MCM Products signed their proposal on Wednesday — no invoice sent yet</div>
+    <div class="f-why">A signed proposal is not cash. Every day the invoice waits is a day the payment date moves further out. KYC is now complete, which removes the last blocker.</div>
+    <div class="f-next">Instruct the team to raise and send the MCM invoice today, before the bootcamp starts at noon.</div>
+  </div>
+
+  <div class="flag-card">
+    <div class="f-type">BD · New Business</div>
+    <div class="f-what">Cartier / Ghazal Al Safadi meeting is Monday 1:30 — no brief prepared yet</div>
+    <div class="f-why">Ghazal called back and confirmed. This is the first sit-down. First impressions in BD set the tone for the whole engagement — arriving prepared is the differentiator.</div>
+    <div class="f-next">Block 30 minutes this morning or Sunday to pull Cartier's profile, their likely compliance gaps, and a clean service list to table on Monday.</div>
+  </div>
+
+  <div class="flag-card">
+    <div class="f-type">BD · Renewal</div>
+    <div class="f-what">Richemont 2026–2027 renewal has final redlines in — no confirmation of your position</div>
+    <div class="f-why">Final redlines mean it is one step from done or one step from stalling. If BPOAS is not driving this to close, it drifts. Richemont appears across multiple engagements — concentration risk if it becomes a significant share of revenue.</div>
+    <div class="f-next">Confirm your position on the final redlines before Monday. If the contract is ready to sign, say so. If there are open points, resolve them before the week starts.</div>
+  </div>
+
+  <div class="flag-card">
+    <div class="f-type">Client · Overdue</div>
+    <div class="f-what">Alex has asked twice about the contract review — no reply sent</div>
+    <div class="f-why">Two asks with no response crosses from delay into message. The message is: this is not a priority. That is rarely the intent, but it is often what the client hears.</div>
+    <div class="f-next">Reply to Alex this morning, even if just to acknowledge and give a date. A short reply today closes more goodwill than a detailed reply next week.</div>
+  </div>
+
+  <!-- ══ RUN LOG ══ -->
+  <div class="sec">Run Log</div>
+  <div class="card">
+    <div class="log-row">
+      <div class="log-icon ok">✓</div>
+      <div class="log-label"><strong>Step 1 · COO Morning Brief</strong><span>Complete · Microsoft 365 (Calendar + Email) · Notion</span></div>
+      <div class="log-file">coo-brief-2026-06-26.html</div>
+    </div>
+    <div class="log-row">
+      <div class="log-icon skip">—</div>
+      <div class="log-label"><strong>Step 2 · CFO Weekly Revenue</strong><span>Skipped — CFO brief runs Mondays only.</span></div>
+      <div class="log-file">—</div>
+    </div>
+    <div class="log-row">
+      <div class="log-icon skip">—</div>
+      <div class="log-label"><strong>Step 3 · CRO Weekly Prospects</strong><span>Skipped — CRO brief runs Mondays only.</span></div>
+      <div class="log-file">—</div>
+    </div>
+    <div class="log-row">
+      <div class="log-icon ok">✓</div>
+      <div class="log-label"><strong>Step 4 · CMO Daily Post</strong><span>Complete · Invisibility Diagnostic 4/4 · Approval pending</span></div>
+      <div class="log-file">cmo-post-2026-06-26.html</div>
+    </div>
+    <div class="log-row">
+      <div class="log-icon skip">—</div>
+      <div class="log-label"><strong>Step 5 · Content Calendar</strong><span>Skipped — Content calendar runs Mondays only.</span></div>
+      <div class="log-file">—</div>
+    </div>
+    <div class="log-row">
+      <div class="log-icon err">!</div>
+      <div class="log-label"><strong>Approval email · CMO post</strong><span>Not sent — Microsoft 365 send-email is not available in connected tools (search/read only). Manual approval required.</span></div>
+      <div class="log-file">action needed</div>
+    </div>
+  </div>
+
+  <!-- ══ QUICK LINKS ══ -->
+  <div class="sec">Quick Links</div>
+  <div class="links-grid">
+    <a class="link-card" href="coo-brief-2026-06-26.html">
+      <div class="lc-label">Step 1</div>
+      <div class="lc-name">COO Morning Brief</div>
+      <div class="lc-file">coo-brief-2026-06-26.html</div>
+    </a>
+    <a class="link-card" href="cmo-post-2026-06-26.html">
+      <div class="lc-label">Step 4</div>
+      <div class="lc-name">CMO Daily Post</div>
+      <div class="lc-file">cmo-post-2026-06-26.html</div>
+    </a>
+  </div>
+
+</div>
+
+<footer>The brain thinks. The team works. You approve. · <b>BPOAS · Mohaina Asira</b></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  window.addEventListener('load',function(){
+    if(!window.gsap)return;
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero',{y:24,opacity:0,scale:.98,duration:.75,ease:'power3.out'});
+    gsap.from('.rev',{y:18,opacity:0,duration:.6,delay:.15,ease:'power3.out'});
+    gsap.from('.card,.flag-card,.lipost,.comment,.link-card',{
+      y:16,opacity:0,duration:.5,stagger:.06,ease:'power2.out',
+      scrollTrigger:{trigger:'.doc',start:'top 90%'}
+    });
+  });
+</script>
+</body>
+</html>
