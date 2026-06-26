@@ -3,197 +3,682 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CRO Weekly Prospect Pack · Purely Personal</title>
+<title>CRO Weekly Prospect Pack · BPOAS · 26 June 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --primary:#1F3A5F; --primary-light:#4A6E9E;
-    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
-    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
-    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
-    --r-md:14px; --r-lg:22px; --pill:9999px;
-    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
-    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+    --brand:#E8294C; --brand-dim:rgba(232,41,76,0.12); --brand-glow:rgba(232,41,76,0.22);
+    --bg:#0A0A0A; --card:#111111; --card2:#161616; --border:#222222; --border-mid:#2e2e2e;
+    --ink:#F0EEE9; --muted:#8A8784; --subtle:#444240;
+    --good:#22C55E; --warn:#F59E0B; --hot:#EF4444; --cold:#60A5FA;
+    --r-md:14px; --r-lg:20px; --pill:9999px;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
-  .doc{max-width:880px;margin:0 auto;padding:34px 22px 70px;}
+  body{font-family:'Rethink Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:var(--brand);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .doc{max-width:920px;margin:0 auto;padding:36px 22px 80px;}
 
-  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
-  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
-  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
-  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
-  .ohead .d{font-size:13px;opacity:.85;}
+  .ohead{border-radius:var(--r-lg);padding:32px 34px;margin-bottom:28px;background:linear-gradient(135deg,#150008 0%,#1d000e 55%,#0e0005 100%);border:1px solid rgba(232,41,76,0.18);position:relative;overflow:hidden;}
+  .ohead::before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:var(--brand-glow);top:-160px;right:-90px;filter:blur(70px);pointer-events:none;}
+  .ohead .k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brand);font-weight:700;margin-bottom:10px;}
+  .ohead h1{font-size:clamp(22px,3.8vw,33px);font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:6px;}
+  .ohead .d{font-size:13px;color:rgba(255,255,255,.48);}
 
-  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:26px 0 12px;}
-  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
-  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
-  .row{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:14.5px;border-bottom:1px solid var(--gray-light);}
-  .row:last-child{border-bottom:none;}
-  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
-  .t-red{background:#fdecec;color:var(--bad);} .t-amb{background:#fdf1de;color:var(--warn);}
-  .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-grn{background:#e7f6ee;color:var(--good);} .t-blue{background:#e6f0fc;color:#1E6FE0;}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
-  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
-  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px;}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--brand);}
+  .stat .l{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-weight:600;}
+  .stat .n{font-size:36px;font-weight:800;letter-spacing:-.03em;margin-top:4px;color:var(--brand);}
 
-  .pcard{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-top:4px solid var(--primary);}
-  .ph{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
-  .ph .nm{font-weight:800;font-size:16px;} .ph .rl{font-size:12.5px;color:var(--gray-text);width:100%;}
-  .meta{font-size:12.5px;color:var(--gray-text);margin:8px 0 4px;}
-  .meta b{color:var(--ink);}
-  .hook{font-size:14px;background:var(--gray-light);border-radius:10px;padding:9px 12px;margin:8px 0;}
-  .seqlbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);font-weight:700;margin:12px 0 6px;}
-  .dm{font-size:13.5px;border-left:3px solid var(--gray);background:#fbfbfa;border-radius:0 10px 10px 0;padding:9px 12px;margin:7px 0;}
-  .dm .t{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--gray-text);font-weight:700;display:block;margin-bottom:3px;}
-  .fit{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);}
+  .sec{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:30px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border);}
 
-  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:10px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
-  .note b{color:var(--primary-light);}
+  .rpulse{background:linear-gradient(135deg,#110007,#190010);border:1px solid rgba(232,41,76,0.18);border-left:3px solid var(--brand);border-radius:var(--r-md);padding:18px 22px;margin-bottom:28px;}
+  .rpulse .rk{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);font-weight:700;margin-bottom:10px;}
+  .rpulse p{font-size:13.5px;color:rgba(255,255,255,.68);margin-bottom:8px;line-height:1.6;}
+  .rpulse p:last-child{margin-bottom:0;}
+  .rpulse strong{color:rgba(255,255,255,.88);}
 
-  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
-  footer b{color:var(--ink);}
-  @media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+  .pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px 26px;margin-bottom:20px;transition:border-color .2s;}
+  .pcard:hover{border-color:var(--border-mid);}
+  .pchead{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px;}
+  .num{width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;margin-top:2px;}
+  .pname .nm{font-size:17px;font-weight:800;color:#fff;margin-bottom:3px;}
+  .pname .rl{font-size:13px;color:var(--muted);line-height:1.5;}
+  .pname .co{font-size:12px;color:var(--brand);font-weight:600;margin-top:4px;}
+
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+  .tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--pill);white-space:nowrap;}
+  .t-hi{background:rgba(34,197,94,.14);color:#22C55E;border:1px solid rgba(34,197,94,.22);}
+  .t-mid{background:rgba(245,158,11,.14);color:#F59E0B;border:1px solid rgba(245,158,11,.22);}
+  .t-lo{background:rgba(96,165,250,.14);color:#60A5FA;border:1px solid rgba(96,165,250,.22);}
+  .t-hot{background:rgba(239,68,68,.14);color:#EF4444;border:1px solid rgba(239,68,68,.22);}
+  .t-warm{background:rgba(245,158,11,.14);color:#F59E0B;border:1px solid rgba(245,158,11,.22);}
+  .t-cold{background:rgba(96,165,250,.14);color:#60A5FA;border:1px solid rgba(96,165,250,.22);}
+  .t-style{background:rgba(168,85,247,.14);color:#A855F7;border:1px solid rgba(168,85,247,.22);}
+  .t-alert{background:rgba(232,41,76,.14);color:var(--brand);border:1px solid rgba(232,41,76,.22);}
+  .t-neutral{background:rgba(255,255,255,.05);color:var(--muted);border:1px solid var(--border);}
+  .t-manual{background:rgba(232,41,76,.22);color:var(--brand);border:1px solid var(--brand);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+
+  .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+  .mi .mk{font-size:10.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-weight:600;margin-bottom:3px;}
+  .mi .mv{font-size:13px;color:var(--ink);}
+
+  .hbox{background:var(--card2);border-radius:10px;padding:12px 16px;margin-bottom:14px;border-left:3px solid var(--brand);}
+  .hbox .hk{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:700;margin-bottom:5px;}
+  .hbox .hv{font-size:14px;color:#fff;font-style:italic;line-height:1.5;}
+
+  .ctf{background:rgba(232,41,76,.07);border:1px solid rgba(232,41,76,.18);border-radius:10px;padding:11px 15px;margin-bottom:16px;}
+  .ctf .cfk{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--brand);font-weight:700;margin-bottom:5px;}
+  .ctf p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.55;}
+
+  .seq-hd{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:18px 0 10px;padding-top:18px;border-top:1px solid var(--border);}
+  .dm{background:var(--card2);border-radius:10px;padding:12px 15px;margin-bottom:8px;border-left:3px solid var(--border-mid);}
+  .dm.m1{border-left-color:var(--brand);}
+  .dm.m2{border-left-color:rgba(232,41,76,.55);}
+  .dm.m3{border-left-color:rgba(232,41,76,.38);}
+  .dm.m4{border-left-color:rgba(232,41,76,.22);}
+  .dm.m5{border-left-color:var(--border-mid);}
+  .dm .dh{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+  .dm .dlbl{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--brand);font-weight:700;}
+  .dm .dday{font-size:10.5px;color:var(--muted);margin-left:auto;}
+  .dm .dtxt{font-size:13.5px;color:rgba(255,255,255,.78);line-height:1.65;}
+
+  .hcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 18px;margin-bottom:10px;opacity:.55;}
+  .hcard .hn{font-size:14px;font-weight:700;color:var(--muted);}
+  .hcard .hr{font-size:12px;color:var(--subtle);margin-top:3px;line-height:1.5;}
+
+  footer{text-align:center;padding:32px 22px 20px;color:var(--subtle);font-size:12px;line-height:1.7;}
+  @media(max-width:640px){.grid3,.mgrid{grid-template-columns:1fr;}}
 </style>
 </head>
-<body data-theme="standard">
-  <div class="doc">
+<body>
+<div class="doc">
 
-    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>8 matched. 3 priority.</h1><div class="d">Friday, 26 June 2026 · sourced from your ICP via LinkedIn · every DM is a draft, nothing sent</div></div>
+<div class="ohead">
+  <div class="k">BPOAS · CRO Weekly Prospect Pack · /cro-weekly-prospects + /outreach-prospector + /outreach-writer</div>
+  <h1>10 prospects. All scored. DMs ready.</h1>
+  <div class="d">Thursday 26 June 2026 &nbsp;·&nbsp; LinkedIn via Apify &nbsp;·&nbsp; UAE ICP matched &nbsp;·&nbsp; Brand voice: Mohaina Asira &nbsp;·&nbsp; Nothing sent yet</div>
+</div>
 
-    <div class="grid3">
-      <div class="stat"><div class="l">Sourced (Dubai owners)</div><div class="n">15</div></div>
-      <div class="stat"><div class="l">ICP qualified</div><div class="n" style="background:linear-gradient(135deg,var(--good),#34d399);-webkit-background-clip:text;background-clip:text;color:transparent">8</div></div>
-      <div class="stat"><div class="l">Messages drafted</div><div class="n">40</div></div>
+<div class="grid3">
+  <div class="stat"><div class="l">Sourced from LinkedIn</div><div class="n">15</div></div>
+  <div class="stat"><div class="l">ICP Qualified (Score 6+)</div><div class="n">10</div></div>
+  <div class="stat"><div class="l">Manual Review Flag (9-10)</div><div class="n" style="color:#22C55E">0</div></div>
+</div>
+
+<div class="rpulse">
+  <div class="rk">Regulatory Pulse · M3 Value Bridge Source · Verified June 2026</div>
+  <p><strong>QFZP All-or-Nothing Risk (MD 229/2025, retroactive 1 Jun 2023):</strong> A free zone company loses its 0% Corporate Tax status entirely if it fails any single qualifying condition. The 9% CT applies to all income for that year plus four subsequent years. MD 229 of 2025 expanded qualifying commodity categories but the all-or-nothing structure is unchanged.</p>
+  <p><strong>E-Invoicing Deadline (31 July 2026):</strong> Businesses with AED 50M+ revenue must appoint an FTA Accredited Service Provider by 31 July 2026. Mandatory e-invoicing begins 1 January 2027. Smaller businesses should begin system preparation now.</p>
+  <p><strong>AML / goAML (Ministry of Economy, 2026):</strong> Real estate brokers, accountants, and corporate service providers classified as DNFBPs must register on the goAML portal and renew annually. Non-registration is a compliance breach under UAE AML law.</p>
+  <p><strong>Free Zone Audit Requirement (All major zones, 2026):</strong> 98% of UAE free zones require audited financial statements annually regardless of size or revenue. DMCC, JAFZA, DIFC, and DAFZA maintain closed approved-auditor lists. Submissions from unlisted firms are rejected at licence renewal.</p>
+</div>
+
+<div class="sec">10 Prospects · All Proceed to Outreach · Scores 6 to 8</div>
+
+<!-- ═══════════════════════════════════════ PROSPECT 1 ═══════════════════════════════════════ -->
+<div class="pcard">
+  <div class="pchead">
+    <div class="num">1</div>
+    <div class="pname">
+      <div class="nm">Chinmay Shah</div>
+      <div class="rl">CEO &amp; Founder · ScrapC.com Marketplace &nbsp;|&nbsp; MD · Shine &amp; Glow Group &nbsp;|&nbsp; Founder · Al Tara Global Resources LLC FZ</div>
+      <div class="co"><a href="https://www.linkedin.com/in/chinmay00" target="_blank">linkedin.com/in/chinmay00</a></div>
     </div>
-
-    <div class="sec">Your live pipeline · action today</div>
-    <div class="card">
-      <div class="row"><b style="margin-right:6px">MCM Products (VAT advisory proposal)</b> KYC trade license landed this morning, you are clear to proceed<span class="tagi t-red">Priority 1</span></div>
-      <div class="row"><b style="margin-right:6px">Ghazal Al Safadi · Cartier / Richemont</b> meeting booked Monday 1:30, prep a short discovery agenda<span class="tagi t-red">Priority 1</span></div>
-    </div>
-
-    <div class="sec">The prospects · ranked by fit</div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Pelvi Nanda</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Founder, 2 diamond jewellery brands (natural + lab-grown) · Dubai · <a href="https://www.linkedin.com/in/pelvi-nanda-8744a1319">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive · <b>Opener:</b> Peer · <b>Signal:</b> Early-stage founder, two brands, bespoke consultations, inventory-heavy retail with informal back office</div>
-      <div class="hook"><b>Human hook:</b> You built the jeweller you couldn't find when ring-shopping in Dubai.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Pelvi, your story of building the jeweller you couldn't find for your own ring stood out. Two brands now, both bespoke. I run an accounting firm here in Dubai and like meeting founders who started from a real frustration. Would be glad to connect.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. The part that stayed with me was you starting because every option felt pushy or out of reach. Running two diamond brands with private consultations, which side has been harder to keep organised as you grew, the natural or the lab-grown?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>Saw the Infinite Love and Maharani collections. Moving into heirloom bridal changes the inventory picture a lot, more pieces sitting in stock before they sell. Are you tracking that side yourself, or do you have someone on it?</div>
-      <div class="dm"><span class="t">4 · Pivot</span>Different question. With CIT now in force, a few Dubai founders I meet are unsure whether two brands means one set of books or two. If that is ever a question for you, happy to point you the right way. No agenda.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here, I know how full a founder's week is. If clarity on the numbers behind the two brands ever becomes the thing slowing you down, my door is open. Either way, I am glad I came across what you are building.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Sejal Nagjee</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Founder, Milestone (luxury interiors) + Galleria Exclusive (art) · Dubai · <a href="https://www.linkedin.com/in/sejalnagjee">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive / Amiable · <b>Opener:</b> Peer · <b>Signal:</b> Two entities under one founder, long high-value projects with staged payments, 20 years building</div>
-      <div class="hook"><b>Human hook:</b> From representing India in table tennis to designing Palm Jumeirah homes.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Sejal, rare to see a designer who went from representing India in table tennis to shaping homes across Palm Jumeirah and Emirates Hills. I run an accounting firm in Dubai and enjoy connecting with founders who built something with real craft. Would like to connect.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. You run two things at once, Milestone for the spaces and Galleria for the art and bespoke pieces. As they have grown, which one has been trickier to keep organised behind the scenes?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>Makes sense. High-end residential means money moving in stages, deposits, milestones, suppliers. When the work is that custom, the numbers get messy fast. Are you handling that side in-house right now?</div>
-      <div class="dm"><span class="t">4 · Pivot</span>Different angle. With two entities, the studio and the gallery, CIT treats them as separate books. A few founders I meet only learn that late. If it is ever unclear for you, happy to point you right.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will stop here, your calendar is clearly full. If the numbers behind Milestone and Galleria ever become the thing pulling you away from design, you know where I am. Either way, I genuinely admire the work.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Yasmina Azhari</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Owner, Al Yam (import/export & general trading), Mira Group, shipping · Dubai · <a href="https://www.linkedin.com/in/yasmina-azhari-588a9132">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver · <b>Opener:</b> Directness · <b>Signal:</b> Multiple UAE entities under one owner, import/export = high VAT exposure, clear group-structure CIT need</div>
-      <div class="hook"><b>Human hook:</b> Import-export, mall management, shipping, several entities under one owner.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Yasmina, you carry a lot under one name, Al Yam trading, Mira Group, the shipping side. I run an accounting firm in Dubai that works with owners running multiple UAE entities. Would value connecting.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. Running import-export alongside mall management means very different books under one owner. Which entity takes the most of your time when it comes to keeping the numbers clean?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>General trading is where I see the most FTA exposure right now, input tax on imports especially. With several LLCs, are the VAT filings handled in one place, or spread across different people?</div>
-      <div class="dm"><span class="t">4 · Pivot</span>One thing worth knowing. CIT now applies per entity, and group structures like yours are where the questions get real. If you ever want a second set of eyes on how it is set up, no charge to look.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it there. With this many moving parts, if compliance across the entities ever feels heavier than it should, that is exactly what we do. Good to be connected either way.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Rajendran Nair</span><span class="fit t-amb">Fit 7/10</span><span class="rl">Business owner, printing & retail · UAE · <a href="https://www.linkedin.com/in/rajendran-nair-05743567">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Amiable · <b>Opener:</b> Peer · <b>Signal:</b> Owner-operated retail/printing, thin margins, classic "bank balance as the scorecard" profile. Hook is thinner, light manual research worth doing before sending.</div>
-      <div class="hook"><b>Human hook:</b> Years in printing and retail, built on negotiation and tight budgeting.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Rajendran, fellow Dubai connection. You have spent years owning in printing and retail, a trade with thin margins and a lot to track. I run an accounting firm here and like meeting owners who built the hard way. Happy to connect.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. Printing and retail is one of those businesses where the money looks fine until you count the stock and what is owed. How are you keeping an eye on that side day to day?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>Retail owners I meet often find their real profit is hiding in inventory and receivables, not the bank balance. Do you get monthly numbers you actually trust, or is it more by feel right now?</div>
-      <div class="dm"><span class="t">4 · Pivot</span>Quick one. VAT and now CIT both apply to a business your size, and the FTA does not wait. If you ever want someone to check you are clean, happy to look, no cost to start.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here. If knowing exactly where your printing and retail numbers stand ever becomes worth sorting, that is what we do. Either way, good to connect.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Dirk Wagner</span><span class="fit t-amb">Fit 6/10</span><span class="rl">Founder & CEO, Nine Seven One Global Solutions (GCC growth) · Dubai · <a href="https://www.linkedin.com/in/dirk-wagner-971global">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive / Driver · <b>Opener:</b> Peer · <b>Signal:</b> Owns multiple entities; also a strong referral partner, he lands foreign companies in the GCC that need local accounting setup</div>
-      <div class="hook"><b>Human hook:</b> A boutique growth partner for corporates entering the GCC, quality over volume.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Dirk, your line about quality over volume, boutique and hands-on, is rare to see said out loud in consulting. I run an accounting firm in Dubai with a similar view on how we work. Would like to connect.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. You help international companies set up and scale in the GCC. When they land here, how often does the boring side, the UAE accounting and VAT setup, become the thing that trips them up?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>I ask because that is usually where I get the panicked call, a foreign company that built sales first and compliance never. If a client of yours ever needs that handled locally, I am the person who does it properly.</div>
-      <div class="dm"><span class="t">4 · Pivot</span>Separately, for your own entities here, you run more than one. CIT now treats them separately. If that is ever unclear, happy to point you right, no agenda.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it there. Whether for your own books or a client landing in the UAE, if the accounting side ever needs a safe pair of hands, you know where I am.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Dr. Mehdi Chahi</span><span class="fit t-amb">Fit 6/10</span><span class="rl">Managing Partner, AMRC Insights (market intelligence, MENA & Africa) · Dubai · <a href="https://www.linkedin.com/in/chahi-mehdi">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Analytical · <b>Opener:</b> Authority flip · <b>Signal:</b> Owner-led consultancy billing across 30+ countries, cross-border VAT on exported services is a real technical gap</div>
-      <div class="hook"><b>Human hook:</b> Market intelligence across 30-plus countries, run from a Dubai partnership.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Dr. Chahi, running large multi-country research out of a Dubai partnership is a serious operation. I run an accounting firm here that works with owner-led consultancies. Would value connecting.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. Fieldwork across 30-plus countries means money moving in many currencies and directions. On the AMRC side, how do you keep the financial reporting clean across all of that?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>That cross-border piece is exactly where UAE VAT and CIT get technical, what is zero-rated, what is claimable. Is that handled in-house, or by someone who knows the UAE rules specifically?</div>
-      <div class="dm"><span class="t">4 · Pivot</span>One practical note. Consultancies billing internationally often misread the VAT treatment on exported services. If you ever want it checked, happy to look, no cost to start.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here, I know your schedule spans time zones. If the financial and compliance side of AMRC ever needs a UAE specialist, that is what we do. Good to be connected.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Avinash Wadhwa</span><span class="fit t-grey">Fit 5/10</span><span class="rl">Entrepreneur, GTM & digital transformation consultant · Dubai · <a href="https://www.linkedin.com/in/avinashwadhwa">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive / Driver · <b>Opener:</b> Peer · <b>Signal:</b> Borderline. Senior advisor who may already have a setup, but a strong referral source and shares your "people and process" view. Worth a soft connect, low priority.</div>
-      <div class="hook"><b>Human hook:</b> Believes it always comes back to people and the processes underneath.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Avinash, your take that it always comes back to people and processes is one I share. I run an accounting firm in Dubai built on exactly that. Would like to connect.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. You advise top management on business risk and process automation. When you go into a company here, how often is the finance and accounting process the weakest link you find?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>That matches what I see, the books are usually the last thing to get fixed. If you ever have a client whose accounting needs rebuilding properly while you handle the strategy, that is my lane.</div>
-      <div class="dm"><span class="t">4 · Pivot</span>For your own consulting entity, quick one, CIT and VAT both apply and the FTA is strict now. If you want a second set of eyes that it is set up right, happy to look.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it there. Whether a referral or your own books, if the accounting side ever needs doing properly, you know where I am. Good to connect either way.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Robin Joffe</span><span class="fit t-grey">Fit 5/10</span><span class="rl">CEO-Founder, NXT Horizon (market entry, ME & Asia) · Dubai · <a href="https://www.linkedin.com/in/robinjoffe">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Driver / Analytical · <b>Opener:</b> Directness · <b>Signal:</b> Borderline. Likely sophisticated, but his market-entry clients are exactly the foreign companies that need UAE accounting on the ground. Play it as a referral partnership.</div>
-      <div class="hook"><b>Human hook:</b> Helps companies expand into the Middle East from a Dubai base.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Robin, you help companies enter the Middle East market from Dubai. I run an accounting firm here that often becomes the local piece those expansions need. Worth connecting.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. When you bring a company into the UAE, who usually handles their accounting and VAT setup on the ground, you, them, or someone local?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>I ask because that handoff is where things often break, a company expands fast and the compliance lags behind. If a client ever needs that done properly here, I am the local pair of hands.</div>
-      <div class="dm"><span class="t">4 · Pivot</span>And for NXT Horizon itself, CIT now applies to consulting entities here too. If it is ever worth a check that yours is clean, happy to look, no cost to start.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it there. Whether for a client landing in the UAE or your own books, if the accounting side needs a reliable local firm, you know where I am.</div>
-    </div>
-
-    <div class="sec">Disqualified from this batch (7) · not your ICP</div>
-    <div class="card">
-      <div class="row">Sajid Awan, Mohit Sharma, Bashar Abuljebain<span class="tagi t-grey">finance pros</span></div>
-      <div class="row">Miguel Vargas (MD, Louis Vuitton), Vitor Nogueira (board director)<span class="tagi t-grey">corporate / not owner</span></div>
-      <div class="row">Jonathan Cordero (PE / mining investor), Stanislav Semenov (quant)<span class="tagi t-grey">wrong fit</span></div>
-    </div>
-
-    <div class="note">Open <b>Pelvi Nanda</b> first. Early-stage founder, two brands, inventory piling up before it sells, and a back office that almost certainly grew faster than the books. She is the warmest door and the cleanest version of your client. Every message here is a draft. You read it, then you send it.</div>
-
-    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script>
-    window.addEventListener('load',function(){
-      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
-      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
-      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
-      gsap.from('.stat,.card,.pcard,.note',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 90%'}});
-    });
-  </script>
+  <div class="tags">
+    <span class="tag t-hi">Fit Score: 8 / 10</span>
+    <span class="tag t-hot">Hot</span>
+    <span class="tag t-style">Expressive</span>
+    <span class="tag t-alert">Compliance Trigger</span>
+    <span class="tag t-neutral">Trading · Free Zone · Recycling</span>
+    <span class="tag t-neutral">Dubai</span>
+  </div>
+  <div class="mgrid">
+    <div class="mi"><div class="mk">Industry</div><div class="mv">Commodities Trading / Recycling / E-commerce</div></div>
+    <div class="mi"><div class="mk">Opening Strategy</div><div class="mv">Peer Opener</div></div>
+    <div class="mi"><div class="mk">Location</div><div class="mv">Dubai, UAE</div></div>
+    <div class="mi"><div class="mk">Timing Signals</div><div class="mv">New UAE free zone entity (Al Tara Global Resources LLC FZ) launched · international expansion from India · three active ventures running simultaneously</div></div>
+  </div>
+  <div class="hbox">
+    <div class="hk">Human Hook (13 words)</div>
+    <div class="hv">"Building Al Tara Global in a free zone after a decade in global trade takes guts."</div>
+  </div>
+  <div class="ctf">
+    <div class="cfk">Compliance Trigger Detected</div>
+    <p>New UAE free zone entity = QFZP qualifying conditions must be met from Day 1 or 9% CT applies for five years. Three entities running simultaneously = separate CT registration per entity, separate UBO filings, consolidated audit exposure at each free zone renewal.</p>
+  </div>
+  <div class="seq-hd">5-Message DM Sequence</div>
+  <div class="dm m1">
+    <div class="dh"><span class="dlbl">M1 · Connection Request</span><span class="dday">Day 0 · max 300 chars</span></div>
+    <div class="dtxt">Chinmay, saw what you're building at Al Tara Global in the free zone alongside ScrapC. Circular economy trading in Dubai is a different kind of bet. Would like to connect.</div>
+  </div>
+  <div class="dm m2">
+    <div class="dh"><span class="dlbl">M2 · Icebreaker</span><span class="dday">Day 1 · after connect</span></div>
+    <div class="dtxt">Starting ScrapC was one thing. Launching a fresh free zone entity in Dubai while running Shine and Glow at the same time is a completely different kind of weight. What made you decide to do it now rather than consolidate first?</div>
+  </div>
+  <div class="dm m3">
+    <div class="dh"><span class="dlbl">M3 · Value Bridge — Regulatory Pulse</span><span class="dday">Day 2 to 3 · if no reply</span></div>
+    <div class="dtxt">Something came out recently worth knowing if you're running a free zone entity. A free zone company loses its 0% corporate tax status entirely the moment it fails even one qualifying condition. And the penalty isn't just for that year. It applies to the next four years too. If you're still getting Al Tara's structure set up, it's worth checking those conditions now rather than at filing. Are you doing that review in-house or did you bring someone in to look at it?</div>
+  </div>
+  <div class="dm m4">
+    <div class="dh"><span class="dlbl">M4 · The Pivot</span><span class="dday">Day 3 to 4 · if no reply</span></div>
+    <div class="dtxt">I think a lot of founders in your position get the trading side right and leave the financial structure to figure itself out. It usually works until it doesn't. How are you thinking about that side of things as Al Tara starts to move?</div>
+  </div>
+  <div class="dm m5">
+    <div class="dh"><span class="dlbl">M5 · Clean Exit</span><span class="dday">Day 5 to 7 · if no reply</span></div>
+    <div class="dtxt">Not trying to push anything, Chinmay. I just think what you're building is the kind of thing that's worth doing properly from the start. Good luck with it.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PROSPECT 2 ═══════════════════════════════════════ -->
+<div class="pcard">
+  <div class="pchead">
+    <div class="num">2</div>
+    <div class="pname">
+      <div class="nm">Joe Karam</div>
+      <div class="rl">Founder &amp; Managing Partner · Innovate K-oncepts LLC &nbsp;|&nbsp; F&amp;B Consulting · Dubai</div>
+      <div class="co"><a href="https://www.linkedin.com/in/joe-karam-440270198" target="_blank">linkedin.com/in/joe-karam-440270198</a></div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag t-mid">Fit Score: 7 / 10</span>
+    <span class="tag t-warm">Warm</span>
+    <span class="tag t-style">Amiable</span>
+    <span class="tag t-alert">Compliance Trigger</span>
+    <span class="tag t-neutral">F&amp;B · Hospitality</span>
+    <span class="tag t-neutral">Dubai</span>
+  </div>
+  <div class="mgrid">
+    <div class="mi"><div class="mk">Industry</div><div class="mv">Food &amp; Beverage / Restaurant Consulting</div></div>
+    <div class="mi"><div class="mk">Opening Strategy</div><div class="mv">Pattern Interrupt</div></div>
+    <div class="mi"><div class="mk">Location</div><div class="mv">Dubai, UAE</div></div>
+    <div class="mi"><div class="mk">Timing Signals</div><div class="mv">Actively building consultancy in Dubai · family F&amp;B legacy from Beirut · career spans kitchen to GM · no in-house finance structure evident</div></div>
+  </div>
+  <div class="hbox">
+    <div class="hk">Human Hook (13 words)</div>
+    <div class="hv">"Taking family restaurant DNA from Beirut into a Dubai consulting firm is a rare play."</div>
+  </div>
+  <div class="ctf">
+    <div class="cfk">Compliance Trigger Detected</div>
+    <p>F&amp;B operators face CT small business relief aggregation rules across multi-unit revenue. Restaurant consulting firms billing multiple client engagements need clean P&amp;L separation to avoid surprises at filing. No public accounting setup visible.</p>
+  </div>
+  <div class="seq-hd">5-Message DM Sequence</div>
+  <div class="dm m1">
+    <div class="dh"><span class="dlbl">M1 · Connection Request</span><span class="dday">Day 0 · max 300 chars</span></div>
+    <div class="dtxt">Joe, the detail about starting in the family Karamna kitchen before working your way to GM says something about how you see business. Would be good to connect.</div>
+  </div>
+  <div class="dm m2">
+    <div class="dh"><span class="dlbl">M2 · Icebreaker</span><span class="dday">Day 1 · after connect</span></div>
+    <div class="dtxt">Coming from the family restaurant in Beirut all the way to running your own F&amp;B consultancy in Dubai is a real arc. Most people skip the kitchen entirely. What's the part of that background you've carried most into how you work now?</div>
+  </div>
+  <div class="dm m3">
+    <div class="dh"><span class="dlbl">M3 · Value Bridge — Regulatory Pulse</span><span class="dday">Day 2 to 3 · if no reply</span></div>
+    <div class="dtxt">Something worth flagging for F&amp;B operators in Dubai. Corporate tax small business relief has a revenue threshold most restaurant owners don't check until they're already past it. A few founders in the sector ran into issues at filing because multi-unit revenue was aggregated differently than they expected. If you're advising F&amp;B operators here, is that coming up in your conversations with clients?</div>
+  </div>
+  <div class="dm m4">
+    <div class="dh"><span class="dlbl">M4 · The Pivot</span><span class="dday">Day 3 to 4 · if no reply</span></div>
+    <div class="dtxt">I think most F&amp;B consultants in Dubai know the operational side inside out. The financial compliance piece is a different story. What's your sense of how your clients handle that side?</div>
+  </div>
+  <div class="dm m5">
+    <div class="dh"><span class="dlbl">M5 · Clean Exit</span><span class="dday">Day 5 to 7 · if no reply</span></div>
+    <div class="dtxt">Appreciate the work you're doing in F&amp;B here, Joe. The sector needs more people who actually came through the kitchen. Hope the consultancy is building the way you want.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PROSPECT 3 ═══════════════════════════════════════ -->
+<div class="pcard">
+  <div class="pchead">
+    <div class="num">3</div>
+    <div class="pname">
+      <div class="nm">Jane Bou Jaoude</div>
+      <div class="rl">Founder &amp; CEO · JBJ GROUP · JBJ Global Real Estate · Maison Jane · JBJ Media</div>
+      <div class="co"><a href="https://www.linkedin.com/in/jane-bou-jaoude-4079201a3" target="_blank">linkedin.com/in/jane-bou-jaoude-4079201a3</a></div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag t-hi">Fit Score: 8 / 10</span>
+    <span class="tag t-hot">Hot</span>
+    <span class="tag t-style">Expressive</span>
+    <span class="tag t-alert">Compliance Trigger</span>
+    <span class="tag t-neutral">Real Estate · Media · Luxury</span>
+    <span class="tag t-neutral">Dubai</span>
+  </div>
+  <div class="mgrid">
+    <div class="mi"><div class="mk">Industry</div><div class="mv">Real Estate / Media / Luxury Brand</div></div>
+    <div class="mi"><div class="mk">Opening Strategy</div><div class="mv">Authority Flip</div></div>
+    <div class="mi"><div class="mk">Location</div><div class="mv">Dubai, UAE</div></div>
+    <div class="mi"><div class="mk">Timing Signals</div><div class="mv">Multiple active ventures simultaneously · SD at Citi Developers + GM at Palazzo Versace + own group · expanding real estate portfolio</div></div>
+  </div>
+  <div class="hbox">
+    <div class="hk">Human Hook (14 words)</div>
+    <div class="hv">"Running JBJ Real Estate, Maison Jane, and JBJ Media simultaneously in Dubai takes rare focus."</div>
+  </div>
+  <div class="ctf">
+    <div class="cfk">Compliance Trigger Detected</div>
+    <p>Real estate operators are classified as DNFBPs under UAE AML law. goAML registration mandatory and must be renewed annually. Multiple entities (real estate + media + lifestyle brand) = separate UBO filings + separate CT registrations. Property transaction reporting applies to each brokerage arm.</p>
+  </div>
+  <div class="seq-hd">5-Message DM Sequence</div>
+  <div class="dm m1">
+    <div class="dh"><span class="dlbl">M1 · Connection Request</span><span class="dday">Day 0 · max 300 chars</span></div>
+    <div class="dtxt">Jane, running JBJ Global Real Estate, Maison Jane, and JBJ Media under one group is an unusual combination. Most people pick one. Would like to connect.</div>
+  </div>
+  <div class="dm m2">
+    <div class="dh"><span class="dlbl">M2 · Icebreaker</span><span class="dday">Day 1 · after connect</span></div>
+    <div class="dtxt">The JBJ Group covers real estate, a luxury lifestyle brand, and media. That's three completely different operating models under one roof. What was the thinking behind building all three rather than going deep on just one?</div>
+  </div>
+  <div class="dm m3">
+    <div class="dh"><span class="dlbl">M3 · Value Bridge — Regulatory Pulse</span><span class="dday">Day 2 to 3 · if no reply</span></div>
+    <div class="dtxt">Saw a Ministry of Economy update worth noting for real estate operators in the UAE. goAML registration is now mandatory for real estate brokers and must be renewed annually. It's part of the AML framework for Designated Non-Financial Businesses. If you have multiple entities touching property transactions, the registration applies separately to each one. Are you already set up on goAML for the JBJ Global Real Estate side?</div>
+  </div>
+  <div class="dm m4">
+    <div class="dh"><span class="dlbl">M4 · The Pivot</span><span class="dday">Day 3 to 4 · if no reply</span></div>
+    <div class="dtxt">Running a real estate group and a media company at the same time means the financial picture is spread across very different business models. I think a lot of multi-entity founders get to filing time and realize the books were treated too simply. How do you think about that?</div>
+  </div>
+  <div class="dm m5">
+    <div class="dh"><span class="dlbl">M5 · Clean Exit</span><span class="dday">Day 5 to 7 · if no reply</span></div>
+    <div class="dtxt">No agenda, Jane. I just think what you're building with JBJ is worth protecting properly at the back end. Good luck with all of it.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PROSPECT 4 ═══════════════════════════════════════ -->
+<div class="pcard">
+  <div class="pchead">
+    <div class="num">4</div>
+    <div class="pname">
+      <div class="nm">Sejal Nagjee</div>
+      <div class="rl">Founder · Milestone Interior Design Studio · Galleria Exclusive Art Curation &nbsp;|&nbsp; 20+ years · Dubai</div>
+      <div class="co"><a href="https://www.linkedin.com/in/sejalnagjee" target="_blank">linkedin.com/in/sejalnagjee</a></div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag t-mid">Fit Score: 7 / 10</span>
+    <span class="tag t-warm">Warm</span>
+    <span class="tag t-style">Amiable</span>
+    <span class="tag t-alert">Compliance Trigger</span>
+    <span class="tag t-neutral">Interior Design · Professional Services</span>
+    <span class="tag t-neutral">Dubai</span>
+  </div>
+  <div class="mgrid">
+    <div class="mi"><div class="mk">Industry</div><div class="mv">Luxury Interior Design / Art Curation</div></div>
+    <div class="mi"><div class="mk">Opening Strategy</div><div class="mv">Pattern Interrupt</div></div>
+    <div class="mi"><div class="mk">Location</div><div class="mv">Dubai, UAE (Palm Jumeirah, Emirates Hills, Dubai Hills clients)</div></div>
+    <div class="mi"><div class="mk">Timing Signals</div><div class="mv">Recent Top 100 Interior Designers globally award · expanding to GCC, India, Europe · two active entities · 20+ year established business likely on legacy accounting</div></div>
+  </div>
+  <div class="hbox">
+    <div class="hk">Human Hook (13 words)</div>
+    <div class="hv">"Treating Feng Shui and biophilic principles as foundation rather than aesthetic is a specific philosophy."</div>
+  </div>
+  <div class="ctf">
+    <div class="cfk">Compliance Trigger Detected</div>
+    <p>Two entities (design studio + art gallery) = separate CT registrations + e-invoicing preparation required per entity. High-value project invoicing from the studio has different VAT treatment than art gallery curation sales. 20+ year established business very likely running on legacy accounting processes.</p>
+  </div>
+  <div class="seq-hd">5-Message DM Sequence</div>
+  <div class="dm m1">
+    <div class="dh"><span class="dlbl">M1 · Connection Request</span><span class="dday">Day 0 · max 300 chars</span></div>
+    <div class="dtxt">Sejal, your note on biophilic design being a foundation principle rather than an aesthetic choice is a distinction that separates how you think from most of the market. Would like to connect.</div>
+  </div>
+  <div class="dm m2">
+    <div class="dh"><span class="dlbl">M2 · Icebreaker</span><span class="dday">Day 1 · after connect</span></div>
+    <div class="dtxt">Running Milestone as a design studio and Galleria Exclusive as an art curation business at the same time is two separate operating models. I'm curious what made you build both rather than keep it to the studio?</div>
+  </div>
+  <div class="dm m3">
+    <div class="dh"><span class="dlbl">M3 · Value Bridge — Regulatory Pulse</span><span class="dday">Day 2 to 3 · if no reply</span></div>
+    <div class="dtxt">Came across something relevant if you're running two entities in Dubai. The FTA's e-invoicing mandate has a July 2026 deadline for appointing an accredited service provider. For studios with high-value project invoicing and a gallery doing curation sales alongside it, the way invoicing is structured matters more than most people realize before filing. Is your current accounting setup handling Milestone and Galleria Exclusive separately or together?</div>
+  </div>
+  <div class="dm m4">
+    <div class="dh"><span class="dlbl">M4 · The Pivot</span><span class="dday">Day 3 to 4 · if no reply</span></div>
+    <div class="dtxt">I think most founders who've been running for 20 years have built everything they need on the client side. The financial infrastructure is a different thing. How do you feel about where yours is right now?</div>
+  </div>
+  <div class="dm m5">
+    <div class="dh"><span class="dlbl">M5 · Clean Exit</span><span class="dday">Day 5 to 7 · if no reply</span></div>
+    <div class="dtxt">I've genuinely enjoyed reading about the work at Milestone, Sejal. The integration of Feng Shui into how you think about space is a rare thing in Dubai. Hope the business keeps going the way you want.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PROSPECT 5 ═══════════════════════════════════════ -->
+<div class="pcard">
+  <div class="pchead">
+    <div class="num">5</div>
+    <div class="pname">
+      <div class="nm">Dana Awadallah</div>
+      <div class="rl">Founder &amp; CEO · The VIP Real Estate &nbsp;|&nbsp; PhD Candidate in AI &amp; Innovation · University of Dubai</div>
+      <div class="co"><a href="https://www.linkedin.com/in/dana-awadallah-25a48021" target="_blank">linkedin.com/in/dana-awadallah-25a48021</a></div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag t-mid">Fit Score: 7 / 10</span>
+    <span class="tag t-warm">Warm</span>
+    <span class="tag t-style">Analytical</span>
+    <span class="tag t-alert">Compliance Trigger</span>
+    <span class="tag t-neutral">Real Estate · PropTech</span>
+    <span class="tag t-neutral">Dubai</span>
+  </div>
+  <div class="mgrid">
+    <div class="mi"><div class="mk">Industry</div><div class="mv">Real Estate Brokerage (Off-plan + Secondary)</div></div>
+    <div class="mi"><div class="mk">Opening Strategy</div><div class="mv">Directness Play</div></div>
+    <div class="mi"><div class="mk">Location</div><div class="mv">Dubai, UAE</div></div>
+    <div class="mi"><div class="mk">Timing Signals</div><div class="mv">Active PhD in AI &amp; Innovation · building tech-enabled brokerage · team expansion · active across off-plan and secondary markets simultaneously</div></div>
+  </div>
+  <div class="hbox">
+    <div class="hk">Human Hook (13 words)</div>
+    <div class="hv">"Running a performance brokerage and completing a PhD simultaneously is an unusual discipline."</div>
+  </div>
+  <div class="ctf">
+    <div class="cfk">Compliance Trigger Detected</div>
+    <p>Real estate brokers are classified as DNFBPs under UAE AML law. goAML registration mandatory with annual renewal. UAE AML enforcement is intensifying in 2026. Active across secondary and off-plan markets means higher transaction monitoring exposure per transaction.</p>
+  </div>
+  <div class="seq-hd">5-Message DM Sequence</div>
+  <div class="dm m1">
+    <div class="dh"><span class="dlbl">M1 · Connection Request</span><span class="dday">Day 0 · max 300 chars</span></div>
+    <div class="dtxt">Dana, running a performance brokerage and a PhD in AI simultaneously takes a specific kind of discipline. That combination isn't common. Would like to connect.</div>
+  </div>
+  <div class="dm m2">
+    <div class="dh"><span class="dlbl">M2 · Icebreaker</span><span class="dday">Day 1 · after connect</span></div>
+    <div class="dtxt">Building The VIP Real Estate around a tech-enabled and disciplined team model while finishing a PhD is a hard balance to hold. I think most people would pick one. What keeps you doing both at the same time?</div>
+  </div>
+  <div class="dm m3">
+    <div class="dh"><span class="dlbl">M3 · Value Bridge — Regulatory Pulse</span><span class="dday">Day 2 to 3 · if no reply</span></div>
+    <div class="dtxt">Picked up something worth knowing for real estate operators in the UAE. Real estate brokers are classified as DNFBPs under the AML framework. goAML registration is mandatory and must be renewed annually. For a brokerage active across both secondary and off-plan markets, the transaction monitoring requirements sit with the company. Is that side already handled for The VIP Real Estate?</div>
+  </div>
+  <div class="dm m4">
+    <div class="dh"><span class="dlbl">M4 · The Pivot</span><span class="dday">Day 3 to 4 · if no reply</span></div>
+    <div class="dtxt">I think founders who come into real estate with a strong systems mindset sometimes get the tech stack right and then realize the financial reporting side hasn't kept pace. Does that land for you at all?</div>
+  </div>
+  <div class="dm m5">
+    <div class="dh"><span class="dlbl">M5 · Clean Exit</span><span class="dday">Day 5 to 7 · if no reply</span></div>
+    <div class="dtxt">Nothing to push here, Dana. I just think the discipline you're building around The VIP Real Estate deserves a clean financial structure to match it. Good luck with the PhD too.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PROSPECT 6 ═══════════════════════════════════════ -->
+<div class="pcard">
+  <div class="pchead">
+    <div class="num">6</div>
+    <div class="pname">
+      <div class="nm">Nathalie Borter</div>
+      <div class="rl">Founder &amp; Owner · Swiss Connect Solutions &nbsp;|&nbsp; HR &amp; Recruitment Consultancy · Dubai</div>
+      <div class="co"><a href="https://www.linkedin.com/in/nathalie-borter-342230194" target="_blank">linkedin.com/in/nathalie-borter-342230194</a></div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag t-lo">Fit Score: 6 / 10</span>
+    <span class="tag t-cold">Cold</span>
+    <span class="tag t-style">Amiable</span>
+    <span class="tag t-neutral">Professional Services · HR</span>
+    <span class="tag t-neutral">Dubai</span>
+  </div>
+  <div class="mgrid">
+    <div class="mi"><div class="mk">Industry</div><div class="mv">Professional Services / Hospitality Recruitment</div></div>
+    <div class="mi"><div class="mk">Opening Strategy</div><div class="mv">Peer Opener</div></div>
+    <div class="mi"><div class="mk">Location</div><div class="mv">Dubai, UAE</div></div>
+    <div class="mi"><div class="mk">Timing Signals</div><div class="mv">Building niche HR consultancy in Dubai · Swiss-owned operation · hospitality sector focus · no public compliance signals visible</div></div>
+  </div>
+  <div class="hbox">
+    <div class="hk">Human Hook (14 words)</div>
+    <div class="hv">"Bridging Swiss hospitality standards with Dubai's talent market is a specific gap to own."</div>
+  </div>
+  <div class="seq-hd">5-Message DM Sequence</div>
+  <div class="dm m1">
+    <div class="dh"><span class="dlbl">M1 · Connection Request</span><span class="dday">Day 0 · max 300 chars</span></div>
+    <div class="dtxt">Nathalie, building a recruitment consultancy around Swiss standards for Dubai's hospitality sector is a specific gap I hadn't seen occupied. Would like to connect.</div>
+  </div>
+  <div class="dm m2">
+    <div class="dh"><span class="dlbl">M2 · Icebreaker</span><span class="dday">Day 1 · after connect</span></div>
+    <div class="dtxt">Bridging Swiss hospitality standards with Dubai's talent market sounds like it came from a very specific frustration. What made you see that gap and decide to fill it yourself?</div>
+  </div>
+  <div class="dm m3">
+    <div class="dh"><span class="dlbl">M3 · Value Bridge — Evergreen Fallback</span><span class="dday">Day 2 to 3 · if no reply</span></div>
+    <div class="dtxt">Something worth flagging for professional services founders in the UAE. Small business relief under corporate tax has a revenue threshold, and service firms that bill project by project need to track it carefully. A few founders I've spoken with ran into surprises when cumulative billings pushed them past it without realizing. Is the CT registration side sorted for Swiss Connect?</div>
+  </div>
+  <div class="dm m4">
+    <div class="dh"><span class="dlbl">M4 · The Pivot</span><span class="dday">Day 3 to 4 · if no reply</span></div>
+    <div class="dtxt">I think most founders in professional services get very good at delivering their service and end up treating the financial infrastructure as something to sort later. Does that pattern feel familiar at all?</div>
+  </div>
+  <div class="dm m5">
+    <div class="dh"><span class="dlbl">M5 · Clean Exit</span><span class="dday">Day 5 to 7 · if no reply</span></div>
+    <div class="dtxt">Appreciated the connection, Nathalie. What you're building in the hospitality talent space is a real service. Hope it's growing the way you planned.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PROSPECT 7 ═══════════════════════════════════════ -->
+<div class="pcard">
+  <div class="pchead">
+    <div class="num">7</div>
+    <div class="pname">
+      <div class="nm">Juan Fernandez Laso</div>
+      <div class="rl">CEO · Abencis Oil &amp; Gas Global Trading &nbsp;|&nbsp; Presidente · Grupo Moraira y Grupo Teulada</div>
+      <div class="co"><a href="https://www.linkedin.com/in/juan-fernandez-laso-b27a1118" target="_blank">linkedin.com/in/juan-fernandez-laso-b27a1118</a></div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag t-mid">Fit Score: 7 / 10</span>
+    <span class="tag t-warm">Warm</span>
+    <span class="tag t-style">Driver</span>
+    <span class="tag t-alert">Compliance Trigger</span>
+    <span class="tag t-neutral">Trading · Oil &amp; Gas · Commodities</span>
+    <span class="tag t-neutral">Dubai</span>
+  </div>
+  <div class="mgrid">
+    <div class="mi"><div class="mk">Industry</div><div class="mv">Energy Commodities Trading (Physical + Financial)</div></div>
+    <div class="mi"><div class="mk">Opening Strategy</div><div class="mv">Directness Play</div></div>
+    <div class="mi"><div class="mk">Location</div><div class="mv">Dubai, UAE</div></div>
+    <div class="mi"><div class="mk">Timing Signals</div><div class="mv">Active trading operations in Dubai · physical and financial markets running simultaneously · market risk management focus · two years as CEO</div></div>
+  </div>
+  <div class="hbox">
+    <div class="hk">Human Hook (13 words)</div>
+    <div class="hv">"Running physical and financial petroleum trading from Dubai simultaneously is a specific operational bet."</div>
+  </div>
+  <div class="ctf">
+    <div class="cfk">Compliance Trigger Detected</div>
+    <p>Dubai-based commodities trading firm likely structured in a free zone. QFZP qualifying conditions under MD 229/2025 include refined petroleum products and select commodities. All-or-nothing structure: any missed condition triggers 9% CT on all income for five years. Complex dual-market trading = complex tax treatment.</p>
+  </div>
+  <div class="seq-hd">5-Message DM Sequence</div>
+  <div class="dm m1">
+    <div class="dh"><span class="dlbl">M1 · Connection Request</span><span class="dday">Day 0 · max 300 chars</span></div>
+    <div class="dtxt">Juan, building an energy and commodities trading firm that bridges physical and financial markets from Dubai is a specific kind of ambition. Would like to connect.</div>
+  </div>
+  <div class="dm m2">
+    <div class="dh"><span class="dlbl">M2 · Icebreaker</span><span class="dday">Day 1 · after connect</span></div>
+    <div class="dtxt">Most trading firms pick one side, physical or financial. Abencis seems to be working both. How do you think about managing the operational complexity of running both from Dubai?</div>
+  </div>
+  <div class="dm m3">
+    <div class="dh"><span class="dlbl">M3 · Value Bridge — Regulatory Pulse</span><span class="dday">Day 2 to 3 · if no reply</span></div>
+    <div class="dtxt">Worth knowing if Abencis is structured in a free zone. Free zone entities lose their 0% corporate tax status entirely if any one qualifying condition is missed. Not just for that year. For four years after too. For a trading firm dealing in refined petroleum products and commodities, the qualifying income rules under Ministerial Decision 229 of 2025 changed last August. Are your tax advisors across the updated qualifying activities list?</div>
+  </div>
+  <div class="dm m4">
+    <div class="dh"><span class="dlbl">M4 · The Pivot</span><span class="dday">Day 3 to 4 · if no reply</span></div>
+    <div class="dtxt">I think trading founders tend to be sharp on the deal side and less focused on the financial infrastructure supporting it. Is that a fair read of where the attention goes at Abencis?</div>
+  </div>
+  <div class="dm m5">
+    <div class="dh"><span class="dlbl">M5 · Clean Exit</span><span class="dday">Day 5 to 7 · if no reply</span></div>
+    <div class="dtxt">No agenda, Juan. I just think Abencis is building something interesting in a space that rewards the ones who get the structure right. Good luck with it.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PROSPECT 8 ═══════════════════════════════════════ -->
+<div class="pcard">
+  <div class="pchead">
+    <div class="num">8</div>
+    <div class="pname">
+      <div class="nm">Vaani Mogaantyy</div>
+      <div class="rl">Founder &amp; MD · ForeRunners Corporate Services LLC &nbsp;|&nbsp; Managing Partner · ForeRunners General Trading LLC &nbsp;|&nbsp; CEO · Intellave Corporate Services</div>
+      <div class="co"><a href="https://www.linkedin.com/in/vaani-mogaantyy-20924252" target="_blank">linkedin.com/in/vaani-mogaantyy-20924252</a></div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag t-lo">Fit Score: 6 / 10</span>
+    <span class="tag t-warm">Warm</span>
+    <span class="tag t-style">Expressive</span>
+    <span class="tag t-alert">Compliance Trigger</span>
+    <span class="tag t-neutral">Corporate Services · Trading · UAE Setup</span>
+    <span class="tag t-neutral">UAE</span>
+  </div>
+  <div class="mgrid">
+    <div class="mi"><div class="mk">Industry</div><div class="mv">Corporate Services / General Trading</div></div>
+    <div class="mi"><div class="mk">Opening Strategy</div><div class="mv">Pattern Interrupt</div></div>
+    <div class="mi"><div class="mk">Location</div><div class="mv">UAE (Dubai area)</div></div>
+    <div class="mi"><div class="mk">Timing Signals</div><div class="mv">Three active entities · actively advising others on UAE company formation · Golden Visa advisory · investor advisory · international founders served</div></div>
+  </div>
+  <div class="hbox">
+    <div class="hk">Human Hook (13 words)</div>
+    <div class="hv">"Building three separate UAE entities while advising others on how to structure theirs takes nerve."</div>
+  </div>
+  <div class="ctf">
+    <div class="cfk">Compliance Trigger Detected</div>
+    <p>Three separate legal entities = three separate CT registrations, three separate annual returns, three separate UBO disclosure obligations with 15-day change notification requirement. Corporate services founders often know UAE compliance well for their clients but handle their own books informally.</p>
+  </div>
+  <div class="seq-hd">5-Message DM Sequence</div>
+  <div class="dm m1">
+    <div class="dh"><span class="dlbl">M1 · Connection Request</span><span class="dday">Day 0 · max 300 chars</span></div>
+    <div class="dtxt">Vaani, running ForeRunners Corporate Services, ForeRunners General Trading, and Intellave at the same time while helping others set up their UAE companies is a very specific load to carry. Would like to connect.</div>
+  </div>
+  <div class="dm m2">
+    <div class="dh"><span class="dlbl">M2 · Icebreaker</span><span class="dday">Day 1 · after connect</span></div>
+    <div class="dtxt">I think the situation of running three of your own entities while advising others on how to structure theirs is one most people don't talk about honestly. Which of your three gets the most attention when you're being real about it?</div>
+  </div>
+  <div class="dm m3">
+    <div class="dh"><span class="dlbl">M3 · Value Bridge — Regulatory Pulse</span><span class="dday">Day 2 to 3 · if no reply</span></div>
+    <div class="dtxt">Something worth flagging if you're running three separate UAE entities. Corporate tax registration, CT returns, and UBO updates apply separately to each legal entity, not to the group as a whole. For founders managing multiple companies, the filing deadlines can stack differently depending on each entity's financial year. Are you handling the CT compliance for each of your three entities in-house or through a third party?</div>
+  </div>
+  <div class="dm m4">
+    <div class="dh"><span class="dlbl">M4 · The Pivot</span><span class="dday">Day 3 to 4 · if no reply</span></div>
+    <div class="dtxt">I think most people who build in corporate services know the compliance framework better than anyone. Their own books are often a different story. Does any of that land for you?</div>
+  </div>
+  <div class="dm m5">
+    <div class="dh"><span class="dlbl">M5 · Clean Exit</span><span class="dday">Day 5 to 7 · if no reply</span></div>
+    <div class="dtxt">Good luck with everything you're building, Vaani. The multi-entity UAE model is complex to manage well. Hope you're getting the support around it that you'd give your own clients.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PROSPECT 9 ═══════════════════════════════════════ -->
+<div class="pcard">
+  <div class="pchead">
+    <div class="num">9</div>
+    <div class="pname">
+      <div class="nm">Amin E. Nia</div>
+      <div class="rl">CEO &amp; Founder · Desert Horizon Building Contracting &nbsp;|&nbsp; JAFZA · DMCC · Dubai Municipality Licensed · Since 2003</div>
+      <div class="co"><a href="https://www.linkedin.com/in/amin-e-nia" target="_blank">linkedin.com/in/amin-e-nia</a></div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag t-lo">Fit Score: 6 / 10</span>
+    <span class="tag t-cold">Cold</span>
+    <span class="tag t-style">Driver</span>
+    <span class="tag t-alert">Compliance Trigger</span>
+    <span class="tag t-neutral">Construction · Contracting</span>
+    <span class="tag t-neutral">JAFZA · DMCC · Dubai</span>
+  </div>
+  <div class="mgrid">
+    <div class="mi"><div class="mk">Industry</div><div class="mv">Construction / Interior Fit-Out / Landscaping</div></div>
+    <div class="mi"><div class="mk">Opening Strategy</div><div class="mv">Peer Opener</div></div>
+    <div class="mi"><div class="mk">Location</div><div class="mv">Dubai, UAE</div></div>
+    <div class="mi"><div class="mk">Timing Signals</div><div class="mv">23-year established company · JAFZA and DMCC approved entity · licence renewal cycle due · Dubai Civil Defense and TECOM approvals active</div></div>
+  </div>
+  <div class="hbox">
+    <div class="hk">Human Hook (14 words)</div>
+    <div class="hv">"Holding JAFZA, DMCC, and Municipality approvals under one contracting firm since 2003 is heavy."</div>
+  </div>
+  <div class="ctf">
+    <div class="cfk">Compliance Trigger Detected</div>
+    <p>JAFZA and DMCC-licensed entity = mandatory audited accounts at annual licence renewal. Both maintain closed lists of approved auditors. Submissions from unlisted firms are rejected. 23-year-old company with potentially unreviewed books is a common reconstruction risk before clean audit can proceed.</p>
+  </div>
+  <div class="seq-hd">5-Message DM Sequence</div>
+  <div class="dm m1">
+    <div class="dh"><span class="dlbl">M1 · Connection Request</span><span class="dday">Day 0 · max 300 chars</span></div>
+    <div class="dtxt">Amin, running a contracting company that holds JAFZA, DMCC, and Dubai Municipality approvals under one entity since 2003 is a different kind of operational footprint. Would like to connect.</div>
+  </div>
+  <div class="dm m2">
+    <div class="dh"><span class="dlbl">M2 · Icebreaker</span><span class="dday">Day 1 · after connect</span></div>
+    <div class="dtxt">Most contractors in Dubai focus on one approval and one sector. Desert Horizon has held JAFZA and DMCC approvals alongside Dubai Municipality for over 20 years. What was the thinking behind staying broad rather than specializing in one area?</div>
+  </div>
+  <div class="dm m3">
+    <div class="dh"><span class="dlbl">M3 · Value Bridge — Regulatory Pulse</span><span class="dday">Day 2 to 3 · if no reply</span></div>
+    <div class="dtxt">Something relevant if you have JAFZA or DMCC-linked operations. Free zone companies must file audited accounts every year regardless of size or revenue. JAFZA and DMCC both maintain closed lists of approved auditors and submissions from firms not on those lists get rejected at renewal. For a business that has been operating since 2003, the financial records need to be in order before the audit can proceed cleanly. Is that side already handled for your licence renewal cycle?</div>
+  </div>
+  <div class="dm m4">
+    <div class="dh"><span class="dlbl">M4 · The Pivot</span><span class="dday">Day 3 to 4 · if no reply</span></div>
+    <div class="dtxt">A business that's been running in Dubai for 23 years has seen a lot change. I think the challenge at that stage isn't usually the operational side. It's whether the financial records kept pace with the growth. How do you feel about where Desert Horizon sits on that?</div>
+  </div>
+  <div class="dm m5">
+    <div class="dh"><span class="dlbl">M5 · Clean Exit</span><span class="dday">Day 5 to 7 · if no reply</span></div>
+    <div class="dtxt">Twenty-three years in Dubai construction is a real track record, Amin. That's not easy to build. Hope the business keeps growing the way you want.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PROSPECT 10 ═══════════════════════════════════════ -->
+<div class="pcard">
+  <div class="pchead">
+    <div class="num">10</div>
+    <div class="pname">
+      <div class="nm">Dr. Haleema Sadia</div>
+      <div class="rl">Founder-Director · Edufam International Academy · Edufam Training Services · Eco-Visionaries Global Group</div>
+      <div class="co"><a href="https://www.linkedin.com/in/drhaleemasadiacoach" target="_blank">linkedin.com/in/drhaleemasadiacoach</a></div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag t-mid">Fit Score: 7 / 10</span>
+    <span class="tag t-warm">Warm</span>
+    <span class="tag t-style">Expressive</span>
+    <span class="tag t-alert">Compliance Trigger</span>
+    <span class="tag t-neutral">Education · Training · Sustainability</span>
+    <span class="tag t-neutral">Dubai · Sharjah</span>
+  </div>
+  <div class="mgrid">
+    <div class="mi"><div class="mk">Industry</div><div class="mv">Education / Corporate Training / Sustainability</div></div>
+    <div class="mi"><div class="mk">Opening Strategy</div><div class="mv">Peer Opener</div></div>
+    <div class="mi"><div class="mk">Location</div><div class="mv">Dubai / Sharjah, UAE (ICP priority geography)</div></div>
+    <div class="mi"><div class="mk">Timing Signals</div><div class="mv">Three active organizations · international conferences (Singapore, Dubai, Maldives) · 48,000+ mentored · active speaker and published author · operations across 5 countries</div></div>
+  </div>
+  <div class="hbox">
+    <div class="hk">Human Hook (13 words)</div>
+    <div class="hv">"Mentoring 48,000 people across five countries while building three organizations is rare operational scale."</div>
+  </div>
+  <div class="ctf">
+    <div class="cfk">Compliance Trigger Detected</div>
+    <p>Three UAE entities = three separate CT registrations. Educational services have specific VAT treatment in the UAE: formal academic programs vs. training programs are classified differently, and the distinction affects the entire books. International operations across India, Singapore, Malaysia, and the Maldives may also trigger transfer pricing considerations.</p>
+  </div>
+  <div class="seq-hd">5-Message DM Sequence</div>
+  <div class="dm m1">
+    <div class="dh"><span class="dlbl">M1 · Connection Request</span><span class="dday">Day 0 · max 300 chars</span></div>
+    <div class="dtxt">Dr. Haleema, mentoring 48,000 people across five countries while building three separate organizations from Sharjah and Dubai is a rare kind of scale. Would like to connect.</div>
+  </div>
+  <div class="dm m2">
+    <div class="dh"><span class="dlbl">M2 · Icebreaker</span><span class="dday">Day 1 · after connect</span></div>
+    <div class="dtxt">Running Edufam International Academy, Edufam Training Services, and Eco-Visionaries as three separate entities while operating across the UAE, India, Singapore, and Malaysia is a significant load. What made you structure them as three organizations rather than one?</div>
+  </div>
+  <div class="dm m3">
+    <div class="dh"><span class="dlbl">M3 · Value Bridge — Regulatory Pulse</span><span class="dday">Day 2 to 3 · if no reply</span></div>
+    <div class="dtxt">Something worth knowing if you're running multiple UAE entities with international operations. Educational services have specific VAT treatment in the UAE, and the classification can differ between training programs and formal academic programs. For organizations running both, getting the VAT classification right affects the entire books, not just the tax line. Has anyone reviewed how Edufam International and Edufam Training are classified for VAT and corporate tax purposes?</div>
+  </div>
+  <div class="dm m4">
+    <div class="dh"><span class="dlbl">M4 · The Pivot</span><span class="dday">Day 3 to 4 · if no reply</span></div>
+    <div class="dtxt">I think founders who have built as much impact as you have across education and sustainability often have the mission side fully figured out and find the financial infrastructure trailing behind. Is that an honest read of where things are for you?</div>
+  </div>
+  <div class="dm m5">
+    <div class="dh"><span class="dlbl">M5 · Clean Exit</span><span class="dday">Day 5 to 7 · if no reply</span></div>
+    <div class="dtxt">The reach of what you're building is real, Dr. Haleema. 48,000 people is not a small number. Hope the organizations are set up in a way that lets you keep building this for a long time.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ DISQUALIFIED / HOLD ═══════════════════════════════ -->
+<div class="sec">Disqualified · Hold — Revisit Next Cycle</div>
+<div class="hcard"><div class="hn">Ksenia Akulova &nbsp;·&nbsp; Founder, Akulova Partners</div><div class="hr">Score: N/A &nbsp;·&nbsp; Disqualifier: Provides accounting and tax services to F&amp;B and HoReCa clients. Direct competitor. Has internal compliance expertise. Do not approach.</div></div>
+<div class="hcard"><div class="hn">CA Taher Bohra &nbsp;·&nbsp; Partner, Transacle</div><div class="hr">Score: N/A &nbsp;·&nbsp; Disqualifier: Chartered Accountant providing financial advisory and tax planning services. Competitor profile. Not a BPOAS prospect.</div></div>
+<div class="hcard"><div class="hn">Horaim Sheikh &nbsp;·&nbsp; Chief Executive, Limousine Chauffeur Transport Services</div><div class="hr">Score: N/A &nbsp;·&nbsp; Disqualifier: Profile about section describes an audit and accounting firm. Ambiguous or competitor entity. Do not approach without clarification.</div></div>
+<div class="hcard"><div class="hn">Umidjon Norov &nbsp;·&nbsp; Founder &amp; CEO, PANASIA Group</div><div class="hr">Score: 4 / 10 &nbsp;·&nbsp; Large-scale hydrocarbons and metals trading firm. European and US institutional banking relationships cited. Likely has internal or external finance team in place. Revisit if a new UAE subsidiary is registered.</div></div>
+<div class="hcard"><div class="hn">Vinod Dang &nbsp;·&nbsp; Director, Rank Enterprises Ltd.</div><div class="hr">Score: 3 / 10 &nbsp;·&nbsp; Insufficient public information. No about section. No industry or company size signal. Cannot qualify or engage meaningfully at this stage.</div></div>
+
+<footer>
+  BPOAS · BPO Accounting Services &nbsp;·&nbsp; Mohaina Asira CPA &nbsp;·&nbsp; Dubai, UAE<br>
+  <strong style="color:#F0EEE9">This pack is internal only. No messages have been sent. Every DM is a draft for Mohaina's review before outreach.</strong><br>
+  Brand color #E8294C &nbsp;·&nbsp; Voice: Mohaina Asira DNA &nbsp;·&nbsp; Regulatory pulse verified June 2026 &nbsp;·&nbsp; cro-prospects-2026-06-26.html
+</footer>
+
+</div>
 </body>
 </html>
