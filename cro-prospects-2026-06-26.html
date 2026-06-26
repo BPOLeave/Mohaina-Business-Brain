@@ -3,197 +3,587 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CRO Weekly Prospect Pack · Purely Personal</title>
+<title>CRO Prospect Pack · 26 June 2026 · BPOAS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --primary:#1F3A5F; --primary-light:#4A6E9E;
-    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
-    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
-    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
-    --r-md:14px; --r-lg:22px; --pill:9999px;
-    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
-    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  :root {
+    --red: #E8294C;
+    --red-light: #FF6680;
+    --red-dark: #B01E38;
+    --black: #0A0A0A;
+    --ink: #F2F0EE;
+    --ink-dim: #A8A5A0;
+    --ink-faint: #3E3C3A;
+    --card-bg: #131211;
+    --card-border: #242220;
+    --good: #34D399;
+    --warn: #FBBF24;
+    --bad: #F87171;
+    --pill: 9999px;
+    --r-md: 14px;
+    --r-lg: 22px;
+    --sh: 0 2px 4px rgba(0,0,0,.5), 0 10px 30px rgba(0,0,0,.35);
+    --grad: linear-gradient(135deg, #B01E38 0%, #E8294C 52%, #FF6680 100%);
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
-  .doc{max-width:880px;margin:0 auto;padding:34px 22px 70px;}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Rethink Sans', sans-serif;
+    background: #0A0A0A;
+    color: var(--ink);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .doc { max-width: 900px; margin: 0 auto; padding: 36px 22px 90px; }
 
-  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
-  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
-  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
-  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
-  .ohead .d{font-size:13px;opacity:.85;}
+  .ohead {
+    border-radius: var(--r-lg);
+    padding: 30px 34px;
+    margin-bottom: 26px;
+    background: var(--grad);
+    box-shadow: 0 24px 60px rgba(232,41,76,.32);
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp .6s ease both;
+  }
+  .ohead::before {
+    content: "";
+    position: absolute;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
+    top: -160px; right: -80px;
+    pointer-events: none;
+  }
+  .ohead::after {
+    content: "";
+    position: absolute;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(0,0,0,.1);
+    bottom: -90px; left: 60px;
+    pointer-events: none;
+  }
+  .ohead .k { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: rgba(255,255,255,.75); }
+  .ohead h1 { font-size: clamp(26px, 4.5vw, 36px); font-weight: 800; letter-spacing: -.03em; margin: 7px 0 5px; color: #fff; position: relative; }
+  .ohead .d { font-size: 13px; color: rgba(255,255,255,.78); position: relative; }
 
-  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:26px 0 12px;}
-  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
-  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
-  .row{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:14.5px;border-bottom:1px solid var(--gray-light);}
-  .row:last-child{border-bottom:none;}
-  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
-  .t-red{background:#fdecec;color:var(--bad);} .t-amb{background:#fdf1de;color:var(--warn);}
-  .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-grn{background:#e7f6ee;color:var(--good);} .t-blue{background:#e6f0fc;color:#1E6FE0;}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
-  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
-  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 30px; animation: fadeUp .6s .1s ease both; }
+  .stat {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--r-md);
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--sh);
+  }
+  .stat::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad); }
+  .stat .l { font-size: 12px; color: var(--ink-dim); font-weight: 500; }
+  .stat .n { font-size: 38px; font-weight: 800; letter-spacing: -.04em; margin-top: 4px; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat .n.green { background: linear-gradient(135deg, #16A34A, #34D399); -webkit-background-clip: text; background-clip: text; }
 
-  .pcard{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-top:4px solid var(--primary);}
-  .ph{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
-  .ph .nm{font-weight:800;font-size:16px;} .ph .rl{font-size:12.5px;color:var(--gray-text);width:100%;}
-  .meta{font-size:12.5px;color:var(--gray-text);margin:8px 0 4px;}
-  .meta b{color:var(--ink);}
-  .hook{font-size:14px;background:var(--gray-light);border-radius:10px;padding:9px 12px;margin:8px 0;}
-  .seqlbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);font-weight:700;margin:12px 0 6px;}
-  .dm{font-size:13.5px;border-left:3px solid var(--gray);background:#fbfbfa;border-radius:0 10px 10px 0;padding:9px 12px;margin:7px 0;}
-  .dm .t{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--gray-text);font-weight:700;display:block;margin-bottom:3px;}
-  .fit{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);}
+  .sec { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); font-weight: 700; margin: 30px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--card-border); }
 
-  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:10px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
-  .note b{color:var(--primary-light);}
+  .alert {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-left: 3px solid var(--warn);
+    border-radius: var(--r-md);
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    font-size: 13.5px;
+    box-shadow: var(--sh);
+  }
+  .alert.urgent { border-left-color: var(--bad); }
+  .alert .al-title { font-size: 10.5px; letter-spacing: .11em; text-transform: uppercase; color: var(--warn); font-weight: 700; margin-bottom: 6px; }
+  .alert.urgent .al-title { color: var(--bad); }
+  .alert p { color: var(--ink-dim); line-height: 1.58; }
+  .alert p b { color: var(--ink); }
 
-  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
-  footer b{color:var(--ink);}
-  @media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+  .pcard {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-top: 3px solid var(--red);
+    border-radius: var(--r-md);
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--sh);
+    animation: fadeUp .5s ease both;
+  }
+  .pcard:nth-child(1) { animation-delay: .05s; }
+  .pcard:nth-child(2) { animation-delay: .1s; }
+  .pcard:nth-child(3) { animation-delay: .15s; }
+  .pcard:nth-child(4) { animation-delay: .2s; }
+  .pcard:nth-child(5) { animation-delay: .25s; }
+  .pcard:nth-child(6) { animation-delay: .3s; }
+
+  .ph { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 9px; flex-wrap: wrap; }
+  .ph .nm { font-weight: 800; font-size: 17px; color: var(--ink); }
+  .ph .rl { font-size: 12.5px; color: var(--ink-dim); width: 100%; margin-top: 1px; line-height: 1.5; }
+  .ph .rl a { color: var(--red-light); text-decoration: none; }
+  .ph .rl a:hover { text-decoration: underline; }
+
+  .fit-badge { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: var(--pill); white-space: nowrap; margin-left: auto; }
+  .f-high { background: rgba(52,211,153,.14); color: var(--good); border: 1px solid rgba(52,211,153,.2); }
+  .f-mid  { background: rgba(251,191,36,.1);  color: var(--warn); border: 1px solid rgba(251,191,36,.2); }
+
+  .meta { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 6px; }
+  .badge { font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: var(--pill); background: rgba(255,255,255,.05); color: var(--ink-dim); border: 1px solid rgba(255,255,255,.07); }
+  .badge.hot  { background: rgba(52,211,153,.08);  color: var(--good); border-color: rgba(52,211,153,.15); }
+  .badge.warm { background: rgba(251,191,36,.08);  color: var(--warn); border-color: rgba(251,191,36,.15); }
+  .badge.cold { background: rgba(168,165,160,.06); color: var(--ink-dim); }
+  .badge.flag { background: rgba(248,113,113,.09); color: var(--bad);  border-color: rgba(248,113,113,.18); }
+
+  .hook {
+    font-size: 14px;
+    background: rgba(232,41,76,.07);
+    border: 1px solid rgba(232,41,76,.16);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin: 10px 0 6px;
+    color: var(--ink);
+  }
+  .hook b { color: var(--red-light); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; display: block; margin-bottom: 4px; font-style: normal; }
+
+  .cflag {
+    font-size: 12.5px;
+    background: rgba(248,113,113,.06);
+    border: 1px solid rgba(248,113,113,.16);
+    border-radius: 8px;
+    padding: 9px 13px;
+    margin: 6px 0 10px;
+    color: rgba(248,113,113,.85);
+    line-height: 1.55;
+  }
+  .cflag b { color: var(--bad); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; display: block; margin-bottom: 3px; }
+
+  .opener-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 12.5px; color: var(--ink-dim); }
+  .opener-row b { color: var(--ink-dim); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; }
+
+  .seqlbl { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--red-light); font-weight: 700; margin: 14px 0 8px; }
+
+  .dm {
+    border-left: 2px solid var(--card-border);
+    background: rgba(255,255,255,.018);
+    border-radius: 0 10px 10px 0;
+    padding: 10px 14px;
+    margin: 6px 0;
+    transition: border-color .15s, background .15s;
+  }
+  .dm:hover { border-left-color: var(--red); background: rgba(232,41,76,.04); }
+  .dm .t {
+    font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-faint); font-weight: 700; display: block; margin-bottom: 5px;
+  }
+  .dm p { font-size: 13.5px; color: var(--ink); line-height: 1.65; }
+
+  .hcard {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-left: 3px solid var(--ink-faint);
+    border-radius: var(--r-md);
+    padding: 12px 18px;
+    margin-bottom: 10px;
+  }
+  .hrow { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,.03); flex-wrap: wrap; }
+  .hrow:last-child { border-bottom: none; }
+  .hrow .hname { font-weight: 700; color: var(--ink); min-width: 160px; }
+  .hrow .hdesc { color: var(--ink-dim); flex: 1; font-size: 12.5px; line-height: 1.5; }
+  .hrow .hdesc a { color: var(--red-light); text-decoration: none; }
+  .tagi { font-size: 10.5px; font-weight: 700; padding: 2px 9px; border-radius: var(--pill); white-space: nowrap; margin-left: auto; }
+  .t-hold { background: rgba(168,165,160,.1); color: var(--ink-dim); }
+  .t-disq { background: rgba(62,60,58,.4); color: var(--ink-faint); }
+
+  .note {
+    background: var(--grad);
+    border-radius: var(--r-lg);
+    padding: 22px 28px;
+    font-size: 15px;
+    line-height: 1.65;
+    margin-top: 16px;
+    box-shadow: 0 20px 50px rgba(232,41,76,.28);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .note::after { content: ""; position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(255,255,255,.06); top: -100px; right: -50px; pointer-events: none; }
+  .note b { font-weight: 800; }
+
+  footer { text-align: center; padding: 34px 22px 12px; color: var(--ink-faint); font-size: 12.5px; }
+  footer b { color: rgba(168,165,160,.6); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 640px) { .grid3 { grid-template-columns: 1fr; } .ph { flex-direction: column; } .fit-badge { margin-left: 0; } }
 </style>
 </head>
-<body data-theme="standard">
-  <div class="doc">
+<body>
+<div class="doc">
 
-    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>8 matched. 3 priority.</h1><div class="d">Friday, 26 June 2026 · sourced from your ICP via LinkedIn · every DM is a draft, nothing sent</div></div>
-
-    <div class="grid3">
-      <div class="stat"><div class="l">Sourced (Dubai owners)</div><div class="n">15</div></div>
-      <div class="stat"><div class="l">ICP qualified</div><div class="n" style="background:linear-gradient(135deg,var(--good),#34d399);-webkit-background-clip:text;background-clip:text;color:transparent">8</div></div>
-      <div class="stat"><div class="l">Messages drafted</div><div class="n">40</div></div>
-    </div>
-
-    <div class="sec">Your live pipeline · action today</div>
-    <div class="card">
-      <div class="row"><b style="margin-right:6px">MCM Products (VAT advisory proposal)</b> KYC trade license landed this morning, you are clear to proceed<span class="tagi t-red">Priority 1</span></div>
-      <div class="row"><b style="margin-right:6px">Ghazal Al Safadi · Cartier / Richemont</b> meeting booked Monday 1:30, prep a short discovery agenda<span class="tagi t-red">Priority 1</span></div>
-    </div>
-
-    <div class="sec">The prospects · ranked by fit</div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Pelvi Nanda</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Founder, 2 diamond jewellery brands (natural + lab-grown) · Dubai · <a href="https://www.linkedin.com/in/pelvi-nanda-8744a1319">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive · <b>Opener:</b> Peer · <b>Signal:</b> Early-stage founder, two brands, bespoke consultations, inventory-heavy retail with informal back office</div>
-      <div class="hook"><b>Human hook:</b> You built the jeweller you couldn't find when ring-shopping in Dubai.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Pelvi, your story of building the jeweller you couldn't find for your own ring stood out. Two brands now, both bespoke. I run an accounting firm here in Dubai and like meeting founders who started from a real frustration. Would be glad to connect.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. The part that stayed with me was you starting because every option felt pushy or out of reach. Running two diamond brands with private consultations, which side has been harder to keep organised as you grew, the natural or the lab-grown?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>Saw the Infinite Love and Maharani collections. Moving into heirloom bridal changes the inventory picture a lot, more pieces sitting in stock before they sell. Are you tracking that side yourself, or do you have someone on it?</div>
-      <div class="dm"><span class="t">4 · Pivot</span>Different question. With CIT now in force, a few Dubai founders I meet are unsure whether two brands means one set of books or two. If that is ever a question for you, happy to point you the right way. No agenda.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here, I know how full a founder's week is. If clarity on the numbers behind the two brands ever becomes the thing slowing you down, my door is open. Either way, I am glad I came across what you are building.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Sejal Nagjee</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Founder, Milestone (luxury interiors) + Galleria Exclusive (art) · Dubai · <a href="https://www.linkedin.com/in/sejalnagjee">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive / Amiable · <b>Opener:</b> Peer · <b>Signal:</b> Two entities under one founder, long high-value projects with staged payments, 20 years building</div>
-      <div class="hook"><b>Human hook:</b> From representing India in table tennis to designing Palm Jumeirah homes.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Sejal, rare to see a designer who went from representing India in table tennis to shaping homes across Palm Jumeirah and Emirates Hills. I run an accounting firm in Dubai and enjoy connecting with founders who built something with real craft. Would like to connect.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. You run two things at once, Milestone for the spaces and Galleria for the art and bespoke pieces. As they have grown, which one has been trickier to keep organised behind the scenes?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>Makes sense. High-end residential means money moving in stages, deposits, milestones, suppliers. When the work is that custom, the numbers get messy fast. Are you handling that side in-house right now?</div>
-      <div class="dm"><span class="t">4 · Pivot</span>Different angle. With two entities, the studio and the gallery, CIT treats them as separate books. A few founders I meet only learn that late. If it is ever unclear for you, happy to point you right.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will stop here, your calendar is clearly full. If the numbers behind Milestone and Galleria ever become the thing pulling you away from design, you know where I am. Either way, I genuinely admire the work.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Yasmina Azhari</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Owner, Al Yam (import/export & general trading), Mira Group, shipping · Dubai · <a href="https://www.linkedin.com/in/yasmina-azhari-588a9132">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver · <b>Opener:</b> Directness · <b>Signal:</b> Multiple UAE entities under one owner, import/export = high VAT exposure, clear group-structure CIT need</div>
-      <div class="hook"><b>Human hook:</b> Import-export, mall management, shipping, several entities under one owner.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Yasmina, you carry a lot under one name, Al Yam trading, Mira Group, the shipping side. I run an accounting firm in Dubai that works with owners running multiple UAE entities. Would value connecting.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. Running import-export alongside mall management means very different books under one owner. Which entity takes the most of your time when it comes to keeping the numbers clean?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>General trading is where I see the most FTA exposure right now, input tax on imports especially. With several LLCs, are the VAT filings handled in one place, or spread across different people?</div>
-      <div class="dm"><span class="t">4 · Pivot</span>One thing worth knowing. CIT now applies per entity, and group structures like yours are where the questions get real. If you ever want a second set of eyes on how it is set up, no charge to look.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it there. With this many moving parts, if compliance across the entities ever feels heavier than it should, that is exactly what we do. Good to be connected either way.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Rajendran Nair</span><span class="fit t-amb">Fit 7/10</span><span class="rl">Business owner, printing & retail · UAE · <a href="https://www.linkedin.com/in/rajendran-nair-05743567">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Amiable · <b>Opener:</b> Peer · <b>Signal:</b> Owner-operated retail/printing, thin margins, classic "bank balance as the scorecard" profile. Hook is thinner, light manual research worth doing before sending.</div>
-      <div class="hook"><b>Human hook:</b> Years in printing and retail, built on negotiation and tight budgeting.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Rajendran, fellow Dubai connection. You have spent years owning in printing and retail, a trade with thin margins and a lot to track. I run an accounting firm here and like meeting owners who built the hard way. Happy to connect.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. Printing and retail is one of those businesses where the money looks fine until you count the stock and what is owed. How are you keeping an eye on that side day to day?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>Retail owners I meet often find their real profit is hiding in inventory and receivables, not the bank balance. Do you get monthly numbers you actually trust, or is it more by feel right now?</div>
-      <div class="dm"><span class="t">4 · Pivot</span>Quick one. VAT and now CIT both apply to a business your size, and the FTA does not wait. If you ever want someone to check you are clean, happy to look, no cost to start.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here. If knowing exactly where your printing and retail numbers stand ever becomes worth sorting, that is what we do. Either way, good to connect.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Dirk Wagner</span><span class="fit t-amb">Fit 6/10</span><span class="rl">Founder & CEO, Nine Seven One Global Solutions (GCC growth) · Dubai · <a href="https://www.linkedin.com/in/dirk-wagner-971global">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive / Driver · <b>Opener:</b> Peer · <b>Signal:</b> Owns multiple entities; also a strong referral partner, he lands foreign companies in the GCC that need local accounting setup</div>
-      <div class="hook"><b>Human hook:</b> A boutique growth partner for corporates entering the GCC, quality over volume.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Dirk, your line about quality over volume, boutique and hands-on, is rare to see said out loud in consulting. I run an accounting firm in Dubai with a similar view on how we work. Would like to connect.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. You help international companies set up and scale in the GCC. When they land here, how often does the boring side, the UAE accounting and VAT setup, become the thing that trips them up?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>I ask because that is usually where I get the panicked call, a foreign company that built sales first and compliance never. If a client of yours ever needs that handled locally, I am the person who does it properly.</div>
-      <div class="dm"><span class="t">4 · Pivot</span>Separately, for your own entities here, you run more than one. CIT now treats them separately. If that is ever unclear, happy to point you right, no agenda.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it there. Whether for your own books or a client landing in the UAE, if the accounting side ever needs a safe pair of hands, you know where I am.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Dr. Mehdi Chahi</span><span class="fit t-amb">Fit 6/10</span><span class="rl">Managing Partner, AMRC Insights (market intelligence, MENA & Africa) · Dubai · <a href="https://www.linkedin.com/in/chahi-mehdi">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Analytical · <b>Opener:</b> Authority flip · <b>Signal:</b> Owner-led consultancy billing across 30+ countries, cross-border VAT on exported services is a real technical gap</div>
-      <div class="hook"><b>Human hook:</b> Market intelligence across 30-plus countries, run from a Dubai partnership.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Dr. Chahi, running large multi-country research out of a Dubai partnership is a serious operation. I run an accounting firm here that works with owner-led consultancies. Would value connecting.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. Fieldwork across 30-plus countries means money moving in many currencies and directions. On the AMRC side, how do you keep the financial reporting clean across all of that?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>That cross-border piece is exactly where UAE VAT and CIT get technical, what is zero-rated, what is claimable. Is that handled in-house, or by someone who knows the UAE rules specifically?</div>
-      <div class="dm"><span class="t">4 · Pivot</span>One practical note. Consultancies billing internationally often misread the VAT treatment on exported services. If you ever want it checked, happy to look, no cost to start.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here, I know your schedule spans time zones. If the financial and compliance side of AMRC ever needs a UAE specialist, that is what we do. Good to be connected.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Avinash Wadhwa</span><span class="fit t-grey">Fit 5/10</span><span class="rl">Entrepreneur, GTM & digital transformation consultant · Dubai · <a href="https://www.linkedin.com/in/avinashwadhwa">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive / Driver · <b>Opener:</b> Peer · <b>Signal:</b> Borderline. Senior advisor who may already have a setup, but a strong referral source and shares your "people and process" view. Worth a soft connect, low priority.</div>
-      <div class="hook"><b>Human hook:</b> Believes it always comes back to people and the processes underneath.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Avinash, your take that it always comes back to people and processes is one I share. I run an accounting firm in Dubai built on exactly that. Would like to connect.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. You advise top management on business risk and process automation. When you go into a company here, how often is the finance and accounting process the weakest link you find?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>That matches what I see, the books are usually the last thing to get fixed. If you ever have a client whose accounting needs rebuilding properly while you handle the strategy, that is my lane.</div>
-      <div class="dm"><span class="t">4 · Pivot</span>For your own consulting entity, quick one, CIT and VAT both apply and the FTA is strict now. If you want a second set of eyes that it is set up right, happy to look.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it there. Whether a referral or your own books, if the accounting side ever needs doing properly, you know where I am. Good to connect either way.</div>
-    </div>
-
-    <div class="pcard">
-      <div class="ph"><span class="nm">Robin Joffe</span><span class="fit t-grey">Fit 5/10</span><span class="rl">CEO-Founder, NXT Horizon (market entry, ME & Asia) · Dubai · <a href="https://www.linkedin.com/in/robinjoffe">profile</a></span></div>
-      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Driver / Analytical · <b>Opener:</b> Directness · <b>Signal:</b> Borderline. Likely sophisticated, but his market-entry clients are exactly the foreign companies that need UAE accounting on the ground. Play it as a referral partnership.</div>
-      <div class="hook"><b>Human hook:</b> Helps companies expand into the Middle East from a Dubai base.</div>
-      <div class="seqlbl">5-message sequence</div>
-      <div class="dm"><span class="t">1 · Connection request</span>Hi Robin, you help companies enter the Middle East market from Dubai. I run an accounting firm here that often becomes the local piece those expansions need. Worth connecting.</div>
-      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. When you bring a company into the UAE, who usually handles their accounting and VAT setup on the ground, you, them, or someone local?</div>
-      <div class="dm"><span class="t">3 · Value-add</span>I ask because that handoff is where things often break, a company expands fast and the compliance lags behind. If a client ever needs that done properly here, I am the local pair of hands.</div>
-      <div class="dm"><span class="t">4 · Pivot</span>And for NXT Horizon itself, CIT now applies to consulting entities here too. If it is ever worth a check that yours is clean, happy to look, no cost to start.</div>
-      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it there. Whether for a client landing in the UAE or your own books, if the accounting side needs a reliable local firm, you know where I am.</div>
-    </div>
-
-    <div class="sec">Disqualified from this batch (7) · not your ICP</div>
-    <div class="card">
-      <div class="row">Sajid Awan, Mohit Sharma, Bashar Abuljebain<span class="tagi t-grey">finance pros</span></div>
-      <div class="row">Miguel Vargas (MD, Louis Vuitton), Vitor Nogueira (board director)<span class="tagi t-grey">corporate / not owner</span></div>
-      <div class="row">Jonathan Cordero (PE / mining investor), Stanislav Semenov (quant)<span class="tagi t-grey">wrong fit</span></div>
-    </div>
-
-    <div class="note">Open <b>Pelvi Nanda</b> first. Early-stage founder, two brands, inventory piling up before it sells, and a back office that almost certainly grew faster than the books. She is the warmest door and the cleanest version of your client. Every message here is a draft. You read it, then you send it.</div>
-
-    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  <div class="ohead">
+    <div class="k">BPOAS · CRO Weekly Prospect Pack</div>
+    <h1>9 sourced &middot; 6 qualified.</h1>
+    <div class="d">Friday, 26 June 2026 &middot; Dubai ICP &middot; LinkedIn via Apify + research &middot; nothing sent yet &middot; you read, you approve, you send</div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script>
-    window.addEventListener('load',function(){
-      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
-      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
-      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
-      gsap.from('.stat,.card,.pcard,.note',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 90%'}});
-    });
-  </script>
+
+  <div class="grid3">
+    <div class="stat"><div class="l">Profiles sourced</div><div class="n">9</div></div>
+    <div class="stat"><div class="l">ICP qualified (Fit 6+)</div><div class="n green">6</div></div>
+    <div class="stat"><div class="l">DMs drafted</div><div class="n">30</div></div>
+  </div>
+
+  <div class="sec">Regulatory hooks &middot; active this week &middot; use in M3</div>
+
+  <div class="alert urgent">
+    <div class="al-title">VAT Return Deadline &middot; This Sunday 29 June 2026</div>
+    <p>The current VAT period closes <b>Sunday</b>. Use for F&amp;B founders immediately. F&amp;B businesses face a split zero-rated / standard-rated treatment that is easy to misapply on invoices. Timely, low-pressure, peer-intelligence framing.</p>
+  </div>
+
+  <div class="alert">
+    <div class="al-title">FTA CT Filing Reminder &middot; Issued 24 June 2026</div>
+    <p>The FTA issued a formal reminder that <b>all corporate taxable persons must file CT returns</b>, including entities with income below the taxable threshold. No entity is exempt from filing. Founders with multiple UAE LLCs carry multiple separate obligations. Use for multi-entity founders.</p>
+  </div>
+
+  <div class="alert">
+    <div class="al-title">UAE DNFBP Inspections &middot; 2025 Enforcement Context</div>
+    <p>UAE conducted <b>nearly 9,000 DNFBP inspections</b> in 2025 and imposed fines of AED 160.33 million. Heightened scrutiny continues into 2026. Real estate advisors, brokers, and consultants are in the supervised category. Use for real estate prospect.</p>
+  </div>
+
+  <div class="sec">The prospects &middot; ranked by fit &middot; proceed with all 6</div>
+
+  <!-- 1. Ankit Agarwal -->
+  <div class="pcard">
+    <div class="ph">
+      <span class="nm">Ankit Agarwal</span>
+      <span class="fit-badge f-high">Fit 8 / 10</span>
+      <span class="rl">Serial Entrepreneur &middot; BikeKit &middot; Brain Giggles &middot; Cravista &middot; EcomBridge &middot; Dubai &middot; 10+ yrs UAE &middot; <a href="https://www.linkedin.com/in/ankitagarwal-dxb" target="_blank">linkedin.com/in/ankitagarwal-dxb</a></span>
+    </div>
+    <div class="meta">
+      <span class="badge warm">Warm</span>
+      <span class="badge">Driver / Expressive</span>
+      <span class="badge">Peer Opener</span>
+      <span class="badge flag">Compliance Trigger</span>
+    </div>
+    <div class="cflag">
+      <b>Compliance flag</b>
+      Four separate UAE entities with different VAT treatments: B2B delivery gear (BikeKit), B2C kids products (Brain Giggles), lifestyle marketplace (Cravista), and cross-border e-commerce platform (EcomBridge). FTA CT filing reminder this week applies to all four. Multi-entity founder with high accounting complexity.
+    </div>
+    <div class="hook">
+      <b>Human hook</b>
+      Four UAE brands in four different lanes, all built from the same desk in Dubai.
+    </div>
+    <div class="opener-row"><b>Opening Strategy:</b> Peer Opener &mdash; no pitch, genuine curiosity about operating four entities</div>
+    <div class="seqlbl">5-message sequence</div>
+    <div class="dm">
+      <span class="t">M1 &middot; Connection Request &middot; max 300 chars</span>
+      <p>Hi Ankit, you are running four separate ventures from Dubai and each one is in a different lane, delivery gear, kids products, lifestyle, and now a cross-border platform. I run an accounting firm here. Would be glad to connect.</p>
+    </div>
+    <div class="dm">
+      <span class="t">M2 &middot; Icebreaker &middot; day of connection</span>
+      <p>Thanks for connecting. EcomBridge is the most ambitious piece of what you have built. Helping brands expand cross-border from UAE to KSA and South Africa means a different set of books for each market. On the UAE side, with four entities running, who is keeping the numbers clean across all of them?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M3 &middot; Value Bridge &middot; day 2 to 3</span>
+      <p>The FTA issued a reminder this week that every UAE-registered entity must file CT returns, including those with income below the taxable threshold. Four entities means four separate filings. I thought it was worth flagging in case one of them has been sitting. Is that piece handled across the board?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M4 &middot; The Pivot &middot; day 3 to 4</span>
+      <p>Different question. Most founders I know running multiple brands here built the second and third because the first one worked. The accounting is almost always the last thing to get a second look. Is that true for you?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M5 &middot; Clean Exit &middot; day 5 to 7</span>
+      <p>I will leave it here, your plate is clearly full. If making sense of what the numbers are telling you across the four businesses ever becomes the thing worth sorting, my door is open. Good to have connected.</p>
+    </div>
+  </div>
+
+  <!-- 2. Farah Sheikh Al Sagha -->
+  <div class="pcard">
+    <div class="ph">
+      <span class="nm">Farah Sheikh Al Sagha</span>
+      <span class="fit-badge f-high">Fit 7 / 10</span>
+      <span class="rl">Founder, Rise Bakehouse &middot; F&amp;B &middot; Artisanal bakehouse and creative studio &middot; Dubai &middot; <a href="https://www.linkedin.com/in/farah-sheikh-al-sagha-963558b0/" target="_blank">linkedin.com/in/farah-sheikh-al-sagha-963558b0</a></span>
+    </div>
+    <div class="meta">
+      <span class="badge warm">Warm</span>
+      <span class="badge">Amiable / Expressive</span>
+      <span class="badge">Peer Opener</span>
+      <span class="badge flag">Compliance Trigger</span>
+    </div>
+    <div class="cflag">
+      <b>Compliance flag</b>
+      F&amp;B business, VAT return deadline this Sunday June 29. Grew from home baking to physical studio with workshops and an all-female team. Growth trajectory suggests accounting setup is likely informal. Zero-rated / standard-rated VAT split is a common F&amp;B gap.
+    </div>
+    <div class="hook">
+      <b>Human hook</b>
+      Started from home baking, now running workshops and an all-female team in Dubai.
+    </div>
+    <div class="opener-row"><b>Opening Strategy:</b> Peer Opener &mdash; genuine admiration for the craft, no compliance angle in M1</div>
+    <div class="seqlbl">5-message sequence</div>
+    <div class="dm">
+      <span class="t">M1 &middot; Connection Request &middot; max 300 chars</span>
+      <p>Hi Farah, your story of starting from home bakes and building to a full creative studio with workshops and an all-female team says a lot about how you build. I run an accounting firm in Dubai and like connecting with founders who grew something with real craft. Would be glad to connect.</p>
+    </div>
+    <div class="dm">
+      <span class="t">M2 &middot; Icebreaker &middot; day of connection</span>
+      <p>Thanks for connecting. You went from home baking to a physical studio, running workshops, managing a team, and handling custom orders at the same time. As it grew, which part got harder to keep up with behind the scenes?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M3 &middot; Value Bridge &middot; day 2 to 3 &middot; urgent VAT hook</span>
+      <p>Worth flagging if it is not already handled. The VAT return deadline for the current period is this Sunday, June 29. For food businesses the split between zero-rated and standard-rated items is easy to misapply. Is your return being handled by someone who knows the F&amp;B rules specifically?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M4 &middot; The Pivot &middot; day 3 to 4</span>
+      <p>Different angle. Most food business owners I know here are brilliant at the product and the experience side. Knowing exactly what the margins look like by week, by product line, is a different skill. Do you get those numbers regularly, or is it more end of year?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M5 &middot; Clean Exit &middot; day 5 to 7</span>
+      <p>I will leave it here. If the numbers behind Rise ever need someone who understands how food businesses work in the UAE, that is what we do. Either way, I am glad I came across what you are building.</p>
+    </div>
+  </div>
+
+  <!-- 3. Dr. Shayma Fawwaz -->
+  <div class="pcard">
+    <div class="ph">
+      <span class="nm">Dr. Shayma Fawwaz</span>
+      <span class="fit-badge f-high">Fit 7 / 10</span>
+      <span class="rl">Founder &amp; CEO, GOSSIP The Brand &middot; F&amp;B, Events, Luxury Brand Management &middot; Dubai &middot; <a href="https://ae.linkedin.com/in/shayma-fawwaz-57229233" target="_blank">linkedin.com/in/shayma-fawwaz-57229233</a></span>
+    </div>
+    <div class="meta">
+      <span class="badge warm">Warm</span>
+      <span class="badge">Expressive / Driver</span>
+      <span class="badge">Peer Opener</span>
+      <span class="badge flag">Compliance Trigger</span>
+    </div>
+    <div class="cflag">
+      <b>Compliance flag</b>
+      Multiple revenue streams: F&amp;B operations, event management, and luxury brand distribution (Hermes, Tiffany). Split VAT treatment across food, events, and luxury goods under one owner. 13 years of operation with brand growth across UAE and GCC. VAT deadline this Sunday.
+    </div>
+    <div class="hook">
+      <b>Human hook</b>
+      From microbiology PhD to F&amp;B and luxury brand across the UAE and GCC since 2013.
+    </div>
+    <div class="opener-row"><b>Opening Strategy:</b> Peer Opener &mdash; lead with her unconventional path, no mention of compliance in M1 or M2</div>
+    <div class="seqlbl">5-message sequence</div>
+    <div class="dm">
+      <span class="t">M1 &middot; Connection Request &middot; max 300 chars</span>
+      <p>Hi Shayma, from PhD in Genetics to running F&amp;B, events, and luxury brand partnerships across the UAE since 2013. GOSSIP is one of the harder stories to build here. I run an accounting firm in Dubai and enjoy connecting with founders who built on substance. Would be glad to connect.</p>
+    </div>
+    <div class="dm">
+      <span class="t">M2 &middot; Icebreaker &middot; day of connection</span>
+      <p>Thanks for connecting. Running F&amp;B alongside brand management for luxury houses means very different revenue structures under one owner. Which stream has been the most complex to manage from a financial reporting standpoint?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M3 &middot; Value Bridge &middot; day 2 to 3 &middot; VAT hook</span>
+      <p>Worth knowing if it is not already handled. The VAT return deadline for the current period is this Sunday, June 29. Businesses dealing in both food and luxury goods have a split VAT treatment that is easy to misapply across invoices. Is that side fully sorted on your end?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M4 &middot; The Pivot &middot; day 3 to 4</span>
+      <p>Different angle. With GOSSIP now in its thirteenth year, running across F&amp;B, events, and luxury distribution, I imagine the entity structure has grown more complex over time. Are the books set up to reflect what is actually happening across all three arms?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M5 &middot; Clean Exit &middot; day 5 to 7</span>
+      <p>I will leave it here. If the financial structure behind GOSSIP ever needs someone who understands multi-stream owner-led businesses in the UAE, that is what we do. Good to be connected either way.</p>
+    </div>
+  </div>
+
+  <!-- 4. Agam Chaudhary -->
+  <div class="pcard">
+    <div class="ph">
+      <span class="nm">Agam Chaudhary</span>
+      <span class="fit-badge f-mid">Fit 6 / 10</span>
+      <span class="rl">Founder &amp; CEO, MarkGrid AI &middot; MD, Two99 Consortium &middot; Founder, Binary Wall &middot; Dubai &middot; <a href="https://www.linkedin.com/in/agamchaudhary" target="_blank">linkedin.com/in/agamchaudhary</a></span>
+    </div>
+    <div class="meta">
+      <span class="badge warm">Warm</span>
+      <span class="badge">Driver / Expressive</span>
+      <span class="badge">Peer Opener</span>
+      <span class="badge flag">Compliance Trigger</span>
+    </div>
+    <div class="cflag">
+      <b>Compliance flag</b>
+      Three separate UAE entities across marketing tech, agency, and cybersecurity. FTA CT filing reminder this week applies to all three. International billing across USA, GCC, India, and SEA adds VAT complexity on exported services. Multi-entity CT obligation likely not fully mapped.
+    </div>
+    <div class="hook">
+      <b>Human hook</b>
+      Three separate UAE entities, a Marketing OS, a global agency, and cybersecurity, built in parallel.
+    </div>
+    <div class="opener-row"><b>Opening Strategy:</b> Peer Opener &mdash; respect for the scale of what he is building simultaneously</div>
+    <div class="seqlbl">5-message sequence</div>
+    <div class="dm">
+      <span class="t">M1 &middot; Connection Request &middot; max 300 chars</span>
+      <p>Hi Agam, building a Marketing OS alongside an agency running 60-plus brands and a cybersecurity firm at the same time is a serious stack to hold. I run an accounting firm in Dubai. Would be glad to connect.</p>
+    </div>
+    <div class="dm">
+      <span class="t">M2 &middot; Icebreaker &middot; day of connection</span>
+      <p>Thanks for connecting. Three distinct entities in the UAE across marketing, cybersecurity, and now a product play with MarkGrid. As you built them out, which one has been the hardest to track operationally?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M3 &middot; Value Bridge &middot; day 2 to 3</span>
+      <p>The FTA put out a reminder this week that every UAE-registered entity must file CT returns, including those with income below the taxable threshold. Three entities means three separate obligations. I flagged it because it is easy to miss when you are building fast. Is that piece covered across all three?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M4 &middot; The Pivot &middot; day 3 to 4</span>
+      <p>Different angle. Most founders I know here with multiple entities built them because each needed to be legally separate. The downside is the finance side gets complicated quickly. Do you have one team watching all three, or is each one managed separately?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M5 &middot; Clean Exit &middot; day 5 to 7</span>
+      <p>I will leave it here. If the accounting and compliance across the three UAE entities ever needs doing properly, you know where I am. Good to have connected.</p>
+    </div>
+  </div>
+
+  <!-- 5. Jean-Claude Mbaku -->
+  <div class="pcard">
+    <div class="ph">
+      <span class="nm">Jean-Claude Mbaku</span>
+      <span class="fit-badge f-mid">Fit 6 / 10</span>
+      <span class="rl">Founder &amp; CEO, Diversity Sports LLC &middot; Real Estate &amp; Sports Capital Allocator &middot; Dubai &middot; <a href="https://www.linkedin.com/in/jeanclude-mbaku" target="_blank">linkedin.com/in/jeanclude-mbaku</a></span>
+    </div>
+    <div class="meta">
+      <span class="badge cold">Cold</span>
+      <span class="badge">Driver</span>
+      <span class="badge">Directness Play</span>
+      <span class="badge flag">Compliance Trigger</span>
+    </div>
+    <div class="cflag">
+      <b>Compliance flag</b>
+      Real estate advisory falls under the DNFBP supervised category. UAE conducted nearly 9,000 DNFBP inspections in 2025 with AED 160M in fines. Dual-entity structure (sports LLC + real estate advisory) means separate CIT obligations per entity. AML documentation is a real risk.
+    </div>
+    <div class="hook">
+      <b>Human hook</b>
+      Football club acquisitions and off-plan real estate deals, both from one Dubai base.
+    </div>
+    <div class="opener-row"><b>Opening Strategy:</b> Directness Play &mdash; acknowledge the unusual combination, no softening</div>
+    <div class="seqlbl">5-message sequence</div>
+    <div class="dm">
+      <span class="t">M1 &middot; Connection Request &middot; max 300 chars</span>
+      <p>Hi Jean-Claude, combining football club advisory with off-plan real estate in Dubai is an unusual combination. I run an accounting firm here that works with business owners managing multiple UAE entities. Worth connecting.</p>
+    </div>
+    <div class="dm">
+      <span class="t">M2 &middot; Icebreaker &middot; day of connection</span>
+      <p>Thanks for connecting. Your work spans football club acquisitions and off-plan real estate, two very different asset classes with different compliance requirements in the UAE. When a deal closes on either side, how is the financial reporting handled?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M3 &middot; Value Bridge &middot; day 2 to 3 &middot; DNFBP hook</span>
+      <p>Worth flagging. The UAE conducted close to 9,000 DNFBP inspections in 2025 and fined businesses AED 160 million for compliance gaps. Real estate consultants and advisors are in that supervised category. Is your AML documentation fully in place on the property side?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M4 &middot; The Pivot &middot; day 3 to 4</span>
+      <p>One more thing. Diversity Sports and your real estate work are separate entities, which means CIT applies to each one independently. For a Dubai owner holding multiple LLCs, that is a detail that sometimes gets missed. Is someone managing that across both?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M5 &middot; Clean Exit &middot; day 5 to 7</span>
+      <p>I will leave it there. If the compliance and accounting behind your UAE entities ever needs a reliable pair of hands, that is what we do. Good to be connected.</p>
+    </div>
+  </div>
+
+  <!-- 6. Kashif Ali -->
+  <div class="pcard">
+    <div class="ph">
+      <span class="nm">Kashif Ali</span>
+      <span class="fit-badge f-mid">Fit 6 / 10</span>
+      <span class="rl">CEO, Mux Tech Digital IT Solutions &middot; CEO, Najoom Al Thuraya &middot; Telematics &amp; Fleet Tech &middot; Dubai &middot; <a href="https://www.linkedin.com/in/kashif-ali-b6424038/" target="_blank">linkedin.com/in/kashif-ali-b6424038</a></span>
+    </div>
+    <div class="meta">
+      <span class="badge cold">Cold</span>
+      <span class="badge">Analytical / Driver</span>
+      <span class="badge">Peer Opener</span>
+      <span class="badge flag">Compliance Trigger</span>
+    </div>
+    <div class="cflag">
+      <b>Compliance flag</b>
+      Two separate UAE entities (Mux Tech Digital + Najoom Al Thuraya). CT filing reminder this week applies to both. IT and telematics companies billing for software and service contracts have a VAT classification risk, FTA does not allow corrections after submission.
+    </div>
+    <div class="hook">
+      <b>Human hook</b>
+      Built fleet tracking businesses across four countries from a Dubai base.
+    </div>
+    <div class="opener-row"><b>Opening Strategy:</b> Peer Opener &mdash; acknowledge the scope of what he has built across multiple markets</div>
+    <div class="seqlbl">5-message sequence</div>
+    <div class="dm">
+      <span class="t">M1 &middot; Connection Request &middot; max 300 chars</span>
+      <p>Hi Kashif, building two separate tech entities in Dubai, Mux Tech and Najoom Al Thuraya, while also running operations in Pakistan, Bahrain, and the US is a lot to manage. I run an accounting firm in Dubai. Would be glad to connect.</p>
+    </div>
+    <div class="dm">
+      <span class="t">M2 &middot; Icebreaker &middot; day of connection</span>
+      <p>Thanks for connecting. Fleet management and telematics is a growing space in the UAE. On the Dubai side, with Mux Tech and Najoom running as separate entities, who is keeping the compliance and books clean across both?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M3 &middot; Value Bridge &middot; day 2 to 3</span>
+      <p>The FTA issued a reminder this week that every UAE-registered entity must file CT returns, including those below the taxable threshold. Two separate entities means two separate obligations. Is that covered on your end, or is it something still being worked through?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M4 &middot; The Pivot &middot; day 3 to 4</span>
+      <p>Different question. IT and telematics companies billing in the UAE sometimes run into VAT classification issues on software and service contracts. It is one of those areas where the FTA portal does not allow corrections after submission. Is that being reviewed before each filing?</p>
+    </div>
+    <div class="dm">
+      <span class="t">M5 &middot; Clean Exit &middot; day 5 to 7</span>
+      <p>I will leave it there. If the accounting and compliance across both Dubai entities ever needs proper attention, that is what we do. Good to have connected.</p>
+    </div>
+  </div>
+
+  <!-- HOLD -->
+  <div class="sec">Held this cycle &middot; Fit 5 &middot; revisit next round</div>
+  <div class="hcard">
+    <div class="hrow">
+      <span class="hname">Elaine Maichin</span>
+      <span class="hdesc">Founder, Uniquely You Mental Health Center &middot; Healthcare &middot; Dubai &middot; June 2026 launch, very early stage. Likely solo practitioner with minimal accounting complexity at this point. Good ICP industry fit but not enough business maturity yet.</span>
+      <span class="tagi t-hold">Hold &middot; Fit 5</span>
+    </div>
+    <div class="hrow">
+      <span class="hname">Gihan Elmatbouly</span>
+      <span class="hdesc">Founder, The Qualidad &middot; CX &amp; Mystery Shopping Consultancy &middot; Dubai &middot; Former Emaar and DCT Abu Dhabi executive. Sophisticated operator, likely has existing accounting arrangements. Small solo consultancy. <a href="https://www.linkedin.com/in/gihanelmatbouly" target="_blank">LinkedIn</a></span>
+      <span class="tagi t-hold">Hold &middot; Fit 5</span>
+    </div>
+    <div class="hrow">
+      <span class="hname">Mojtaba Asadian</span>
+      <span class="hdesc">Founder, IOPn &middot; Web3 / RWA Tokenization &middot; DMCC &middot; Novel asset class, early stage, compliance structure likely driven by legal counsel rather than accounting firm. Revisit when entity has trading history. <a href="https://www.linkedin.com/in/mojtaba-asadian" target="_blank">LinkedIn</a></span>
+      <span class="tagi t-hold">Hold &middot; Fit 5</span>
+    </div>
+  </div>
+
+  <!-- DISQUALIFIED -->
+  <div class="sec">Disqualified from this batch (6)</div>
+  <div class="hcard">
+    <div class="hrow">
+      <span class="hname">Spek</span>
+      <span class="hdesc">PopArabia / ESMAA / Reservoir Media (NASDAQ: RSVR). Listed company connection.</span>
+      <span class="tagi t-disq">Listed co.</span>
+    </div>
+    <div class="hrow">
+      <span class="hname">Mostafa Elrefaey</span>
+      <span class="hdesc">Founder &amp; CEO, Integrity Accounting Services Dubai. UAE Registered Tax Agent. Direct competitor.</span>
+      <span class="tagi t-disq">Competitor</span>
+    </div>
+    <div class="hrow">
+      <span class="hname">Nasser Massoud</span>
+      <span class="hdesc">Founder &amp; MD, Concept Realisation. Clients include World Bank, ADB, EBRD, KfW. IFI-grade practice.</span>
+      <span class="tagi t-disq">IFI clients</span>
+    </div>
+    <div class="hrow">
+      <span class="hname">H.E Besim Jashari</span>
+      <span class="hdesc">Founder &amp; President, CICC. 33k connections, quasi-diplomatic. Not an SME business owner profile.</span>
+      <span class="tagi t-disq">Wrong profile</span>
+    </div>
+    <div class="hrow">
+      <span class="hname">Mohamed Gouali, PhD</span>
+      <span class="hdesc">Blue Capital Advisory. KPMG, Al Rajhi, HEC Paris, Harvard. $80bn in transactions. Big 4 background.</span>
+      <span class="tagi t-disq">Big 4 track</span>
+    </div>
+    <div class="hrow">
+      <span class="hname">DULKIFIL Abdul Rasheed</span>
+      <span class="hdesc">CMD MAWJ Holding / Founder DARTC. DARTC explicitly offers VAT, CT, audit, and bookkeeping. Competitor.</span>
+      <span class="tagi t-disq">Competitor</span>
+    </div>
+  </div>
+
+  <!-- CLOSING NOTE -->
+  <div class="note">
+    Open <b>Ankit Agarwal</b> first. Four UAE e-commerce entities, growing fast, and almost certainly running on informal accounting across at least two of the four. The FTA CT reminder issued this week is your freshest reason to reach out today. Then <b>Farah Sheikh Al Sagha</b> next, the VAT deadline is this Sunday and her F&amp;B profile is warm. Every message here is a draft. You read it, then you send it.
+  </div>
+
+  <footer>The brain thinks. The team works. You approve. &middot; <b>BPOAS &middot; Mohaina Asira &middot; Purely Personal &middot; 26 June 2026</b></footer>
+
+</div>
 </body>
 </html>
