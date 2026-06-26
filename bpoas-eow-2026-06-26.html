@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS · EOW Review · Week of 23 June 2026</title>
+<style>
+  :root {
+    --brand: #E8294C;
+    --brand-dim: rgba(232, 41, 76, 0.15);
+    --brand-border: rgba(232, 41, 76, 0.35);
+    --bg: #0A0A0A;
+    --card: #111111;
+    --card-2: #161616;
+    --border: #222222;
+    --text: #EBEBEB;
+    --text-dim: #888888;
+    --text-muted: #555555;
+    --green: #22C55E;
+    --green-dim: rgba(34, 197, 94, 0.12);
+    --amber: #F59E0B;
+    --amber-dim: rgba(245, 158, 11, 0.12);
+    --red: #EF4444;
+    --red-dim: rgba(239, 68, 68, 0.12);
+    --red-border: rgba(239, 68, 68, 0.3);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 32px 20px 64px;
+  }
+  .wrapper { max-width: 860px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .header-left .firm { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand); margin-bottom: 4px; }
+  .header-left .title { font-size: 22px; font-weight: 700; color: var(--text); }
+  .header-right { text-align: right; }
+  .header-right .date { font-size: 12px; color: var(--text-dim); }
+  .header-right .run-note { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .card-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .badge-green { background: var(--green-dim); color: var(--green); }
+  .badge-amber { background: var(--amber-dim); color: var(--amber); }
+  .badge-red { background: var(--red-dim); color: var(--red); }
+
+  /* Hero card */
+  .hero {
+    background: linear-gradient(135deg, #111111 0%, #160608 100%);
+    border: 1px solid var(--brand-border);
+    border-radius: 12px;
+    padding: 28px 28px 24px;
+    margin-bottom: 16px;
+  }
+  .hero-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
+  }
+  .hero-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); margin-bottom: 6px; }
+  .hero-rating { font-size: 26px; font-weight: 800; color: var(--text); }
+  .hero-sub { font-size: 13px; color: var(--text-dim); margin-top: 2px; }
+  .hero-quote {
+    background: rgba(255,255,255,0.04);
+    border-left: 3px solid var(--brand);
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  /* Scorecard table */
+  .scorecard {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 0;
+  }
+  .score-item {
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .score-area { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px; }
+  .score-status { font-size: 18px; margin-bottom: 2px; }
+  .score-label { font-size: 10px; font-weight: 600; }
+  .score-label.green { color: var(--green); }
+  .score-label.amber { color: var(--amber); }
+  .score-label.red { color: var(--red); }
+
+  /* Data rows */
+  .data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 12px;
+  }
+  .data-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .data-row:first-child { padding-top: 0; }
+  .data-label { font-size: 12px; color: var(--text-dim); min-width: 180px; flex-shrink: 0; }
+  .data-value { font-size: 13px; color: var(--text); text-align: right; }
+  .data-value.amber { color: var(--amber); }
+  .data-value.red { color: var(--red); }
+  .data-value.green { color: var(--green); }
+  .data-value.muted { color: var(--text-muted); font-style: italic; }
+
+  /* Pipeline items */
+  .pipeline-item {
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .pipeline-item:last-child { margin-bottom: 0; }
+  .pipeline-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .pipeline-detail { font-size: 11px; color: var(--text-dim); }
+  .pipeline-temp {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .temp-hot { background: rgba(232,41,76,0.15); color: var(--brand); }
+  .temp-warm { background: var(--amber-dim); color: var(--amber); }
+  .temp-cold { background: rgba(136,136,136,0.1); color: var(--text-muted); }
+
+  /* Content grid */
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .content-day {
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 11px;
+  }
+  .content-day-label { font-weight: 700; color: var(--text-dim); margin-bottom: 6px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; }
+  .content-day-topic { color: var(--text); line-height: 1.4; margin-bottom: 6px; }
+  .content-day-intent { color: var(--text-muted); }
+  .content-day.ready { border-color: rgba(34,197,94,0.25); }
+  .content-day.review { border-color: rgba(245,158,11,0.3); }
+  .content-day .status-tag {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+  .status-ready { background: var(--green-dim); color: var(--green); }
+  .status-review { background: var(--amber-dim); color: var(--amber); }
+
+  /* Compliance items */
+  .compliance-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .compliance-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .compliance-item:first-child { padding-top: 0; }
+  .compliance-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+  .dot-green { background: var(--green); }
+  .dot-amber { background: var(--amber); }
+  .dot-red { background: var(--red); }
+  .compliance-text .label { font-size: 12px; font-weight: 600; color: var(--text); }
+  .compliance-text .detail { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+
+  /* Team pulse */
+  .team-member {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .team-member:last-child { border-bottom: none; padding-bottom: 0; }
+  .team-member:first-child { padding-top: 0; }
+  .team-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--brand-dim);
+    border: 1px solid var(--brand-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--brand);
+    flex-shrink: 0;
+  }
+  .team-name { font-size: 13px; font-weight: 600; color: var(--text); }
+  .team-role { font-size: 11px; color: var(--text-muted); }
+  .team-activity { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+
+  /* Priority items */
+  .priority-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .priority-item:last-child { margin-bottom: 0; }
+  .priority-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--brand-dim);
+    border: 1px solid var(--brand-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--brand);
+    flex-shrink: 0;
+  }
+  .priority-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .priority-why { font-size: 12px; color: var(--text-dim); }
+  .priority-owner { font-size: 11px; color: var(--brand); margin-top: 4px; font-weight: 600; }
+
+  /* Radar */
+  .radar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .radar-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .radar-item:first-child { padding-top: 0; }
+  .radar-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .radar-label { font-size: 12px; font-weight: 600; color: var(--text); }
+  .radar-detail { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+
+  /* Flags */
+  .flags-card {
+    background: rgba(239, 68, 68, 0.06);
+    border: 1px solid var(--red-border);
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .flag-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(239,68,68,0.12);
+    align-items: flex-start;
+  }
+  .flag-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .flag-item:first-child { padding-top: 0; }
+  .flag-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .flag-label { font-size: 13px; font-weight: 600; color: #FCA5A5; }
+  .flag-detail { font-size: 12px; color: rgba(252,165,165,0.65); margin-top: 2px; }
+
+  /* Two-col grid */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+  /* Tag line */
+  .section-note {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .scorecard { grid-template-columns: repeat(3, 1fr); }
+    .content-grid { grid-template-columns: 1fr 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .hero-top { flex-direction: column; }
+    .data-row { flex-direction: column; }
+    .data-value { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="firm">BPO Accounting Services</div>
+      <div class="title">End of Week Review</div>
+    </div>
+    <div class="header-right">
+      <div class="date">Week of 23 June 2026</div>
+      <div class="run-note">Generated Friday 26 Jun 2026 · 17:00 UAE (GST)</div>
+    </div>
+  </div>
+
+  <!-- HERO: SCORECARD + RATING + SUMMARY -->
+  <div class="hero">
+    <div class="hero-label">Weekly Scorecard</div>
+    <div class="hero-top">
+      <div>
+        <div class="hero-rating">Needs Attention</div>
+        <div class="hero-sub">1 Green &nbsp;·&nbsp; 3 Amber &nbsp;·&nbsp; 1 Red</div>
+      </div>
+    </div>
+    <div class="hero-quote">
+      "The pipeline moved — MCM is close, Richemont asked for a call, and the team got the VAT filings done. But the DMCC deadline is Monday and I still don't have a clean number on where we are with revenue. That needs to change first thing next week."
+    </div>
+    <div class="scorecard">
+      <div class="score-item">
+        <div class="score-area">Revenue</div>
+        <div class="score-status">🟡</div>
+        <div class="score-label amber">Amber</div>
+      </div>
+      <div class="score-item">
+        <div class="score-area">Pipeline</div>
+        <div class="score-status">🟢</div>
+        <div class="score-label green">Green</div>
+      </div>
+      <div class="score-item">
+        <div class="score-area">Content</div>
+        <div class="score-status">🟡</div>
+        <div class="score-label amber">Amber</div>
+      </div>
+      <div class="score-item">
+        <div class="score-area">Compliance</div>
+        <div class="score-status">🔴</div>
+        <div class="score-label red">Red</div>
+      </div>
+      <div class="score-item">
+        <div class="score-area">Team</div>
+        <div class="score-status">🟡</div>
+        <div class="score-label amber">Amber</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. REVENUE -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">1 · Revenue Week in Review</div>
+      <div class="card-badge badge-amber">🟡 Amber</div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">Revenue received this week</div>
+      <div class="data-value muted">Not available — Zoho Books not connected</div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">vs prior week</div>
+      <div class="data-value muted">Manual verification required</div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">Invoices raised this week</div>
+      <div class="data-value muted">Check Zoho Books</div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">Invoices paid this week</div>
+      <div class="data-value muted">Check Zoho Books</div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">Gap (raised vs paid)</div>
+      <div class="data-value muted">Not calculable</div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">New retainer signed</div>
+      <div class="data-value amber">MCM Products — KYC stage, not yet formalised</div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">Month-to-date vs target</div>
+      <div class="data-value muted">Monthly target not in brand files — input required</div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">Days left in June</div>
+      <div class="data-value">4 days (27–30 June)</div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">Status</div>
+      <div class="data-value amber">🟡 Amber — Zoho Books not connected; data unverified</div>
+    </div>
+    <div class="section-note">⚠ Unresolved payment: Almosafer Account Claim #2010754 (Apr 8–15, 2026). Transfer rejected under new entity name MENASTAR FZCO. Document pending from Nada at Almosafer — Michelle Pacis managing. Unresolved at week end.</div>
+  </div>
+
+  <!-- 2. BD & PIPELINE -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">2 · BD &amp; Pipeline Movement</div>
+      <div class="card-badge badge-green">🟢 Growing</div>
+    </div>
+
+    <div class="pipeline-item">
+      <div>
+        <div class="pipeline-name">MCM Products Middle East LLC</div>
+        <div class="pipeline-detail">VAT Compliance Review &amp; Advisory · KYC in progress — Trade License section incomplete, passport submitted. Raihana managing.</div>
+      </div>
+      <div class="pipeline-temp temp-hot">🔥 Hot</div>
+    </div>
+    <div class="pipeline-item">
+      <div>
+        <div class="pipeline-name">Richemont / Cartier (Ghazal Al Safadi)</div>
+        <div class="pipeline-detail">Bookkeeping Services inquiry — replied asking Mohaina to call (+971 54 307 2239). No follow-up scheduled yet.</div>
+      </div>
+      <div class="pipeline-temp temp-warm">⚡ Warm → Hot</div>
+    </div>
+    <div class="pipeline-item">
+      <div>
+        <div class="pipeline-name">Halton Middle East FZE</div>
+        <div class="pipeline-detail">CIT Filing + Transfer Pricing — signed docs + audited financials received Jun 17. Engagement active.</div>
+      </div>
+      <div class="pipeline-temp temp-hot">🔥 Active</div>
+    </div>
+    <div class="pipeline-item">
+      <div>
+        <div class="pipeline-name">The Concept Lab Events &amp; Entertainment FZC</div>
+        <div class="pipeline-detail">CIT Filing engagement letter sent Jun 19. Awaiting signed return from Mr. George.</div>
+      </div>
+      <div class="pipeline-temp temp-warm">📄 EL Sent</div>
+    </div>
+    <div class="pipeline-item">
+      <div>
+        <div class="pipeline-name">GL Middle East · Flow Air &amp; Water · Wicked Tents</div>
+        <div class="pipeline-detail">Tax Residency Certificate engagement letters sent Jun 18 (3 entities, high priority). Awaiting signatures from Nandhu.</div>
+      </div>
+      <div class="pipeline-temp temp-warm">📄 EL Sent</div>
+    </div>
+
+    <div style="margin-top:18px;">
+      <div class="data-row">
+        <div class="data-label">Prospects contacted (Raihana)</div>
+        <div class="data-value">5 active entities managed</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Proposals sent this week</div>
+        <div class="data-value">1 — MCM Products (KYC stage)</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Deals won this week</div>
+        <div class="data-value green">MCM Products — verbal, formalising</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Deals lost or stalled</div>
+        <div class="data-value muted">None flagged</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">Net pipeline movement</div>
+        <div class="data-value green">🟢 Growing</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. CONTENT PERFORMANCE -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">3 · Content Performance</div>
+      <div class="card-badge badge-amber">🟡 Amber</div>
+    </div>
+    <div class="data-row" style="margin-bottom:16px;">
+      <div class="data-label">Posts published this week</div>
+      <div class="data-value amber">0 of 5 confirmed — Content Debt</div>
+    </div>
+    <div class="data-row" style="margin-bottom:16px;">
+      <div class="data-label">Top performing post</div>
+      <div class="data-value muted">Not available — no LinkedIn data connected</div>
+    </div>
+    <div class="data-row" style="margin-bottom:16px;">
+      <div class="data-label">Lowest performing post</div>
+      <div class="data-value muted">Not available</div>
+    </div>
+    <div class="data-row" style="margin-bottom:16px;">
+      <div class="data-label">LinkedIn follower movement</div>
+      <div class="data-value muted">Not available — manual check required</div>
+    </div>
+    <div class="data-row">
+      <div class="data-label">Content Debt added</div>
+      <div class="data-value amber">Yes — week of Jun 22 not tracked in Notion content calendar</div>
+    </div>
+
+    <div style="margin-top:20px; margin-bottom:12px;">
+      <div class="card-title" style="margin-bottom:12px;">Next Week — 5 Posts Planned (Jun 29 – Jul 3)</div>
+      <div class="content-grid">
+        <div class="content-day review">
+          <div class="content-day-label">Mon 29 Jun</div>
+          <div class="content-day-topic">DMCC FZCO name change + 4 free zone compliance checks</div>
+          <div class="content-day-intent">Educating</div>
+          <span class="status-tag status-review">⚠ Review needed</span>
+        </div>
+        <div class="content-day ready">
+          <div class="content-day-label">Tue 30 Jun</div>
+          <div class="content-day-topic">Dubai restaurant CIT filing — what we found</div>
+          <div class="content-day-intent">Nurturing · Story</div>
+          <span class="status-tag status-ready">✓ Ready</span>
+        </div>
+        <div class="content-day review">
+          <div class="content-day-label">Wed 1 Jul</div>
+          <div class="content-day-topic">Your CIT return is due 30 September — what "ready" actually means</div>
+          <div class="content-day-intent">Soft Selling</div>
+          <span class="status-tag status-review">⚠ Review needed</span>
+        </div>
+        <div class="content-day ready">
+          <div class="content-day-label">Thu 2 Jul</div>
+          <div class="content-day-topic">Hiring the cheapest accountant is the most expensive decision</div>
+          <div class="content-day-intent">Engagement · Contrarian</div>
+          <span class="status-tag status-ready">✓ Ready</span>
+        </div>
+        <div class="content-day ready">
+          <div class="content-day-label">Fri 3 Jul</div>
+          <div class="content-day-topic">eInvoicing: 5 things to fix before the FTA mandate</div>
+          <div class="content-day-intent">Educating · Framework</div>
+          <span class="status-tag status-ready">✓ Ready</span>
+        </div>
+      </div>
+    </div>
+    <div class="section-note">⚠ Monday post (DMCC FZCO): accuracy check required before publishing — verify DMCC enforcement position and grace period status. Wednesday post: late payment penalty rate (14% p.a., Cabinet Decision 129/2025) needs Mohaina accuracy sign-off before publishing.</div>
+  </div>
+
+  <!-- 4. COMPLIANCE & OPERATIONS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">4 · Compliance &amp; Operations</div>
+      <div class="card-badge badge-red">🔴 Red</div>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <div class="card-title" style="margin-bottom:12px; color: var(--green);">Completed This Week</div>
+      <div class="compliance-item">
+        <div class="compliance-dot dot-green"></div>
+        <div class="compliance-text">
+          <div class="label">✅ Menastar Q1 2026 VAT Return — Filed</div>
+          <div class="detail">Reviewed by Michelle Pacis (minor rounding noted, approved). Filed by Recyline Ramos. Confirmation sent Jun 26.</div>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <div class="compliance-dot dot-green"></div>
+        <div class="compliance-text">
+          <div class="label">✅ lastminute.com Q1 2026 VAT Return — Filed</div>
+          <div class="detail">FTA confirmation received by Yiannis Papadonikolakis. Filed Jun 26.</div>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <div class="compliance-dot dot-green"></div>
+        <div class="compliance-text">
+          <div class="label">✅ Halton Middle East FZE — CIT + Transfer Pricing docs received</div>
+          <div class="detail">Signed documents + audited financials received from Shierida Orillo, Jun 17. Engagement progressing.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <div class="card-title" style="margin-bottom:12px; color: var(--red);">Unresolved / Overdue</div>
+      <div class="compliance-item">
+        <div class="compliance-dot dot-red"></div>
+        <div class="compliance-text">
+          <div class="label">🔴 DMCC FZCO name change deadline — Monday 30 June</div>
+          <div class="detail">No client exposure check completed. Mohaina must confirm BPOAS client list today. Owner: Mohaina.</div>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <div class="compliance-dot dot-amber"></div>
+        <div class="compliance-text">
+          <div class="label">🟡 Almosafer Account Claim #2010754 — Unresolved</div>
+          <div class="detail">Transfer rejected (MENASTAR FZCO entity name issue). Waiting on Nada Ahmed document for Citibank. Escalation needed if not resolved Monday. Owner: Michelle Pacis + Mohaina.</div>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <div class="compliance-dot dot-amber"></div>
+        <div class="compliance-text">
+          <div class="label">🟡 Engagement letters awaiting signature — 4 entities</div>
+          <div class="detail">The Concept Lab (CIT, sent Jun 19) · GL Middle East, Flow Solutions, Wicked Tents (TRC, sent Jun 18). All high-importance. Owner: Raihana to follow up.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card-title" style="margin-bottom:12px;">Meetings Completed This Week</div>
+      <div class="compliance-item">
+        <div class="compliance-dot dot-green"></div>
+        <div class="compliance-text">
+          <div class="label">Tue 23 Jun — 10X with AI Live Accelerator (Teams, internal team)</div>
+          <div class="detail">Attended: Raihana, Mohaina, Junaifa, Rei, Michelle, Recyline + staff</div>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <div class="compliance-dot dot-green"></div>
+        <div class="compliance-text">
+          <div class="label">Thu 25 Jun — Payment Transfer Discussion with Almosafer (Teams)</div>
+          <div class="detail">Attendees: Michelle Pacis, ar.finance@almosafer.com, Nada Ahmed, Mohaina</div>
+        </div>
+      </div>
+      <div class="compliance-item">
+        <div class="compliance-dot dot-green"></div>
+        <div class="compliance-text">
+          <div class="label">Fri 26 Jun — 10X with AI Main Bootcamp (Teams, internal team)</div>
+          <div class="detail">All team members. Full-day AI workflow implementation session.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. TEAM PULSE -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">5 · Team Pulse</div>
+      <div class="card-badge badge-amber">🟡 Amber</div>
+    </div>
+    <div class="team-member">
+      <div class="team-avatar">RA</div>
+      <div style="flex:1">
+        <div class="team-name">Raihana M. Asira <span style="color:var(--text-muted);font-weight:400;font-size:11px;">· BD Associate</span></div>
+        <div class="team-activity">MFZ Company Documents sent to prospect (Jun 26). MCM KYC follow-through — received partial documents, requested Trade License completion. 2 VAT filing threads coordinated. 3 engagement letter follow-ups outstanding (The Concept Lab, GL Middle East, Flow Solutions, Wicked Tents). Active all week.</div>
+      </div>
+      <div class="card-badge badge-green" style="margin-top:2px;">Active</div>
+    </div>
+    <div class="team-member">
+      <div class="team-avatar">RO</div>
+      <div style="flex:1">
+        <div class="team-name">Rei Nald Onella <span style="color:var(--text-muted);font-weight:400;font-size:11px;">· Marketing</span></div>
+        <div class="team-activity">No content posts logged in Notion this week. Attended 10X AI Bootcamp sessions (Jun 23 + Jun 26). Confirm whether posts were published manually outside Notion. Next week's content calendar (5 posts) appears prepared.</div>
+      </div>
+      <div class="card-badge badge-amber" style="margin-top:2px;">Confirm posts</div>
+    </div>
+    <div class="team-member">
+      <div class="team-avatar">JA</div>
+      <div style="flex:1">
+        <div class="team-name">Junaifa M. Asira <span style="color:var(--text-muted);font-weight:400;font-size:11px;">· Authorised Signatory</span></div>
+        <div class="team-activity">No independent signatory or authorisation actions logged this week. Attended 10X AI Bootcamp sessions. No Notion task updates recorded.</div>
+      </div>
+      <div class="card-badge badge-amber" style="margin-top:2px;">Not logged</div>
+    </div>
+    <div class="team-member">
+      <div class="team-avatar">MP</div>
+      <div style="flex:1">
+        <div class="team-name">Michelle Pacis, CPA <span style="color:var(--text-muted);font-weight:400;font-size:11px;">· Senior Accountant</span></div>
+        <div class="team-activity">Menastar Q1 VAT review completed and approved (Jun 26). Almosafer payment dispute management — Payment Transfer Discussion call (Jun 25), follow-up email (Jun 26) awaiting document. Active and responsive.</div>
+      </div>
+      <div class="card-badge badge-green" style="margin-top:2px;">Active</div>
+    </div>
+    <div class="section-note">Items needing Mohaina's input next week: Almosafer escalation decision · MCM onboarding date · Richemont callback (Ghazal +971 54 307 2239) · Rei content confirmation (posts this week published?)</div>
+  </div>
+
+  <!-- FORWARD LOOK -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Forward Look · Week of 29 June</div>
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <div class="card-title" style="margin-bottom:12px;">Top 3 Priorities for Monday</div>
+      <div class="priority-item">
+        <div class="priority-num">1</div>
+        <div>
+          <div class="priority-title">DMCC FZCO deadline — confirm client exposure list TODAY</div>
+          <div class="priority-why">Monday Jun 30 is the last day for DMCC companies to update their entity name to FZCO. If any BPOAS client is a DMCC entity and hasn't done this, the window closes end of day Monday. No client check has been logged yet.</div>
+          <div class="priority-owner">Owner: Mohaina — action before EOD Friday / first thing Monday</div>
+        </div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-num">2</div>
+        <div>
+          <div class="priority-title">Richemont / Cartier call — Ghazal Al Safadi asked for a call</div>
+          <div class="priority-why">Senior Business Controller at Richemont Dubai FZE (ICD Brookfield) responded to bookkeeping services inquiry asking Mohaina to call her directly. This is a warm prospect at a global luxury brand. No follow-up scheduled. Direct number: +971 54 307 2239.</div>
+          <div class="priority-owner">Owner: Mohaina — call Mon or Tue</div>
+        </div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-num">3</div>
+        <div>
+          <div class="priority-title">MCM Products onboarding — set a kickoff date</div>
+          <div class="priority-why">MCM Products Middle East has submitted partial KYC docs and is close to engagement. No onboarding date is set. The longer this sits, the more momentum is lost after a week of follow-through.</div>
+          <div class="priority-owner">Owner: Mohaina + Raihana</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="card-title" style="margin-bottom:12px;">Compliance Radar — Next 14 Days</div>
+        <div class="radar-item">
+          <div class="radar-icon">🔴</div>
+          <div>
+            <div class="radar-label">CRITICAL · Monday 30 June</div>
+            <div class="radar-detail">DMCC FZCO name transition deadline. Confirm all BPOAS clients in DMCC free zone have updated entity name. No grace period confirmed.</div>
+          </div>
+        </div>
+        <div class="radar-item">
+          <div class="radar-icon">🟡</div>
+          <div>
+            <div class="radar-label">WATCH · Wednesday 1 July (before publishing)</div>
+            <div class="radar-detail">CIT post cites 14% late payment penalty (Cabinet Decision 129/2025, Apr 2026). Mohaina accuracy sign-off required before Rei publishes.</div>
+          </div>
+        </div>
+        <div class="radar-item">
+          <div class="radar-icon">🟡</div>
+          <div>
+            <div class="radar-label">WATCH · Ongoing — June FY year-ends</div>
+            <div class="radar-detail">Free zone clients with June 2025 financial year-ends may have audit submission deadlines approaching. Verify across client list.</div>
+          </div>
+        </div>
+        <div class="radar-item">
+          <div class="radar-icon">🟡</div>
+          <div>
+            <div class="radar-label">WATCH · Mon 29 June (before publishing)</div>
+            <div class="radar-detail">DMCC FZCO post — verify enforcement position and grace period before Rei posts at 9am Monday.</div>
+          </div>
+        </div>
+        <div class="radar-item">
+          <div class="radar-icon">🟢</div>
+          <div>
+            <div class="radar-label">CLEAR · 30 September 2026</div>
+            <div class="radar-detail">CIT return filing deadline — 96 days. No immediate action required but pipeline conversations should reference this window.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card-title" style="margin-bottom:12px;">Revenue Gap Action</div>
+        <div style="background:var(--card-2); border:1px solid var(--border); border-radius:8px; padding:14px; margin-bottom:14px;">
+          <div style="font-size:12px; color:var(--text-dim); margin-bottom:8px;">Zoho Books unavailable — gap vs monthly target not calculable.</div>
+          <div style="font-size:12px; color:var(--text);">Once verified: if June gap &gt; AED 10,000, recommended BD action:</div>
+          <div style="margin-top:10px; padding:10px; background:var(--brand-dim); border:1px solid var(--brand-border); border-radius:6px; font-size:12px; color:var(--text);">
+            Call Richemont/Ghazal this week — a global luxury brand bookkeeping engagement at BPOAS rates would be a strong close for June and sets up a retainer conversation for July.
+          </div>
+        </div>
+
+        <div class="card-title" style="margin-bottom:12px;">Monday Content Slot</div>
+        <div style="background:var(--amber-dim); border:1px solid rgba(245,158,11,0.3); border-radius:8px; padding:14px;">
+          <div style="font-size:12px; font-weight:600; color:var(--amber); margin-bottom:6px;">⚠ Accuracy Check Required</div>
+          <div style="font-size:12px; color:var(--text); margin-bottom:6px;">
+            <strong>DMCC FZCO name change</strong> + 4 free zone compliance checks
+          </div>
+          <div style="font-size:11px; color:var(--text-dim);">
+            Intent: Educating · Format: Framework · Saves + reposts expected.<br>
+            Compliance claims must be verified before 9am Monday. Mohaina to confirm DMCC enforcement position with Rei before EOD Friday.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLAGS FOR MOHAINA -->
+  <div class="flags-card">
+    <div class="card-header" style="margin-bottom:14px;">
+      <div class="card-title" style="color:#FCA5A5;">🚨 Flags for Mohaina — Before Close of Business Friday</div>
+    </div>
+    <div class="flag-item">
+      <div class="flag-icon">🔴</div>
+      <div>
+        <div class="flag-label">DMCC FZCO deadline Monday 30 June — no client list checked</div>
+        <div class="flag-detail">If any active client is a DMCC entity, they need to update their name to FZCO by end of Monday. No owner assigned for the client sweep. This needs to happen before you leave the office today.</div>
+      </div>
+    </div>
+    <div class="flag-item">
+      <div class="flag-icon">🔴</div>
+      <div>
+        <div class="flag-label">Richemont / Cartier — warm prospect asking for a call, unscheduled</div>
+        <div class="flag-detail">Ghazal Al Safadi (Senior Business Controller, Cartier / Richemont Dubai FZE) replied to bookkeeping inquiry asking Mohaina to call her. Direct number: +971 54 307 2239. No follow-up action taken yet.</div>
+      </div>
+    </div>
+    <div class="flag-item">
+      <div class="flag-icon">🟡</div>
+      <div>
+        <div class="flag-label">Almosafer payment dispute — unresolved at week end</div>
+        <div class="flag-detail">Account Claim #2010754 (Apr 8–15). Transfer blocked under MENASTAR FZCO name. Michelle sent final chase to Nada at Almosafer today. If no document by Monday morning, Mohaina decides on L2 escalation. Value unknown — verify in Zoho.</div>
+      </div>
+    </div>
+    <div class="flag-item">
+      <div class="flag-icon">🟡</div>
+      <div>
+        <div class="flag-label">4 engagement letters outstanding — no Notion updates</div>
+        <div class="flag-detail">The Concept Lab (CIT, sent Jun 19) · GL Middle East · Flow Air &amp; Water Solutions · Wicked Tents (TRC, sent Jun 18, high importance). All awaiting signatures. Raihana to follow up Monday.</div>
+      </div>
+    </div>
+    <div class="flag-item">
+      <div class="flag-icon">🟡</div>
+      <div>
+        <div class="flag-label">Content this week — no Notion record confirmed</div>
+        <div class="flag-detail">No posts for Jun 22–26 are logged in Notion. Confirm with Rei before EOD today: were any posts published this week? If not, this is a week of Content Debt.</div>
+      </div>
+    </div>
+    <div class="flag-item">
+      <div class="flag-icon">🟡</div>
+      <div>
+        <div class="flag-label">Monday post accuracy check — DMCC FZCO article</div>
+        <div class="flag-detail">Post is scheduled for 9am Monday. It includes DMCC enforcement claims. Mohaina must review and confirm accuracy with Rei before EOD Friday, otherwise Rei should hold the post.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    BPOAS · EOW Review · Week of 23 June 2026 · Auto-generated Friday 26 Jun 2026 · 17:00 UAE (GST)<br>
+    Sources: Microsoft 365 Outlook Calendar + Email · Notion · Zoho Books (unavailable) · Apify LinkedIn (unavailable)<br>
+    Brand color #E8294C (default — not specified in positioning file)
+  </div>
+
+</div>
+</body>
+</html>
