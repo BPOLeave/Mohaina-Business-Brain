@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BPOAS Content Calendar — Week of 29 June 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0A0A0A;
+      --card:      #141414;
+      --card2:     #1A1A1A;
+      --border:    #2A2A2A;
+      --accent:    #E8294C;   /* header accent — default (no hex in positioning doc) */
+      --navy:      #1F3A5F;   /* brand primary */
+      --navylt:    #2E5B88;   /* brand accent blue */
+      --text:      #E0E0E0;
+      --muted:     #888888;
+      --blue:      #3B82F6;   /* Educating */
+      --green:     #22C55E;   /* Nurturing */
+      --amber:     #F59E0B;   /* Soft Selling */
+      --red:       #EF4444;   /* Hard Selling */
+      --purple:    #A855F7;   /* Engagement */
+      --warn-bg:   #2D1B00;
+      --warn-bdr:  #F59E0B;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 32px 20px 64px;
+    }
+
+    /* ── Header ── */
+    .page-header {
+      border-left: 5px solid var(--accent);
+      padding: 24px 28px;
+      background: linear-gradient(135deg, #1a0a0e 0%, #0f0f0f 100%);
+      border-radius: 10px;
+      margin-bottom: 36px;
+    }
+    .page-header .brand { font-size: 11px; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+    .page-header h1 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .page-header .meta { font-size: 12px; color: var(--muted); }
+    .page-header .meta span { color: var(--accent); font-weight: 600; }
+
+    /* ── Section headers ── */
+    .section { margin-bottom: 40px; }
+    .section-title {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-num {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 20px;
+      margin-right: 8px;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+    .card.alert { border-left: 3px solid var(--accent); }
+    .card.warn  { border-left: 3px solid var(--amber); background: var(--warn-bg); }
+    .card.ok    { border-left: 3px solid var(--green); }
+
+    /* ── Tables ── */
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead tr { background: var(--navy); }
+    thead th { padding: 10px 12px; text-align: left; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #cdd6e8; font-weight: 600; }
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 10px 12px; vertical-align: top; color: var(--text); }
+    tbody tr:hover { background: var(--card2); }
+
+    /* ── Intent badges ── */
+    .badge {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .badge-educating  { background: rgba(59,130,246,.18); color: var(--blue); border: 1px solid rgba(59,130,246,.35); }
+    .badge-nurturing  { background: rgba(34,197,94,.18);  color: var(--green); border: 1px solid rgba(34,197,94,.35); }
+    .badge-softsell   { background: rgba(245,158,11,.18); color: var(--amber); border: 1px solid rgba(245,158,11,.35); }
+    .badge-hardsell   { background: rgba(239,68,68,.18);  color: var(--red); border: 1px solid rgba(239,68,68,.35); }
+    .badge-engagement { background: rgba(168,85,247,.18); color: var(--purple); border: 1px solid rgba(168,85,247,.35); }
+
+    .flag {
+      display: inline-block;
+      background: rgba(245,158,11,.2);
+      color: var(--amber);
+      border: 1px solid rgba(245,158,11,.4);
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .flag-red { background: rgba(239,68,68,.2); color: var(--red); border-color: rgba(239,68,68,.4); }
+    .flag-green { background: rgba(34,197,94,.15); color: var(--green); border-color: rgba(34,197,94,.3); }
+
+    .trigger { color: var(--accent); font-weight: 600; }
+    .muted { color: var(--muted); font-size: 12px; }
+    .label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+
+    /* ── Day cards ── */
+    .day-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .day-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      background: var(--card2);
+      border-bottom: 1px solid var(--border);
+    }
+    .day-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      min-width: 80px;
+    }
+    .day-date { font-size: 12px; color: var(--muted); }
+    .day-topic { font-size: 15px; font-weight: 600; color: #fff; flex: 1; }
+    .day-body { padding: 16px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 680px) { .day-body { grid-template-columns: 1fr; } }
+    .day-field { }
+    .day-field .label { margin-bottom: 4px; }
+    .day-field p { font-size: 13px; color: #ccc; }
+    .day-field.full { grid-column: 1 / -1; }
+
+    /* ── Pillar chips ── */
+    .pillar-chip {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      background: rgba(47,91,136,.25);
+      color: #7aaed8;
+      border: 1px solid rgba(47,91,136,.4);
+      margin-bottom: 8px;
+    }
+
+    /* ── Pulse row ── */
+    .pulse-row td:first-child { color: var(--accent); font-weight: 600; }
+
+    /* ── Review flag box ── */
+    .review-box {
+      background: rgba(245,158,11,.08);
+      border: 1px solid rgba(245,158,11,.3);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #e8c26a;
+      margin-top: 10px;
+    }
+    .review-box strong { color: var(--amber); }
+
+    /* ── Rotation grid ── */
+    .rotation-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+    .rot-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+    .rot-card .rot-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .rot-card .rot-val { font-size: 14px; font-weight: 600; color: #fff; }
+    .rot-card.active { border-left: 3px solid var(--navylt); }
+    .rot-card.resting { border-left: 3px solid var(--border); opacity: 0.65; }
+
+    hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+    ul { padding-left: 18px; }
+    ul li { margin-bottom: 4px; color: #ccc; font-size: 13px; }
+
+    .source-link { color: var(--navylt); text-decoration: none; font-size: 11px; }
+    .source-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="brand">BPOAS — BPO Accounting Services · Mohaina Asira</div>
+  <h1>Content Calendar — Week of 29 June 2026</h1>
+  <div class="meta">
+    Generated: <span>Thursday 26 June 2026</span> &nbsp;·&nbsp;
+    Branch: <span>claude/zealous-mayer-d3avgn</span> &nbsp;·&nbsp;
+    Brand accent: <span>#E8294C</span> (default — no hex in positioning doc)
+    &nbsp;·&nbsp; Brand palette: <span>#1F3A5F · #2E5B88</span> (from inbox)
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 1: COMPLIANCE PULSE               -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="section-num">1</span> Compliance Pulse</div>
+
+  <div class="card alert" style="margin-bottom:16px;">
+    <strong style="color:var(--accent);">⚡ 3 Active Triggers Found This Week</strong>&nbsp;
+    <span class="muted">— 2 slots impacted (Monday, Wednesday). Flag for Mohaina's review before publishing.</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Trigger</th>
+        <th>Source &amp; Date</th>
+        <th>Slot Impacted</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="pulse-row">
+        <td><span class="flag flag-red">URGENT</span> DMCC company name change — all DMCC companies must update suffix to FZCO by 30 June 2026</td>
+        <td>
+          DMCC Registrar mandatory transition (effective 2 Jan 2025 for new cos; 30 Jun 2026 deadline for existing cos)<br>
+          <span class="muted">Source: Univide / jamesberrylaw.com · Jun 2026</span>
+        </td>
+        <td><strong>Monday 29 Jun</strong><br><span class="muted">Deadline is tomorrow from Monday's post</span></td>
+        <td><span class="flag">Auto-prioritised</span><br>Free zone compliance checklist post. <span class="flag flag-red">Review flag</span></td>
+      </tr>
+      <tr class="pulse-row">
+        <td><span class="flag flag-red">URGENT</span> VAT return filing deadline — 29 June 2026 is the final day for applicable VAT periods</td>
+        <td>
+          FTA official announcement<br>
+          <span class="muted">Source: tax.gov.ae · Jun 2026</span>
+        </td>
+        <td><strong>Monday 29 Jun</strong><br><span class="muted">Deadline is today — reinforce via free zone checklist</span></td>
+        <td><span class="flag">Incorporated</span><br>Woven into Monday DMCC post. <span class="flag flag-red">Review flag</span></td>
+      </tr>
+      <tr class="pulse-row">
+        <td><span class="flag">APPROACHING</span> Corporate Tax filing + payment deadline — 30 September 2026 for Dec 2025 year-end. Late penalty now 14% per annum (Cabinet Decision 129/2025, effective 14 Apr 2026)</td>
+        <td>
+          FTA urge submission within 9 months; Cabinet Decision 129/2025<br>
+          <span class="muted">Source: tax.gov.ae + gflolaw.com + jaxaauditors.com · Jun 2026</span>
+        </td>
+        <td><strong>Wednesday 2 Jul</strong><br><span class="muted">3-month countdown — soft sell slot</span></td>
+        <td><span class="flag">Auto-prioritised</span><br>CT deadline soft sell post. <span class="flag flag-red">Review flag</span></td>
+      </tr>
+      <tr>
+        <td>FTA updated Corporate Tax Guide on Family Foundations (CTGFF1) — clarifications on Article 17 transparency for jointly-owned entities</td>
+        <td>
+          FTA Ministerial guidance update<br>
+          <span class="muted">Source: BDO / Baker McKenzie · 10 Jun 2026</span>
+        </td>
+        <td><em>Not this week</em></td>
+        <td>HNW/family office audience — outside core SME ICP. Queue for future specialist post.</td>
+      </tr>
+      <tr>
+        <td>UAE DNFBP AML Mutual Evaluation (FATF) approaching 2026 — inspections more frequent, focused on controls in practice not just on paper</td>
+        <td>
+          Al Tamimi &amp; Company / amluae.com · 2026<br>
+          <span class="muted">MOET Circular 1/2026 (11 Mar 2026) updated high-risk country list</span>
+        </td>
+        <td><em>Not this week</em></td>
+        <td>Queue for AML/DNFBP-specific post. Directly relevant to BPOAS as registered DNFBP/AMLRO.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 2: CONTENT DEBT TRACKER           -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="section-num">2</span> Content Debt Tracker</div>
+
+  <div class="card ok">
+    <strong style="color:var(--green);">✓ No Content Debt From Prior Weeks</strong><br>
+    <span class="muted">
+      Notion database "Content Calendar — Week of 2026-06-29" contains 5 entries, all created 26 June 2026
+      for dates 29 Jun – 3 Jul 2026. No prior-week entries with unpublished status were found.
+    </span>
+  </div>
+
+  <div class="card warn" style="margin-top:12px;">
+    <strong style="color:var(--amber);">⚠ Setup Note — Status Field Missing</strong><br>
+    <span style="font-size:13px; color:#e8c26a;">
+      The current Notion database schema does not include a <em>Status</em> property
+      (Planned / Published / Archived). Without it, the Content Debt Tracker cannot automatically
+      flag unpublished prior-week entries in future runs. Recommended: add a Status select field
+      to the database with options Planned, Published, Archived before next week's calendar save.
+    </span>
+  </div>
+
+  <p style="margin-top:14px; font-size:13px; color:var(--muted);">
+    <strong style="color:#888;">Existing entries revised this run:</strong>
+    Monday (compliance trigger replaced CIT evergreen post) · Tuesday (ICP sector story replaced founder origin story) · Wednesday (CT September deadline replaced monthly reporting post).
+    Thursday and Friday retained from initial plan.
+  </p>
+</div>
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 3: WEEKLY CALENDAR                -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="section-num">3</span> Weekly Calendar — 29 June – 3 July 2026</div>
+
+
+  <!-- MONDAY -->
+  <div class="day-card">
+    <div class="day-card-header">
+      <div>
+        <div class="day-label">Monday</div>
+        <div class="day-date">29 June 2026</div>
+      </div>
+      <div class="day-topic">DMCC companies: tomorrow is the last day to update your name to FZCO — and 4 other free zone compliance checks to run this week</div>
+      <span class="badge badge-educating">Educating</span>
+      <span class="flag flag-red">Review Required</span>
+    </div>
+    <div class="day-body">
+      <div class="day-field">
+        <div class="label">Pillar</div>
+        <span class="pillar-chip">UAE Compliance — Compliance Without the Panic</span>
+      </div>
+      <div class="day-field">
+        <div class="label">Format</div>
+        <p>Framework Post (Variation A) — target: saves + shares</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">Topic / Angle</div>
+        <p>⚡ COMPLIANCE PULSE TRIGGERED. DMCC companies must update company name suffix to FZCO by 30 June 2026 — the deadline is tomorrow from this post. Primary angle: what DMCC companies must do today. Secondary: 4 other free zone compliance checks — (1) audited financial statements required for licence renewal (major free zones, fin years from 1 Jun 2023), (2) approved auditor check — DMCC / DAFZA / DIFC / JAFZA maintain closed panels, (3) QFZP condition for 0% CT rate: IFRS-compliant audited accounts required, (4) AML/CFT policy in place and current (DNFBP obligations). Frame as practical checklist, not lecture.</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">Hook Direction</div>
+        <p>Situation-first urgency — Curiosity Gap archetype. <em>"If your company is registered in DMCC, tomorrow — 30 June — is your last day to update your name ending to FZCO. After that, you're out of step with the Registrar. While you've got this open, here are 4 other free zone compliance checks to run before the week is out:"</em> Opens with the specific deadline, not a statistic. Under 20 words before the list. Targets the growth-ready owner who may have missed this requirement entirely — their fear of FTA/Registrar penalties is the ICP pain point.</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">CTA Direction</div>
+        <p>"Save this + tag a founder in a UAE free zone who needs to see it before tomorrow midnight." Drive saves and shares. No DM ask — content does the work.</p>
+        <div class="review-box">
+          <strong>⚠ Flag for Mohaina's Review Before Publishing</strong><br>
+          Verify: (1) DMCC FZCO June 30 enforcement position and any grace period. (2) Approved auditor panel process per free zone. (3) QFZP IFRS condition wording. All compliance claims require accuracy check. Source: Univide / James Berry &amp; Associates / kgrnaudit.com · Jun 2026.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- TUESDAY -->
+  <div class="day-card">
+    <div class="day-card-header">
+      <div>
+        <div class="day-label">Tuesday</div>
+        <div class="day-date">30 June 2026</div>
+      </div>
+      <div class="day-topic">We got the call three months before a Dubai restaurant's first CIT filing — here's what we found when we came in</div>
+      <span class="badge badge-nurturing">Nurturing</span>
+    </div>
+    <div class="day-body">
+      <div class="day-field">
+        <div class="label">Pillar</div>
+        <span class="pillar-chip">BPOAS Behind the Scenes — Inside an Owner-Led Firm</span>
+      </div>
+      <div class="day-field">
+        <div class="label">Format</div>
+        <p>Story Post (Variation B) — target: connection, DMs, comments</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">Topic / Angle — ICP Sector: F&amp;B (first in rotation)</div>
+        <p>Anonymised client scenario — Dubai F&amp;B business, ~20 staff, owner-operated restaurant. Secretary handling all bookkeeping. Owner approached BPOAS three months before his first Corporate Tax filing, thinking the books were fine. BPOAS came on-site, reviewed supporting documents physically. Found: unrecorded supplier invoices in VAT returns, input tax claimed on non-compliant invoices, no monthly P&amp;L — owner running on bank balance. Hands-on reconstruction over three months. He ended the engagement with clean books, a defensible CIT filing, and monthly reporting he can actually use. Human ending: what he said when he saw his first real P&amp;L. No product pitch.</p>
+        <p style="margin-top:8px; font-size:12px; color:var(--muted);"><strong>Scenario rules check:</strong> ICP matched (UAE SME, 5–200 employees, F&amp;B sector). Problem real and specific (missed VAT input issues, CIT readiness gap). Resolution reflects BPOAS working style (on-site, document-level review). No real client named. No fabricated law or figure.</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">Hook Direction</div>
+        <p>Situation-first, natural speech — Story archetype. <em>"A restaurant owner in Dubai called us three months before his first Corporate Tax filing. He thought he was ready. His books said otherwise."</em> ICP pain language: "thought he was ready" and "his books said otherwise." Opens with the client's situation, not a BPOAS claim. Lets the story reveal the principle: on-site, document-level review catches what no remote review can.</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">CTA Direction</div>
+        <p>No hard CTA. Close with the human moment — not a product pitch. e.g. <em>"He called it the first time he actually understood his business. That's the job."</em> Optional soft close: <em>"Has your business had a moment like this — where the numbers finally made sense?"</em> Invite comments. Let the story breathe.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- WEDNESDAY -->
+  <div class="day-card">
+    <div class="day-card-header">
+      <div>
+        <div class="day-label">Wednesday</div>
+        <div class="day-date">1 July 2026</div>
+      </div>
+      <div class="day-topic">Your CIT return is due 30 September. 3 months sounds like a lot. Here's what "ready" actually means — and what most UAE SMEs are still missing.</div>
+      <span class="badge badge-softsell">Soft Selling</span>
+      <span class="flag flag-red">Review Required</span>
+    </div>
+    <div class="day-body">
+      <div class="day-field">
+        <div class="label">Pillar</div>
+        <span class="pillar-chip">SME Financial Health — What the Numbers Are Telling You</span>
+      </div>
+      <div class="day-field">
+        <div class="label">Format</div>
+        <p>Soft-Sell Framework (Variation A) — target: DMs and enquiries</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">Topic / Angle</div>
+        <p>⚡ COMPLIANCE PULSE TRIGGERED. CT September 30 deadline approaching + late payment penalty now 14% per annum (Cabinet Decision 129/2025, effective April 2026). Frame what "ready" actually requires — not just a filed return, but books that can produce a defensible tax calculation: full-year close, supporting documents retrievable, related-party transactions documented, VAT reconciled to revenue, every expense backed by a valid tax invoice. Two-choices close: get reviewed now by someone who knows what CIT readiness looks like, or find out the gaps when it's too late. Hint at BPOAS's CIT filing service without hard-selling it.</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">Hook Direction</div>
+        <p>Deadline reality check — Stat Lead archetype (but no raw stat as opener). <em>"September 30 is the Corporate Tax filing deadline for most UAE companies. Most owners I speak to think they're fine. I look at their books. They're not fine."</em> Frames the gap between confidence and readiness. Measured tone — serious, not alarm. Hints at BPOAS's role without naming it directly in the hook.</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">CTA Direction</div>
+        <p>"DM me CITREADY and I'll tell you exactly where your books stand before September." One CTA, no branching options. Drive DMs.</p>
+        <div class="review-box">
+          <strong>⚠ Flag for Mohaina's Review Before Publishing</strong><br>
+          Verify: (1) September 30, 2026 CT filing deadline for Dec 2025 year-end. (2) 14% per annum late payment penalty — Cabinet Decision 129/2025, effective 14 April 2026. (3) "Filing and payment as a single obligation" — confirm current FTA enforcement position. Sources: tax.gov.ae, gflolaw.com, jaxaauditors.com · Jun 2026.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- THURSDAY -->
+  <div class="day-card">
+    <div class="day-card-header">
+      <div>
+        <div class="day-label">Thursday</div>
+        <div class="day-date">2 July 2026</div>
+      </div>
+      <div class="day-topic">Hiring the cheapest accountant is the most expensive decision a UAE SME makes</div>
+      <span class="badge badge-engagement">Engagement</span>
+    </div>
+    <div class="day-body">
+      <div class="day-field">
+        <div class="label">Pillar</div>
+        <span class="pillar-chip">Owner Mindset — The True Cost of Cheap Accounting</span>
+      </div>
+      <div class="day-field">
+        <div class="label">Format</div>
+        <p>Contrarian Text Post — target: comments and debate</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">Topic / Angle</div>
+        <p>Contrarian take rooted in BPOAS positioning — "we think like owners, not accountants." Acknowledge why owners hire cheap (accounting feels like a cost, not an asset). Reframe with the real cost: FTA penalties, missed deductions, a year of books nobody can trust, reconstruction fees (e.g. AED 18,000 to rebuild ~3 years of accounts). The cost isn't the accounting fee. It's what happens when the accounting is wrong. Genuine POV — not manufactured controversy. No humour on client protection.</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">Hook Direction</div>
+        <p>Quoted pushback / bold opinion — Contrarian archetype. <em>"'But a proper firm is too expensive.' — I hear this every week. It's backwards."</em> Or: <em>"Cheap accounting was never actually cheap."</em> Acknowledge the owner's logic → then reframe. Serious tone. Use the real AED figure only if verifiable.</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">CTA Direction</div>
+        <p>"Have you ever paid more to fix cheap work than doing it right would have cost? Tell me below." Direct question to spark comments. Goal: debate + connection.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FRIDAY -->
+  <div class="day-card">
+    <div class="day-card-header">
+      <div>
+        <div class="day-label">Friday</div>
+        <div class="day-date">3 July 2026</div>
+      </div>
+      <div class="day-topic">eInvoicing is coming: the 5 things to fix in your accounting system before the FTA mandate</div>
+      <span class="badge badge-educating">Educating</span>
+    </div>
+    <div class="day-body">
+      <div class="day-field">
+        <div class="label">Pillar</div>
+        <span class="pillar-chip">Tech &amp; Automation — Compliance Without the Panic</span>
+      </div>
+      <div class="day-field">
+        <div class="label">Format</div>
+        <p>Framework Post (Variation A) — mirrors Monday's top intent · target: saves + reposts</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">Topic / Angle</div>
+        <p>Friday performance mirror: no LinkedIn analytics available this week — defaulting to Educating intent (same as Monday, highest-leverage play for authority + saves at BPOAS's stage). Topic: the incoming eInvoicing FTA mandate. 5 gaps to close: (1) move to a compliant system (Zoho Books / Odoo), (2) clean master data, (3) map tax codes correctly, (4) get FTA-portal integration ready, (5) run a test invoicing cycle. Positions BPOAS's Zoho and Odoo implementation services without hard-selling.</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">Hook Direction</div>
+        <p>Framework promise — opens with 'If'. <em>"If eInvoicing went live tomorrow, here are the 5 gaps I'd close first:"</em> Under 12 words. No statistic opener. Targets owners who haven't thought about system readiness. Curiosity Gap archetype: owner doesn't know if their system is compliant — this tells them what to check.</p>
+      </div>
+      <div class="day-field full">
+        <div class="label">CTA Direction</div>
+        <p>"(Save this + Repost if useful ♻️)" under hook. Close with quiet encouragement in Mohaina's voice. P.S.: businesses without a proper system will be forced to act — better to move before the market catches up. Optional light DM invite.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /section 3 -->
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 4: PILLAR ROTATION STATUS         -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="section-num">4</span> Pillar Rotation Status</div>
+
+  <div class="rotation-grid" style="margin-bottom:20px;">
+    <div class="rot-card active">
+      <div class="rot-label">Active This Week · 2 uses</div>
+      <div class="rot-val">Compliance Without the Panic</div>
+      <div class="muted" style="margin-top:4px;">Mon (DMCC) + Fri (eInvoicing) — not consecutive</div>
+    </div>
+    <div class="rot-card active">
+      <div class="rot-label">Active This Week · 1 use</div>
+      <div class="rot-val">Inside an Owner-Led Firm</div>
+      <div class="muted" style="margin-top:4px;">Tue — F&amp;B client story</div>
+    </div>
+    <div class="rot-card active">
+      <div class="rot-label">Active This Week · 1 use</div>
+      <div class="rot-val">What the Numbers Are Telling You</div>
+      <div class="muted" style="margin-top:4px;">Wed — CT September soft sell</div>
+    </div>
+    <div class="rot-card active">
+      <div class="rot-label">Active This Week · 1 use</div>
+      <div class="rot-val">The True Cost of Cheap Accounting</div>
+      <div class="muted" style="margin-top:4px;">Thu — contrarian</div>
+    </div>
+    <div class="rot-card resting">
+      <div class="rot-label">Resting</div>
+      <div class="rot-val">Tech &amp; Automation (standalone)</div>
+      <div class="muted" style="margin-top:4px;">Absorbed into Friday under Compliance umbrella</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+      <div>
+        <div class="label" style="margin-bottom:6px;">Pillar usage check</div>
+        <ul>
+          <li>No pillar used 3+ times consecutively — ✓ rotation clear</li>
+          <li>"Compliance Without the Panic" used Mon + Fri (2 of 5, non-consecutive) — within limit</li>
+          <li>4 of 5 pillars active this week — healthy coverage</li>
+        </ul>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:6px;">Tuesday Sector Rotation</div>
+        <ul>
+          <li><strong>This week:</strong> F&amp;B (first in rotation — no prior Notion data)</li>
+          <li><strong>Next week:</strong> Logistics</li>
+          <li>Full rotation: F&amp;B → Logistics → Real Estate → FinTech → Healthcare → Professional Services → Trading → F&amp;B</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card warn" style="margin-top:12px;">
+    <strong style="color:var(--amber);">⚡ Compliance Priority Flag</strong>&nbsp;
+    <span style="font-size:13px; color:#e8c26a;">
+      DMCC FZCO deadline (30 Jun) and VAT return deadline (29 Jun) both triggered Monday slot this week.
+      CT September 30 deadline (with 14% late penalty) triggered Wednesday slot.
+      All three contain specific UAE laws / penalty figures — <strong>accuracy check required before publishing.</strong>
+    </span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SECTION 5: FRIDAY PERFORMANCE NOTE        -->
+<!-- ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-title"><span class="section-num">5</span> Friday Performance Note</div>
+
+  <div class="card">
+    <div class="label" style="margin-bottom:8px;">Intent Selected for Friday</div>
+    <p style="font-size:15px; font-weight:600; color:var(--blue); margin-bottom:10px;">Educating (default)</p>
+    <p style="font-size:13px; color:#ccc; margin-bottom:10px;">
+      No LinkedIn analytics or Notion engagement data available for this week's posts —
+      week has not yet run. Defaulted to <strong>Educating</strong> per the instruction:
+      "If no data available: default to Educating."
+    </p>
+    <p style="font-size:13px; color:var(--muted);">
+      <strong style="color:#888;">Source:</strong> No data — Notion database has no engagement metrics. LinkedIn API not connected.<br>
+      <strong style="color:#888;">Format mirrored:</strong> Framework Post (Variation A) — same as Monday. Highest-leverage play for authority + saves at BPOAS's current stage.<br>
+      <strong style="color:#888;">Action for Mohaina:</strong> Once the week runs, check LinkedIn post analytics (impressions, saves, comments) and update the Friday slot for next week to mirror the top-performing intent.
+    </p>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<hr />
+<p style="font-size:11px; color:var(--muted); text-align:center;">
+  BPOAS Content Calendar · Generated 26 June 2026 ·
+  All posts referencing UAE law, penalty figures, or regulatory deadlines
+  are flagged for Mohaina Asira's accuracy review before publishing.
+  Brand colors: #E8294C (header, default) · #1F3A5F · #2E5B88 (brand palette) ·
+  Background #0A0A0A
+</p>
+
+</body>
+</html>
