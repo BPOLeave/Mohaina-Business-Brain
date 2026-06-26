@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFO Weekly Revenue · Purely Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#1F3A5F; --primary-light:#4A6E9E;
+    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:15px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-red{background:#fdecec;color:var(--bad);} .t-amb{background:#fdf1de;color:var(--warn);}
+  .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-grn{background:#e7f6ee;color:var(--good);} .t-blue{background:#e6f0fc;color:#1E6FE0;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .delta{font-size:12.5px;font-weight:600;margin-top:4px;color:var(--gray-text);}
+  .bar{height:14px;border-radius:var(--pill);background:var(--gray-light);overflow:hidden;margin-top:10px;}
+  .bar i{display:block;height:100%;width:0;border-radius:var(--pill);background:linear-gradient(90deg,var(--primary),var(--primary-light));}
+  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
+  .note b{color:var(--primary-light);}
+  .qbox{width:100%;border:1px dashed rgba(255,255,255,.4);border-radius:10px;padding:12px;font-family:inherit;font-size:14px;color:#fff;background:rgba(255,255,255,.06);margin-top:10px;}
+  .qbox::placeholder{color:rgba(255,255,255,.55);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CFO · Weekly revenue</div><h1>This week: 1 new client, 2 deals live</h1><div class="d">Friday, 26 June 2026 · read only, I never move money · figures shown are only what your tools can verify</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Cash in (this week)</div><div class="n" style="font-size:28px">AED —</div><div class="delta">Not visible to connected tools. See flag 1.</div></div>
+      <div class="stat"><div class="l">New clients won</div><div class="n"><span class="count" data-to="1">0</span></div><div class="delta up" style="color:var(--good)">MCM Products, signed Wed</div></div>
+      <div class="stat"><div class="l">Live pipeline deals</div><div class="n"><span class="count" data-to="2">0</span></div><div class="delta">Richemont renewal, Cartier new</div></div>
+    </div>
+
+    <div class="card" style="padding:18px 20px"><div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--gray-text)">Monthly goal · not set</span><span style="font-weight:700">— %</span></div><div class="bar"><i data-pct="0%"></i></div><div style="font-size:12.5px;color:var(--gray-text);margin-top:8px">No revenue target found in your foundation docs. Give me a monthly number and I will track run rate against it every week.</div></div>
+
+    <div class="sec">What moved this week</div>
+    <div class="card"><h4>Wins and pipeline</h4>
+      <div class="row">MCM Products, VAT advisory proposal signed 25 Jun<span class="tagi t-grn">won</span></div>
+      <div class="row">Richemont, BPO contract renewal 2026 to 2027, final redlines in<span class="tagi t-amb">closing</span></div>
+      <div class="row">Cartier (Ghazal Al Safadi), new bookkeeping, meeting Mon 1:30<span class="tagi t-blue">new</span></div>
+    </div>
+
+    <div class="card"><h4>Costs that cleared (not your revenue)</h4>
+      <div class="row">Zoho Books subscriptions, paid 19 Jun<span class="tagi t-grey">software</span></div>
+      <div class="row">Regus, monthly office, bank transfer<span class="tagi t-grey">overhead</span></div>
+      <div class="row">Odoo Middle East invoice, paid for a client setup (MFZ)<span class="tagi t-grey">pass-through</span></div>
+    </div>
+
+    <div class="sec">Attention flags</div>
+    <div class="card"><h4>Three things, in order</h4>
+      <div class="row">No revenue figures reach your tools. You bill via Zoho Books and bank, neither connected<span class="tagi t-red">act</span></div>
+      <div class="row">Possible concentration: Richemont appears across renewal and Cartier. Confirm it is under 30% of revenue<span class="tagi t-amb">watch</span></div>
+      <div class="row">A signed proposal is not cash. Get the first MCM invoice out now<span class="tagi t-grn">bank it</span></div>
+    </div>
+
+    <div class="sec">Overdue invoices</div>
+    <div class="card"><h4>Your own unpaid invoices</h4>
+      <div class="row">None visible. BPOAS-issued invoices live in Zoho, not in a connected tool, so I cannot confirm what is outstanding.<span class="tagi t-grey">connect to track</span></div>
+      <div style="font-size:12.5px;color:var(--gray-text);margin-top:6px">Note: the SAR 49,197.10 transfer your team is chasing (Almosafer to Menastar) is a client receivable, not your invoice. Michelle is already on it.</div>
+    </div>
+
+    <div class="note">The one revenue move this week with the biggest impact: <b>invoice MCM Products today</b>. They signed Wednesday, and a signed proposal only becomes cash once the invoice goes out and clears. Then give me three numbers so next Friday is real:<textarea class="qbox" rows="3" placeholder="1. What came in this week (AED paid)?  2. What is unpaid (who owes what)?  3. Pipeline value (Richemont renewal + Cartier estimate)..."></textarea></div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.note',{y:20,opacity:0,duration:.55,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 88%'}});
+      gsap.utils.toArray('.count').forEach(function(el){
+        var to=+el.dataset.to,o={v:0};
+        gsap.to(o,{v:to,duration:1.2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 95%'},onUpdate:function(){el.textContent=Math.round(o.v).toLocaleString();}});
+      });
+      gsap.utils.toArray('.bar i').forEach(function(el){
+        gsap.to(el,{width:el.dataset.pct||'0%',duration:1.2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 95%'}});
+      });
+    });
+  </script>
+</body>
+</html>
