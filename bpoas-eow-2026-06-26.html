@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BPOAS EOW Review · Week of 23 June 2026</title>
+  <style>
+    :root {
+      --bg: #0A0A0A;
+      --card: #141414;
+      --card-alt: #1a1a1a;
+      --brand: #E8294C;
+      --brand-dim: rgba(232,41,76,0.12);
+      --green: #22c55e;
+      --green-dim: rgba(34,197,94,0.12);
+      --amber: #f59e0b;
+      --amber-dim: rgba(245,158,11,0.12);
+      --red: #ef4444;
+      --red-dim: rgba(239,68,68,0.12);
+      --text: #e5e5e5;
+      --muted: #737373;
+      --border: #262626;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+    .page { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+
+    /* Header */
+    .header { display: flex; flex-direction: column; gap: 6px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .header-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); background: var(--brand-dim); padding: 4px 10px; border-radius: 4px; width: fit-content; }
+    .header-title { font-size: 26px; font-weight: 700; color: #fff; }
+    .header-sub { font-size: 13px; color: var(--muted); }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 24px;
+    }
+    .card-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .card-title .dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--brand); flex-shrink: 0;
+    }
+
+    /* Hero Scorecard */
+    .hero { background: linear-gradient(135deg, #141414 0%, #1a1014 100%); border-color: var(--brand-dim); }
+    .scorecard-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 20px; }
+    @media (max-width: 640px) { .scorecard-grid { grid-template-columns: repeat(2, 1fr); } }
+    .score-item {
+      background: var(--card-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 12px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .score-label { font-size: 11px; color: var(--muted); font-weight: 500; }
+    .score-status { font-size: 18px; }
+    .score-text { font-size: 12px; font-weight: 600; }
+    .score-text.green { color: var(--green); }
+    .score-text.amber { color: var(--amber); }
+    .score-text.red { color: var(--red); }
+
+    .overall-rating {
+      background: var(--card-alt); border: 1px solid var(--border); border-radius: 8px;
+      padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px;
+    }
+    .overall-label { font-size: 12px; color: var(--muted); font-weight: 500; }
+    .overall-value { font-size: 14px; font-weight: 700; color: var(--amber); }
+
+    .week-summary {
+      background: var(--brand-dim); border: 1px solid rgba(232,41,76,0.2); border-radius: 8px;
+      padding: 14px 16px; font-size: 14px; color: var(--text); font-style: italic; line-height: 1.6;
+    }
+
+    /* Metric rows */
+    .metric-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+    .metric-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .metric-label { font-size: 13px; color: var(--muted); flex: 1; min-width: 160px; }
+    .metric-value { font-size: 13px; font-weight: 600; color: var(--text); text-align: right; flex: 1; }
+    .metric-value.na { color: var(--muted); font-weight: 400; font-style: italic; }
+    .metric-value.green { color: var(--green); }
+    .metric-value.amber { color: var(--amber); }
+    .metric-value.red { color: var(--red); }
+
+    /* Status pill */
+    .pill {
+      display: inline-block; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+    }
+    .pill-green { background: var(--green-dim); color: var(--green); }
+    .pill-amber { background: var(--amber-dim); color: var(--amber); }
+    .pill-red { background: var(--red-dim); color: var(--red); }
+    .pill-brand { background: var(--brand-dim); color: var(--brand); }
+
+    /* Section heading inside card */
+    .section-heading { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 18px 0 10px; padding-top: 16px; border-top: 1px solid var(--border); }
+    .section-heading:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+
+    /* Timeline / event list */
+    .event-list { display: flex; flex-direction: column; gap: 8px; }
+    .event-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: var(--card-alt); border-radius: 6px; padding: 10px 12px;
+    }
+    .event-day { font-size: 11px; font-weight: 700; color: var(--brand); min-width: 32px; padding-top: 1px; }
+    .event-content { flex: 1; }
+    .event-title { font-size: 13px; font-weight: 600; color: var(--text); }
+    .event-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    /* Flag cards */
+    .flag-list { display: flex; flex-direction: column; gap: 10px; }
+    .flag-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: var(--red-dim); border: 1px solid rgba(239,68,68,0.2); border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .flag-icon { font-size: 18px; flex-shrink: 0; }
+    .flag-content { flex: 1; }
+    .flag-title { font-size: 13px; font-weight: 700; color: var(--red); margin-bottom: 3px; }
+    .flag-detail { font-size: 12px; color: var(--text); line-height: 1.5; }
+    .flag-owner { font-size: 11px; color: var(--muted); margin-top: 4px; font-weight: 600; }
+
+    /* Priority items */
+    .priority-list { display: flex; flex-direction: column; gap: 12px; }
+    .priority-item {
+      background: var(--card-alt); border: 1px solid var(--border); border-radius: 8px;
+      padding: 14px 16px; display: flex; gap: 14px; align-items: flex-start;
+    }
+    .priority-num {
+      font-size: 20px; font-weight: 800; color: var(--brand); flex-shrink: 0;
+      line-height: 1; padding-top: 2px;
+    }
+    .priority-content { flex: 1; }
+    .priority-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .priority-why { font-size: 12px; color: var(--muted); margin-bottom: 6px; line-height: 1.5; }
+    .priority-owner { font-size: 11px; font-weight: 700; color: var(--brand); }
+
+    /* Compliance radar */
+    .radar-list { display: flex; flex-direction: column; gap: 8px; }
+    .radar-item {
+      display: flex; gap: 10px; align-items: center;
+      padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border);
+    }
+    .radar-item.critical { background: var(--red-dim); border-color: rgba(239,68,68,0.25); }
+    .radar-item.watch { background: var(--amber-dim); border-color: rgba(245,158,11,0.2); }
+    .radar-item.clear { background: var(--green-dim); border-color: rgba(34,197,94,0.2); }
+    .radar-label { font-size: 12px; font-weight: 600; flex: 1; }
+    .radar-label.critical { color: var(--red); }
+    .radar-label.watch { color: var(--amber); }
+    .radar-label.clear { color: var(--green); }
+    .radar-date { font-size: 11px; color: var(--muted); }
+    .radar-detail { font-size: 12px; color: var(--muted); width: 100%; margin-top: 2px; }
+
+    /* Content grid */
+    .content-row { display: grid; grid-template-columns: 80px 1fr 90px 80px; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); align-items: start; }
+    @media (max-width: 600px) { .content-row { grid-template-columns: 1fr; } }
+    .content-row:last-child { border-bottom: none; }
+    .content-day-label { font-size: 11px; font-weight: 700; color: var(--brand); }
+    .content-topic { font-size: 12px; color: var(--text); line-height: 1.4; }
+    .content-intent { font-size: 11px; color: var(--muted); }
+    .content-status { font-size: 11px; }
+
+    /* Data gap notice */
+    .data-gap {
+      background: rgba(115,115,115,0.08); border: 1px dashed var(--border);
+      border-radius: 6px; padding: 10px 14px;
+      font-size: 12px; color: var(--muted); font-style: italic;
+      display: flex; gap: 8px; align-items: center;
+    }
+
+    /* Two-column layout */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* Team table */
+    .team-grid { display: flex; flex-direction: column; gap: 10px; }
+    .team-row {
+      display: grid; grid-template-columns: 150px 1fr;
+      gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); align-items: start;
+    }
+    @media (max-width: 500px) { .team-row { grid-template-columns: 1fr; } }
+    .team-row:last-child { border-bottom: none; }
+    .team-name { font-size: 12px; font-weight: 700; color: var(--text); }
+    .team-role { font-size: 11px; color: var(--muted); margin-top: 1px; }
+    .team-activity { font-size: 12px; color: var(--text); line-height: 1.5; }
+
+    /* Unresolved thread */
+    .thread-item {
+      background: var(--amber-dim); border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 6px; padding: 10px 14px; margin-bottom: 8px;
+    }
+    .thread-subject { font-size: 12px; font-weight: 700; color: var(--amber); margin-bottom: 3px; }
+    .thread-detail { font-size: 12px; color: var(--text); line-height: 1.5; }
+
+    /* Footer */
+    .footer { text-align: center; font-size: 11px; color: var(--muted); padding-top: 10px; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-badge"><span>⬤</span> BPOAS · End of Week Review</div>
+    <div class="header-title">Week of 23 June 2026</div>
+    <div class="header-sub">Generated Friday 26 June 2026 · 17:00 UAE (GST, UTC+4) · Mohaina Asira, Managing Partner</div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       HERO: SCORECARD
+  ──────────────────────────────────────────── -->
+  <div class="card hero">
+    <div class="card-title"><span class="dot"></span>Weekly Scorecard</div>
+    <div class="scorecard-grid">
+      <div class="score-item">
+        <div class="score-label">Revenue</div>
+        <div class="score-status">🟡</div>
+        <div class="score-text amber">Amber</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">Zoho data unavailable — manual check needed</div>
+      </div>
+      <div class="score-item">
+        <div class="score-label">Pipeline</div>
+        <div class="score-status">🟢</div>
+        <div class="score-text green">Green</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">1 deal won this week</div>
+      </div>
+      <div class="score-item">
+        <div class="score-label">Content</div>
+        <div class="score-status">🟡</div>
+        <div class="score-text amber">Amber</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">No posts logged this week; next week fully planned</div>
+      </div>
+      <div class="score-item">
+        <div class="score-label">Compliance</div>
+        <div class="score-status">🔴</div>
+        <div class="score-text red">Red</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">DMCC FZCO deadline Monday 30 June</div>
+      </div>
+      <div class="score-item">
+        <div class="score-label">Team</div>
+        <div class="score-status">🟡</div>
+        <div class="score-text amber">Amber</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">Raihana active; Junaifa & Rei not logged</div>
+      </div>
+    </div>
+
+    <div class="overall-rating">
+      <div>
+        <div class="overall-label">Overall Week Rating</div>
+        <div class="overall-value">Needs Attention — 1 Green · 2 Amber · 1 Red</div>
+      </div>
+      <div><span class="pill pill-amber">1 critical flag open</span></div>
+    </div>
+
+    <div class="week-summary">
+      "The week moved forward — MCM signed, next week's content is ready, the team did the work — but the DMCC deadline is on Monday and the revenue numbers still need a proper look before I can say we're on track."
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       1. REVENUE WEEK IN REVIEW
+  ──────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>1 · Revenue Week in Review</div>
+
+    <div class="data-gap" style="margin-bottom:14px;">⚠ Zoho Books not connected via MCP this session. All revenue figures below require manual verification from Zoho Books.</div>
+
+    <div class="metric-row">
+      <div class="metric-label">Revenue received this week (AED)</div>
+      <div class="metric-value na">Not available — manual input required</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">vs prior week</div>
+      <div class="metric-value na">Not available</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Invoices raised this week</div>
+      <div class="metric-value na">Not available — check Zoho Books</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Invoices paid this week</div>
+      <div class="metric-value na">Not available — check Zoho Books</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Raised vs Paid gap (AED)</div>
+      <div class="metric-value na">Not available</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">New retainer signed this week</div>
+      <div class="metric-value green">Yes — MCM Products Middle East LLC (VAT Compliance Review &amp; Advisory Services)</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Month-to-date vs monthly target</div>
+      <div class="metric-value na">Monthly target not found in brand files — manual input required</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Days left in June</div>
+      <div class="metric-value">4 days (27–30 June)</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Revenue Status</div>
+      <div class="metric-value"><span class="pill pill-amber">🟡 Amber — data not verified</span></div>
+    </div>
+
+    <div class="section-heading">Unresolved Payment Thread</div>
+    <div class="thread-item">
+      <div class="thread-subject">Almosafer · Account Claim #2010754 (Apr 8–15, 2026)</div>
+      <div class="thread-detail">Payment transfer rejected twice — transfer processed to old name; Almosafer's finance team confirmed rejection under new name "MENASTAR FZCO." Michelle Pacis (CPA, BPOAS) is managing. Teams meeting held June 25. Still unresolved as of June 26, 08:40.</div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       2. BD & PIPELINE MOVEMENT
+  ──────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>2 · BD &amp; Pipeline Movement</div>
+
+    <div class="metric-row">
+      <div class="metric-label">Prospects contacted this week</div>
+      <div class="metric-value na">Count not available — Notion CRM not fully visible; manual input recommended</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Raihana outreach activity</div>
+      <div class="metric-value">MFZ Company Documents sent to prospect contact Camille (Jun 26). Involved in MCM proposal follow-through.</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Responses received</div>
+      <div class="metric-value na">Not logged in Notion — manual input recommended</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Proposals sent this week</div>
+      <div class="metric-value">1 — MCM Products Middle East LLC (VAT Compliance Review &amp; Advisory Services)</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Deals won this week</div>
+      <div class="metric-value green">1 — MCM Products Middle East LLC · Signed proposal received Jun 25 · Value: not disclosed in email</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Deals lost / stalled</div>
+      <div class="metric-value na">Not logged — manual input recommended</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Net pipeline movement</div>
+      <div class="metric-value"><span class="pill pill-green">Growing</span> — 1 deal confirmed won; outreach active</div>
+    </div>
+
+    <div class="section-heading">Deal Won — Engagement Detail</div>
+    <div class="event-list">
+      <div class="event-item">
+        <div class="event-day">Jun 25</div>
+        <div class="event-content">
+          <div class="event-title">MCM Products Middle East LLC — Proposal Signed</div>
+          <div class="event-sub">VAT Compliance Review &amp; Advisory Services · Joanne Oquendo (Accountant) returned signed proposal + documents. Contact via r.asira (Raihana). Onboarding next step — no date confirmed yet.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       3. CONTENT PERFORMANCE
+  ──────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>3 · Content Performance</div>
+
+    <div class="metric-row">
+      <div class="metric-label">Posts published this week (Jun 23–26)</div>
+      <div class="metric-value amber">No posts logged in Notion for this week — <span class="pill pill-amber">Content Debt</span></div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">vs 5 planned target</div>
+      <div class="metric-value red">0 of 5 confirmed published · Content calendar for week of Jun 22 not found in Notion</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Top performing post this week</div>
+      <div class="metric-value na">No data — LinkedIn analytics not available</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Lowest performing post this week</div>
+      <div class="metric-value na">No data</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">LinkedIn follower movement</div>
+      <div class="metric-value na">Not available — manual check recommended</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Content Debt added this week</div>
+      <div class="metric-value amber">Logged — no Notion content calendar found for week of 23 June. Confirm with Rei whether posts went out manually.</div>
+    </div>
+
+    <div class="section-heading">Next Week Content Plan — Week of 29 June (5 posts planned ✓)</div>
+    <div class="content-row" style="font-size:11px;font-weight:700;color:var(--muted);padding-bottom:4px;border-bottom:2px solid var(--border);">
+      <div>Day</div><div>Topic</div><div>Intent · Format</div><div>Status</div>
+    </div>
+    <div class="content-row">
+      <div class="content-day-label">Mon 29</div>
+      <div class="content-topic">DMCC companies: last day to update name to FZCO — 4 free zone compliance checks</div>
+      <div class="content-intent">Educating · Framework</div>
+      <div><span class="pill pill-red">⚠ Accuracy check needed</span></div>
+    </div>
+    <div class="content-row">
+      <div class="content-day-label">Tue 30</div>
+      <div class="content-topic">Dubai restaurant called us 3 months before first CIT filing — what we found</div>
+      <div class="content-intent">Nurturing · Story</div>
+      <div><span class="pill pill-green">Ready</span></div>
+    </div>
+    <div class="content-row">
+      <div class="content-day-label">Wed 1</div>
+      <div class="content-topic">CIT return due 30 September — what "ready" actually means</div>
+      <div class="content-intent">Soft Selling · Framework</div>
+      <div><span class="pill pill-red">⚠ Compliance review required</span></div>
+    </div>
+    <div class="content-row">
+      <div class="content-day-label">Thu 2</div>
+      <div class="content-topic">Hiring the cheapest accountant is the most expensive decision a UAE SME makes</div>
+      <div class="content-intent">Engagement · Contrarian</div>
+      <div><span class="pill pill-green">Ready</span></div>
+    </div>
+    <div class="content-row">
+      <div class="content-day-label">Fri 3</div>
+      <div class="content-topic">eInvoicing: 5 things to fix in your accounting system before the FTA mandate</div>
+      <div class="content-intent">Educating · Framework</div>
+      <div><span class="pill pill-green">Ready</span></div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       4. COMPLIANCE & OPERATIONS
+  ──────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>4 · Compliance &amp; Operations</div>
+
+    <div class="metric-row">
+      <div class="metric-label">AML / VAT / CT / FTA actions completed this week</div>
+      <div class="metric-value na">Not logged in Notion — manual input recommended</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Client compliance issue raised or resolved</div>
+      <div class="metric-value amber">Almosafer payment transfer under new name (MENASTAR FZCO) — not yet resolved</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Engagement letters issued vs signed this week</div>
+      <div class="metric-value">MCM Products: proposal signed Jun 25. Formal engagement letter status: not confirmed.</div>
+    </div>
+    <div class="metric-row">
+      <div class="metric-label">Overdue items carrying into next week</div>
+      <div class="metric-value red">Almosafer account claim · Mohaina CC'd · Owner: Michelle Pacis + Mohaina review needed</div>
+    </div>
+
+    <div class="section-heading">Meetings Completed This Week</div>
+    <div class="event-list">
+      <div class="event-item">
+        <div class="event-day">Tue</div>
+        <div class="event-content">
+          <div class="event-title">10X with AI Live Accelerator — BPOAS Internal Team</div>
+          <div class="event-sub">Teams · 15:00–17:00 Dubai · Full team including Raihana, Junaifa, Rei, Michelle, other staff</div>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-day">Thu</div>
+        <div class="event-content">
+          <div class="event-title">Payment Transfer Discussion — Almosafer</div>
+          <div class="event-sub">Teams · 15:00–15:30 Dubai · Michelle Pacis + Almosafer finance team (Nada Ahmed / ar.finance@almosafer.com)</div>
+        </div>
+      </div>
+      <div class="event-item">
+        <div class="event-day">Fri</div>
+        <div class="event-content">
+          <div class="event-title">10X with AI Main Bootcamp — BPOAS Internal Team</div>
+          <div class="event-sub">Teams · 13:00–18:00 Dubai · Implementation day — building AI workflows and systems</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-heading">Unresolved Email Threads</div>
+    <div class="thread-item">
+      <div class="thread-subject">Almosafer · Payment Transfer Claim #2010754 · UNREAD</div>
+      <div class="thread-detail">Active thread with 8+ emails June 25–26. Almosafer confirmed transfer rejected under new company name MENASTAR FZCO. Michelle following up — Mohaina CC'd on escalation. Next step: confirm receipt of corrected transfer or escalate to Almosafer L2 contact.</div>
+    </div>
+    <div class="thread-item" style="background:rgba(232,41,76,0.07);border-color:rgba(232,41,76,0.2);">
+      <div class="thread-subject" style="color:var(--brand);">MFZ Company Documents — Raihana → Camille · UNREAD (Jun 26)</div>
+      <div class="thread-detail">Documents sent this morning. No confirmation reply received yet. Raihana to follow up Monday if no response.</div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       5. TEAM PULSE
+  ──────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>5 · Team Pulse</div>
+
+    <div class="team-grid">
+      <div class="team-row">
+        <div>
+          <div class="team-name">Raihana M. Asira</div>
+          <div class="team-role">BD Associate</div>
+        </div>
+        <div class="team-activity">
+          Leads verified: Partial (MFZ prospect confirmed active). Outreach sent: MFZ company documents to Camille (Jun 26). MCM proposal follow-through completed — signed proposal received Jun 25. Responses logged: 1 (MCM signed). Pipeline activity confirmed active this week.
+        </div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Rei Nald Onella</div>
+          <div class="team-role">Marketing</div>
+        </div>
+        <div class="team-activity">
+          Posts published this week: Not logged in Notion. Content calendar for week of Jun 22 not found. Participated in 10X with AI bootcamp sessions (Tue &amp; Fri). <span class="pill pill-amber">Manual check needed — confirm whether content went out this week.</span>
+        </div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Junaifa M. Asira</div>
+          <div class="team-role">Authorised Signatory</div>
+        </div>
+        <div class="team-activity">
+          Authorisation / signatory actions this week: Not logged. Participated in 10X with AI bootcamp sessions. <span class="pill pill-amber">Team data not available — manual input recommended.</span>
+        </div>
+      </div>
+      <div class="team-row">
+        <div>
+          <div class="team-name">Michelle Pacis</div>
+          <div class="team-role">CPA · Client Work</div>
+        </div>
+        <div class="team-activity">
+          Actively managing Almosafer payment transfer dispute (claim #2010754). Led Teams call Jun 25. Multiple emails Jun 25–26. Needs Mohaina's input on escalation path if transfer not cleared by next week.
+        </div>
+      </div>
+    </div>
+
+    <div class="section-heading">Items Needing Mohaina's Input Next Week</div>
+    <div class="metric-row" style="border:none;padding:0;">
+      <div class="metric-label" style="min-width:unset;flex:none;">•</div>
+      <div class="metric-value" style="text-align:left;font-weight:400;color:var(--text);">Almosafer payment escalation decision — if transfer not confirmed by Monday, Mohaina to decide whether to escalate to Almosafer L2 (Sohaila Ahmed / Eslam El-Ala).</div>
+    </div>
+    <div class="metric-row" style="border:none;padding:4px 0 0;">
+      <div class="metric-label" style="min-width:unset;flex:none;">•</div>
+      <div class="metric-value" style="text-align:left;font-weight:400;color:var(--text);">MCM Products onboarding kickoff — new client signed, no start date confirmed. Mohaina to confirm onboarding date and assign team lead.</div>
+    </div>
+    <div class="metric-row" style="border:none;padding:4px 0 0;">
+      <div class="metric-label" style="min-width:unset;flex:none;">•</div>
+      <div class="metric-value" style="text-align:left;font-weight:400;color:var(--text);">Rei content check — confirm whether any posts went out week of Jun 23. If none, log as Content Debt and decide if a retroactive post makes sense.</div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       FORWARD LOOK
+  ──────────────────────────────────────────── -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>Forward Look · Week of 29 June</div>
+
+    <div class="section-heading">Top 3 Priorities for Monday</div>
+    <div class="priority-list">
+      <div class="priority-item">
+        <div class="priority-num">1</div>
+        <div class="priority-content">
+          <div class="priority-title">Accuracy check on Monday content — DMCC FZCO post</div>
+          <div class="priority-why">The June 30 post goes live Monday morning and contains specific compliance claims (DMCC Registrar deadline, free zone audit requirements, AML/CFT). Mohaina's accuracy review is flagged as required before publishing. Posting incorrect compliance information carries reputational risk.</div>
+          <div class="priority-owner">Owner: Mohaina + Rei · Deadline: Before 9am Monday</div>
+        </div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-num">2</div>
+        <div class="priority-content">
+          <div class="priority-title">MCM Products Middle East LLC — onboarding kickoff</div>
+          <div class="priority-why">Proposal signed June 25. No onboarding date confirmed. The gap between signing and starting is where new clients lose confidence. Get a kickoff date on the calendar this week.</div>
+          <div class="priority-owner">Owner: Mohaina + Raihana</div>
+        </div>
+      </div>
+      <div class="priority-item">
+        <div class="priority-num">3</div>
+        <div class="priority-content">
+          <div class="priority-title">Almosafer payment transfer — resolve or escalate</div>
+          <div class="priority-why">Claim #2010754 has been rejected twice. Transfer is outstanding from April 2026. Active since June 24. If Almosafer does not confirm receipt or re-transfer by Monday, this needs a decision from Mohaina on next steps.</div>
+          <div class="priority-owner">Owner: Michelle Pacis + Mohaina (escalation decision)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-heading">Compliance Radar — Next 14 Days</div>
+    <div class="radar-list">
+      <div class="radar-item critical">
+        <div style="flex:1;">
+          <div class="radar-label critical">🔴 CRITICAL · DMCC FZCO Company Name Transition</div>
+          <div class="radar-detail">June 30, 2026 (Monday) is the final day for existing DMCC companies to update their company name suffix to FZCO. After this date, companies are out of step with the Registrar. Confirm whether any active BPOAS clients are DMCC-registered and have not yet updated.</div>
+        </div>
+        <div class="radar-date">30 Jun</div>
+      </div>
+      <div class="radar-item watch">
+        <div style="flex:1;">
+          <div class="radar-label watch">🟡 WATCH · CIT Post Accuracy Review (Wed 1 July)</div>
+          <div class="radar-detail">The July 1 content post (CIT Sept 30 deadline) contains specific legal claims including the 14% late payment penalty rate (Cabinet Decision 129/2025). Notion flags this as requiring Mohaina's accuracy review before publishing.</div>
+        </div>
+        <div class="radar-date">1 Jul</div>
+      </div>
+      <div class="radar-item watch">
+        <div style="flex:1;">
+          <div class="radar-label watch">🟡 WATCH · Free Zone Audit Deadline (Year-End June 2025 FY)</div>
+          <div class="radar-detail">Audited financial statements required for DMCC, DAFZA, DIFC, JAFZA licence renewals for financial years starting June 2023 onward. Check whether any clients with June year-ends are approaching their submission window.</div>
+        </div>
+        <div class="radar-date">Ongoing</div>
+      </div>
+      <div class="radar-item clear">
+        <div style="flex:1;">
+          <div class="radar-label clear">🟢 CLEAR · CIT Return Filing Deadline</div>
+          <div class="radar-detail">September 30, 2026 — 96 days away. Sufficient time if client preparation starts now. BPOAS content series actively building awareness.</div>
+        </div>
+        <div class="radar-date">30 Sep</div>
+      </div>
+    </div>
+
+    <div class="section-heading">Revenue Gap Action</div>
+    <div class="data-gap">Revenue vs target gap cannot be calculated — Zoho Books data not available. Once verified: if June gap exceeds AED 10,000, priority BD action = follow up on any stalled proposals and trigger retainer renewal conversation with warm prospects in Raihana's pipeline.</div>
+
+    <div class="section-heading">Monday Content Slot — 29 June</div>
+    <div class="event-item" style="border:1px solid rgba(239,68,68,0.25);background:var(--red-dim);">
+      <div class="event-day" style="color:var(--red);">⚠</div>
+      <div class="event-content">
+        <div class="event-title" style="color:var(--red);">REVIEW REQUIRED before publishing</div>
+        <div class="event-sub">Topic: "DMCC companies: tomorrow is the last day to update your name to FZCO — 4 free zone compliance checks to run this week." · Intent: Educating · Format: Framework Post · Pillar: Compliance Without the Panic. Notion flags accuracy check on all checklist items before publish. Mohaina to confirm DMCC enforcement position and any grace period before EOD Friday or first thing Monday.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────
+       FLAGS FOR MOHAINA
+  ──────────────────────────────────────────── -->
+  <div class="card" style="border-color:rgba(239,68,68,0.3);background:linear-gradient(135deg,#141414,#180d0d);">
+    <div class="card-title"><span class="dot" style="background:var(--red)"></span>Flags for Mohaina · Before Close of Business</div>
+    <div class="flag-list">
+      <div class="flag-item">
+        <div class="flag-icon">🔴</div>
+        <div class="flag-content">
+          <div class="flag-title">DMCC FZCO Deadline — Monday 30 June — No owner confirmed for client check</div>
+          <div class="flag-detail">The Registrar deadline closes Monday. No Notion task logged confirming whether BPOAS's active clients have been checked for DMCC registration and FZCO name compliance. If any client misses this, they are out of step with the Registrar — a defensible compliance failure BPOAS could have prevented.</div>
+          <div class="flag-owner">Action: Confirm DMCC client list before EOD today · Owner: Mohaina / Junaifa</div>
+        </div>
+      </div>
+      <div class="flag-item">
+        <div class="flag-icon">🔴</div>
+        <div class="flag-content">
+          <div class="flag-title">Almosafer — Payment Unresolved at Week End</div>
+          <div class="flag-detail">Account claim #2010754 (April 2026) remains unpaid. Transfer rejected twice. Latest update June 26, 08:40. Value unknown — confirm with Michelle whether amount exceeds AED 5,000.</div>
+          <div class="flag-owner">Action: Mohaina to confirm escalation decision Monday if not resolved · Owner: Mohaina + Michelle Pacis</div>
+        </div>
+      </div>
+      <div class="flag-item" style="background:var(--amber-dim);border-color:rgba(245,158,11,0.25);">
+        <div class="flag-icon">🟡</div>
+        <div class="flag-content">
+          <div class="flag-title" style="color:var(--amber);">MCM Products — No Onboarding Date Set</div>
+          <div class="flag-detail">Proposal signed June 25. This is a prospect at signed stage with no follow-up date confirmed for onboarding. The longer the gap, the colder the start.</div>
+          <div class="flag-owner">Action: Schedule kickoff call this week · Owner: Mohaina / Raihana</div>
+        </div>
+      </div>
+      <div class="flag-item" style="background:var(--amber-dim);border-color:rgba(245,158,11,0.25);">
+        <div class="flag-icon">🟡</div>
+        <div class="flag-content">
+          <div class="flag-title" style="color:var(--amber);">This Week's Content — No Notion Record Found</div>
+          <div class="flag-detail">No content calendar for week of June 22 exists in Notion. It is unclear whether posts went out or were skipped. If Rei published manually without logging, this is a process gap. If posts were not published, this is Content Debt — 5 posts missed.</div>
+          <div class="flag-owner">Action: Confirm with Rei before EOD today · Owner: Mohaina / Rei</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    BPOAS · BPO Accounting Services · Mohaina Asira, Managing Partner · Dubai, UAE<br/>
+    This report was auto-generated from Outlook Calendar, Outlook Email, and Notion data on 26 June 2026.
+    Zoho Books data was unavailable this session — revenue figures require manual verification.
+  </div>
+
+</div>
+</body>
+</html>
