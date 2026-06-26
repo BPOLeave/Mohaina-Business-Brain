@@ -7,8 +7,8 @@
 <style>
   :root {
     --primary: #E8294C;
-    --primary-dim: rgba(232,41,76,0.10);
-    --primary-glow: rgba(232,41,76,0.22);
+    --primary-dim: rgba(232, 41, 76, 0.10);
+    --primary-glow: rgba(232, 41, 76, 0.22);
     --bg: #0A0A0A;
     --card: #111214;
     --card-alt: #0e1012;
@@ -18,96 +18,375 @@
     --text-muted: #6b7280;
     --text-dim: #9ca3af;
     --green: #22c55e;
-    --green-bg: rgba(34,197,94,0.10);
+    --green-bg: rgba(34, 197, 94, 0.10);
     --amber: #f59e0b;
-    --amber-bg: rgba(245,158,11,0.10);
+    --amber-bg: rgba(245, 158, 11, 0.10);
     --red: #ef4444;
-    --red-bg: rgba(239,68,68,0.10);
+    --red-bg: rgba(239, 68, 68, 0.10);
     --blue: #60a5fa;
-    --blue-bg: rgba(96,165,250,0.10);
+    --blue-bg: rgba(96, 165, 250, 0.10);
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; padding: 36px 24px 72px; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Text', 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    padding: 36px 24px 72px;
+  }
+
   .doc { max-width: 1080px; margin: 0 auto; }
-  .header { display: flex; justify-content: space-between; align-items: flex-start; padding: 28px 32px; background: var(--card); border: 1px solid var(--card-border); border-left: 4px solid var(--primary); border-radius: 14px; margin-bottom: 24px; position: relative; overflow: hidden; }
-  .header::after { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: var(--primary-dim); border-radius: 50%; pointer-events: none; }
-  .brand-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--primary); margin-bottom: 8px; }
-  .header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; color: var(--text); margin-bottom: 4px; }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 28px 32px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-left: 4px solid var(--primary);
+    border-radius: 14px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: var(--primary-dim);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .brand-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
   .header h1 em { font-style: normal; color: var(--primary); }
   .header-sub { font-size: 13px; color: var(--text-muted); }
-  .header-date { text-align: right; padding-top: 2px; }
-  .header-date .day { font-size: 13px; color: var(--text-muted); margin-bottom: 2px; }
-  .header-date .full { font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .header-date {
+    text-align: right;
+    padding-top: 2px;
+  }
+  .header-date .day {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+  .header-date .full {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
   .header-date .tz { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); display: flex; align-items: center; gap: 8px; }
-  .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; white-space: nowrap; }
-  .badge::before { content: '\25CF'; font-size: 7px; }
-  .badge-green { background: var(--green-bg); color: var(--green); }
-  .badge-amber { background: var(--amber-bg); color: var(--amber); }
-  .badge-red { background: var(--red-bg); color: var(--red); }
-  .badge-blue { background: var(--blue-bg); color: var(--blue); }
-  .badge-muted { background: #1a1c20; color: var(--text-muted); }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label .ico { font-size: 13px; }
+
+  /* ── BADGES ── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .badge::before { content: '●'; font-size: 7px; }
+  .badge-green  { background: var(--green-bg);  color: var(--green); }
+  .badge-amber  { background: var(--amber-bg);  color: var(--amber); }
+  .badge-red    { background: var(--red-bg);    color: var(--red);   }
+  .badge-blue   { background: var(--blue-bg);   color: var(--blue);  }
+  .badge-muted  { background: #1a1c20; color: var(--text-muted); }
+
+  /* ── GRID ── */
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .col-full { grid-column: 1 / -1; }
-  @media (max-width: 680px) { .grid { grid-template-columns: 1fr; } .col-full { grid-column: 1; } }
-  .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 22px 24px; }
-  .card-hd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
-  .note-bar { font-size: 12px; color: var(--text-muted); background: var(--card-alt); border: 1px solid var(--card-border); border-radius: 8px; padding: 10px 14px; }
+  @media (max-width: 680px) {
+    .grid { grid-template-columns: 1fr; }
+    .col-full { grid-column: 1; }
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 22px 24px;
+  }
+  .card-hd {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .divider { border: none; border-top: 1px solid var(--card-border-light); margin: 0; }
+  .note-bar {
+    font-size: 12px;
+    color: var(--text-muted);
+    background: var(--card-alt);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
   .note-bar strong { color: var(--text); }
-  .event { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--card-border-light); }
+
+  /* ── SCHEDULE ── */
+  .event {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--card-border-light);
+  }
   .event:last-child { border-bottom: none; padding-bottom: 0; }
-  .ev-time { min-width: 100px; font-size: 12px; font-weight: 600; color: var(--primary); padding-top: 1px; line-height: 1.5; }
-  .ev-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .ev-time {
+    min-width: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    padding-top: 1px;
+    line-height: 1.5;
+  }
+  .ev-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
   .ev-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 5px; }
-  .ev-link { font-size: 11px; color: var(--blue); text-decoration: none; }
+  .ev-link {
+    font-size: 11px;
+    color: var(--blue);
+    text-decoration: none;
+  }
   .ev-link:hover { text-decoration: underline; }
-  .email { padding: 13px 0 13px 14px; border-bottom: 1px solid var(--card-border-light); position: relative; }
+
+  /* ── EMAILS ── */
+  .email {
+    padding: 13px 0 13px 14px;
+    border-bottom: 1px solid var(--card-border-light);
+    position: relative;
+  }
   .email:last-child { border-bottom: none; padding-bottom: 0; }
-  .email::before { content: ''; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px; border-radius: 2px; }
-  .email.red::before { background: var(--red); }
+  .email::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 14px; bottom: 14px;
+    width: 3px;
+    border-radius: 2px;
+  }
+  .email.red::before   { background: var(--red); }
   .email.amber::before { background: var(--amber); }
   .email.green::before { background: var(--green); }
-  .email-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 3px; }
-  .email-subj { font-size: 13px; font-weight: 600; color: var(--text); flex: 1; }
+  .email-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 3px;
+  }
+  .email-subj {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+  }
   .email-time { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
   .email-from { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
   .email-body { font-size: 12px; color: var(--text-dim); line-height: 1.5; margin-bottom: 4px; }
   .email-action { font-size: 11px; font-weight: 700; color: var(--primary); }
-  .dot-unread { display: inline-block; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; margin-right: 5px; vertical-align: middle; margin-top: -2px; }
+  .dot-unread {
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+    margin-top: -2px;
+  }
+
+  /* ── TASKS ── */
   .tgroup { margin-bottom: 16px; }
   .tgroup:last-child { margin-bottom: 0; }
-  .tgroup-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); padding-bottom: 8px; border-bottom: 1px solid var(--card-border-light); margin-bottom: 8px; }
-  .task { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; }
-  .tdot { width: 7px; height: 7px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
-  .tdot.r { background: var(--red); } .tdot.a { background: var(--amber); } .tdot.g { background: var(--green); }
+  .tgroup-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--card-border-light);
+    margin-bottom: 8px;
+  }
+  .task {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #13151800;
+  }
+  .tdot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .tdot.r { background: var(--red); }
+  .tdot.a { background: var(--amber); }
+  .tdot.g { background: var(--green); }
   .task-name { font-size: 13px; font-weight: 500; color: var(--text); flex: 1; }
   .task-note { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
   .task-due { font-size: 11px; font-weight: 600; white-space: nowrap; }
-  .task-due.r { color: var(--red); } .task-due.a { color: var(--amber); } .task-due.g { color: var(--green); }
-  .content-card { padding: 14px 16px; background: var(--primary-dim); border: 1px solid var(--primary-glow); border-radius: 10px; margin-bottom: 12px; }
-  .content-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); margin-bottom: 6px; }
-  .content-title { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 6px; }
-  .content-hook { font-size: 12px; color: var(--text-dim); font-style: italic; border-left: 2px solid var(--primary-glow); padding-left: 10px; margin-bottom: 8px; line-height: 1.5; }
+  .task-due.r { color: var(--red); }
+  .task-due.a { color: var(--amber); }
+  .task-due.g { color: var(--green); }
+
+  /* ── CONTENT ── */
+  .content-none {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 16px 0 10px;
+  }
+  .content-card {
+    padding: 14px 16px;
+    background: var(--primary-dim);
+    border: 1px solid var(--primary-glow);
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+  .content-card:last-child { margin-bottom: 0; }
+  .content-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 6px;
+  }
+  .content-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .content-hook {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-style: italic;
+    border-left: 2px solid var(--primary-glow);
+    padding-left: 10px;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
   .content-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .ctag { font-size: 10px; font-weight: 600; color: var(--text-muted); background: #1a1c20; padding: 2px 8px; border-radius: 10px; }
-  .content-queue { font-size: 12px; color: var(--text-muted); line-height: 1.9; }
+  .ctag {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: #1a1c20;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .content-queue {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.9;
+  }
   .content-queue li { list-style: none; padding-left: 0; }
-  .content-queue li::before { content: '\2192  '; color: var(--primary); font-weight: 700; }
-  .pipeline { display: flex; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--card-border-light); }
+  .content-queue li::before { content: '→ '; color: var(--primary); font-weight: 700; }
+
+  /* ── BD PIPELINE ── */
+  .pipeline {
+    display: flex;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--card-border-light);
+  }
   .pipeline:last-child { border-bottom: none; padding-bottom: 0; }
-  .pdot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
-  .pdot.r { background: var(--red); } .pdot.a { background: var(--amber); } .pdot.g { background: var(--green); }
+  .pdot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .pdot.r { background: var(--red); }
+  .pdot.a { background: var(--amber); }
+  .pdot.g { background: var(--green); }
   .p-client { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
   .p-detail { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; line-height: 1.5; }
   .p-action { font-size: 11px; font-weight: 700; color: var(--primary); }
-  .metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
-  @media (max-width: 680px) { .metrics { grid-template-columns: repeat(2,1fr); } }
-  .metric { background: var(--card-alt); border: 1px solid var(--card-border); border-radius: 10px; padding: 16px 16px 14px; text-align: center; }
-  .m-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+
+  /* ── KEY METRICS ── */
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 680px) { .metrics { grid-template-columns: repeat(2, 1fr); } }
+  .metric {
+    background: var(--card-alt);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 16px 16px 14px;
+    text-align: center;
+  }
+  .m-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
   .m-val { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
-  .m-val.g { color: var(--green); } .m-val.a { color: var(--amber); } .m-val.r { color: var(--red); }
+  .m-val.g { color: var(--green); }
+  .m-val.a { color: var(--amber); }
+  .m-val.r { color: var(--red); }
   .m-detail { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
-  .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 11px; color: var(--text-muted); }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--card-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
   .footer-brand { color: var(--primary); font-weight: 700; }
   .legend { display: flex; gap: 14px; flex-wrap: wrap; }
   .legend span { display: flex; align-items: center; gap: 5px; }
@@ -115,124 +394,218 @@
 </head>
 <body>
 <div class="doc">
+
+
+<!-- ══════════════════════════ HEADER ══════════════════════════ -->
 <header class="header">
   <div>
-    <div class="brand-tag">BPOAS &middot; COO Morning Brief</div>
+    <div class="brand-tag">BPOAS &nbsp;·&nbsp; COO Morning Brief</div>
     <h1>Good morning, <em>Mohaina.</em></h1>
-    <div class="header-sub">BPO Accounting Services &middot; Daily Operations Intelligence</div>
+    <div class="header-sub">BPO Accounting Services &nbsp;·&nbsp; Daily Operations Intelligence</div>
   </div>
   <div class="header-date">
     <div class="day">Friday</div>
     <div class="full">26 June 2026</div>
-    <div class="tz">UAE &middot; GMT+4 &middot; Auto-generated</div>
+    <div class="tz">UAE · GMT+4 &nbsp;·&nbsp; Auto-generated</div>
   </div>
 </header>
+
+
+<!-- ══════════════════════════ GRID ══════════════════════════ -->
 <div class="grid">
 
+
+  <!-- ── 1. SCHEDULE ────────────────────── -->
   <div class="card col-full">
     <div class="card-hd">
-      <div class="section-label">&#128197; Today's Schedule</div>
-      <span class="badge badge-amber">Afternoon Blocked 1&ndash;6 PM &middot; 3 Events</span>
+      <div class="section-label"><span class="ico">📅</span> Today's Schedule</div>
+      <span class="badge badge-amber">Afternoon Blocked 1 – 6 PM &nbsp;·&nbsp; 3 Events</span>
     </div>
+
     <div class="event">
-      <div class="ev-time">12:00&ndash;5:00 PM<br><small style="color:var(--text-muted);font-weight:400">(08:00&ndash;13:00 UTC)</small></div>
+      <div class="ev-time">12:00 – 5:00 PM<br><small style="color:var(--text-muted);font-weight:400;">(08:00–13:00 UTC)</small></div>
       <div>
-        <div class="ev-title">10x with AI SG &mdash; 3-Week Bootcamp &nbsp;<span class="badge badge-blue" style="font-size:10px">Session 3 of 3 &middot; Final</span></div>
-        <div class="ev-meta">Organiser: Daniel Paul AI &middot; Large-group session (100+ participants) &middot; You are listed as attendee</div>
+        <div class="ev-title">10x with AI SG — 3-Week Bootcamp &nbsp;<span class="badge badge-blue" style="font-size:10px;">Session 3 of 3 · Final</span></div>
+        <div class="ev-meta">Organiser: Daniel Paul AI &nbsp;·&nbsp; Large-group session (100+ participants) &nbsp;·&nbsp; You are listed as attendee</div>
         <a class="ev-link" href="https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0A64A5bz3ol0CXYYpAYfUEmwAGPsoLeAAA&exvsurl=1&path=/calendar/item" target="_blank">Open in Outlook Calendar</a>
       </div>
     </div>
+
     <div class="event">
-      <div class="ev-time">1:00&ndash;5:00 PM<br><small style="color:var(--text-muted);font-weight:400">(09:00&ndash;13:00 UTC)</small></div>
+      <div class="ev-time">1:00 – 5:00 PM<br><small style="color:var(--text-muted);font-weight:400;">(09:00–13:00 UTC)</small></div>
       <div>
-        <div class="ev-title">3-Week Bootcamp &mdash; Personal Calendar Block</div>
-        <div class="ev-meta">You are the organiser &middot; Main implementation phase: building live AI workflows and systems for BPOAS</div>
+        <div class="ev-title">3-Week Bootcamp — Personal Calendar Block</div>
+        <div class="ev-meta">You are the organiser &nbsp;·&nbsp; Main implementation phase: building live AI workflows and systems for BPOAS</div>
         <a class="ev-link" href="https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0A64A5bz3ol0CXYYpAYfUEmwAGOvb71QAA&exvsurl=1&path=/calendar/item" target="_blank">Open in Outlook Calendar</a>
       </div>
     </div>
+
     <div class="event">
-      <div class="ev-time">1:00&ndash;6:00 PM<br><small style="color:var(--text-muted);font-weight:400">(09:00&ndash;14:00 UTC)</small></div>
+      <div class="ev-time">1:00 – 6:00 PM<br><small style="color:var(--text-muted);font-weight:400;">(09:00–14:00 UTC)</small></div>
       <div>
-        <div class="ev-title">10X with AI: Main Bootcamp &nbsp;<span class="badge badge-blue" style="font-size:10px">Teams &middot; Internal Team</span></div>
-        <div class="ev-meta">Organiser: R. Asira &middot; Attendees: r.asira, j.asira, w.dy, c.suyom, r.ramos, m.pacis &middot; Microsoft Teams</div>
+        <div class="ev-title">10X with AI: Main Bootcamp &nbsp;<span class="badge badge-blue" style="font-size:10px;">Teams · Internal Team</span></div>
+        <div class="ev-meta">Organiser: R. Asira &nbsp;·&nbsp; Attendees: r.asira, j.asira, w.dy, c.suyom, r.ramos, m.pacis &nbsp;·&nbsp; Location: Microsoft Teams</div>
         <a class="ev-link" href="https://outlook.office365.com/owa/?itemid=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0A64A5bz3ol0CXYYpAYfUEmwAGOvcFEQAA&exvsurl=1&path=/calendar/item" target="_blank">Open in Outlook Calendar</a>
       </div>
     </div>
-    <div class="note-bar" style="margin-top:16px">&#9888; Afternoon fully committed from 1 PM. All client calls and urgent responses must land <strong>before 1:00 PM</strong> or <strong>after 6:00 PM</strong> today.</div>
+
+    <div class="note-bar" style="margin-top:16px;">
+      ⚠ Afternoon is fully committed from 1 PM. All client calls and urgent responses must land <strong>before 1:00 PM</strong> or <strong>after 6:00 PM</strong> today.
+    </div>
   </div>
 
+
+  <!-- ── 2. INBOX PRIORITIES ─────────────── -->
   <div class="card">
     <div class="card-hd">
-      <div class="section-label">&#128236; Inbox Priorities</div>
-      <span class="badge badge-muted">Last 24h &middot; Top 5</span>
+      <div class="section-label"><span class="ico">📬</span> Inbox Priorities</div>
+      <span class="badge badge-muted">Last 24h · Top 5</span>
     </div>
+
     <div class="email red">
-      <div class="email-top"><div class="email-subj"><span class="dot-unread"></span>VAT Compliance Proposal &mdash; MCM Products Middle East</div><div class="email-time">2:34 PM</div></div>
-      <div class="email-from">joanne.oquendo@mcmworldwide.com &middot; Attachment</div>
-      <div class="email-body">New reply with attachment &mdash; active proposal chain. KYC returned incomplete (Trade License section missing). Cannot onboard until resolved.</div>
-      <div class="email-action">Action: Open attachment &middot; Chase client to complete Trade License on KYC form today</div>
+      <div class="email-top">
+        <div class="email-subj"><span class="dot-unread"></span>VAT Compliance Proposal — MCM Products Middle East</div>
+        <div class="email-time">2:34 PM</div>
+      </div>
+      <div class="email-from">joanne.oquendo@mcmworldwide.com &nbsp;·&nbsp; Attachment</div>
+      <div class="email-body">New reply with attachment — latest in an active proposal chain. Note: KYC form was returned incomplete (Trade License section missing). Cannot onboard until resolved.</div>
+      <div class="email-action">Action: Open attachment · Chase client to complete Trade License on KYC form today</div>
     </div>
+
     <div class="email amber">
-      <div class="email-top"><div class="email-subj"><span class="dot-unread"></span>Bookkeeping Services &mdash; Richemont / Cartier (Warm BD Lead)</div><div class="email-time">2:28 PM</div></div>
-      <div class="email-from">Ghazal Al Safadi &middot; Senior Business Controller, Cartier &middot; Richemont Dubai FZE</div>
-      <div class="email-body">"Can you please call me on my phone?" &mdash; 0543072239. You deferred to after 5:30 PM today. She confirmed availability.</div>
-      <div class="email-action">Action: Call 0543072239 after 6:00 PM &mdash; qualify scope, prepare proposal</div>
+      <div class="email-top">
+        <div class="email-subj"><span class="dot-unread"></span>Bookkeeping Services — Richemont / Cartier (Warm BD Lead)</div>
+        <div class="email-time">2:28 PM</div>
+      </div>
+      <div class="email-from">Ghazal Al Safadi · Senior Business Controller, Cartier &nbsp;·&nbsp; Richemont Dubai FZE</div>
+      <div class="email-body">"Can you please call me on my phone? It will be easier to coordinate." — 0543072239. You deferred to after 5:30 PM today. She confirmed.</div>
+      <div class="email-action">Action: Call 0543072239 after 6:00 PM — qualify scope, prepare proposal</div>
     </div>
+
     <div class="email red">
-      <div class="email-top"><div class="email-subj"><span class="dot-unread"></span>Fwd: VAT Return Submission Due &mdash; lastminute.com</div><div class="email-time">9:13 AM yest.</div></div>
-      <div class="email-from">yiannis.papadonikolakis.ext@lastminute.com &rarr; forwarded to team</div>
-      <div class="email-body">FTA deadline notice per Article 64, Cabinet Decision No. 52 of 2017. Stagger 2, Period 1 (Mar). Filing status unconfirmed.</div>
-      <div class="email-action">Action: Confirm VAT filing status with team before 6 PM &mdash; regulatory deadline at risk</div>
+      <div class="email-top">
+        <div class="email-subj"><span class="dot-unread"></span>Fwd: VAT Return Submission Due — lastminute.com</div>
+        <div class="email-time">9:13 AM <small>yest.</small></div>
+      </div>
+      <div class="email-from">yiannis.papadonikolakis.ext@lastminute.com → forwarded to team</div>
+      <div class="email-body">FTA deadline notice per Article 64 of Cabinet Decision No. 52 of 2017. Stagger 2, Period 1 (Mar). Filing status not confirmed with team.</div>
+      <div class="email-action">Action: Confirm VAT filing status with team before 6 PM — regulatory deadline at risk</div>
     </div>
+
     <div class="email green">
-      <div class="email-top"><div class="email-subj">Q1 2026 VAT Filing &mdash; Menastar &middot; Filed &#10003;</div><div class="email-time">1:38 PM</div></div>
-      <div class="email-from">r.ramos@bposervicegroup.com (FYI)</div>
-      <div class="email-body">Menastar VAT return Q1 2026 filed. Filing reference attached. Minor rounding note from M. Pacis; working paper name needs update.</div>
-      <div class="email-action">No action needed &middot; Working paper name fix is housekeeping</div>
+      <div class="email-top">
+        <div class="email-subj">Q1 2026 VAT Filing — Menastar · Filed ✓</div>
+        <div class="email-time">1:38 PM</div>
+      </div>
+      <div class="email-from">r.ramos@bposervicegroup.com (FYI to you)</div>
+      <div class="email-body">Menastar VAT return Q1 2026 filed. Filing reference attached. Minor rounding note from M. Pacis; company name needs update in working paper only.</div>
+      <div class="email-action">No action needed · Working paper name fix is housekeeping</div>
     </div>
+
     <div class="email amber">
-      <div class="email-top"><div class="email-subj"><span class="dot-unread"></span>Account Claim #2010754 &mdash; Almosafer (AR Dispute)</div><div class="email-time">Multiple</div></div>
-      <div class="email-from">ar.finance@almosafer.com &#8596; m.pacis@bposervicegroup.com (5+ unread)</div>
-      <div class="email-body">Dispute from Apr 8&ndash;15, 2026 still active. Escalation contacts: Sohaila Ahmed, Eslam Elala.</div>
-      <div class="email-action">Action: Check resolution timeline with M. Pacis &mdash; escalate if no close date set</div>
+      <div class="email-top">
+        <div class="email-subj"><span class="dot-unread"></span>Account Claim #2010754 — Almosafer (AR Dispute)</div>
+        <div class="email-time">Multiple</div>
+      </div>
+      <div class="email-from">ar.finance@almosafer.com ↔ m.pacis@bposervicegroup.com (5+ unread messages)</div>
+      <div class="email-body">Dispute from Apr 8–15, 2026 still active. Multiple rounds between M. Pacis and Almosafer AR Finance. Escalation contacts on file (Sohaila Ahmed, Eslam Elala).</div>
+      <div class="email-action">Action: Check resolution timeline with M. Pacis — escalate if no close date set</div>
     </div>
   </div>
 
+
+  <!-- ── 3. TASKS & DEADLINES ────────────── -->
   <div class="card">
     <div class="card-hd">
-      <div class="section-label">&#9989; Tasks &amp; Deadlines</div>
+      <div class="section-label"><span class="ico">✅</span> Tasks &amp; Deadlines</div>
       <span class="badge badge-muted">Notion + Inbox</span>
     </div>
+
     <div class="tgroup">
-      <div class="tgroup-label">Compliance Deadlines</div>
-      <div class="task"><div class="tdot r"></div><div style="flex:1"><div class="task-name">lastminute.com VAT Return &mdash; FTA Submission Deadline</div><div class="task-note">Article 64 notice received. Confirm filed with team before 6 PM.</div></div><div class="task-due r">Today</div></div>
-      <div class="task"><div class="tdot a"></div><div style="flex:1"><div class="task-name">MCM Products KYC &mdash; Trade License Section Incomplete</div><div class="task-note">Signed proposal received. Engagement blocked until KYC complete.</div></div><div class="task-due a">Blocking</div></div>
+      <div class="tgroup-label">🔴 Compliance Deadlines</div>
+      <div class="task">
+        <div class="tdot r"></div>
+        <div style="flex:1">
+          <div class="task-name">lastminute.com VAT Return — FTA Submission Deadline</div>
+          <div class="task-note">Article 64 notice received. Team handling — confirm filed before 6 PM.</div>
+        </div>
+        <div class="task-due r">Today</div>
+      </div>
+      <div class="task">
+        <div class="tdot a"></div>
+        <div style="flex:1">
+          <div class="task-name">MCM Products KYC — Trade License Section Incomplete</div>
+          <div class="task-note">Signed proposal received. Engagement blocked until KYC is fully completed.</div>
+        </div>
+        <div class="task-due a">Blocking</div>
+      </div>
     </div>
+
     <div class="tgroup">
-      <div class="tgroup-label">Engagement &amp; CIT Actions</div>
-      <div class="task"><div class="tdot a"></div><div style="flex:1"><div class="task-name">Almosafer AR Claim #2010754 &mdash; Internal Resolution</div><div class="task-note">Multiple unread responses. Confirm timeline with M. Pacis.</div></div><div class="task-due a">Overdue</div></div>
-      <div class="task"><div class="tdot a"></div><div style="flex:1"><div class="task-name">MFZ Company &mdash; CIT Registration Certificate</div><div class="task-note">Ref 2025/CIT/0001091357/001 forwarded. File in client folder.</div></div><div class="task-due a">Today</div></div>
+      <div class="tgroup-label">🟡 Engagement &amp; AML / CIT Actions</div>
+      <div class="task">
+        <div class="tdot a"></div>
+        <div style="flex:1">
+          <div class="task-name">Almosafer AR Claim #2010754 — Internal Resolution</div>
+          <div class="task-note">Multiple unread responses. Confirm timeline with M. Pacis — April claim still open.</div>
+        </div>
+        <div class="task-due a">Overdue</div>
+      </div>
+      <div class="task">
+        <div class="tdot a"></div>
+        <div style="flex:1">
+          <div class="task-name">MFZ Company — CIT Registration Certificate</div>
+          <div class="task-note">Certificate (Ref 2025/CIT/0001091357/001) forwarded by r.asira. File in client folder.</div>
+        </div>
+        <div class="task-due a">Today</div>
+      </div>
     </div>
+
     <div class="tgroup">
-      <div class="tgroup-label">Completed</div>
-      <div class="task"><div class="tdot g"></div><div style="flex:1"><div class="task-name">Menastar Q1 2026 VAT Return &mdash; Filed</div><div class="task-note">R. Ramos confirmed. Reference attached.</div></div><div class="task-due g">Done</div></div>
-      <div class="task"><div class="tdot g"></div><div style="flex:1"><div class="task-name">Odoo Invoice INV/2026/57125 &mdash; Paid</div><div class="task-note">AED 944 incl. VAT. Paid 24 June. Confirm in books.</div></div><div class="task-due g">Done</div></div>
+      <div class="tgroup-label">✅ Completed</div>
+      <div class="task">
+        <div class="tdot g"></div>
+        <div style="flex:1">
+          <div class="task-name">Menastar Q1 2026 VAT Return — Filed</div>
+          <div class="task-note">Filed by R. Ramos. Reference confirmed. Minor working paper name fix outstanding.</div>
+        </div>
+        <div class="task-due g">Done</div>
+      </div>
+      <div class="task">
+        <div class="tdot g"></div>
+        <div style="flex:1">
+          <div class="task-name">Odoo Middle East Invoice INV/2026/57125 — Paid</div>
+          <div class="task-note">AED 944 (USD 257.04 incl. VAT). Paid 24 June. Confirm recorded in books.</div>
+        </div>
+        <div class="task-due g">Done</div>
+      </div>
     </div>
   </div>
 
+
+  <!-- ── 4. CONTENT SLOT ─────────────────── -->
   <div class="card">
     <div class="card-hd">
-      <div class="section-label">&#9997;&#65039; Content Slot</div>
-      <span class="badge badge-amber">No Post Today &middot; Friday</span>
+      <div class="section-label"><span class="ico">✍️</span> Content Slot</div>
+      <span class="badge badge-amber">No Post Today · Friday</span>
     </div>
-    <div class="note-bar" style="margin-bottom:16px">No LinkedIn post scheduled for today. Content calendar starts <strong>Monday 29 June</strong>. Use today to review and approve next week's drafts.</div>
+
+    <div class="note-bar" style="margin-bottom:16px;">
+      No LinkedIn post is scheduled for today. The active content calendar starts <strong>Monday 29 June</strong>. Use this Friday to review and approve next week's drafts.
+    </div>
+
     <div class="content-card">
-      <div class="content-label">Wednesday, 1 July &middot; Soft Sell &middot; LinkedIn</div>
+      <div class="content-label">Wednesday, 1 July &nbsp;·&nbsp; Soft Sell &nbsp;·&nbsp; LinkedIn</div>
       <div class="content-title">The monthly reporting rhythm that gets owners off their bank balance</div>
-      <div class="content-hook">"Most owners judge the business by the bank balance &mdash; here's what we do instead."</div>
-      <div class="content-tags"><span class="ctag">What the Numbers Are Telling You</span><span class="ctag">Soft-Sell Framework</span><span class="ctag">DM CLARITY</span></div>
+      <div class="content-hook">"Most owners judge the business by the bank balance — here's what we do instead."</div>
+      <div class="content-tags">
+        <span class="ctag">What the Numbers Are Telling You</span>
+        <span class="ctag">Soft-Sell Framework</span>
+        <span class="ctag">DM CLARITY</span>
+      </div>
     </div>
-    <div style="margin:12px 0 8px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)">Also Queued &mdash; Week of 29 June</div>
+
+    <div style="margin: 12px 0 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);">Also Queued — Week of 29 June</div>
     <ul class="content-queue">
       <li>Hiring the cheapest accountant is the most expensive decision a UAE SME makes</li>
       <li>eInvoicing is coming: 5 things to fix in your accounting system before the FTA mandate</li>
@@ -241,41 +614,107 @@
     </ul>
   </div>
 
+
+  <!-- ── 5. BD PIPELINE PULSE ────────────── -->
   <div class="card">
     <div class="card-hd">
-      <div class="section-label">&#128200; BD Pipeline Pulse</div>
+      <div class="section-label"><span class="ico">📈</span> BD Pipeline Pulse</div>
       <span class="badge badge-muted">Active Leads</span>
     </div>
-    <div class="pipeline"><div class="pdot r"></div><div><div class="p-client">MCM Products Middle East &mdash; VAT Compliance Review</div><div class="p-detail">Proposal signed. KYC blocked: Trade License section missing. Latest reply today with attachment.</div><div class="p-action">Action today: Chase KYC completion &mdash; proposal cannot activate without it</div></div></div>
-    <div class="pipeline"><div class="pdot a"></div><div><div class="p-client">Richemont Dubai FZE / Cartier &mdash; Bookkeeping Services</div><div class="p-detail">Ghazal Al Safadi (Business Controller, Cartier) &mdash; warm inbound. Deferred call to after 5:30 PM. Confirmed.</div><div class="p-action">Action today: Call 0543072239 after 6 PM &mdash; qualify scope, send proposal this week</div></div></div>
-    <div class="pipeline"><div class="pdot a"></div><div><div class="p-client">lastminute.com UAE &mdash; VAT Advisory</div><div class="p-detail">FTA deadline notice forwarded. Team handling &mdash; confirm filing to protect client compliance standing.</div><div class="p-action">Action today: Confirm VAT filed with team before 6 PM</div></div></div>
-    <div class="pipeline"><div class="pdot g"></div><div><div class="p-client">Menastar &mdash; VAT Compliance (Active Client)</div><div class="p-detail">Q1 2026 VAT filed and confirmed today. Client in good standing.</div><div class="p-action">On track &middot; No action needed</div></div></div>
+
+    <div class="pipeline">
+      <div class="pdot r"></div>
+      <div>
+        <div class="p-client">MCM Products Middle East — VAT Compliance Review</div>
+        <div class="p-detail">Proposal signed and returned. Engagement blocked on incomplete KYC — Trade License section missing. Signed proposal received Jun 25. Latest reply today.</div>
+        <div class="p-action">Action today: Chase client for KYC completion — proposal cannot activate without it</div>
+      </div>
+    </div>
+
+    <div class="pipeline">
+      <div class="pdot a"></div>
+      <div>
+        <div class="p-client">Richemont Dubai FZE / Cartier — Bookkeeping Services</div>
+        <div class="p-detail">Ghazal Al Safadi (Senior Business Controller, Cartier) — warm inbound inquiry. Requested a call. Mohaina deferred to after 5:30 PM. Ghazal confirmed availability today.</div>
+        <div class="p-action">Action today: Call 0543072239 after 6 PM — qualify scope, send proposal this week</div>
+      </div>
+    </div>
+
+    <div class="pipeline">
+      <div class="pdot a"></div>
+      <div>
+        <div class="p-client">lastminute.com UAE — VAT Advisory (Yiannis P.)</div>
+        <div class="p-detail">FTA deadline notice forwarded for team action. Team handling but confirm filing before end of day to protect client compliance standing and relationship.</div>
+        <div class="p-action">Action today: Confirm VAT filed with team before 6 PM</div>
+      </div>
+    </div>
+
+    <div class="pipeline">
+      <div class="pdot g"></div>
+      <div>
+        <div class="p-client">Menastar — VAT Compliance (Active Client)</div>
+        <div class="p-detail">Q1 2026 VAT return filed and confirmed today. Client in good standing. No action needed — maintain relationship at next touchpoint.</div>
+        <div class="p-action">On track · No action needed</div>
+      </div>
+    </div>
   </div>
 
+
+  <!-- ── 6. KEY METRIC ──────────────────── -->
   <div class="card col-full">
     <div class="card-hd">
-      <div class="section-label">&#128202; Key Metric &mdash; Compliance &amp; Operations</div>
-      <span class="badge badge-amber">2 Items Need Attention &middot; 1 Regulatory Deadline at Risk</span>
+      <div class="section-label"><span class="ico">📊</span> Key Metric — Compliance &amp; Operations</div>
+      <span class="badge badge-amber">2 Items Need Attention · 1 Regulatory Deadline at Risk</span>
     </div>
     <div class="metrics">
-      <div class="metric"><div class="m-label">VAT Filings Today</div><div class="m-val g">1 Filed</div><div class="m-detail">Menastar Q1 2026 confirmed. Reference attached.</div></div>
-      <div class="metric"><div class="m-label">Regulatory Deadline at Risk</div><div class="m-val r">1 Open</div><div class="m-detail">lastminute.com FTA Article 64 notice. Filing unconfirmed. Resolve today.</div></div>
-      <div class="metric"><div class="m-label">Active AR Disputes</div><div class="m-val a">1 Ongoing</div><div class="m-detail">Almosafer Claim #2010754 (Apr 2026). 5+ unread. Needs owner visibility.</div></div>
-      <div class="metric"><div class="m-label">Proposals in Flight</div><div class="m-val a">1 Signed</div><div class="m-detail">MCM Products &mdash; signed. KYC blocking onboarding. Chase client today.</div></div>
-      <div class="metric"><div class="m-label">New BD Leads (24h)</div><div class="m-val a">1 Warm</div><div class="m-detail">Richemont / Cartier. Call after 6 PM to qualify scope.</div></div>
-      <div class="metric"><div class="m-label">CIT Docs Received</div><div class="m-val g">1 Cert</div><div class="m-detail">MFZ Building Materials &mdash; CIT Registration Certificate. File in client folder.</div></div>
+      <div class="metric">
+        <div class="m-label">VAT Filings Today</div>
+        <div class="m-val g">1 Filed</div>
+        <div class="m-detail">Menastar Q1 2026 — confirmed by team. Reference attached.</div>
+      </div>
+      <div class="metric">
+        <div class="m-label">Regulatory Deadline at Risk</div>
+        <div class="m-val r">1 Open</div>
+        <div class="m-detail">lastminute.com FTA Article 64 notice. Filing unconfirmed. Resolve today.</div>
+      </div>
+      <div class="metric">
+        <div class="m-label">Active AR Disputes</div>
+        <div class="m-val a">1 Ongoing</div>
+        <div class="m-detail">Almosafer Claim #2010754 (Apr 2026). 5+ unread messages. Needs owner visibility.</div>
+      </div>
+      <div class="metric">
+        <div class="m-label">Proposals in Flight</div>
+        <div class="m-val a">1 Signed</div>
+        <div class="m-detail">MCM Products — proposal signed. KYC blocking onboarding. Chase client today.</div>
+      </div>
+      <div class="metric">
+        <div class="m-label">New BD Leads (24h)</div>
+        <div class="m-val a">1 Warm</div>
+        <div class="m-detail">Richemont / Cartier (Ghazal Al Safadi). Call after 6 PM to qualify scope.</div>
+      </div>
+      <div class="metric">
+        <div class="m-label">CIT Docs Received</div>
+        <div class="m-val g">1 Cert</div>
+        <div class="m-detail">MFZ Building Materials — CIT Registration Certificate forwarded. File in client folder.</div>
+      </div>
     </div>
   </div>
 
-</div>
+
+</div><!-- end grid -->
+
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
 <footer class="footer">
-  <div><span class="footer-brand">BPOAS</span> &middot; COO Brief &middot; 26 June 2026 &middot; Outlook + Notion</div>
+  <div><span class="footer-brand">BPOAS</span> &nbsp;·&nbsp; COO Brief &nbsp;·&nbsp; 26 June 2026 &nbsp;·&nbsp; Outlook + Notion</div>
   <div class="legend">
-    <span><span style="color:var(--green)">&#9679;</span> Green = On track</span>
-    <span><span style="color:var(--amber)">&#9679;</span> Amber = Attention needed</span>
-    <span><span style="color:var(--red)">&#9679;</span> Red = Overdue / Deadline at risk</span>
+    <span><span style="color:var(--green);">●</span> Green = On track</span>
+    <span><span style="color:var(--amber);">●</span> Amber = Attention needed</span>
+    <span><span style="color:var(--red);">●</span> Red = Overdue / Deadline at risk</span>
   </div>
 </footer>
-</div>
+
+
+</div><!-- end doc -->
 </body>
 </html>
