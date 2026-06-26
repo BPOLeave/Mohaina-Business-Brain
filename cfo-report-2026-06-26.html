@@ -3,114 +3,730 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CFO Weekly Revenue · Purely Personal</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>BPOAS · CFO Weekly Revenue Report · 26 June 2026</title>
 <style>
-  :root{
-    --primary:#1F3A5F; --primary-light:#4A6E9E;
-    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
-    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
-    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
-    --r-md:14px; --r-lg:22px; --pill:9999px;
-    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
-    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  :root {
+    --primary: #E8294C;
+    --primary-dim: rgba(232,41,76,0.14);
+    --primary-glow: rgba(232,41,76,0.06);
+    --bg: #0A0A0A;
+    --surface: #131313;
+    --surface-2: #1A1A1A;
+    --surface-3: #202020;
+    --border: rgba(255,255,255,0.07);
+    --border-2: rgba(255,255,255,0.12);
+    --text: #F5F5F5;
+    --text-muted: #888;
+    --text-dim: #555;
+    --green: #22C55E;
+    --green-dim: rgba(34,197,94,0.12);
+    --amber: #F59E0B;
+    --amber-dim: rgba(245,158,11,0.12);
+    --red: #EF4444;
+    --red-dim: rgba(239,68,68,0.12);
+    --radius: 10px;
+    --radius-sm: 6px;
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
-  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
-
-  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
-  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
-  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
-  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
-  .ohead .d{font-size:13px;opacity:.85;}
-
-  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
-  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
-  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
-  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:15px;border-bottom:1px solid var(--gray-light);}
-  .row:last-child{border-bottom:none;}
-  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
-  .t-red{background:#fdecec;color:var(--bad);} .t-amb{background:#fdf1de;color:var(--warn);}
-  .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-grn{background:#e7f6ee;color:var(--good);} .t-blue{background:#e6f0fc;color:#1E6FE0;}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
-  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
-  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .stat .delta{font-size:12.5px;font-weight:600;margin-top:4px;color:var(--gray-text);}
-  .bar{height:14px;border-radius:var(--pill);background:var(--gray-light);overflow:hidden;margin-top:10px;}
-  .bar i{display:block;height:100%;width:0;border-radius:var(--pill);background:linear-gradient(90deg,var(--primary),var(--primary-light));}
-  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
-  .note b{color:var(--primary-light);}
-  .qbox{width:100%;border:1px dashed rgba(255,255,255,.4);border-radius:10px;padding:12px;font-family:inherit;font-size:14px;color:#fff;background:rgba(255,255,255,.06);margin-top:10px;}
-  .qbox::placeholder{color:rgba(255,255,255,.55);}
-
-  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
-  footer b{color:var(--ink);}
-  @media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 32px 24px 64px;
+  }
+  a { color: var(--primary); text-decoration: none; }
+  .report-header {
+    max-width: 1100px;
+    margin: 0 auto 36px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .report-header .brand { display: flex; align-items: center; gap: 14px; }
+  .logo-mark {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    background: var(--primary);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 15px; letter-spacing: -0.5px; color: #fff;
+    flex-shrink: 0;
+  }
+  .brand-name { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+  .brand-sub { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
+  .report-meta { text-align: right; }
+  .report-title { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; }
+  .report-date { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; margin-top: 2px; }
+  .report-period { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .data-notice {
+    max-width: 1100px;
+    margin: 0 auto 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--amber);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+  .data-notice .icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .data-notice strong { color: var(--amber); }
+  .report-body { max-width: 1100px; margin: 0 auto; }
+  .section { margin-bottom: 36px; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 900px) { .metric-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .metric-grid { grid-template-columns: 1fr; } }
+  .metric-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+  .metric-card.green::before { background: var(--green); }
+  .metric-card.amber::before { background: var(--amber); }
+  .metric-card.red::before { background: var(--red); }
+  .metric-card.neutral::before { background: var(--primary); }
+  .metric-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 10px; }
+  .metric-value { font-size: 28px; font-weight: 800; letter-spacing: -1px; line-height: 1; }
+  .metric-sub { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+  .metric-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .badge-green { background: var(--green-dim); color: var(--green); }
+  .badge-amber { background: var(--amber-dim); color: var(--amber); }
+  .badge-red { background: var(--red-dim); color: var(--red); }
+  .revenue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 700px) { .revenue-grid { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .card-title { font-size: 13px; font-weight: 700; }
+  .card-body { padding: 16px 20px; }
+  .revenue-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .revenue-row:last-child { border-bottom: none; }
+  .revenue-row .label { color: var(--text-muted); }
+  .revenue-row .amount { font-weight: 700; }
+  .revenue-row .amount.confirm { color: var(--amber); font-style: italic; }
+  .invoice-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .invoice-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-dim);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .invoice-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .invoice-table tr:last-child td { border-bottom: none; }
+  .invoice-table tr:hover td { background: var(--surface-2); }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .pill-green { background: var(--green-dim); color: var(--green); }
+  .pill-amber { background: var(--amber-dim); color: var(--amber); }
+  .pill-red { background: var(--red-dim); color: var(--red); }
+  .pill-grey { background: rgba(255,255,255,0.05); color: var(--text-muted); }
+  .dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+  .dot-green { background: var(--green); }
+  .dot-amber { background: var(--amber); }
+  .dot-red { background: var(--red); }
+  .dot-grey { background: var(--text-muted); }
+  .client-name { font-weight: 600; }
+  .inv-number { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; color: var(--text-muted); }
+  .amount-confirm { color: var(--amber); font-style: italic; font-size: 12px; }
+  .pipeline-list { display: flex; flex-direction: column; gap: 10px; }
+  .pipeline-item {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px 16px;
+    align-items: start;
+  }
+  .pipeline-client { font-weight: 700; font-size: 13px; margin-bottom: 3px; }
+  .pipeline-service { font-size: 12px; color: var(--text-muted); }
+  .pipeline-right { text-align: right; }
+  .pipeline-age { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+  .pipeline-flag {
+    margin-top: 8px;
+    grid-column: 1 / -1;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .flag-red { background: var(--red-dim); color: var(--red); border: 1px solid rgba(239,68,68,0.2); }
+  .flag-amber { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.2); }
+  .retainer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media (max-width: 700px) { .retainer-grid { grid-template-columns: 1fr; } }
+  .retainer-item {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+  }
+  .retainer-item.status-red { border-left: 3px solid var(--red); }
+  .retainer-item.status-grey { border-left: 3px solid var(--text-dim); }
+  .retainer-client { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+  .retainer-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+  .flags-list { display: flex; flex-direction: column; gap: 12px; }
+  .attention-flag {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--red);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+  }
+  .flag-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .flag-num {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--red-dim);
+    color: var(--red);
+    font-size: 11px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .flag-title { font-size: 13px; font-weight: 700; }
+  .flag-category { font-size: 11px; color: var(--red); font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; }
+  .flag-body { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px; }
+  .flag-owner {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--surface-3);
+    color: var(--text-muted);
+    display: inline-block;
+    font-weight: 600;
+  }
+  .followup-list { display: flex; flex-direction: column; gap: 10px; }
+  .followup-item {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 14px;
+    align-items: start;
+  }
+  .followup-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--primary);
+    background: var(--primary-dim);
+    border-radius: var(--radius-sm);
+    padding: 3px 8px;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  .followup-text { font-size: 13px; color: var(--text); line-height: 1.6; }
+  .followup-copy {
+    grid-column: 1 / -1;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--text-muted);
+    background: var(--surface-3);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    border-left: 2px solid var(--border-2);
+    margin-top: 2px;
+    line-height: 1.7;
+  }
+  .copy-label { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; }
+  .report-footer {
+    max-width: 1100px;
+    margin: 48px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-text { font-size: 11px; color: var(--text-dim); }
+  .footer-brand { font-size: 11px; color: var(--text-dim); font-weight: 600; }
+  .footer-brand span { color: var(--primary); }
 </style>
 </head>
-<body data-theme="standard">
-  <div class="doc">
+<body>
 
-    <div class="ohead"><div class="k">CFO · Weekly revenue</div><h1>This week: 1 new client, 2 deals live</h1><div class="d">Friday, 26 June 2026 · read only, I never move money · figures shown are only what your tools can verify</div></div>
-
-    <div class="grid3">
-      <div class="stat"><div class="l">Cash in (this week)</div><div class="n" style="font-size:28px">AED —</div><div class="delta">Not visible to connected tools. See flag 1.</div></div>
-      <div class="stat"><div class="l">New clients won</div><div class="n"><span class="count" data-to="1">0</span></div><div class="delta up" style="color:var(--good)">MCM Products, signed Wed</div></div>
-      <div class="stat"><div class="l">Live pipeline deals</div><div class="n"><span class="count" data-to="2">0</span></div><div class="delta">Richemont renewal, Cartier new</div></div>
+<header class="report-header">
+  <div class="brand">
+    <div class="logo-mark">BP</div>
+    <div>
+      <div class="brand-name">BPOAS</div>
+      <div class="brand-sub">BPO Accounting Services &middot; Mohaina Asira</div>
     </div>
-
-    <div class="card" style="padding:18px 20px"><div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--gray-text)">Monthly goal · not set</span><span style="font-weight:700">— %</span></div><div class="bar"><i data-pct="0%"></i></div><div style="font-size:12.5px;color:var(--gray-text);margin-top:8px">No revenue target found in your foundation docs. Give me a monthly number and I will track run rate against it every week.</div></div>
-
-    <div class="sec">What moved this week</div>
-    <div class="card"><h4>Wins and pipeline</h4>
-      <div class="row">MCM Products, VAT advisory proposal signed 25 Jun<span class="tagi t-grn">won</span></div>
-      <div class="row">Richemont, BPO contract renewal 2026 to 2027, final redlines in<span class="tagi t-amb">closing</span></div>
-      <div class="row">Cartier (Ghazal Al Safadi), new bookkeeping, meeting Mon 1:30<span class="tagi t-blue">new</span></div>
-    </div>
-
-    <div class="card"><h4>Costs that cleared (not your revenue)</h4>
-      <div class="row">Zoho Books subscriptions, paid 19 Jun<span class="tagi t-grey">software</span></div>
-      <div class="row">Regus, monthly office, bank transfer<span class="tagi t-grey">overhead</span></div>
-      <div class="row">Odoo Middle East invoice, paid for a client setup (MFZ)<span class="tagi t-grey">pass-through</span></div>
-    </div>
-
-    <div class="sec">Attention flags</div>
-    <div class="card"><h4>Three things, in order</h4>
-      <div class="row">No revenue figures reach your tools. You bill via Zoho Books and bank, neither connected<span class="tagi t-red">act</span></div>
-      <div class="row">Possible concentration: Richemont appears across renewal and Cartier. Confirm it is under 30% of revenue<span class="tagi t-amb">watch</span></div>
-      <div class="row">A signed proposal is not cash. Get the first MCM invoice out now<span class="tagi t-grn">bank it</span></div>
-    </div>
-
-    <div class="sec">Overdue invoices</div>
-    <div class="card"><h4>Your own unpaid invoices</h4>
-      <div class="row">None visible. BPOAS-issued invoices live in Zoho, not in a connected tool, so I cannot confirm what is outstanding.<span class="tagi t-grey">connect to track</span></div>
-      <div style="font-size:12.5px;color:var(--gray-text);margin-top:6px">Note: the SAR 49,197.10 transfer your team is chasing (Almosafer to Menastar) is a client receivable, not your invoice. Michelle is already on it.</div>
-    </div>
-
-    <div class="note">The one revenue move this week with the biggest impact: <b>invoice MCM Products today</b>. They signed Wednesday, and a signed proposal only becomes cash once the invoice goes out and clears. Then give me three numbers so next Friday is real:<textarea class="qbox" rows="3" placeholder="1. What came in this week (AED paid)?  2. What is unpaid (who owes what)?  3. Pipeline value (Richemont renewal + Cartier estimate)..."></textarea></div>
-
-    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script>
-    window.addEventListener('load',function(){
-      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
-      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
-      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
-      gsap.from('.card,.stat,.note',{y:20,opacity:0,duration:.55,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 88%'}});
-      gsap.utils.toArray('.count').forEach(function(el){
-        var to=+el.dataset.to,o={v:0};
-        gsap.to(o,{v:to,duration:1.2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 95%'},onUpdate:function(){el.textContent=Math.round(o.v).toLocaleString();}});
-      });
-      gsap.utils.toArray('.bar i').forEach(function(el){
-        gsap.to(el,{width:el.dataset.pct||'0%',duration:1.2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 95%'}});
-      });
-    });
-  </script>
+  <div class="report-meta">
+    <div class="report-title">CFO Weekly Revenue Report</div>
+    <div class="report-date">26 June 2026</div>
+    <div class="report-period">Week ending Friday &middot; Period: Jun 20 &ndash; Jun 26, 2026</div>
+  </div>
+</header>
+
+<div class="report-body">
+
+  <div class="data-notice">
+    <span class="icon">&#9888;</span>
+    <div>
+      <strong>Data Source Notice:</strong> Invoice amounts are stored in Zoho Books PDF attachments and cannot be extracted from email metadata. All AED figures below are marked <em>Confirm in Zoho</em> where values require portal verification. Notion workspace contains brand and content pages only &mdash; no financial database is connected. Pipeline and client data sourced from Outlook email thread analysis.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Weekly Snapshot</div>
+    <div class="metric-grid">
+      <div class="metric-card amber">
+        <div class="metric-label">Invoices Issued &middot; This Week</div>
+        <div class="metric-value">2</div>
+        <div class="metric-sub">Marina Monthly (Jun 25, approved) + Orlen monthly reports (Jun 19)</div>
+        <div class="metric-badge badge-amber">AED amounts: Confirm in Zoho</div>
+      </div>
+      <div class="metric-card amber">
+        <div class="metric-label">Payment Confirmations Received</div>
+        <div class="metric-value">0</div>
+        <div class="metric-sub">No payment confirmation emails found in the current week window</div>
+        <div class="metric-badge badge-amber">Verify in Zoho Books</div>
+      </div>
+      <div class="metric-card red">
+        <div class="metric-label">Overdue / At-Risk Invoices</div>
+        <div class="metric-value">2+</div>
+        <div class="metric-sub">Richemont Jun invoices &middot; MFZ awaiting invoice 24+ days</div>
+        <div class="metric-badge badge-red">Action Required</div>
+      </div>
+      <div class="metric-card amber">
+        <div class="metric-label">Active Retainer Clients</div>
+        <div class="metric-value">6</div>
+        <div class="metric-sub">Monthly retainer clients active &middot; Exact MRR: confirm per Zoho profile rates</div>
+        <div class="metric-badge badge-amber">Revenue Target Not Set</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Revenue Breakdown by Stream</div>
+    <div class="revenue-grid">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Monthly Retainers &mdash; Active Clients</div>
+          <span class="status-pill pill-green"><span class="dot dot-green"></span> 6 Active</span>
+        </div>
+        <div class="card-body">
+          <div class="revenue-row">
+            <span class="label">Richemont (Dubai) FZE &mdash; 3 profiles</span>
+            <span class="amount confirm">Confirm Zoho</span>
+          </div>
+          <div class="revenue-row">
+            <span class="label">MENASTAR DMCC</span>
+            <span class="amount confirm">Confirm Zoho</span>
+          </div>
+          <div class="revenue-row">
+            <span class="label">Marina Marketing Co. LLC</span>
+            <span class="amount confirm">Confirm Zoho</span>
+          </div>
+          <div class="revenue-row">
+            <span class="label">GASCHEM DMCC &mdash; Payroll</span>
+            <span class="amount confirm">Confirm Zoho</span>
+          </div>
+          <div class="revenue-row">
+            <span class="label">Wicked Tents L.L.C &mdash; Quarterly</span>
+            <span class="amount confirm">Confirm Zoho</span>
+          </div>
+          <div class="revenue-row">
+            <span class="label">ORLEN S.A. RAK Branch</span>
+            <span class="amount confirm">Confirm Zoho</span>
+          </div>
+          <div class="revenue-row" style="border-top:1px solid rgba(255,255,255,0.12); margin-top:4px; padding-top:12px;">
+            <span class="label" style="font-weight:700;">Total Retainer MRR</span>
+            <span class="amount confirm" style="font-size:15px;">Confirm Zoho</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Project / Compliance Fees &mdash; Pipeline</div>
+          <span class="status-pill pill-amber"><span class="dot dot-amber"></span> 3 Deals</span>
+        </div>
+        <div class="card-body">
+          <div class="revenue-row">
+            <span class="label">MCM Products &mdash; VAT Compliance</span>
+            <span class="amount confirm">EL Pending</span>
+          </div>
+          <div class="revenue-row">
+            <span class="label">MFZ Building &mdash; Quarterly BK + Odoo</span>
+            <span class="amount confirm">Invoice Not Sent</span>
+          </div>
+          <div class="revenue-row">
+            <span class="label">Concept Lab &mdash; CIT Filing</span>
+            <span class="amount confirm">EL Awaiting Signature</span>
+          </div>
+          <div class="revenue-row" style="border-top:1px solid rgba(255,255,255,0.12); margin-top:4px; padding-top:12px;">
+            <span class="label" style="font-weight:700;">Projected Pipeline Value</span>
+            <span class="amount confirm" style="font-size:15px;">Confirm Zoho</span>
+          </div>
+          <div style="margin-top:12px; font-size:12px; color:var(--text-muted); line-height:1.7;">
+            Bookkeeping, VAT, CIT, Zoho/Odoo implementation, and AML/DNFBP compliance fees are recognised here once engagement letters are signed and invoiced.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Active Invoices &mdash; June 2026</div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Zoho Books &middot; Outstanding &amp; Recent Invoices</div>
+        <span class="status-pill pill-amber">AED amounts: verify in portal</span>
+      </div>
+      <div class="card-body" style="padding:0;">
+        <table class="invoice-table">
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Invoice #</th>
+              <th>Profile / Service</th>
+              <th>Issued</th>
+              <th>Due (30d)</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="client-name">Richemont (Dubai) FZE</span></td>
+              <td><span class="inv-number">INV-2026-000156</span></td>
+              <td>Kamal Profile</td>
+              <td>01 Jun</td>
+              <td>01 Jul</td>
+              <td><span class="amount-confirm">Confirm Zoho</span></td>
+              <td><span class="status-pill pill-amber"><span class="dot dot-amber"></span> Pending</span></td>
+            </tr>
+            <tr>
+              <td><span class="client-name">Richemont (Dubai) FZE</span></td>
+              <td><span class="inv-number">INV-2026-000155</span></td>
+              <td>KSA AP Nada Profile</td>
+              <td>01 Jun</td>
+              <td>01 Jul</td>
+              <td><span class="amount-confirm">Confirm Zoho</span></td>
+              <td><span class="status-pill pill-amber"><span class="dot dot-amber"></span> Pending</span></td>
+            </tr>
+            <tr>
+              <td><span class="client-name">Richemont (Dubai) FZE</span></td>
+              <td><span class="inv-number">INV-2026-000164</span></td>
+              <td>Mary Jane Profile</td>
+              <td>10 Jun</td>
+              <td>10 Jul</td>
+              <td><span class="amount-confirm">Confirm Zoho</span></td>
+              <td><span class="status-pill pill-amber"><span class="dot dot-amber"></span> Pending</span></td>
+            </tr>
+            <tr>
+              <td><span class="client-name">Richemont (Dubai) FZE</span></td>
+              <td><span class="inv-number">INV-2026-000162</span></td>
+              <td>Mary Jane Profile</td>
+              <td>03 Jun</td>
+              <td>03 Jul</td>
+              <td><span class="amount-confirm">Confirm Zoho</span></td>
+              <td><span class="status-pill pill-amber"><span class="dot dot-amber"></span> Pending</span></td>
+            </tr>
+            <tr>
+              <td><span class="client-name">MENASTAR DMCC</span></td>
+              <td><span class="inv-number">INV-2026-000154</span></td>
+              <td>MenaStar Profile</td>
+              <td>01 Jun</td>
+              <td>01 Jul</td>
+              <td><span class="amount-confirm">Confirm Zoho</span></td>
+              <td><span class="status-pill pill-red"><span class="dot dot-red"></span> Blocked</span></td>
+            </tr>
+            <tr>
+              <td><span class="client-name">MARINA MARKETING CO. LLC</span></td>
+              <td><span class="inv-number">INV-2026-000166</span></td>
+              <td>Marina Monthly</td>
+              <td>25 Jun</td>
+              <td>25 Jul</td>
+              <td><span class="amount-confirm">Confirm Zoho</span></td>
+              <td><span class="status-pill pill-green"><span class="dot dot-green"></span> Approved</span></td>
+            </tr>
+            <tr>
+              <td><span class="client-name">GASCHEM DMCC</span></td>
+              <td><span class="inv-number">INV-2026-000157</span></td>
+              <td>Payroll Profile</td>
+              <td>01 Jun</td>
+              <td>01 Jul</td>
+              <td><span class="amount-confirm">Confirm Zoho</span></td>
+              <td><span class="status-pill pill-amber"><span class="dot dot-amber"></span> Pending</span></td>
+            </tr>
+            <tr>
+              <td><span class="client-name">WICKED TENTS L.L.C</span></td>
+              <td><span class="inv-number">INV-2026-000148</span></td>
+              <td>Wicked Quarterly</td>
+              <td>01 Jun</td>
+              <td>01 Jul</td>
+              <td><span class="amount-confirm">Confirm Zoho</span></td>
+              <td><span class="status-pill pill-amber"><span class="dot dot-amber"></span> Pending</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Pipeline Health &mdash; 3 Active Deals</div>
+    <div class="pipeline-list">
+      <div class="pipeline-item">
+        <div>
+          <div class="pipeline-client">MCM Products Middle East LLC</div>
+          <div class="pipeline-service">VAT Compliance Filing &middot; Proposal SIGNED 25 Jun 2026</div>
+        </div>
+        <div class="pipeline-right">
+          <div><span class="status-pill pill-amber"><span class="dot dot-amber"></span> EL Not Issued</span></div>
+          <div class="pipeline-age">KYC sent &middot; 1 day since signing</div>
+        </div>
+        <div class="pipeline-flag flag-red">
+          <strong>&#9888; Compliance Risk:</strong>&nbsp;Proposal signed but no engagement letter issued. Work must not begin and revenue cannot be recognised until EL is executed. Owner: <strong>Raihana</strong>
+        </div>
+      </div>
+      <div class="pipeline-item">
+        <div>
+          <div class="pipeline-client">MFZ Building Materials Trading LLC</div>
+          <div class="pipeline-service">Quarterly Bookkeeping + Odoo Implementation</div>
+        </div>
+        <div class="pipeline-right">
+          <div><span class="status-pill pill-red"><span class="dot dot-red"></span> Stalled 24 Days</span></div>
+          <div class="pipeline-age">Client waiting for invoice since 02 Jun</div>
+        </div>
+        <div class="pipeline-flag flag-red">
+          <strong>&#9888; Revenue Risk:</strong>&nbsp;Client has been waiting for an invoice for 24 days. If deal value exceeds AED 15,000 this triggers a priority review flag. Send invoice immediately.
+        </div>
+      </div>
+      <div class="pipeline-item">
+        <div>
+          <div class="pipeline-client">The Concept Lab Events &amp; Entertainment FZC</div>
+          <div class="pipeline-service">CIT Filing &middot; Engagement Letter Sent 19 Jun 2026</div>
+        </div>
+        <div class="pipeline-right">
+          <div><span class="status-pill pill-amber"><span class="dot dot-amber"></span> EL Awaiting Signature</span></div>
+          <div class="pipeline-age">7 days since EL sent</div>
+        </div>
+        <div class="pipeline-flag flag-amber">
+          <strong>Note:</strong>&nbsp;No signed EL returned yet. Follow up if no response by 30 Jun.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Attention Flags &mdash; Requires Mohaina&rsquo;s Review</div>
+    <div class="flags-list">
+      <div class="attention-flag">
+        <div class="flag-header">
+          <div class="flag-num">1</div>
+          <div>
+            <div class="flag-category">Cash Flow / Collections</div>
+            <div class="flag-title">MENASTAR DMCC &mdash; Almosafer Bank Account Claim Rejected (3+ Times)</div>
+          </div>
+        </div>
+        <div class="flag-body">
+          MENASTAR&rsquo;s Almosafer corporate account claim (#2010754) has been rejected more than 3 times due to a legal entity name mismatch: the registered name is <strong>MENASTAR DMCC</strong> but Almosafer shows <strong>MENASTAR FZCO</strong>. This is blocking the client from making payment through their preferred channel. Risk: payment delay on INV-2026-000154 beyond the 30-day term (due 01 Jul 2026).
+        </div>
+        <span class="flag-owner">Owner: Rei / Junaifa</span>
+      </div>
+      <div class="attention-flag">
+        <div class="flag-header">
+          <div class="flag-num">2</div>
+          <div>
+            <div class="flag-category">Compliance / Engagement Letter</div>
+            <div class="flag-title">MCM Products &mdash; Proposal Signed Without Engagement Letter</div>
+          </div>
+        </div>
+        <div class="flag-body">
+          MCM Products Middle East LLC signed the VAT compliance proposal on 25 Jun. KYC was sent immediately, but no engagement letter has been issued. BPOAS policy requires an executed EL before services commence. If work begins without an EL, BPOAS carries full liability with no contractual recourse. This must be corrected today.
+        </div>
+        <span class="flag-owner">Owner: Raihana</span>
+      </div>
+      <div class="attention-flag">
+        <div class="flag-header">
+          <div class="flag-num">3</div>
+          <div>
+            <div class="flag-category">Revenue Security / Contract</div>
+            <div class="flag-title">Richemont Contract Expired &mdash; Week 5 of Legal Negotiation</div>
+          </div>
+        </div>
+        <div class="flag-body">
+          The Richemont (Dubai) FZE service contract has expired and is currently in week 5 of legal review. BPOAS continues servicing 3 active Richemont profiles and issuing invoices without a current executed contract in force. This is the single largest revenue concentration risk in the portfolio. Invoices INV-2026-000156, INV-2026-000155, INV-2026-000164, and INV-2026-000162 are all outstanding under this arrangement.
+        </div>
+        <span class="flag-owner">Owner: Mohaina</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Retainer Renewal Tracker</div>
+    <div class="retainer-grid">
+      <div class="retainer-item status-red">
+        <div class="retainer-client">Richemont (Dubai) FZE</div>
+        <div class="retainer-meta">3 active profiles &middot; Bookkeeping + VAT + Payroll</div>
+        <span class="status-pill pill-red"><span class="dot dot-red"></span> RED &mdash; Contract Expired</span>
+        <div style="margin-top:8px; font-size:11px; color:var(--red); font-style:italic;">Week 5 of legal negotiation. No executed contract currently in force.</div>
+      </div>
+      <div class="retainer-item status-grey">
+        <div class="retainer-client">MENASTAR DMCC</div>
+        <div class="retainer-meta">MenaStar profile &middot; Monthly retainer</div>
+        <span class="status-pill pill-grey"><span class="dot dot-grey"></span> Renewal Date Missing</span>
+        <div style="margin-top:8px; font-size:11px; color:var(--text-dim); font-style:italic;">Add renewal date to Notion client record.</div>
+      </div>
+      <div class="retainer-item status-grey">
+        <div class="retainer-client">Marina Marketing Co. LLC</div>
+        <div class="retainer-meta">Marina Monthly &middot; Jun 25 invoice approved</div>
+        <span class="status-pill pill-grey"><span class="dot dot-grey"></span> Renewal Date Missing</span>
+        <div style="margin-top:8px; font-size:11px; color:var(--text-dim); font-style:italic;">Add renewal date to Notion client record.</div>
+      </div>
+      <div class="retainer-item status-grey">
+        <div class="retainer-client">GASCHEM DMCC</div>
+        <div class="retainer-meta">Payroll profile &middot; Monthly retainer</div>
+        <span class="status-pill pill-grey"><span class="dot dot-grey"></span> Renewal Date Missing</span>
+        <div style="margin-top:8px; font-size:11px; color:var(--text-dim); font-style:italic;">Add renewal date to Notion client record.</div>
+      </div>
+      <div class="retainer-item status-grey">
+        <div class="retainer-client">Wicked Tents L.L.C</div>
+        <div class="retainer-meta">Wicked Quarterly &middot; INV-2026-000148 Jun 1</div>
+        <span class="status-pill pill-grey"><span class="dot dot-grey"></span> Renewal Date Missing</span>
+        <div style="margin-top:8px; font-size:11px; color:var(--text-dim); font-style:italic;">Add renewal date to Notion client record.</div>
+      </div>
+      <div class="retainer-item status-grey">
+        <div class="retainer-client">ORLEN S.A. RAK Branch</div>
+        <div class="retainer-meta">Monthly reports &middot; Jun 19</div>
+        <span class="status-pill pill-grey"><span class="dot dot-grey"></span> Renewal Date Missing</span>
+        <div style="margin-top:8px; font-size:11px; color:var(--text-dim); font-style:italic;">Add renewal date to Notion client record.</div>
+      </div>
+    </div>
+    <div style="margin-top:14px; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--amber); border-radius:var(--radius-sm); padding:12px 16px; font-size:12.5px; color:var(--text-muted);">
+      <strong style="color:var(--amber);">Recommendation:</strong> Create a Retainer Clients database in Notion with fields: Client Name, Contract Start, Contract End, Renewal Window (60d/30d/7d), Responsible Owner. Connect to this report for automated green/amber/red status next cycle. Currently 5 of 6 clients have no renewal date on record.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Copy-Ready Follow-Up Messages</div>
+    <div class="followup-list">
+      <div class="followup-item">
+        <div class="followup-tag">MENASTAR</div>
+        <div class="followup-text">Payment follow-up for INV-2026-000154 (due 01 Jul) &mdash; payment blocked by Almosafer account name mismatch.</div>
+        <div class="followup-copy">
+          <div class="copy-label">Copy-ready message</div>
+          Hi [Client Name], following up on INV-2026-000154 due 01 July 2026. We understand the Almosafer account claim is pending resolution due to the entity name discrepancy (DMCC vs. FZCO). Kindly advise if payment can be processed via an alternate bank account in the meantime so we can keep the receivable on track. Thank you.
+        </div>
+      </div>
+      <div class="followup-item">
+        <div class="followup-tag">MFZ BUILDING</div>
+        <div class="followup-text">Invoice overdue to be sent &mdash; client has been waiting since 02 Jun (24 days). Send immediately.</div>
+        <div class="followup-copy">
+          <div class="copy-label">Copy-ready message</div>
+          Hi [Client Name], apologies for the delay &mdash; please find attached the invoice for your Quarterly Bookkeeping and Odoo Implementation engagement as agreed. Payment is due within 30 days from the invoice date. Please confirm receipt and let us know if you have any questions.
+        </div>
+      </div>
+      <div class="followup-item">
+        <div class="followup-tag">CONCEPT LAB</div>
+        <div class="followup-text">Engagement letter follow-up for CIT Filing &mdash; sent 19 Jun, no signed return after 7 days.</div>
+        <div class="followup-copy">
+          <div class="copy-label">Copy-ready message</div>
+          Hi [Client Name], just following up on the CIT Filing engagement letter sent on 19 June &mdash; please let us know if you have any questions before signing, and kindly return the signed copy at your earliest convenience so we can begin the filing process ahead of the deadline.
+        </div>
+      </div>
+      <div class="followup-item">
+        <div class="followup-tag">MCM PRODUCTS</div>
+        <div class="followup-text">Engagement letter must be issued before work begins &mdash; proposal signed 25 Jun, EL not yet sent.</div>
+        <div class="followup-copy">
+          <div class="copy-label">Copy-ready message (internal action first)</div>
+          Hi [Client Name], thank you for signing the VAT Compliance proposal &mdash; we are preparing your engagement letter now and will send it shortly for your signature. Please note that our formal engagement and service delivery will commence once the signed letter is returned. We look forward to working with you.
+        </div>
+      </div>
+      <div class="followup-item">
+        <div class="followup-tag">RICHEMONT</div>
+        <div class="followup-text">4 open invoices outstanding while contract is in legal review &mdash; coordinate with Mohaina before sending.</div>
+        <div class="followup-copy">
+          <div class="copy-label">Copy-ready message (pending Mohaina review)</div>
+          Hi [Client Contact], we wanted to flag that invoices INV-2026-000156, INV-2026-000155, INV-2026-000164, and INV-2026-000162 remain outstanding. As we continue to finalise the contract renewal, we kindly request that payment be processed against these invoices per our standard 30-day terms. Please confirm expected payment dates at your earliest convenience.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="report-footer">
+  <div class="footer-text">Generated: 26 June 2026 &middot; Sources: Zoho Books (email notifications), Outlook (thread analysis) &middot; Notion: content workspace only &mdash; no financial data connected</div>
+  <div class="footer-brand"><span>BPOAS</span> &middot; BPO Accounting Services &middot; Confidential</div>
+</footer>
+
 </body>
 </html>
