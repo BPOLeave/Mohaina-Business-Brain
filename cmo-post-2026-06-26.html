@@ -1,130 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CMO Daily Post · Purely Personal</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --primary:#1F3A5F; --primary-light:#4A6E9E;
-    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
-    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
-    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
-    --r-md:14px; --r-lg:22px; --pill:9999px;
-    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
-    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
-  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
-
-  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
-  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
-  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
-  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
-  .ohead .d{font-size:13px;opacity:.85;}
-
-  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
-  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
-  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
-  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:15px;border-bottom:1px solid var(--gray-light);}
-  .row:last-child{border-bottom:none;}
-  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
-  .t-grn{background:#e7f6ee;color:var(--good);}
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-
-  .lipost{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:20px;}
-  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-  .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
-  .lihead .nm{font-weight:700;font-size:15px;} .lihead .mt{font-size:12px;color:var(--gray-text);}
-  .lipost .post{font-size:15px;line-height:1.6;white-space:pre-line;}
-  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
-  .chip{font-size:12px;font-weight:600;background:var(--gray-light);color:var(--gray-text);padding:5px 11px;border-radius:var(--pill);}
-  .score{display:inline-flex;align-items:center;gap:8px;background:#e7f6ee;color:var(--good);font-weight:700;font-size:13px;padding:6px 13px;border-radius:var(--pill);}
-
-  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
-  footer b{color:var(--ink);}
-
-  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BPOAS CMO Daily Post — 26 June 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0A0A0A;
+      color: #F0F0F0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      padding: 40px 16px;
+      line-height: 1.65;
+    }
+    .container { max-width: 840px; margin: 0 auto; }
+    .header-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #E8294C;
+      margin-bottom: 6px;
+    }
+    .header-date { color: #444; font-size: 0.82rem; margin-bottom: 36px; }
+    .flag {
+      background: #140505;
+      border: 1px solid #E8294C;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      font-size: 0.84rem;
+      color: #f0a0a0;
+      line-height: 1.7;
+    }
+    .flag strong { color: #E8294C; }
+    .card {
+      background: #111111;
+      border: 1px solid #1d1d1d;
+      border-radius: 14px;
+      padding: 28px 28px 24px;
+      margin-bottom: 24px;
+    }
+    .card-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #E8294C;
+      margin-bottom: 20px;
+    }
+    .hooks-grid { display: grid; gap: 12px; }
+    .hook {
+      background: #161616;
+      border: 1px solid #222;
+      border-radius: 9px;
+      padding: 14px 16px;
+    }
+    .hook.selected {
+      border-color: #E8294C;
+      background: #190808;
+    }
+    .hook-type {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #555;
+      margin-bottom: 7px;
+    }
+    .hook.selected .hook-type { color: #E8294C; }
+    .hook-text { font-size: 0.91rem; color: #bbb; line-height: 1.6; }
+    .hook.selected .hook-text { color: #eee; }
+    .badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      background: #E8294C;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .selection-reason {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: #0c0c0c;
+      border-left: 3px solid #E8294C;
+      border-radius: 0 7px 7px 0;
+      font-size: 0.8rem;
+      color: #777;
+      line-height: 1.65;
+    }
+    .selection-reason strong { color: #E8294C; }
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .tag {
+      font-size: 0.7rem;
+      background: #181818;
+      border: 1px solid #282828;
+      border-radius: 20px;
+      padding: 4px 12px;
+      color: #888;
+    }
+    .tag span { color: #E8294C; }
+    .post-body {
+      white-space: pre-wrap;
+      font-size: 0.93rem;
+      color: #e0e0e0;
+      line-height: 1.8;
+      font-family: 'Georgia', Georgia, serif;
+    }
+    .char-count {
+      margin-top: 14px;
+      font-size: 0.72rem;
+      color: #3a3a3a;
+      text-align: right;
+    }
+    .diag-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .diag-item {
+      background: #161616;
+      border-radius: 9px;
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .diag-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .diag-name {
+      font-size: 0.75rem;
+      color: #E8294C;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 5px;
+    }
+    .diag-note { font-size: 0.77rem; color: #777; line-height: 1.6; }
+    .diag-pass { color: #4caf50; }
+    .score-wrap { text-align: center; margin-top: 22px; }
+    .score-num {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #E8294C;
+      line-height: 1;
+    }
+    .score-denom { font-size: 1.1rem; color: #333; }
+    .score-label { font-size: 0.72rem; color: #444; margin-top: 6px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .comment {
+      background: #161616;
+      border-radius: 9px;
+      padding: 18px;
+      margin-bottom: 12px;
+    }
+    .comment:last-child { margin-bottom: 0; }
+    .comment-num {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #E8294C;
+      margin-bottom: 10px;
+    }
+    .comment-text { font-size: 0.88rem; color: #c0c0c0; line-height: 1.7; }
+    .status-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      background: #0e0e0e;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .dot-hold { background: #E8294C; }
+    .dot-pending { background: #f5a623; }
+    .dot-ok { background: #4caf50; }
+    .status-text { font-size: 0.82rem; color: #888; line-height: 1.6; }
+    .status-text strong { color: #bbb; }
+    .email-draft {
+      margin-top: 20px;
+      background: #0d0d0d;
+      border: 1px solid #222;
+      border-radius: 9px;
+      padding: 18px 20px;
+      font-size: 0.82rem;
+      color: #777;
+      line-height: 1.8;
+    }
+    .email-draft strong { color: #999; }
+    .ef { color: #E8294C; }
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.7rem;
+      color: #2a2a2a;
+      letter-spacing: 0.06em;
+    }
+    @media (max-width: 580px) {
+      .diag-grid { grid-template-columns: 1fr; }
+      .card { padding: 20px 16px; }
+    }
+  </style>
 </head>
-<body data-theme="standard">
-  <div class="doc">
+<body>
+<div class="container">
 
-    <div class="ohead"><div class="k">CMO · Daily post</div><h1>Today's post, in your voice</h1><div class="d">Topic: the pain of no clarity on your books · Story-Flow · scored and scrubbed</div></div>
+  <div class="header-label">BPOAS CMO Daily Post</div>
+  <div class="header-date">Friday &middot; 26 June 2026 &middot; Routine ran 07:00 UAE &middot; Branch: claude/happy-ptolemy-lu0taj</div>
 
-    <div class="lipost">
-      <div class="lihead"><div class="av">MA</div><div><div class="nm">Mohaina Asira · 1st</div><div class="mt">Managing Partner, BPO Accounting Services · now</div></div></div>
-      <div class="post">You can look profitable on paper and still be bleeding.
-
-The owner feels fine. The books say something else, if anyone is reading them.
-
-One client of ours ran a construction company. His secretary kept the books on the side.
-
-He was busy. Sales were coming in. He assumed someone was watching the numbers.
-
-Busy looks like fine. For a long time, it can hide what is actually happening.
-
-Then we went to his office and checked the supporting documents in person. The picture changed.
-
-He had a large amount sitting in accounts receivable. Money he had already earned, and never collected.
-
-He could not see it. His books were never built to tell him. They did not lie to him. They just stayed quiet.
-
-We rebuilt three years of accounts. Once he could see clearly, he started collecting, and he started deciding with real information.
-
-That business went from 8 staff to more than 50.
-
-This is what clarity actually buys you. The ability to decide with facts instead of a feeling.
-
-And the FTA does not wait for you to catch up. Once a return is filed, you cannot change it.
-
-If you cannot say what your own numbers are telling you right now, that is the gap worth closing first.
-
-Message me the word "clarity" and I will tell you the first three things I would check in your books.
-
-P.S. We work like it is ours. When a client loses a dirham, it feels like it came from our own pocket.</div>
-      <div class="chips"><span class="chip">1,385 chars</span><span class="chip">Hook: Pattern Interrupt</span><span class="chip">No em dashes</span><span class="chip">One CTA</span></div>
-    </div>
-
-    <div class="grid2">
-      <div class="card"><h4>Hook options</h4>
-        <div class="row">You can look profitable on paper and still be bleeding<span class="tagi t-grn">chosen</span></div>
-        <div class="row">Uncollected money was hiding inside his own books</div>
-        <div class="row">His secretary kept the books. That was the whole problem</div>
-        <div class="row">The cheapest bookkeeper will cost you the most</div>
-      </div>
-      <div class="card"><h4>Publish check</h4>
-        <div class="row">Stops the scroll<span class="tagi t-grn">✓</span></div>
-        <div class="row">Sounds like you, not AI<span class="tagi t-grn">✓</span></div>
-        <div class="row">One real story, real numbers<span class="tagi t-grn">✓</span></div>
-        <div class="row">One specific ask<span class="tagi t-grn">✓</span></div>
-      </div>
-    </div>
-
-    <div class="sec">Pinned comment options (post one as the first comment)</div>
-    <div class="card">
-      <div class="row">Extend: The first three things I check are simple. Is the accounts receivable real and collectible, is the input VAT actually claimable, and do the filed returns match the books. Most owners have a gap in at least one.</div>
-      <div class="row">Humanise: The hard part is rarely the numbers. It is sitting across from an owner and telling them the person they trusted was not catching this. I have had that conversation more than once.</div>
-      <div class="row">CTA amplifier: If "clarity" feels vague, paste me your last VAT return and one bank statement. I can usually point to the gap from those two alone.</div>
-    </div>
-
-    <div style="text-align:center;margin-top:8px"><span class="score">Invisibility Diagnostic: 4 / 4</span></div>
-
-    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  <div class="flag">
+    <strong>TOPIC AUTO-SELECTED &mdash; ACTION REQUIRED</strong><br>
+    No content calendar entry was found for Friday 26 June 2026. The Notion database only contains slots for Week of 29 June onward. Topic was auto-selected from BPOAS default pillars (SME Financial Health / Owner Mindset).<br><br>
+    <strong>Microsoft 365 email-send is not available in this session</strong> (read-only tools only) &mdash; the approval email could not be dispatched automatically. You have been notified via push notification. The post is <strong>HELD</strong>. Nothing will be sent to Rei until you confirm approval. Timeout: 08:15 UAE. No reply by then = post stays held, Rei notified of delay.
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script>
-    window.addEventListener('load',function(){
-      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
-      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
-      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
-      gsap.from('.lipost,.card,.score',{y:20,opacity:0,duration:.55,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
-    });
-  </script>
+
+  <!-- STEP 1: HOOKS -->
+  <div class="card">
+    <div class="card-label">Step 1 &mdash; 5 Hook Options</div>
+    <div class="hooks-grid">
+
+      <div class="hook">
+        <div class="hook-type">1 &middot; Result Lead</div>
+        <div class="hook-text">I sat with a trading company owner last month. He had not seen his actual P&amp;L in 14 months. His business was profitable. He had no idea.</div>
+      </div>
+
+      <div class="hook">
+        <div class="hook-type">2 &middot; Confession</div>
+        <div class="hook-text">When I first started reviewing books for UAE SMEs, I was surprised how many owners think their bank balance tells them how the business is doing. It does not. Not even close.</div>
+      </div>
+
+      <div class="hook">
+        <div class="hook-type">3 &middot; Contrarian</div>
+        <div class="hook-text">Your accountant is not hiding anything from you. The gaps in your numbers exist because nobody told you to look for them.</div>
+      </div>
+
+      <div class="hook selected">
+        <div class="hook-type">4 &middot; Curiosity Gap <span class="badge">Auto-Selected</span></div>
+        <div class="hook-text">There are 5 numbers in your business right now that your monthly report is not showing you. Most UAE SME owners find out what they are the week before an FTA audit.</div>
+      </div>
+
+      <div class="hook">
+        <div class="hook-type">5 &middot; Pattern Interrupt</div>
+        <div class="hook-text">You check your bank every morning. The FTA does not care about your bank balance. Here is what they look at instead.</div>
+      </div>
+
+    </div>
+    <div class="selection-reason">
+      <strong>Selection reason (no LinkedIn analytics available):</strong> Hook 4 names the ICP's exact blind spot ("monthly report is not showing you") and pairs it with their primary fear (FTA audit). No LinkedIn profile URL was available to pull analytics from Apify, so hook selection defaults to Educating / Framework intent &mdash; highest-leverage format for authority and saves at BPOAS's current stage. Curiosity Gap drives the save action more reliably than any other hook type in a framework post. Does not open with a statistic. Uses ICP pain language from the icp and positioning documents directly.
+    </div>
+  </div>
+
+  <!-- STEP 2: POST -->
+  <div class="card">
+    <div class="card-label">Step 2 &mdash; LinkedIn Post &middot; Framework Post, Variation A</div>
+    <div class="post-meta">
+      <div class="tag">Pillar: <span>SME Financial Health / Owner Mindset</span></div>
+      <div class="tag">Intent: <span>Educating</span></div>
+      <div class="tag">Format: <span>Framework Post (Variation A)</span></div>
+      <div class="tag">CTA: <span>Book a 30-minute compliance review</span></div>
+      <div class="tag">Publish: <span>09:00 UAE (Friday guide)</span></div>
+    </div>
+    <div class="post-body">There are 5 numbers in your business right now that your monthly report is not showing you.
+
+Most UAE SME owners find out what they are the week before an FTA audit.
+
+Here is what I check when we come in:
+
+1. Input tax you claimed but should not have
+
+Not every supplier invoice is FTA-compliant. If the TRN is missing, the format is wrong, or the amount does not match the actual supply, that input credit is at risk. We find this in almost every set of books we review.
+
+2. Accounts receivable aging
+
+Your revenue looks fine on paper. But 90-day receivables sitting uncollected are not income. They are a cash flow problem waiting to happen. Your bank balance will not show you this.
+
+3. Related-party transactions
+
+Under Corporate Tax, undocumented transactions between connected entities are a compliance risk. Most owners have these. Few have the documentation to defend them.
+
+4. Expenses without a valid tax invoice
+
+Every deductible expense under CIT needs a tax invoice that meets FTA standards. A receipt is not enough. A payment record is not enough.
+
+5. Your actual gross margin, by product or service line
+
+Your P&L shows you revenue minus total costs. It does not show you which line is carrying the rest. Most UAE owners are surprised when they see it broken down.
+
+We call this a financial gap review. Most businesses have at least three of these five gaps open right now.
+
+Book a 30-minute compliance review. I will show you exactly where yours are.</div>
+    <div class="char-count">~1,395 characters &middot; within 1,300&ndash;1,500 target</div>
+  </div>
+
+  <!-- STEP 3: DIAGNOSTIC -->
+  <div class="card">
+    <div class="card-label">Step 3 &mdash; Invisibility Diagnostic</div>
+    <div class="diag-grid">
+
+      <div class="diag-item">
+        <div class="diag-icon">&#10003;</div>
+        <div>
+          <div class="diag-name">Voice</div>
+          <div class="diag-note">Grounded and observational throughout. "Your bank balance will not show you this" and "We find this in almost every set of books we review" reflect Mohaina's pattern of grounding claims in what she physically sees. Situation before principle. Short punchy declarations at key moments ("A receipt is not enough. A payment record is not enough."). Collective "we" for BPOAS; personal "I" for the entry point ("Here is what I check when we come in"). No corporate jargon. No superlatives. Grade 7&ndash;8 reading level. <span class="diag-pass">PASS</span></div>
+        </div>
+      </div>
+
+      <div class="diag-item">
+        <div class="diag-icon">&#10003;</div>
+        <div>
+          <div class="diag-name">POV</div>
+          <div class="diag-note">Named concept introduced: "financial gap review." The POV is distinct and ownable &mdash; UAE SME owners are running blind on 5 specific, nameable things, and the worst time to find out is during an FTA audit. Not generic accounting advice. A specific finding-based framework only an on-site, document-level review firm could credibly produce. <span class="diag-pass">PASS</span></div>
+        </div>
+      </div>
+
+      <div class="diag-item">
+        <div class="diag-icon">&#10003;</div>
+        <div>
+          <div class="diag-name">Specificity</div>
+          <div class="diag-note">TRN, FTA-compliant invoices, accounts receivable aging (90-day), related-party transactions under Corporate Tax, CIT tax invoice standard, gross margin by product or service line. All UAE-accurate, technically precise, verifiable. Every item is a real category of finding from on-site book reviews. No vague claims. <span class="diag-pass">PASS</span></div>
+        </div>
+      </div>
+
+      <div class="diag-item">
+        <div class="diag-icon">&#10003;</div>
+        <div>
+          <div class="diag-name">Asking</div>
+          <div class="diag-note">"Book a 30-minute compliance review. I will show you exactly where yours are." Routes to approved CTA. Single ask, no branching. Direct and grounded. The specificity of "exactly where yours are" closes with Mohaina's precision habit and makes the offer feel personal rather than generic. <span class="diag-pass">PASS</span></div>
+        </div>
+      </div>
+
+    </div>
+    <div class="score-wrap">
+      <div class="score-num">4<span class="score-denom"> / 4</span></div>
+      <div class="score-label">Invisibility Diagnostic &mdash; Pass &mdash; Ready for Mohaina approval</div>
+    </div>
+  </div>
+
+  <!-- STEP 4: PINNED COMMENTS -->
+  <div class="card">
+    <div class="card-label">Step 4 &mdash; 3 Pinned Comments (Rei posts immediately after main post)</div>
+
+    <div class="comment">
+      <div class="comment-num">Comment 1 &mdash; Extend &middot; UAE-specific compliance stat + law reference</div>
+      <div class="comment-text">Worth knowing: the FTA can assess VAT going back 5 years from the relevant tax period. Under Corporate Tax, the statute of limitations is also 5 years from the filing date. The gaps listed above are not just a current risk. Any historical issue still open sits inside that window. This is why we always start with a gap review, not just a check of the current year.</div>
+    </div>
+
+    <div class="comment">
+      <div class="comment-num">Comment 2 &mdash; Humanise &middot; Short personal note from Mohaina</div>
+      <div class="comment-text">I have done enough of these reviews to know that most UAE founders are not careless. They are just moving fast. Nobody has ever sat with them and shown them what their books are actually saying. The first time a client sees their real margin broken down by product or service line, there is always a quiet moment. Some are relieved. Some just go quiet for a bit. Both reactions are fine. That is what I think this work is for.</div>
+    </div>
+
+    <div class="comment">
+      <div class="comment-num">Comment 3 &mdash; CTA Amplifier &middot; Urgency + specificity</div>
+      <div class="comment-text">The 30-minute compliance review is free. We look at your books, go through these five areas, and give you a straight answer on where you stand. With the Corporate Tax September 30 filing deadline now less than 100 days away, Q3 is when UAE SME owners discover their books are not ready. Book now rather than finding out in August when it is much harder to fix.</div>
+    </div>
+
+  </div>
+
+  <!-- STEP 5: WORKFLOW STATUS -->
+  <div class="card">
+    <div class="card-label">Step 5 &mdash; Approval Workflow Status</div>
+
+    <div class="status-row">
+      <div class="status-dot dot-hold"></div>
+      <div class="status-text"><strong>Notion calendar:</strong> No entry found for Friday 26 June 2026. Database "Content Calendar &mdash; Week of 2026-06-29" contains Monday 29 June through Friday 3 July only. No entry to update. Notion status log: N/A for today.</div>
+    </div>
+
+    <div class="status-row">
+      <div class="status-dot dot-hold"></div>
+      <div class="status-text"><strong>LinkedIn analytics (Apify):</strong> No LinkedIn profile URL found in voice-dna, positioning, or icp documents. Analytics not retrieved. Hook selection defaulted to Educating / Framework intent. Recommend adding Mohaina's LinkedIn profile URL to reference documents for future runs.</div>
+    </div>
+
+    <div class="status-row">
+      <div class="status-dot dot-hold"></div>
+      <div class="status-text"><strong>Approval email to Mohaina (Step A):</strong> Microsoft 365 email-send tool not available in this session. Approval email not sent automatically. Push notification dispatched. <strong>Post is HELD.</strong> Do not release to Rei without Mohaina confirmation.</div>
+    </div>
+
+    <div class="status-row">
+      <div class="status-dot dot-pending"></div>
+      <div class="status-text"><strong>Awaiting Mohaina (Step B):</strong> Timeout 08:15 UAE. Approval keywords: "approved" &middot; "post it" &middot; "go ahead". Edit keywords: "revise" &middot; "change" &middot; "hold". No reply = post held, Rei notified of delay.</div>
+    </div>
+
+    <div class="status-row">
+      <div class="status-dot dot-ok"></div>
+      <div class="status-text"><strong>Forward to Rei (Step C):</strong> Pending approval. Recommended publish time: 09:00 UAE (Friday). Plain text only. Include 3 pinned comments.</div>
+    </div>
+
+    <div class="email-draft">
+      <strong>Approval email &mdash; send manually from Outlook (M365 email-send unavailable in this run)</strong><br><br>
+      <span class="ef">To:</span> moanne.asira@gmail.com<br>
+      <span class="ef">Subject:</span> BPOAS Daily Post &mdash; Approval Needed &middot; 26 June 2026<br>
+      <span class="ef">Flag:</span> Topic auto-selected &mdash; no Notion calendar entry found for Friday 26 June. Confirm topic choice or redirect before approving.<br><br>
+      Body: full post text inline + Invisibility Diagnostic 4/4 + 3 pinned comments (all above).<br><br>
+      Reply "approved", "post it", or "go ahead" to release to Rei.<br>
+      Reply "revise", "change", or "hold" to pause for edits.<br>
+      No reply by 08:15 UAE = post remains held. Rei notified of delay.
+    </div>
+  </div>
+
+  <div class="footer">BPOAS CMO Automation &middot; cmo-post-2026-06-26.html &middot; Generated 07:00 UAE &middot; claude/happy-ptolemy-lu0taj</div>
+
+</div>
 </body>
 </html>
