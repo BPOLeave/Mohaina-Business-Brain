@@ -1,98 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COO Morning Brief · Purely Personal</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --primary:#1F3A5F; --primary-light:#4A6E9E;
-    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
-    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
-    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
-    --r-md:14px; --r-lg:22px; --pill:9999px;
-    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
-    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
-  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BPOAS COO Morning Brief — 26 June 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0A0A0A;
+      color: #E5E5E5;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 24px 16px;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
 
-  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
-  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
-  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
-  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
-  .ohead .d{font-size:13px;opacity:.85;}
+    /* Header */
+    .header {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid #1A1A1A;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .brand-dot { width: 9px; height: 9px; background: #E8294C; border-radius: 50%; flex-shrink: 0; }
+    .brand-name { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #E8294C; text-transform: uppercase; }
+    .brief-title { font-size: 24px; font-weight: 700; color: #FFFFFF; }
+    .date-stamp { text-align: right; }
+    .date-main { font-size: 17px; font-weight: 600; color: #FFFFFF; }
+    .date-sub { font-size: 12px; color: #555; margin-top: 3px; }
 
-  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
-  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
-  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
-  .lead{font-size:16px;}
-  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:15px;border-bottom:1px solid var(--gray-light);}
-  .row:last-child{border-bottom:none;}
-  .row .when{color:var(--gray-text);font-size:13px;width:74px;flex-shrink:0;}
-  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
-  .t-red{background:#fdecec;color:var(--bad);} .t-amb{background:#fdf1de;color:var(--warn);}
-  .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-grn{background:#e7f6ee;color:var(--good);} .t-blue{background:#e6f0fc;color:#1E6FE0;}
-  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
-  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
-  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .stat .delta{font-size:13px;font-weight:600;margin-top:4px;color:var(--gray-text);}
-  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
-  .note b{color:var(--primary-light);}
-  .sub{font-size:13px;color:var(--gray-text);margin-top:4px;}
+    /* Sections */
+    .section { margin-bottom: 28px; }
+    .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .section-number { background: #E8294C; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.05em; }
+    .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #888; }
 
-  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
-  footer b{color:var(--ink);}
+    /* Generic card */
+    .card { background: #111111; border: 1px solid #1E1E1E; border-radius: 8px; padding: 16px; margin-bottom: 10px; }
+    .card-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 620px) { .card-row { grid-template-columns: 1fr; } }
 
-  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
-</style>
+    /* Status */
+    .status { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+    .status-green { background: #0D2B1A; color: #22C55E; border: 1px solid #16532D; }
+    .status-amber { background: #2B1E08; color: #F59E0B; border: 1px solid #533510; }
+    .status-red   { background: #2B0A0A; color: #EF4444; border: 1px solid #532020; }
+
+    /* Event cards */
+    .event-card { background: #111; border: 1px solid #1E1E1E; border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 16px; }
+    .event-time { font-size: 13px; font-weight: 700; color: #E8294C; min-width: 100px; padding-top: 2px; white-space: nowrap; }
+    .event-body { flex: 1; }
+    .event-name { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 3px; }
+    .event-meta { font-size: 12px; color: #777; }
+    .event-link { font-size: 11px; color: #E8294C; text-decoration: none; display: inline-block; margin-top: 5px; }
+    .event-link:hover { text-decoration: underline; }
+    .event-team { font-size: 11px; color: #555; margin-top: 4px; }
+
+    /* Tags */
+    .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 2px 7px; border-radius: 3px; text-transform: uppercase; display: inline-block; }
+    .tag-vat     { background: #1A0E2B; color: #A78BFA; border: 1px solid #3B1FA8; }
+    .tag-ct      { background: #0E1F2B; color: #60A5FA; border: 1px solid #1E4FA8; }
+    .tag-client  { background: #0E2B1A; color: #34D399; border: 1px solid #1E532D; }
+    .tag-bd      { background: #2B1A0E; color: #FB923C; border: 1px solid #A83A1E; }
+    .tag-overdue { background: #2B0E0E; color: #F87171; border: 1px solid #A81E1E; }
+    .owner-badge { font-size: 11px; font-weight: 600; color: #E8294C; background: rgba(232,41,76,0.1); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+    .unread-dot { width: 7px; height: 7px; background: #E8294C; border-radius: 50%; display: inline-block; margin-right: 5px; vertical-align: middle; }
+
+    /* Email cards */
+    .email-card { background: #111; border: 1px solid #1E1E1E; border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; display: flex; gap: 12px; align-items: flex-start; }
+    .email-rank { font-size: 12px; font-weight: 700; color: #E8294C; min-width: 22px; padding-top: 2px; }
+    .email-body { flex: 1; }
+    .email-subject { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 3px; }
+    .email-from { font-size: 12px; color: #666; margin-bottom: 6px; }
+    .email-summary { font-size: 12px; color: #B0B0B0; margin-bottom: 8px; line-height: 1.55; }
+    .email-meta { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+
+    /* Task rows */
+    .task-row { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid #181818; }
+    .task-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .task-name { flex: 1; font-size: 13px; color: #E0E0E0; }
+    .task-name strong { color: #fff; }
+    .task-sub { font-size: 12px; color: #777; margin-top: 3px; }
+
+    /* Content */
+    .content-card { background: #0E0E18; border: 1px solid #1A1A40; border-radius: 8px; padding: 16px; margin-bottom: 10px; }
+    .content-title { font-size: 14px; font-weight: 600; color: #93C5FD; margin-top: 8px; margin-bottom: 5px; }
+    .content-meta { font-size: 11px; color: #555; margin-bottom: 7px; }
+    .content-body { font-size: 12px; color: #999; line-height: 1.55; }
+    .badge { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 2px 8px; border-radius: 3px; text-transform: uppercase; display: inline-block; }
+    .badge-urgent    { background: #2B0A0A; color: #EF4444; border: 1px solid #532020; }
+    .badge-queue     { background: #1A1A08; color: #EAB308; border: 1px solid #3A3A10; }
+    .badge-education { background: #0E1020; color: #93C5FD; border: 1px solid #1E2A50; }
+
+    /* Pipeline */
+    .pipeline-row { display: flex; gap: 12px; align-items: flex-start; padding: 11px 0; border-bottom: 1px solid #181818; }
+    .pipeline-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .pipeline-client { flex: 1; }
+    .pipeline-name { font-size: 13px; font-weight: 600; color: #fff; }
+    .pipeline-detail { font-size: 12px; color: #777; margin-top: 2px; }
+
+    /* Raihana queue */
+    .raihana-card { background: #0E0B18; border: 1px solid #221840; border-radius: 8px; padding: 14px 16px; margin-top: 10px; }
+    .raihana-header { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #A78BFA; text-transform: uppercase; margin-bottom: 10px; }
+
+    /* Metric */
+    .metric-card { border-radius: 8px; padding: 16px; }
+
+    /* Flags */
+    .flags-card { background: #120808; border: 1px solid #5C1010; border-radius: 8px; padding: 18px; }
+    .flags-header { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #EF4444; text-transform: uppercase; margin-bottom: 14px; }
+    .flag-item { padding: 12px 14px; background: #1A0A0A; border: 1px solid #3D1010; border-radius: 6px; margin-bottom: 8px; }
+    .flag-item:last-child { margin-bottom: 0; }
+    .flag-item-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 5px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .flag-item-body { font-size: 12px; color: #B0B0B0; line-height: 1.55; }
+
+    /* Alert */
+    .alert-banner { background: #0D0E18; border: 1px solid #252540; border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #888; }
+
+    /* Footer */
+    .footer { text-align: center; padding-top: 24px; border-top: 1px solid #1A1A1A; margin-top: 8px; }
+    .footer-text { font-size: 11px; color: #444; }
+    .footer-accent { color: #E8294C; }
+  </style>
 </head>
-<body data-theme="standard">
-  <div class="doc">
+<body>
+<div class="container">
 
-    <div class="ohead"><div class="k">COO · Morning brief</div><h1>Good morning, Mohaina</h1><div class="d">Friday, 26 June 2026 · ran while you slept · reading 2 mailboxes</div></div>
-
-    <div class="card"><h4>Today, in one line</h4><div class="lead">Your afternoon is the final bootcamp session, 12 to 5, so this morning is your only real work window. The team mailbox is running clean on its own. The two things that actually need you are both new business, and one of them is a call.</div></div>
-
-    <div class="grid2">
-      <div class="card"><h4>Calendar</h4>
-        <div class="row"><span class="when">12:00 PM</span> 10x with AI SG Bootcamp, Session 3 (Ops, Finance, CEO Brain) · Zoom<span class="tagi t-amb">5 hrs</span></div>
-        <div class="row"><span class="when">Heads up</span> One 5-hour block holds your whole afternoon. Nothing else is scheduled, so guard the morning.</div>
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="brand">
+        <div class="brand-dot"></div>
+        <div class="brand-name">BPOAS</div>
       </div>
-      <div class="card"><h4>Inbox · 2 need you</h4>
-        <div class="row">Ghazal Al Safadi (Cartier, Richemont), called back, meeting booked Mon 1:30<span class="tagi t-grn">booked</span></div>
-        <div class="row">MCM Products replied with the trade license, KYC now complete, your proposal can proceed<span class="tagi t-amb">decide</span></div>
-        <div class="row">Almosafer claim 2010754, awaiting client doc to send Citibank<span class="tagi t-grey">fyi</span></div>
-        <div class="row">Finance mailbox: Menastar and Ridgeway VAT filed, Wicked awaiting client sign-off<span class="tagi t-grn">on track</span></div>
-      </div>
+      <div class="brief-title">COO Morning Brief</div>
     </div>
-
-    <div class="grid2">
-      <div class="card"><h4>Overdue</h4>
-        <div class="row">Reply to Alex re: the contract review, she has asked twice<span class="tagi t-red">act</span></div>
-        <div class="sub">From your Notion follow-up note. Also waiting there: homepage copy update, the Figma file before design review.</div>
-      </div>
-      <div class="stat"><div class="l">Your North Star metric</div><div class="n">Set one</div><div class="delta">No metric is tracked in your foundation docs yet. Pick one number to react to weekly, for example proposals sent or new clients onboarded, and I will trend it every morning.</div></div>
+    <div class="date-stamp">
+      <div class="date-main">Friday, 26 June 2026</div>
+      <div class="date-sub">09:00 GST &middot; UAE (UTC+4)</div>
     </div>
-
-    <div class="note">The needle moved this morning: <b>Cartier call done, meeting booked Monday 1:30</b>. The one thing left before noon is MCM, their trade license just landed, so green-light the team to proceed on the proposal while it is warm. Then the afternoon is yours for the bootcamp.</div>
-
-    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script>
-    window.addEventListener('load',function(){
-      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
-      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
-      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
-      gsap.from('.card,.stat,.note',{y:20,opacity:0,duration:.55,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
-    });
-  </script>
+
+
+  <!-- 01: SCHEDULE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <span class="section-title">Today's Schedule</span>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">12:00&ndash;17:00</div>
+      <div class="event-body">
+        <div class="event-name">10x with AI SG &mdash; 3-Week Bootcamp (Session 3 of 3)</div>
+        <div class="event-meta">Organised by Daniel Paul &middot; External cohort &middot; 100+ global participants</div>
+        <div class="event-team">You attending as participant. Final session of the programme.</div>
+      </div>
+      <span class="status status-amber">&bull; External</span>
+    </div>
+
+    <div class="event-card">
+      <div class="event-time">13:00&ndash;18:00</div>
+      <div class="event-body">
+        <div class="event-name">10X with AI: Main Bootcamp &mdash; BPOAS Team Session</div>
+        <div class="event-meta">Organised by Raihana Asira &middot; Microsoft Teams &middot; ID: 334 872 159 934 951 &middot; Passcode: 8XE2GS7Y</div>
+        <div class="event-team">Mohaina &middot; Junaifa &middot; Raihana &middot; Warren &middot; Cristina &middot; Recyline &middot; Michelle &middot; Rein</div>
+        <a class="event-link" href="https://teams.microsoft.com/meet/334872159934951?p=6JLLa72ZF4jSt3c9ml">&rarr; Join Teams Meeting</a>
+      </div>
+      <span class="status status-amber">&bull; Whole Team</span>
+    </div>
+
+    <div class="alert-banner">
+      &starf; <strong style="color:#F59E0B;">Whole team in bootcamp 13:00&ndash;18:00.</strong>
+      Client calls and external responses limited this afternoon.
+      Schedule client follow-ups for <strong style="color:#fff;">after 18:00</strong> or Monday.
+      Exception: Ghazal Al Safadi (Cartier) call &mdash; plan for 18:00+ tonight.
+    </div>
+  </div>
+
+
+  <!-- 02: INBOX PRIORITIES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <span class="section-title">Inbox Priorities</span>
+    </div>
+
+    <div class="email-card">
+      <div class="email-rank">#1</div>
+      <div class="email-body">
+        <div class="email-subject"><span class="unread-dot"></span>Fwd: VAT Return Submission Due &mdash; Lastminute.com Client</div>
+        <div class="email-from">FTA (no-reply@tax.gov.ae) via Yiannis Papadonikolakis &middot; Received 25 Jun &middot; To Michelle Pacis &amp; Mohaina &middot; UNREAD</div>
+        <div class="email-summary">
+          Official FTA notice: VAT Stagger 2, Period 1 (Mar&ndash;May 2026) available on EmaraTax and must be submitted.
+          Per Article 64, Cabinet Decision 52/2017 &mdash; late filing triggers penalty.
+          <strong style="color:#EF4444;">Deadline: 28 June 2026 (this Sunday).</strong>
+        </div>
+        <div class="email-meta">
+          <span class="tag tag-vat">VAT</span>
+          <span class="status status-red">&bull; 2 days to deadline</span>
+          <span class="owner-badge">Michelle Pacis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="email-rank">#2</div>
+      <div class="email-body">
+        <div class="email-subject"><span class="unread-dot"></span>RE: Proposal for VAT Compliance Review &amp; Advisory &mdash; MCM Products Middle East LLC</div>
+        <div class="email-from">Joanne Oquendo (mcmworldwide.com) &middot; 10:34 UAE today &middot; with attachment &middot; UNREAD</div>
+        <div class="email-summary">
+          Client replied with attachment following Raihana&rsquo;s 09:00 request for Trade License in KYC form.
+          Proposal was signed and returned 25 Jun. Engagement advancing &mdash;
+          verify today&rsquo;s attachment contains the Trade License to clear KYC and proceed to onboarding.
+        </div>
+        <div class="email-meta">
+          <span class="tag tag-vat">VAT</span>
+          <span class="tag tag-client">Client</span>
+          <span class="tag tag-bd">Engagement</span>
+          <span class="status status-amber">&bull; KYC outstanding</span>
+          <span class="owner-badge">Raihana</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="email-rank">#3</div>
+      <div class="email-body">
+        <div class="email-subject"><span class="unread-dot"></span>Re: Bookkeeping Services &mdash; Ghazal Al Safadi (Cartier / Richemont Dubai FZE)</div>
+        <div class="email-from">Ghazal Al Safadi (ghazal.al@richemont.com) &middot; 10:28 UAE today &middot; Senior Business Controller, Cartier</div>
+        <div class="email-summary">
+          &ldquo;Hi, Can you please call me on my phone? It will be easier to coordinate &mdash; 0543072239.&rdquo;
+          Inbound lead following up after Mohaina said she&rsquo;s unavailable until 5:30pm.
+          Richemont Dubai FZE (Cartier) &mdash; luxury brand with multiple UAE entities.
+          <strong style="color:#fff;">Call tonight after 18:00.</strong>
+        </div>
+        <div class="email-meta">
+          <span class="tag tag-bd">BD Lead</span>
+          <span class="tag tag-client">Client</span>
+          <span class="status status-amber">&bull; Call pending &mdash; 18:00+</span>
+          <span class="owner-badge">Mohaina</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="email-rank">#4</div>
+      <div class="email-body">
+        <div class="email-subject">Account Claim #2010754 &mdash; Almosafer (08 Apr&ndash;15 Apr 2026)</div>
+        <div class="email-from">ar.finance@almosafer.com &harr; Michelle Pacis &middot; 8+ exchanges over 2 days &middot; Multiple UNREAD</div>
+        <div class="email-summary">
+          Extended back-and-forth on account reconciliation claim covering mid-April 2026.
+          Almosafer AR Finance sending attachments; Michelle responding.
+          Claim still unresolved. Protect client relationship &mdash; escalate to review if not closed by EOD.
+        </div>
+        <div class="email-meta">
+          <span class="tag tag-client">Client</span>
+          <span class="tag tag-overdue">Overdue Claim</span>
+          <span class="status status-amber">&bull; Monitor &mdash; escalate if unresolved</span>
+          <span class="owner-badge">Michelle Pacis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="email-rank">#5</div>
+      <div class="email-body">
+        <div class="email-subject"><span class="unread-dot"></span>MFZ Company Documents &mdash; Corporate Tax Registration Certificate</div>
+        <div class="email-from">Raihana Asira (r.asira@bposervicegroup.com) &middot; 08:40 UAE today &middot; with attachment &middot; UNREAD by Mohaina</div>
+        <div class="email-summary">
+          CIT Registration Certificate for MFZ Building Materials Trading LLC.
+          Ref: 2025/CIT/0001091357/001 &middot; Issued 08/05/2025 &middot; Version 2.
+          File in client CT folder and confirm receipt. Verify no CT compliance gap.
+        </div>
+        <div class="email-meta">
+          <span class="tag tag-ct">Corporate Tax</span>
+          <span class="status status-amber">&bull; File &amp; confirm</span>
+          <span class="owner-badge">Raihana</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="background:#0A150D; border-color:#16301E; padding:11px 14px; margin-bottom:0;">
+      <span style="font-size:12px; color:#22C55E;">
+        <strong>&check; Completed this morning:</strong>
+        Menastar Q1 2026 VAT Return &mdash; Filed by Recyline Ramos.
+        Michelle Pacis reviewed and approved (minor rounding, non-material).
+        Filing reference confirmed with attachment. On track.
+      </span>
+    </div>
+  </div>
+
+
+  <!-- 03: TASKS & DEADLINES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <span class="section-title">Tasks &amp; Deadlines</span>
+    </div>
+
+    <div class="card">
+
+      <div class="task-row">
+        <span class="status status-red">&bull; Urgent</span>
+        <div class="task-name">
+          <span class="tag tag-vat" style="margin-right:6px;">VAT</span>
+          <strong>File Lastminute.com VAT Return &mdash; Stagger 2 Period 1 (Mar&ndash;May 2026)</strong>
+          <div class="task-sub">Deadline Sunday 28 June. FTA official notice received. Late filing triggers penalty. Confirm started today.</div>
+        </div>
+        <span class="owner-badge">Michelle Pacis</span>
+      </div>
+
+      <div class="task-row">
+        <span class="status status-amber">&bull; Today</span>
+        <div class="task-name">
+          <span class="tag tag-bd" style="margin-right:6px;">BD</span>
+          <strong>Review MCM Products attachment &mdash; Verify Trade License in KYC</strong>
+          <div class="task-sub">Client replied 10:34. If Trade License present &rarr; proceed to onboarding. If missing &rarr; follow up directly today.</div>
+        </div>
+        <span class="owner-badge">Raihana</span>
+      </div>
+
+      <div class="task-row">
+        <span class="status status-amber">&bull; Tonight</span>
+        <div class="task-name">
+          <span class="tag tag-bd" style="margin-right:6px;">BD</span>
+          <strong>Call Ghazal Al Safadi (Cartier / Richemont) re: Bookkeeping Services</strong>
+          <div class="task-sub">After 18:00. Number: 0543072239. Richemont Dubai FZE &mdash; luxury brand, high-value lead.</div>
+        </div>
+        <span class="owner-badge">Mohaina</span>
+      </div>
+
+      <div class="task-row">
+        <span class="status status-amber">&bull; Today</span>
+        <div class="task-name">
+          <span class="tag tag-ct" style="margin-right:6px;">CT</span>
+          <strong>File &amp; acknowledge MFZ Building Materials LLC &mdash; CIT Registration Certificate</strong>
+          <div class="task-sub">Forwarded by Raihana 08:40. File in client CT records. Confirm with client.</div>
+        </div>
+        <span class="owner-badge">Raihana</span>
+      </div>
+
+      <div class="task-row">
+        <span class="status status-amber">&bull; Monitor</span>
+        <div class="task-name">
+          <strong>Resolve Almosafer Account Claim #2010754 (Apr 2026)</strong>
+          <div class="task-sub">Extended negotiation. Michelle Pacis handling. Check status EOD &mdash; escalate if unresolved.</div>
+        </div>
+        <span class="owner-badge">Michelle Pacis</span>
+      </div>
+
+      <div class="task-row">
+        <span class="status status-amber">&bull; Today</span>
+        <div class="task-name">
+          <span class="tag tag-vat" style="margin-right:6px;">Content</span>
+          <strong>Publish DMCC FZCO Name Change Post &mdash; LinkedIn</strong>
+          <div class="task-sub">June 30 deadline is 4 days away. Content ready in Notion. Post today (Friday) so DMCC companies see it over the weekend.</div>
+        </div>
+        <span class="owner-badge">Mohaina</span>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- 04: CONTENT SLOT -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <span class="section-title">Content Slot &mdash; LinkedIn &amp; BD Content</span>
+    </div>
+
+    <div class="content-card" style="background:#120808; border-color:#4D1010;">
+      <span class="badge badge-urgent">Post Today &mdash; Urgent</span>
+      <div class="content-title" style="color:#F87171;">
+        DMCC companies: tomorrow is the last day to update your name to FZCO &mdash; and 4 other free zone compliance checks to run this week
+      </div>
+      <div class="content-meta">Intent: Urgency &middot; Format: Checklist Post &middot; Goal: Saves + shares &middot; Auto-prioritised &mdash; DMCC FZCO deadline 30 June 2026</div>
+      <div class="content-body">
+        June 30 is the mandatory DMCC name-change deadline (FZCO suffix) for existing companies.
+        Post today so connections see it over the weekend and act before Tuesday.
+        5-check format is highly shareable. Converts naturally to a compliance advisory offer.
+        Content ready in Notion.
+      </div>
+    </div>
+
+    <div class="content-card">
+      <span class="badge badge-education">Queued &mdash; Week of 29 June</span>
+      <div class="content-title">Your CIT return is due 30 September. 3 months sounds like a lot. Here&rsquo;s what &ldquo;ready&rdquo; actually means.</div>
+      <div class="content-meta">Intent: Education &middot; Format: Framework Post &middot; Compliance note: Late CT payment penalty updated to 14% p.a. (Cabinet Decision 129/2025, effective 14 April 2026)</div>
+      <div class="content-body">High-value CIT readiness piece. Queue for Monday or Tuesday to open the 3-month countdown with authority. Strong conversion to CIT advisory enquiries.</div>
+    </div>
+
+    <div class="content-card">
+      <span class="badge badge-queue">Queued &mdash; Week of 29 June</span>
+      <div class="content-title">Hiring the cheapest accountant is the most expensive decision a UAE SME makes</div>
+      <div class="content-meta">Intent: Engagement &middot; Format: Contrarian Text Post &middot; Goal: Spark conversation</div>
+      <div class="content-body">Contrarian engagement post in Mohaina&rsquo;s voice. Positions directly against the &ldquo;accounting is a cost to minimise&rdquo; assumption. Best performance mid-week (Tuesday&ndash;Wednesday).</div>
+    </div>
+
+    <div class="content-card">
+      <span class="badge badge-queue">Queued &mdash; Week of 29 June</span>
+      <div class="content-title">eInvoicing is coming: the 5 things to fix in your accounting system before the FTA mandate</div>
+      <div class="content-meta">Intent: Education &middot; Format: Framework Post &middot; Goal: Saves + reposts &middot; Positions Odoo / Zoho implementation services</div>
+      <div class="content-body">eInvoicing mandate education piece. Strong end-of-week candidate to capture Friday planning decisions. Direct positioning for Odoo and Zoho implementation offerings.</div>
+    </div>
+  </div>
+
+
+  <!-- 05: BD PIPELINE PULSE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <span class="section-title">BD Pipeline Pulse</span>
+    </div>
+
+    <div class="card">
+      <div class="pipeline-row">
+        <span class="status status-red">&bull; Hot</span>
+        <div class="pipeline-client">
+          <div class="pipeline-name">MCM Products Middle East LLC</div>
+          <div class="pipeline-detail">VAT Compliance Review &amp; Advisory &middot; Proposal signed &middot; KYC in progress &mdash; Trade License outstanding &middot; Client replied today with attachment &middot; One step from onboarding</div>
+        </div>
+        <span class="owner-badge">Raihana</span>
+      </div>
+
+      <div class="pipeline-row">
+        <span class="status status-red">&bull; Hot</span>
+        <div class="pipeline-client">
+          <div class="pipeline-name">Ghazal Al Safadi &mdash; Richemont Dubai FZE (Cartier)</div>
+          <div class="pipeline-detail">Bookkeeping Services enquiry &middot; Senior Business Controller &middot; Inbound call requested today &middot; Richemont / Cartier &mdash; luxury brand, multiple UAE entities &middot; High-value opportunity</div>
+        </div>
+        <span class="owner-badge">Mohaina</span>
+      </div>
+
+      <div class="pipeline-row">
+        <span class="status status-amber">&bull; Ongoing</span>
+        <div class="pipeline-client">
+          <div class="pipeline-name">Almosafer &mdash; Account Claim Resolution</div>
+          <div class="pipeline-detail">Account reconciliation (Apr 2026) in negotiation &middot; Protect client relationship &middot; Michelle handling &middot; Escalate EOD if unresolved</div>
+        </div>
+        <span class="owner-badge">Michelle Pacis</span>
+      </div>
+    </div>
+
+    <div class="raihana-card">
+      <div class="raihana-header">&rsaquo; Raihana&rsquo;s Queue</div>
+
+      <div class="pipeline-row" style="padding-top:0;">
+        <span class="status status-red">&bull; Now</span>
+        <div class="pipeline-client">
+          <div class="pipeline-name">MCM Products &mdash; Open today&rsquo;s email (10:34) &middot; Verify Trade License in KYC</div>
+          <div class="pipeline-detail">If Trade License confirmed &rarr; proceed to onboarding. If missing &rarr; follow up with Joanne directly today.</div>
+        </div>
+      </div>
+
+      <div class="pipeline-row">
+        <span class="status status-amber">&bull; Today</span>
+        <div class="pipeline-client">
+          <div class="pipeline-name">MFZ Building Materials LLC &mdash; File CIT Registration Certificate</div>
+          <div class="pipeline-detail">Forwarded 08:40. File in CT client records. Send client acknowledgement.</div>
+        </div>
+      </div>
+
+      <div class="pipeline-row">
+        <span class="status status-amber">&bull; Coordinate</span>
+        <div class="pipeline-client">
+          <div class="pipeline-name">Lastminute.com VAT &mdash; Confirm filing progress with Michelle Pacis</div>
+          <div class="pipeline-detail">Stagger 2 deadline Sunday 28 June. Confirm Michelle is filing today before bootcamp ends.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 06: KEY METRIC -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">06</span>
+      <span class="section-title">Key Metric &mdash; Flagged for Attention Today</span>
+    </div>
+
+    <div class="card-row" style="margin-bottom:10px;">
+      <div class="metric-card" style="background:#1A0808; border:1px solid #5C1010;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#EF4444; text-transform:uppercase; margin-bottom:6px;">VAT Deadline Risk</div>
+        <div style="font-size:22px; font-weight:700; color:#fff; margin-bottom:5px;">28 June 2026</div>
+        <div style="font-size:12px; color:#888; line-height:1.55;">
+          Lastminute.com &mdash; VAT Stagger 2, Period 1 (Mar&ndash;May 2026).
+          FTA official notice received. Penalty triggers on late filing.
+          <strong style="color:#F87171;">2 days remaining.</strong>
+          Michelle Pacis must confirm filing progress today.
+        </div>
+      </div>
+
+      <div class="metric-card" style="background:#0A150D; border:1px solid #16301E;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#22C55E; text-transform:uppercase; margin-bottom:6px;">VAT Filed Today</div>
+        <div style="font-size:22px; font-weight:700; color:#fff; margin-bottom:5px;">Menastar &check;</div>
+        <div style="font-size:12px; color:#888; line-height:1.55;">
+          Q1 2026 VAT return filed by Recyline Ramos this morning.
+          Michelle Pacis approved (minor rounding &mdash; non-material).
+          Filing reference confirmed.
+          <strong style="color:#22C55E;">On track.</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="metric-card" style="background:#0E0E18; border:1px solid #1E1E40;">
+      <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#A78BFA; text-transform:uppercase; margin-bottom:6px;">DMCC Compliance Window + CT Penalty Update</div>
+      <div style="font-size:22px; font-weight:700; color:#fff; margin-bottom:5px;">30 June 2026 &mdash; 4 Days</div>
+      <div style="font-size:12px; color:#888; line-height:1.55;">
+        DMCC mandatory FZCO name-change deadline for existing companies closes in 4 days.
+        Any DMCC clients still on old suffix &mdash; flag and advise immediately.
+        Also a live LinkedIn content trigger: publish today.<br><br>
+        <strong style="color:#A78BFA;">CT late payment penalty updated to 14% p.a.</strong>
+        (Cabinet Decision 129/2025, effective 14 April 2026).
+        Include in all CIT advisory conversations going forward.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FLAGS FOR MOHAINA'S REVIEW -->
+  <div class="section">
+    <div class="flags-card">
+      <div class="flags-header">&#128680; Flags for Mohaina&rsquo;s Review</div>
+
+      <div class="flag-item">
+        <div class="flag-item-title">
+          <span class="tag tag-vat">VAT</span>
+          Lastminute.com &mdash; FTA Penalty Risk, Deadline This Sunday
+        </div>
+        <div class="flag-item-body">
+          FTA official notice received. VAT Stagger 2 Period 1 (Mar&ndash;May 2026) due 28 June &mdash; Sunday.
+          Confirm with Michelle Pacis that filing is in progress today.
+          Do not let this carry to Monday.
+          <strong style="color:#F87171;">Confirm filing before bootcamp ends at 18:00.</strong>
+        </div>
+      </div>
+
+      <div class="flag-item">
+        <div class="flag-item-title">
+          <span class="tag tag-vat">VAT</span>
+          <span class="tag tag-client">Client</span>
+          MCM Products Middle East &mdash; Engagement at Decision Point
+        </div>
+        <div class="flag-item-body">
+          Proposal signed. Joanne Oquendo (MCM Worldwide) replied today with attachment.
+          If Trade License is in that email, Raihana can move straight to onboarding.
+          Monitor Raihana&rsquo;s update by 17:00.
+          First VAT compliance client conversion at risk if delayed.
+        </div>
+      </div>
+
+      <div class="flag-item">
+        <div class="flag-item-title">
+          <span class="tag tag-ct">Corporate Tax</span>
+          MFZ Building Materials Trading LLC &mdash; CIT Document Received
+        </div>
+        <div class="flag-item-body">
+          Raihana forwarded CIT Registration Certificate this morning (Ref: 2025/CIT/0001091357/001).
+          Unread. File in client CT records and verify no compliance gap.
+          Confirm with client that CT registration is live and BPOAS-reviewed.
+        </div>
+      </div>
+
+      <div class="flag-item">
+        <div class="flag-item-title">
+          <span class="tag tag-bd">BD</span>
+          Cartier / Richemont Dubai &mdash; Live Inbound Lead, Call Tonight
+        </div>
+        <div class="flag-item-body">
+          Ghazal Al Safadi (Senior Business Controller, Cartier) asking Mohaina to call 0543072239.
+          Bookkeeping services enquiry. Richemont Dubai FZE &mdash; luxury brand, multiple entities.
+          This is a high-value lead.
+          <strong style="color:#EF4444;">Call tonight after 18:00. Do not delay to next week.</strong>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-text">
+      <span class="footer-accent">BPOAS</span> &middot; COO Morning Brief &middot; Generated 09:00 GST &middot; Friday 26 June 2026
+    </div>
+    <div class="footer-text" style="margin-top:4px; font-style:italic;">We think like owners.</div>
+  </div>
+
+</div>
 </body>
 </html>
