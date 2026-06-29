@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospects | 2026-06-29</title>
+<style>
+  :root {
+    --brand: #E8294C;
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --surface-2: #1E1E1E;
+    --text: #F0F0F0;
+    --text-muted: #888888;
+    --border: #2A2A2A;
+    --warm: #F5A623;
+    --hot: #E8294C;
+    --cold: #4A90E2;
+    --hold: #6A6A6A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 32px 16px;
+  }
+
+  .page-header {
+    max-width: 1000px;
+    margin: 0 auto 48px;
+    border-bottom: 2px solid var(--brand);
+    padding-bottom: 24px;
+  }
+
+  .page-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+
+  .page-header .meta {
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  .page-header .meta span {
+    margin-right: 20px;
+  }
+
+  .run-log {
+    max-width: 1000px;
+    margin: 0 auto 48px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .run-log h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .run-log ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .run-log ul li {
+    padding: 6px 0;
+    font-size: 13px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .run-log ul li:last-child { border-bottom: none; }
+
+  .run-log ul li strong {
+    color: var(--text);
+  }
+
+  .flag-box {
+    max-width: 1000px;
+    margin: 0 auto 48px;
+    background: rgba(232, 41, 76, 0.08);
+    border: 1px solid rgba(232, 41, 76, 0.4);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .flag-box h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--brand);
+    margin-bottom: 12px;
+  }
+
+  .flag-box p {
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  .section-label {
+    max-width: 1000px;
+    margin: 0 auto 24px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .prospect-card {
+    max-width: 1000px;
+    margin: 0 auto 36px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .card-header-left h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .card-header-left .title-company {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  .card-header-left .linkedin-url {
+    font-size: 12px;
+    color: var(--brand);
+    text-decoration: none;
+    opacity: 0.8;
+  }
+
+  .card-header-left .linkedin-url:hover { opacity: 1; }
+
+  .card-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .fit-score {
+    background: var(--brand);
+    color: #fff;
+    font-size: 22px;
+    font-weight: 800;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fit-score.score-8, .fit-score.score-9, .fit-score.score-10 {
+    background: var(--brand);
+  }
+
+  .fit-score.score-7 {
+    background: #c9294a;
+  }
+
+  .fit-score.score-6 {
+    background: #8a3a4a;
+  }
+
+  .fit-score.score-hold {
+    background: var(--hold);
+  }
+
+  .score-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: right;
+  }
+
+  .badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  .badge-cold { background: rgba(74,144,226,0.15); color: var(--cold); border: 1px solid rgba(74,144,226,0.3); }
+  .badge-warm { background: rgba(245,166,35,0.15); color: var(--warm); border: 1px solid rgba(245,166,35,0.3); }
+  .badge-hot  { background: rgba(232,41,76,0.15);  color: var(--hot);  border: 1px solid rgba(232,41,76,0.3);  }
+  .badge-hold { background: rgba(106,106,106,0.15); color: var(--hold); border: 1px solid rgba(106,106,106,0.3); }
+  .badge-style { background: rgba(255,255,255,0.06); color: #ccc; border: 1px solid var(--border); }
+
+  .card-body {
+    padding: 24px 28px;
+  }
+
+  .card-section {
+    margin-bottom: 24px;
+  }
+
+  .card-section:last-child { margin-bottom: 0; }
+
+  .card-section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  .hook-box {
+    background: var(--surface-2);
+    border-left: 3px solid var(--brand);
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .hook-strategy {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .hook-strategy strong { color: var(--text); }
+
+  .compliance-flag {
+    background: rgba(245,166,35,0.08);
+    border: 1px solid rgba(245,166,35,0.25);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #ccc;
+  }
+
+  .compliance-flag strong { color: var(--warm); }
+
+  .profile-summary {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.7;
+  }
+
+  .timing-signals {
+    font-size: 13px;
+    color: #bbb;
+    line-height: 1.7;
+  }
+
+  .timing-signals li {
+    margin-left: 16px;
+    margin-bottom: 4px;
+  }
+
+  .dm-sequence {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .dm-message {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+
+  .dm-message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .dm-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--brand);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  .dm-send-day {
+    font-size: 11px;
+    color: var(--text-muted);
+    background: rgba(255,255,255,0.05);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .dm-message p {
+    font-size: 14px;
+    color: #ddd;
+    line-height: 1.75;
+    white-space: pre-line;
+  }
+
+  .dm-char-count {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    text-align: right;
+  }
+
+  .hold-card {
+    opacity: 0.6;
+  }
+
+  .hold-banner {
+    background: rgba(106,106,106,0.12);
+    border: 1px solid rgba(106,106,106,0.3);
+    border-radius: 6px;
+    padding: 12px 18px;
+    font-size: 14px;
+    color: var(--hold);
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .divider {
+    max-width: 1000px;
+    margin: 0 auto 36px;
+    border: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .card-header { flex-direction: column; }
+    .card-header-right { align-items: flex-start; flex-direction: row; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>BPOAS CRO Weekly Prospects</h1>
+  <div class="meta">
+    <span>Run Date: Monday, 29 June 2026</span>
+    <span>Routine: /cro-weekly-prospects</span>
+    <span>Prospects Found: 10</span>
+    <span>Qualifying (6+): 9</span>
+    <span>Hold: 1</span>
+  </div>
+</div>
+
+<!-- RUN LOG -->
+<div class="run-log">
+  <h2>Run Log</h2>
+  <ul>
+    <li><strong>05:04 UTC</strong> ICP and Voice DNA documents loaded from repository</li>
+    <li><strong>05:04 UTC</strong> Apify LinkedIn scraper attempted: free-tier run limit reached. Switched to web search + RAG browser enrichment</li>
+    <li><strong>05:05 UTC</strong> Prospect discovery via LinkedIn web search across F&B, Real Estate, Trading, Professional Services, FinTech, Logistics sectors in UAE</li>
+    <li><strong>05:06 UTC</strong> Profile enrichment completed: Razik Ali (post content retrieved), Akram Mohamed (company details confirmed via RocketReach)</li>
+    <li><strong>05:06 UTC</strong> Regulatory intelligence gathered: FTA enforcement update, VAT credit expiry 2026, DNFBP March 2026 MoET circular, Corporate Tax enforcement ramp-up</li>
+    <li><strong>05:07 UTC</strong> Note: Today (29 June 2026) is the <strong>final UAE VAT return filing deadline</strong> for the current tax period. High urgency for SME prospects. Used as timing hook in M3.</li>
+    <li><strong>05:08 UTC</strong> Scoring, hooks, and DM sequences generated for 9 qualifying prospects (Fit 6+). 1 prospect flagged Hold.</li>
+    <li><strong>05:09 UTC</strong> No prospects scored 9 or 10 this cycle. No personal review flags required.</li>
+    <li><strong>Flag:</strong> Apify LinkedIn scraper hit free-tier limit. Recommend upgrading account or pre-scheduling runs on paid tier for future cycles.</li>
+  </ul>
+</div>
+
+<!-- REGULATORY INTELLIGENCE BRIEF -->
+<div class="run-log" style="margin-bottom:36px;">
+  <h2>Regulatory Intelligence Used in M3 Messages</h2>
+  <ul>
+    <li><strong>FTA Enforcement Mode Active:</strong> The two-year Corporate Tax grace period is over. FTA is now issuing real penalties. Businesses that have not registered or filed correctly are in active risk.</li>
+    <li><strong>VAT Credit Expiry 2026:</strong> VAT input tax credits from 2021 are expiring this year for businesses that carried forward refunds without claiming. Multi-entity F&B and trading firms are most exposed.</li>
+    <li><strong>VAT Return Deadline TODAY:</strong> 29 June 2026 is the final filing deadline for the current UAE VAT period. High urgency for SMEs not on top of their books.</li>
+    <li><strong>MoET DNFBP Circular (March 2026):</strong> Circular MOET/AML/001/2026 updated high-risk country lists and CDD/EDD requirements. Real estate firms must update screening and country-risk matrices. Inspections are more frequent and more detailed in 2026.</li>
+    <li><strong>Federal Decree-Law No. 17 of 2025:</strong> Rewrites the Tax Procedures Law with tighter deadlines and expanded FTA audit powers. Effective 1 January 2026.</li>
+    <li><strong>MoET Supplemental Guidance April 2026:</strong> New guidance for independent accountants and auditors on AML/CFT obligations under Federal Decree-Law No. 10 of 2025.</li>
+  </ul>
+</div>
+
+<!-- SECTION: QUALIFYING PROSPECTS -->
+<div class="section-label">Qualifying Prospects (Fit Score 6+) — DM Sequences Ready</div>
+
+<!-- ============================================================ -->
+<!-- PROSPECT 1: AKRAM MOHAMED -->
+<!-- ============================================================ -->
+<div class="prospect-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <h3>Akram Mohamed</h3>
+      <div class="title-company">Founder &amp; CEO &middot; MotorEast &middot; Dubai</div>
+      <a class="linkedin-url" href="https://www.linkedin.com/in/akrammohamed/" target="_blank">linkedin.com/in/akrammohamed</a>
+      <div class="badges" style="margin-top:10px;">
+        <span class="badge badge-cold">Cold</span>
+        <span class="badge badge-style">Driver</span>
+        <span class="badge badge-style">Trading / Automotive</span>
+        <span class="badge badge-style">Dubai</span>
+      </div>
+    </div>
+    <div class="card-header-right">
+      <div class="fit-score score-8">8</div>
+      <div class="score-label">Fit Score / 10</div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-section">
+      <div class="card-section-title">Profile Summary</div>
+      <p class="profile-summary">Founder and CEO of MotorEast, a global vehicle sourcing and trading company based in Dubai. 20+ years of automotive industry experience. Team of 7 employees. The company is lean by design, operating in commercial vehicle import, sourcing, and distribution across international markets. With only 7 people running a trading operation of this scale, the back office is almost certainly under-resourced.</p>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Timing Signals</div>
+      <ul class="timing-signals">
+        <li>Small team (7 people) running high-volume vehicle trading. No headroom for a dedicated accounting function.</li>
+        <li>Trading company in UAE = complex VAT treatment on commercial vs personal vehicles, dealer stock, cross-border sourcing.</li>
+        <li>20 years in automotive before going founder-led = strong industry identity, likely under-invested in back office.</li>
+        <li>Today is the UAE VAT return deadline. Trading firms with import cycles are in the most exposed category.</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Human Hook</div>
+      <div class="hook-box">"20 years in automotive. 7-person team. Still the one holding the full picture together."</div>
+      <div class="hook-strategy"><strong>Opening Strategy:</strong> Directness Play &mdash; acknowledge the lean structure without framing it as a problem. Let him confirm or correct.</div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Compliance Trigger Flag</div>
+      <div class="compliance-flag">
+        <strong>VAT Trading Risk:</strong> Vehicle trading in the UAE carries specific VAT complexity around commercial vs personal classification, dealer stock input tax, and cross-border sourcing. Today is the UAE VAT return deadline. Small team with no dedicated accounting = high probability of exposure. Flag for outreach priority.
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">5-Message DM Sequence</div>
+      <div class="dm-sequence">
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M1 &middot; Connection Request</span>
+            <span class="dm-send-day">Day 0 &middot; Max 300 chars</span>
+          </div>
+          <p>MotorEast and the model you built around global vehicle sourcing with a founder-led team. 20 years in the industry, and you chose to do it your own way. That tells me something. Would be glad to connect.</p>
+          <div class="dm-char-count">~231 chars</div>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M2 &middot; Icebreaker</span>
+            <span class="dm-send-day">Day of Connection</span>
+          </div>
+          <p>Thanks for connecting, Akram. With a 7-person team running global vehicle sourcing, the operations have to be very precise. What does a typical week look like for you right now?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M3 &middot; Value Bridge</span>
+            <span class="dm-send-day">Day 2 to 3 if no reply</span>
+          </div>
+          <p>Something worth flagging for trading businesses in the UAE. Today is actually the VAT return filing deadline, and vehicle trading is one of the sectors getting more scrutiny from the FTA right now. The rules around input tax on dealer stock, commercial versus personal vehicle classification, and cross-border sourcing catch a lot of trading firms off guard when enforcement comes. The FTA moved out of education mode this year and penalties are now real.
+
+Is MotorEast's VAT position reviewed by someone external, or is it managed in-house?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M4 &middot; The Pivot</span>
+            <span class="dm-send-day">Day 3 to 4 if no reply</span>
+          </div>
+          <p>Different question. 20 years in automotive before going founder-led is a deliberate choice most people don't make. What was the thing that actually pushed you to build MotorEast instead of staying in corporate?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M5 &middot; Clean Exit</span>
+            <span class="dm-send-day">Day 5 to 7 if no reply</span>
+          </div>
+          <p>Closing the loop here, Akram. MotorEast is an interesting operation. If there's ever a right time to connect properly, I'm glad we're in each other's network.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PROSPECT 2: RAZIK ALI -->
+<!-- ============================================================ -->
+<div class="prospect-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <h3>Razik Ali</h3>
+      <div class="title-company">Managing Director &amp; CEO &middot; First Chapter Consultancy &middot; Dubai</div>
+      <a class="linkedin-url" href="https://ae.linkedin.com/in/razik-ali-0663541b7" target="_blank">linkedin.com/in/razik-ali-0663541b7</a>
+      <div class="badges" style="margin-top:10px;">
+        <span class="badge badge-warm">Warm</span>
+        <span class="badge badge-style">Expressive</span>
+        <span class="badge badge-style">Professional Services</span>
+        <span class="badge badge-style">Dubai</span>
+      </div>
+    </div>
+    <div class="card-header-right">
+      <div class="fit-score score-7">7</div>
+      <div class="score-label">Fit Score / 10</div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-section">
+      <div class="card-section-title">Profile Summary</div>
+      <p class="profile-summary">MD and CEO of First Chapter Consultancy, a business setup and pro services firm in Dubai. Moved from India to Dubai at 19, built First Chapter over 15 years. Active LinkedIn presence with 2,517 followers and 112 posts. Storytelling communicator. Recent post about his Dubai founder journey received 166 likes and 19 comments. He works with UAE founders as clients, meaning he is inside the world of new business formation constantly. His own firm is in professional services and likely 10 to 30 employees.</p>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Timing Signals</div>
+      <ul class="timing-signals">
+        <li>Active LinkedIn content creator. Warm to outreach that references his content specifically.</li>
+        <li>Post 4 months ago about building First Chapter through consistency. Strong emotional hook available.</li>
+        <li>Business setup consultancy = his clients are newly formed UAE entities. He sees the accounting chaos at formation stage directly.</li>
+        <li>Own firm is growing (referenced in post). Pro services firms often have informal accounting setups.</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Human Hook</div>
+      <div class="hook-box">"15 years in Dubai. Still showing up even when no one's watching. That took something real to build."</div>
+      <div class="hook-strategy"><strong>Opening Strategy:</strong> Peer Opener &mdash; reference his post content genuinely, not as a gateway to pitch.</div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">5-Message DM Sequence</div>
+      <div class="dm-sequence">
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M1 &middot; Connection Request</span>
+            <span class="dm-send-day">Day 0 &middot; Max 300 chars</span>
+          </div>
+          <p>Your post about showing up at 19 with nothing and building First Chapter over 15 years actually stayed with me. That consistency you describe is the rarest thing in this city. Would be great to connect.</p>
+          <div class="dm-char-count">~197 chars</div>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M2 &middot; Icebreaker</span>
+            <span class="dm-send-day">Day of Connection</span>
+          </div>
+          <p>Thanks for connecting, Razik. Your point about Dubai rewarding the ones who show up again even when no one's watching. I think that's the most honest thing I've read about building a business here. What pushed you from straight business setup into the broader founder support work First Chapter is doing now?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M3 &middot; Value Bridge</span>
+            <span class="dm-send-day">Day 2 to 3 if no reply</span>
+          </div>
+          <p>Something relevant if you're seeing founders come through your doors who set up quickly and moved on. The FTA has officially moved out of education mode this year and penalties are now real. VAT credits from 2021 are starting to expire for businesses that carried them forward without ever claiming the refund. A lot of founders set up properly on paper but the accounting behind the scenes never caught up.
+
+What does the accounting picture usually look like for the founders coming through First Chapter in the early months?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M4 &middot; The Pivot</span>
+            <span class="dm-send-day">Day 3 to 4 if no reply</span>
+          </div>
+          <p>Different question. You built something founder-led in a city that has no shortage of consultancies. The thing that makes First Chapter last isn't the service. What's the actual reason your clients come back?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M5 &middot; Clean Exit</span>
+            <span class="dm-send-day">Day 5 to 7 if no reply</span>
+          </div>
+          <p>Leaving it here, Razik. The content you put out is genuinely worth reading. If there's ever a right context to connect properly, I'm glad we're in each other's network.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PROSPECT 3: ISSAM KHYI -->
+<!-- ============================================================ -->
+<div class="prospect-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <h3>Issam Khyi</h3>
+      <div class="title-company">Founder &amp; CEO &middot; Relegance Properties &middot; Dubai</div>
+      <a class="linkedin-url" href="https://ae.linkedin.com/in/issam-khyi-51a4b179" target="_blank">linkedin.com/in/issam-khyi-51a4b179</a>
+      <div class="badges" style="margin-top:10px;">
+        <span class="badge badge-cold">Cold</span>
+        <span class="badge badge-style">Driver</span>
+        <span class="badge badge-style">Real Estate</span>
+        <span class="badge badge-style">Dubai</span>
+      </div>
+    </div>
+    <div class="card-header-right">
+      <div class="fit-score score-7">7</div>
+      <div class="score-label">Fit Score / 10</div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-section">
+      <div class="card-section-title">Profile Summary</div>
+      <p class="profile-summary">Founder and CEO of Relegance Properties, a boutique real estate firm in Dubai. The brand name itself, a blend of relevance and elegance, signals deliberate positioning. Operates in Dubai's competitive real estate market as a founder-led agency. Real estate firms in the UAE are classified as DNFBPs and must comply with Ministry of Economy AML requirements. Company is likely 5 to 25 employees at boutique scale.</p>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Timing Signals</div>
+      <ul class="timing-signals">
+        <li>DNFBP status = AML compliance obligation that catches many boutique real estate firms off guard.</li>
+        <li>MoET DNFBP circular updated March 2026 with new requirements. Boutique agencies often handle this informally.</li>
+        <li>2026 inspections more frequent. Real estate a focus sector.</li>
+        <li>Boutique founder-led = typically no in-house compliance function.</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Human Hook</div>
+      <div class="hook-box">"Relegance Properties. You built a brand name that sounds like relevance meets elegance. That is a very deliberate positioning decision."</div>
+      <div class="hook-strategy"><strong>Opening Strategy:</strong> Pattern Interrupt &mdash; open on the brand name, not the industry.</div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Compliance Trigger Flag</div>
+      <div class="compliance-flag">
+        <strong>DNFBP AML:</strong> Real estate firms in UAE are designated non-financial businesses under the AML framework. Ministry of Economy updated DNFBP guidelines in March 2026 with stricter CDD/EDD requirements and new high-risk country lists. Boutique firms with no compliance officer are at direct risk.
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">5-Message DM Sequence</div>
+      <div class="dm-sequence">
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M1 &middot; Connection Request</span>
+            <span class="dm-send-day">Day 0 &middot; Max 300 chars</span>
+          </div>
+          <p>Came across Relegance Properties. The name itself, relevance meets elegance, is a positioning decision most people miss entirely. That kind of clarity from the start usually means the founder thinks differently about how the business is built. Would love to connect.</p>
+          <div class="dm-char-count">~261 chars</div>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M2 &middot; Icebreaker</span>
+            <span class="dm-send-day">Day of Connection</span>
+          </div>
+          <p>Thanks for connecting, Issam. Real estate in Dubai right now is one of those markets where the operators who last are building something different from the ones chasing the cycle. What is the one thing that makes Relegance different from the other boutique agencies?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M3 &middot; Value Bridge</span>
+            <span class="dm-send-day">Day 2 to 3 if no reply</span>
+          </div>
+          <p>Something came out from the Ministry of Economy in March that is relevant if you are running a real estate firm in the UAE. The DNFBP guidelines were updated with new AML requirements, revised high-risk country lists, and tighter customer due diligence rules. Inspections in 2026 are running more frequently and going deeper than they were in previous years.
+
+Is Relegance's compliance setup current with the new requirements?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M4 &middot; The Pivot</span>
+            <span class="dm-send-day">Day 3 to 4 if no reply</span>
+          </div>
+          <p>Different question. Running a boutique firm where your name is behind every transaction. The thing that keeps founders in real estate for the long run usually has nothing to do with the deals. What is the part of this business that you find actually matters to you?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M5 &middot; Clean Exit</span>
+            <span class="dm-send-day">Day 5 to 7 if no reply</span>
+          </div>
+          <p>Closing out here, Issam. If there is ever a right context to connect properly, I am glad we are in each other's network. Good luck with Relegance.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PROSPECT 4: AHMED JAMAL AZMY -->
+<!-- ============================================================ -->
+<div class="prospect-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <h3>Ahmed Jamal Azmy</h3>
+      <div class="title-company">Managing Director &middot; CCA Solutions / Sophia Cafe &middot; Dubai</div>
+      <a class="linkedin-url" href="https://www.linkedin.com/in/ahmed-jamal-azmy-922ba9107/" target="_blank">linkedin.com/in/ahmed-jamal-azmy-922ba9107</a>
+      <div class="badges" style="margin-top:10px;">
+        <span class="badge badge-cold">Cold</span>
+        <span class="badge badge-style">Analytical</span>
+        <span class="badge badge-style">F&amp;B / Services</span>
+        <span class="badge badge-style">Dubai</span>
+      </div>
+    </div>
+    <div class="card-header-right">
+      <div class="fit-score score-7">7</div>
+      <div class="score-label">Fit Score / 10</div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-section">
+      <div class="card-section-title">Profile Summary</div>
+      <p class="profile-summary">Managing Director running both Sophia Cafe and CCA Solutions in Dubai, two distinct entities operating simultaneously. The combination of an F&amp;B operation and a consulting or solutions business under one founder creates accounting complexity that is rarely handled well at SME scale. Dual-entity structure means separate VAT registrations, separate bookkeeping, separate compliance obligations.</p>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Timing Signals</div>
+      <ul class="timing-signals">
+        <li>Two businesses = two VAT registrations = two sets of filings. High chance of inconsistency.</li>
+        <li>FTA enforcement active in 2026. Multi-entity operators are a focus area.</li>
+        <li>VAT credits from 2021 expiring this year. F&amp;B businesses often carry input tax they never claimed.</li>
+        <li>Dual role as MD across two different business types = time-stretched, likely under-invested in accounting oversight.</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Human Hook</div>
+      <div class="hook-box">"Running a cafe and a solutions business at the same time means the financial picture is never simple. That takes discipline most founders don't have."</div>
+      <div class="hook-strategy"><strong>Opening Strategy:</strong> Pattern Interrupt &mdash; acknowledge the unusual combination without judgment.</div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Compliance Trigger Flag</div>
+      <div class="compliance-flag">
+        <strong>Multi-Entity VAT Risk:</strong> Two UAE-registered entities under one founder. F&amp;B VAT compliance is already one of the more complex areas. Running it alongside a services entity with different VAT rules increases exposure significantly. FTA is actively enforcing in 2026.
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">5-Message DM Sequence</div>
+      <div class="dm-sequence">
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M1 &middot; Connection Request</span>
+            <span class="dm-send-day">Day 0 &middot; Max 300 chars</span>
+          </div>
+          <p>Running Sophia Cafe and CCA Solutions at the same time is an unusual combination. The discipline that takes is not something most founders manage cleanly. Would be glad to connect.</p>
+          <div class="dm-char-count">~181 chars</div>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M2 &middot; Icebreaker</span>
+            <span class="dm-send-day">Day of Connection</span>
+          </div>
+          <p>Thanks for connecting, Ahmed. Two businesses running simultaneously is something I find genuinely interesting to understand. Does one naturally pull more of your focus or do you keep them cleanly separated?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M3 &middot; Value Bridge</span>
+            <span class="dm-send-day">Day 2 to 3 if no reply</span>
+          </div>
+          <p>Something relevant if you are running multiple entities in the UAE. The FTA is in full enforcement mode now and VAT credits from 2021 are starting to expire for businesses that carried them forward without claiming the refund. For F&amp;B businesses specifically, input tax on supplies is one of the areas where errors compound quickly across periods.
+
+Is the VAT position across both entities reviewed regularly or consolidated somewhere?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M4 &middot; The Pivot</span>
+            <span class="dm-send-day">Day 3 to 4 if no reply</span>
+          </div>
+          <p>Shifting gears. Two businesses, one MD. The thing most founders running parallel operations say is that the hardest call is not about the work. It is knowing which thing to protect in a difficult week. How do you make that decision?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M5 &middot; Clean Exit</span>
+            <span class="dm-send-day">Day 5 to 7 if no reply</span>
+          </div>
+          <p>Leaving it here, Ahmed. Two businesses, one founder, Dubai. That is a lot to hold well. If our paths lead to a proper conversation, I am in your network.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PROSPECT 5: MAJDI MANSOUR -->
+<!-- ============================================================ -->
+<div class="prospect-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <h3>Majdi Mansour</h3>
+      <div class="title-company">CEO &amp; Founder &middot; MHM Real Estate &middot; Dubai</div>
+      <a class="linkedin-url" href="https://ae.linkedin.com/in/majdimansourofficial1" target="_blank">linkedin.com/in/majdimansourofficial1</a>
+      <div class="badges" style="margin-top:10px;">
+        <span class="badge badge-cold">Cold</span>
+        <span class="badge badge-style">Driver</span>
+        <span class="badge badge-style">Real Estate</span>
+        <span class="badge badge-style">Dubai</span>
+      </div>
+    </div>
+    <div class="card-header-right">
+      <div class="fit-score score-7">7</div>
+      <div class="score-label">Fit Score / 10</div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-section">
+      <div class="card-section-title">Profile Summary</div>
+      <p class="profile-summary">CEO and Founder of MHM Real Estate, a Dubai-based real estate firm. Founder-led agency operating in a highly competitive market. Real estate firms in UAE are DNFBPs with mandatory AML compliance obligations under Ministry of Economy supervision. Boutique size, likely 5 to 30 employees. The MHM brand carries his initials, meaning his personal reputation is tied directly to the firm's compliance standing.</p>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Timing Signals</div>
+      <ul class="timing-signals">
+        <li>DNFBP AML obligations updated March 2026. New circular requires updated screening and country-risk matrices.</li>
+        <li>Dubai real estate market active in 2026, transaction volumes high = AML risk exposure elevated.</li>
+        <li>Founder-led with initials in brand name = reputational skin in the game.</li>
+        <li>Boutique size = almost certainly no dedicated compliance officer.</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Human Hook</div>
+      <div class="hook-box">"MHM Real Estate. Your initials on the door. The founders who put their name on it run things differently."</div>
+      <div class="hook-strategy"><strong>Opening Strategy:</strong> Peer Opener &mdash; the initials-as-brand is a genuine signal worth noticing.</div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Compliance Trigger Flag</div>
+      <div class="compliance-flag">
+        <strong>DNFBP AML:</strong> Ministry of Economy issued new DNFBP guidance in March 2026 (MOET/AML/001/2026). Real estate is a priority sector. Firms without updated CDD processes and country-risk matrices are at risk of inspection findings. Boutique firms with no dedicated compliance function are most exposed.
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">5-Message DM Sequence</div>
+      <div class="dm-sequence">
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M1 &middot; Connection Request</span>
+            <span class="dm-send-day">Day 0 &middot; Max 300 chars</span>
+          </div>
+          <p>MHM Real Estate. Your initials on the brand. Founders who put their name on the firm usually run things with a different standard of care. Came across the company and wanted to connect.</p>
+          <div class="dm-char-count">~183 chars</div>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M2 &middot; Icebreaker</span>
+            <span class="dm-send-day">Day of Connection</span>
+          </div>
+          <p>Thanks for connecting, Majdi. Real estate in Dubai right now, the fundamentals are strong but the regulatory picture is getting more layered every year. What part of running MHM keeps you most occupied these days?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M3 &middot; Value Bridge</span>
+            <span class="dm-send-day">Day 2 to 3 if no reply</span>
+          </div>
+          <p>Something that came out from the Ministry of Economy in March that is relevant for real estate firms in the UAE. The DNFBP guidelines were updated with new AML requirements, revised high-risk country lists, and stricter customer due diligence rules. Inspections in 2026 are more frequent and going deeper than in previous years.
+
+Is MHM's compliance setup current with the 2026 requirements?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M4 &middot; The Pivot</span>
+            <span class="dm-send-day">Day 3 to 4 if no reply</span>
+          </div>
+          <p>Separate question. Founder-led real estate means your reputation follows you personally, not the brand. What is the one thing you would refuse to do to close a deal?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M5 &middot; Clean Exit</span>
+            <span class="dm-send-day">Day 5 to 7 if no reply</span>
+          </div>
+          <p>Leaving it here, Majdi. If there is ever a right time to connect properly, we are in each other's network. Good luck with MHM.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PROSPECT 6: OXANA POZNANSKAYA -->
+<!-- ============================================================ -->
+<div class="prospect-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <h3>Oxana Poznanskaya</h3>
+      <div class="title-company">Founder &amp; CEO &middot; Dubai Real &middot; Dubai</div>
+      <a class="linkedin-url" href="https://ae.linkedin.com/in/oxana-poznanskaya-6a308a91" target="_blank">linkedin.com/in/oxana-poznanskaya-6a308a91</a>
+      <div class="badges" style="margin-top:10px;">
+        <span class="badge badge-cold">Cold</span>
+        <span class="badge badge-style">Amiable</span>
+        <span class="badge badge-style">Real Estate</span>
+        <span class="badge badge-style">Dubai</span>
+      </div>
+    </div>
+    <div class="card-header-right">
+      <div class="fit-score score-7">7</div>
+      <div class="score-label">Fit Score / 10</div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-section">
+      <div class="card-section-title">Profile Summary</div>
+      <p class="profile-summary">Founder and CEO of Dubai Real, a real estate firm in Dubai. Founded and leads the company independently. Real estate sector in UAE requires DNFBP AML compliance. Running a founder-led agency in Dubai's competitive market, with personal reputation on the line with each transaction. Boutique scale, likely 5 to 20 employees.</p>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Timing Signals</div>
+      <ul class="timing-signals">
+        <li>DNFBP compliance requirements updated March 2026. High-risk country list revision affects screening processes for all real estate firms.</li>
+        <li>Boutique real estate = no dedicated compliance officer likely.</li>
+        <li>2026 MoET inspections more frequent and detailed. Real estate is a priority sector.</li>
+        <li>Founder-led with her name and reputation directly tied to the business.</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Human Hook</div>
+      <div class="hook-box">"Building a real estate brand with your own name and reputation behind it in Dubai. That level of ownership is rare."</div>
+      <div class="hook-strategy"><strong>Opening Strategy:</strong> Peer Opener &mdash; acknowledge the personal stakes of founder-led real estate.</div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Compliance Trigger Flag</div>
+      <div class="compliance-flag">
+        <strong>DNFBP AML:</strong> Real estate firms in UAE must comply with updated MoET DNFBP guidelines (March 2026). New customer due diligence requirements and high-risk country matrices. Boutique agencies with no dedicated compliance function are at highest inspection risk.
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">5-Message DM Sequence</div>
+      <div class="dm-sequence">
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M1 &middot; Connection Request</span>
+            <span class="dm-send-day">Day 0 &middot; Max 300 chars</span>
+          </div>
+          <p>Dubai Real and the way you have built it founder-led with your reputation behind every transaction. That kind of ownership says something about how you run things. Would be glad to connect.</p>
+          <div class="dm-char-count">~189 chars</div>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M2 &middot; Icebreaker</span>
+            <span class="dm-send-day">Day of Connection</span>
+          </div>
+          <p>Thanks for connecting, Oxana. Building a brand in Dubai real estate with your own name and judgment behind it takes something different from running under a franchise or network. What does a good week look like for Dubai Real right now?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M3 &middot; Value Bridge</span>
+            <span class="dm-send-day">Day 2 to 3 if no reply</span>
+          </div>
+          <p>Worth sharing this if you are running a real estate firm in the UAE. The Ministry of Economy updated the DNFBP framework in March with stricter AML requirements, new customer due diligence standards, and revised country-risk matrices. Inspections in 2026 are more detailed and happening more often than before.
+
+Is Dubai Real's AML compliance setup something you are managing internally or through an external specialist?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M4 &middot; The Pivot</span>
+            <span class="dm-send-day">Day 3 to 4 if no reply</span>
+          </div>
+          <p>Different question. Building something founder-led in Dubai real estate, the thing that actually lasts is not the listings. What is the part of this business that you find yourself most protective of?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M5 &middot; Clean Exit</span>
+            <span class="dm-send-day">Day 5 to 7 if no reply</span>
+          </div>
+          <p>Closing out here, Oxana. Dubai Real looks like it has been built with care. If our paths lead to a proper conversation, I am glad we are connected.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PROSPECT 7: RABIH FAKHREDDINE -->
+<!-- ============================================================ -->
+<div class="prospect-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <h3>Rabih Fakhreddine</h3>
+      <div class="title-company">Founder &amp; Group CEO &middot; 7 Management &middot; Dubai</div>
+      <a class="linkedin-url" href="https://www.linkedin.com/in/rabih-fakhreddine-69217118/" target="_blank">linkedin.com/in/rabih-fakhreddine-69217118</a>
+      <div class="badges" style="margin-top:10px;">
+        <span class="badge badge-warm">Warm</span>
+        <span class="badge badge-style">Expressive</span>
+        <span class="badge badge-style">F&amp;B / Hospitality</span>
+        <span class="badge badge-style">Dubai</span>
+      </div>
+    </div>
+    <div class="card-header-right">
+      <div class="fit-score score-7">6</div>
+      <div class="score-label">Fit Score / 10</div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-section">
+      <div class="card-section-title">Profile Summary</div>
+      <p class="profile-summary">Founder and Group CEO of 7 Management, a Dubai-based hospitality and lifestyle group building restaurants, entertainment venues, and lifestyle destinations across global cities. Currently planning 8 new restaurant openings in Q4 2026 and 2027. Multi-entity F&amp;B structure across multiple geographies. This is a growing group, potentially on the larger end of our ICP range. Scored 6 due to possible size exceedance, but expansion pace creates significant accounting and compliance complexity worth the outreach.</p>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Timing Signals</div>
+      <ul class="timing-signals">
+        <li>8 restaurant openings planned for Q4 2026 and 2027. Each new entity = new VAT registration, new books, new compliance setup.</li>
+        <li>Multi-entity F&amp;B structure = VAT credits, consolidated reporting, cross-entity compliance a real pain point.</li>
+        <li>FTA enforcement active in 2026. F&amp;B sector VAT compliance is one of the most complex in UAE.</li>
+        <li>Rapid expansion pace likely means accounting is lagging behind operations.</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Human Hook</div>
+      <div class="hook-box">"8 restaurant openings in one quarter. The operations side of that gets the attention. The accounting side is where the risk lives."</div>
+      <div class="hook-strategy"><strong>Opening Strategy:</strong> Peer Opener &mdash; anchor on the expansion pace, not the brand.</div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Compliance Trigger Flag</div>
+      <div class="compliance-flag">
+        <strong>Multi-Entity VAT Risk:</strong> Rapid multi-venue expansion means new VAT registrations, new bookkeeping setups, and new compliance obligations across entities. F&amp;B is one of the most error-prone sectors for UAE VAT. FTA actively enforcing in 2026. VAT credits from 2021 expiring this year.
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">5-Message DM Sequence</div>
+      <div class="dm-sequence">
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M1 &middot; Connection Request</span>
+            <span class="dm-send-day">Day 0 &middot; Max 300 chars</span>
+          </div>
+          <p>8 restaurant openings planned for Q4 and into 2027. The pace at which you are building 7 Management is genuinely impressive. The operational complexity behind that kind of expansion is something I understand well. Would be great to connect.</p>
+          <div class="dm-char-count">~237 chars</div>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M2 &middot; Icebreaker</span>
+            <span class="dm-send-day">Day of Connection</span>
+          </div>
+          <p>Thanks for connecting, Rabih. Most F&amp;B founders I talk to say the hardest part is not opening the venue, it is the three months after. What is the thing that trips up even the best-prepared operators when a new location goes live?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M3 &middot; Value Bridge</span>
+            <span class="dm-send-day">Day 2 to 3 if no reply</span>
+          </div>
+          <p>Something worth knowing for F&amp;B groups running multiple entities in the UAE. The FTA has moved into full enforcement mode this year, no more grace period, and VAT credits from 2021 are starting to expire for businesses that never claimed the refund. For groups with multiple venues, the exposure compounds across entities.
+
+Is VAT compliance across the 7 Management entities managed centrally or does each venue handle it separately?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M4 &middot; The Pivot</span>
+            <span class="dm-send-day">Day 3 to 4 if no reply</span>
+          </div>
+          <p>Different angle. Building a hospitality group at this pace, the decisions that actually define the group long term are usually the people decisions, not the property ones. What is the hardest call you have made in building the 7 Management team?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M5 &middot; Clean Exit</span>
+            <span class="dm-send-day">Day 5 to 7 if no reply</span>
+          </div>
+          <p>Leaving it here, Rabih. Eight openings in one quarter is something I will be watching. If there is a right time to connect properly, I am glad we are in each other's network.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PROSPECT 8: MUHAMMAD QASIM -->
+<!-- ============================================================ -->
+<div class="prospect-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <h3>Muhammad Qasim</h3>
+      <div class="title-company">Founder &amp; CEO &middot; Serial Entrepreneur / Luxury Real Estate &middot; Dubai</div>
+      <a class="linkedin-url" href="https://ae.linkedin.com/in/qasim-zulfiqar99" target="_blank">linkedin.com/in/qasim-zulfiqar99</a>
+      <div class="badges" style="margin-top:10px;">
+        <span class="badge badge-cold">Cold</span>
+        <span class="badge badge-style">Expressive</span>
+        <span class="badge badge-style">Real Estate / Multi-venture</span>
+        <span class="badge badge-style">Dubai</span>
+      </div>
+    </div>
+    <div class="card-header-right">
+      <div class="fit-score score-7">6</div>
+      <div class="score-label">Fit Score / 10</div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-section">
+      <div class="card-section-title">Profile Summary</div>
+      <p class="profile-summary">Founder, CEO, and self-described serial entrepreneur based in Dubai. Operates in the luxury real estate sector. Multiple ventures running simultaneously. Real estate combined with entrepreneurial activity across other sectors creates a fragmented financial picture that is hard to manage without proper accounting structure. UAE real estate = DNFBP compliance requirements.</p>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Timing Signals</div>
+      <ul class="timing-signals">
+        <li>Multiple ventures = multiple entities, potentially multiple VAT obligations.</li>
+        <li>Serial entrepreneur descriptor = fast mover, likely under-invested in back office.</li>
+        <li>Dubai luxury real estate = DNFBP AML compliance, updated March 2026.</li>
+        <li>Real estate boom in 2026 = higher transaction volumes = higher compliance exposure.</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Human Hook</div>
+      <div class="hook-box">"Serial entrepreneur and luxury realtor. Two bets running at the same time takes a very specific kind of structure."</div>
+      <div class="hook-strategy"><strong>Opening Strategy:</strong> Peer Opener &mdash; acknowledge the multi-venture identity without making it a problem.</div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">5-Message DM Sequence</div>
+      <div class="dm-sequence">
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M1 &middot; Connection Request</span>
+            <span class="dm-send-day">Day 0 &middot; Max 300 chars</span>
+          </div>
+          <p>Founder, serial entrepreneur, and luxury realtor in Dubai. That is a lot of plates to keep moving. The ones who manage it well usually have a very clear system behind the scenes. Would be glad to connect.</p>
+          <div class="dm-char-count">~205 chars</div>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M2 &middot; Icebreaker</span>
+            <span class="dm-send-day">Day of Connection</span>
+          </div>
+          <p>Thanks for connecting, Muhammad. Serial entrepreneur in real estate in this market. I am curious what the serial part actually looks like for you right now. How many things are running in parallel?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M3 &middot; Value Bridge</span>
+            <span class="dm-send-day">Day 2 to 3 if no reply</span>
+          </div>
+          <p>Something relevant for anyone running a real estate business in the UAE right now. The Ministry of Economy updated DNFBP compliance requirements in March with new AML guidelines, revised high-risk country lists, and stricter customer due diligence processes. Inspections in 2026 are more frequent and running deeper than in previous years.
+
+Is that something you are managing through an external firm or handling internally?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M4 &middot; The Pivot</span>
+            <span class="dm-send-day">Day 3 to 4 if no reply</span>
+          </div>
+          <p>Different question. Running multiple things simultaneously. What is the one thing you stopped doing yourself that you wish you had stopped sooner?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M5 &middot; Clean Exit</span>
+            <span class="dm-send-day">Day 5 to 7 if no reply</span>
+          </div>
+          <p>Leaving it here, Muhammad. If the timing is ever right for a proper conversation, we are connected. Good luck with the ventures.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PROSPECT 9: ABDERRAHIM YOUSFI -->
+<!-- ============================================================ -->
+<div class="prospect-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <h3>Abderrahim Yousfi</h3>
+      <div class="title-company">Founder &amp; CEO &middot; GPAY|ME &middot; Dubai</div>
+      <a class="linkedin-url" href="https://www.linkedin.com/in/abderrahimyousfi/" target="_blank">linkedin.com/in/abderrahimyousfi</a>
+      <div class="badges" style="margin-top:10px;">
+        <span class="badge badge-cold">Cold</span>
+        <span class="badge badge-style">Analytical</span>
+        <span class="badge badge-style">FinTech / E-Commerce</span>
+        <span class="badge badge-style">Dubai</span>
+      </div>
+    </div>
+    <div class="card-header-right">
+      <div class="fit-score score-7">6</div>
+      <div class="score-label">Fit Score / 10</div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-section">
+      <div class="card-section-title">Profile Summary</div>
+      <p class="profile-summary">Founder and CEO of GPAY|ME, a Dubai-based end-to-end e-commerce services and online payment solutions company. Background is 13 years as a senior technology manager in Silicon Valley before founding the company. Tech-first founder who moved from the US to build a FinTech in the UAE. Payment solutions companies in the UAE operate under CBUAE licensing, and if registered in a free zone, face Corporate Tax substance tests that are now being actively scrutinised by the FTA.</p>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Timing Signals</div>
+      <ul class="timing-signals">
+        <li>FinTech companies in UAE free zones under FTA scrutiny in 2026 on Corporate Tax substance requirements.</li>
+        <li>Silicon Valley background = strong product instincts, potentially under-invested in UAE tax and accounting compliance.</li>
+        <li>E-commerce payment processing = complex VAT treatment across merchant transactions.</li>
+        <li>FTA enforcement mode active. FinTech is one of the sectors being reviewed for CIT substance and free zone exemption validity.</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Human Hook</div>
+      <div class="hook-box">"13 years in Silicon Valley and then you built FinTech in Dubai. Two very different compliance realities to navigate."</div>
+      <div class="hook-strategy"><strong>Opening Strategy:</strong> Authority Flip &mdash; acknowledge his tech credibility and use the regulatory contrast as the opening.</div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">Compliance Trigger Flag</div>
+      <div class="compliance-flag">
+        <strong>CIT Substance Risk:</strong> FinTech companies in UAE free zones that structured for Corporate Tax exemption are now under FTA scrutiny in 2026 on whether they meet substance requirements. The grace period is over. Companies that assumed free zone exemption without proper substance documentation are at real risk.
+      </div>
+    </div>
+
+    <div class="card-section">
+      <div class="card-section-title">5-Message DM Sequence</div>
+      <div class="dm-sequence">
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M1 &middot; Connection Request</span>
+            <span class="dm-send-day">Day 0 &middot; Max 300 chars</span>
+          </div>
+          <p>From 13 years in Silicon Valley to building a FinTech operation in Dubai. Most people go the other direction. The bet you made on the UAE market is worth understanding. Would be glad to connect.</p>
+          <div class="dm-char-count">~194 chars</div>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M2 &middot; Icebreaker</span>
+            <span class="dm-send-day">Day of Connection</span>
+          </div>
+          <p>Thanks for connecting, Abderrahim. Building payment infrastructure in the UAE is a very different regulatory environment from Silicon Valley. What has been the most surprising part of navigating the compliance landscape here compared to what you were used to?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M3 &middot; Value Bridge</span>
+            <span class="dm-send-day">Day 2 to 3 if no reply</span>
+          </div>
+          <p>Something worth flagging for FinTech companies operating in UAE free zones right now. The FTA is actively reviewing Corporate Tax substance requirements in 2026, and companies that structured for CIT exemption without proper documentation are now under real scrutiny. The grace period ended and penalties are being enforced.
+
+Is GPAY|ME's Corporate Tax and VAT position reviewed by an external firm or managed internally?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M4 &middot; The Pivot</span>
+            <span class="dm-send-day">Day 3 to 4 if no reply</span>
+          </div>
+          <p>Different question. Most ex-corporate founders I talk to say the hardest transition is not the product or the tech. It is the back office. What is the most administrative thing about running GPAY|ME that you did not see coming?</p>
+        </div>
+
+        <div class="dm-message">
+          <div class="dm-message-header">
+            <span class="dm-label">M5 &middot; Clean Exit</span>
+            <span class="dm-send-day">Day 5 to 7 if no reply</span>
+          </div>
+          <p>Closing out here, Abderrahim. The GPAY|ME model is genuinely interesting. If there is a right time to connect properly, I am in your network.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- HOLD PROSPECTS -->
+<!-- ============================================================ -->
+<hr class="divider">
+<div class="section-label">Hold Prospects (Fit Score below 6) — Revisit Next Cycle</div>
+
+<div class="prospect-card hold-card">
+  <div class="card-header">
+    <div class="card-header-left">
+      <h3>Vimal Venkat</h3>
+      <div class="title-company">Founder &amp; CEO &middot; UAE Business Hub &middot; Dubai</div>
+      <a class="linkedin-url" href="https://www.linkedin.com/in/vimal-venkat-revenue-marketer/" target="_blank">linkedin.com/in/vimal-venkat-revenue-marketer</a>
+      <div class="badges" style="margin-top:10px;">
+        <span class="badge badge-hold">Hold</span>
+        <span class="badge badge-style">Expressive</span>
+        <span class="badge badge-style">Professional Services / Marketing</span>
+        <span class="badge badge-style">Dubai</span>
+      </div>
+    </div>
+    <div class="card-header-right">
+      <div class="fit-score score-hold">5</div>
+      <div class="score-label">Fit Score / 10</div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="hold-banner">HOLD &mdash; Revisit Next Cycle</div>
+    <div class="card-section" style="margin-top:16px;">
+      <div class="card-section-title">Hold Reason</div>
+      <p class="profile-summary">Founder and CEO of UAE Business Hub. Primary activity appears to be revenue marketing and connecting entrepreneurs across the UAE, rather than running a traditional SME with defined accounting, VAT, or compliance complexity. Marketing-led business model does not create the same accounting pain points as trading, F&amp;B, real estate, or professional services with client billings. Insufficient ICP alignment on compliance pain signal. Revisit if the business model clarifies toward a more structured service firm.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<div class="footer">
+  <p>BPOAS CRO Weekly Prospects &middot; Generated 29 June 2026 &middot; Routine: /cro-weekly-prospects</p>
+  <p style="margin-top:6px;">9 prospects qualify for outreach (Fit Score 6+) &middot; 1 prospect held for next cycle &middot; 0 prospects require Mohaina personal review (no 9 or 10 scores this cycle)</p>
+  <p style="margin-top:6px; color:#555;">Voice rules applied: No em dashes &middot; No pitch before M5 &middot; One question per message &middot; No banned vocabulary &middot; Peer-to-peer tone throughout</p>
+</div>
+
+</body>
+</html>
