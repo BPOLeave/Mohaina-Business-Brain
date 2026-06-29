@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS COO Morning Brief · 29 June 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0A0A0A;
+    color: #E8E8E8;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  /* ── HEADER ── */
+  .header {
+    border-left: 4px solid #E8294C;
+    padding: 20px 24px;
+    background: #111;
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.3px;
+  }
+  .header .subtitle {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+  }
+  .date-badge {
+    background: #E8294C;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  /* ── GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .grid-full { grid-column: 1 / -1; }
+  /* ── CARD ── */
+  .card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .card-header {
+    background: #1A1A1A;
+    border-bottom: 1px solid #222;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-header h2 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #aaa;
+  }
+  .card-header .section-num {
+    font-size: 10px;
+    background: #E8294C;
+    color: #fff;
+    border-radius: 3px;
+    padding: 1px 6px;
+    font-weight: 700;
+  }
+  .card-body { padding: 16px; }
+  /* ── FLAGS CARD ── */
+  .card.flags {
+    border: 1px solid #E8294C55;
+    background: #1A0A0D;
+  }
+  .card.flags .card-header {
+    background: #2A0A10;
+    border-bottom: 1px solid #E8294C44;
+  }
+  .card.flags .card-header h2 { color: #E8294C; }
+  /* ── STATUS PILLS ── */
+  .pill {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .pill-green  { background: #0D2E1A; color: #34C97A; border: 1px solid #34C97A44; }
+  .pill-amber  { background: #2E1D00; color: #F5A623; border: 1px solid #F5A62344; }
+  .pill-red    { background: #2E0A0F; color: #E8294C; border: 1px solid #E8294C44; }
+  .pill-blue   { background: #0A1A2E; color: #4A9EFF; border: 1px solid #4A9EFF44; }
+  .pill-purple { background: #1A0A2E; color: #A78BFA; border: 1px solid #A78BFA44; }
+  /* ── EVENTS ── */
+  .event {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #1D1D1D;
+  }
+  .event:last-child { border-bottom: none; }
+  .event-time {
+    font-size: 12px;
+    font-weight: 700;
+    color: #E8294C;
+    min-width: 80px;
+    padding-top: 2px;
+  }
+  .event-body { flex: 1; }
+  .event-title { font-size: 13px; font-weight: 600; color: #fff; }
+  .event-detail { font-size: 11px; color: #888; margin-top: 2px; }
+  .event-link { font-size: 11px; color: #4A9EFF; text-decoration: none; }
+  /* ── EMAIL ITEMS ── */
+  .email-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #1D1D1D;
+  }
+  .email-item:last-child { border-bottom: none; }
+  .email-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 3px;
+  }
+  .email-subject { font-size: 13px; font-weight: 600; color: #fff; flex: 1; }
+  .email-meta { font-size: 11px; color: #666; }
+  .email-snippet { font-size: 12px; color: #999; margin-top: 4px; }
+  /* ── TASK ITEMS ── */
+  .task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid #1D1D1D;
+  }
+  .task-item:last-child { border-bottom: none; }
+  .task-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .dot-red    { background: #E8294C; }
+  .dot-amber  { background: #F5A623; }
+  .dot-green  { background: #34C97A; }
+  .dot-blue   { background: #4A9EFF; }
+  .task-content { flex: 1; }
+  .task-title { font-size: 13px; color: #E0E0E0; }
+  .task-owner { font-size: 11px; color: #666; margin-top: 2px; }
+  /* ── PIPELINE ── */
+  .lead-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #1D1D1D;
+  }
+  .lead-item:last-child { border-bottom: none; }
+  .lead-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .lead-body { flex: 1; }
+  .lead-name { font-size: 13px; font-weight: 600; color: #fff; }
+  .lead-service { font-size: 11px; color: #888; margin-top: 2px; }
+  .lead-meta { font-size: 11px; color: #E8294C; margin-top: 3px; font-weight: 600; }
+  /* ── RAIHANA QUEUE ── */
+  .raihana-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid #1D1D1D;
+  }
+  .raihana-item:last-child { border-bottom: none; }
+  .raihana-arrow { color: #E8294C; font-size: 12px; margin-top: 2px; }
+  /* ── CONTENT SLOT ── */
+  .content-post {
+    padding: 10px 0;
+    border-bottom: 1px solid #1D1D1D;
+  }
+  .content-post:last-child { border-bottom: none; }
+  .content-day { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #888; }
+  .content-title { font-size: 13px; color: #fff; margin-top: 3px; }
+  .content-intent { font-size: 11px; color: #666; margin-top: 2px; }
+  /* ── METRIC ── */
+  .metric-big {
+    text-align: center;
+    padding: 20px;
+  }
+  .metric-value { font-size: 28px; font-weight: 800; color: #E8294C; }
+  .metric-label { font-size: 11px; color: #888; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.6px; }
+  .metric-context { font-size: 12px; color: #999; margin-top: 12px; line-height: 1.5; }
+  /* ── FLAGS ── */
+  .flag-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #E8294C22;
+  }
+  .flag-item:last-child { border-bottom: none; }
+  .flag-num {
+    font-size: 10px;
+    font-weight: 800;
+    color: #E8294C;
+    min-width: 20px;
+    padding-top: 2px;
+  }
+  .flag-content { flex: 1; }
+  .flag-title { font-size: 13px; font-weight: 600; color: #FFCCD5; }
+  .flag-body { font-size: 12px; color: #CC6677; margin-top: 3px; line-height: 1.5; }
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 24px;
+    padding: 12px 16px;
+    background: #111;
+    border-radius: 6px;
+    font-size: 11px;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .footer strong { color: #888; }
+  /* ── BLOCKERS ── */
+  .blocker-item {
+    padding: 6px 0;
+    border-bottom: 1px solid #1D1D1D;
+    font-size: 12px;
+    color: #999;
+  }
+  .blocker-item:last-child { border-bottom: none; }
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+    .grid-full { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<div class="header">
+  <div class="header-top">
+    <div>
+      <h1>BPOAS COO Morning Brief</h1>
+      <div class="subtitle">Mohaina Asira · Managing Partner &amp; AMLRO · BPO Accounting Services</div>
+    </div>
+    <div class="date-badge">Monday · 29 June 2026 · 09:00 UAE</div>
+  </div>
+</div>
+
+<div class="grid">
+
+  <!-- ── SECTION 1: TODAY'S SCHEDULE ── -->
+  <div class="card grid-full">
+    <div class="card-header">
+      <span class="section-num">1</span>
+      <h2>Today's Schedule</h2>
+    </div>
+    <div class="card-body">
+
+      <div class="event">
+        <div class="event-time">13:30–14:00</div>
+        <div class="event-body">
+          <div class="event-title">Richemont / Cartier — Bookkeeping Call <span class="pill pill-red">🔥 Hot</span></div>
+          <div class="event-detail">With Ghazal Al Safadi (Senior Business Controller) · Clara Lee · Chadi Nasreddine · Alessandro Patti</div>
+          <div class="event-detail">Organised by Ghazal · Fit 9/10 · Bookkeeping retainer discussion</div>
+          <a class="event-link" href="https://teams.microsoft.com/meet/34607004412995?p=qp30NPIxvqLIvEumGC">[Teams link — Meeting #2 in calendar]</a>
+        </div>
+        <span class="pill pill-blue">Teams</span>
+      </div>
+
+      <div class="event">
+        <div class="event-time">15:30–16:00</div>
+        <div class="event-body">
+          <div class="event-title">Amazon MES — Meeting <span class="pill pill-amber">Rescheduled</span></div>
+          <div class="event-detail">With erp@amazonmes.com · Rescheduled from missed prior meeting · Mohaina organiser</div>
+          <div class="event-detail">Teams · ID 346 070 044 129 95 · Passcode VK22ev2r</div>
+        </div>
+        <span class="pill pill-blue">Teams</span>
+      </div>
+
+      <div class="event">
+        <div class="event-time">16:00–16:15</div>
+        <div class="event-body">
+          <div class="event-title">FIAT Call Options Screen <span class="pill pill-purple">Personal</span></div>
+          <div class="event-detail">Recurring Mon &amp; Fri · Run FIAT scan for short-term call options (2–4 week horizon)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SECTION 2: INBOX PRIORITIES ── -->
+  <div class="card grid-full">
+    <div class="card-header">
+      <span class="section-num">2</span>
+      <h2>Inbox Priorities · Last 24 Hours</h2>
+    </div>
+    <div class="card-body">
+
+      <!-- #1 -->
+      <div class="email-item">
+        <div class="email-row">
+          <span class="pill pill-red">Engagement · HIGH</span>
+          <span class="email-subject">Audited Financial Statement FY 2025 — Gulf Seatech FZC</span>
+          <span class="email-meta">06:57 UAE · Raihana → cheryl@gulfseatech.com (CC: Mohaina, Warren, Cristina)</span>
+        </div>
+        <div class="email-snippet">Engagement proposal for Audit Assistance sent. Awaiting signed conforming copy from Cheryl. Warren + Cristina handling delivery. Action: Confirm client has received and schedule sign-off follow-up.</div>
+      </div>
+
+      <!-- #2 -->
+      <div class="email-item">
+        <div class="email-row">
+          <span class="pill pill-red">Client · UNREAD</span>
+          <span class="email-subject">Re: Credit Balance Transfer — Menastar DMCC</span>
+          <span class="email-meta">15:32 UAE · Michelle Pacis → Almatar team (CC: Mohaina)</span>
+        </div>
+        <div class="email-snippet">3rd follow-up (June 4, June 10, June 29) on SAR 7,432.78 credit balance. No response from Almatar. Client refunds are being blocked — Yiannis (lastminute.com) has pending refunds pending this transfer. Records only updated through April. Escalation decision needed from Mohaina.</div>
+      </div>
+
+      <!-- #3 -->
+      <div class="email-item">
+        <div class="email-row">
+          <span class="pill pill-amber">BD · Client</span>
+          <span class="email-subject">Re: [EXT] Bookkeeping Services — Richemont/Cartier</span>
+          <span class="email-meta">17:51 UAE · Mohaina sent staff profile with attachments ahead of today's 13:30 call</span>
+        </div>
+        <div class="email-snippet">Staff profile (Excel, SAP, Zoho Books, QBO proficiency) sent to Ghazal. Call confirmed for today 13:30 UAE. Proposal/retainer discussion in progress.</div>
+      </div>
+
+      <!-- #4 -->
+      <div class="email-item">
+        <div class="email-row">
+          <span class="pill pill-amber">VAT · KYC</span>
+          <span class="email-subject">RE: Proposal for VAT Compliance Review — MCM Products Middle East LLC</span>
+          <span class="email-meta">Jun 26 · joanne.oquendo@mcmworldwide.com (via Raihana)</span>
+        </div>
+        <div class="email-snippet">Signed proposal received from Joanne. KYC outstanding — Trade License section incomplete. Raihana to chase. Onboarding kickoff date not yet set. Mohaina action needed to confirm start date.</div>
+      </div>
+
+      <!-- #5 -->
+      <div class="email-item">
+        <div class="email-row">
+          <span class="pill pill-amber">Client · Overdue</span>
+          <span class="email-subject">Account Claim #2010754 — Almosafer (08–15 Apr 2026)</span>
+          <span class="email-meta">Jun 29 &amp; Jun 25 · ar.finance@almosafer.com ↔ m.pacis@bposervicegroup.com</span>
+        </div>
+        <div class="email-snippet">~70 days unresolved. Transfer previously rejected under new entity name MENASTAR FZCO. Michelle Pacis managing. Nada Ahmed document still outstanding. Escalation if not resolved today.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SECTION 3: TASKS & DEADLINES ── -->
+  <div class="card">
+    <div class="card-header">
+      <span class="section-num">3</span>
+      <h2>Tasks &amp; Deadlines</h2>
+    </div>
+    <div class="card-body">
+
+      <div class="task-item">
+        <div class="task-dot dot-red"></div>
+        <div class="task-content">
+          <div class="task-title"><strong>DMCC FZCO name transition</strong> — client list check <span class="pill pill-red">CRITICAL</span></div>
+          <div class="task-owner">Deadline: 30 June (TOMORROW) · Owner: Mohaina · No client exposure check completed yet</div>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <div class="task-dot dot-red"></div>
+        <div class="task-content">
+          <div class="task-title"><strong>LinkedIn DMCC FZCO post</strong> — accuracy review before Rei publishes <span class="pill pill-red">Overdue Check</span></div>
+          <div class="task-owner">Scheduled Mon 9am · Mohaina to verify facts → Rei to publish · CIT penalty rate (14% p.a.) also needs sign-off before Wed post</div>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <div class="task-dot dot-red"></div>
+        <div class="task-content">
+          <div class="task-title"><strong>Menastar credit balance SAR 7,432.78</strong> — escalation decision <span class="pill pill-red">Overdue</span></div>
+          <div class="task-owner">Owner: Mohaina (decision) + Michelle Pacis (execution) · 3 follow-ups sent, no Almatar response</div>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <div class="task-dot dot-amber"></div>
+        <div class="task-content">
+          <div class="task-title"><strong>Engagement Letters × 4</strong> — GL Middle East, Flow Solutions, Wicked Tents (Nandhu) + The Concept Lab (Mr. George)</div>
+          <div class="task-owner">Owner: Raihana (call today) · EL pending 10–11 days · TRC (3 entities) + CIT Filing at risk</div>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <div class="task-dot dot-amber"></div>
+        <div class="task-content">
+          <div class="task-title"><strong>MCM Products KYC</strong> — Trade License missing, kickoff date not set</div>
+          <div class="task-owner">Owner: Raihana (KYC chase) + Mohaina (onboarding date) · Signed proposal received</div>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <div class="task-dot dot-amber"></div>
+        <div class="task-content">
+          <div class="task-title"><strong>Gulf Seatech FZC</strong> — Audit Assistance EL awaiting signed copy</div>
+          <div class="task-owner">Owner: Raihana (follow up Cheryl) · Warren + Cristina on delivery standby</div>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <div class="task-dot dot-amber"></div>
+        <div class="task-content">
+          <div class="task-title"><strong>DIFC Q1 VAT</strong> — payment reminder sent, still awaiting client <span class="pill pill-amber">VAT</span></div>
+          <div class="task-owner">Owner: Team · Payment not confirmed in FTA portal</div>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <div class="task-dot dot-amber"></div>
+        <div class="task-content">
+          <div class="task-title"><strong>JC Premiere Q1 VAT</strong> — payment made, FTA portal not updated <span class="pill pill-amber">VAT</span></div>
+          <div class="task-owner">Owner: Recyline (monitoring)</div>
+        </div>
+      </div>
+
+      <div class="task-item">
+        <div class="task-dot dot-amber"></div>
+        <div class="task-content">
+          <div class="task-title"><strong>Middletel</strong> — board resolutions chaser from Nurzhan</div>
+          <div class="task-owner">Owner: Mohaina (kind reminder to Camille)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SECTION 4: CONTENT SLOT ── -->
+  <div class="card">
+    <div class="card-header">
+      <span class="section-num">4</span>
+      <h2>Content Slot · This Week</h2>
+    </div>
+    <div class="card-body">
+
+      <div class="content-post">
+        <div class="content-day">Mon 29 Jun · TODAY</div>
+        <div class="content-title">DMCC FZCO name change + 4 free zone compliance checks</div>
+        <div class="content-intent">Intent: Educating</div>
+        <div style="margin-top:6px"><span class="pill pill-red">⚠️ ACCURACY CHECK NEEDED — Mohaina to review before Rei publishes</span></div>
+      </div>
+
+      <div class="content-post">
+        <div class="content-day">Tue 30 Jun</div>
+        <div class="content-title">Dubai restaurant CIT story · Nurturing / Story format</div>
+        <div class="content-intent">Intent: Nurturing</div>
+        <div style="margin-top:6px"><span class="pill pill-green">✅ Ready to publish</span></div>
+      </div>
+
+      <div class="content-post">
+        <div class="content-day">Wed 1 Jul</div>
+        <div class="content-title">CIT return due 30 Sep — what "ready" actually means</div>
+        <div class="content-intent">Intent: Soft Selling · <strong>CIT penalty rate (14% p.a.) needs Mohaina review before publish</strong></div>
+        <div style="margin-top:6px"><span class="pill pill-amber">⚠️ Mohaina sign-off needed</span></div>
+      </div>
+
+      <div class="content-post">
+        <div class="content-day">Thu 2 Jul</div>
+        <div class="content-title">Cheapest accountant contrarian post</div>
+        <div class="content-intent">Intent: Engagement</div>
+        <div style="margin-top:6px"><span class="pill pill-green">✅ Ready</span></div>
+      </div>
+
+      <div class="content-post">
+        <div class="content-day">Fri 3 Jul</div>
+        <div class="content-title">eInvoicing: 5 things to fix before the FTA mandate</div>
+        <div class="content-intent">Intent: Educating · Framework</div>
+        <div style="margin-top:6px"><span class="pill pill-green">✅ Ready</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── SECTION 5: BD PIPELINE PULSE ── -->
+  <div class="card grid-full">
+    <div class="card-header">
+      <span class="section-num">5</span>
+      <h2>BD Pipeline Pulse</h2>
+    </div>
+    <div class="card-body">
+
+      <div class="lead-item">
+        <div class="lead-icon">🔥</div>
+        <div class="lead-body">
+          <div class="lead-name">Richemont / Cartier — Ghazal Al Safadi <span class="pill pill-red">Fit 9/10</span></div>
+          <div class="lead-service">Bookkeeping Retainer · Staff profile sent · Call TODAY 13:30 UAE</div>
+          <div class="lead-meta">Owner: Mohaina · ACTION: Close the retainer on today's call</div>
+        </div>
+      </div>
+
+      <div class="lead-item">
+        <div class="lead-icon">🔥</div>
+        <div class="lead-body">
+          <div class="lead-name">MCM Products Middle East LLC — Joanne Oquendo <span class="pill pill-amber">Fit 8/10</span></div>
+          <div class="lead-service">VAT Compliance Review &amp; Advisory · Signed proposal received · KYC active</div>
+          <div class="lead-meta">Owner: Raihana (KYC) + Mohaina (onboarding date) · Blocker: Trade License section incomplete</div>
+        </div>
+      </div>
+
+      <div class="lead-item">
+        <div class="lead-icon">✅</div>
+        <div class="lead-body">
+          <div class="lead-name">Halton Middle East FZE — Signed <span class="pill pill-green">Active Client</span></div>
+          <div class="lead-service">CIT Filing + Transfer Pricing · Signed docs received Jun 17</div>
+          <div class="lead-meta">Owner: Raihana · Delivery commencing</div>
+        </div>
+      </div>
+
+      <div class="lead-item">
+        <div class="lead-icon">⚡</div>
+        <div class="lead-body">
+          <div class="lead-name">GL Middle East / Flow Solutions / Wicked Tents — Nandhu</div>
+          <div class="lead-service">Tax Residency Certificate (3 entities) · EL sent Jun 18 · 11 days pending</div>
+          <div class="lead-meta">Owner: Raihana · ACTION: Call Nandhu TODAY — high priority</div>
+        </div>
+      </div>
+
+      <div class="lead-item">
+        <div class="lead-icon">⚡</div>
+        <div class="lead-body">
+          <div class="lead-name">The Concept Lab / Mr. George</div>
+          <div class="lead-service">CIT Filing · EL sent Jun 19 · 10 days pending</div>
+          <div class="lead-meta">Owner: Raihana · ACTION: Follow up Mr. George TODAY</div>
+        </div>
+      </div>
+
+      <div class="lead-item">
+        <div class="lead-icon">🆕</div>
+        <div class="lead-body">
+          <div class="lead-name">Gulf Seatech FZC — Cheryl</div>
+          <div class="lead-service">Audit Assistance FY2025 · Proposal sent (Raihana) · KYC docs received</div>
+          <div class="lead-meta">Owner: Warren + Cristina (delivery) + Raihana (follow up EL signing)</div>
+        </div>
+      </div>
+
+      <!-- Raihana Queue subsection -->
+      <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid #222;">
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.7px; color: #E8294C; margin-bottom: 10px;">Raihana's Queue · Today</div>
+
+        <div class="raihana-item">
+          <div class="raihana-arrow">→</div>
+          <div style="font-size:12px; color:#E0E0E0;"><strong>Call Nandhu</strong> (GL Middle East / Flow Solutions / Wicked Tents) — EL pending 11 days · TRC 3 entities at risk · High priority</div>
+        </div>
+        <div class="raihana-item">
+          <div class="raihana-arrow">→</div>
+          <div style="font-size:12px; color:#E0E0E0;"><strong>Follow up Mr. George</strong> (The Concept Lab) — EL pending 10 days · CIT Filing</div>
+        </div>
+        <div class="raihana-item">
+          <div class="raihana-arrow">→</div>
+          <div style="font-size:12px; color:#E0E0E0;"><strong>MCM Products KYC</strong> — Chase Joanne for Trade License completion</div>
+        </div>
+        <div class="raihana-item">
+          <div class="raihana-arrow">→</div>
+          <div style="font-size:12px; color:#E0E0E0;"><strong>Gulf Seatech EL</strong> — Follow up Cheryl on signed engagement letter return</div>
+        </div>
+        <div class="raihana-item">
+          <div class="raihana-arrow">→</div>
+          <div style="font-size:12px; color:#E0E0E0;"><strong>Friday pipeline report</strong> — Status update to Mohaina by EOW · Mohaina reviews before next week</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SECTION 6: KEY METRIC ── -->
+  <div class="card">
+    <div class="card-header">
+      <span class="section-num">6</span>
+      <h2>Key Metric · Today</h2>
+    </div>
+    <div class="card-body">
+      <div class="metric-big">
+        <div class="metric-value">30 Jun</div>
+        <div class="metric-label">DMCC FZCO Name Transition Deadline</div>
+        <div class="metric-context">
+          That's <strong>tomorrow</strong>. No client exposure check has been completed.<br><br>
+          Any BPOAS client operating under a DMCC FZCO entity name that hasn't completed the transition may face compliance consequences. Mohaina to pull the client list and confirm exposure before EOD today.
+        </div>
+      </div>
+      <div style="border-top: 1px solid #1D1D1D; padding-top: 12px; margin-top: 4px;">
+        <div style="font-size: 11px; color: #888; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Secondary Metrics</div>
+        <div class="blocker-item">💰 Menastar SOA outstanding: <strong>AED 28,381</strong> · Almosafer claim ~70 days unresolved</div>
+        <div class="blocker-item">💴 Menastar credit balance: <strong>SAR 7,432.78</strong> · 3rd follow-up sent, Almatar not responding</div>
+        <div class="blocker-item">📊 Revenue data: Unavailable — Zoho Books connector down (3rd consecutive week)</div>
+        <div class="blocker-item">🔗 Apify LinkedIn scraper: Down (3rd consecutive Monday) — new prospect discovery paused</div>
+        <div class="blocker-item">📋 CIT return deadline: <strong>30 September 2026</strong> — 93 days · Green for now</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FLAGS FOR MOHAINA ── -->
+  <div class="card flags">
+    <div class="card-header">
+      <span class="section-num" style="background:#E8294C;">⚑</span>
+      <h2>Flags for Mohaina's Review</h2>
+    </div>
+    <div class="card-body">
+
+      <div class="flag-item">
+        <div class="flag-num">1</div>
+        <div class="flag-content">
+          <div class="flag-title">🔴 DMCC FZCO — Client list check required TODAY</div>
+          <div class="flag-body">Deadline is tomorrow 30 June. No client exposure check completed as of this morning. Confirm which BPOAS clients have DMCC FZCO entities and whether they've completed the name transition. This is a compliance deadline — if clients miss it, there may be regulatory consequences.</div>
+        </div>
+      </div>
+
+      <div class="flag-item">
+        <div class="flag-num">2</div>
+        <div class="flag-content">
+          <div class="flag-title">🔴 LinkedIn post — DMCC FZCO accuracy check overdue</div>
+          <div class="flag-body">Post was scheduled for 9am Monday. Accuracy check was flagged as required before publishing. Confirm with Rei whether post went out — if it did, verify the facts now. Wednesday's CIT post (penalty rate 14% p.a.) also needs your sign-off before it goes out.</div>
+        </div>
+      </div>
+
+      <div class="flag-item">
+        <div class="flag-num">3</div>
+        <div class="flag-content">
+          <div class="flag-title">🔴 Menastar credit balance SAR 7,432.78 — Escalation needed</div>
+          <div class="flag-body">3rd follow-up sent by Michelle Pacis. No response from Almatar (Omar Esmail / team) since June 4. Client (lastminute.com / Yiannis) is also chasing — they have pending refunds to their clients that are being blocked by this. Mohaina to decide: formal escalation or alternative resolution route?</div>
+        </div>
+      </div>
+
+      <div class="flag-item">
+        <div class="flag-num">4</div>
+        <div class="flag-content">
+          <div class="flag-title">🟡 4 Engagement Letters outstanding — EL action risk</div>
+          <div class="flag-body">GL Middle East / Flow Solutions / Wicked Tents (Nandhu) — EL 11 days. The Concept Lab (Mr. George) — EL 10 days. TRC for 3 entities and a CIT Filing are at risk. Raihana is calling both today — check status by EOD.</div>
+        </div>
+      </div>
+
+      <div class="flag-item">
+        <div class="flag-num">5</div>
+        <div class="flag-content">
+          <div class="flag-title">🟡 Gulf Seatech FZC — Audit Assistance EL awaiting signature</div>
+          <div class="flag-body">Raihana sent the engagement proposal this morning (06:57 UAE). Cheryl (Gulf Seatech) needs to sign and return the conforming copy. Warren + Cristina are standing by. If no response by Wednesday, follow up directly.</div>
+        </div>
+      </div>
+
+      <div class="flag-item">
+        <div class="flag-num">6</div>
+        <div class="flag-content">
+          <div class="flag-title">🟡 Almosafer Account Claim #2010754 — 70+ days unresolved</div>
+          <div class="flag-body">Transfer rejected under MENASTAR FZCO name. Michelle is managing but escalation decision sits with Mohaina. Nada Ahmed document still outstanding. This is blocking reconciliation for the client.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="footer">
+  <div><strong>BPOAS COO Morning Brief</strong> · Auto-generated by /coo-morning-brief routine</div>
+  <div>29 June 2026 · 09:00 UAE (GST, UTC+4) · Brand: #E8294C</div>
+  <div style="color: #444;">⚠️ M365 email send not available in connector — brief saved as HTML only. Email manually if required.</div>
+</div>
+
+</body>
+</html>
