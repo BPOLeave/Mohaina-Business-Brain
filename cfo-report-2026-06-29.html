@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFO Weekly Revenue Report · 2026-06-29 · BPOAS</title>
+<style>
+  :root {
+    --primary: #E8294C;
+    --primary-dim: rgba(232,41,76,0.12);
+    --primary-border: rgba(232,41,76,0.25);
+    --bg: #0A0A0A;
+    --card: #111111;
+    --card-border: #1E1E1E;
+    --text: #F0F0F0;
+    --muted: #777777;
+    --muted2: #555555;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --green-bg: rgba(34,197,94,0.1);
+    --amber-bg: rgba(245,158,11,0.1);
+    --red-bg: rgba(239,68,68,0.1);
+    --green-border: rgba(34,197,94,0.3);
+    --amber-border: rgba(245,158,11,0.3);
+    --red-border: rgba(239,68,68,0.3);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+    font-size: 13px;
+    line-height: 1.55;
+    padding: 40px 28px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  /* ── HEADER ── */
+  .header { border-bottom: 1px solid #1a1a1a; padding-bottom: 24px; margin-bottom: 32px; }
+  .header-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .brand-pip { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; flex-shrink: 0; }
+  .brand-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .header h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 6px; }
+  .header-meta { display: flex; gap: 20px; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+  .header-meta span::before { content: '· '; color: #333; }
+  .header-meta span:first-child::before { content: ''; }
+  .data-warning {
+    margin-top: 14px;
+    background: rgba(245,158,11,0.07);
+    border: 1px solid var(--amber-border);
+    border-left: 3px solid var(--amber);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--amber);
+    line-height: 1.5;
+  }
+
+  /* ── SECTION HEADER ── */
+  h2 {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted2);
+    padding-bottom: 10px;
+    border-bottom: 1px solid #191919;
+    margin-bottom: 16px;
+  }
+  section { margin-bottom: 44px; }
+
+  /* ── METRIC CARDS ── */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 44px;
+  }
+  @media (max-width: 900px) { .metric-grid { grid-template-columns: repeat(2, 1fr); } }
+  .mcard {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 18px 18px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mcard::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .mcard.green::before { background: var(--green); }
+  .mcard.amber::before { background: var(--amber); }
+  .mcard.red::before   { background: var(--red); }
+  .mcard.neutral::before { background: #2a2a2a; }
+  .mcard-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 10px; }
+  .mcard-value { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; line-height: 1; margin-bottom: 8px; }
+  .mcard-value.green { color: var(--green); }
+  .mcard-value.amber { color: var(--amber); }
+  .mcard-value.red   { color: var(--red); }
+  .mcard-value.muted { color: #444; }
+  .mcard-sub { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+  /* ── BADGES ── */
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .badge.green  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+  .badge.amber  { background: var(--amber-bg);  color: var(--amber);  border: 1px solid var(--amber-border); }
+  .badge.red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-border); }
+  .badge.gray   { background: #191919;           color: var(--muted);  border: 1px solid #252525; }
+  .badge.primary{ background: var(--primary-dim);color: var(--primary);border: 1px solid var(--primary-border); }
+
+  /* ── OWNER TAG ── */
+  .owner {
+    display: inline-block;
+    background: var(--primary-dim);
+    color: var(--primary);
+    border: 1px solid var(--primary-border);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── CARDS (generic) ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .card + .card { margin-top: 12px; }
+
+  /* ── TABLES ── */
+  .table-wrap { border: 1px solid var(--card-border); border-radius: 10px; overflow: hidden; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); font-size: 12px; }
+  thead tr { background: #141414; }
+  th {
+    padding: 9px 13px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    border-bottom: 1px solid var(--card-border);
+    white-space: nowrap;
+  }
+  td {
+    padding: 11px 13px;
+    border-bottom: 1px solid #161616;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  .num { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .row-red  td { background: rgba(239,68,68,0.035); }
+  .row-amber td { background: rgba(245,158,11,0.025); }
+
+  /* ── REVENUE STREAMS ── */
+  .stream-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .stream-card {
+    background: #0E0E0E;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    padding: 13px 14px;
+  }
+  .stream-name { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
+  .stream-val  { font-size: 18px; font-weight: 700; color: var(--amber); }
+  .stream-note { font-size: 10px; color: var(--muted2); margin-top: 4px; line-height: 1.4; }
+
+  /* ── ATTENTION FLAGS ── */
+  .flag-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-left: 3px solid var(--primary);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .flag-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+  .flag-num {
+    width: 20px; height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .flag-title { font-weight: 600; font-size: 13px; flex: 1; }
+  .flag-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #1c1c1c;
+  }
+  .flag-3col { grid-template-columns: 1fr 1fr 1fr; }
+  .flag-meta-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted2); margin-bottom: 4px; }
+  .flag-meta-val { font-size: 12px; color: var(--text); line-height: 1.5; }
+
+  /* ── RETAINER TRACKER ── */
+  .risk-total {
+    background: rgba(232,41,76,0.06);
+    border: 1px solid var(--primary-border);
+    border-radius: 8px;
+    padding: 13px 16px;
+    margin-top: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  /* ── FOLLOW-UP MESSAGES ── */
+  .followup-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .followup-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+  .followup-client { font-weight: 600; font-size: 13px; }
+  .followup-meta   { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .followup-text {
+    background: #0D0D0D;
+    border: 1px solid #1e1e1e;
+    border-radius: 6px;
+    padding: 13px 14px;
+    font-size: 12.5px;
+    color: #D8D8D8;
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  /* ── MOHAINA BOX ── */
+  .mohaina-box {
+    background: rgba(232,41,76,0.05);
+    border: 1px solid var(--primary-border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-top: 40px;
+  }
+  .mohaina-box-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--primary);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--primary-border);
+  }
+  .mohaina-item { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+  .mohaina-pip { width: 5px; height: 5px; background: var(--primary); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+
+  /* ── DATA NOTE ── */
+  .data-note {
+    background: #0D0D0D;
+    border: 1px solid #1c1c1c;
+    border-radius: 6px;
+    padding: 9px 12px;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  /* ── RUN RATE CARD ── */
+  .runrate-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 12px; }
+  .rr-item-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted2); margin-bottom: 5px; }
+  .rr-item-val   { font-size: 22px; font-weight: 700; }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 48px;
+    padding-top: 18px;
+    border-top: 1px solid #181818;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--muted2);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════════════ -->
+<div class="header">
+  <div class="header-top">
+    <div class="brand-pip"></div>
+    <span class="brand-label">BPOAS · CFO Weekly Revenue Report</span>
+  </div>
+  <h1>Week of 23–29 June 2026</h1>
+  <div class="header-meta">
+    <span>Generated: 29 June 2026 (Monday)</span>
+    <span>Currency: AED</span>
+    <span>Billing: Zoho Books</span>
+    <span>Payment Terms: 30 days from invoice</span>
+    <span>Brand Colour: #E8294C (default — not set in positioning file)</span>
+  </div>
+  <div class="data-warning">
+    ⚠ Data gap: Zoho Books is not connected to this routine. Invoice amounts, confirmed revenue, and run-rate figures cannot be pulled automatically. All revenue figures this week are drawn from Notion EOW notes and Outlook email signals only. Verify actual figures in Zoho Books before acting on revenue numbers.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     METRIC CARDS
+══════════════════════════════════════════════════════════════ -->
+<div class="metric-grid">
+  <div class="mcard amber">
+    <div class="mcard-label">Weekly Revenue</div>
+    <div class="mcard-value amber">AED —</div>
+    <div class="mcard-sub">Zoho Books offline · INV-2026-000166 issued Jun 25 · Amount unconfirmed · vs prior week: N/A</div>
+  </div>
+  <div class="mcard green">
+    <div class="mcard-label">Pipeline Health</div>
+    <div class="mcard-value green">5 Deals</div>
+    <div class="mcard-sub">1 Hot · 1 Warm→Hot · 3 Active<br>None stalled 21+ days · Growing</div>
+  </div>
+  <div class="mcard amber">
+    <div class="mcard-label">Monthly Run Rate</div>
+    <div class="mcard-value muted">—</div>
+    <div class="mcard-sub">Cannot calculate · Target not set · 1 day left in June</div>
+  </div>
+  <div class="mcard red">
+    <div class="mcard-label">Overdue Invoices</div>
+    <div class="mcard-value red">1</div>
+    <div class="mcard-sub">Almosafer Claim #2010754 · 75+ days · Transfer rejected · Escalation needed</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     1. WEEKLY REVENUE
+══════════════════════════════════════════════════════════════ -->
+<section>
+  <h2>1 · Weekly Revenue · 23–29 June 2026</h2>
+
+  <div class="card" style="margin-bottom:16px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+      <span style="font-weight:700;font-size:14px;">Total Received This Week</span>
+      <span class="badge amber">Unverified — Zoho Books Offline</span>
+    </div>
+    <div style="font-size:36px;font-weight:700;color:var(--amber);letter-spacing:-1px;margin-bottom:6px;">AED —</div>
+    <div style="font-size:11px;color:var(--muted);">vs Prior Week: Not available &nbsp;·&nbsp; Trend: <span style="color:var(--amber);">Unknown</span></div>
+  </div>
+
+  <div style="font-size:12px;font-weight:600;margin-bottom:10px;color:var(--muted);">Invoice activity confirmed via Zoho Books email notifications this week</div>
+  <div class="table-wrap" style="margin-bottom:16px;">
+    <table>
+      <thead>
+        <tr>
+          <th>Invoice #</th>
+          <th>Client</th>
+          <th>Type</th>
+          <th>Date Issued</th>
+          <th>Amount (AED)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">INV-2026-000166</td>
+          <td style="font-weight:600;">Marina Marketing Co. LLC</td>
+          <td>Monthly Retainer · Recurring</td>
+          <td>25 Jun 2026</td>
+          <td class="num" style="color:var(--amber);">TBC — open invoice PDF in Zoho Books</td>
+          <td><span class="badge amber">Approved · Awaiting Payment</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="data-note">Only one Zoho Books invoice activity found in email this week. Zoho Books must be connected directly to pull all raised and received amounts. Check Zoho Books for any other invoices raised 23–29 June 2026.</div>
+
+  <div style="font-size:12px;font-weight:600;margin:16px 0 10px;">Revenue by Stream</div>
+  <div class="stream-row">
+    <div class="stream-card">
+      <div class="stream-name">Retainer</div>
+      <div class="stream-val">TBC</div>
+      <div class="stream-note">INV-2026-000166 Marina Marketing · Monthly recurring</div>
+    </div>
+    <div class="stream-card">
+      <div class="stream-name">Project</div>
+      <div class="stream-val">TBC</div>
+      <div class="stream-note">Zoho / Odoo implementations · check Zoho Books</div>
+    </div>
+    <div class="stream-card">
+      <div class="stream-name">Compliance</div>
+      <div class="stream-val">TBC</div>
+      <div class="stream-note">AML / DNFBP / EL fees · check Zoho Books</div>
+    </div>
+    <div class="stream-card">
+      <div class="stream-name">Advisory</div>
+      <div class="stream-val">TBC</div>
+      <div class="stream-note">VAT / CIT advisory · check Zoho Books</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     2. PIPELINE HEALTH
+══════════════════════════════════════════════════════════════ -->
+<section>
+  <h2>2 · Pipeline Health</h2>
+  <div class="table-wrap" style="margin-bottom:12px;">
+    <table>
+      <thead>
+        <tr>
+          <th>Prospect / Client</th>
+          <th>Service</th>
+          <th>Stage</th>
+          <th>Est. Value</th>
+          <th>Last Activity</th>
+          <th>Days Since</th>
+          <th>EL Issued</th>
+          <th>Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600;">MCM Products Middle East LLC</td>
+          <td>VAT Compliance Review &amp; Advisory</td>
+          <td><span class="badge red">🔥 Hot — KYC Active</span></td>
+          <td class="num" style="color:var(--muted);">TBC</td>
+          <td>25 Jun 2026<br><span style="font-size:10px;color:var(--muted);">Proposal signed by Joanne Oquendo</span></td>
+          <td style="font-weight:600;">4 days</td>
+          <td><span class="badge red">Not Issued</span></td>
+          <td><span class="owner">Raihana</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">Richemont / Cartier<br><span style="font-weight:400;font-size:11px;color:var(--muted);">Ghazal Al Safadi · +971 54 307 2239</span></td>
+          <td>Bookkeeping Services</td>
+          <td><span class="badge amber">⚡ Warm → Hot</span></td>
+          <td class="num" style="color:var(--muted);">TBC</td>
+          <td>23 Jun 2026<br><span style="font-size:10px;color:var(--muted);">Ghazal asked Mohaina to call</span></td>
+          <td style="font-weight:600;">6 days</td>
+          <td><span class="badge amber">Pending Call</span></td>
+          <td><span class="owner">Mohaina</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">Halton Middle East FZE</td>
+          <td>CIT Filing + Transfer Pricing</td>
+          <td><span class="badge green">Active — Signed Docs Received</span></td>
+          <td class="num" style="color:var(--muted);">TBC</td>
+          <td>17 Jun 2026<br><span style="font-size:10px;color:var(--muted);">Signed docs from Shierida Orillo</span></td>
+          <td style="font-weight:600;">12 days</td>
+          <td><span class="badge green">Yes — Signed</span></td>
+          <td><span class="owner">Raihana</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">The Concept Lab Events &amp; Entertainment FZC</td>
+          <td>CIT Filing</td>
+          <td><span class="badge amber">EL Sent — Awaiting Signature</span></td>
+          <td class="num" style="color:var(--muted);">TBC</td>
+          <td>19 Jun 2026<br><span style="font-size:10px;color:var(--muted);">EL sent — awaiting Mr. George</span></td>
+          <td style="font-weight:600;">10 days</td>
+          <td><span class="badge amber">Sent · Unsigned</span></td>
+          <td><span class="owner">Raihana</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">GL Middle East · Flow Solutions · Wicked Tents<br><span style="font-weight:400;font-size:11px;color:var(--muted);">3 entities · Tax Residency Certificate</span></td>
+          <td>TRC — 3 entities</td>
+          <td><span class="badge amber">EL Sent — Awaiting Nandhu</span></td>
+          <td class="num" style="color:var(--muted);">TBC</td>
+          <td>18 Jun 2026<br><span style="font-size:10px;color:var(--muted);">EL sent — high priority</span></td>
+          <td style="font-weight:600;">11 days</td>
+          <td><span class="badge amber">Sent · Unsigned</span></td>
+          <td><span class="owner">Raihana</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="data-note">No deal amounts (AED) found in Notion pipeline records this week. Update Notion pipeline tracker with confirmed AED values per deal for this metric to calculate automatically. No deals stalled 21+ days confirmed.</div>
+  <div class="data-note" style="margin-top:8px;border-color:var(--amber-border);color:var(--amber);">⚑ Flag: MCM Products — proposal signed 25 June but NO engagement letter issued. Prospect at proposal stage without EL. Proceed to EL immediately to lock the engagement before month end. Owner: Raihana.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     3. UNPAID INVOICES
+══════════════════════════════════════════════════════════════ -->
+<section>
+  <h2>3 · Unpaid Invoices</h2>
+  <div class="table-wrap" style="margin-bottom:12px;">
+    <table>
+      <thead>
+        <tr>
+          <th>Client</th>
+          <th>Invoice / Ref #</th>
+          <th>Amount (AED)</th>
+          <th>Invoice Date</th>
+          <th>Days Outstanding</th>
+          <th>Due Date</th>
+          <th>Active Retainer</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600;">Marina Marketing Co. LLC</td>
+          <td class="num">INV-2026-000166</td>
+          <td class="num" style="color:var(--amber);">TBC<br><span style="font-size:10px;color:var(--muted);">Open in Zoho Books</span></td>
+          <td>25 Jun 2026</td>
+          <td>4 days</td>
+          <td>25 Jul 2026</td>
+          <td><span class="badge green">Yes</span></td>
+          <td><span class="badge gray">Within Terms</span></td>
+        </tr>
+        <tr class="row-red">
+          <td style="font-weight:600;">Almosafer (Menastar FZCO)<br><span style="font-weight:400;font-size:11px;color:var(--muted);">Client receivable managed by BPOAS · Claim rejected due to name mismatch</span></td>
+          <td class="num">Claim #2010754<br><span style="font-size:10px;color:var(--muted);">08–15 Apr 2026</span></td>
+          <td class="num" style="color:var(--red);">≈ AED 48,000+<br><span style="font-size:10px;color:var(--muted);">SAR 49,197 at transfer</span></td>
+          <td>8 Apr 2026</td>
+          <td style="font-weight:700;color:var(--red);">75+ days</td>
+          <td>8 May 2026 (30-day terms)</td>
+          <td><span class="badge green">Yes (Menastar)</span></td>
+          <td><span class="badge red">🔴 Rejected — Name Mismatch</span></td>
+        </tr>
+        <tr class="row-amber">
+          <td style="font-weight:600;">Menastar DMCC / lastminute.com<br><span style="font-weight:400;font-size:11px;color:var(--muted);">OTA receivable — Kanoo owes Menastar</span></td>
+          <td class="num">SOA Balance<br><span style="font-size:10px;color:var(--muted);">Kanoo Travel · 01–27 Jun 2026</span></td>
+          <td class="num" style="color:var(--amber);">AED 26,686<br><span style="font-size:10px;color:var(--muted);">Owed by Kanoo to Menastar</span></td>
+          <td>1 Jun–27 Jun 2026</td>
+          <td style="color:var(--amber);font-weight:600;">28 days</td>
+          <td>TBC per OTA terms</td>
+          <td><span class="badge green">Yes (Menastar)</span></td>
+          <td><span class="badge amber">🟡 Unpaid — Kanoo SOA Outstanding</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="data-note">Almosafer Claim: This is a client-side receivable (money owed to Menastar FZCO from Almosafer OTA). BPOAS manages Menastar's books and is liaising on their behalf. Payment was rejected Jun 22 — Almosafer AR (Nada Ahmed) advised name mismatch. Michelle Pacis replied with updated name MENASTAR FZCO same day. Re-transfer not yet confirmed as of 29 Jun.</div>
+  <div class="data-note" style="margin-top:8px;">Menastar/Kanoo SOA: Kanoo owes Menastar AED 26,686 in OTA travel commissions/settlements as of 27 Jun. Growing balance (was AED 23,800 as of 9 May). BPOAS receives SOA directly as bookkeeper. Follow up with Kanoo OTA Finance on settlement timeline.</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     4. MONTHLY RUN RATE
+══════════════════════════════════════════════════════════════ -->
+<section>
+  <h2>4 · Monthly Run Rate · June 2026</h2>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+      <span style="font-weight:700;font-size:14px;">June 2026 Projected Month-End</span>
+      <span class="badge amber">At Risk — Data Gap</span>
+    </div>
+    <div class="runrate-grid">
+      <div>
+        <div class="rr-item-label">Confirmed Revenue (Month-to-Date)</div>
+        <div class="rr-item-val" style="color:var(--amber);">AED —</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Zoho Books not connected</div>
+      </div>
+      <div>
+        <div class="rr-item-label">Monthly Revenue Target</div>
+        <div class="rr-item-val" style="color:var(--muted2);">Not Set</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Not found in brand files — set in positioning file to enable this metric</div>
+      </div>
+      <div>
+        <div class="rr-item-label">Gap to Target</div>
+        <div class="rr-item-val" style="color:var(--muted2);">—</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Cannot calculate without target and actuals</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding-top:14px;border-top:1px solid #1a1a1a;font-size:12px;color:var(--muted);">
+      <strong style="color:var(--text);">1 day remaining in June (30 Jun).</strong> If June revenue gap exceeds AED 10,000, EOW note recommends calling Richemont / Ghazal Al Safadi (+971 54 307 2239) for bookkeeping engagement — a luxury brand retainer would be a strong close. To enable automatic run rate tracking: (1) connect Zoho Books to this routine, and (2) add monthly revenue target to positioning-mohaina-asira.md.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     5. ATTENTION FLAGS
+══════════════════════════════════════════════════════════════ -->
+<section>
+  <h2>5 · Attention Flags This Week</h2>
+
+  <!-- FLAG 1 -->
+  <div class="flag-card">
+    <div class="flag-top">
+      <div class="flag-num">1</div>
+      <div class="flag-title">DMCC FZCO Name Transition — Deadline TOMORROW, 30 June 2026</div>
+      <span class="badge red" style="margin-left:auto;flex-shrink:0;">🔴 Critical · Cash Flow + Compliance</span>
+    </div>
+    <div class="flag-body flag-3col">
+      <div>
+        <div class="flag-meta-label">What it is</div>
+        <div class="flag-meta-val">DMCC requires all eligible companies to update their legal name ending to FZCO by 30 June 2026. BPOAS has not confirmed which active clients are DMCC entities or whether any require urgent action on this deadline.</div>
+      </div>
+      <div>
+        <div class="flag-meta-label">Why it matters</div>
+        <div class="flag-meta-val">Non-compliant DMCC clients face licensing risk with the Registrar after tomorrow. As their bookkeeper and compliance advisor, BPOAS has an obligation to flag this. Missed deadline = client penalty exposure and potential complaint.</div>
+      </div>
+      <div>
+        <div class="flag-meta-label">Next step</div>
+        <div class="flag-meta-val">Pull DMCC client list from CRM now. Identify which are eligible for FZCO transition. Confirm with each client whether name has been updated. Take action or escalate before EOD today. <span class="owner">Mohaina</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLAG 2 -->
+  <div class="flag-card">
+    <div class="flag-top">
+      <div class="flag-num">2</div>
+      <div class="flag-title">Richemont Contract — Expired · Serving Without a Signed Agreement</div>
+      <span class="badge red" style="margin-left:auto;flex-shrink:0;">🔴 Cash Flow + Legal Risk</span>
+    </div>
+    <div class="flag-body flag-3col">
+      <div>
+        <div class="flag-meta-label">What it is</div>
+        <div class="flag-meta-val">Richemont Dubai FZE original contract expired (Richemont initiated renewal request May 21 noting contract had expired). BPOAS issued renewal for 2026–2027 (Jun 1). Richemont Legal (Raphael Hanna) returned amended contract with further comments on 23 June. No response from BPOAS yet as of today — 6 days elapsed.</div>
+      </div>
+      <div>
+        <div class="flag-meta-label">Why it matters</div>
+        <div class="flag-meta-val">BPOAS is delivering ongoing accounting services to Richemont without a valid signed contract. Any billing dispute, scope disagreement, or liability event is currently unprotected. Richemont is an anchor client — delay in signing increases the risk of renegotiation or delay in invoice approval.</div>
+      </div>
+      <div>
+        <div class="flag-meta-label">Next step</div>
+        <div class="flag-meta-val">Review Raphael Hanna's 23 Jun amendments. Respond this week with BPOAS's position on outstanding points. Target: signed contract by 7 July. If scope change is likely, flag before signing. <span class="owner">Mohaina</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLAG 3 -->
+  <div class="flag-card">
+    <div class="flag-top">
+      <div class="flag-num">3</div>
+      <div class="flag-title">Almosafer Claim #2010754 — ~AED 48,000+ Outstanding 75+ Days · Transfer Rejected</div>
+      <span class="badge amber" style="margin-left:auto;flex-shrink:0;">🟡 Client Cash Flow Risk</span>
+    </div>
+    <div class="flag-body flag-3col">
+      <div>
+        <div class="flag-meta-label">What it is</div>
+        <div class="flag-meta-val">Almosafer owe Menastar FZCO approximately SAR 49,197 (≈ AED 48,000+) for the period 8–15 April 2026. Wire transfer was rejected because beneficiary name was MENASTAR DMCC (old) vs MENASTAR FZCO (current). Michelle Pacis corrected the name with Nada Ahmed (Almosafer AR) on 22 June. Re-transfer not yet confirmed as of today.</div>
+      </div>
+      <div>
+        <div class="flag-meta-label">Why it matters</div>
+        <div class="flag-meta-val">Menastar FZCO is an active retainer client. BPOAS manages their books and is liaising on this receivable on their behalf. The payment has been blocked since April — every week adds to Menastar's cash flow pressure. If Almosafer has not re-initiated the wire, funds remain blocked. BPOAS's professional credibility is partly on the line here.</div>
+      </div>
+      <div>
+        <div class="flag-meta-label">Next step</div>
+        <div class="flag-meta-val">Michelle Pacis to call Nada Ahmed at Almosafer AR (+ar.finance@almosafer.com) today to confirm re-transfer status. If no confirmation by EOD, escalate to Mohaina for senior intervention with Almosafer. <span class="owner">Michelle Pacis → Mohaina if unresolved EOD</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     6. RETAINER RENEWAL TRACKER
+══════════════════════════════════════════════════════════════ -->
+<section>
+  <h2>6 · Retainer Renewal Tracker</h2>
+  <div class="table-wrap" style="margin-bottom:12px;">
+    <table>
+      <thead>
+        <tr>
+          <th>Client</th>
+          <th>Service Scope</th>
+          <th>Monthly Value (AED)</th>
+          <th>Contract Start</th>
+          <th>Renewal Date</th>
+          <th>Days to Renewal</th>
+          <th>Window</th>
+          <th>Recommended Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-red">
+          <td style="font-weight:600;">Richemont Dubai FZE<br><span style="font-weight:400;font-size:11px;color:var(--muted);">Libin Stanly · AP Supervisor</span></td>
+          <td>Outsourced Accounting / Bookkeeping / Staffing</td>
+          <td class="num" style="color:var(--muted);">TBC — not shown in email thread</td>
+          <td>7 Feb 2026</td>
+          <td style="font-weight:700;color:var(--red);">EXPIRED<br><span style="font-size:10px;font-weight:400;">Original contract lapsed before May 21</span></td>
+          <td><span class="badge red">Expired</span></td>
+          <td><span class="badge red">🔴 Immediate</span></td>
+          <td style="font-size:11px;">Respond to Raphael Hanna's Jun 23 contract comments this week. Target signed contract by 7 Jul. <span class="owner">Mohaina</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">Marina Marketing Co. LLC</td>
+          <td>Bookkeeping — Monthly Retainer</td>
+          <td class="num" style="color:var(--amber);">TBC — see INV-2026-000166</td>
+          <td>—</td>
+          <td>—</td>
+          <td><span class="badge amber">Date Missing</span></td>
+          <td><span class="badge amber">🟡 Update Record</span></td>
+          <td style="font-size:11px;">Add contract start + renewal date to Notion client record. Invoice active — assume engagement is ongoing. <span class="owner">Raihana</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">Menastar FZCO<br><span style="font-weight:400;font-size:11px;color:var(--muted);">incl. lastminute.com OTA · Yiannis</span></td>
+          <td>Bookkeeping / VAT Filing</td>
+          <td class="num" style="color:var(--muted);">TBC</td>
+          <td>—</td>
+          <td>—</td>
+          <td><span class="badge amber">Date Missing</span></td>
+          <td><span class="badge amber">🟡 Update Record</span></td>
+          <td style="font-size:11px;">Update Notion with start date + renewal date. Note active Almosafer payment dispute. VAT return filed Jun 26. <span class="owner">Raihana</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">lastminute.com (Yiannis P.)</td>
+          <td>VAT Filing</td>
+          <td class="num" style="color:var(--muted);">TBC</td>
+          <td>—</td>
+          <td>—</td>
+          <td><span class="badge amber">Date Missing</span></td>
+          <td><span class="badge amber">🟡 Update Record</span></td>
+          <td style="font-size:11px;">Q1 2026 VAT return filed Jun 26. Confirm EL covers Q2 2026 and next period. <span class="owner">Raihana</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">Halton Middle East FZE</td>
+          <td>CIT Filing + Transfer Pricing</td>
+          <td class="num" style="color:var(--muted);">TBC</td>
+          <td>Jun 2026 — Signed docs received 17 Jun</td>
+          <td>TBC — new engagement</td>
+          <td><span class="badge gray">New · No Renewal Yet</span></td>
+          <td><span class="badge green">🟢 Active</span></td>
+          <td style="font-size:11px;">New engagement. Set calendar reminder for end-of-engagement review. Confirm scope includes TP documentation deadline. <span class="owner">Raihana</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="data-note">Renewal dates are missing for 4 of 5 retainer clients in Notion. Without renewal dates, the amber/red renewal window flags cannot fire automatically. Action required: Raihana to update all client records in Notion with contract start date, duration, and next renewal date by end of this week.</div>
+  <div class="risk-total">
+    AED [TBC] in retainer revenue entering renewal window this month. Richemont contract is already expired — revenue at risk until signed. Marina Marketing, Menastar FZCO, and lastminute.com renewal dates unknown. Connect Zoho Books and update Notion client records to calculate this figure automatically.
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     COPY-READY FOLLOW-UP MESSAGES
+══════════════════════════════════════════════════════════════ -->
+<section>
+  <h2>Copy-Ready Follow-Up Messages</h2>
+
+  <div class="followup-card">
+    <div class="followup-header">
+      <div>
+        <div class="followup-client">Almosafer — Claim #2010754 · Menastar FZCO</div>
+        <div class="followup-meta">To: Nada Ahmed · ar.finance@almosafer.com · 75+ days outstanding · Transfer rejected</div>
+      </div>
+      <span class="badge red">🔴 75+ Days Overdue</span>
+    </div>
+    <div class="followup-text">
+      Hi Nada, Account Claim #2010754 for the period 08–15 April 2026, due for settlement to MENASTAR FZCO, remains outstanding — please confirm whether the re-transfer has been initiated or flag if there is a further query on the beneficiary details.
+    </div>
+  </div>
+
+  <div class="followup-card">
+    <div class="followup-header">
+      <div>
+        <div class="followup-client">Kanoo Travel OTA Finance — Menastar SOA Balance AED 26,686</div>
+        <div class="followup-meta">To: OTA Finance · otaar.uae@kanoo.com · Balance unpaid 01–27 Jun 2026</div>
+      </div>
+      <span class="badge amber">🟡 28 Days — Follow Up</span>
+    </div>
+    <div class="followup-text">
+      Hi Team, the SOA balance for MENASTAR FZCO for the period 01–27 June 2026 stands at AED 26,686 — please confirm the scheduled settlement date or advise if there is a query on any line items.
+    </div>
+  </div>
+
+  <div class="followup-card">
+    <div class="followup-header">
+      <div>
+        <div class="followup-client">Marina Marketing Co. LLC — INV-2026-000166 · June Retainer</div>
+        <div class="followup-meta">To: Marina Marketing contact per Zoho Books · Issued 25 Jun 2026 · 4 days · Within terms — send if not acknowledged</div>
+      </div>
+      <span class="badge gray">Within Terms · Courtesy</span>
+    </div>
+    <div class="followup-text">
+      Hi [Name], invoice INV-2026-000166 for your June retainer has been issued as of 25 June 2026 — please confirm receipt and let us know if you have any queries before the due date.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FLAGS FOR MOHAINA
+══════════════════════════════════════════════════════════════ -->
+<div class="mohaina-box">
+  <div class="mohaina-box-title">Flags for Mohaina's Review</div>
+  <div class="mohaina-item">
+    <div class="mohaina-pip"></div>
+    <div><strong>Richemont contract is expired.</strong> BPOAS is actively delivering services without a signed agreement. Raphael Hanna (Richemont Legal) sent amendments on 23 June — no response sent yet (6 days elapsed). Respond this week. Target signed contract by 7 July.</div>
+  </div>
+  <div class="mohaina-item">
+    <div class="mohaina-pip"></div>
+    <div><strong>DMCC FZCO deadline is TOMORROW (30 June).</strong> No client list has been checked for DMCC eligibility. Confirm today before EOD which retainer clients are DMCC entities and whether any require name transition action.</div>
+  </div>
+  <div class="mohaina-item">
+    <div class="mohaina-pip"></div>
+    <div><strong>Almosafer Claim #2010754 (~AED 48,000+) has been blocked 75+ days.</strong> Transfer rejected due to MENASTAR FZCO name change. Michelle Pacis corrected name on 22 June — re-transfer not yet confirmed. Escalate if not resolved EOD today.</div>
+  </div>
+  <div class="mohaina-item">
+    <div class="mohaina-pip"></div>
+    <div><strong>Richemont / Cartier (Ghazal Al Safadi) call not yet scheduled.</strong> She asked Mohaina to call for bookkeeping services: +971 54 307 2239. A luxury brand retainer would be the strongest close possible for June. Schedule before EOD today or first thing tomorrow.</div>
+  </div>
+  <div class="mohaina-item">
+    <div class="mohaina-pip"></div>
+    <div><strong>MCM Products — proposal signed, no EL issued.</strong> Raihana to issue engagement letter immediately to formalise the VAT Compliance Review &amp; Advisory engagement before any further onboarding steps.</div>
+  </div>
+  <div class="data-note" style="margin-top:12px;">
+    Note: The AED 10,000 / AED 20,000 / AED 15,000 Mohaina-review triggers (overdue invoices, run rate gap, stalled pipeline deals) could not be evaluated automatically this week because invoice amounts and revenue figures are unavailable without Zoho Books access. All three thresholds should be re-evaluated once Zoho Books is connected to the routine.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     EMAIL NOTE
+══════════════════════════════════════════════════════════════ -->
+<div class="card" style="margin-top:28px;border-color:var(--primary-border);">
+  <div style="font-size:12px;font-weight:700;color:var(--primary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em;">Routine Email — Send Status</div>
+  <div style="font-size:12px;color:var(--muted);line-height:1.6;">
+    The Microsoft 365 connector available in this session provides email <em>read</em> access only — no send-email tool is available. The summary email to m.asira@bposervicegroup.com with subject <strong>"CFO Weekly Revenue · 2026-06-29"</strong> could not be sent automatically. Mohaina should either:<br>
+    (1) open this HTML file directly, or<br>
+    (2) configure a send-email tool in the Microsoft 365 MCP server to enable automated delivery in future runs.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════ -->
+<div class="footer">
+  <div>BPOAS · CFO Weekly Revenue Report · cfo-report-2026-06-29 · Automated routine</div>
+  <div>Sources: Notion (EOW Review 26 Jun 2026) · Microsoft 365 Outlook · Zoho Books (offline — amounts unconfirmed)</div>
+</div>
+
+</body>
+</html>
