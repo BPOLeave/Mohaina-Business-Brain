@@ -19,10 +19,10 @@ Both inboxes must be searched on every routine run. Use the same keyword set for
 
 | Field | Value |
 |---|---|
-| Send-from address | mohaina.asira@gmail.com |
+| Send-from address | mohainaasira@gmail.com |
 | Method | Gmail SMTP (App Password) |
 | App password env var | `GMAIL_APP_PASSWORD` (stored in `~/.claude/settings.json` env section) |
-| Approved recipients | m.asira@bposervicegroup.com, mohaina.asira@gmail.com |
+| Approved recipients | m.asira@bposervicegroup.com, mohainaasira@gmail.com |
 
 **Status:** App password pending — Gmail SMTP send not yet active. Until configured, routine delivers via PushNotification only.
 
