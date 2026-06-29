@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Monday 29 June 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0A0A0A; color: #E8E8E8; font-family: 'Segoe UI', system-ui, sans-serif; padding: 24px; max-width: 980px; margin: 0 auto; }
+
+  /* Hero Card */
+  .hero { background: linear-gradient(135deg, #1a0408 0%, #0f0f0f 100%); border: 2px solid #E8294C; border-radius: 14px; padding: 32px; margin-bottom: 24px; }
+  .hero-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+  .hero-title h1 { font-size: 1.5rem; font-weight: 800; color: #fff; }
+  .hero-title p { font-size: 0.85rem; color: #E8294C; margin-top: 4px; font-weight: 600; }
+  .hero-date { text-align: right; }
+  .hero-date .day { font-size: 1.1rem; font-weight: 700; color: #E8294C; }
+  .hero-date .date { font-size: 0.82rem; color: #888; margin-top: 2px; }
+  .revenue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+  .rev-box { background: #0d0d0d; border-radius: 10px; padding: 16px; border-top: 3px solid #E8294C; }
+  .rev-box.amber { border-top-color: #f59e0b; }
+  .rev-box.green { border-top-color: #22c55e; }
+  .rev-box .label { font-size: 0.68rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .rev-box .value { font-size: 1.3rem; font-weight: 800; color: #fff; }
+  .rev-box .sub { font-size: 0.72rem; color: #666; margin-top: 4px; line-height: 1.4; }
+  .status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; margin-top: 14px; }
+  .status-amber { background: #f59e0b22; color: #f59e0b; border: 1px solid #f59e0b; }
+  .status-green { background: #22c55e22; color: #22c55e; border: 1px solid #22c55e; }
+  .status-red { background: #E8294C22; color: #E8294C; border: 1px solid #E8294C; }
+  .data-note { font-size: 0.75rem; color: #555; margin-top: 10px; font-style: italic; }
+
+  /* Cards */
+  .card { background: #161616; border: 1px solid #222; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+  .card h2 { font-size: 0.95rem; font-weight: 700; color: #E8294C; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* Flags Card */
+  .flags-card { background: #120408; border: 2px solid #E8294C; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+  .flags-card h2 { font-size: 0.95rem; font-weight: 700; color: #E8294C; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .flag-item { display: flex; gap: 14px; margin: 12px 0; padding: 14px 16px; background: #1a090d; border-radius: 8px; border-left: 3px solid #E8294C; }
+  .flag-item.amber { border-left-color: #f59e0b; background: #1a1200; }
+  .flag-priority { font-size: 0.7rem; font-weight: 800; color: #E8294C; text-transform: uppercase; letter-spacing: 0.1em; min-width: 90px; padding-top: 2px; }
+  .flag-priority.amber { color: #f59e0b; }
+  .flag-detail h4 { font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .flag-detail p { font-size: 0.82rem; color: #bbb; line-height: 1.55; }
+  .flag-detail .next { font-size: 0.78rem; color: #f59e0b; margin-top: 6px; }
+
+  /* Run Log */
+  table { width: 100%; border-collapse: collapse; }
+  td, th { padding: 9px 12px; text-align: left; border-bottom: 1px solid #1e1e1e; font-size: 0.84rem; }
+  th { color: #E8294C; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; background: #111; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.73rem; font-weight: 700; }
+  .badge-green { background: #22c55e; color: #000; }
+  .badge-amber { background: #f59e0b; color: #000; }
+  .badge-red { background: #E8294C; color: #fff; }
+  .badge-grey { background: #333; color: #aaa; }
+
+  /* LinkedIn Post Card */
+  .post-card { background: #0d1117; border: 1px solid #30363d; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+  .post-card h2 { font-size: 0.95rem; font-weight: 700; color: #E8294C; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .post-body { background: #161b22; border-left: 3px solid #E8294C; padding: 18px 22px; border-radius: 0 8px 8px 0; white-space: pre-wrap; line-height: 1.8; font-size: 0.9rem; color: #ddd; margin: 14px 0; }
+  .post-body .hook { color: #fff; font-weight: 700; }
+  .post-body .cta { color: #E8294C; font-weight: 700; }
+  .post-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .post-meta-pill { background: #1e2733; color: #8b949e; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; }
+
+  /* Quick Links */
+  .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 12px 0; }
+  .link-box { background: #111; border: 1px solid #2a2a2a; border-radius: 8px; padding: 12px 16px; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s; }
+  .link-box:hover { border-color: #E8294C; }
+  .link-box .link-label { font-size: 0.72rem; color: #E8294C; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .link-box .link-name { font-size: 0.85rem; font-weight: 600; color: #ddd; }
+  .link-box .link-status { font-size: 0.75rem; color: #666; margin-top: 3px; }
+
+  @media (max-width: 600px) { .hero-top { flex-direction: column; } .hero-date { text-align: left; } }
+</style>
+</head>
+<body>
+
+<!-- HERO CARD -->
+<div class="hero">
+  <div class="hero-top">
+    <div class="hero-title">
+      <h1>BPOAS Daily Start</h1>
+      <p>Full Monday Run · Steps 1 + 2 + 3 + 4 + 5</p>
+    </div>
+    <div class="hero-date">
+      <div class="day">Monday</div>
+      <div class="date">29 June 2026 · 07:00 UAE</div>
+    </div>
+  </div>
+
+  <div class="revenue-grid">
+    <div class="rev-box amber">
+      <div class="label">MTD Revenue Received</div>
+      <div class="value">AED 8,500+</div>
+      <div class="sub">Confirmed: Emirates NBD 27 Jun · Additional invoices not verified</div>
+    </div>
+    <div class="rev-box">
+      <div class="label">Monthly Target</div>
+      <div class="value">—</div>
+      <div class="sub">Not found in brand files — manual input required</div>
+    </div>
+    <div class="rev-box">
+      <div class="label">Gap to Target</div>
+      <div class="value">Unknown</div>
+      <div class="sub">Zoho Books required to calculate</div>
+    </div>
+    <div class="rev-box amber">
+      <div class="label">Days Left in June</div>
+      <div class="value">1 day</div>
+      <div class="sub">Month closes 30 June 2026</div>
+    </div>
+    <div class="rev-box">
+      <div class="label">Daily Run Rate Needed</div>
+      <div class="value">—</div>
+      <div class="sub">Cannot calculate without target</div>
+    </div>
+  </div>
+
+  <div class="status-amber">🟡 Revenue Data Incomplete — Zoho Books not connected (3rd consecutive Monday)</div>
+  <div class="data-note">Last updated: 29 June 2026 · Source: Emirates NBD transaction alert · Full verification requires Zoho Books access</div>
+</div>
+
+
+<!-- FLAGS FOR MOHAINA — CONSOLIDATED -->
+<div class="flags-card">
+  <h2>⚑ Flags for Mohaina · Sorted by Priority: Compliance · Cash · Client · BD</h2>
+
+  <!-- COMPLIANCE -->
+  <div class="flag-item">
+    <div class="flag-priority">🔴 Compliance<br>CRITICAL</div>
+    <div class="flag-detail">
+      <h4>DMCC FZCO name transition deadline — TODAY (30 June)</h4>
+      <p>Any BPOAS client registered in DMCC who has not completed the name transition to FZCO suffix is now out of step with the Registrar. No client list has been checked. This deadline was flagged in last Friday's EOW review as the top priority for Monday morning.</p>
+      <div class="next">→ Run the DMCC client list check immediately. Alert any affected client before EOD.</div>
+    </div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-priority">🟡 Compliance<br>CONTENT</div>
+    <div class="flag-detail">
+      <h4>LinkedIn post references DMCC FZCO deadline, QFZP 0% CIT condition, and DNFBP AML obligations — requires your review before publishing</h4>
+      <p>Post is ready (Invisibility Diagnostic 4/4). All five checklist items in the post cite real regulations. Your sign-off is required before Rei publishes. Recommended publish time: 08:30 UAE today.</p>
+      <div class="next">→ Review cmo-post-2026-06-29.html · Reply "Approved" to release post to Rei.</div>
+    </div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-priority">🟡 Compliance<br>WATCH</div>
+    <div class="flag-detail">
+      <h4>Wednesday CIT post (1 Jul) — 14% p.a. penalty rate needs your accuracy review by Tuesday</h4>
+      <p>Post references Cabinet Decision 129/2025 (14% p.a. late payment penalty for CIT, effective 14 April 2026). Confirm the rate and reference are correct before Tuesday EOD.</p>
+      <div class="next">→ Confirm rate accuracy. Reply to Rei by Tuesday 30 June with sign-off.</div>
+    </div>
+  </div>
+
+  <!-- CASH -->
+  <div class="flag-item amber">
+    <div class="flag-priority amber">🟡 Cash<br>URGENT</div>
+    <div class="flag-detail">
+      <h4>Menastar SOA — AED 28,381 outstanding on UIMD1430 (>AED 10,000 threshold)</h4>
+      <p>SOA received from Kanoo (otaar.uae@kanoo.com) on 28 Jun covering 01–27 June period. Balance of AED 28,381 outstanding on billing period 15–30 March. Michelle Pacis copied. Exceeds AED 10,000 unpaid flag threshold.</p>
+      <div class="next">→ Coordinate with Michelle Pacis today. Confirm payment plan or escalate.</div>
+    </div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-priority amber">🟡 Cash<br>IMMEDIATE</div>
+    <div class="flag-detail">
+      <h4>Menastar tfPay balance — AED 2,898.94 · Prompt top-up required</h4>
+      <p>Travelfusion tfPay warning alert received 28 Jun. Balance at AED 2,898.94 — below threshold. Risk: tfPay service disruption for Menastar DMCC/FZCO account. Michelle Pacis copied.</p>
+      <div class="next">→ Authorise tfPay deposit today. Coordinate with Michelle.</div>
+    </div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-priority amber">🟡 Cash<br>ESCALATION</div>
+    <div class="flag-detail">
+      <h4>Almosafer Account Claim #2010754 — ~70 days unresolved (transfer rejected under MENASTAR FZCO name)</h4>
+      <p>Payment transfer rejected due to entity name change to MENASTAR FZCO. Nada Ahmed document outstanding. Michelle Pacis managing. Escalation decision needed today.</p>
+      <div class="next">→ Escalation decision needed. Michelle to advise on path to resolution.</div>
+    </div>
+  </div>
+
+  <!-- CLIENT -->
+  <div class="flag-item amber">
+    <div class="flag-priority amber">🟡 Client<br>ACTION</div>
+    <div class="flag-detail">
+      <h4>Amazon MES General Trading — meeting request missed (was "tomorrow at 10:30 AM" on 28 Jun)</h4>
+      <p>ERP Engineer Mudassir Ahmedi asked for a meeting yesterday at 10:30 AM to discuss Zoho inventory workflow (GRN/bill consolidation approach). Active Zoho Books implementation. Reply needed today to reschedule and confirm process recommendation.</p>
+      <div class="next">→ Reply today. Recommend: one bill per PO with supporting images attached to the record. Schedule call this week.</div>
+    </div>
+  </div>
+
+  <!-- BD -->
+  <div class="flag-item">
+    <div class="flag-priority">⚡ BD<br>HIGH VALUE</div>
+    <div class="flag-detail">
+      <h4>Richemont / Cartier — call TODAY at 13:30 UAE · Bookkeeping services engagement</h4>
+      <p>Ghazal Al Safadi (Richemont) organised the Teams call. Attendees include Clara Lee, Chadi Nasreddine, Alessandro Patti. This was the highest-priority pipeline item from Friday's EOW review — it is now scheduled. A bookkeeping retainer from a global luxury brand would be the strongest revenue event for June/July.</p>
+      <div class="next">→ Prepare BPOAS on-site model overview. Lead with document-level verification and multi-department review. If call goes well: issue engagement letter today or tomorrow.</div>
+    </div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-priority amber">🟡 BD<br>CLOSING</div>
+    <div class="flag-detail">
+      <h4>MCM Products — passports received, Trade License section outstanding · Set kickoff date</h4>
+      <p>KYC almost complete. Joanne Oquendo submitted passports for both principals. Trade License section still blank. Verbal close on VAT Compliance Review engagement. Risk: further delay to onboarding without a kickoff date.</p>
+      <div class="next">→ Raihana to chase Trade License section today. Set kickoff date once received.</div>
+    </div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-priority amber">🟡 BD<br>STALLED</div>
+    <div class="flag-detail">
+      <h4>4 engagement letters unsigned: The Concept Lab · GL Middle East · Flow Solutions · Wicked Tents</h4>
+      <p>GL Middle East / Flow Solutions / Wicked Tents: EL sent 18 Jun (Nandhu) — 11 days, HIGH priority. The Concept Lab (Mr. George): EL sent 19 Jun — 10 days. All four need direct follow-up today. Call, not email.</p>
+      <div class="next">→ Raihana to call Nandhu and Mr. George directly today.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- RUN LOG CARD -->
+<div class="card">
+  <h2>Run Log · Monday 29 June 2026</h2>
+  <table>
+    <tr><th>Step</th><th>Skill</th><th>Status</th><th>Output</th><th>Notes</th></tr>
+    <tr><td>Step 1</td><td>COO Morning Brief</td><td><span class="badge badge-green">Complete</span></td><td>coo-brief-2026-06-29.html</td><td>Calendar + inbox + pipeline from Notion EOW + emails</td></tr>
+    <tr><td>Step 2</td><td>CFO Weekly Revenue</td><td><span class="badge badge-amber">Partial</span></td><td>cfo-report-2026-06-29.html</td><td>Zoho Books not connected — ran on available inputs only</td></tr>
+    <tr><td>Step 3</td><td>CRO Weekly Prospects</td><td><span class="badge badge-amber">Partial</span></td><td>cro-prospects-2026-06-29.html</td><td>Apify LinkedIn scraper returned no data — used pipeline intelligence</td></tr>
+    <tr><td>Step 4</td><td>CMO Daily Post + LinkedIn Writer</td><td><span class="badge badge-green">Complete</span></td><td>cmo-post-2026-06-29.html</td><td>4/4 Invisibility Diagnostic PASS · Compliance flag active · Pending Mohaina approval</td></tr>
+    <tr><td>Step 4 — Approval Email</td><td>M365 Outlook send</td><td><span class="badge badge-red">Unavailable</span></td><td>—</td><td>M365 send-email not available in connector (3rd consecutive run) — manual approval required</td></tr>
+    <tr><td>Step 5</td><td>Content Calendar</td><td><span class="badge badge-green">Complete</span></td><td>content-calendar-week-2026-06-29.html</td><td>5-post week planned · LinkedIn analytics unavailable (Apify)</td></tr>
+    <tr><td>Notion Update</td><td>Status log</td><td><span class="badge badge-green">Complete</span></td><td>—</td><td>Content calendar status: Pending Approval</td></tr>
+    <tr><td>Summary email</td><td>M365 Outlook send</td><td><span class="badge badge-red">Unavailable</span></td><td>—</td><td>M365 send-email not available in connector — log in transcript</td></tr>
+  </table>
+  <p style="font-size:0.78rem; color:#555; margin-top:10px;">Scheduled: 07:00 UAE (GST) · Actual execution: 07:00 UAE · No delay.</p>
+</div>
+
+
+<!-- TODAY'S LINKEDIN POST CARD -->
+<div class="post-card">
+  <h2>Today's LinkedIn Post · Copy-Ready</h2>
+  <div class="post-meta">
+    <span class="post-meta-pill">Invisibility Diagnostic: 4/4 PASS</span>
+    <span class="post-meta-pill">~1,440 characters</span>
+    <span class="post-meta-pill">Zero em dashes</span>
+    <span class="post-meta-pill">⚠️ Compliance flag — review before publishing</span>
+  </div>
+
+<div class="post-body"><span class="hook">If your company is registered in DMCC, tomorrow — 30 June — is the last day to update your company name ending to FZCO.
+
+After that, you are out of step with the Registrar.</span>
+
+While you have this open — here are 4 other free zone compliance checks to run before the week is out:
+
+<strong>1. Audited financial statements</strong>
+All major Dubai free zones now require audited accounts for licence renewal. DMCC, DAFZA, DIFC, JAFZA. Applies to financial years starting 1 June 2023 onwards. If your auditor has not started, the window is closing.
+
+<strong>2. Approved auditor check</strong>
+Your auditor must be on the free zone's closed panel. Submit from a non-approved firm and the submission is rejected. Not a warning. A rejection.
+
+<strong>3. QFZP — the 0% Corporate Tax condition</strong>
+If your entity is claiming the Qualifying Free Zone Person rate, IFRS-compliant audited accounts are a condition of that rate. Not a recommendation. A condition.
+
+<strong>4. AML/CFT policy</strong>
+DNFBP obligations apply to more businesses in the UAE than most owners realise. If this is you, your policy must be in place and current. Not filed once and forgotten.
+
+I think most business owners in free zones know about the name change.
+
+What they miss is that the name change sits on top of a longer compliance list that is already running.
+
+Second eyes on your free zone position this week — not because something is wrong. Because something could be.
+
+<span class="cta">Save this. Tag a founder in a UAE free zone who needs to see it before tomorrow midnight. ⚠️</span></div>
+
+  <p style="font-size:0.78rem; color:#E8294C; margin-top:10px;">⚠️ COMPLIANCE FLAG — Mohaina accuracy review required before publishing. See cmo-post-2026-06-29.html for full post + 3 pinned comments.</p>
+</div>
+
+
+<!-- QUICK LINKS CARD -->
+<div class="card">
+  <h2>Quick Links · All Output Files</h2>
+  <div class="links-grid">
+    <a class="link-box" href="coo-brief-2026-06-29.html">
+      <div class="link-label">Step 1</div>
+      <div class="link-name">COO Morning Brief</div>
+      <div class="link-status">coo-brief-2026-06-29.html</div>
+    </a>
+    <a class="link-box" href="cfo-report-2026-06-29.html">
+      <div class="link-label">Step 2 · Monday</div>
+      <div class="link-name">CFO Weekly Revenue</div>
+      <div class="link-status">cfo-report-2026-06-29.html</div>
+    </a>
+    <a class="link-box" href="cro-prospects-2026-06-29.html">
+      <div class="link-label">Step 3 · Monday</div>
+      <div class="link-name">CRO Weekly Prospects</div>
+      <div class="link-status">cro-prospects-2026-06-29.html</div>
+    </a>
+    <a class="link-box" href="cmo-post-2026-06-29.html">
+      <div class="link-label">Step 4</div>
+      <div class="link-name">CMO Daily Post ⚠️</div>
+      <div class="link-status">cmo-post-2026-06-29.html · Approval needed</div>
+    </a>
+    <a class="link-box" href="content-calendar-week-2026-06-29.html">
+      <div class="link-label">Step 5 · Monday</div>
+      <div class="link-name">Content Calendar</div>
+      <div class="link-status">content-calendar-week-2026-06-29.html</div>
+    </a>
+  </div>
+</div>
+
+<div style="text-align:center; padding:20px; color:#333; font-size:0.76rem; border-top: 1px solid #1a1a1a; margin-top:10px;">
+  BPOAS Daily Start · Full Monday Run · 29 June 2026 · Generated 07:00 UAE (GST)<br>
+  Steps Complete: 5/5 · Connectors with no data: Zoho Books · Apify LinkedIn · M365 Email Send
+</div>
+
+</body>
+</html>
