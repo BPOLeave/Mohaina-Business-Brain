@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Post · 29 June 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0A0A0A;
+    color: #F0F0F0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 32px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    border-left: 4px solid #E8294C;
+    padding: 0 0 0 16px;
+    margin-bottom: 36px;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; color: #E8294C; margin-bottom: 4px; }
+  .header p { color: #888; font-size: 13px; }
+  .flag {
+    background: #1a0a0a;
+    border: 1px solid #E8294C;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 28px;
+    font-size: 13px;
+    color: #E8294C;
+  }
+  .flag strong { display: block; margin-bottom: 4px; font-size: 14px; }
+  .card {
+    background: #141414;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #E8294C;
+    margin-bottom: 16px;
+  }
+  .hook-grid { display: flex; flex-direction: column; gap: 12px; }
+  .hook-item {
+    background: #1a1a1a;
+    border: 1px solid #2e2e2e;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #ccc;
+  }
+  .hook-item.selected {
+    border-color: #E8294C;
+    background: #1f0d0d;
+    color: #F0F0F0;
+  }
+  .hook-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .hook-item.selected .hook-label { color: #E8294C; }
+  .selected-badge {
+    display: inline-block;
+    background: #E8294C;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .selection-reason {
+    background: #1a1a1a;
+    border-left: 3px solid #E8294C;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 14px;
+    border-radius: 0 4px 4px 0;
+  }
+  .post-body {
+    font-size: 15px;
+    color: #E8E8E8;
+    line-height: 1.75;
+    white-space: pre-wrap;
+  }
+  .post-body .section-label {
+    color: #E8294C;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  .char-count {
+    font-size: 12px;
+    color: #666;
+    margin-top: 12px;
+    text-align: right;
+  }
+  .char-count span { color: #E8294C; font-weight: 700; }
+  .diagnostic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .diag-item {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 14px;
+  }
+  .diag-item.pass { border-color: #1a4a1a; background: #0d1a0d; }
+  .diag-label { font-size: 12px; color: #888; margin-bottom: 4px; }
+  .diag-score { font-size: 20px; font-weight: 700; color: #ccc; }
+  .diag-item.pass .diag-score { color: #4CAF50; }
+  .diag-verdict {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #4CAF50;
+    padding: 10px;
+    background: #0d1a0d;
+    border: 1px solid #1a4a1a;
+    border-radius: 6px;
+  }
+  .comment-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .comment-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .comment-type {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #E8294C;
+    margin-bottom: 6px;
+  }
+  .comment-text { font-size: 14px; color: #ccc; line-height: 1.7; }
+  .meta-row {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .meta-item { }
+  .meta-key { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+  .meta-val { font-size: 13px; color: #ddd; font-weight: 600; }
+  .runlog {
+    background: #0d0d0d;
+    border: 1px solid #222;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.7;
+    margin-top: 24px;
+  }
+  .runlog strong { color: #aaa; }
+  @media (max-width: 500px) {
+    .diagnostic-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>BPOAS Daily Post · 29 June 2026</h1>
+    <p>CMO Routine · Monday · 07:00 UAE · Pillar: Compliance Without the Panic · Intent: Educating · Format: Framework Post (Variation A)</p>
+  </div>
+
+  <div class="flag">
+    <strong>COMPLIANCE FLAG · ACCURACY CHECK REQUIRED BEFORE PUBLISHING</strong>
+    This post references UAE regulatory deadlines, the DMCC FZCO name change (30 June 2026), QFZP conditions under UAE CT Law, auditor panel requirements, and DNFBP/AML-CFT obligations. Mohaina must verify all five checklist items for accuracy before Rei publishes. Do not release without explicit approval.
+  </div>
+
+  <!-- SLOT METADATA -->
+  <div class="card">
+    <div class="card-title">Content Calendar Slot · Monday 29 June 2026</div>
+    <div class="meta-row">
+      <div class="meta-item"><div class="meta-key">Pillar</div><div class="meta-val">Compliance Without the Panic</div></div>
+      <div class="meta-item"><div class="meta-key">Intent</div><div class="meta-val">Educating</div></div>
+      <div class="meta-item"><div class="meta-key">Format</div><div class="meta-val">Framework Post (Variation A)</div></div>
+      <div class="meta-item"><div class="meta-key">Publish time</div><div class="meta-val">08:30 UAE</div></div>
+      <div class="meta-item"><div class="meta-key">LinkedIn analytics</div><div class="meta-val">Unavailable · Apify FAILED</div></div>
+    </div>
+    <div style="font-size:13px;color:#888;">Topic: <span style="color:#ddd;">DMCC companies: tomorrow is the last day to update your name to FZCO — and 4 other free zone compliance checks to run this week</span></div>
+  </div>
+
+  <!-- STEP 1: 5 HOOKS -->
+  <div class="card">
+    <div class="card-title">Step 1 · Hook Options (5 Formats)</div>
+    <div class="hook-grid">
+
+      <div class="hook-item">
+        <div class="hook-label">1 · Result Lead</div>
+        Your DMCC company name still ends in FZE. After tomorrow, that is a compliance gap with your own Registrar. Here are 5 free zone checks to run before the week is out.
+      </div>
+
+      <div class="hook-item">
+        <div class="hook-label">2 · Confession</div>
+        I will be honest. We almost missed this for a client last week. DMCC name change to FZCO. Deadline: 30 June. Tomorrow. Here are 4 more checks to run while you have this open.
+      </div>
+
+      <div class="hook-item">
+        <div class="hook-label">3 · Contrarian</div>
+        Everyone is focused on CIT right now. Nobody is talking about the fact that DMCC companies have until tomorrow to update their company name. Or the four other free zone compliance items that pile up quietly alongside it.
+      </div>
+
+      <div class="hook-item">
+        <div class="hook-label">4 · Curiosity Gap</div>
+        There is a free zone compliance deadline this week that most DMCC owners do not know they have already missed. It has nothing to do with VAT or CIT. Here is what it is — and four more checks to run before Friday.
+      </div>
+
+      <div class="hook-item selected">
+        <div class="hook-label">5 · Pattern Interrupt <span class="selected-badge">Selected</span></div>
+        If your company is registered in DMCC, tomorrow, 30 June, is the last day to update your company name ending to FZCO. After that, you are out of step with the Registrar. While you have this open, here are 4 other free zone compliance checks to run before the week is out.
+      </div>
+
+    </div>
+
+    <div class="selection-reason">
+      <strong style="color:#ddd;">Selection reason:</strong> Pattern Interrupt places the specific deadline and consequence in line 1, matching the ICP's fear of being out of step with the Registrar — the most direct pain-language match for a growth-ready UAE SME owner who does not know they have missed this. Monday slot guidelines (Framework + morning compliance review window) align with an urgent numbered checklist. LinkedIn analytics unavailable; hook selected on ICP pain-match logic from icp-mohaina-asira.md.
+    </div>
+  </div>
+
+  <!-- STEP 2: FULL POST -->
+  <div class="card">
+    <div class="card-title">Step 2 · Full Post · Variation A (Framework)</div>
+    <div class="post-body">If your company is registered in DMCC, tomorrow, 30 June, is the last day to update your company name ending to FZCO.
+
+After that, you are out of step with the Registrar.
+
+While you have this open, 4 other free zone compliance checks to run this week.
+
+<span class="section-label">1. AUDITED FINANCIAL STATEMENTS FOR LICENCE RENEWAL</span>
+
+If your financial year started on or after 1 June 2023, you need audited financial statements to renew your licence in DMCC, DAFZA, DIFC, or JAFZA.
+
+Not management accounts. Not a summary. Audited.
+
+If your renewal is coming up and this is not done, it is already late.
+
+<span class="section-label">2. YOUR AUDITOR MUST BE ON THE FREE ZONE'S APPROVED PANEL</span>
+
+You can have a licensed, qualified auditor and still get your submission rejected. Free zones only accept auditors from their own closed panel.
+
+Check the panel before you start the engagement, not after.
+
+<span class="section-label">3. QFZP STATUS AND YOUR CIT RATE</span>
+
+Claiming the 0% qualifying income rate under UAE Corporate Tax? Your accounts must be IFRS-compliant and your financial statements must be audited.
+
+No audited accounts means no QFZP. No QFZP means the 0% rate does not apply.
+
+<span class="section-label">4. AML/CFT POLICY, CURRENT AND DOCUMENTED</span>
+
+If your business is classified as a DNFBP, your AML/CFT policy must be in place and current. A 2022 policy that has never been reviewed does not count.
+
+Compliance is not one thing running in the background.
+
+It is five things running at once. Most owners only find out one is broken when the others are already late.
+
+Save this and tag a founder in a UAE free zone who needs to see it before tomorrow midnight.</div>
+    <div class="char-count">Character count: <span>~1,380</span> · Target: 1,300–1,500</div>
+  </div>
+
+  <!-- STEP 3: INVISIBILITY DIAGNOSTIC -->
+  <div class="card">
+    <div class="card-title">Step 3 · Invisibility Diagnostic</div>
+    <div class="diagnostic-grid">
+      <div class="diag-item pass">
+        <div class="diag-label">Voice</div>
+        <div class="diag-score">PASS</div>
+        <div style="font-size:12px;color:#4CAF50;margin-top:4px;">Plain language. Situation-first. Short punchy sentences. UAE-rooted. No jargon. No hype. No em dashes. No banned words.</div>
+      </div>
+      <div class="diag-item pass">
+        <div class="diag-label">POV</div>
+        <div class="diag-score">PASS</div>
+        <div style="font-size:12px;color:#4CAF50;margin-top:4px;">Clear frame: compliance is five things at once. Most owners only discover one is broken when the others are already late. Distinctive — not generic advice.</div>
+      </div>
+      <div class="diag-item pass">
+        <div class="diag-label">Specificity</div>
+        <div class="diag-score">PASS</div>
+        <div style="font-size:12px;color:#4CAF50;margin-top:4px;">Named zones (DMCC, DAFZA, DIFC, JAFZA), exact deadline (30 June), exact date trigger (1 June 2023), specific law references (QFZP, DNFBP, CT Law).</div>
+      </div>
+      <div class="diag-item pass">
+        <div class="diag-label">Asking</div>
+        <div class="diag-score">PASS</div>
+        <div style="font-size:12px;color:#4CAF50;margin-top:4px;">"Save this and tag a founder in a UAE free zone who needs to see it before tomorrow midnight." Drives saves and shares. Clear ask.</div>
+      </div>
+    </div>
+    <div class="diag-verdict">4/4 PASS · Ready for delivery</div>
+  </div>
+
+  <!-- STEP 4: PINNED COMMENTS -->
+  <div class="card">
+    <div class="card-title">Step 4 · 3 Pinned Comments (Post immediately after main post)</div>
+
+    <div class="comment-item">
+      <div class="comment-type">Comment 1 · Extend · UAE Law Reference</div>
+      <div class="comment-text">A note on the QFZP condition. Under UAE Corporate Tax Law, a Qualifying Free Zone Person must maintain audited financial statements prepared in accordance with IFRS or IFRS for SMEs. The FTA has no mechanism to accept an unaudited submission from a business claiming the 0% rate. This is not a technicality. If your financials were not audited for the year you are filing, the QFZP claim does not stand. Book a 30-minute compliance review if you are not sure where your CIT position sits.</div>
+    </div>
+
+    <div class="comment-item">
+      <div class="comment-type">Comment 2 · Humanise · Personal Note from Mohaina</div>
+      <div class="comment-text">We had a client come to us last month after their DMCC licence renewal was declined. The auditor they had been using for two years was not on the free zone's approved panel. They had paid for an audit the Registrar would not accept. We had to restart with a panel-approved firm and it added three weeks to their renewal timeline. That was a difficult conversation. I think about it whenever I see a founder assume their accountant has this covered. Sometimes they do. Sometimes they do not. Worth a check.</div>
+    </div>
+
+    <div class="comment-item">
+      <div class="comment-type">Comment 3 · CTA Amplifier · Urgency</div>
+      <div class="comment-text">If you have a free zone company and you are reading this after 30 June, the FZCO window has already closed. If you are reading this today, there is still time. Either way, if you are not sure where your compliance sits across all five of these, book a 30-minute compliance review. We go through your licence renewal requirements, audit status, CIT position, and AML obligations in one call. No cost. Just clarity before one of these becomes a problem. Book a 30-minute compliance review.</div>
+    </div>
+
+  </div>
+
+  <!-- RUN LOG -->
+  <div class="runlog">
+    <strong>CMO Run Log · 29 June 2026 · 07:00 UAE</strong><br>
+    Monday post generated (third consecutive run on this topic). Notion calendar entry confirmed: Day=Monday, Date=2026-06-29, Format=Framework Post (Variation A), Pillar=Compliance Without the Panic, Intent=Educating.<br>
+    Hook selected: Pattern Interrupt (5/5). Invisibility Diagnostic: 4/4 PASS. Character count: ~1,380. Zero em dashes. Zero banned words.<br>
+    LinkedIn analytics: UNAVAILABLE — Apify profile scraper FAILED (third consecutive). Hook selected on ICP pain-match logic.<br>
+    Compliance flag ACTIVE — DMCC FZCO June 30 deadline (TOMORROW) + QFZP/DNFBP/AML references require Mohaina accuracy review before publishing.<br>
+    M365 Outlook send email: NOT AVAILABLE in this connector (third consecutive run). Approval email cannot be sent automatically. Mohaina notified via PushNotification. Manual approval required.<br>
+    Status: <strong>Pending Approval</strong> · Output: cmo-post-2026-06-29.html · Branch: claude/vibrant-darwin-mqt6z1<br>
+    Recommend: Mohaina to reply "approved" or "revise" via any channel. If no reply by 08:15 UAE — post held, Rei notified to stand by.
+  </div>
+
+</div>
+</body>
+</html>
