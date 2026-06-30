@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · 30 June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#E8294C; --brand-dark:color-mix(in srgb,#E8294C 75%,#000);
+    --bg:#0A0A0A; --ink:#15151A; --white:#FFFFFF;
+    --gray-text:#888; --gray-line:#1e1e1e;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --pill:9999px;
+    --sh:0 1px 3px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.4);
+    --grad:linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 55%, color-mix(in srgb,var(--brand) 65%,#FF6B00) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:#0A0A0A;color:#e0e0e0;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:860px;margin:0 auto;padding:30px 20px 80px;}
+
+  /* ── Hero card ──────────────────────────────── */
+  .hero{background:var(--grad);border-radius:18px;padding:32px 30px 28px;margin-bottom:26px;color:#fff;position:relative;overflow:hidden;box-shadow:0 20px 60px color-mix(in srgb,var(--brand) 35%,transparent);}
+  .hero::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,.06);top:-160px;right:-100px;}
+  .hero::after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(0,0,0,.12);bottom:-80px;left:-60px;}
+  .hero-kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.8;font-weight:700;margin-bottom:8px;}
+  .hero-title{font-size:clamp(26px,4.5vw,40px);font-weight:800;letter-spacing:-.025em;margin-bottom:4px;position:relative;z-index:1;}
+  .hero-sub{font-size:14px;opacity:.8;position:relative;z-index:1;}
+
+  /* ── Revenue Pulse ──────────────────────────── */
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;position:relative;z-index:1;}
+  .rev-box{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px 16px;}
+  .rev-box .rl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.7;font-weight:600;}
+  .rev-box .rv{font-size:28px;font-weight:800;margin-top:4px;letter-spacing:-.02em;}
+  .rev-box .rd{font-size:12px;opacity:.65;margin-top:3px;}
+  .status-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.15);border-radius:var(--pill);padding:6px 14px;font-size:13px;font-weight:700;margin-top:14px;}
+
+  /* ── Section headers ────────────────────────── */
+  .sec{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);font-weight:700;margin:28px 0 12px;display:flex;align-items:center;gap:8px;}
+  .sec::after{content:"";flex:1;height:1px;background:rgba(232,41,76,.2);}
+
+  /* ── Cards ──────────────────────────────────── */
+  .card{background:#111;border:1px solid #1c1c1c;border-radius:var(--r-md);padding:18px 20px;margin-bottom:12px;}
+  .card.brand-edge{border-left:3px solid var(--brand);}
+  .card.red-edge{border-left:3px solid var(--bad);}
+  .card.grn-edge{border-left:3px solid var(--good);}
+  .card.amb-edge{border-left:3px solid var(--warn);}
+  .card h4{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;font-size:14.5px;border-bottom:1px solid var(--gray-line);}
+  .row:last-child{border-bottom:none;}
+  .rt{flex:1;color:#ccc;}
+  .tagi{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:var(--pill);white-space:nowrap;flex-shrink:0;}
+  .t-r{background:rgba(220,38,38,.15);color:#f87171;}
+  .t-a{background:rgba(217,119,6,.15);color:#fbbf24;}
+  .t-g{background:rgba(22,163,74,.15);color:#4ade80;}
+  .t-b{background:rgba(59,130,246,.15);color:#60a5fa;}
+  .t-x{background:#1a1a1a;color:#888;}
+
+  /* ── Flags ──────────────────────────────────── */
+  .flags-wrap{background:#130508;border:1px solid rgba(232,41,76,.3);border-radius:var(--r-md);padding:20px;margin-bottom:12px;}
+  .flags-wrap .ftitle{font-size:13px;font-weight:800;color:var(--brand);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;}
+  .flag-item{padding:12px 0;border-bottom:1px solid rgba(232,41,76,.1);}
+  .flag-item:last-child{border-bottom:none;}
+  .flag-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:var(--pill);margin-bottom:5px;text-transform:uppercase;letter-spacing:.07em;}
+  .fb-compliance{background:rgba(220,38,38,.2);color:#f87171;}
+  .fb-cash{background:rgba(217,119,6,.2);color:#fbbf24;}
+  .fb-client{background:rgba(59,130,246,.2);color:#60a5fa;}
+  .fb-bd{background:rgba(168,85,247,.2);color:#c084fc;}
+  .fb-content{background:rgba(232,41,76,.2);color:var(--brand);}
+  .flag-what{font-size:14px;color:#e0e0e0;font-weight:600;margin-bottom:3px;}
+  .flag-why{font-size:13px;color:#999;margin-bottom:4px;}
+  .flag-next{font-size:13px;color:var(--brand);font-weight:600;}
+
+  /* ── LinkedIn post inline ───────────────────── */
+  .li-mock{background:#fff;border-radius:12px;padding:20px;color:#000;margin-bottom:12px;}
+  .li-h{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .li-av{width:44px;height:44px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex-shrink:0;}
+  .li-nm{font-weight:700;font-size:14px;color:#000;}
+  .li-mt{font-size:12px;color:#666;}
+  .li-body{font-size:14.5px;line-height:1.7;color:#1a1a1a;white-space:pre-line;}
+  .hook-bar{background:rgba(232,41,76,.08);border-left:3px solid var(--brand);padding:8px 12px;margin-bottom:10px;border-radius:0 6px 6px 0;font-size:14.5px;line-height:1.6;color:#1a1a1a;}
+
+  /* ── Run log ────────────────────────────────── */
+  .run-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--gray-line);font-size:14px;}
+  .run-row:last-child{border-bottom:none;}
+  .run-skill{color:#ddd;}
+  .run-out{font-size:12px;color:var(--gray-text);}
+  .run-status{font-size:11px;font-weight:700;padding:2px 8px;border-radius:var(--pill);}
+  .rs-ok{background:rgba(22,163,74,.15);color:#4ade80;}
+  .rs-skip{background:#1a1a1a;color:#888;}
+  .rs-warn{background:rgba(217,119,6,.15);color:#fbbf24;}
+
+  /* ── Quick links ────────────────────────────── */
+  .ql-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .ql-card{background:#111;border:1px solid #222;border-radius:10px;padding:14px 16px;text-decoration:none;color:inherit;display:block;}
+  .ql-card:hover{border-color:var(--brand);}
+  .ql-label{font-size:11px;color:var(--gray-text);text-transform:uppercase;letter-spacing:.07em;font-weight:700;}
+  .ql-file{font-size:13px;color:#ddd;margin-top:4px;font-family:monospace;}
+
+  footer{text-align:center;padding:36px 20px 10px;color:#444;font-size:13px;}
+
+  @media(max-width:600px){.rev-grid{grid-template-columns:1fr;}.ql-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<!-- ═══════════════════════════════════════
+     HERO CARD
+     ═══════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-kicker">BPOAS · Automated Daily Start</div>
+  <div class="hero-title">Tuesday, 30 June 2026</div>
+  <div class="hero-sub">Lean run · Steps 1 + 4 · Steps 2, 3, 5 skipped (Monday only) · Generated 07:00 UAE (GST, UTC+4)</div>
+
+  <div class="rev-grid">
+    <div class="rev-box">
+      <div class="rl">MTD Revenue received</div>
+      <div class="rv">AED —</div>
+      <div class="rd">Zoho Books unavailable (4th week)</div>
+    </div>
+    <div class="rev-box">
+      <div class="rl">Monthly Target</div>
+      <div class="rv">—</div>
+      <div class="rd">Not set in positioning docs</div>
+    </div>
+    <div class="rev-box">
+      <div class="rl">Gap to target</div>
+      <div class="rv">—</div>
+      <div class="rd">Cannot calculate</div>
+    </div>
+  </div>
+
+  <div class="status-pill">
+    ⚠ Revenue data unavailable — Last known: Friday 26 June 2026 (CFO report on file)
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FLAGS FOR MOHAINA
+     ═══════════════════════════════════════ -->
+<div class="sec">Flags for Mohaina</div>
+
+<div class="flags-wrap">
+  <div class="ftitle">Priority Flags · Tuesday 30 June 2026</div>
+
+  <div class="flag-item">
+    <div><span class="flag-badge fb-compliance">Compliance · Final Day</span></div>
+    <div class="flag-what">🔴 DMCC FZCO name change deadline — TODAY IS THE LAST DAY</div>
+    <div class="flag-why">Any DMCC company that has not updated its name ending to FZCO is out of step with the Registrar after midnight tonight. Grace period: none confirmed.</div>
+    <div class="flag-next">→ Run through client list now. Identify any DMCC entities. Confirm status before end of business today.</div>
+  </div>
+
+  <div class="flag-item">
+    <div><span class="flag-badge fb-content">Content · Final Day</span></div>
+    <div class="flag-what">🔴 DMCC LinkedIn post — 3 runs generated, never approved. Void after midnight tonight.</div>
+    <div class="flag-why">The Monday compliance post on DMCC FZCO has been generated on three consecutive mornings and was never approved or published. Today is the last day it is factually accurate and publishable.</div>
+    <div class="flag-next">→ Decision needed today: approve and publish now (AM), or void. File is at cmo-post-2026-06-29.html on branch claude/cool-noether-c51vdk.</div>
+  </div>
+
+  <div class="flag-item">
+    <div><span class="flag-badge fb-bd">BD · Urgent</span></div>
+    <div class="flag-what">Richemont / Cartier (Ghazal Al Safadi) — Monday call outcome not logged</div>
+    <div class="flag-why">Fit score 9/10. Call was scheduled Monday 29 June 13:30 UAE. The outcome has not been logged in Notion. This is the highest-fit prospect in the active pipeline.</div>
+    <div class="flag-next">→ Log the outcome today. If positive: move to next BD step. If no-show: reschedule immediately.</div>
+  </div>
+
+  <div class="flag-item">
+    <div><span class="flag-badge fb-cash">Cash · Outstanding</span></div>
+    <div class="flag-what">Menastar SOA AED 28,381 outstanding · Almosafer claim ~70+ days unresolved</div>
+    <div class="flag-why">Menastar statement of account remains unpaid. Almosafer claim is past 70 days — risk of write-off increases past 90 days.</div>
+    <div class="flag-next">→ Chase Menastar this week. Escalate Almosafer if no response by Friday.</div>
+  </div>
+
+  <div class="flag-item">
+    <div><span class="flag-badge fb-client">Client · VAT</span></div>
+    <div class="flag-what">JC Premiere Q1 VAT — payment made, not in FTA portal yet</div>
+    <div class="flag-why">Payment was made but not yet reflected on the FTA portal. Until confirmed, the client remains technically non-compliant.</div>
+    <div class="flag-next">→ Recyline to monitor and confirm portal update. Mohaina: follow up if not resolved today.</div>
+  </div>
+
+  <div class="flag-item">
+    <div><span class="flag-badge fb-compliance">Compliance · Tomorrow</span></div>
+    <div class="flag-what">Wed 1 Jul CIT post — 14% p.a. penalty rate requires accuracy review</div>
+    <div class="flag-why">The Wednesday post references a specific CIT penalty rate of 14% p.a. This figure must be verified before publishing. If wrong, it is a public accuracy risk.</div>
+    <div class="flag-next">→ Mohaina or Warren to verify the 14% p.a. CIT late payment penalty rate before 07:00 tomorrow (1 July).</div>
+  </div>
+
+  <div class="flag-item">
+    <div><span class="flag-badge fb-content">Content · Approval</span></div>
+    <div class="flag-what">Today's post (Trading Company CT Story) has compliance references — Mohaina review required</div>
+    <div class="flag-why">Post references CIT, VAT, FTA, input tax, transfer pricing, arm's length basis. Must be reviewed for accuracy before forwarding to Rei.</div>
+    <div class="flag-next">→ Review cmo-post-2026-06-30.html. Approve and forward to Rei (reinald.onella1@gmail.com) — recommended publish by 09:00 UAE.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     RUN LOG
+     ═══════════════════════════════════════ -->
+<div class="sec">Run Log</div>
+
+<div class="card brand-edge">
+  <h4>Skill execution · Tuesday 30 June 2026</h4>
+  <div class="run-row">
+    <div class="run-skill">Step 1 · COO Morning Brief</div>
+    <div class="run-out">coo-brief-2026-06-30.html</div>
+    <div class="run-status rs-ok">Complete</div>
+  </div>
+  <div class="run-row">
+    <div class="run-skill">Step 2 · CFO Weekly Revenue</div>
+    <div class="run-out">Monday only</div>
+    <div class="run-status rs-skip">Skipped</div>
+  </div>
+  <div class="run-row">
+    <div class="run-skill">Step 3 · CRO Weekly Prospects</div>
+    <div class="run-out">Monday only</div>
+    <div class="run-status rs-skip">Skipped</div>
+  </div>
+  <div class="run-row">
+    <div class="run-skill">Step 4 · CMO Daily Post</div>
+    <div class="run-out">cmo-post-2026-06-30.html</div>
+    <div class="run-status rs-ok">Complete</div>
+  </div>
+  <div class="run-row">
+    <div class="run-skill">Step 5 · Content Calendar</div>
+    <div class="run-out">Monday only</div>
+    <div class="run-status rs-skip">Skipped</div>
+  </div>
+  <div style="padding:10px 0 2px;font-size:13px;color:var(--gray-text);">Connector log: Notion MCP ✓ · Microsoft 365 unavailable · Zoho Books unavailable (4th week) · Apify scraper FAILED (4th run)</div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TODAY'S LINKEDIN POST
+     ═══════════════════════════════════════ -->
+<div class="sec">Today's LinkedIn Post · Copy-Ready</div>
+
+<div class="card" style="padding:0;overflow:hidden;border:none;">
+  <div class="li-mock">
+    <div class="li-h">
+      <div class="li-av">MA</div>
+      <div>
+        <div class="li-nm">Mohaina Asira · 1st</div>
+        <div class="li-mt">Managing Partner, BPO Accounting Services · now</div>
+      </div>
+    </div>
+    <div class="li-body"><div class="hook-bar">She called us in month 11 of Year 1 CT.
+
+She thought the books were fine.</div>
+
+We said: can we come in tomorrow?
+
+She said yes.
+
+We arrived at her trading warehouse. She had a full-time accountant. Receipts filed in folders. VAT returns submitted since 2019.
+
+Everything looked organised from the outside.
+
+Then we opened the ledger.
+
+Fixed assets — trucks, equipment, racking — had been expensed in the year of purchase. Not capitalised. Not depreciated. Her CIT computation was going to look very different from what she expected.
+
+Supplier invoices from 3 GCC vendors: not FTA-compliant. Could not support the expenses under CIT.
+
+Related-party transactions with the owner's second business: undocumented. No transfer pricing analysis. No arm's length basis.
+
+VAT returns for 2024: two quarters with input tax claimed on items that were not claimable. Exposure sitting there. Unnoticed.
+
+She was not negligent. She was trusting someone who did not know what they did not know.
+
+We started that week. Reconstruction, documentation, CIT computation, VAT exposure review.
+
+By the time the return was filed, she knew exactly where she stood.
+
+Month 11 was late. It was not too late.
+
+If you are in month 8, 9, or 10 of Year 1 CT and you have not had a second set of eyes on your books — this is the sign to get them in.
+
+What the numbers are telling you and what you think they are saying can be two very different things.
+
+<strong>Tag a founder who needs to see this.</strong></div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:-12px;">
+  <h4>Pinned Comments</h4>
+  <div class="row"><div class="rt"><strong>Comment 1:</strong> We see this across trading companies every month — the books look organised until someone opens the ledger and checks the supporting documents. Compliance is not just about filing the return on time. It is about whether what is behind the return can hold up when it has to.</div></div>
+  <div class="row"><div class="rt"><strong>Comment 2:</strong> If your first CT year-end is 31 December 2025, your return is due 30 September 2026. Three months sounds long. If you are still in reconstruction, it is not. Start the review now — not in August.</div></div>
+  <div class="row"><div class="rt"><strong>Comment 3:</strong> If this is your situation — trading company, Year 1 CT, books you are not 100% sure about — send me a message. We will come in and tell you honestly what we see.</div></div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     QUICK LINKS
+     ═══════════════════════════════════════ -->
+<div class="sec">Quick Links</div>
+
+<div class="ql-grid">
+  <div class="ql-card">
+    <div class="ql-label">Step 1 · COO Brief</div>
+    <div class="ql-file">coo-brief-2026-06-30.html</div>
+  </div>
+  <div class="ql-card">
+    <div class="ql-label">Step 4 · CMO Post</div>
+    <div class="ql-file">cmo-post-2026-06-30.html</div>
+  </div>
+  <div class="ql-card">
+    <div class="ql-label">Carry-forward · CFO Report</div>
+    <div class="ql-file">cfo-report-2026-06-26.html</div>
+  </div>
+  <div class="ql-card">
+    <div class="ql-label">DMCC Post (never approved)</div>
+    <div class="ql-file">cmo-post-2026-06-29.html · branch: cool-noether-c51vdk</div>
+  </div>
+</div>
+
+</div>
+<footer>BPOAS Daily Start · Tuesday 30 June 2026 · 07:00 UAE · Branch: claude/cool-noether-mx0o0z</footer>
+</body>
+</html>

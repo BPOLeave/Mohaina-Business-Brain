@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 30 June 2026 · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#E8294C; --brand-dark:color-mix(in srgb,#E8294C 75%,#000);
+    --bg:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, var(--brand-dark) 0%, var(--brand) 60%, color-mix(in srgb,var(--brand) 70%,#FF8C00) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:#0A0A0A;color:var(--off-white);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--brand) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.08);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#888;font-weight:700;margin:24px 0 12px;}
+  .card{background:#141414;border:1px solid #222;border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--brand);}
+  .card.green{border-left-color:var(--good);}
+  .card.amber{border-left-color:var(--warn);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:12px;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;font-size:15px;border-bottom:1px solid #1e1e1e;}
+  .row:last-child{border-bottom:none;}
+  .row-text{flex:1;color:#ddd;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-red{background:rgba(220,38,38,.15);color:#f87171;}
+  .t-amb{background:rgba(217,119,6,.15);color:#fbbf24;}
+  .t-grn{background:rgba(22,163,74,.15);color:#4ade80;}
+  .t-blue{background:rgba(59,130,246,.15);color:#60a5fa;}
+  .t-grey{background:#1e1e1e;color:#888;}
+  .t-brand{background:rgba(232,41,76,.15);color:#f87171;}
+
+  .flag-card{background:#1a0a0e;border:1px solid rgba(232,41,76,.35);border-radius:var(--r-md);padding:18px 20px;margin-bottom:14px;}
+  .flag-card .flag-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:12px;}
+
+  .info-banner{background:#111;border:1px dashed #333;border-radius:var(--r-md);padding:14px 16px;font-size:13px;color:#888;margin-bottom:14px;}
+
+  .cal-event{background:#141414;border:1px solid #222;border-radius:10px;padding:14px 16px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start;}
+  .cal-time{font-size:13px;font-weight:700;color:var(--brand);min-width:120px;}
+  .cal-title{font-size:15px;color:#ddd;font-weight:600;}
+  .cal-sub{font-size:13px;color:#888;margin-top:2px;}
+
+  .bd-card{background:#141414;border:1px solid #222;border-radius:10px;padding:14px 16px;margin-bottom:10px;}
+  .bd-name{font-size:15px;font-weight:700;color:#fff;}
+  .bd-meta{font-size:13px;color:#888;margin-top:3px;}
+  .bd-status{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:var(--pill);margin-top:6px;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:#555;font-size:13px;}
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <div class="ohead">
+    <div class="k">COO · Morning Brief · Step 1 of 2 Today</div>
+    <h1>Tuesday 30 June 2026</h1>
+    <div class="d">Generated 07:00 UAE (GST, UTC+4) · Lean run: Steps 1 + 4 only · Steps 2, 3, 5 skipped (Monday only)</div>
+  </div>
+
+  <div class="info-banner">
+    ⚠ Microsoft 365 connector unavailable — Outlook Calendar and Inbox data cannot be retrieved. Schedule and tasks sourced from Notion Hub (last updated: 30 June 2026 03:09 UAE). Inbox priorities require manual review by Mohaina.
+  </div>
+
+  <div class="sec">Today's Schedule</div>
+
+  <div class="cal-event">
+    <div class="cal-time">14:00–16:00 UAE</div>
+    <div>
+      <div class="cal-title">10X with AI Accelerator — Final Session (3/3)</div>
+      <div class="cal-sub">Source: Notion Hub. No Outlook confirmation available — verify before joining.</div>
+    </div>
+  </div>
+  <div class="cal-event">
+    <div class="cal-time">All day</div>
+    <div>
+      <div class="cal-title">Raihana calling: GL Middle East / Flow Solutions / Wicked Tents (Nandhu)</div>
+      <div class="cal-sub">EL pending 12 days · TRC 3 entities · follow-up call today</div>
+    </div>
+  </div>
+  <div class="cal-event">
+    <div class="cal-time">All day</div>
+    <div>
+      <div class="cal-title">Raihana calling: The Concept Lab / Mr. George</div>
+      <div class="cal-sub">EL pending 11 days · CIT Filing · follow-up call today</div>
+    </div>
+  </div>
+
+  <div class="sec">Inbox Priorities</div>
+  <div class="info-banner">
+    M365 / Outlook not connected — inbox cannot be read. Review manually on arrival. Check for any FTA, AML, CT or client escalation emails first.
+  </div>
+
+  <div class="sec">Tasks &amp; Deadlines</div>
+
+  <div class="card">
+    <h4>Urgent Today</h4>
+    <div class="row">
+      <div class="row-text">🔴 DMCC FZCO name change — <strong>TODAY IS THE FINAL DAY.</strong> Run through client list and confirm no DMCC companies have missed the deadline. After midnight tonight, any non-compliant client is out of step with the Registrar.</div>
+      <span class="tagi t-red">Compliance · Final</span>
+    </div>
+    <div class="row">
+      <div class="row-text">🔴 DMCC LinkedIn post — 3 runs generated, never approved. Still publishable today only. Void after midnight. Decision needed now: publish or void.</div>
+      <span class="tagi t-red">Content · Final day</span>
+    </div>
+    <div class="row">
+      <div class="row-text">Richemont / Cartier (Ghazal Al Safadi) — Monday 29 Jun 13:30 call outcome not logged. Follow up TODAY. What was the outcome?</div>
+      <span class="tagi t-amb">BD · Urgent</span>
+    </div>
+    <div class="row">
+      <div class="row-text">⚠ Wed 1 Jul CIT post — 14% p.a. penalty rate needs Mohaina accuracy review before publishing tomorrow. Review before 07:00 tomorrow.</div>
+      <span class="tagi t-amb">Content · Review needed</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>Active Client Items</h4>
+    <div class="row">
+      <div class="row-text">JC Premiere Q1 VAT — payment made, not yet reflected in FTA portal. Recyline monitoring. Check status.</div>
+      <span class="tagi t-amb">VAT</span>
+    </div>
+    <div class="row">
+      <div class="row-text">DIFC Q1 VAT — payment reminder sent, still awaiting client action.</div>
+      <span class="tagi t-amb">VAT</span>
+    </div>
+    <div class="row">
+      <div class="row-text">Middletel — board resolutions chaser from Nurzhan. Kind reminder to Camille outstanding.</div>
+      <span class="tagi t-grey">Operations</span>
+    </div>
+    <div class="row">
+      <div class="row-text">Menastar SOA AED 28,381 outstanding. Almosafer claim ~70+ days unresolved.</div>
+      <span class="tagi t-red">Cash</span>
+    </div>
+    <div class="row">
+      <div class="row-text">MCM Products KYC active — Trade License outstanding. Raihana chasing.</div>
+      <span class="tagi t-blue">BD</span>
+    </div>
+    <div class="row">
+      <div class="row-text">Gulf Seatech FZC (Cheryl) — Audit Assistance FY2025. Proposal sent, KYC docs received. Warren + Cristina handling.</div>
+      <span class="tagi t-blue">BD</span>
+    </div>
+    <div class="row">
+      <div class="row-text">Halton Middle East FZE — Signed (CIT + Transfer Pricing). Delivery commencing.</div>
+      <span class="tagi t-grn">Delivery</span>
+    </div>
+  </div>
+
+  <div class="sec">BD Pipeline Pulse · incl. Raihana's Queue</div>
+
+  <div class="bd-card">
+    <div class="bd-name">🔥 Richemont / Cartier — Ghazal Al Safadi</div>
+    <div class="bd-meta">Fit: 9/10 · Call was Monday 29 Jun 13:30 UAE · Outcome: NOT LOGGED</div>
+    <div class="bd-meta" style="color:#f87171;margin-top:4px;font-weight:600;">ACTION: Follow up TODAY. What was decided on the call?</div>
+  </div>
+
+  <div class="bd-card">
+    <div class="bd-name">🔥 MCM Products Middle East LLC — Joanne Oquendo</div>
+    <div class="bd-meta">Fit: 8/10 · KYC active · Trade License outstanding · Raihana chasing</div>
+  </div>
+
+  <div class="bd-card">
+    <div class="bd-name">✅ Halton Middle East FZE</div>
+    <div class="bd-meta">Signed · CIT + Transfer Pricing · Delivery commencing</div>
+  </div>
+
+  <div class="bd-card">
+    <div class="bd-name">⚡ GL Middle East / Flow Solutions / Wicked Tents — Nandhu</div>
+    <div class="bd-meta">EL pending 12 days · TRC 3 entities · Raihana calling today</div>
+  </div>
+
+  <div class="bd-card">
+    <div class="bd-name">⚡ The Concept Lab / Mr. George</div>
+    <div class="bd-meta">EL pending 11 days · CIT Filing · Raihana following up today</div>
+  </div>
+
+  <div class="bd-card">
+    <div class="bd-name">🆕 Gulf Seatech FZC — Cheryl</div>
+    <div class="bd-meta">Audit Assistance FY2025 · Proposal sent, KYC docs received · Warren + Cristina handling</div>
+  </div>
+
+  <div class="sec">Content Slot</div>
+  <div class="card green">
+    <h4>Today's LinkedIn Post</h4>
+    <div class="row">
+      <div class="row-text">Topic: "A trading company called us in month 11 of Year 1 CT. Here is what we found when we came in."</div>
+      <span class="tagi t-grn">Scheduled · Tue</span>
+    </div>
+    <div class="row">
+      <div class="row-text">Intent: Nurturing · Format: Story Post (Variation B) · Pillar: Inside an Owner-Led Firm</div>
+    </div>
+    <div class="row">
+      <div class="row-text">⚠ Compliance flag triggered — post references CIT, VAT, FTA, input tax, transfer pricing. Mohaina review required before sending to Rei.</div>
+      <span class="tagi t-red">Review needed</span>
+    </div>
+    <div class="row">
+      <div class="row-text">Also pending decision: DMCC post (never approved, void after midnight tonight). See Flags card.</div>
+      <span class="tagi t-red">Decision today</span>
+    </div>
+  </div>
+
+  <div class="sec">Key Metric</div>
+  <div class="card amber">
+    <h4>Revenue Visibility</h4>
+    <div class="row">
+      <div class="row-text">Zoho Books connector unavailable — 4th consecutive week. Live revenue data cannot be retrieved. See CFO report carry-forward in master brief.</div>
+      <span class="tagi t-amb">Data gap</span>
+    </div>
+  </div>
+
+  <div class="sec">Connector Status</div>
+  <div class="card">
+    <h4>Systems</h4>
+    <div class="row"><div class="row-text">Notion MCP</div><span class="tagi t-grn">Connected</span></div>
+    <div class="row"><div class="row-text">Microsoft 365 (Outlook Calendar + Email)</div><span class="tagi t-red">Not available</span></div>
+    <div class="row"><div class="row-text">Zoho Books</div><span class="tagi t-red">Not available · 4th consecutive week</span></div>
+    <div class="row"><div class="row-text">Apify (LinkedIn analytics)</div><span class="tagi t-red">Scraper FAILED · 4th consecutive run</span></div>
+  </div>
+
+</div>
+<footer>BPOAS · COO Morning Brief · Tuesday 30 June 2026 · Generated 07:00 UAE</footer>
+</body>
+</html>
