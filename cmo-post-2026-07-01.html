@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS CMO Daily Post · 1 July 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0A0A0A;
+    color: #E8E8E8;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 32px 16px 64px;
+  }
+  .page-header {
+    max-width: 780px;
+    margin: 0 auto 40px;
+    border-bottom: 2px solid #E8294C;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .page-header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: -0.3px;
+  }
+  .page-header .meta {
+    font-size: 13px;
+    color: #888;
+    text-align: right;
+  }
+  .page-header .meta span {
+    display: block;
+  }
+  .card {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 28px 32px;
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #E8294C;
+    margin-bottom: 18px;
+  }
+  .card h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    letter-spacing: -0.2px;
+  }
+
+  /* ALERT BANNER */
+  .alert-banner {
+    background: #1a0a0a;
+    border: 1px solid #E8294C;
+    border-left: 4px solid #E8294C;
+    border-radius: 8px;
+    padding: 16px 20px;
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+  .alert-banner .alert-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #E8294C;
+    margin-bottom: 8px;
+  }
+  .alert-banner p {
+    font-size: 14px;
+    color: #D0D0D0;
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+  .alert-banner p:last-child { margin-bottom: 0; }
+
+  /* SLOT META */
+  .slot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 0;
+  }
+  .slot-item {
+    background: #1a1a1a;
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+  .slot-item .slot-key {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 4px;
+  }
+  .slot-item .slot-val {
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: 500;
+  }
+  .slot-item .slot-val.accent { color: #E8294C; }
+
+  /* HOOKS */
+  .hook-list { list-style: none; }
+  .hook-list li {
+    padding: 16px 18px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #1e1e1e;
+    background: #181818;
+    position: relative;
+  }
+  .hook-list li.selected {
+    border-color: #E8294C;
+    background: #1a0c0c;
+  }
+  .hook-list li .hook-type {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 6px;
+  }
+  .hook-list li.selected .hook-type { color: #E8294C; }
+  .hook-list li .hook-text {
+    font-size: 14px;
+    color: #D0D0D0;
+    line-height: 1.6;
+  }
+  .hook-list li.selected .hook-text { color: #FFFFFF; }
+  .selected-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: #E8294C;
+    color: #FFFFFF;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .selection-reason {
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: #111;
+    border-radius: 6px;
+    border-left: 3px solid #E8294C;
+    font-size: 13px;
+    color: #AAA;
+    line-height: 1.55;
+  }
+  .selection-reason strong { color: #E8294C; }
+
+  /* POST */
+  .post-body {
+    font-size: 15px;
+    color: #E0E0E0;
+    line-height: 1.75;
+    white-space: pre-wrap;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #111;
+    border-radius: 8px;
+    padding: 24px;
+    border: 1px solid #1e1e1e;
+  }
+  .char-count {
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+  }
+  .char-count span { color: #E8294C; font-weight: 700; }
+
+  /* DIAGNOSTIC */
+  .diagnostic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 540px) { .diagnostic-grid { grid-template-columns: 1fr; } }
+  .diag-item {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid #1e1e1e;
+  }
+  .diag-item.pass { border-left: 3px solid #22c55e; }
+  .diag-item .diag-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  .diag-item .diag-status {
+    font-size: 16px;
+    font-weight: 700;
+    color: #22c55e;
+    margin-bottom: 4px;
+  }
+  .diag-item .diag-note {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.5;
+  }
+  .diag-score {
+    background: #0a1f0a;
+    border: 1px solid #22c55e;
+    border-radius: 8px;
+    padding: 16px 20px;
+    text-align: center;
+  }
+  .diag-score .score-num {
+    font-size: 36px;
+    font-weight: 800;
+    color: #22c55e;
+    letter-spacing: -1px;
+  }
+  .diag-score .score-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #22c55e;
+    margin-top: 4px;
+  }
+
+  /* COMMENTS */
+  .comment-block {
+    background: #181818;
+    border: 1px solid #1e1e1e;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .comment-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 6px;
+  }
+  .comment-type {
+    font-size: 13px;
+    font-weight: 700;
+    color: #E8294C;
+    margin-bottom: 10px;
+  }
+  .comment-text {
+    font-size: 14px;
+    color: #D0D0D0;
+    line-height: 1.65;
+  }
+
+  /* WORKFLOW */
+  .workflow-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .workflow-step:last-child { border-bottom: none; }
+  .step-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .step-dot.pending { border-color: #E8294C; color: #E8294C; }
+  .step-dot.done { border-color: #22c55e; color: #22c55e; background: #0a1f0a; }
+  .step-body .step-title { font-size: 14px; font-weight: 600; color: #FFF; margin-bottom: 3px; }
+  .step-body .step-detail { font-size: 13px; color: #888; line-height: 1.5; }
+  .step-body .step-detail a { color: #E8294C; text-decoration: none; }
+
+  /* ERROR NOTICE */
+  .notice {
+    background: #1a120a;
+    border: 1px solid #c97f1a;
+    border-left: 4px solid #c97f1a;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #D0D0D0;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+  .notice strong { color: #c97f1a; }
+
+  /* FOOTER */
+  .page-footer {
+    max-width: 780px;
+    margin: 40px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #1a1a1a;
+    font-size: 12px;
+    color: #444;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .divider {
+    height: 1px;
+    background: #1a1a1a;
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>BPOAS CMO Daily Post</h1>
+  <div class="meta">
+    <span>Wednesday · 1 July 2026</span>
+    <span>Generated 07:00 UAE · Auto-run</span>
+  </div>
+</div>
+
+<!-- REVIEW FLAG BANNER -->
+<div class="alert-banner">
+  <div class="alert-title">&#9888; Compliance Review Required Before Publishing</div>
+  <p>This post references UAE law, a penalty figure, and a regulatory deadline. Mohaina's explicit approval is required before Rei publishes.</p>
+  <p><strong>Item 1:</strong> Confirm September 30, 2026 is the correct CIT return and payment deadline for the applicable fiscal year profile (FY2025, 31 December year-end).</p>
+  <p><strong>Item 2:</strong> Confirm 14% per annum late payment penalty under Cabinet Decision 129/2025, effective 14 April 2026, before including in pinned comment.</p>
+  <p><strong>Item 3:</strong> Confirm FTA enforcement position on late filings for Year 1 CT filers is as stated.</p>
+</div>
+
+<!-- CONTENT SLOT -->
+<div class="card">
+  <div class="card-label">Today's Content Slot</div>
+  <div class="slot-grid">
+    <div class="slot-item">
+      <div class="slot-key">Date</div>
+      <div class="slot-val">Wednesday · 1 July 2026</div>
+    </div>
+    <div class="slot-item">
+      <div class="slot-key">Pillar</div>
+      <div class="slot-val">What the Numbers Are Telling You</div>
+    </div>
+    <div class="slot-item">
+      <div class="slot-key">Intent</div>
+      <div class="slot-val accent">Soft Selling</div>
+    </div>
+    <div class="slot-item">
+      <div class="slot-key">Format</div>
+      <div class="slot-val">Soft-Sell Framework (Variation A)</div>
+    </div>
+    <div class="slot-item">
+      <div class="slot-key">Posting Time</div>
+      <div class="slot-val accent">08:30 UAE</div>
+    </div>
+    <div class="slot-item">
+      <div class="slot-key">LinkedIn Analytics</div>
+      <div class="slot-val" style="color:#666">Not available — no post URLs found</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOOKS -->
+<div class="card">
+  <div class="card-label">Step 1 · 5 Hook Options</div>
+  <ul class="hook-list">
+
+    <li>
+      <div class="hook-type">Hook 1 · Result Lead</div>
+      <div class="hook-text">I reviewed a UAE trading company's books this week. Their VAT returns were filed on time. Their Corporate Tax return is due 30 September. When I looked at what they had — they were not ready. Here is what ready actually looks like.</div>
+    </li>
+
+    <li class="selected">
+      <div class="selected-badge">Auto-Selected</div>
+      <div class="hook-type">Hook 2 · Confession / Deadline Reality Check</div>
+      <div class="hook-text">September 30 is the Corporate Tax filing deadline for most UAE companies.<br><br>Most owners I speak to think they are fine.<br><br>I look at their books. They are not fine.</div>
+    </li>
+
+    <li>
+      <div class="hook-type">Hook 3 · Contrarian</div>
+      <div class="hook-text">Three months is not a lot of time to get ready for your Corporate Tax return. I know everyone says September 30 is months away. But here is what most UAE SME owners do not realise about what ready actually requires.</div>
+    </li>
+
+    <li>
+      <div class="hook-type">Hook 4 · Curiosity Gap</div>
+      <div class="hook-text">There is a specific thing I check first when a UAE business owner tells me their books are ready for Corporate Tax. It tells me in two minutes whether they actually are. Most of the time, they are not.</div>
+    </li>
+
+    <li>
+      <div class="hook-type">Hook 5 · Pattern Interrupt</div>
+      <div class="hook-text">September 30 is 91 days away. Your accountant says the books are fine.<br><br>Here is the one question that tells me whether they actually are.</div>
+    </li>
+
+  </ul>
+  <div class="selection-reason">
+    <strong>Selection reason:</strong> Hook 2 is the calendar's prescribed direction for today and directly strikes the ICP's central fear — the gap between feeling compliant and being genuinely ready. "I look at their books. They are not fine." is Mohaina's voice exactly: direct, observational, grounded in what she actually sees. The confession format builds trust at pace for a Wednesday soft-sell post targeting B2B decision-makers.
+  </div>
+</div>
+
+<!-- FULL POST -->
+<div class="card">
+  <div class="card-label">Step 2 · Full Post · Soft-Sell Framework Variation A</div>
+  <div class="post-body">September 30 is the Corporate Tax filing deadline for most UAE companies.
+
+Most owners I speak to think they are fine.
+
+I look at their books. They are not fine.
+
+Here is what "ready" actually requires. Not what it sounds like it requires.
+
+Not a clean VAT history. VAT compliance and CIT readiness are two different standards. Filing your VAT returns on time does not mean your books are ready for a Corporate Tax calculation.
+
+Not your accountant saying so. I have seen books where the accountant believed everything was correct. Nobody had gone through the source documents. Nobody had reconciled revenue to the VAT returns. The numbers looked tidy. They were not defensible.
+
+Ready actually means this.
+
+Your full-year close is done. Every significant expense has a valid tax invoice behind it. Related-party transactions (internal loans, management fees, director dealings) are documented correctly. Revenue reconciles to your VAT filings. You can produce a tax calculation you would stand behind if the FTA started asking questions.
+
+Most owners do not know their books are not ready until someone goes in and looks.
+
+We go in and look. No remote review. No assumptions. We physically go to the office and check the source documents. That is the job.
+
+Three months to September 30 sounds like enough time. It is not if you are starting from where most UAE SMEs are today.
+
+DM me CITREADY and I will tell you exactly where your books stand before September.</div>
+  <div class="char-count">Character count: <span>~1,465</span> &nbsp;·&nbsp; Target: 1,300–1,500 &nbsp;·&nbsp; Zero em dashes &nbsp;·&nbsp; Zero banned words</div>
+</div>
+
+<!-- INVISIBILITY DIAGNOSTIC -->
+<div class="card">
+  <div class="card-label">Step 3 · Invisibility Diagnostic</div>
+  <div class="diagnostic-grid">
+    <div class="diag-item pass">
+      <div class="diag-label">1 · Voice</div>
+      <div class="diag-status">PASS</div>
+      <div class="diag-note">Short punchy declarations. "I" for observation, "We" for BPOAS action. Situation before principle. No hype, no credentials lead. Physical-presence differentiator embedded naturally.</div>
+    </div>
+    <div class="diag-item pass">
+      <div class="diag-label">2 · POV</div>
+      <div class="diag-status">PASS</div>
+      <div class="diag-note">Clear, held position: VAT compliance does not equal CIT readiness. Challenges the reader's assumption of safety. "The numbers looked tidy. They were not defensible." — conviction without hedge.</div>
+    </div>
+    <div class="diag-item pass">
+      <div class="diag-label">3 · Specificity</div>
+      <div class="diag-status">PASS</div>
+      <div class="diag-note">Named deadline (Sept 30). Named requirements (full-year close, tax invoices, related-party docs, VAT reconciliation, internal loans / management fees / director dealings). Physical detail throughout.</div>
+    </div>
+    <div class="diag-item pass">
+      <div class="diag-label">4 · Asking</div>
+      <div class="diag-status">PASS</div>
+      <div class="diag-note">"DM me CITREADY" — direct, single-action CTA. Post leaves reader asking: are MY books actually ready? Implicit question drives DM intent without being pushy.</div>
+    </div>
+  </div>
+  <div class="diag-score">
+    <div class="score-num">4/4</div>
+    <div class="score-label">&#10003; Pass — Cleared for Delivery</div>
+  </div>
+</div>
+
+<!-- PINNED COMMENTS -->
+<div class="card">
+  <div class="card-label">Step 4 · 3 Pinned Comments</div>
+
+  <div class="comment-block">
+    <div class="comment-num">Comment 1</div>
+    <div class="comment-type">Extend — UAE-Specific Compliance Reference ⚠️ Verify before posting</div>
+    <div class="comment-text">For companies with a 31 December 2025 financial year-end, the Corporate Tax return and payment are due by 30 September 2026 under Federal Decree-Law No. 47 of 2022 (Article 51). Late payment of Corporate Tax carries a penalty of 14% per annum under Cabinet Decision 129/2025, effective 14 April 2026. That penalty starts from the due date. Not the date you realise you missed it. Three months is accurate. But only if you use them.</div>
+  </div>
+
+  <div class="comment-block">
+    <div class="comment-num">Comment 2</div>
+    <div class="comment-type">Humanise — Personal Note from Mohaina</div>
+    <div class="comment-text">I wrote this after three calls this week where I heard almost the same thing: "The books are fine, I think." Different businesses. Same answer. And every time, when we went in to look, there was something. I do not say that to alarm anyone. I say it because it is what I keep seeing. Better to know now than in September.</div>
+  </div>
+
+  <div class="comment-block">
+    <div class="comment-num">Comment 3</div>
+    <div class="comment-type">CTA Amplifier — Reinforce Compliance Review</div>
+    <div class="comment-text">If you are reading this and your September 30 deadline is in the back of your mind — this is the nudge. DM me CITREADY. I will come back to you with the three areas I check first in any CIT readiness review. No pitch. No obligation. Just an honest look at where your books actually stand before the FTA's clock starts.</div>
+  </div>
+</div>
+
+<!-- APPROVAL WORKFLOW -->
+<div class="card">
+  <div class="card-label">Approval Workflow Status</div>
+
+  <div class="workflow-step">
+    <div class="step-dot done">&#10003;</div>
+    <div class="step-body">
+      <div class="step-title">Post generated · Diagnostic 4/4</div>
+      <div class="step-detail">Soft-Sell Framework (Variation A) · CIT September 30 deadline · Invisibility Diagnostic passed.</div>
+    </div>
+  </div>
+
+  <div class="workflow-step">
+    <div class="step-dot pending">A</div>
+    <div class="step-body">
+      <div class="step-title">Step A · Send to Mohaina for Approval</div>
+      <div class="step-detail">
+        To: <strong>M.Asira@bposervicegroup.com</strong><br>
+        Subject: <em>BPOAS Daily Post — Approval Needed · 1 July 2026</em><br>
+        ⚠️ Post references UAE law, penalty figure, and regulatory deadline — explicit approval required.
+        <div class="notice"><strong>Note:</strong> The Microsoft 365 MCP integration available in this session is read-only. The approval email could not be sent automatically. Please send manually from your Outlook using the post text above, or grant the MCP server write/send permissions for future runs.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="workflow-step">
+    <div class="step-dot">B</div>
+    <div class="step-body">
+      <div class="step-title">Step B · Wait for Mohaina's Reply</div>
+      <div class="step-detail">Approval keywords: "approved" · "post it" · "go ahead"<br>Edit keywords: "revise" · "change" · "hold"<br>Timeout: Hold if no reply by 08:15 UAE.</div>
+    </div>
+  </div>
+
+  <div class="workflow-step">
+    <div class="step-dot">C</div>
+    <div class="step-body">
+      <div class="step-title">Step C · Forward to Rei Nald Onella</div>
+      <div class="step-detail">
+        To: <strong>R.Onella@bposervicegroup.com</strong> (inferred from naming convention — verify)<br>
+        Subject: <em>Post for Today — Ready to Publish · 1 July 2026</em><br>
+        Recommended publish time: <strong>08:30 UAE</strong> (Wednesday · Soft Selling)
+      </div>
+    </div>
+  </div>
+
+  <div class="workflow-step">
+    <div class="step-dot">D</div>
+    <div class="step-body">
+      <div class="step-title">Step D · Log in Notion</div>
+      <div class="step-detail">Update content calendar entry status: Pending Approval<br>Page: <a href="https://app.notion.com/p/38b8a33e7fd18164a629eb095233ceba">38b8a33e · CIT Return due 30 September</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- READY-TO-SEND EMAIL COPY -->
+<div class="card">
+  <div class="card-label">Step A · Email Copy — Ready to Send Manually</div>
+  <h2 style="font-size:15px; margin-bottom:16px;">To: M.Asira@bposervicegroup.com</h2>
+  <div style="background:#111; border-radius:8px; padding:20px 24px; border:1px solid #1e1e1e; font-size:14px; color:#D0D0D0; line-height:1.7;">
+    <p><strong>Subject:</strong> BPOAS Daily Post — Approval Needed · 1 July 2026</p>
+    <br>
+    <p>Hi Mohaina,</p>
+    <br>
+    <p>Your LinkedIn post for today is ready for approval. Full content below.</p>
+    <br>
+    <p><strong>⚠️ REVIEW FLAG:</strong> This post references the Corporate Tax September 30 deadline and the 14% late payment penalty (Cabinet Decision 129/2025). Please verify both before approving. Pinned Comment 1 also references these — verify before posting.</p>
+    <br>
+    <hr style="border-color:#222; margin:16px 0;">
+    <p><strong>POST TEXT</strong></p>
+    <br>
+    <p>September 30 is the Corporate Tax filing deadline for most UAE companies.</p>
+    <br>
+    <p>Most owners I speak to think they are fine.</p>
+    <br>
+    <p>I look at their books. They are not fine.</p>
+    <br>
+    <p>Here is what "ready" actually requires. Not what it sounds like it requires.</p>
+    <br>
+    <p>Not a clean VAT history. VAT compliance and CIT readiness are two different standards. Filing your VAT returns on time does not mean your books are ready for a Corporate Tax calculation.</p>
+    <br>
+    <p>Not your accountant saying so. I have seen books where the accountant believed everything was correct. Nobody had gone through the source documents. Nobody had reconciled revenue to the VAT returns. The numbers looked tidy. They were not defensible.</p>
+    <br>
+    <p>Ready actually means this.</p>
+    <br>
+    <p>Your full-year close is done. Every significant expense has a valid tax invoice behind it. Related-party transactions (internal loans, management fees, director dealings) are documented correctly. Revenue reconciles to your VAT filings. You can produce a tax calculation you would stand behind if the FTA started asking questions.</p>
+    <br>
+    <p>Most owners do not know their books are not ready until someone goes in and looks.</p>
+    <br>
+    <p>We go in and look. No remote review. No assumptions. We physically go to the office and check the source documents. That is the job.</p>
+    <br>
+    <p>Three months to September 30 sounds like enough time. It is not if you are starting from where most UAE SMEs are today.</p>
+    <br>
+    <p>DM me CITREADY and I will tell you exactly where your books stand before September.</p>
+    <br>
+    <hr style="border-color:#222; margin:16px 0;">
+    <p><strong>INVISIBILITY DIAGNOSTIC: 4/4 PASS</strong></p>
+    <p>Voice ✓ · POV ✓ · Specificity ✓ · Asking ✓</p>
+    <br>
+    <hr style="border-color:#222; margin:16px 0;">
+    <p><strong>PINNED COMMENT 1 — Extend</strong> ⚠️ Verify before posting</p>
+    <br>
+    <p>For companies with a 31 December 2025 financial year-end, the Corporate Tax return and payment are due by 30 September 2026 under Federal Decree-Law No. 47 of 2022 (Article 51). Late payment of Corporate Tax carries a penalty of 14% per annum under Cabinet Decision 129/2025, effective 14 April 2026. That penalty starts from the due date. Not the date you realise you missed it. Three months is accurate. But only if you use them.</p>
+    <br>
+    <p><strong>PINNED COMMENT 2 — Humanise</strong></p>
+    <br>
+    <p>I wrote this after three calls this week where I heard almost the same thing: "The books are fine, I think." Different businesses. Same answer. And every time, when we went in to look, there was something. I do not say that to alarm anyone. I say it because it is what I keep seeing. Better to know now than in September.</p>
+    <br>
+    <p><strong>PINNED COMMENT 3 — CTA Amplifier</strong></p>
+    <br>
+    <p>If you are reading this and your September 30 deadline is in the back of your mind — this is the nudge. DM me CITREADY. I will come back to you with the three areas I check first in any CIT readiness review. No pitch. No obligation. Just an honest look at where your books actually stand before the FTA's clock starts.</p>
+    <br>
+    <hr style="border-color:#222; margin:16px 0;">
+    <p>Reply "approved", "post it", or "go ahead" to release to Rei. Reply "revise" or "hold" to pause.</p>
+    <br>
+    <p>Recommended publish time: <strong>08:30 UAE</strong></p>
+  </div>
+</div>
+
+<!-- REI EMAIL COPY -->
+<div class="card">
+  <div class="card-label">Step C · Rei's Email Copy — Send After Approval</div>
+  <h2 style="font-size:15px; margin-bottom:16px;">To: R.Onella@bposervicegroup.com (verify address)</h2>
+  <div style="background:#111; border-radius:8px; padding:20px 24px; border:1px solid #1e1e1e; font-size:14px; color:#D0D0D0; line-height:1.7;">
+    <p><strong>Subject:</strong> Post for Today — Ready to Publish · 1 July 2026</p>
+    <br>
+    <p>Hi Rei,</p>
+    <br>
+    <p>Mohaina's post for today is approved and ready. Post text below, copy-ready. Please post at <strong>08:30 UAE</strong> and add the three pinned comments immediately after.</p>
+    <br>
+    <hr style="border-color:#222; margin:16px 0;">
+    <p><strong>MAIN POST</strong></p>
+    <br>
+    <p>September 30 is the Corporate Tax filing deadline for most UAE companies.</p>
+    <br>
+    <p>Most owners I speak to think they are fine.</p>
+    <br>
+    <p>I look at their books. They are not fine.</p>
+    <br>
+    <p>Here is what "ready" actually requires. Not what it sounds like it requires.</p>
+    <br>
+    <p>Not a clean VAT history. VAT compliance and CIT readiness are two different standards. Filing your VAT returns on time does not mean your books are ready for a Corporate Tax calculation.</p>
+    <br>
+    <p>Not your accountant saying so. I have seen books where the accountant believed everything was correct. Nobody had gone through the source documents. Nobody had reconciled revenue to the VAT returns. The numbers looked tidy. They were not defensible.</p>
+    <br>
+    <p>Ready actually means this.</p>
+    <br>
+    <p>Your full-year close is done. Every significant expense has a valid tax invoice behind it. Related-party transactions (internal loans, management fees, director dealings) are documented correctly. Revenue reconciles to your VAT filings. You can produce a tax calculation you would stand behind if the FTA started asking questions.</p>
+    <br>
+    <p>Most owners do not know their books are not ready until someone goes in and looks.</p>
+    <br>
+    <p>We go in and look. No remote review. No assumptions. We physically go to the office and check the source documents. That is the job.</p>
+    <br>
+    <p>Three months to September 30 sounds like enough time. It is not if you are starting from where most UAE SMEs are today.</p>
+    <br>
+    <p>DM me CITREADY and I will tell you exactly where your books stand before September.</p>
+    <br>
+    <hr style="border-color:#222; margin:16px 0;">
+    <p><strong>PINNED COMMENT 1 — Post immediately after main post</strong></p>
+    <br>
+    <p>For companies with a 31 December 2025 financial year-end, the Corporate Tax return and payment are due by 30 September 2026 under Federal Decree-Law No. 47 of 2022 (Article 51). Late payment of Corporate Tax carries a penalty of 14% per annum under Cabinet Decision 129/2025, effective 14 April 2026. That penalty starts from the due date. Not the date you realise you missed it. Three months is accurate. But only if you use them.</p>
+    <br>
+    <p><strong>PINNED COMMENT 2</strong></p>
+    <br>
+    <p>I wrote this after three calls this week where I heard almost the same thing: "The books are fine, I think." Different businesses. Same answer. And every time, when we went in to look, there was something. I do not say that to alarm anyone. I say it because it is what I keep seeing. Better to know now than in September.</p>
+    <br>
+    <p><strong>PINNED COMMENT 3</strong></p>
+    <br>
+    <p>If you are reading this and your September 30 deadline is in the back of your mind — this is the nudge. DM me CITREADY. I will come back to you with the three areas I check first in any CIT readiness review. No pitch. No obligation. Just an honest look at where your books actually stand before the FTA's clock starts.</p>
+    <br>
+    <hr style="border-color:#222; margin:16px 0;">
+    <p>Recommended publish time: <strong>08:30 UAE</strong></p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  <span>BPOAS CMO Daily Post · Auto-generated 07:00 UAE · 1 July 2026</span>
+  <span>Notion: Content Calendar — Week of 2026-06-29</span>
+</div>
+
+</body>
+</html>
