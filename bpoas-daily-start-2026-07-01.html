@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Wednesday 1 July 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0A0A0A; color: #E8E8E8; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; max-width: 900px; margin: 0 auto; }
+
+  /* HERO CARD */
+  .hero { background: linear-gradient(135deg, #0f0f0f 0%, #161616 100%); border: 1px solid #222; border-radius: 12px; padding: 28px 32px; margin-bottom: 24px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: #E8294C; }
+  .hero-day { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #E8294C; margin-bottom: 6px; }
+  .hero-title { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 20px; }
+  .revenue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .rev-cell { background: #111; border-radius: 8px; padding: 14px 16px; border: 1px solid #1e1e1e; }
+  .rev-label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .rev-value { font-size: 18px; font-weight: 700; color: #fff; }
+  .rev-sub { font-size: 11px; color: #555; margin-top: 3px; }
+  .status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; margin-top: 10px; }
+  .status-green { background: rgba(52,211,153,0.12); color: #34D399; border: 1px solid rgba(52,211,153,0.25); }
+  .status-amber { background: rgba(251,191,36,0.1); color: #FBB924; border: 1px solid rgba(251,191,36,0.25); }
+  .status-red { background: rgba(232,41,76,0.1); color: #E8294C; border: 1px solid rgba(232,41,76,0.25); }
+
+  /* CARDS */
+  .card { background: #111; border-radius: 10px; padding: 20px 24px; margin-bottom: 20px; border: 1px solid #1e1e1e; }
+  .card-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #E8294C; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+  .red { background: rgba(232,41,76,0.15); color: #E8294C; }
+  .amber { background: rgba(251,191,36,0.12); color: #FBB924; }
+  .green { background: rgba(52,211,153,0.12); color: #34D399; }
+  .blue { background: rgba(96,165,250,0.12); color: #60A5FA; }
+
+  /* RUN LOG */
+  .log-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #1a1a1a; }
+  .log-item:last-child { border-bottom: none; }
+  .log-skill { font-size: 13px; color: #ccc; }
+  .log-meta { font-size: 11px; color: #555; margin-top: 2px; }
+  .log-right { display: flex; align-items: center; gap: 10px; }
+
+  /* FLAGS */
+  .flag { background: #0f0f0f; border: 1px solid rgba(232,41,76,0.25); border-left: 3px solid #E8294C; border-radius: 0 8px 8px 0; padding: 14px 16px; margin-bottom: 12px; }
+  .flag:last-child { margin-bottom: 0; }
+  .flag-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .flag-cat { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #E8294C; background: rgba(232,41,76,0.1); padding: 2px 6px; border-radius: 3px; }
+  .flag-title { font-size: 14px; font-weight: 600; color: #fff; }
+  .flag-why { font-size: 12px; color: #888; margin-bottom: 6px; }
+  .flag-next { font-size: 12px; color: #bbb; background: rgba(255,255,255,0.03); border-radius: 4px; padding: 6px 8px; }
+  .flag-next strong { color: #E8294C; }
+
+  /* POST PREVIEW */
+  .post-preview { background: #0d0d0d; border: 1px solid #222; border-radius: 8px; padding: 20px 22px; font-size: 14px; line-height: 1.8; color: #ccc; white-space: pre-line; }
+  .post-preview .hook { color: #fff; font-weight: 700; font-size: 16px; }
+  .post-preview .cta { color: #E8294C; font-weight: 600; }
+  .post-score { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+
+  /* QUICK LINKS */
+  .link-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #1a1a1a; }
+  .link-item:last-child { border-bottom: none; }
+  .link-name { font-size: 13px; color: #ddd; }
+  .link-file { font-size: 12px; color: #555; font-family: monospace; }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: #1e1e1e; margin: 16px 0; }
+
+  /* NOTICE */
+  .notice { background: rgba(251,191,36,0.05); border: 1px solid rgba(251,191,36,0.15); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #FBB924; margin-bottom: 14px; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; padding: 8px 10px; color: #666; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid #1e1e1e; }
+  td { padding: 8px 10px; border-bottom: 1px solid #1a1a1a; font-size: 13px; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO CARD ═══════════ -->
+<div class="hero">
+  <div class="hero-day">BPOAS Daily Start · Lean Run · Wednesday, 1 July 2026</div>
+  <div class="hero-title">Good morning, Mohaina. First day of July.</div>
+
+  <div class="revenue-grid">
+    <div class="rev-cell">
+      <div class="rev-label">July MTD Revenue Received</div>
+      <div class="rev-value" style="color:#FBB924;">Not Available</div>
+      <div class="rev-sub">New month · Zoho Books connector down</div>
+      <div class="status-pill status-amber">🟡 Data Unavailable</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Monthly Target</div>
+      <div class="rev-value" style="color:#FBB924;">Not Confirmed</div>
+      <div class="rev-sub">Not in available records</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Days Remaining in July</div>
+      <div class="rev-value">30</div>
+      <div class="rev-sub">Full month ahead</div>
+    </div>
+  </div>
+
+  <div style="margin-top:16px;">
+    <div style="font-size:12px;color:#666;">Bank Balance · Emirates NBD ending 8401</div>
+    <div style="font-size:20px;font-weight:700;color:#34D399;margin-top:4px;">AED 26,738.04 <span style="font-size:13px;color:#555;font-weight:400;">confirmed today</span></div>
+  </div>
+
+  <div style="margin-top:12px;font-size:11px;color:#444;">
+    Revenue pulse: Last CFO data — Monday 30 June 2026. Zoho Books MCP unavailable for 5th consecutive week. 7 recurring invoices auto-generated today — amounts pending manual review. Mohaina to verify with Zoho directly.
+  </div>
+</div>
+
+<!-- ═══════════ RUN LOG ═══════════ -->
+<div class="card">
+  <div class="card-title">Run Log</div>
+
+  <div class="log-item">
+    <div>
+      <div class="log-skill">Step 1 · COO Morning Brief</div>
+      <div class="log-meta">Microsoft 365 (Calendar + Inbox) · Notion · Output: coo-brief-2026-07-01.html</div>
+    </div>
+    <div class="log-right"><span class="badge green">COMPLETE</span></div>
+  </div>
+
+  <div class="log-item">
+    <div>
+      <div class="log-skill">Step 2 · CFO Weekly Revenue</div>
+      <div class="log-meta">Skipped — runs Mondays only</div>
+    </div>
+    <div class="log-right"><span class="badge" style="background:#1a1a1a;color:#555;">SKIPPED</span></div>
+  </div>
+
+  <div class="log-item">
+    <div>
+      <div class="log-skill">Step 3 · CRO Weekly Prospects</div>
+      <div class="log-meta">Skipped — runs Mondays only</div>
+    </div>
+    <div class="log-right"><span class="badge" style="background:#1a1a1a;color:#555;">SKIPPED</span></div>
+  </div>
+
+  <div class="log-item">
+    <div>
+      <div class="log-skill">Step 4 · CMO Daily Post</div>
+      <div class="log-meta">Notion (content calendar) · Output: cmo-post-2026-07-01.html · Post generated 30 Jun 07:00 UAE</div>
+    </div>
+    <div class="log-right">
+      <span class="badge amber">PENDING APPROVAL</span>
+    </div>
+  </div>
+
+  <div class="log-item">
+    <div>
+      <div class="log-skill">Step 5 · Content Calendar</div>
+      <div class="log-meta">Skipped — runs Mondays only</div>
+    </div>
+    <div class="log-right"><span class="badge" style="background:#1a1a1a;color:#555;">SKIPPED</span></div>
+  </div>
+
+  <div class="divider"></div>
+  <div style="display:flex;gap:20px;font-size:12px;color:#555;">
+    <span>Scheduled: 07:00 UAE</span>
+    <span>Executed: 07:00 UAE</span>
+    <span>Day: Wednesday (Lean Run)</span>
+    <span>Connectors: M365 ✅ · Notion ✅ · Apify ⚠️ down (Mon briefing note) · Zoho Books ❌ unavailable</span>
+  </div>
+</div>
+
+<!-- ═══════════ FLAGS FOR MOHAINA ═══════════ -->
+<div class="card">
+  <div class="card-title">🚨 Flags for Mohaina · Priority Order</div>
+
+  <!-- COMPLIANCE -->
+  <div class="flag">
+    <div class="flag-header">
+      <span class="flag-cat">COMPLIANCE</span>
+      <span class="flag-title">Today's LinkedIn post cites UAE Corporate Tax Law — review required before publishing</span>
+    </div>
+    <div class="flag-why">Post references Article 18 (free zone 0% rate), Article 40 (tax groups), Article 53 (7-year records). These must be accurate. One wrong citation damages Mohaina's authority and creates liability exposure.</div>
+    <div class="flag-next"><strong>Next step:</strong> Read the CIT post (cmo-post-2026-07-01.html). Verify Article 18, 40, 53 against Federal Decree-Law No. 47 of 2022. Confirm "7 years" retention period under Article 53 is correct. Then approve and forward manually to Rei (reinald.onella1@gmail.com).</div>
+  </div>
+
+  <!-- BD - RICHEMONT -->
+  <div class="flag">
+    <div class="flag-header">
+      <span class="flag-cat">BD</span>
+      <span class="flag-title">Richemont / Cartier (9/10) — call outcome still unknown after 2 days</span>
+    </div>
+    <div class="flag-why">Discovery call was Monday 29 June. No outcome logged in Notion or email. This is BPOAS's highest-scored active prospect — a bookkeeping retainer with a luxury global brand. Every day without follow-up is risk of losing momentum.</div>
+    <div class="flag-next"><strong>Next step:</strong> Log the call outcome NOW. If positive — draft EL immediately. If negative — record reason and move to nurture. Do not let this sit.</div>
+  </div>
+
+  <!-- CASH - JULY INVOICES -->
+  <div class="flag">
+    <div class="flag-header">
+      <span class="flag-cat">CASH</span>
+      <span class="flag-title">7 July recurring invoices auto-generated in Zoho Books — not yet sent to clients</span>
+    </div>
+    <div class="flag-why">First day of the month. Zoho auto-generated INV-2026-000179 through 000185 at 02:05 UAE. These represent July's recurring revenue. They exist in Zoho Books as drafts — they have NOT been emailed to clients yet. Every hour they sit unsent delays cash collection.</div>
+    <div class="flag-next"><strong>Next step:</strong> Log into Zoho Books. Review all 7 invoices. Confirm amounts are correct. Send to: GASCHEM DMCC, Richemont FZE (×2), First Support For Business, Aspire Solutions, MENASTAR FZCO, Asianajotoimisto Ratiolex Oy. Do this today.</div>
+  </div>
+
+  <!-- FTA - NEWSLETTER -->
+  <div class="flag">
+    <div class="flag-header">
+      <span class="flag-cat">FTA</span>
+      <span class="flag-title">UAE FTA newsletter: Sharjah offering 50% fine reductions — active now</span>
+    </div>
+    <div class="flag-why">Legal Business Updates (30 June) reports UAE FTA strong growth in 2025 + Sharjah: 50% reductions in fines, renewal fees, and 3-month commercial activity extensions. Relevant for Sharjah-based BPOAS clients who may have outstanding FTA matters.</div>
+    <div class="flag-next"><strong>Next step:</strong> Check if any BPOAS clients are Sharjah-licensed with outstanding FTA issues. Flag as a time-limited opportunity for proactive outreach.</div>
+  </div>
+
+  <!-- AML -->
+  <div class="flag">
+    <div class="flag-header">
+      <span class="flag-cat">AML</span>
+      <span class="flag-title">AML/CFT Governance Structure newsletter received — advisory relevance</span>
+    </div>
+    <div class="flag-why">amldubai.com briefing on AML/CFT governance: roles across Business, Compliance, and Audit. Relevant for BPOAS's own compliance posture and for client advisory (BPOAS serves financial-adjacent SMEs who may have AML obligations).</div>
+    <div class="flag-next"><strong>Next step:</strong> Read the newsletter (inbox, 29 June). Consider if any active BPOAS clients need AML advisory — potential service line.</div>
+  </div>
+
+  <!-- ZOHO CRM DEADLINE -->
+  <div class="flag">
+    <div class="flag-header">
+      <span class="flag-cat">SYSTEM</span>
+      <span class="flag-title">Zoho CRM old UI discontinued 15 July — 14 days from today</span>
+    </div>
+    <div class="flag-why">After July 15, all users are forced onto new Zoho CRM UI. Applies to BPOAS's Zoho One bundle. If Raihana hasn't been trained on the new UI, this will break pipeline tracking on a critical week.</div>
+    <div class="flag-next"><strong>Next step:</strong> Confirm Raihana is familiar with new Zoho CRM UI before July 15. Set internal deadline to migrate any custom views by end of this week.</div>
+  </div>
+
+  <!-- CASH - RECEIVABLES -->
+  <div class="flag">
+    <div class="flag-header">
+      <span class="flag-cat">CASH</span>
+      <span class="flag-title">Menastar SOA AED 28,381 outstanding + Almosafer claim 70+ days unresolved</span>
+    </div>
+    <div class="flag-why">Two significant receivables remain open. Menastar name change (DMCC → FZCO) is causing payment processing issues with Almosafer. Account claim #2010754 (Apr 8–15) remains unresolved at 70+ days.</div>
+    <div class="flag-next"><strong>Next step:</strong> Escalation decision on Almosafer with Michelle Pacis — is this being formally disputed or should BPOAS absorb the claim? Menastar SOA — confirm m.pacis has escalated to the correct contact with new entity name.</div>
+  </div>
+</div>
+
+<!-- ═══════════ TODAY'S POST ═══════════ -->
+<div class="card">
+  <div class="card-title">Today's LinkedIn Post · Copy-Ready</div>
+  <div class="notice">⚠️ Compliance flag active. Do not send to Rei until Mohaina has reviewed Article 18, 40, 53 citations. Approval deadline: 08:15 UAE.</div>
+  <div class="post-score">
+    <span style="font-size:13px;color:#888;">Invisibility Diagnostic:</span>
+    <span style="font-size:15px;font-weight:700;color:#34D399;">4 / 4 PASS</span>
+    <span class="badge red">PENDING APPROVAL</span>
+  </div>
+  <div class="post-preview"><span class="hook">3 months sounds like a lot.</span>
+
+<span class="hook">It isn't.</span>
+
+Your CIT return is due 30 September. In June, that date feels manageable. By August, when you are still chasing missing invoices, trying to reconcile two years of accounts, and working out what transfer pricing documentation actually requires, it won't.
+
+I think most UAE SME owners believe being CIT-ready means submitting a return before the deadline. It doesn't. Readiness is built into the books months before the filing date.
+
+Here is what actually needs to be in place before 30 September.
+
+Clean, reconciled books for your full first tax year. Not a bank statement print. A complete set of financials you can defend line by line if the FTA asks.
+
+A confirmed transfer pricing position. If you transact with related parties or connected entities, the UAE CT Law requires documentation. Most SMEs have not prepared this.
+
+Free zone substance confirmed. If you are claiming the 0% qualifying income rate under Article 18, you must pass the substance test. Not assume it.
+
+A tax group decision if you have multiple entities. Article 40 group taxation changes what you file and how.
+
+A reviewed, finalised return. Not a draft.
+
+The businesses that reach September ready started this work in Q2. If you are reading this in June and still unsure where your books stand, that is the signal.
+
+<span class="cta">Save this for your next finance review.</span></div>
+
+  <div style="margin-top:16px;">
+    <div style="font-size:12px;color:#E8294C;font-weight:700;margin-bottom:10px;">Pinned Comments (post in order after publishing):</div>
+    <div style="background:#161616;border-radius:6px;padding:12px 14px;margin-bottom:8px;font-size:12px;color:#bbb;border-left:2px solid #333;">
+      <div style="font-size:10px;color:#555;text-transform:uppercase;margin-bottom:5px;">Comment 1 · UAE Law Extension</div>
+      Under Article 53 of the UAE Corporate Tax Law, the FTA can request supporting records for up to 7 years after a return has been filed. That means your first CIT filing needs to be supported by documentation going back to the first day of your first tax period — not just the invoices you pull together in September. If your books were not properly maintained from day one, that is a reconstruction project, not a filing project. The earlier you identify this, the cheaper it is to fix.
+    </div>
+    <div style="background:#161616;border-radius:6px;padding:12px 14px;margin-bottom:8px;font-size:12px;color:#bbb;border-left:2px solid #333;">
+      <div style="font-size:10px;color:#555;text-transform:uppercase;margin-bottom:5px;">Comment 2 · Personal Note from Mohaina</div>
+      I think the hardest part of this work is not the tax itself. It is telling a business owner in July or August that what they thought was ready is not. I have had that conversation more than once. It is not a comfortable one — and it is completely avoidable if the groundwork is done now. This post is the version of that conversation I wish I could have with every UAE SME owner before the summer is over.
+    </div>
+    <div style="background:#161616;border-radius:6px;padding:12px 14px;font-size:12px;color:#bbb;border-left:2px solid #333;">
+      <div style="font-size:10px;color:#555;text-transform:uppercase;margin-bottom:5px;">Comment 3 · CTA Amplifier</div>
+      If you are a UAE SME owner and you are not certain your books are CIT-ready, you have roughly 12 weeks before 30 September. That is enough time — but only if you start now. We offer a 30-minute compliance review: no commitment, no sales pitch, just a clear read on where your books stand and what still needs to happen before the filing date. Book a 30-minute compliance review.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ QUICK LINKS ═══════════ -->
+<div class="card">
+  <div class="card-title">Quick Links</div>
+  <div class="link-item">
+    <div class="link-name">COO Morning Brief · 1 July 2026</div>
+    <div class="link-file">coo-brief-2026-07-01.html</div>
+  </div>
+  <div class="link-item">
+    <div class="link-name">CMO Daily Post · 1 July 2026</div>
+    <div class="link-file">cmo-post-2026-07-01.html</div>
+  </div>
+  <div class="link-item">
+    <div class="link-name">Content Calendar · Week of 29 June 2026</div>
+    <div class="link-file">notion.com/p/1b3b76625ae54597b417740c0808c1c7</div>
+  </div>
+  <div class="link-item">
+    <div class="link-name">Monday Briefing · Week of 30 June 2026</div>
+    <div class="link-file">notion.com/p/38f8a33e7fd18187ba3efff376982c14</div>
+  </div>
+  <div class="link-item">
+    <div class="link-name">CIT Post (Notion) · Pending Approval</div>
+    <div class="link-file">notion.com/p/38e8a33e7fd181e9969adab8afbe27da</div>
+  </div>
+  <div class="link-item">
+    <div class="link-name">CFO Revenue Report · Week of 30 June 2026</div>
+    <div class="link-file">notion.com/p/38f8a33e7fd18113b26de0bdbc221152</div>
+  </div>
+  <div class="link-item">
+    <div class="link-name">CRO Prospects Report · Week of 30 June 2026</div>
+    <div class="link-file">notion.com/p/38f8a33e7fd181be9c5ee5e2d29a582b</div>
+  </div>
+  <div class="link-item">
+    <div class="link-name">BPOAS Team Operating Hub</div>
+    <div class="link-file">notion.com/p/38e8a33e7fd181d0b9c7e1716e43305a</div>
+  </div>
+  <div class="link-item">
+    <div class="link-name">Steps 2, 3, 5</div>
+    <div class="link-file" style="color:#555;">Skipped — CFO, CRO, Content Calendar run Mondays only</div>
+  </div>
+</div>
+
+<p style="color:#333;font-size:11px;text-align:center;margin-top:20px;">BPOAS Daily Start · Mohaina Asira · Wednesday 1 July 2026 · Executed 07:00 UAE (GST, UTC+4)</p>
+</body>
+</html>
