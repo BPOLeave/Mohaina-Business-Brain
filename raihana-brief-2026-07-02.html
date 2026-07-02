@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Raihana BD Brief · 2 July 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0A0A0A;
+    color: #E5E5E5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  .wrapper { max-width: 720px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    border-left: 4px solid #E8294C;
+    padding: 16px 20px;
+    background: #141414;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 8px;
+  }
+  .header-top {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 2px;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    color: #999;
+  }
+
+  /* Intro line */
+  .intro-line {
+    background: #1A1A1A;
+    border: 1px solid #2A2A2A;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #CCCCCC;
+    margin-bottom: 24px;
+    margin-top: 12px;
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 28px;
+  }
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #E8294C;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .icon { font-size: 14px; }
+
+  /* Card */
+  .card {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  .card-header {
+    padding: 12px 16px 8px;
+    border-bottom: 1px solid #1E1E1E;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .card-name {
+    font-weight: 600;
+    color: #FFFFFF;
+    font-size: 14px;
+  }
+  .card-company {
+    font-size: 12px;
+    color: #888;
+    margin-top: 1px;
+  }
+  .card-body {
+    padding: 10px 16px 12px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .card-field { font-size: 12px; color: #999; }
+  .card-field span { color: #E5E5E5; font-weight: 500; }
+
+  /* Badge */
+  .badge {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .badge-green  { background: #0D2E1A; color: #4ADE80; border: 1px solid #166534; }
+  .badge-red    { background: #2D0A0A; color: #F87171; border: 1px solid #7F1D1D; }
+  .badge-amber  { background: #2B1D00; color: #FBB369; border: 1px solid #78350F; }
+  .badge-grey   { background: #1C1C1C; color: #888; border: 1px solid #333; }
+
+  /* Score pill */
+  .score {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 12px;
+    background: #1E1E1E;
+    color: #FBB369;
+    border: 1px solid #333;
+    margin-left: 6px;
+  }
+
+  /* Overdue card */
+  .card-overdue { border-color: #7F1D1D; }
+  .card-overdue .card-header { background: #1A0808; }
+
+  /* Warning card */
+  .card-warn { border-color: #78350F; }
+
+  /* No-item state */
+  .empty-state {
+    background: #141414;
+    border: 1px dashed #2A2A2A;
+    border-radius: 8px;
+    padding: 16px;
+    color: #666;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  /* Table for completed */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .data-table th {
+    text-align: left;
+    color: #666;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-bottom: 1px solid #1E1E1E;
+    background: #111;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }
+  .data-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #1A1A1A;
+    color: #CCC;
+    vertical-align: top;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: #161616; }
+
+  /* Approval notice */
+  .approval-notice {
+    background: #1A0808;
+    border: 1px solid #7F1D1D;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: #F87171;
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .approval-notice .icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+  /* Divider */
+  .divider { border: none; border-top: 1px solid #1E1E1E; margin: 4px 0 20px; }
+
+  /* Footer */
+  .footer {
+    background: #141414;
+    border: 1px solid #2A2A2A;
+    border-left: 4px solid #E8294C;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    font-size: 12px;
+    color: #888;
+    margin-top: 28px;
+  }
+  .footer strong { color: #E8294C; }
+  .footer-meta {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #555;
+  }
+
+  /* Inline note */
+  .note {
+    font-size: 11px;
+    color: #888;
+    font-style: italic;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-top">BPOAS · BD Brief · Auto-generated 07:30 UAE</div>
+    <h1>Your BD Brief for Today &middot; Wednesday 2 July 2026</h1>
+    <div class="subtitle">Raihana Asira &middot; BD Associate &middot; BPO Accounting Services</div>
+  </div>
+
+  <!-- Intro line -->
+  <div class="intro-line">
+    Here is your prospect queue and follow-up list for today.
+    All first-contact messages on 9–10 scored prospects require Mohaina's approval before sending.
+  </div>
+
+  <!-- ── SECTION 1: TODAY'S SEND QUEUE ── -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">📤</span> Today's Send Queue
+    </div>
+
+    <!-- 1. Joe Karam -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-name">Joe Karam <span class="score">7/10</span></div>
+          <div class="card-company">Innovate K-oncepts LLC · F&amp;B Consulting, Dubai</div>
+        </div>
+        <div class="badge badge-green">Send Today: Yes</div>
+      </div>
+      <div class="card-body">
+        <div class="card-field">Message # <span>M5 – Clean Exit</span></div>
+        <div class="card-field">Sequence Day <span>Day 6 of 7 window (started 26 Jun)</span></div>
+        <div class="card-field">Status <span>🟡 In Progress — no reply to M4 logged</span></div>
+        <div class="card-field">Channel <span>LinkedIn DM</span></div>
+      </div>
+    </div>
+
+    <!-- 2. Jane Bou Jaoude -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-name">Jane Bou Jaoude <span class="score">8/10</span></div>
+          <div class="card-company">JBJ GROUP · Real Estate / Media / Luxury, Dubai</div>
+        </div>
+        <div class="badge badge-green">Send Today: Yes</div>
+      </div>
+      <div class="card-body">
+        <div class="card-field">Message # <span>M5 – Clean Exit</span></div>
+        <div class="card-field">Sequence Day <span>Day 6 of 7 window (started 26 Jun)</span></div>
+        <div class="card-field">Status <span>🔴 Flagged — Hot prospect, no reply to M4</span></div>
+        <div class="card-field">Channel <span>LinkedIn DM</span></div>
+      </div>
+    </div>
+
+    <!-- 3. Chinmay Shah -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-name">Chinmay Shah <span class="score">8/10</span></div>
+          <div class="card-company">ScrapC · Shine &amp; Glow Group · Al Tara Global Resources FZ, Dubai</div>
+        </div>
+        <div class="badge badge-green">Send Today: Yes</div>
+      </div>
+      <div class="card-body">
+        <div class="card-field">Message # <span>M5 – Clean Exit</span></div>
+        <div class="card-field">Sequence Day <span>Day 6 of 7 window (started 26 Jun)</span></div>
+        <div class="card-field">Status <span>🔴 Flagged — Hot prospect, no reply to M4</span></div>
+        <div class="card-field">Channel <span>LinkedIn DM</span></div>
+      </div>
+    </div>
+
+    <!-- 4. MCM Products / Joanne -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-name">Joanne Oquendo <span class="score">8/10</span></div>
+          <div class="card-company">MCM Products Middle East LLC · VAT Compliance Review</div>
+        </div>
+        <div class="badge badge-green">Send Today: Yes</div>
+      </div>
+      <div class="card-body">
+        <div class="card-field">Message # <span>KYC Chase — Trade License</span></div>
+        <div class="card-field">Stage <span>KYC active · Trade License outstanding</span></div>
+        <div class="card-field">Status <span>🟡 Ongoing — hold CRM upload until Mohaina confirms</span></div>
+        <div class="card-field">Channel <span>WhatsApp / Email</span></div>
+      </div>
+    </div>
+
+    <!-- 5. Nandhu - NOT today -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-name">Nandhu <span class="score">6/10</span></div>
+          <div class="card-company">GL Middle East · Flow Solutions · Wicked Tents · TRC (3 entities)</div>
+        </div>
+        <div class="badge badge-grey">Send Today: No</div>
+      </div>
+      <div class="card-body">
+        <div class="card-field">Message # <span>F2 — WhatsApp follow-up</span></div>
+        <div class="card-field">F2 Due <span>Tomorrow, Thu 3 July (Day 15 since EL)</span></div>
+        <div class="card-field">Status <span>⚠️ F1 log not found — verify F1 was sent Mon 30 Jun</span></div>
+        <div class="card-field">Action <span>Confirm F1 log today, send F2 tomorrow</span></div>
+      </div>
+    </div>
+
+    <div class="approval-notice">
+      <span class="icon">⚠️</span>
+      <span>None of today's queue are 9–10 scored, so no Mohaina approval is required for today's messages. However, the Nandhu and Mr. George EL sequences are marked "awaiting Mohaina confirmation" — verify her go-ahead before sending F1/F2 if not already confirmed.</span>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ── SECTION 2: OVERDUE FOLLOW-UPS ── -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">🔴</span> Overdue Follow-Ups
+    </div>
+
+    <!-- Nandhu F1 overdue -->
+    <div class="card card-overdue">
+      <div class="card-header">
+        <div>
+          <div class="card-name">Nandhu · GL Middle East + Flow Solutions + Wicked Tents</div>
+          <div class="card-company">TRC — 3 entities · EL sent 18 June (now 14 days outstanding)</div>
+        </div>
+        <div class="badge badge-red">2 Days Overdue</div>
+      </div>
+      <div class="card-body">
+        <div class="card-field">F1 Due <span>Mon 30 June</span></div>
+        <div class="card-field">F1 Status <span>No activity logged in Notion</span></div>
+        <div class="card-field">Recommended Action <span>Confirm F1 sent — if not, call Nandhu today, then WhatsApp if no answer. F2 follows tomorrow.</span></div>
+      </div>
+    </div>
+
+    <!-- Mr. George F1 overdue -->
+    <div class="card card-overdue">
+      <div class="card-header">
+        <div>
+          <div class="card-name">Mr. George · The Concept Lab</div>
+          <div class="card-company">CIT Filing · EL sent 19 June (now 13 days outstanding)</div>
+        </div>
+        <div class="badge badge-red">2 Days Overdue</div>
+      </div>
+      <div class="card-body">
+        <div class="card-field">F1 Due <span>Mon 30 June</span></div>
+        <div class="card-field">F1 Status <span>No activity logged in Notion</span></div>
+        <div class="card-field">Recommended Action <span>Confirm F1 sent — if not, call Mr. George today. Sep 30 CIT deadline makes timing urgent. F2 due tomorrow if no reply.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ── SECTION 3: LEADS TO VERIFY ── -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">🟡</span> Leads to Verify
+    </div>
+    <div class="empty-state">
+      No new unverified leads this week. Apify LinkedIn scraper has been down for 4 consecutive Mondays — no new XLSX generated. CRM uploads are on hold per Monday briefing. Cold outreach is paused. Focus remains on warm pipeline.
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ── SECTION 4: COMPLETED THIS WEEK ── -->
+  <div class="section">
+    <div class="section-title">
+      <span class="icon">✅</span> Completed This Week
+    </div>
+    <div class="card">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>What</th>
+            <th>Prospect / Detail</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DM Sequences M1–M4 sent</td>
+            <td>Joe Karam, Jane Bou Jaoude, Chinmay Shah (started 26 Jun, running through 30 Jun)</td>
+            <td><span style="color:#4ADE80;">Sent</span></td>
+          </tr>
+          <tr>
+            <td>KYC coordination</td>
+            <td>MCM Products Middle East · Joanne Oquendo — MFZ docs sent 26 Jun</td>
+            <td><span style="color:#FBB369;">Ongoing</span></td>
+          </tr>
+          <tr>
+            <td>Halton Middle East FZE</td>
+            <td>CIT + Transfer Pricing — signed docs received 17 Jun. Confirmed active.</td>
+            <td><span style="color:#4ADE80;">Confirmed</span></td>
+          </tr>
+          <tr>
+            <td>LinkedIn content — CIT post</td>
+            <td>"Your CIT return is due 30 September" · Published 1 July (as planned)</td>
+            <td><span style="color:#4ADE80;">Published</span></td>
+          </tr>
+          <tr>
+            <td>Responses received</td>
+            <td>None logged in Notion for Joe Karam, Jane Bou Jaoude, Chinmay Shah sequences</td>
+            <td><span style="color:#F87171;">None logged</span></td>
+          </tr>
+          <tr>
+            <td>Temperature changes</td>
+            <td>Jane Bou Jaoude → Hot (8/10) · Chinmay Shah → Hot (8/10)</td>
+            <td><span style="color:#FBB369;">Updated</span></td>
+          </tr>
+          <tr>
+            <td>Richemont / Cartier</td>
+            <td>Discovery call 29 Jun — Mohaina managing directly. Outcome pending log.</td>
+            <td><span style="color:#FBB369;">Pending</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer reminder -->
+  <div class="footer">
+    <strong>Reminder:</strong> All sequences require Mohaina's approval before first contact on prospects scoring 9 or 10.
+    <div class="footer-meta">
+      BPOAS · Raihana Daily BD Brief · Auto-generated Wed 2 July 2026 · 07:30 UAE (GST, UTC+4)
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
