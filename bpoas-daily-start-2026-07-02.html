@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Thursday 2 July 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0A0A0A; color: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; max-width: 900px; margin: 0 auto; }
+
+  /* HERO CARD */
+  .hero { background: linear-gradient(135deg, #120508 0%, #0D0D0D 60%, #0A0F0A 100%); border: 1px solid rgba(232,41,76,0.3); border-radius: 14px; padding: 28px; margin-bottom: 24px; }
+  .hero-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
+  .hero-title { font-size: 20px; font-weight: 700; color: #FFFFFF; }
+  .hero-date { font-size: 13px; color: #999999; margin-top: 4px; }
+  .hero-run-type { background: rgba(232,41,76,0.15); border: 1px solid rgba(232,41,76,0.3); border-radius: 6px; padding: 4px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #E8294C; }
+  .revenue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 20px; }
+  .rev-box { background: rgba(255,255,255,0.04); border: 1px solid #2A2A2A; border-radius: 8px; padding: 14px 16px; }
+  .rev-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #666666; }
+  .rev-value { font-size: 22px; font-weight: 700; color: #FFFFFF; margin-top: 4px; }
+  .rev-value.red { color: #E8294C; }
+  .rev-value.amber { color: #F59E0B; }
+  .rev-value.green { color: #22C55E; }
+  .rev-sub { font-size: 10px; color: #555555; margin-top: 3px; }
+  .status-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 20px; margin-top: 8px; }
+  .status-amber { background: rgba(245,158,11,0.15); color: #F59E0B; border: 1px solid rgba(245,158,11,0.3); }
+  .stale-note { margin-top: 14px; font-size: 11px; color: #555; background: rgba(255,255,255,0.03); border-radius: 6px; padding: 8px 12px; border-left: 3px solid #2A2A2A; }
+
+  /* CARDS */
+  .card { background: #111111; border: 1px solid #222222; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+  .card-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #E8294C; margin-bottom: 16px; }
+  .card.flags { border-color: rgba(232,41,76,0.3); background: #0F0808; }
+
+  /* RUN LOG */
+  .run-row { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid #1A1A1A; }
+  .run-row:last-child { border-bottom: none; }
+  .run-icon { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .run-icon.green { background: #22C55E; }
+  .run-icon.gray { background: #444444; }
+  .run-icon.red { background: #E8294C; }
+  .run-step { font-size: 13px; color: #CCCCCC; flex: 1; }
+  .run-step strong { color: #FFFFFF; }
+  .run-status { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; }
+  .run-status.complete { color: #22C55E; }
+  .run-status.skipped { color: #555555; }
+  .run-status.pending { color: #F59E0B; }
+  .run-file { font-size: 11px; color: #444444; margin-top: 2px; }
+
+  /* FLAGS */
+  .flag-item { background: rgba(232,41,76,0.06); border: 1px solid rgba(232,41,76,0.2); border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+  .flag-item.amber { background: rgba(245,158,11,0.06); border-color: rgba(245,158,11,0.2); }
+  .flag-item.green { background: rgba(34,197,94,0.06); border-color: rgba(34,197,94,0.2); }
+  .flag-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .flag-cat { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #E8294C; }
+  .flag-cat.amber { color: #F59E0B; }
+  .flag-cat.green { color: #22C55E; }
+  .flag-title { font-size: 13px; font-weight: 600; color: #FFFFFF; }
+  .flag-why { font-size: 12px; color: #AAAAAA; margin-top: 4px; }
+  .flag-action { font-size: 12px; color: #E8294C; margin-top: 6px; font-weight: 600; }
+  .flag-action.amber { color: #F59E0B; }
+  .flag-action.green { color: #22C55E; }
+
+  /* POST CARD */
+  .post-text { background: #0F0F0F; border: 1px solid #2A2A2A; border-radius: 8px; padding: 20px; font-size: 13.5px; line-height: 1.9; color: #E0E0E0; white-space: pre-wrap; font-family: 'Georgia', 'Times New Roman', serif; }
+  .post-hook { background: rgba(232,41,76,0.12); border-left: 3px solid #E8294C; padding: 2px 6px; }
+  .post-cta { font-weight: 700; color: #FFFFFF; }
+
+  /* QUICK LINKS */
+  .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+  .link-box { background: #1A1A1A; border: 1px solid #2A2A2A; border-radius: 8px; padding: 12px 14px; text-decoration: none; color: #CCCCCC; display: block; transition: border-color 0.2s; }
+  .link-box:hover { border-color: #E8294C; color: #FFFFFF; }
+  .link-box .link-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #555555; margin-bottom: 4px; font-weight: 700; }
+  .link-box .link-name { font-size: 13px; font-weight: 600; }
+  .link-box .link-status { font-size: 11px; margin-top: 4px; }
+  .link-status.done { color: #22C55E; }
+  .link-status.skip { color: #555555; }
+  .link-status.pending { color: #F59E0B; }
+
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 2px 7px; border-radius: 4px; }
+  .badge-red { background: rgba(232,41,76,0.2); color: #E8294C; border: 1px solid rgba(232,41,76,0.4); }
+  .badge-amber { background: rgba(245,158,11,0.15); color: #F59E0B; border: 1px solid rgba(245,158,11,0.3); }
+  .badge-green { background: rgba(34,197,94,0.15); color: #22C55E; border: 1px solid rgba(34,197,94,0.3); }
+  .badge-gray { background: rgba(255,255,255,0.08); color: #777777; border: 1px solid #333333; }
+
+  .divider { height: 1px; background: #1E1E1E; margin: 16px 0; }
+  .note { font-size: 12px; color: #555555; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     HERO CARD — Revenue Pulse
+════════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-header">
+    <div>
+      <div class="hero-title">BPOAS Daily Start · Thursday, 2 July 2026</div>
+      <div class="hero-date">Generated 07:00 UAE (GST, UTC+4) · Lean Run Day (Steps 1 + 4)</div>
+    </div>
+    <div class="hero-run-type">Lean Run</div>
+  </div>
+
+  <div class="revenue-grid">
+    <div class="rev-box">
+      <div class="rev-label">MTD Revenue Received</div>
+      <div class="rev-value amber">— AED</div>
+      <div class="rev-sub">Zoho Analytics sync failed · data unavailable</div>
+    </div>
+    <div class="rev-box">
+      <div class="rev-label">Monthly Target</div>
+      <div class="rev-value">— AED</div>
+      <div class="rev-sub">Set in CFO brief · Mondays only</div>
+    </div>
+    <div class="rev-box">
+      <div class="rev-label">Gap to Target</div>
+      <div class="rev-value">— AED</div>
+      <div class="rev-sub">Not calculable until sync restored</div>
+    </div>
+    <div class="rev-box">
+      <div class="rev-label">Days Remaining in July</div>
+      <div class="rev-value">29</div>
+      <div class="rev-sub">As of 2 July 2026</div>
+    </div>
+    <div class="rev-box">
+      <div class="rev-label">Emirates NBD Balance</div>
+      <div class="rev-value" style="font-size:18px;">31,423</div>
+      <div class="rev-sub">AED · account ending 8401 · 02 Jul 01:40 AM</div>
+    </div>
+  </div>
+
+  <div class="status-pill status-amber">
+    ⚠ Revenue Pulse: Data Unavailable — Zoho Analytics sync has been failing 24h+
+  </div>
+
+  <div class="stale-note">
+    Revenue data last updated: Monday, 30 June 2026 (CFO brief runs Mondays only). Today's figures unavailable due to Zoho Finance → Zoho Analytics sync failure. Fix: restore deleted fields in Zoho Finance, then resave integration in Zoho Analytics. Daily run rate cannot be calculated until resolved. See Flags below.
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     RUN LOG CARD
+════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-title">Run Log · 2 July 2026</div>
+
+  <div class="run-row">
+    <div class="run-icon green"></div>
+    <div>
+      <div class="run-step"><strong>Step 1 · COO Morning Brief</strong></div>
+      <div class="run-file">→ coo-brief-2026-07-02.html</div>
+    </div>
+    <div class="run-status complete">Complete</div>
+  </div>
+
+  <div class="run-row">
+    <div class="run-icon gray"></div>
+    <div>
+      <div class="run-step"><strong>Step 2 · CFO Weekly Revenue</strong></div>
+      <div class="run-file">→ Skipped — CFO brief runs Mondays only.</div>
+    </div>
+    <div class="run-status skipped">Skipped</div>
+  </div>
+
+  <div class="run-row">
+    <div class="run-icon gray"></div>
+    <div>
+      <div class="run-step"><strong>Step 3 · CRO Weekly Prospects</strong></div>
+      <div class="run-file">→ Skipped — CRO brief runs Mondays only.</div>
+    </div>
+    <div class="run-status skipped">Skipped</div>
+  </div>
+
+  <div class="run-row">
+    <div class="run-icon green"></div>
+    <div>
+      <div class="run-step"><strong>Step 4 · CMO Daily Post</strong></div>
+      <div class="run-file">→ cmo-post-2026-07-02.html · Approval email sent to Mohaina</div>
+    </div>
+    <div class="run-status pending">Pending Approval</div>
+  </div>
+
+  <div class="run-row">
+    <div class="run-icon gray"></div>
+    <div>
+      <div class="run-step"><strong>Step 5 · Content Calendar</strong></div>
+      <div class="run-file">→ Skipped — Content calendar runs Mondays only.</div>
+    </div>
+    <div class="run-status skipped">Skipped</div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="note">Connectors active: Microsoft 365 (Outlook Calendar + Email) · Notion. Connector offline: Zoho Books (Analytics sync failure, 24h+). Apify scraper: down as of Monday brief.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     FLAGS FOR MOHAINA — Priority Sorted
+════════════════════════════════════════════════ -->
+<div class="card flags">
+  <div class="card-title">Flags for Mohaina · Sorted: Compliance · Cash · Client · BD</div>
+
+  <!-- COMPLIANCE -->
+  <div class="flag-item">
+    <div class="flag-header">
+      <span class="flag-cat">Compliance · CT</span>
+    </div>
+    <div class="flag-title">Brilliant Telecom LLC — FY 2025 Audit &amp; CIT Return in Progress [FIN247591]</div>
+    <div class="flag-why">Client (Ekaterina Garshina, CFO) has submitted management report and audit documents. She confirmed the only remaining step is receiving partner balance confirmation letters — she has already sent these to her partners and expects responses. Cristina confirmed this is correct and is reviewing documents. Audit proposal: AED 20,000 (revised for CT scope). Client revenue: AED 142M. This is an active CIT engagement with a CPA-level deliverable due.</div>
+    <div class="flag-action">Next step: Ensure Cristina follows up once balance confirmation letters arrive. Flag to Mohaina if any document gaps emerge. Audit completion is the deliverable.</div>
+  </div>
+
+  <!-- TECH / DATA -->
+  <div class="flag-item">
+    <div class="flag-header">
+      <span class="flag-cat">Tech · Data</span>
+    </div>
+    <div class="flag-title">Zoho Analytics Sync Failure — Revenue Data Blind Spot</div>
+    <div class="flag-why">The Zoho Finance → Zoho Books Analytics sync has been failing for 24+ hours (as of midnight 2 July). Root cause: dependent fields were deleted in Zoho Finance. CFO dashboards and revenue reporting are currently stale. This affects the Hero Card revenue figure in every daily brief until fixed.</div>
+    <div class="flag-action">Fix: Go to Zoho Finance → restore the deleted fields. Then open Zoho Analytics → edit the integration setup → resave. Contact support@zohoanalytics.com if fields cannot be identified. Do this today — CFO data should not be dark going into the weekend.</div>
+  </div>
+
+  <!-- CASH -->
+  <div class="flag-item amber">
+    <div class="flag-header">
+      <span class="flag-cat amber">Cash</span>
+    </div>
+    <div class="flag-title">Zoho Reseller Commission — AED 5,215.38 Sitting Uncollected</div>
+    <div class="flag-why">Zoho UAE commission of AED 5,215.38 is ready in the Zoho partner portal. Received email confirmation on 1 July 2026.</div>
+    <div class="flag-action amber">Action: Log in to Zoho Partner portal → Commission dashboard → click "Transfer to Bank." Takes 2 minutes. Collect it today.</div>
+  </div>
+
+  <!-- SUBSCRIPTION -->
+  <div class="flag-item amber">
+    <div class="flag-header">
+      <span class="flag-cat amber">Subscription</span>
+    </div>
+    <div class="flag-title">Loom Business + AI — About to Deactivate</div>
+    <div class="flag-why">Payment details not on file. Subscription will be deactivated if not updated. Loom is a likely content/client communication tool — deactivation may affect team workflow.</div>
+    <div class="flag-action amber">Action: Decide keep or cancel. If keeping — add payment method to Loom account. If cancelling — confirm no active workflows depend on it before letting it lapse.</div>
+  </div>
+
+  <!-- CLIENT -->
+  <div class="flag-item amber">
+    <div class="flag-header">
+      <span class="flag-cat amber">Client</span>
+    </div>
+    <div class="flag-title">Menastar DMCC New — Travelfusion tfPay Balance Low (AED 2,898.94)</div>
+    <div class="flag-why">Travelfusion sent a warning alert requesting an immediate top-up to avoid service disruption. Michelle Pacis (m.pacis) was also copied. This may be a client BPOAS manages accounts for.</div>
+    <div class="flag-action amber">Action: Confirm with Michelle Pacis — is she handling this? If not, escalate to Menastar DMCC team to top up their tfPay balance immediately.</div>
+  </div>
+
+  <!-- BD -->
+  <div class="flag-item amber">
+    <div class="flag-header">
+      <span class="flag-cat amber">BD · High Value</span>
+    </div>
+    <div class="flag-title">Richemont / Cartier (Ghazal Al Safadi) — Call Outcome Not Logged · 3 Days Later</div>
+    <div class="flag-why">Discovery call was Monday 29 June (13:30 UAE). Score: 9/10. Mohaina managing directly. No outcome logged in Notion and no follow-up email found in inbox. Three days without a next step on a 9/10 prospect is a risk.</div>
+    <div class="flag-action">Action: Log the call outcome in Notion today. If call went well — send proposal or schedule next step. If deal is in play — confirm timeline. Do not let this go into the weekend without a logged status.</div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-header">
+      <span class="flag-cat amber">BD · Stale ELs</span>
+    </div>
+    <div class="flag-title">2 Engagement Letters Going Stale — Raihana's Follow-Up Needed</div>
+    <div class="flag-why">GL Middle East / Flow Solutions / Wicked Tents (Nandhu): EL now 15 days pending. The Concept Lab (Mr. George): EL now 14 days pending. Both were scheduled for Raihana to chase on Monday. Outcome unknown — no inbox activity found.</div>
+    <div class="flag-action">Action: Check with Raihana on both calls today. If no response after 15 days, consider a different outreach approach or Mohaina stepping in directly on Nandhu (higher potential — 3 entities).</div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="flag-item amber">
+    <div class="flag-header">
+      <span class="flag-cat amber">Content</span>
+    </div>
+    <div class="flag-title">Today's Post — AED 18,000 Figure Needs Verification Before Publishing</div>
+    <div class="flag-why">The Thursday contrarian post cites AED 18,000 as a reconstruction fee for 3 years of accounts. This figure appears in Mohaina's own voice documents and is likely accurate — but it needs explicit sign-off before Rei publishes it publicly. Flagged since Monday's brief.</div>
+    <div class="flag-action">Action: Verify AED 18,000 figure → reply to approval email → post clears for Rei. Approve before 08:15 UAE to hit recommended 08:30 publishing window.</div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     TODAY'S LINKEDIN POST CARD (inline)
+════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-title">Today's LinkedIn Post · Copy-Ready</div>
+
+  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+    <div style="font-size:12px; color:#888;">
+      <strong style="color:#FFFFFF;">Pillar:</strong> The True Cost of Cheap Accounting &nbsp;·&nbsp;
+      <strong style="color:#FFFFFF;">Format:</strong> Contrarian Text Post &nbsp;·&nbsp;
+      <strong style="color:#FFFFFF;">Intent:</strong> Engagement
+    </div>
+    <div><span class="badge badge-green">4/4 PASS</span> <span class="badge badge-amber">Pending Approval</span></div>
+  </div>
+
+  <div class="post-text"><span class="post-hook">"But a proper firm is too expensive."
+I hear this every week.
+It is backwards.</span>
+
+The cheapest accountant is not the one with the lowest fee. It is the one whose mistakes cost you the least to fix.
+
+Here is what cheap accounting actually costs:
+
+Books nobody can stand behind. When your CT return is due and the numbers do not reconcile, you are not saving the fee. You are paying someone else to reconstruct the year.
+
+Penalties you did not have to pay. A missed tax invoice. A misclassified expense. VAT input claimed on something that does not qualify. Not dramatic failures. Small errors that compound quietly until the FTA asks for explanations.
+
+Decisions made on wrong numbers. You hired cheap accounting to run your business. But if the P&L you are reading is not accurate, every decision you make from it carries the same problem.
+
+I have seen reconstruction fees of AED 18,000 for three years of accounts. I have seen businesses pay more in FTA penalties than they spent on three years of the cheap firm. I have seen owners walk into their first CT filing with books that had to be rebuilt from bank statements.
+
+The cost was never the accounting fee.
+It was what happened when the accounting was wrong.
+
+<span class="post-cta">Have you ever paid more to fix cheap work than doing it right would have cost?
+Tell me below.</span></div>
+
+  <div style="margin-top:12px; background:rgba(232,41,76,0.08); border:1px solid rgba(232,41,76,0.2); border-radius:6px; padding:10px 12px; font-size:12px; color:#CCCCCC;">
+    <span class="badge badge-red">Verify Before Publishing</span> AED 18,000 reconstruction fee cited — confirm this figure is accurate before approving for Rei to publish.
+  </div>
+
+  <div style="margin-top:12px; font-size:12px; color:#555;">
+    <strong style="color:#FFFFFF;">Recommended publish time:</strong> 08:30 UAE &nbsp;·&nbsp;
+    <strong style="color:#FFFFFF;">Approval timeout:</strong> 08:15 UAE (then hold + notify Rei) &nbsp;·&nbsp;
+    <strong style="color:#FFFFFF;">For Rei:</strong> reinald.onella1@gmail.com
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     QUICK LINKS CARD
+════════════════════════════════════════════════ -->
+<div class="card">
+  <div class="card-title">Quick Links</div>
+  <div class="link-grid">
+    <a class="link-box" href="coo-brief-2026-07-02.html">
+      <div class="link-label">Step 1</div>
+      <div class="link-name">COO Morning Brief</div>
+      <div class="link-status done">Complete · coo-brief-2026-07-02.html</div>
+    </a>
+    <a class="link-box" href="cmo-post-2026-07-02.html">
+      <div class="link-label">Step 4</div>
+      <div class="link-name">CMO Daily Post</div>
+      <div class="link-status pending">Pending Approval · cmo-post-2026-07-02.html</div>
+    </a>
+    <div class="link-box" style="opacity:0.4; cursor:default;">
+      <div class="link-label">Step 2 · Mondays Only</div>
+      <div class="link-name">CFO Weekly Revenue</div>
+      <div class="link-status skip">Skipped today</div>
+    </div>
+    <div class="link-box" style="opacity:0.4; cursor:default;">
+      <div class="link-label">Step 3 · Mondays Only</div>
+      <div class="link-name">CRO Weekly Prospects</div>
+      <div class="link-status skip">Skipped today</div>
+    </div>
+    <div class="link-box" style="opacity:0.4; cursor:default;">
+      <div class="link-label">Step 5 · Mondays Only</div>
+      <div class="link-name">Content Calendar</div>
+      <div class="link-status skip">Skipped today</div>
+    </div>
+    <a class="link-box" href="cfo-report-2026-06-26.html">
+      <div class="link-label">Last CFO Report</div>
+      <div class="link-name">CFO Report · 26 Jun</div>
+      <div class="link-status skip">Last available · cfo-report-2026-06-26.html</div>
+    </a>
+  </div>
+</div>
+
+<div style="margin-top:32px; padding-top:20px; border-top: 1px solid #1A1A1A; font-size:11px; color:#333; text-align:center; line-height:1.8;">
+  BPOAS Daily Start · Thursday 2 July 2026 · 07:00 UAE (GST, UTC+4)<br>
+  Lean Run · Steps 1 + 4 complete · Steps 2, 3, 5 skipped (Monday-only)<br>
+  BPOAS · Mohaina Asira, CPA · Managing Partner
+</div>
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · Thursday 2 July 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0A0A0A; color: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; }
+  .header { border-left: 4px solid #E8294C; padding-left: 16px; margin-bottom: 32px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #FFFFFF; }
+  .header p { color: #999999; font-size: 13px; margin-top: 4px; }
+  .card { background: #111111; border: 1px solid #222222; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+  .card-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #E8294C; margin-bottom: 16px; }
+  .section-title { font-size: 13px; font-weight: 600; color: #FFFFFF; margin-bottom: 8px; margin-top: 16px; }
+  .section-title:first-child { margin-top: 0; }
+  .event { background: #1A1A1A; border-radius: 6px; padding: 12px 14px; margin-bottom: 8px; display: flex; gap: 14px; align-items: flex-start; }
+  .event-time { color: #E8294C; font-weight: 700; font-size: 13px; min-width: 100px; }
+  .event-body { flex: 1; }
+  .event-title { font-weight: 600; color: #FFFFFF; }
+  .event-sub { color: #999999; font-size: 12px; margin-top: 2px; }
+  .email-item { border-left: 3px solid #333333; padding: 10px 14px; margin-bottom: 8px; border-radius: 0 6px 6px 0; background: #151515; }
+  .email-item.flag { border-left-color: #E8294C; }
+  .email-item.amber { border-left-color: #F59E0B; }
+  .email-item.green { border-left-color: #22C55E; }
+  .email-subject { font-weight: 600; color: #FFFFFF; font-size: 13px; }
+  .email-from { color: #888888; font-size: 11px; margin-top: 2px; }
+  .email-summary { color: #CCCCCC; font-size: 12px; margin-top: 6px; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 2px 7px; border-radius: 4px; margin-right: 6px; }
+  .badge-red { background: rgba(232,41,76,0.2); color: #E8294C; border: 1px solid rgba(232,41,76,0.4); }
+  .badge-amber { background: rgba(245,158,11,0.15); color: #F59E0B; border: 1px solid rgba(245,158,11,0.3); }
+  .badge-green { background: rgba(34,197,94,0.15); color: #22C55E; border: 1px solid rgba(34,197,94,0.3); }
+  .badge-blue { background: rgba(59,130,246,0.15); color: #60A5FA; border: 1px solid rgba(59,130,246,0.3); }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  th { text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #666666; padding: 6px 10px; border-bottom: 1px solid #222222; }
+  td { font-size: 12px; color: #CCCCCC; padding: 8px 10px; border-bottom: 1px solid #1A1A1A; vertical-align: top; }
+  td:first-child { color: #FFFFFF; font-weight: 500; }
+  .score { font-weight: 700; }
+  .score-9, .score-10 { color: #E8294C; }
+  .score-8 { color: #F59E0B; }
+  .score-6, .score-7 { color: #60A5FA; }
+  .task-item { display: flex; align-items: flex-start; gap: 8px; padding: 7px 0; border-bottom: 1px solid #1A1A1A; }
+  .task-item:last-child { border-bottom: none; }
+  .task-dot { width: 7px; height: 7px; border-radius: 50%; background: #333333; margin-top: 5px; flex-shrink: 0; }
+  .task-dot.red { background: #E8294C; }
+  .task-dot.amber { background: #F59E0B; }
+  .task-text { color: #CCCCCC; font-size: 13px; }
+  .task-text strong { color: #FFFFFF; }
+  .metric-box { background: #1A1A1A; border-radius: 8px; padding: 14px 16px; }
+  .metric-label { font-size: 11px; color: #666666; text-transform: uppercase; letter-spacing: 1px; }
+  .metric-value { font-size: 24px; font-weight: 700; color: #FFFFFF; margin-top: 4px; }
+  .metric-sub { font-size: 11px; color: #666666; margin-top: 4px; }
+  .flag-banner { background: rgba(232,41,76,0.08); border: 1px solid rgba(232,41,76,0.25); border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; }
+  .flag-banner .flag-tag { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #E8294C; letter-spacing: 1px; }
+  .flag-banner .flag-title { font-size: 13px; font-weight: 600; color: #FFFFFF; margin: 4px 0; }
+  .flag-banner .flag-why { font-size: 12px; color: #AAAAAA; }
+  .flag-banner .flag-action { font-size: 12px; color: #E8294C; margin-top: 6px; font-weight: 600; }
+  .divider { height: 1px; background: #1E1E1E; margin: 14px 0; }
+  .note { font-size: 12px; color: #666666; font-style: italic; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>COO Morning Brief</h1>
+  <p>Thursday · 2 July 2026 · 07:00 UAE (GST, UTC+4) · BPOAS Daily Start</p>
+</div>
+
+<!-- TODAY'S SCHEDULE -->
+<div class="card">
+  <div class="card-title">Today's Schedule</div>
+
+  <div class="event">
+    <div class="event-time">12:00–15:00</div>
+    <div class="event-body">
+      <div class="event-title">10X AI Bonus Session <span class="badge badge-blue">External</span></div>
+      <div class="event-sub">Daniel Paul AI · dubai-time: 12:00 PM – 3:00 PM GST · Organiser: admin@danielpaul.ai</div>
+      <div class="event-sub" style="margin-top:4px;">Final bonus session of the 10X AI Accelerator programme. Calendar shows as updated event. No client-facing calls during this window.</div>
+    </div>
+  </div>
+
+  <div class="note">No other calendar events found for today. Morning is clear for client work, BD follow-ups, and post approval (see CMO below).</div>
+</div>
+
+<!-- INBOX PRIORITIES -->
+<div class="card">
+  <div class="card-title">Inbox Priorities · Last 24–48 Hours</div>
+
+  <div class="email-item flag">
+    <div class="email-subject"><span class="badge badge-red">CIT · Audit</span> Brilliant Telecom LLC — FY 2025 Audit Progress [FIN247591]</div>
+    <div class="email-from">billing@brilliantholdings.com (Ekaterina Garshina, CFO) → c.suyom, r.asira · CC: Mohaina · 1 Jul 2026 12:02 PM</div>
+    <div class="email-summary">Ekaterina confirmed no objections to balance confirmation letters being the final audit requirement. Client is already collecting partner confirmations. Cristina replied: team is reviewing documents and will flag if anything else is needed. Audit proposal: AED 20,000 (revised for CT scope), revenue of client AED 142M — high-risk category. <strong>Status: Progressing. Final step = partner confirmation letters arriving.</strong></div>
+  </div>
+
+  <div class="email-item flag">
+    <div class="email-subject"><span class="badge badge-red">Tech · Data</span> Zoho Analytics — Zoho Finance Sync Failure (24h+)</div>
+    <div class="email-from">support@zohoanalytics.com → Mohaina · 2 Jul 2026 00:00 AM</div>
+    <div class="email-summary">Zoho Finance ↔ Zoho Books Analytics sync has been failing for 24+ hours. Root cause: dependent fields deleted in Zoho Finance. Fix: restore those fields in Zoho Finance, then edit + resave the integration in Zoho Analytics. <strong>CFO dashboards and revenue data may be stale until fixed.</strong></div>
+  </div>
+
+  <div class="email-item amber">
+    <div class="email-subject"><span class="badge badge-amber">Subscription</span> Loom Business + AI — Subscription About to Deactivate</div>
+    <div class="email-from">noreply@po.atlassian.net → Mohaina · 1 Jul 2026 22:46 PM</div>
+    <div class="email-summary">Loom Monthly Business + AI (USD Default). Payment details not on file. Subscription will be deactivated if not updated. Action: add payment method to Loom account or decide to cancel.</div>
+  </div>
+
+  <div class="email-item amber">
+    <div class="email-subject"><span class="badge badge-amber">Client</span> Travelfusion tfPay Warning — Menastar DMCC New · AED 2,898.94 Balance</div>
+    <div class="email-from">noreply@travelfusion.com → Mohaina + m.pacis · 1 Jul 2026 13:25 PM</div>
+    <div class="email-summary">Menastar DMCC New team's tfPay AED balance is AED 2,898.94. Travelfusion requires an immediate top-up to the suggested level. Michelle Pacis also CC'd — she may already be handling. Confirm action with Michelle.</div>
+  </div>
+
+  <div class="email-item green">
+    <div class="email-subject"><span class="badge badge-green">Cash</span> Zoho Reseller Commission — AED 5,215.38 Available</div>
+    <div class="email-from">partners@zohostore.com → Mohaina · 1 Jul 2026 11:49 AM</div>
+    <div class="email-summary">Zoho UAE commission of AED 5,215.38 is ready to transfer to your bank. Click "Transfer to Bank" in the Zoho partner Commission dashboard to initiate the wire.</div>
+  </div>
+
+  <div class="email-item green">
+    <div class="email-subject"><span class="badge badge-green">Invoice</span> INV-2026-000185 Approved in Zoho Books</div>
+    <div class="email-from">message-service@sender.zohobooks.com → Mohaina · 1 Jul 2026 12:44 PM</div>
+    <div class="email-summary">Invoice INV-2026-000185 approved by Mohaina Asira. Ready to send to client if not already sent.</div>
+  </div>
+
+  <div class="email-item">
+    <div class="email-subject">e& eBill June 2026 — AED 2,452.49 Due by 15 July</div>
+    <div class="email-from">eStatement@eand.com → Mohaina · 1 Jul 2026 12:59 PM</div>
+    <div class="email-summary">e& (Etisalat) statement for 10 business accounts. Bill period: 1–30 June 2026. Total: AED 2,452.49. Pay by 15 July 2026.</div>
+  </div>
+
+  <div class="email-item">
+    <div class="email-subject">Emirates NBD Transaction — AED 300 Debited (Account ending 8401)</div>
+    <div class="email-from">alert@emiratesnbd.com → Mohaina · 2 Jul 2026 01:40 AM</div>
+    <div class="email-summary">AED 300 debited: Non-Maintenance of Balance Fee June 2026. Available balance now AED 31,423.04.</div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="note">Not flagged: Marketing emails (AXD Space, GoDaddy, LDN Leadership cert, Notion), automated notifications (Google Drive share, Link verification code), AMEX VAT invoice (routine billing).</div>
+</div>
+
+<!-- TASKS & DEADLINES -->
+<div class="card">
+  <div class="card-title">Tasks &amp; Deadlines — Carried from Monday Brief</div>
+
+  <div class="section-title">Overdue / Urgent</div>
+
+  <div class="task-item">
+    <div class="task-dot red"></div>
+    <div class="task-text"><strong>DMCC FZCO name change check</strong> — Final day was 30 June. 2 days past. Confirm BPOAS client list is clean. If any client missed the window, escalate immediately.</div>
+  </div>
+  <div class="task-item">
+    <div class="task-dot red"></div>
+    <div class="task-text"><strong>Richemont/Cartier (Ghazal) — call outcome</strong> — Call was Monday 29 June. No outcome logged in Notion. 3 days without follow-up. Needs a next step today: proposal, timeline, or close.</div>
+  </div>
+  <div class="task-item">
+    <div class="task-dot red"></div>
+    <div class="task-text"><strong>Nandhu · GL Middle East / Flow Solutions / Wicked Tents</strong> — EL now 15 days pending (was 12 days on Monday). Raihana was asked to call on Monday. Confirm outcome or re-escalate.</div>
+  </div>
+  <div class="task-item">
+    <div class="task-dot red"></div>
+    <div class="task-text"><strong>Mr. George · The Concept Lab</strong> — EL now 14 days pending (was 11 days on Monday). Raihana was asked to follow up Monday. Status unknown.</div>
+  </div>
+
+  <div class="section-title" style="margin-top:14px;">This Week</div>
+
+  <div class="task-item">
+    <div class="task-dot amber"></div>
+    <div class="task-text"><strong>MCM Products · Joanne Oquendo</strong> — KYC active. Trade License document outstanding. Raihana to chase. Do not upload to CRM until Mohaina confirms EL execution.</div>
+  </div>
+  <div class="task-item">
+    <div class="task-dot amber"></div>
+    <div class="task-text"><strong>Almosafer claim #2010754</strong> — Escalation decision with Michelle Pacis. No update in inbox. Confirm status.</div>
+  </div>
+  <div class="task-item">
+    <div class="task-dot amber"></div>
+    <div class="task-text"><strong>JC Premiere Q1 VAT</strong> — Confirm FTA portal status with Recyline.</div>
+  </div>
+  <div class="task-item">
+    <div class="task-dot amber"></div>
+    <div class="task-text"><strong>DIFC Q1 VAT</strong> — Follow up with client. No inbox update found.</div>
+  </div>
+  <div class="task-item">
+    <div class="task-dot amber"></div>
+    <div class="task-text"><strong>Middletel — board resolutions</strong> — Kind reminder to Camille. Pending from Monday.</div>
+  </div>
+  <div class="task-item">
+    <div class="task-dot amber"></div>
+    <div class="task-text"><strong>Today's LinkedIn post approval</strong> — Contrarian post (Thu). ⚠️ Verify AED 18,000 figure before approving. See CMO brief.</div>
+  </div>
+</div>
+
+<!-- BD PIPELINE PULSE -->
+<div class="card">
+  <div class="card-title">BD Pipeline Pulse · incl. Raihana's Queue</div>
+
+  <table>
+    <tr>
+      <th>Prospect / Company</th>
+      <th>Score</th>
+      <th>Status</th>
+      <th>Next Action</th>
+    </tr>
+    <tr>
+      <td>Richemont / Cartier<br><span style="color:#666;font-size:11px;">Ghazal Al Safadi</span></td>
+      <td class="score score-9">9/10</td>
+      <td><span class="badge badge-red">Outcome Unknown</span> Call was 29 Jun</td>
+      <td><strong>Mohaina directly.</strong> Log call outcome today. Move to proposal or close.</td>
+    </tr>
+    <tr>
+      <td>MCM Products Middle East<br><span style="color:#666;font-size:11px;">Joanne Oquendo</span></td>
+      <td class="score score-8">8/10</td>
+      <td><span class="badge badge-amber">KYC Active</span> Trade License outstanding</td>
+      <td><strong>Raihana:</strong> Chase Trade License doc. No CRM upload until confirmed.</td>
+    </tr>
+    <tr>
+      <td>GL Middle East / Flow Solutions / Wicked Tents<br><span style="color:#666;font-size:11px;">Nandhu</span></td>
+      <td class="score score-6">6/10</td>
+      <td><span class="badge badge-red">EL Stale · 15 Days</span></td>
+      <td><strong>Raihana:</strong> Escalate call today. Use approved DM sequence.</td>
+    </tr>
+    <tr>
+      <td>The Concept Lab<br><span style="color:#666;font-size:11px;">Mr. George</span></td>
+      <td class="score score-6">6/10</td>
+      <td><span class="badge badge-red">EL Stale · 14 Days</span></td>
+      <td><strong>Raihana:</strong> Follow up today. Use approved DM sequence.</td>
+    </tr>
+  </table>
+
+  <div class="note" style="margin-top:12px;">Apify scraper was down as of Monday brief — no new prospects this week. Focus on converting existing pipeline.</div>
+</div>
+
+<!-- CONTENT SLOT -->
+<div class="card">
+  <div class="card-title">Content Slot — Today's Post</div>
+  <div style="color:#CCCCCC; font-size:13px;">
+    <strong style="color:#FFFFFF;">Pillar:</strong> The True Cost of Cheap Accounting &nbsp;·&nbsp;
+    <strong style="color:#FFFFFF;">Format:</strong> Contrarian Text Post &nbsp;·&nbsp;
+    <strong style="color:#FFFFFF;">Intent:</strong> Engagement
+  </div>
+  <div style="margin-top:10px; color:#CCCCCC; font-size:13px;">
+    <strong style="color:#FFFFFF;">Topic:</strong> "Hiring the cheapest accountant is the most expensive decision a UAE SME makes"
+  </div>
+  <div style="margin-top:8px; background: rgba(232,41,76,0.08); border: 1px solid rgba(232,41,76,0.2); border-radius:6px; padding:10px 12px;">
+    <span class="badge badge-red">Flag</span> <span style="font-size:12px; color:#CCCCCC;">AED 18,000 reconstruction figure cited in post — <strong style="color:#FFFFFF;">verify this number before approving for Rei to publish.</strong></span>
+  </div>
+  <div style="margin-top:8px; color:#888; font-size:12px;">Invisibility Diagnostic: 4/4 PASS · Pre-drafted in Notion · Post ready for Mohaina approval. See cmo-post-2026-07-02.html for full post.</div>
+</div>
+
+<!-- KEY METRIC -->
+<div class="card">
+  <div class="card-title">Key Metric — Account Balance Snapshot</div>
+  <div class="metric-box">
+    <div class="metric-label">Emirates NBD Account (ending 8401) · Available Balance</div>
+    <div class="metric-value">AED 31,423.04</div>
+    <div class="metric-sub">After AED 300 debit (non-maintenance fee, June 2026) · As of 2 Jul 2026 01:40 AM</div>
+  </div>
+  <div style="margin-top:12px; font-size:12px; color:#666;">
+    Revenue run-rate data not available today — Zoho Analytics sync has been failing for 24h+. CFO brief runs Mondays only. Refer to cfo-report-2026-06-26.html for last available revenue data. Fix Zoho sync to restore dashboard visibility.
+  </div>
+</div>
+
+<div style="margin-top:24px; font-size:11px; color:#444; text-align:center;">
+  BPOAS Daily Start · COO Morning Brief · 2 July 2026 · Generated 07:00 UAE
+</div>
+
+</body>
+</html>
