@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your BD Brief for Today · 3 July 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0A0A0A;
+    color: #E0E0E0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .wrapper {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 28px 20px 40px;
+  }
+
+  /* ── Header ── */
+  .header {
+    border-left: 4px solid #E8294C;
+    padding: 18px 22px;
+    background: #111;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 20px;
+  }
+  .header-greeting {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .header-date {
+    font-size: 13px;
+    color: #777;
+  }
+  .header-date strong { color: #E8294C; }
+
+  /* ── Intro banner ── */
+  .intro-banner {
+    background: #0f0f0f;
+    border: 1px solid #1e1e1e;
+    border-left: 3px solid #E8294C;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 18px;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 28px;
+    line-height: 1.55;
+  }
+  .intro-banner strong { color: #E8294C; }
+
+  /* ── Section wrapper ── */
+  .section { margin-bottom: 30px; }
+
+  .section-title {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #E8294C;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #1c1c1c;
+  }
+
+  /* ── Prospect Card ── */
+  .card {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .card:last-child { margin-bottom: 0; }
+
+  .card-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 7px;
+  }
+  .card-identity { flex: 1; min-width: 0; }
+  .card-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .card-company {
+    font-size: 12px;
+    color: #666;
+  }
+
+  .score-pill {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 20px;
+    background: #1a0508;
+    color: #E8294C;
+    border: 1px solid #3a0a14;
+    margin-left: 7px;
+    vertical-align: middle;
+  }
+
+  .card-detail {
+    font-size: 12.5px;
+    color: #999;
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+  .card-detail + .card-detail { margin-top: 4px; }
+  .card-detail strong { color: #ccc; font-weight: 600; }
+
+  /* ── Send badges ── */
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 11px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+  }
+  .badge-yes       { background: #0a2016; color: #4dc97a; border: 1px solid #1a4a30; }
+  .badge-no        { background: #161616; color: #666;    border: 1px solid #2a2a2a; }
+  .badge-pending   { background: #221900; color: #e09b2d; border: 1px solid #4a3500; }
+  .badge-mohaina   { background: #1c0509; color: #E8294C; border: 1px solid #4a0e18; }
+
+  /* ── Overdue block ── */
+  .overdue-card {
+    background: #110608;
+    border: 1px solid #2a0c12;
+    border-left: 3px solid #E8294C;
+    border-radius: 0 10px 10px 0;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .overdue-card:last-child { margin-bottom: 0; }
+
+  .overdue-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 7px;
+  }
+  .overdue-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .overdue-company { font-size: 12px; color: #666; }
+  .overdue-days {
+    font-size: 16px;
+    font-weight: 800;
+    color: #E8294C;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .overdue-days small {
+    display: block;
+    font-size: 10px;
+    font-weight: 400;
+    color: #666;
+    text-align: right;
+  }
+
+  /* amber variant */
+  .overdue-card.amber {
+    background: #120d00;
+    border-color: #3a2800;
+    border-left-color: #e09b2d;
+  }
+  .overdue-card.amber .overdue-days { color: #e09b2d; }
+
+  /* ── Empty state ── */
+  .empty-state {
+    background: #0d0d0d;
+    border: 1px dashed #222;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .empty-state strong { color: #E8294C; }
+
+  /* ── Completed list ── */
+  .completed-list {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .completed-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 11px 16px;
+    border-bottom: 1px solid #161616;
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.5;
+  }
+  .completed-item:last-child { border-bottom: none; }
+  .check { color: #4dc97a; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .completed-item strong { color: #ddd; font-weight: 600; }
+  .hot-tag { color: #E8294C; font-weight: 700; }
+
+  /* ── Approval block ── */
+  .approval-block {
+    background: #110306;
+    border: 1px solid #2a0810;
+    border-left: 3px solid #E8294C;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .approval-block:last-child { margin-bottom: 0; }
+  .approval-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #E8294C;
+    margin-bottom: 4px;
+  }
+  .approval-text { font-size: 13px; color: #bbb; }
+
+  /* ── Reminder footer ── */
+  .reminder {
+    background: #0d0405;
+    border: 1px solid #260810;
+    border-top: 2px solid #E8294C;
+    border-radius: 8px;
+    padding: 16px 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 8px;
+    line-height: 1.6;
+  }
+  .reminder strong { color: #E8294C; }
+
+  /* ── Page footer ── */
+  .page-footer {
+    text-align: center;
+    font-size: 11px;
+    color: #333;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #161616;
+  }
+  .page-footer a { color: #555; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- ── Header ── -->
+  <div class="header">
+    <div class="header-greeting">Good morning, Raihana.</div>
+    <div class="header-date">BD Brief &nbsp;·&nbsp; <strong>Thursday, 3 July 2026</strong> &nbsp;·&nbsp; 07:30 UAE</div>
+  </div>
+
+  <!-- ── Intro ── -->
+  <div class="intro-banner">
+    Here is your prospect queue and follow-up list for today.
+    <strong>All first-contact messages on 9–10 scored prospects require Mohaina's approval before sending.</strong>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 1 · TODAY'S SEND QUEUE
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">1 &nbsp;·&nbsp; Today's Send Queue</div>
+
+    <!-- MCM Products -->
+    <div class="card">
+      <div class="card-row">
+        <div class="card-identity">
+          <div class="card-name">Joanne Oquendo <span class="score-pill">8 / 10</span></div>
+          <div class="card-company">MCM Products Middle East LLC</div>
+        </div>
+        <span class="badge badge-yes">Send Today: Yes</span>
+      </div>
+      <div class="card-detail"><strong>Service:</strong> VAT Compliance Review &amp; Advisory</div>
+      <div class="card-detail"><strong>Message:</strong> EL signing + Trade Licence chase</div>
+      <div class="card-detail"><strong>Action:</strong> Follow up with Joanne on Trade Licence submission and EL signing. Log response in Notion.</div>
+    </div>
+
+    <!-- Brilliant Telecom -->
+    <div class="card">
+      <div class="card-row">
+        <div class="card-identity">
+          <div class="card-name">Brilliant Telecom LLC</div>
+          <div class="card-company">Partner Confirmation Letters — CIT Filing</div>
+        </div>
+        <span class="badge badge-yes">Send Today: Yes</span>
+      </div>
+      <div class="card-detail"><strong>Service:</strong> FY2025 Audit + CIT Filing</div>
+      <div class="card-detail"><strong>Message:</strong> Partner confirmation letter follow-up</div>
+      <div class="card-detail"><strong>Action:</strong> Phone or email each outstanding partner. Report full status to Mohaina by 17:00.</div>
+    </div>
+
+    <!-- GL Middle East / Nandhu -->
+    <div class="card">
+      <div class="card-row">
+        <div class="card-identity">
+          <div class="card-name">Nandhu <span class="score-pill">6 / 10</span></div>
+          <div class="card-company">GL Middle East · Flow Solutions · Wicked Tents (3 entities)</div>
+        </div>
+        <span class="badge badge-pending">Confirm with Mohaina</span>
+      </div>
+      <div class="card-detail"><strong>Service:</strong> Tax Residency Certificate (TRC)</div>
+      <div class="card-detail"><strong>Message:</strong> DM Sequence Message #1 — drafted, approval status unconfirmed</div>
+      <div class="card-detail"><strong>Action:</strong> Call Nandhu today. If no answer, WhatsApp. Confirm with Mohaina whether DM sequence is cleared before sending any written message. Log all outcomes in Notion.</div>
+    </div>
+
+    <!-- The Concept Lab -->
+    <div class="card">
+      <div class="card-row">
+        <div class="card-identity">
+          <div class="card-name">Mr. George <span class="score-pill">6 / 10</span></div>
+          <div class="card-company">The Concept Lab Events &amp; Entertainment FZC</div>
+        </div>
+        <span class="badge badge-no">Send Today: No</span>
+      </div>
+      <div class="card-detail"><strong>Service:</strong> CIT Filing · ⚠️ CIT deadline 30 Sep 2026 — July start is critical</div>
+      <div class="card-detail"><strong>Message:</strong> DM Sequence Message #1 — explicitly awaiting Mohaina's approval</div>
+      <div class="card-detail"><strong>Action:</strong> Remind Mohaina today that approval is needed this week to meet the September deadline.</div>
+    </div>
+
+    <!-- Richemont -->
+    <div class="card">
+      <div class="card-row">
+        <div class="card-identity">
+          <div class="card-name">Chadi Nasreddine <span class="score-pill">9 / 10</span></div>
+          <div class="card-company">Richemont / Cartier</div>
+        </div>
+        <span class="badge badge-mohaina">Mohaina Only</span>
+      </div>
+      <div class="card-detail"><strong>Service:</strong> Bookkeeping Retainer</div>
+      <div class="card-detail"><strong>Status:</strong> Confirmed interest — asking whether new AP/bookkeeping resource falls under existing agreement or needs a separate engagement</div>
+      <div class="card-detail"><strong>Action:</strong> Mohaina to reply today. No outreach from Raihana on 9–10 prospects without explicit approval.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 2 · OVERDUE FOLLOW-UPS
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">2 &nbsp;·&nbsp; Overdue Follow-Ups 🔴</div>
+
+    <div class="overdue-card">
+      <div class="overdue-row">
+        <div>
+          <div class="overdue-name">Nandhu — GL Middle East / Flow Solutions / Wicked Tents</div>
+          <div class="overdue-company">EL sent 18 June 2026 · TRC · 3 entities</div>
+        </div>
+        <div class="overdue-days">15d<small>overdue</small></div>
+      </div>
+      <div class="card-detail"><strong>Recommended action:</strong> Phone call today. If no answer, WhatsApp. Check with Mohaina on DM sequence approval before any written outreach. Log outcome in Notion.</div>
+    </div>
+
+    <div class="overdue-card">
+      <div class="overdue-row">
+        <div>
+          <div class="overdue-name">Mr. George — The Concept Lab</div>
+          <div class="overdue-company">EL sent 19 June 2026 · CIT Filing · Deadline 30 Sep 2026</div>
+        </div>
+        <div class="overdue-days">14d<small>overdue</small></div>
+      </div>
+      <div class="card-detail"><strong>Recommended action:</strong> Escalate to Mohaina — DM Sequence M1 requires her explicit approval. CIT work must start this month. Urge same-day approval decision.</div>
+    </div>
+
+    <div class="overdue-card amber">
+      <div class="overdue-row">
+        <div>
+          <div class="overdue-name">Joanne Oquendo — MCM Products Middle East</div>
+          <div class="overdue-company">Verbal agreement in place · EL unsigned · KYC active · Trade Licence outstanding</div>
+        </div>
+        <div class="overdue-days">~7d<small>EL unsigned</small></div>
+      </div>
+      <div class="card-detail"><strong>Recommended action:</strong> Follow up today on Trade Licence submission and EL signing. Both are required to proceed with onboarding. Log response in Notion.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 3 · LEADS TO VERIFY
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">3 &nbsp;·&nbsp; Leads to Verify 🟡</div>
+    <div class="empty-state">
+      No new leads added to the pipeline this cycle.<br><br>
+      <strong>Note:</strong> Apify LinkedIn scraper has been down for 4 consecutive weeks — no new XLSX generated.<br>
+      Next lead batch pending Mohaina's review once the scraper is restored.
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 4 · COMPLETED THIS WEEK
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">4 &nbsp;·&nbsp; Completed This Week</div>
+    <div class="completed-list">
+      <div class="completed-item">
+        <span class="check">✓</span>
+        <span><strong>DM Sequence drafted</strong> — Nandhu / GL Middle East + Flow Solutions + Wicked Tents (EL follow-up · TRC · 3 entities) — 30 Jun</span>
+      </div>
+      <div class="completed-item">
+        <span class="check">✓</span>
+        <span><strong>DM Sequence drafted</strong> — Mr. George / The Concept Lab (EL follow-up · CIT Filing) — 30 Jun</span>
+      </div>
+      <div class="completed-item">
+        <span class="check">✓</span>
+        <span><strong>DM Sequence drafted</strong> — Jane Bou Jaoude — 26 Jun</span>
+      </div>
+      <div class="completed-item">
+        <span class="check">✓</span>
+        <span><strong>Audit proposals sent</strong> — Gulf Seatech FZC (Cheryl) · Italfood FZ LLC / A&amp;J General Trading / Al Bustan Dairy (FY2025 audits) — this week</span>
+      </div>
+      <div class="completed-item">
+        <span class="check">✓</span>
+        <span><strong>Response &amp; temperature change</strong> — Richemont / Cartier (Chadi Nasreddine) confirmed want to proceed with bookkeeping retainer · Warm → <span class="hot-tag">Hot 🔥</span> · Discovery call completed Mon 29 Jun</span>
+      </div>
+      <div class="completed-item">
+        <span class="check">✓</span>
+        <span><strong>KYC docs received</strong> — Gulf Seatech FZC (Cheryl) responded to audit proposal</span>
+      </div>
+      <div class="completed-item">
+        <span class="check">✓</span>
+        <span><strong>MCM Products Middle East</strong> — KYC active · MFZ docs sent 26 Jun · verbal agreement in place · Trade Licence still outstanding</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PENDING APPROVALS
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">Pending Approvals — Do Not Proceed Without</div>
+    <div class="approval-block">
+      <div class="approval-label">The Concept Lab / Mr. George</div>
+      <div class="approval-text">DM Sequence Message #1 — awaiting Mohaina's explicit approval before Raihana sends</div>
+    </div>
+    <div class="approval-block">
+      <div class="approval-label">GL Middle East / Nandhu cluster</div>
+      <div class="approval-text">DM Sequence approval status — confirm with Mohaina before any written outreach</div>
+    </div>
+  </div>
+
+  <!-- ── Reminder ── -->
+  <div class="reminder">
+    <strong>Reminder:</strong> All sequences require Mohaina's approval before first contact on prospects scoring 9 or 10.
+  </div>
+
+  <!-- ── Footer ── -->
+  <div class="page-footer">
+    BPOAS &nbsp;·&nbsp; Raihana Daily BD Brief &nbsp;·&nbsp; 3 July 2026 &nbsp;·&nbsp; Auto-generated 07:30 UAE
+    &nbsp;·&nbsp; <a href="mailto:r.asira@bposervicegroup.com">r.asira@bposervicegroup.com</a>
+  </div>
+
+</div>
+</body>
+</html>
