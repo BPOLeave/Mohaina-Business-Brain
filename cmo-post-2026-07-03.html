@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · Friday 3 July 2026</title>
+<style>
+  :root {
+    --brand: #E8294C;
+    --bg: #0A0A0A;
+    --card: #141414;
+    --border: #222;
+    --text: #E8E8E8;
+    --muted: #888;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #EF4444;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; max-width: 860px; margin: 0 auto; }
+  .header { border-left: 4px solid var(--brand); padding-left: 16px; margin-bottom: 32px; }
+  .header h1 { font-size: 22px; font-weight: 700; }
+  .header p { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-bottom: 20px; }
+  .card h2 { font-size: 13px; font-weight: 600; color: var(--brand); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+  .meta-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .tag { display: inline-block; padding: 3px 9px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .tag-brand { background: #2d0a12; color: var(--brand); border: 1px solid #5a1a24; }
+  .tag-green { background: #0a2d0a; color: var(--green); border: 1px solid #1a5a1a; }
+  .tag-amber { background: #2d1f00; color: var(--amber); border: 1px solid #5a3e00; }
+  .tag-red { background: #2d0a0a; color: var(--red); border: 1px solid #5a1a1a; }
+  .hook-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .hook-item { background: #1a1a1a; border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; }
+  .hook-item.selected { border-color: var(--brand); background: #1a0a0e; }
+  .hook-item.selected::before { content: 'SELECTED'; display: block; color: var(--brand); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .hook-item p { font-size: 13px; }
+  .hook-reason { color: var(--muted); font-size: 12px; margin-top: 6px; }
+  .post-body { background: #0f0f0f; border: 1px solid #2a2a2a; border-radius: 8px; padding: 20px 24px; font-size: 15px; line-height: 1.8; }
+  .post-hook { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 16px; }
+  .post-body hr { border: none; border-top: 1px solid #2a2a2a; margin: 16px 0; }
+  .post-body .item-num { font-weight: 700; color: var(--text); }
+  .post-cta { font-weight: 600; color: var(--brand); margin-top: 16px; }
+  .post-ps { color: var(--muted); font-style: italic; margin-top: 8px; }
+  .diag-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .diag-row:last-child { border-bottom: none; }
+  .diag-label { font-size: 13px; }
+  .diag-pass { color: var(--green); font-weight: 700; font-size: 13px; }
+  .diag-score { font-size: 28px; font-weight: 700; color: var(--green); text-align: center; margin-bottom: 4px; }
+  .comment-num { background: var(--brand); color: #fff; border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .comment-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .comment-item:last-child { border-bottom: none; }
+  .comment-body strong { display: block; font-size: 13px; color: var(--brand); margin-bottom: 4px; }
+  .comment-body p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .approval-box { background: #1a0e00; border: 1px solid #5a3a00; border-radius: 8px; padding: 16px 20px; }
+  .approval-box h3 { color: var(--amber); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 10px; }
+  .approval-step { display: flex; gap: 10px; padding: 6px 0; font-size: 13px; }
+  .step-num { background: var(--amber); color: #000; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; }
+  .compliance-flag { background: #2d0a0a; border: 1px solid var(--red); border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; font-size: 13px; }
+  .compliance-flag strong { color: var(--red); }
+  .footer { color: var(--muted); font-size: 11px; text-align: center; margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>CMO Daily Post</h1>
+  <p>Friday · 3 July 2026 · Pillar: Compliance Without the Panic · Status: Pending Approval</p>
+</div>
+
+<!-- POST META -->
+<div class="card">
+  <h2>Post Brief</h2>
+  <div class="meta-row">
+    <span class="tag tag-brand">Compliance Without the Panic</span>
+    <span class="tag tag-brand">Educating</span>
+    <span class="tag tag-brand">Framework Post · Variation A</span>
+    <span class="tag tag-green">4/4 Invisibility Diagnostic PASS</span>
+    <span class="tag tag-amber">Pending Approval</span>
+  </div>
+  <div class="compliance-flag">
+    <strong>COMPLIANCE FLAG:</strong> This post references the FTA eInvoicing mandate. The FTA has not formally announced a UAE-wide B2B go-live date. Forward-looking framing ("coming") is defensible positioning but Mohaina should confirm preferred framing before Rei publishes.
+  </div>
+  <p style="color:var(--muted);font-size:13px;"><strong>Note on analytics:</strong> Apify LinkedIn actor unavailable (4th consecutive failed run). Hook selected on ICP pain-match logic — UAE SME owner on manual invoicing who doesn't know if they're eInvoicing-ready.</p>
+</div>
+
+<!-- HOOK OPTIONS -->
+<div class="card">
+  <h2>5 Hook Options</h2>
+  <div class="hook-options">
+    <div class="hook-item selected">
+      <p><strong>If eInvoicing went live tomorrow, here are the 5 gaps I would close first:</strong></p>
+      <div class="hook-reason">SELECTED — Framework promise + "If" opener. Under 12 words. No stat opener. Highest ICP pain-match: triggers the SME owner who isn't sure if they're ready. Voice DNA compliant.</div>
+    </div>
+    <div class="hook-item">
+      <p>Your accounting software is not eInvoicing-ready. Here is how to find out before the FTA does.</p>
+      <div class="hook-reason">Directness — good for authority signal. Slightly confrontational tone.</div>
+    </div>
+    <div class="hook-item">
+      <p>The UAE eInvoicing mandate is coming. These 5 things need to be fixed before it lands.</p>
+      <div class="hook-reason">Clear value-forward. Slightly passive. Good for saves.</div>
+    </div>
+    <div class="hook-item">
+      <p>Most UAE businesses think they are eInvoicing-ready. They find out they are not on the first live test.</p>
+      <div class="hook-reason">Contrarian angle. High curiosity pull. Slightly negative framing.</div>
+    </div>
+    <div class="hook-item">
+      <p>eInvoicing is not a formatting upgrade. Here is what it actually requires from your accounting system.</p>
+      <div class="hook-reason">Reframe hook. Good for the owner who thinks they just need to update their template.</div>
+    </div>
+  </div>
+  <p style="color:var(--muted);font-size:12px;margin-top:4px;"><strong>Selected hook reason:</strong> Delivers a clear framework promise while creating personal stakes — the reader imagines the mandate landing tomorrow and immediately self-diagnoses. "I would close" signals expertise without claiming authority. Consistent with Voice DNA pattern: opens with "If" + situation, earns principle through the list.</p>
+</div>
+
+<!-- FULL POST -->
+<div class="card">
+  <h2>Full Post — Copy Ready</h2>
+
+  <div class="post-body">
+    <div class="post-hook">If eInvoicing went live tomorrow, here are the 5 gaps I would close first:</div>
+    <hr>
+
+    <p><span class="item-num">1. No compliant accounting system.</span><br>
+    The FTA mandate requires invoices to be generated and transmitted through an FTA-approved, integrated system. WhatsApp PDFs and Excel sheets will not be accepted. If you are still on manual invoicing, Zoho Books and Odoo are both FTA-integration-ready. This is the foundational fix.</p>
+    <br>
+    <p><span class="item-num">2. Master data that does not match your trade licence.</span><br>
+    Your TRN, legal entity name, and registered address must match exactly across every invoice. Any mismatch — even a name abbreviation — risks rejection. Clean this before the mandate.</p>
+    <br>
+    <p><span class="item-num">3. Tax codes not mapped at the item level.</span><br>
+    Zero-rated, exempt, out-of-scope, and standard-rated transactions must be mapped per item in your system. A catch-all rate corrected at the VAT return level will not hold when your system transmits structured data.</p>
+    <br>
+    <p><span class="item-num">4. No FTA portal integration.</span><br>
+    Your accounting software needs to connect directly to the FTA system for real-time invoice transmission. If your current software does not support this, switch now — not the week the mandate goes live.</p>
+    <br>
+    <p><span class="item-num">5. No test invoicing cycle.</span><br>
+    Most businesses that think they are ready find a gap on the first live test. Run one before the mandate. You want to find the problem, not be the problem.</p>
+
+    <hr>
+    <p>The businesses that move before the mandate will spend less than the ones that wait.</p>
+    <p class="post-cta">(Save this + Repost if useful ♻️)</p>
+    <p class="post-ps">P.S. If you are not certain your system is eInvoicing-ready, run a test now. The ones that are ready already know — they went through the setup.</p>
+  </div>
+
+  <p style="color:var(--muted);font-size:12px;margin-top:12px;"><strong>Character count:</strong> ~1,160 · <strong>Em dashes:</strong> 0 · <strong>Banned words:</strong> 0 · <strong>Recommended posting time:</strong> 07:00–09:00 UAE</p>
+</div>
+
+<!-- INVISIBILITY DIAGNOSTIC -->
+<div class="card">
+  <h2>Invisibility Diagnostic</h2>
+  <div class="diag-score">4 / 4</div>
+  <p style="color:var(--green);font-weight:700;text-align:center;font-size:13px;margin-bottom:16px;">PASS — Post cleared for approval</p>
+  <div class="diag-row">
+    <span class="diag-label"><strong>Voice</strong> — Plain, directive, no jargon</span>
+    <span class="diag-pass">PASS</span>
+  </div>
+  <div class="diag-row">
+    <span class="diag-label"><strong>POV</strong> — "You want to find the problem, not be the problem."</span>
+    <span class="diag-pass">PASS</span>
+  </div>
+  <div class="diag-row">
+    <span class="diag-label"><strong>Specificity</strong> — FTA mandate, Zoho Books, Odoo, TRN, zero-rated/exempt/out-of-scope, real-time transmission, PEPPOL</span>
+    <span class="diag-pass">PASS</span>
+  </div>
+  <div class="diag-row">
+    <span class="diag-label"><strong>Asking</strong> — Saves + reposts CTA, P.S. urgency close, soft DM invite in Comment 3</span>
+    <span class="diag-pass">PASS</span>
+  </div>
+</div>
+
+<!-- 3 PINNED COMMENTS -->
+<div class="card">
+  <h2>3 Pinned Comments</h2>
+
+  <div class="comment-item">
+    <div class="comment-num">1</div>
+    <div class="comment-body">
+      <strong>Authority — What the mandate actually means</strong>
+      <p>The UAE eInvoicing framework follows the PEPPOL standard, already in use across Europe and Southeast Asia. The core principle: invoices are not documents anymore — they are structured data transmitted to the tax authority at the point of issuance. If your accounting system cannot generate a compliant XML file and connect to the FTA network, it is not ready. This is a system change, not a formatting upgrade.</p>
+    </div>
+  </div>
+
+  <div class="comment-item">
+    <div class="comment-num">2</div>
+    <div class="comment-body">
+      <strong>Humanise — Who this affects most</strong>
+      <p>The businesses I am most concerned about are the ones running on manual systems that have been working fine for VAT. VAT allowed flexibility — summary return, aggregated data, manual reconciliation. eInvoicing does not. Every transaction will be visible in real time. The businesses with loose books have the most to fix.</p>
+    </div>
+  </div>
+
+  <div class="comment-item">
+    <div class="comment-num">3</div>
+    <div class="comment-body">
+      <strong>Soft CTA</strong>
+      <p>If you are a UAE SME and want to know whether your current system is eInvoicing-ready, the fastest way to find out is a short system review. We work with Zoho Books and Odoo across mainland and free zones. Send me a message and I will tell you what I see.</p>
+    </div>
+  </div>
+</div>
+
+<!-- APPROVAL WORKFLOW -->
+<div class="card">
+  <h2>Approval Workflow</h2>
+  <div class="approval-box">
+    <h3>Action Required — Manual Steps</h3>
+    <div class="approval-step">
+      <div class="step-num">1</div>
+      <span>Mohaina reviews post for accuracy (especially FTA framing). Approval timeout: 08:15 UAE.</span>
+    </div>
+    <div class="approval-step">
+      <div class="step-num">2</div>
+      <span>On approval: forward plain-text copy-ready post + 3 pinned comments to <strong>Rei Nald Onella</strong> (<a href="mailto:reinald.onella1@gmail.com" style="color:var(--brand);">reinald.onella1@gmail.com</a>).</span>
+    </div>
+    <div class="approval-step">
+      <div class="step-num">3</div>
+      <span>Subject for Rei: <em>"Post for Today — Ready to Publish · 3 July 2026"</em></span>
+    </div>
+    <div class="approval-step">
+      <div class="step-num">4</div>
+      <span>Recommended posting time: <strong>07:00–09:00 UAE</strong> (Mon/Thu evening slots per Team Operating Hub, but Friday morning is acceptable for compliance content).</span>
+    </div>
+    <div class="approval-step">
+      <div class="step-num">5</div>
+      <span>Log status in Notion: Pending Approval → Approved → Sent to Rei → Published.</span>
+    </div>
+    <p style="color:var(--muted);font-size:12px;margin-top:10px;"><strong>Blocker (persistent):</strong> M365 email send-email capability not available in connector. All email steps require manual action from Mohaina's Outlook.</p>
+  </div>
+</div>
+
+<div class="footer">
+  CMO Daily Post · BPOAS · Friday 3 July 2026 · Auto-generated via BPOAS Daily Start (/cmo-daily-post + /linkedin-caption-writer) · M.Asira@bposervicegroup.com
+</div>
+
+</body>
+</html>

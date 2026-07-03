@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Friday 3 July 2026</title>
+<style>
+  :root {
+    --brand: #E8294C;
+    --bg: #0A0A0A;
+    --card: #141414;
+    --card2: #111111;
+    --border: #1e1e1e;
+    --text: #E8E8E8;
+    --muted: #777;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --blue: #60A5FA;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; padding: 0; max-width: 900px; margin: 0 auto; }
+
+  /* TOP STRIP */
+  .top-strip { background: var(--brand); padding: 10px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .top-strip span { font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .page { padding: 24px; }
+
+  /* HERO CARD */
+  .hero { background: linear-gradient(135deg, #1a0a0e 0%, #0d0d0d 100%); border: 1px solid #3a1520; border-radius: 12px; padding: 28px 32px; margin-bottom: 24px; }
+  .hero-title { font-size: 26px; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+  .hero-subtitle { color: var(--muted); font-size: 13px; margin-top: 2px; margin-bottom: 28px; }
+  .revenue-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .rev-box { background: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 8px; padding: 14px 16px; }
+  .rev-box.main { border-color: #5a1a24; background: #0f0a0a; }
+  .rev-label { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+  .rev-value { font-size: 22px; font-weight: 700; }
+  .rev-value.red { color: var(--red); }
+  .rev-value.amber { color: var(--amber); }
+  .rev-value.green { color: var(--green); }
+  .rev-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; margin-top: 4px; }
+  .status-red { background: #2d0a0a; color: var(--red); border: 1px solid #5a1a1a; }
+  .status-amber { background: #2d1f00; color: var(--amber); border: 1px solid #5a3e00; }
+  .status-green { background: #0a2d0a; color: var(--green); border: 1px solid #1a5a1a; }
+  .hero-note { background: #1a1200; border: 1px solid #3a2a00; border-radius: 6px; padding: 10px 14px; margin-top: 16px; font-size: 12px; color: var(--muted); }
+  .hero-note strong { color: var(--amber); }
+
+  /* CARDS */
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-bottom: 20px; }
+  .card.flag-card { border-color: #5a1a1a; background: #0d0a0a; }
+  .card-title { font-size: 12px; font-weight: 700; color: var(--brand); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .card-title.red { color: var(--red); }
+
+  /* RUN LOG */
+  .run-row { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .run-row:last-child { border-bottom: none; }
+  .run-skill { font-size: 14px; font-weight: 500; }
+  .run-file { font-size: 11px; color: var(--muted); font-family: monospace; }
+  .status-pill { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .pill-complete { background: #0a2d0a; color: var(--green); border: 1px solid #1a5a1a; }
+  .pill-skip { background: #1a1a1a; color: var(--muted); border: 1px solid #333; }
+  .pill-error { background: #2d0a0a; color: var(--red); border: 1px solid #5a1a1a; }
+
+  /* FLAGS */
+  .flag-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #2a1a1a; }
+  .flag-item:last-child { border-bottom: none; }
+  .flag-cat { flex-shrink: 0; width: 90px; }
+  .flag-cat-badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; }
+  .cat-aml { background: #2d0a2d; color: #E879F9; border: 1px solid #5a1a5a; }
+  .cat-cash { background: #2d0a0a; color: var(--red); border: 1px solid #5a1a1a; }
+  .cat-client { background: #2d1f00; color: var(--amber); border: 1px solid #5a3e00; }
+  .cat-bd { background: #0a1a2d; color: var(--blue); border: 1px solid #1a3a5a; }
+  .cat-ct { background: #1a2a0a; color: #86EFAC; border: 1px solid #2a5a1a; }
+  .cat-content { background: #1a0a2d; color: #A78BFA; border: 1px solid #3a1a5a; }
+  .flag-body strong { font-size: 14px; color: var(--text); }
+  .flag-body p { font-size: 13px; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flag-next { font-size: 12px; font-weight: 600; color: var(--brand); margin-top: 5px; }
+
+  /* QUICK LINKS */
+  .links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .link-item { background: #1a1a1a; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; text-decoration: none; transition: border-color 0.2s; }
+  .link-item:hover { border-color: var(--brand); }
+  .link-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+  .link-name { font-size: 14px; font-weight: 600; color: var(--text); }
+  .link-file { font-size: 11px; color: var(--brand); font-family: monospace; margin-top: 4px; }
+  .link-status-complete { font-size: 11px; color: var(--green); font-weight: 600; }
+  .link-status-skip { font-size: 11px; color: var(--muted); }
+
+  /* POST CARD */
+  .post-inline { background: #0f0f0f; border: 1px solid #2a2a2a; border-radius: 8px; padding: 20px 24px; }
+  .post-hook-inline { font-size: 15px; font-weight: 700; color: var(--text); border-left: 3px solid var(--brand); padding-left: 12px; margin-bottom: 16px; }
+  .post-text p { font-size: 14px; color: var(--text); line-height: 1.8; margin-bottom: 12px; }
+  .post-text strong { color: var(--text); }
+  .post-divider { border: none; border-top: 1px solid #2a2a2a; margin: 14px 0; }
+  .post-cta-inline { color: var(--brand); font-weight: 600; font-size: 14px; }
+  .post-ps-inline { color: var(--muted); font-style: italic; font-size: 13px; margin-top: 8px; }
+  .post-meta-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .post-tag { display: inline-block; padding: 3px 9px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .pt-brand { background: #2d0a12; color: var(--brand); border: 1px solid #5a1a24; }
+  .pt-green { background: #0a2d0a; color: var(--green); border: 1px solid #1a5a1a; }
+  .pt-amber { background: #2d1f00; color: var(--amber); border: 1px solid #5a3e00; }
+
+  /* APPROVAL REMINDER */
+  .approval-reminder { background: #1a0e00; border: 1px solid #5a3a00; border-radius: 8px; padding: 14px 18px; margin-top: 14px; }
+  .approval-reminder h3 { color: var(--amber); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+  .approval-step { display: flex; gap: 10px; font-size: 13px; padding: 4px 0; }
+  .step-num { background: var(--amber); color: #000; border-radius: 50%; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+  /* BLOCKER BANNER */
+  .blocker-banner { background: #1a1400; border: 1px solid #4a3800; border-radius: 6px; padding: 10px 14px; margin-bottom: 12px; font-size: 12px; color: var(--muted); }
+  .blocker-banner strong { color: var(--amber); }
+
+  .footer { color: var(--muted); font-size: 11px; text-align: center; padding: 16px 0 24px; border-top: 1px solid var(--border); margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="top-strip">
+  <span>BPOAS Daily Start</span>
+  <span>Friday · 3 July 2026 · 07:00 UAE (GST)</span>
+</div>
+
+<div class="page">
+
+  <!-- HERO CARD -->
+  <div class="hero">
+    <div class="hero-title">BPOAS Daily Start</div>
+    <div class="hero-subtitle">Friday, 3 July 2026 · Lean Run (Steps 1 + 4) · M.Asira@bposervicegroup.com</div>
+
+    <div class="revenue-grid">
+      <div class="rev-box main">
+        <div class="rev-label">MTD Revenue Received</div>
+        <div class="rev-value red">AED 0</div>
+        <div class="rev-sub">Zero payments in Zoho · 2 consecutive weeks</div>
+        <div class="rev-sub" style="margin-top:4px;color:var(--amber);">⚠ AED 8,925 in bank credits not yet in Zoho</div>
+      </div>
+      <div class="rev-box">
+        <div class="rev-label">Invoiced This Month</div>
+        <div class="rev-value amber">AED 117,008</div>
+        <div class="rev-sub">Jul 1–2 · 17 invoices · Mostly retainer billing</div>
+      </div>
+      <div class="rev-box">
+        <div class="rev-label">Overdue Receivables</div>
+        <div class="rev-value red">AED 106,691</div>
+        <div class="rev-sub">23 invoices · Oldest 218 days (Exlibris)</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+      <span class="status-badge status-red">🔴 Collections At Risk</span>
+      <span style="color:var(--muted);font-size:12px;">Monthly target: Not on file · Gap cannot be calculated · Days remaining in July: 28</span>
+    </div>
+
+    <div class="hero-note">
+      <strong>CFO data sourced from Monday 2 July 2026 report.</strong> Tuesday–Friday carry-forward per routine. Monthly revenue target not on file — flagged in 3 consecutive CFO reports. Two Emirates NBD credits appeared this morning: AED 5,250 (Jul 2 evening, ASIANA) + AED 3,675 (Jul 3, 08:02 UAE, instant transfer) — total AED 8,925 received but not posted in Zoho. Junaifa to reconcile by EOD.
+    </div>
+  </div>
+
+  <!-- RUN LOG -->
+  <div class="card">
+    <div class="card-title">Run Log — Friday 3 July 2026</div>
+
+    <div class="run-row">
+      <div>
+        <div class="run-skill">Step 1 · COO Morning Brief</div>
+        <div class="run-file">coo-brief-2026-07-03.html</div>
+      </div>
+      <div class="run-file" style="text-align:right;">Connectors: M365 · Notion</div>
+      <span class="status-pill pill-complete">Complete</span>
+    </div>
+
+    <div class="run-row">
+      <div>
+        <div class="run-skill">Step 2 · CFO Weekly Revenue</div>
+        <div class="run-file">Mondays only — not run today</div>
+      </div>
+      <div class="run-file" style="text-align:right;">Skipped · Friday</div>
+      <span class="status-pill pill-skip">Skipped</span>
+    </div>
+
+    <div class="run-row">
+      <div>
+        <div class="run-skill">Step 3 · CRO Weekly Prospects</div>
+        <div class="run-file">Mondays only — not run today</div>
+      </div>
+      <div class="run-file" style="text-align:right;">Skipped · Friday</div>
+      <span class="status-pill pill-skip">Skipped</span>
+    </div>
+
+    <div class="run-row">
+      <div>
+        <div class="run-skill">Step 4 · CMO Daily Post</div>
+        <div class="run-file">cmo-post-2026-07-03.html · Pending Approval</div>
+      </div>
+      <div class="run-file" style="text-align:right;">Connectors: Notion</div>
+      <span class="status-pill pill-complete">Complete</span>
+    </div>
+
+    <div class="run-row">
+      <div>
+        <div class="run-skill">Step 5 · Content Calendar</div>
+        <div class="run-file">Mondays only — not run today</div>
+      </div>
+      <div class="run-file" style="text-align:right;">Skipped · Friday</div>
+      <span class="status-pill pill-skip">Skipped</span>
+    </div>
+
+    <div class="blocker-banner" style="margin-top:14px;margin-bottom:0;">
+      <strong>Persistent Blocker (Week 4):</strong> Microsoft 365 connector does not support email send — only search. Summary email to m.asira@bposervicegroup.com and CMO post approval email could not be sent automatically. Manual send required from Mohaina's Outlook. Also: Apify LinkedIn actor down (4th consecutive week) — CMO hook selected on ICP logic, not engagement data.
+    </div>
+  </div>
+
+  <!-- FLAGS FOR MOHAINA -->
+  <div class="card flag-card">
+    <div class="card-title red">Flags for Mohaina · Friday 3 July 2026</div>
+    <p style="color:var(--muted);font-size:12px;margin-bottom:16px;">Sorted by priority: Compliance · Cash · Client · BD · Content</p>
+
+    <div class="flag-item">
+      <div class="flag-cat"><span class="flag-cat-badge cat-aml">AML</span></div>
+      <div class="flag-body">
+        <strong>Zappit Check — PEP / Sanctions / Adverse Media Renewal</strong>
+        <p>AED 1,980 + VAT. Renewal invoice received. Go/no-go decision required from Mohaina as AMLRO. Letting this lapse creates a compliance gap in DNFBP screening obligations.</p>
+        <div class="flag-next">→ Approve or decline today. One reply to the invoice email.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-cat"><span class="flag-cat-badge cat-ct">CT</span></div>
+      <div class="flag-body">
+        <strong>Brilliant Telecom FY2025 CIT Filing — Incomplete</strong>
+        <p>Partner confirmation letters received but several partners unresponsive. Holding up audit close. Raihana reporting status by 17:00. Mohaina may need to call partners directly.</p>
+        <div class="flag-next">→ Review Raihana's 17:00 status report. Consider direct intervention if still stalled.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-cat"><span class="flag-cat-badge cat-cash">Cash</span></div>
+      <div class="flag-body">
+        <strong>Zero Collections in Zoho for 2 Straight Weeks — AED 106,691 Overdue</strong>
+        <p>Two Emirates NBD credits this week (AED 5,250 + AED 3,675 = AED 8,925) are not in Zoho. Could be real collections gap or reconciliation lag. Oldest overdue invoice: Exlibris, 218 days. Largest single overdue: Richemont AED 16,003 (29 days).</p>
+        <div class="flag-next">→ Junaifa to reconcile Emirates NBD bank feed vs. Zoho by EOD today. Mohaina to review reconciliation output.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-cat"><span class="flag-cat-badge cat-client">Client</span></div>
+      <div class="flag-body">
+        <strong>Richemont / Cartier — Same-Day Decision Window</strong>
+        <p>Chadi Nasreddine (Head of Commercial) confirmed readiness to proceed. Detailed AP/bookkeeping scope provided. Question: does this fall under the existing Richemont agreement or require a new separate engagement? Reply still pending.</p>
+        <div class="flag-next">→ Reply today. New engagement vs. amendment to existing — one email to Chadi.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-cat"><span class="flag-cat-badge cat-client">Client</span></div>
+      <div class="flag-body">
+        <strong>Almosafer Claim #2010754 — 70+ Days, Menastar FZCO Entity Mismatch</strong>
+        <p>Nada Ahmed (Almosafer Finance OTC) says they'll try reprocessing again. Still 70+ days unresolved. Menastar SOA AED 28,381 outstanding. New info: IndiGo account closure also requires company letterhead with IndiGo login ID — Michelle Pacis to send.</p>
+        <div class="flag-next">→ Decide: await Almosafer reprocessing confirmation or escalate formally. Confirm IndiGo letterhead is sent.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-cat"><span class="flag-cat-badge cat-bd">BD</span></div>
+      <div class="flag-body">
+        <strong>Raihana — Two DM Sequences Awaiting Approval</strong>
+        <p>Mr. George / The Concept Lab (CIT Filing, 14-day overdue EL) and GL Middle East / Nandhu cluster (TRC 3 entities, 15-day overdue EL). Both sequences drafted. Neither can be sent without Mohaina's sign-off. July start is critical for Concept Lab's Sep 30 CIT deadline.</p>
+        <div class="flag-next">→ Review and approve both DM sequences today. Raihana can execute immediately upon approval.</div>
+      </div>
+    </div>
+
+    <div class="flag-item" style="border-bottom:none;">
+      <div class="flag-cat"><span class="flag-cat-badge cat-content">Content</span></div>
+      <div class="flag-body">
+        <strong>eInvoicing Post — FTA Mandate Reference Flagged</strong>
+        <p>Today's LinkedIn post references the FTA eInvoicing mandate and uses forward-looking framing. FTA has not formally announced UAE-wide B2B go-live date. Post is 4/4 Invisibility Diagnostic and copy-ready pending Mohaina's accuracy confirmation.</p>
+        <div class="flag-next">→ Approve post wording. Forward to Rei Nald (reinald.onella1@gmail.com) with 3 pinned comments. Log in Notion: Pending → Approved → Sent to Rei → Published.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="card">
+    <div class="card-title">Quick Links — Today's Files</div>
+    <div class="links-grid">
+      <div class="link-item">
+        <div class="link-label">Step 1</div>
+        <div class="link-name">COO Morning Brief</div>
+        <div class="link-file">coo-brief-2026-07-03.html</div>
+        <div class="link-status-complete" style="margin-top:6px;">Complete</div>
+      </div>
+      <div class="link-item">
+        <div class="link-label">Step 4</div>
+        <div class="link-name">CMO Daily Post</div>
+        <div class="link-file">cmo-post-2026-07-03.html</div>
+        <div class="link-status-complete" style="margin-top:6px;">Complete · Pending Approval</div>
+      </div>
+      <div class="link-item" style="opacity:0.5;">
+        <div class="link-label">Step 2 — Skipped</div>
+        <div class="link-name">CFO Weekly Revenue</div>
+        <div class="link-file">Runs Mondays only</div>
+        <div class="link-status-skip" style="margin-top:6px;">Last: cfo-report-2026-07-02</div>
+      </div>
+      <div class="link-item" style="opacity:0.5;">
+        <div class="link-label">Step 3 — Skipped</div>
+        <div class="link-name">CRO Weekly Prospects</div>
+        <div class="link-file">Runs Mondays only</div>
+        <div class="link-status-skip" style="margin-top:6px;">Last: cro-prospects-2026-06-30</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODAY'S LINKEDIN POST -->
+  <div class="card">
+    <div class="card-title">Today's LinkedIn Post — Copy Ready</div>
+
+    <div class="post-meta-row" style="margin-bottom:14px;">
+      <span class="post-tag pt-brand">Compliance Without the Panic</span>
+      <span class="post-tag pt-brand">Friday · 3 July 2026</span>
+      <span class="post-tag pt-green">4/4 Invisibility Diagnostic</span>
+      <span class="post-tag pt-amber">Pending Approval</span>
+    </div>
+
+    <div class="post-inline">
+      <div class="post-hook-inline">If eInvoicing went live tomorrow, here are the 5 gaps I would close first:</div>
+
+      <div class="post-text">
+        <hr class="post-divider">
+        <p><strong>1. No compliant accounting system.</strong><br>
+        The FTA mandate requires invoices to be generated and transmitted through an FTA-approved, integrated system. WhatsApp PDFs and Excel sheets will not be accepted. If you are still on manual invoicing, Zoho Books and Odoo are both FTA-integration-ready. This is the foundational fix.</p>
+
+        <p><strong>2. Master data that does not match your trade licence.</strong><br>
+        Your TRN, legal entity name, and registered address must match exactly across every invoice. Any mismatch — even a name abbreviation — risks rejection. Clean this before the mandate.</p>
+
+        <p><strong>3. Tax codes not mapped at the item level.</strong><br>
+        Zero-rated, exempt, out-of-scope, and standard-rated transactions must be mapped per item in your system. A catch-all rate corrected at the VAT return level will not hold when your system transmits structured data.</p>
+
+        <p><strong>4. No FTA portal integration.</strong><br>
+        Your accounting software needs to connect directly to the FTA system for real-time invoice transmission. If your current software does not support this, switch now — not the week the mandate goes live.</p>
+
+        <p><strong>5. No test invoicing cycle.</strong><br>
+        Most businesses that think they are ready find a gap on the first live test. Run one before the mandate. You want to find the problem, not be the problem.</p>
+
+        <hr class="post-divider">
+        <p>The businesses that move before the mandate will spend less than the ones that wait.</p>
+        <p class="post-cta-inline">(Save this + Repost if useful ♻️)</p>
+        <p class="post-ps-inline">P.S. If you are not certain your system is eInvoicing-ready, run a test now. The ones that are ready already know — they went through the setup.</p>
+      </div>
+    </div>
+
+    <div class="approval-reminder">
+      <h3>Approval Action Required</h3>
+      <div class="approval-step">
+        <div class="step-num">1</div>
+        <span><strong>Mohaina</strong> — review FTA framing, approve post. Timeout: 08:15 UAE. If no reply by 08:15, hold post and remind Rei.</span>
+      </div>
+      <div class="approval-step">
+        <div class="step-num">2</div>
+        <span>Email Rei Nald: <strong>reinald.onella1@gmail.com</strong> · Subject: "Post for Today — Ready to Publish · 3 July 2026" · Body: plain text post + 3 pinned comments + recommended time 07:00–09:00 UAE.</span>
+      </div>
+      <div class="approval-step">
+        <div class="step-num">3</div>
+        <span>Log in Notion: Pending Approval → Approved → Sent to Rei → Published.</span>
+      </div>
+      <p style="color:var(--muted);font-size:12px;margin-top:8px;">Full post details including 5 hook options and 3 pinned comments: see cmo-post-2026-07-03.html</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    BPOAS Daily Start · Friday 3 July 2026 · 07:00 UAE (GST) · Auto-generated · M.Asira@bposervicegroup.com · bposervicegroup.com
+  </div>
+
+</div>
+</body>
+</html>
