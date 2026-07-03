@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · Purely Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F0546F;
+    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:#0A0A0A;color:#EDEDEF;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9d9da4;font-weight:700;margin:24px 0 12px;}
+  .card{background:#161619;border:1px solid #29292f;border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9d9da4;margin-bottom:12px;}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:15px;border-bottom:1px solid #232328;color:#dcdce0;}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-grn{background:#123321;color:#4ade80;}
+  .t-red{background:#3a1414;color:#f87171;}
+  .t-amb{background:#3a2a10;color:#fbbf24;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+  .lipost{background:#161619;border:1px solid #29292f;border-radius:var(--r-md);box-shadow:var(--sh);padding:20px;}
+  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
+  .lihead .nm{font-weight:700;font-size:15px;color:#fff;} .lihead .mt{font-size:12px;color:#9d9da4;}
+  .lipost .post{font-size:15px;line-height:1.65;white-space:pre-line;color:#e6e6ea;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .chip{font-size:12px;font-weight:600;background:#232328;color:#b7b7bf;padding:5px 11px;border-radius:var(--pill);}
+  .score{display:inline-flex;align-items:center;gap:8px;background:#123321;color:#4ade80;font-weight:700;font-size:13px;padding:6px 13px;border-radius:var(--pill);}
+
+  .flagbox{background:#241512;border:1px solid #5a2a1f;border-left:4px solid var(--bad);border-radius:var(--r-md);padding:16px 18px;margin-bottom:14px;}
+  .flagbox h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#f87171;margin-bottom:8px;}
+  .flagbox p{font-size:14px;color:#e6c9c5;margin-bottom:6px;}
+  .flagbox p:last-child{margin-bottom:0;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:#7a7a82;font-size:13px;}
+  footer b{color:#c9c9cf;}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="dark">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CMO · Daily post</div><h1>Today's post, in your voice</h1><div class="d">Friday 3 July 2026 · Pillar: Compliance Without the Panic · Topic: eInvoicing readiness · Framework Post (Variation A) · Educating</div></div>
+
+    <div class="flagbox">
+      <h4>⚠ Flags for Mohaina — read before approving</h4>
+      <p><b>Duplicate calendar slot:</b> two conflicting entries exist for today (Fri 3 Jul) in the "Content Calendar — Week of 2026-06-29" database — one calls for an "If... " framework hook with no stat opener (created 26 Jun), the other calls for a stat-lead hook (created 29 Jun). The stat-lead direction breaks your Voice DNA rule against opening on a statistic, so this draft uses the "If" framework version. Please confirm which entry should be archived.</p>
+      <p><b>This exact post has been sitting in Notion since 30 Jun</b> marked "Pending Approval" and was never sent for approval, because the Microsoft 365 connector in these sessions can search mail but cannot send it (4th+ week this has been the case, per the BPOAS Team Operating Hub blocker log). It was also carrying two em dashes, which violates the "zero em dashes" spec — fixed in this version.</p>
+      <p><b>Apify LinkedIn analytics:</b> unavailable again this week (LinkedIn actor has failed 4 consecutive scheduled runs). Hook selection below is based on ICP pain-language matching instead of engagement data.</p>
+      <p><b>Action needed:</b> this could not be emailed to you or forwarded to Rei Nald as the routine specifies. Reply "approved" in this thread or on Notion, then forward the final post + pinned comments to Rei Nald (reinald.onella1@gmail.com) yourself so it can still go out today.</p>
+    </div>
+
+    <div class="lipost">
+      <div class="lihead"><div class="av">MA</div><div><div class="nm">Mohaina Asira · 1st</div><div class="mt">Managing Partner, BPO Accounting Services · now</div></div></div>
+      <div class="post">If eInvoicing went live tomorrow, here are the 5 gaps I would close first.
+
+I think most UAE SME owners see eInvoicing as a software update. It is not. It is a data problem wearing a software costume.
+
+1. No compliant system. WhatsApp PDFs and Excel sheets will not survive the FTA mandate. Zoho Books and Odoo are already built for it. If you are still on manual invoicing, this is the first fix.
+
+2. Master data that does not match your trade licence. Your TRN, legal name, and registered address need to match exactly across every invoice. One abbreviation can get a transmission rejected.
+
+3. Tax codes not mapped at the item level. Zero-rated, exempt, out-of-scope, and standard-rated all need to sit correctly on each line. Fixing it later at the VAT return will not work once the system is transmitting structured data.
+
+4. No FTA portal integration. Your software needs to talk to the FTA system directly, in real time. If it cannot do that today, that is the gap to close now, not the week the mandate lands.
+
+5. No test invoicing cycle. Run one before you need it. The businesses that are actually ready already ran theirs.
+
+We think like owners, so we would rather you find this gap in a test than in a penalty notice.
+
+Save this for the eInvoicing readiness check.
+
+P.S. The businesses that move now will spend far less than the ones that wait for the deadline to force them.</div>
+      <div class="chips"><span class="chip">1,387 chars</span><span class="chip">Hook: Pattern Interrupt / Framework "If"</span><span class="chip">Zero em dashes</span><span class="chip">One CTA</span></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card"><h4>Hook options</h4>
+        <div class="row">Pattern Interrupt — "If eInvoicing went live tomorrow, here are the 5 gaps I would close first."<span class="tagi t-grn">chosen</span></div>
+        <div class="row">Result Lead — "One client asked us to run a mock eInvoicing test. We found three broken things in twenty minutes."</div>
+        <div class="row">Confession — "I used to think eInvoicing was just another VAT update. I was wrong."</div>
+        <div class="row">Contrarian — "Most SMEs think eInvoicing is a software problem. It is a data problem."</div>
+        <div class="row">Curiosity Gap — "There is one FTA requirement almost nobody in the UAE is ready for."</div>
+      </div>
+      <div class="card"><h4>Selection reason</h4>
+        <div class="row" style="border:none;display:block;">Chosen over a stat-lead alternative because it turns the ICP's exact fear, "terrified of fines but not sure if they're actually compliant," into something they can act on immediately, without opening on a statistic (which Mohaina's Voice DNA explicitly rules out). Apify LinkedIn analytics were unavailable this week, so selection is ICP pain-match based, not engagement-data based.</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card"><h4>Publish check</h4>
+        <div class="row">Stops the scroll<span class="tagi t-grn">✓</span></div>
+        <div class="row">Sounds like you, not AI<span class="tagi t-grn">✓</span></div>
+        <div class="row">Zero em dashes<span class="tagi t-grn">✓</span></div>
+        <div class="row">One specific ask<span class="tagi t-grn">✓</span></div>
+      </div>
+      <div class="card"><h4>Invisibility Diagnostic</h4>
+        <div class="row">Voice — plain, "I think," "we think like owners"<span class="tagi t-grn">4/4</span></div>
+        <div class="row">POV — "we would rather you find this gap in a test"<span class="tagi t-grn">✓</span></div>
+        <div class="row">Specificity — FTA, TRN, VAT codes, Zoho/Odoo<span class="tagi t-grn">✓</span></div>
+        <div class="row">Asking — Save this + P.S. urgency<span class="tagi t-grn">✓</span></div>
+      </div>
+    </div>
+
+    <div class="sec">Pinned comment options (post one as the first comment)</div>
+    <div class="card">
+      <div class="row">Extend: The UAE eInvoicing framework follows the PEPPOL five-corner model already running across Europe. Once it is live, an invoice is structured data sent straight to the FTA, not a document you attach to an email. VAT let you reconcile later. This will not.</div>
+      <div class="row">Humanise: I am not worried about the businesses that keep tight books. I am worried about the ones running on a spreadsheet that has worked fine so far. Fine does not survive real time reporting.</div>
+      <div class="row">CTA amplifier: If you want to know exactly where your system would fail this test, send me your last VAT return and I will tell you the first three gaps I would check.</div>
+    </div>
+
+    <div style="text-align:center;margin-top:8px"><span class="score">Invisibility Diagnostic: 4 / 4</span></div>
+
+    <div class="sec">Approval workflow status</div>
+    <div class="card">
+      <div class="row">Step A — Send to Mohaina (M365 Outlook)<span class="tagi t-red">Blocked — send not available</span></div>
+      <div class="row">Step B — Mohaina's reply<span class="tagi t-amb">Awaiting manual review</span></div>
+      <div class="row">Step C — Forward to Rei Nald<span class="tagi t-red">Blocked — pending Step A/B</span></div>
+      <div class="row">Step D — Notion status<span class="tagi t-amb">Updated: Pending Approval</span></div>
+      <div class="row">Recommended publish time<span class="tagi t-amb">Friday 09:00 UAE</span></div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.lipost,.card,.score,.flagbox',{y:20,opacity:0,duration:.55,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
