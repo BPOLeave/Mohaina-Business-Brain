@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#1F3A5F; --primary-light:#4A6E9E;
+    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:880px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:26px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .row{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:14.5px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-red{background:#fdecec;color:var(--bad);} .t-amb{background:#fdf1de;color:var(--warn);}
+  .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-grn{background:#e7f6ee;color:var(--good);} .t-blue{background:#e6f0fc;color:#1E6FE0;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .pcard{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-top:4px solid var(--primary);}
+  .pcard.flag{border-top-color:var(--warn);}
+  .pcard.hold{border-top-color:var(--gray-text);}
+  .ph{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+  .ph .nm{font-weight:800;font-size:16px;} .ph .rl{font-size:12.5px;color:var(--gray-text);width:100%;}
+  .meta{font-size:12.5px;color:var(--gray-text);margin:8px 0 4px;}
+  .meta b{color:var(--ink);}
+  .hook{font-size:14px;background:var(--gray-light);border-radius:10px;padding:9px 12px;margin:8px 0;}
+  .flagbox{font-size:13px;background:#fdf1de;color:#7a4d05;border-radius:10px;padding:9px 12px;margin:8px 0;border:1px solid #f3dcae;}
+  .seqlbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);font-weight:700;margin:12px 0 6px;}
+  .dm{font-size:13.5px;border-left:3px solid var(--gray);background:#fbfbfa;border-radius:0 10px 10px 0;padding:9px 12px;margin:7px 0;}
+  .dm .t{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--gray-text);font-weight:700;display:block;margin-bottom:3px;}
+  .fit{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);}
+
+  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:10px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>10 matched. 1 for your personal review.</h1><div class="d">Monday, 6 July 2026 · sourced from your ICP via LinkedIn · every DM is a draft, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Prospects sourced</div><div class="n">10</div></div>
+      <div class="stat"><div class="l">Cleared for outreach</div><div class="n" style="background:linear-gradient(135deg,var(--good),#34d399);-webkit-background-clip:text;background-clip:text;color:transparent">9</div></div>
+      <div class="stat"><div class="l">Messages drafted</div><div class="n">45</div></div>
+    </div>
+
+    <div class="sec">Sourcing note</div>
+    <div class="card">
+      <div class="row">Sourced live via Apify LinkedIn search across your ICP: Founder / CEO / MD / Finance Manager / Operations Manager, UAE-based, F&amp;B, Logistics, FinTech, Real Estate, Professional Services, Trading and E-commerce.<span class="tagi t-grey">10 of 10 real profiles</span></div>
+      <div class="row">Two searched roles came back empty of usable signal and were dropped rather than filled with thin profiles: Healthcare owners and pure Finance Manager employees (the latter are staff, not decision-makers, and would not clear your ICP).<span class="tagi t-grey">honesty over volume</span></div>
+    </div>
+
+    <div class="sec">The prospects · ranked by fit</div>
+
+    <div class="pcard flag">
+      <div class="ph"><span class="nm">Colm Carmody</span><span class="fit t-grn">Fit 9/10</span><span class="rl">Founder, Pura (meal plans, wellness/F&amp;B) · Dubai · <a href="https://www.linkedin.com/in/colm-carmody-295a7034/">profile</a></span></div>
+      <div class="flagbox"><b>Held for your personal review before any outreach.</b> Fit scored 9/10, above the threshold where you asked to see it first.</div>
+      <div class="meta"><b>Temp:</b> Warm (high confidence) · <b>Style:</b> Analytical, with an Expressive storytelling streak · <b>Opener:</b> Directness Play · <b>Compliance flag:</b> none detected from public signals</div>
+      <div class="meta">Signal: wrote a long, unusually honest post about nearly running out of working capital the day he opened his first café in 2013, and taking it from roughly AED 800 to AED 3,500 a day through cash discipline, not a "secret formula." Now building Pura, a meal plan and nutrition brand, and actively hiring across sales and nutrition roles.</div>
+      <div class="hook"><b>Human hook:</b> Your post on going from AED 800 to 3,500 a day, structure not passion.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Colm, Pura's approach to meal plans, treating food as structure not just macros, is rare in this market. I run an accounting firm in Dubai and like meeting founders who think that way about their own numbers too. Good to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting Colm. Your post on turning that first café from AED 800 to 3,500 a day, structure not passion, was one of the most honest things I have read from a Dubai founder this year. What made you decide to write that one, instead of just moving on from it?</div>
+      <div class="dm"><span class="t">3 · Value-add · day 2-3</span>The FTA's next VAT return deadline lands 28 July. I think a lot of F&amp;B founders treat compliance the way you described that first year, dealt with once things calm down, and it rarely does. With Pura hiring across sales and nutrition now, is the finance side keeping pace with the growth, or still running lean like day one?</div>
+      <div class="dm"><span class="t">4 · The pivot · day 3-4</span>Different question, nothing to do with the numbers. After building that first year on your own nerve, do you still check the till yourself, or has that gone fully digital by now?</div>
+      <div class="dm"><span class="t">5 · Clean exit · day 5-7</span>I will leave it here, Colm. Good to have connected with someone who is honest about what actually keeps a business open. Wishing Pura a strong run.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Manoj Tiwari</span><span class="fit t-grn">Fit 8.5/10</span><span class="rl">MD &amp; Founder, Express Vulcan Delivery Services LLC / QuicKart · Dubai · <a href="https://www.linkedin.com/in/manoj-tiwari-a1741a51/">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Amiable · <b>Opener:</b> Peer Opener · <b>Compliance flag:</b> none detected from public signals</div>
+      <div class="meta">Signal: featured by Gulf News on the resilience of Dubai's delivery sector through Covid and beyond, and recently attended GITEX AI Kazakhstan. Posts with a humble, grateful tone rather than a promotional one. Runs a 3PL alongside QuicKart, a separate e-commerce arm.</div>
+      <div class="hook"><b>Human hook:</b> Gulf News quoted you on Dubai's delivery resilience through Covid and beyond.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Manoj, congratulations on the Gulf News feature on Dubai's delivery sector. Good to see the 3PL side get recognised properly for once. I am an accounting partner here in Dubai. Would be glad to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting Manoj. The Gulf News piece on Express Vulcan's role in keeping deliveries moving through Covid and beyond said a lot without saying much, that kind of resilience does not happen by accident. With QuicKart running alongside the 3PL side, which one keeps you up more at night when it comes to the numbers?</div>
+      <div class="dm"><span class="t">3 · Value-add · day 2-3</span>The FTA's next VAT return deadline is 28 July. I think last-mile and 3PL operations carry some of the messiest input VAT in the country, fuel, fleet, subcontracted riders, all claimable differently. With QuicKart and Express Vulcan running side by side, is that VAT picture handled as one, or two separate headaches?</div>
+      <div class="dm"><span class="t">4 · The pivot · day 3-4</span>Different question, away from the business side. Between the GITEX trip and everything else, do you still find time to actually enjoy the wins, or does it go straight into the next target?</div>
+      <div class="dm"><span class="t">5 · Clean exit · day 5-7</span>I will leave it here, Manoj. Genuinely enjoyed following the Gulf News piece and the GITEX energy. Wishing Express Vulcan and QuicKart a strong second half.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Shahbaaz Ahamed</span><span class="fit t-grn">Fit 8.5/10</span><span class="rl">Founder &amp; CEO, Mannat Homes Real Estate LLC · Dubai · <a href="https://www.linkedin.com/in/shahbaaz-ahamed-795889218/">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm (medium confidence, mostly company-page voice so far) · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance flag:</b> real estate brokerages are DNFBPs under UAE AML law</div>
+      <div class="meta">Signal: founded Mannat Homes in January 2026, six months old, and already posting several times a week (Dubai Vision 2040, brand-trust messaging, investment pitches). A brand-new entity, still building its back office from zero.</div>
+      <div class="hook"><b>Human hook:</b> Mannat Homes launched this year and is already posting three times a week.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Shahbaaz, six months in and Mannat Homes is already putting out sharp content on Dubai's 2040 vision. Founding a brokerage from zero this year is no small thing. I run an accounting firm in Dubai. Would be good to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting Shahbaaz. Building Mannat Homes from scratch this year, and already turning out content like the Vision 2040 post, tells me you are not treating this as a side project. Six months in, what has actually taken more of your time than you expected, sales or the paperwork behind it?</div>
+      <div class="dm"><span class="t">3 · Value-add · day 2-3</span>Real estate brokerages are actually named DNFBPs under UAE AML law, which means Mannat Homes needs its own AML procedures on file, not just VAT and CIT registration. I think most new brokerages find that out the hard way, usually from a client or a bank, not from setting it up early. Six months in, is that side already sorted, or still on the list?</div>
+      <div class="dm"><span class="t">4 · The pivot · day 3-4</span>Different question, nothing about the business. Starting a brokerage from nothing in your first year, was the hardest part finding clients, or convincing people this was not just another agency?</div>
+      <div class="dm"><span class="t">5 · Clean exit · day 5-7</span>I will leave it here, Shahbaaz. Six months in and already building something with a real voice online, that is rare. Wishing Mannat Homes a strong year ahead.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Antony Marj</span><span class="fit t-grn">Fit 8.5/10</span><span class="rl">Founder, Margined (credibility &amp; positioning for finance firms) · UAE · <a href="https://www.linkedin.com/in/antony-marj/">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Analytical · <b>Opener:</b> Pattern Interrupt · <b>Compliance flag:</b> none detected from public signals</div>
+      <div class="meta">Signal: left his previous role only weeks ago specifically to build Margined, after writing three separate posts about finance firms losing warm, pre-sold deals because their online presence did not match their real credibility. A brand-new founder himself, in Professional Services.</div>
+      <div class="hook"><b>Human hook:</b> You left to build Margined after watching credible firms lose deals silently.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Antony, your line about deals dying quietly in a browser tab nobody knew was open is one of the sharper things I have read on here lately. I run an accounting firm in Dubai and like meeting founders who notice what others miss. Good to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting Antony. You left your role to build Margined after watching credible finance firms lose deals just from looking thin online, that is a specific enough reason to leave that I believe it. Now that you are the one running the business instead of studying it, what has surprised you most about being on this side of it?</div>
+      <div class="dm"><span class="t">3 · Value-add · day 2-3</span>The FTA's next VAT return deadline is 28 July. I think there is a version of your own thesis that applies to compliance too, firms that look credible but whose books would not survive a close look. With Margined only weeks old, have you set up the VAT and CIT side yet, or is that still on the list behind everything else?</div>
+      <div class="dm"><span class="t">4 · The pivot · day 3-4</span>Different question, less about Margined. After years watching how firms present themselves from the outside, has building your own changed what you actually believe makes a business look trustworthy?</div>
+      <div class="dm"><span class="t">5 · Clean exit · day 5-7</span>I will leave it here, Antony. What you wrote about the thirty seconds that decide a meeting stayed with me. Wishing Margined a strong start.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Mohammad M.</span><span class="fit t-grn">Fit 8.25/10</span><span class="rl">CEO &amp; Founder, Goodies Restaurant DXB · Dubai · <a href="https://www.linkedin.com/in/mohammad-m-34ba0114a/">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive · <b>Opener:</b> Peer Opener · <b>Compliance flag:</b> none detected from public signals</div>
+      <div class="meta">Signal: launched a new sub-brand, "Bubble Panda by Goodies," which sold 500 cups in its first week, while simultaneously hiring kitchen staff for the original Goodies Restaurant. Multi-brand F&amp;B growth, all under one owner.</div>
+      <div class="hook"><b>Human hook:</b> Bubble Panda sold 500 cups in a week under the Goodies umbrella.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Mohammad, 500 cups of Bubble Panda in a week is a serious number for a new brand launch. Adding it under the Goodies name while still running the original restaurant takes real operational discipline. I run an accounting firm in Dubai. Would be good to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting Mohammad. Launching Bubble Panda and selling 500 cups in the first week, while still hiring kitchen staff for Goodies itself, is a lot to run at once. Between the original restaurant and the new brand, is the money side being tracked as one business or kept separate?</div>
+      <div class="dm"><span class="t">3 · Value-add · day 2-3</span>The FTA's next VAT return deadline is 28 July. I think most multi-brand F&amp;B owners here treat every new concept as just another item on the same till, when the FTA and eventually CIT expect it tracked properly per brand. With Bubble Panda now running under Goodies, is that separation already clean on your side?</div>
+      <div class="dm"><span class="t">4 · The pivot · day 3-4</span>Different question, nothing to do with the numbers. Between Goodies, Bubble Panda, and the Kitopi kitchen work before this, which one taught you the most about actually running a restaurant?</div>
+      <div class="dm"><span class="t">5 · Clean exit · day 5-7</span>I will leave it here, Mohammad. Good to see Bubble Panda doing numbers like that in its first week. Wishing the whole Goodies family a strong run.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Muhammad Alam</span><span class="fit t-amb">Fit 7.5/10</span><span class="rl">CEO &amp; Founder, Xsite Real Estate Brokers · Dubai · <a href="https://www.linkedin.com/in/muhammad-alam-21b54a106/">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm (medium confidence, mostly company-page voice) · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance flag:</b> real estate brokerages are DNFBPs under UAE AML law</div>
+      <div class="meta">Signal: Xsite was named a Best Performance Agency and is simultaneously running an active hiring campaign for commission-based agents, growth on both the sales and headcount side at once.</div>
+      <div class="hook"><b>Human hook:</b> Xsite was named a Best Performance Agency while still hiring new agents.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Muhammad, Xsite picking up a Best Performance Agency award while still actively hiring says the growth is real, not just marketing. I run an accounting firm in Dubai. Would be good to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting Muhammad. Winning Best Performance Agency and hiring commission-based agents in the same few months means the brokerage is scaling fast on both sides, sales and headcount. With that pace, is the back office, VAT, commissions, agent payouts, keeping up, or is it the part that gets left for later?</div>
+      <div class="dm"><span class="t">3 · Value-add · day 2-3</span>Real estate brokerages are classed as DNFBPs under UAE AML law, on top of the usual VAT and CIT filing. The FTA's next VAT return deadline is 28 July. With Xsite growing this fast, is the AML side already documented, or still sitting on the list behind recruitment?</div>
+      <div class="dm"><span class="t">4 · The pivot · day 3-4</span>Different question, away from Xsite. With an award like that behind you, what is actually next, more agents, more branches, or something you have not said publicly yet?</div>
+      <div class="dm"><span class="t">5 · Clean exit · day 5-7</span>I will leave it here, Muhammad. Good to see Xsite recognised properly for the work. Wishing the team a strong second half.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Abhishek Bose</span><span class="fit t-amb">Fit 7.5/10</span><span class="rl">CEO &amp; Founder, My Menu / erlybrd (restaurant tech) · Dubai · <a href="https://www.linkedin.com/in/abhibose/">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance flag:</b> none detected from public signals</div>
+      <div class="meta">Signal: running three product lines at once under My Menu, digital menus, My Catering for banquets, and a loyalty program, all sold into the same restaurant clients. Frequent, confident product posts.</div>
+      <div class="hook"><b>Human hook:</b> You built My Menu around the idea that the menu itself sells.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Abhishek, the idea that the menu is the biggest salesperson in the restaurant, not the waiter, is a sharp way to sell software. I run an accounting firm in Dubai and like the logic behind My Menu. Would be good to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting Abhishek. Between My Menu, My Catering, and the loyalty product, you are running three product lines under one roof for the same restaurant clients. As the platform grows, is the finance side structured to match, one business, or effectively three?</div>
+      <div class="dm"><span class="t">3 · Value-add · day 2-3</span>The FTA's next VAT return deadline is 28 July. I think SaaS founders selling into F&amp;B often get the VAT treatment on subscription revenue wrong early, especially once loyalty and catering are billed separately from the core menu product. Is that side already reviewed properly, or built on assumptions from when it was one simpler product?</div>
+      <div class="dm"><span class="t">4 · The pivot · day 3-4</span>Different question, nothing about the product. Building three tools at once for the same restaurant client, was that the plan from day one, or did each one get built because a client asked for it?</div>
+      <div class="dm"><span class="t">5 · Clean exit · day 5-7</span>I will leave it here, Abhishek. Good product thinking behind My Menu and what has come after it. Wishing the team a strong run.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Sanjar S.</span><span class="fit t-amb">Fit 7/10</span><span class="rl">Co-founder &amp; CEO, Comfi.ai (FinTech, SME cash flow) · Dubai · <a href="https://www.linkedin.com/in/sanjar-s-65146676/">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver · <b>Opener:</b> Authority Flip · <b>Compliance flag:</b> none detected from public signals</div>
+      <div class="meta">Signal: previously built Wings.ae, acquired by Amazon.ae, then started again with Comfi.ai, now serving over 1,000 UAE SMEs with cash flow financing. Recently met Saudi Arabia's Minister of Communications and IT to discuss the Kingdom's startup ecosystem. Note: as a funded fintech, Comfi.ai may already have a stronger internal finance function than most on this list, scored moderately for that reason.</div>
+      <div class="hook"><b>Human hook:</b> You built Wings.ae before it was acquired by Amazon, then started again.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Sanjar, from Wings.ae to Comfi.ai to a room with Saudi's Minister of Communications, that is a real second act. I run an accounting firm in Dubai and do not send many of these. Good to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting Sanjar. I do not reach out often, but building Wings.ae to an Amazon acquisition and then starting again with Comfi.ai, now solving cash flow for over a thousand UAE SMEs, is the kind of second act most founders never get to. Out of everything you learned the first time, what is the one thing you set up differently at Comfi.ai from day one?</div>
+      <div class="dm"><span class="t">3 · Value-add · day 2-3</span>The FTA's next VAT return deadline is 28 July. I think it is a strange position to be in, building the tool that solves cash flow stress for a thousand SMEs, while your own company's books are just one more UAE entity due the same filings. Is Comfi.ai's own compliance side handled internally, or is that still outsourced?</div>
+      <div class="dm"><span class="t">4 · The pivot · day 3-4</span>Different question, away from Comfi.ai. After the Wings.ae exit, was starting again an easy decision, or did it take longer than people assume?</div>
+      <div class="dm"><span class="t">5 · Clean exit · day 5-7</span>I will leave it here, Sanjar. Good to see the Saudi trip go well. Wishing Comfi.ai a strong next chapter.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Abu Zaman</span><span class="fit t-grey">Fit 6.5/10</span><span class="rl">CEO, Aqua Green General Trading LLC · Dubai · <a href="https://www.linkedin.com/in/abu-zaman-9a257512/">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold (posts are three years old, no recent activity found) · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance flag:</b> none detected from public signals</div>
+      <div class="meta">Signal: real bulk-commodity trade history, sourcing feed-grade soya meal and 20,000-tonne sugar shipments to Chittagong on LC-at-sight terms. No posting activity since starting as CEO three years ago, so treat this as a colder open than the fit score alone suggests.</div>
+      <div class="hook"><b>Human hook:</b> You once sourced 20,000 tonnes of sugar for delivery to Chittagong.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Abu, saw the Aqua Green General Trading posts on sourcing sugar and soya meal at scale, LC at sight and past-performance suppliers only, real trade, not the LinkedIn kind. I run an accounting firm in Dubai. Would be good to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting Abu. Sourcing 20,000 tonnes of sugar on an LC at sight basis is a different scale of trading than most general trading LLCs here handle. With shipments and payment terms like that, is the VAT and documentation side kept as tight as the sourcing itself?</div>
+      <div class="dm"><span class="t">3 · Value-add · day 2-3</span>The FTA's next VAT return deadline is 28 July. I think bulk commodity trading is where input VAT and export documentation get missed most, LC terms move fast and the paperwork behind it does not always keep pace. Is that side handled by your own team, or does it move as fast as the deals do?</div>
+      <div class="dm"><span class="t">4 · The pivot · day 3-4</span>Different question, away from the trade itself. After years of large-volume sourcing deals, what actually changed the most about running Aqua Green since you started it?</div>
+      <div class="dm"><span class="t">5 · Clean exit · day 5-7</span>I will leave it here, Abu. Good to connect with someone doing real trade at real volume. Wishing Aqua Green continued strong deals.</div>
+    </div>
+
+    <div class="sec">Below the gate · held for next cycle</div>
+    <div class="pcard hold">
+      <div class="ph"><span class="nm">John Mady</span><span class="fit t-grey">Fit 5.75/10</span><span class="rl">Cofounder &amp; MD, Qlub (FinTech, restaurant payments) · UAE · <a href="https://www.linkedin.com/in/john-mady-70395426/">profile</a></span></div>
+      <div class="meta">Ex-Deliveroo, ex-McKinsey. Qlub just landed long-term partnerships with First Abu Dhabi Bank and Mastercard, and with ADIB and Visa. Strong role and industry match, but the scale of those bank partnerships suggests Qlub already runs a proper finance function internally, which is a direct ICP disqualifier. Below the 6/10 gate, no sequence written this cycle.<span class="tagi t-grey">Hold, revisit next cycle</span></div>
+    </div>
+
+    <div class="note">Open <b>Colm Carmody</b> first once you have reviewed him. Everything else is cleared and ready. <b>Manoj Tiwari, Shahbaaz Ahamed,</b> and <b>Antony Marj</b> are your next warmest doors, a Gulf News feature, a six-month-old brokerage still building its back office, and a founder who just left his job to build something new. Every message here is a draft. You read it, then you send it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>BPOAS · CRO Weekly Prospects</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.stat,.card,.pcard,.note',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 90%'}});
+    });
+  </script>
+</body>
+</html>
