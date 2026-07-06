@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFO Weekly Revenue · 6 July 2026 · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Rethink+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#E8294C; --primary-dark:#C4203D; --primary-light:#F5607A; --primary-rgb:232,41,76;
+  --bg:#0A0A0A; --bg-card:#111111; --bg-card-2:#181818; --bg-card-3:#1F1F1F;
+  --border:rgba(255,255,255,.07); --border-2:rgba(255,255,255,.13);
+  --text:#FFFFFF; --text-2:rgba(255,255,255,.58); --text-3:rgba(255,255,255,.28);
+  --green:#22C55E; --green-bg:rgba(34,197,94,.10);
+  --amber:#F59E0B; --amber-bg:rgba(245,158,11,.10);
+  --red:#EF4444; --red-bg:rgba(239,68,68,.10);
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Rethink Sans',system-ui,sans-serif;
+  --font-mono:'DM Mono',monospace;
+  --r-sm:8px; --r-md:16px; --r-lg:24px; --r-pill:9999px;
+  --shadow-card:0 4px 24px rgba(0,0,0,.45);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);
+  background:radial-gradient(ellipse at 60% -10%, rgba(232,41,76,.14) 0%, transparent 60%), var(--bg);
+  color:var(--text); -webkit-font-smoothing:antialiased;
+  padding:40px 24px 80px; max-width:900px; margin:0 auto; line-height:1.6;
+}
+::selection{background:rgba(232,41,76,.3);}
+::-webkit-scrollbar{height:6px;width:6px;}
+::-webkit-scrollbar-track{background:var(--bg-card);}
+::-webkit-scrollbar-thumb{background:rgba(232,41,76,.4);border-radius:3px;}
+
+.kicker{display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);background:rgba(var(--primary-rgb),.10);border:1px solid rgba(var(--primary-rgb),.25);padding:5px 14px;border-radius:var(--r-pill);margin-bottom:18px;}
+h1{font-family:var(--font-display);font-weight:900;font-size:clamp(28px,4.4vw,42px);letter-spacing:-.02em;margin-bottom:8px;}
+.sub{font-size:14px;color:var(--text-2);margin-bottom:8px;}
+.sub b{color:var(--text);}
+
+.sec-label{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin:36px 0 14px;display:flex;align-items:center;gap:10px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px;}
+.mcard{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 18px;box-shadow:var(--shadow-card);position:relative;overflow:hidden;}
+.mcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.mcard.green::before{background:var(--green);} .mcard.amber::before{background:var(--amber);} .mcard.red::before{background:var(--red);}
+.mcard .l{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);}
+.mcard .n{font-family:var(--font-display);font-size:26px;font-weight:800;margin-top:8px;letter-spacing:-.01em;}
+.mcard .s{font-size:12px;color:var(--text-2);margin-top:6px;line-height:1.5;}
+.pill{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:var(--r-pill);margin-top:8px;font-family:var(--font-mono);}
+.pill.green{background:var(--green-bg);color:var(--green);} .pill.amber{background:var(--amber-bg);color:var(--amber);} .pill.red{background:var(--red-bg);color:var(--red);}
+
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px 24px;margin-bottom:14px;}
+.card--accent{border-left:3px solid var(--primary);}
+.card__title{font-family:var(--font-display);font-size:18px;font-weight:800;margin-bottom:12px;}
+.row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;}
+.row:last-child{border-bottom:none;}
+.row .main{flex:1;}
+.row .meta{color:var(--text-2);font-size:12.5px;margin-top:2px;}
+.tag{font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--r-pill);white-space:nowrap;font-family:var(--font-mono);flex-shrink:0;}
+.tag.red{background:var(--red-bg);color:var(--red);} .tag.amber{background:var(--amber-bg);color:var(--amber);} .tag.green{background:var(--green-bg);color:var(--green);} .tag.grey{background:rgba(255,255,255,.06);color:var(--text-2);}
+
+.tblwrap{overflow-x:auto;border-radius:var(--r-md);border:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:680px;}
+th{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);text-align:left;padding:12px 14px;background:var(--bg-card-2);border-bottom:1px solid var(--border);white-space:nowrap;}
+td{padding:11px 14px;border-bottom:1px solid var(--border);white-space:nowrap;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,.02);}
+.status-red{color:var(--red);font-weight:700;} .status-amber{color:var(--amber);font-weight:700;} .status-grey{color:var(--text-3);}
+
+.flag{background:var(--bg-card);border:1px solid rgba(var(--primary-rgb),.3);border-left:3px solid var(--primary);border-radius:var(--r-md);padding:18px 20px;margin-bottom:12px;}
+.flag .fh{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:10px;}
+.flag .ft{font-weight:700;font-size:15px;}
+.flag .why{font-size:13.5px;color:var(--text-2);margin-bottom:8px;}
+.flag .next{font-size:13.5px;background:rgba(255,255,255,.04);border-radius:8px;padding:10px 12px;}
+.flag .next b{color:var(--primary-light);}
+
+.dm{background:var(--bg-card-2);border:1px solid var(--border);border-radius:10px;padding:13px 15px;margin-bottom:9px;font-size:13.5px;}
+.dm .hd{display:flex;justify-content:space-between;color:var(--text-3);font-size:11px;font-family:var(--font-mono);margin-bottom:6px;}
+.dm .msg{color:var(--text);}
+
+.note{background:linear-gradient(135deg, rgba(var(--primary-rgb),.14), rgba(var(--primary-rgb),.03));border:1px solid rgba(var(--primary-rgb),.25);border-radius:var(--r-lg);padding:18px 22px;font-size:14.5px;margin-top:6px;}
+.note b{color:var(--primary-light);}
+
+.mreview{background:var(--bg-card-3);border:1px solid var(--border-2);border-radius:var(--r-lg);padding:20px 22px;margin-top:16px;}
+.mreview .card__title{color:var(--primary-light);}
+.mreview .row{border-bottom:1px solid var(--border-2);}
+
+footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer__brand{font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--primary);}
+.footer__meta{font-family:var(--font-mono);font-size:11px;color:var(--text-3);}
+
+@media(max-width:760px){.grid4{grid-template-columns:1fr 1fr;}}
+@media(max-width:460px){.grid4{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<span class="kicker">CFO · Weekly Revenue · BPOAS</span>
+<h1>AED 0 collected, AED 109,229 sitting unpaid.</h1>
+<p class="sub">Monday, 6 July 2026 · reporting week <b>29 Jun – 5 Jul 2026</b> vs prior week <b>22–28 Jun</b> · read-only, I never move money</p>
+<p class="sub">Source: Zoho Books (live, org: Business Process Outsourcing Accounting Services) · Notion · Outlook (M.Asira &amp; Finance mailboxes)</p>
+<p class="sub">Brand hex not found in <code>positioning-mohaina-asira.md</code> — using default <b>#E8294C</b>. Monthly revenue target also not on file (flagged again this week).</p>
+
+<div class="grid4">
+  <div class="mcard red">
+    <div class="l">Weekly Revenue</div>
+    <div class="n">AED 0</div>
+    <div class="s">Flat vs prior week (also AED 0). No customer payment recorded in Zoho since 12 Jun — 24 days.</div>
+    <span class="pill red">Down / Flat</span>
+  </div>
+  <div class="mcard amber">
+    <div class="l">Pipeline Health</div>
+    <div class="n">8 deals</div>
+    <div class="s">No dollar-value field tracked in Notion or Zoho for pipeline. 1 cluster 3 days from 21-day auto-stall.</div>
+    <span class="pill amber">Watch</span>
+  </div>
+  <div class="mcard amber">
+    <div class="l">Run Rate</div>
+    <div class="n">AED 117,008</div>
+    <div class="s">July MTD (1–6 Jul), 17 invoices. No monthly target on file — cannot grade On Track / At Risk.</div>
+    <span class="pill amber">Target Not Set</span>
+  </div>
+  <div class="mcard red">
+    <div class="l">Overdue Count</div>
+    <div class="n">24</div>
+    <div class="s">AED 109,229.44 total balance. 18 red (30+ days), 3 amber (7–29 days).</div>
+    <span class="pill red">Action Needed</span>
+  </div>
+</div>
+
+<div class="sec-label">1 · Weekly Revenue</div>
+<div class="card card--accent">
+  <div class="card__title">AED 0 received, 2nd straight week — but one payment may already be sitting unreconciled</div>
+  <div class="row"><div class="main">Invoiced this week (29 Jun–5 Jul): <b>AED 145,320.29</b> sent to clients across 19 invoices, plus one draft (MENASTAR FZCO, AED 10,957.50) still unsent.</div></div>
+  <div class="row"><div class="main"><b>Gulf Seatech FZC</b> emailed a payment remittance for INV-2026-000169 (AED 3,675.00) on 3 Jul, cc'd to Finance and Mohaina — the invoice still shows <b>unpaid</b> in Zoho. Likely a reconciliation gap, not a real AED 0 week.<div class="meta">Owner: Junaifa — confirm the bank credit and post the payment.</div></div><span class="tag amber">unreconciled</span></div>
+  <div class="row"><div class="main">A second bank credit (AED 5,250, reported 2 Jul) matches the exact amount of Asianajotoimisto's INV-2026-000179 — unconfirmed, needs a bank-statement check before treating as settled.</div><span class="tag grey">unconfirmed</span></div>
+</div>
+
+<div class="card">
+  <div class="card__title">Revenue by stream</div>
+  <p style="font-size:13.5px;color:var(--text-2);margin-bottom:10px">Not tagged by service line in Zoho invoice items — cannot mechanically split into Retainer / Project / Compliance / Advisory. Directionally: nearly all of this week's 19 sent invoices are recurring monthly retainer billing (bookkeeping/VAT/CT) generated on 1 Jul. Gulf Seatech (audit assistance) and the Italfood/A&amp;J/Al Bustan Dairy audit proposals are project fees, still at proposal stage.</p>
+</div>
+
+<div class="sec-label">2 · Pipeline Health</div>
+<div class="card">
+  <div class="card__title">8 active deal clusters · total value not trackable</div>
+  <div class="row"><div class="main"><b>Richemont / Cartier</b> — Chadi Nasreddine<div class="meta">AP + bookkeeping scope, confirmed ready to proceed. Discovery done. Owner: Mohaina — EL not yet sent.</div></div><span class="tag amber">no EL</span></div>
+  <div class="row"><div class="main"><b>MCM Products Middle East</b> — Joanne Oquendo<div class="meta">KYC active, verbal agreement, Trade Licence + EL still unsigned. Owner: Raihana.</div></div><span class="tag amber">no EL</span></div>
+  <div class="row"><div class="main"><b>GL Middle East / Flow Solutions / Wicked Tents</b> — Nandhu<div class="meta">EL sent 18 Jun, now 18 days outstanding — 3 days to the 21-day auto-stall. Blocked on Mohaina's approval to send the DM sequence. Owner: Raihana.</div></div><span class="tag red">18d, near stall</span></div>
+  <div class="row"><div class="main"><b>The Concept Lab</b> — Mr. George<div class="meta">EL sent 19 Jun, now 17 days outstanding. CIT 30 Sep deadline makes a July start critical. Blocked on Mohaina's approval. Owner: Raihana.</div></div><span class="tag red">17d</span></div>
+  <div class="row"><div class="main"><b>Gulf Seatech FZC</b> — Cheryl Nulud<div class="meta">Audit assistance FY2025, proposal sent, KYC docs received, no EL yet. Owner: Warren + Cristina.</div></div><span class="tag amber">no EL</span></div>
+  <div class="row"><div class="main"><b>Italfood FZ LLC / A&amp;J General Trading / Al Bustan Dairy</b><div class="meta">Audit FY2025 proposals sent 30 Jun, no EL yet. Owner: Mohaina + Raihana.</div></div><span class="tag amber">no EL</span></div>
+  <p style="font-size:12.5px;color:var(--text-3);margin-top:10px">No deal is currently stalled 21+ days (GL Middle East cluster is closest, at 18 days). No deal value is tracked in Notion or Zoho, so the &gt;AED 15,000 stalled-21-day check cannot be assessed this week.</p>
+</div>
+
+<div class="sec-label">3 · Unpaid Invoices — live from Zoho Books</div>
+<div class="card" style="padding:16px">
+  <div class="tblwrap">
+  <table>
+    <thead><tr><th>Client</th><th>Invoice #</th><th>Amount (AED)</th><th>Inv. Date</th><th>Days Overdue</th><th>Status</th><th>Retainer?</th></tr></thead>
+    <tbody>
+      <tr><td>EXLIBRIS MANAGEMENT FZCO</td><td>INV-2025-000354</td><td>6,300.00</td><td>21 Nov 2025</td><td class="status-red">222</td><td class="status-red">RED</td><td>—</td></tr>
+      <tr><td>EXLIBRIS MANAGEMENT FZCO</td><td>INV-2026-000023</td><td>2,625.00</td><td>05 Jan 2026</td><td class="status-red">177</td><td class="status-red">RED</td><td>—</td></tr>
+      <tr><td>Asia Transit FZ LLC</td><td>INV-2026-000060</td><td>10,875.00</td><td>20 Feb 2026</td><td class="status-red">136</td><td class="status-red">RED</td><td>—</td></tr>
+      <tr><td>GASCHEM DMCC</td><td>INV-2026-000086</td><td>1,575.00</td><td>01 Mar 2026</td><td class="status-red">122</td><td class="status-red">RED</td><td>Yes</td></tr>
+      <tr><td>MARINA MARKETING CO. LLC</td><td>INV-2026-000092</td><td>2,100.00</td><td>25 Mar 2026</td><td class="status-red">98</td><td class="status-red">RED</td><td>—</td></tr>
+      <tr><td>Paluto Restaurant LLC</td><td>INV-2026-000100</td><td>2,625.00</td><td>01 Apr 2026</td><td class="status-red">91</td><td class="status-red">RED</td><td>Yes</td></tr>
+      <tr><td>First Support For Business Service</td><td>INV-2026-000113</td><td>3,963.55<span style="color:var(--text-3)"> (SAR 4,050)</span></td><td>01 Apr 2026</td><td class="status-red">82</td><td class="status-red">RED</td><td>Quarterly</td></tr>
+      <tr><td>MARINA MARKETING CO. LLC</td><td>INV-2026-000117</td><td>2,100.00</td><td>25 Apr 2026</td><td class="status-red">67</td><td class="status-red">RED</td><td>—</td></tr>
+      <tr><td>Paluto Restaurant LLC</td><td>INV-2026-000124</td><td>2,625.00</td><td>01 May 2026</td><td class="status-red">61</td><td class="status-red">RED</td><td>Yes</td></tr>
+      <tr><td>XIX FZ - LLC</td><td>INV-2026-000139</td><td>3,675.00</td><td>19 May 2026</td><td class="status-red">48</td><td class="status-red">RED</td><td>—</td></tr>
+      <tr><td>MARINA MARKETING CO. LLC</td><td>INV-2026-000141</td><td>2,100.00</td><td>25 May 2026</td><td class="status-red">37</td><td class="status-red">RED</td><td>—</td></tr>
+      <tr><td>JC Premiere General Trading LLC</td><td>INV-2026-000145</td><td>3,675.00</td><td>01 Jun 2026</td><td class="status-red">35</td><td class="status-red">RED</td><td>—</td></tr>
+      <tr style="background:rgba(var(--primary-rgb),.06)"><td>Richemont (Dubai) FZE</td><td>INV-2026-000161</td><td>16,003.39</td><td>03 Jun 2026</td><td class="status-red">33</td><td class="status-red">RED</td><td><b>Yes</b></td></tr>
+      <tr><td>Mizuho Gulf Capital Partners Ltd</td><td>INV-2026-000149</td><td>4,725.00</td><td>01 Jun 2026</td><td class="status-red">31</td><td class="status-red">RED</td><td>—</td></tr>
+      <tr><td>GASCHEM DMCC</td><td>INV-2026-000157</td><td>2,625.00</td><td>01 Jun 2026</td><td class="status-red">30</td><td class="status-red">RED</td><td>Yes</td></tr>
+      <tr><td>Middletel Information Technology</td><td>INV-2026-000153</td><td>2,100.00</td><td>01 Jun 2026</td><td class="status-red">30</td><td class="status-red">RED</td><td>Yes</td></tr>
+      <tr><td>WRT Middle East</td><td>INV-2026-000151</td><td>3,150.00</td><td>01 Jun 2026</td><td class="status-red">30</td><td class="status-red">RED</td><td>Yes</td></tr>
+      <tr><td>Paluto Restaurant LLC</td><td>INV-2026-000146</td><td>2,625.00</td><td>01 Jun 2026</td><td class="status-red">30</td><td class="status-red">RED</td><td>Yes</td></tr>
+      <tr><td>DIFC Insurance Association NPIO</td><td>INV-2026-000152</td><td>1,575.00</td><td>01 Jun 2026</td><td class="status-amber">25</td><td class="status-amber">AMBER</td><td>Yes</td></tr>
+      <tr><td>WRT Middle East</td><td>INV-2026-000165</td><td>11,287.50</td><td>16 Jun 2026</td><td class="status-amber">15</td><td class="status-amber">AMBER</td><td>Yes</td></tr>
+      <tr><td>MENASTAR FZCO</td><td>INV-2026-000154</td><td>12,500.00</td><td>01 Jun 2026</td><td class="status-amber">10</td><td class="status-amber">AMBER</td><td>—</td></tr>
+      <tr><td>Gulf Seatech FZC</td><td>INV-2026-000169</td><td>3,675.00</td><td>30 Jun 2026</td><td class="status-grey">6</td><td class="status-grey">payment sent, unreconciled</td><td>—</td></tr>
+      <tr><td>MARINA MARKETING CO. LLC</td><td>INV-2026-000166</td><td>2,100.00</td><td>25 Jun 2026</td><td class="status-grey">6</td><td class="status-grey">current</td><td>—</td></tr>
+      <tr><td>CHAMELEON PAINTS TRADING L.L.C</td><td>INV-2026-000168</td><td>2,625.00</td><td>30 Jun 2026</td><td class="status-grey">1</td><td class="status-grey">current</td><td>—</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:12.5px;color:var(--text-3);margin-top:12px">24 invoices · AED 109,229.44 total outstanding balance · 18 red, 3 amber, 3 not yet due for a flag (under 7 days). Retainer clients carry higher priority per BPOAS finance rule — Richemont's INV-2026-000161 (AED 16,003.39, 33 days) is the standout: an active retainer client with the largest overdue balance on file.</p>
+</div>
+
+<div class="sec-label">4 · Monthly Run Rate</div>
+<div class="card">
+  <div class="card__title">July MTD: AED 117,007.92 (17 invoices) · June actual: AED 168,064.01</div>
+  <p style="font-size:13.5px;color:var(--text-2)">No monthly revenue target exists in <code>positioning-mohaina-asira.md</code> or anywhere else on file — this has been flagged in every weekly report for a month. Gap to target cannot be calculated. Retainer billing is front-loaded on the 1st of the month, so a linear day-rate projection from 6 days of July would overstate the month — June's full-month actual (AED 168,064.01) is the more honest anchor for now.</p>
+  <p style="font-size:13.5px;color:var(--text-2);margin-top:8px"><b style="color:var(--amber)">Flag: Target Not Set.</b> Give me one number — the monthly revenue target — and every future report grades On Track / At Risk / Below Target against it with a real AED gap.</p>
+</div>
+
+<div class="sec-label">5 · Attention Flags — max 3, in priority order</div>
+<div class="flag">
+  <div class="fh"><span class="ft">1 · Cash flow risk — collections may be understated, not actually zero</span><span class="tag red">act</span></div>
+  <div class="why">Zoho shows AED 0 collected for a 2nd straight week and no recorded customer payment since 12 June (24 days), against AED 109,229.44 in 24 overdue invoices. But Gulf Seatech FZC sent proof of payment for INV-2026-000169 (AED 3,675.00) on 3 Jul, cc'd to Finance and Mohaina, and a second bank credit (AED 5,250, 2 Jul) matches Asianajotoimisto's INV-2026-000179 exactly. Neither is posted in Zoho.</div>
+  <div class="next"><b>Owner: Junaifa.</b> Confirm both bank credits against the Emirates NBD statement and post the payments in Zoho by end of week — the real collections number is likely better than AED 0, but nobody can act on unreconciled cash.</div>
+</div>
+<div class="flag">
+  <div class="fh"><span class="ft">2 · Compliance exposure — two ELs blocked on approval, one 3 days from auto-stall</span><span class="tag red">act</span></div>
+  <div class="why">GL Middle East / Flow Solutions / Wicked Tents (Nandhu) — EL 18 days outstanding, 3 days to the 21-day auto-stall. The Concept Lab (Mr. George) — EL 17 days outstanding, and the CIT 30 Sep deadline makes a July start non-negotiable. Both DM sequences are drafted and waiting on Mohaina's go-ahead.</div>
+  <div class="next"><b>Owner: Mohaina.</b> Approve both sequences today — Raihana is ready to send the moment she has the yes.</div>
+</div>
+<div class="flag">
+  <div class="fh"><span class="ft">3 · BD opportunity — Richemont/Cartier ready to move, EL still not sent</span><span class="tag amber">send this week</span></div>
+  <div class="why">Chadi Nasreddine (Richemont) confirmed he's ready to proceed on a new AP + bookkeeping retainer scope. Discovery is done. The lead is hot and cooling leads lose momentum fast.</div>
+  <div class="next"><b>Owner: Mohaina.</b> Send the engagement letter this week while Chadi is still engaged.</div>
+</div>
+
+<div class="sec-label">6 · Retainer Renewal Tracker</div>
+<div class="card" style="padding:16px">
+  <p style="font-size:13.5px;color:var(--text-2);margin-bottom:12px">No Notion database or Zoho custom field tracks contract start date, duration, or renewal date for any client — checked both this week. Per instructions, dates are <b>not assumed or estimated</b>. All 12 identified monthly-retainer clients below are flagged <b>Renewal Date Missing</b>.</p>
+  <div class="tblwrap">
+  <table>
+    <thead><tr><th>Client</th><th>Service Scope</th><th>Current Monthly Value (AED)</th><th>Days to Renewal</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Richemont (Dubai) FZE</td><td>Combined — bookkeeping, AP, multi-project</td><td>58,254.22</td><td>Unknown</td><td class="status-red">Renewal Date Missing</td></tr>
+      <tr><td>DMG MORI Middle East FZE</td><td>Combined — 2 active project lines</td><td>14,700.00</td><td>Unknown</td><td class="status-red">Renewal Date Missing</td></tr>
+      <tr><td>Asianajotoimisto Ratiolex Oy (Branch)</td><td>Bookkeeping</td><td>5,250.00</td><td>Unknown</td><td class="status-red">Renewal Date Missing</td></tr>
+      <tr><td>Aspire Solutions (Health Insurance Claims Mgmt LLC)</td><td>Bookkeeping</td><td>3,937.50</td><td>Unknown</td><td class="status-red">Renewal Date Missing</td></tr>
+      <tr><td>RGA Reinsurance Company Middle East Ltd</td><td>Bookkeeping</td><td>3,675.00</td><td>Unknown</td><td class="status-red">Renewal Date Missing</td></tr>
+      <tr><td>WRT Middle East</td><td>Bookkeeping / VAT</td><td>3,150.00</td><td>Unknown</td><td class="status-red">Renewal Date Missing</td></tr>
+      <tr><td>GASCHEM DMCC</td><td>Bookkeeping / Payroll</td><td>2,625.00</td><td>Unknown</td><td class="status-red">Renewal Date Missing</td></tr>
+      <tr><td>Paluto Restaurant LLC</td><td>Bookkeeping / VAT</td><td>2,625.00</td><td>Unknown</td><td class="status-red">Renewal Date Missing</td></tr>
+      <tr><td>GL Middle East FZE</td><td>Bookkeeping</td><td>2,625.00</td><td>Unknown</td><td class="status-red">Renewal Date Missing</td></tr>
+      <tr><td>Middletel Information Technology</td><td>Bookkeeping</td><td>2,100.00</td><td>Unknown</td><td class="status-red">Renewal Date Missing</td></tr>
+      <tr><td>DIFC Insurance Association NPIO</td><td>Bookkeeping</td><td>1,575.00</td><td>Unknown</td><td class="status-red">Renewal Date Missing</td></tr>
+      <tr><td>Partex Marking Systems AB-DMCC</td><td>Bookkeeping</td><td>1,575.00</td><td>Unknown</td><td class="status-red">Renewal Date Missing</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:13px;color:var(--text-2);margin-top:12px"><b>Recommended action for all 12:</b> update the client record with contract start date and duration before next Friday's report — until then, none can be sorted into a green/amber/red renewal window.</p>
+  <div class="note" style="margin-top:14px">
+    <b>AED 102,091.72 in combined monthly retainer value has no renewal date on file</b> — not a clean bill of health, a data gap. This is the fourth consecutive week this has been flagged. Recommend building a Retainer Contracts database in Notion (client, scope, monthly value, contract start, duration, renewal date) this week — it's the one fix that turns every future amber/red window calculation from a guess into a fact.
+  </div>
+</div>
+
+<div class="sec-label">Copy-ready follow-up messages — 21 invoices, 7+ days overdue</div>
+<div class="card" style="max-height:420px;overflow-y:auto">
+  <div class="dm"><div class="hd"><span>EXLIBRIS MANAGEMENT FZCO · INV-2025-000354</span><span>222d</span></div><div class="msg">Hi team, invoice INV-2025-000354 for AED 6,300.00, due 26 November 2025, is now 222 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>EXLIBRIS MANAGEMENT FZCO · INV-2026-000023</span><span>177d</span></div><div class="msg">Hi team, invoice INV-2026-000023 for AED 2,625.00, due 10 January 2026, is now 177 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>Asia Transit FZ LLC · INV-2026-000060</span><span>136d</span></div><div class="msg">Hi team, invoice INV-2026-000060 for AED 10,875.00, due 20 February 2026, is now 136 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>GASCHEM DMCC · INV-2026-000086</span><span>122d</span></div><div class="msg">Hi Mr. Hasanov, invoice INV-2026-000086 for AED 1,575.00, due 6 March 2026, is now 122 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>MARINA MARKETING CO. LLC · INV-2026-000092</span><span>98d</span></div><div class="msg">Hi team, invoice INV-2026-000092 for AED 2,100.00, due 30 March 2026, is now 98 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>Paluto Restaurant LLC · INV-2026-000100</span><span>91d</span></div><div class="msg">Hi Myla, invoice INV-2026-000100 for AED 2,625.00, due 6 April 2026, is now 91 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>First Support For Business Service · INV-2026-000113</span><span>82d</span></div><div class="msg">Hi Osman, invoice INV-2026-000113 for SAR 4,050.00 (approx. AED 3,963.55), due 15 April 2026, is now 82 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>MARINA MARKETING CO. LLC · INV-2026-000117</span><span>67d</span></div><div class="msg">Hi team, invoice INV-2026-000117 for AED 2,100.00, due 30 April 2026, is now 67 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>Paluto Restaurant LLC · INV-2026-000124</span><span>61d</span></div><div class="msg">Hi Myla, invoice INV-2026-000124 for AED 2,625.00, due 6 May 2026, is now 61 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>XIX FZ - LLC · INV-2026-000139</span><span>48d</span></div><div class="msg">Hi Mudi, invoice INV-2026-000139 for AED 3,675.00, due 19 May 2026, is now 48 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>MARINA MARKETING CO. LLC · INV-2026-000141</span><span>37d</span></div><div class="msg">Hi team, invoice INV-2026-000141 for AED 2,100.00, due 30 May 2026, is now 37 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>JC Premiere General Trading LLC · INV-2026-000145</span><span>35d</span></div><div class="msg">Hi Rose, invoice INV-2026-000145 for AED 3,675.00, due 1 June 2026, is now 35 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>Richemont (Dubai) FZE · INV-2026-000161</span><span>33d</span></div><div class="msg">Hi Clara, invoice INV-2026-000161 for AED 16,003.39, due 3 June 2026, is now 33 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>Mizuho Gulf Capital Partners Ltd · INV-2026-000149</span><span>31d</span></div><div class="msg">Hi team, invoice INV-2026-000149 for AED 4,725.00, due 5 June 2026, is now 31 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>GASCHEM DMCC · INV-2026-000157</span><span>30d</span></div><div class="msg">Hi Mr. Hasanov, invoice INV-2026-000157 for AED 2,625.00, due 6 June 2026, is now 30 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>Middletel Information Technology · INV-2026-000153</span><span>30d</span></div><div class="msg">Hi team, invoice INV-2026-000153 for AED 2,100.00, due 6 June 2026, is now 30 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>WRT Middle East · INV-2026-000151</span><span>30d</span></div><div class="msg">Hi Valerie, invoice INV-2026-000151 for AED 3,150.00, due 6 June 2026, is now 30 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>Paluto Restaurant LLC · INV-2026-000146</span><span>30d</span></div><div class="msg">Hi Myla, invoice INV-2026-000146 for AED 2,625.00, due 6 June 2026, is now 30 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>DIFC Insurance Association NPIO · INV-2026-000152</span><span>25d</span></div><div class="msg">Hi Chantal, invoice INV-2026-000152 for AED 1,575.00, due 11 June 2026, is now 25 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>WRT Middle East · INV-2026-000165</span><span>15d</span></div><div class="msg">Hi Valerie, invoice INV-2026-000165 for AED 11,287.50, due 21 June 2026, is now 15 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+  <div class="dm"><div class="hd"><span>MENASTAR FZCO · INV-2026-000154</span><span>10d</span></div><div class="msg">Hi Yiannis, invoice INV-2026-000154 for AED 12,500.00, due 26 June 2026, is now 10 days overdue. Please confirm settlement or flag if there's a query.</div></div>
+</div>
+<p style="font-size:12px;color:var(--text-3);margin-top:8px">All 21 messages are drafts for approval. None have been sent — copy and send from your own inbox once you've reviewed each one.</p>
+
+<div class="mreview">
+  <div class="card__title">Flagged for Mohaina's direct review</div>
+  <div class="row"><div class="main">Richemont (Dubai) FZE — INV-2026-000161, <b>AED 16,003.39</b>, 33 days overdue.<div class="meta">Over AED 10,000, unpaid 30+ days. Active retainer client — highest priority of the three triggers below.</div></div><span class="tag red">triggered</span></div>
+  <div class="row"><div class="main">Asia Transit FZ LLC — INV-2026-000060, <b>AED 10,875.00</b>, 136 days overdue.<div class="meta">Over AED 10,000, unpaid 30+ days.</div></div><span class="tag red">triggered</span></div>
+  <div class="row"><div class="main">Month-end run rate gap &gt; AED 20,000<div class="meta">Cannot assess — no monthly target on file. See Section 4.</div></div><span class="tag grey">cannot assess</span></div>
+  <div class="row"><div class="main">Pipeline deal &gt; AED 15,000 stalled 21+ days<div class="meta">Cannot assess — no deal values tracked. GL Middle East cluster is the closest at 18 days, 3 days from the 21-day mark.</div></div><span class="tag grey">cannot assess</span></div>
+</div>
+
+<footer>
+  <div><span class="footer__brand">BPOAS</span> <span style="color:var(--text-3);font-size:13px;margin-left:8px">CFO Weekly Revenue</span></div>
+  <div class="footer__meta">Generated 6 Jul 2026 · Zoho Books: LIVE · Read-only, funds never moved</div>
+</footer>
+
+</body>
+</html>
