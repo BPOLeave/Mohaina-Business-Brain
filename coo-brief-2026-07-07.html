@@ -1,0 +1,304 @@
+<!doctype html>
+<title>COO Morning Brief · 7 July 2026 · BPOAS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root {
+    --bg: #0A0A0A; --surface: #141414; --surface2: #1A1A1A; --border: #222220;
+    --accent: #E8294C; --accent-dim: rgba(232,41,76,0.12);
+    --text: #F0EDE8; --text2: #7A7570; --text3: #4A4845;
+    --green: #22C55E; --green-dim: rgba(34,197,94,0.12);
+    --amber: #F59E0B; --amber-dim: rgba(245,158,11,0.12);
+    --red: #EF4444; --red-dim: rgba(239,68,68,0.12);
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#F5F3EF; --surface:#FFFFFF; --surface2:#F0EDE8; --border:#E0DDD8; --text:#111110; --text2:#6B6560; --text3:#A0A09A; }
+  }
+  :root[data-theme="light"] { --bg:#F5F3EF; --surface:#FFFFFF; --surface2:#F0EDE8; --border:#E0DDD8; --text:#111110; --text2:#6B6560; --text3:#A0A09A; }
+  :root[data-theme="dark"] { --bg:#0A0A0A; --surface:#141414; --surface2:#1A1A1A; --border:#222220; --text:#F0EDE8; --text2:#7A7570; --text3:#4A4845; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.6; }
+  body { max-width: 820px; margin: 0 auto; padding: 32px 20px 64px; }
+
+  .page-label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--text3); margin-bottom: 8px; }
+  .page-title { font-family: Georgia, "Times New Roman", serif; font-size: 26px; font-weight: 700; color: var(--text); text-wrap: balance; line-height: 1.25; margin-bottom: 4px; }
+  .page-meta { font-size: 13px; color: var(--text2); margin-bottom: 32px; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin-bottom: 16px; }
+  .card-label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--text3); margin-bottom: 14px; }
+
+  .flag { display: flex; gap: 10px; padding: 12px 14px; border-radius: 6px; margin-bottom: 10px; font-size: 13px; line-height: 1.5; }
+  .flag:last-child { margin-bottom: 0; }
+  .flag-critical { background: var(--accent-dim); border-left: 3px solid var(--accent); }
+  .flag-attention { background: var(--amber-dim); border-left: 3px solid var(--amber); }
+  .flag-info { background: var(--surface2); border-left: 3px solid var(--border); }
+  .flag-security { background: var(--red-dim); border-left: 3px solid var(--red); }
+  .flag-badge { font-size: 10px; letter-spacing: .07em; text-transform: uppercase; font-weight: 700; padding: 2px 7px; border-radius: 3px; flex-shrink: 0; align-self: flex-start; margin-top: 1px; }
+  .badge-critical { background: var(--accent); color: #fff; }
+  .badge-attention { background: var(--amber); color: #000; }
+  .badge-security { background: var(--red); color: #fff; }
+  .badge-info { background: var(--surface2); color: var(--text2); border: 1px solid var(--border); }
+  .flag strong { color: var(--text); }
+
+  .schedule-item { display: flex; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .schedule-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .schedule-time { font-family: Georgia, serif; font-size: 13px; color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; min-width: 100px; }
+  .schedule-title { font-size: 14px; color: var(--text); }
+  .schedule-note { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+  .inbox-item { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .inbox-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .inbox-num { font-size: 12px; color: var(--text3); font-variant-numeric: tabular-nums; min-width: 20px; }
+  .inbox-body { flex: 1; }
+  .inbox-subject { font-size: 14px; color: var(--text); font-weight: 500; margin-bottom: 3px; }
+  .inbox-detail { font-size: 13px; color: var(--text2); line-height: 1.5; }
+
+  .task-item { display: flex; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .task-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .task-pill { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; flex-shrink: 0; align-self: flex-start; margin-top: 2px; }
+  .pill-overdue { background: var(--accent-dim); color: var(--accent); }
+  .pill-attention { background: var(--amber-dim); color: var(--amber); }
+  .pill-track { background: var(--green-dim); color: var(--green); }
+  .task-body { flex: 1; font-size: 14px; color: var(--text); line-height: 1.5; }
+  .task-note { font-size: 12px; color: var(--text2); margin-top: 3px; }
+
+  .metric-value { font-family: Georgia, "Times New Roman", serif; font-size: 36px; font-weight: 700; color: var(--amber); font-variant-numeric: tabular-nums; line-height: 1; }
+  .metric-label { font-size: 13px; color: var(--text2); margin-top: 4px; }
+  .metric-sub { font-size: 12px; color: var(--text3); margin-top: 8px; line-height: 1.5; }
+
+  .bd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+  .bd-item { background: var(--surface2); border-radius: 6px; padding: 14px; }
+  .bd-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .bd-status { font-size: 11px; color: var(--text2); }
+  .bd-urgent { border-left: 2px solid var(--accent); }
+  .bd-hot { border-left: 2px solid var(--green); }
+  .bd-blocked { border-left: 2px solid var(--amber); }
+  .bd-down { border-left: 2px solid var(--red); }
+
+  .delivery-note { font-size: 12px; color: var(--text3); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.6; }
+</style>
+
+<p class="page-label">BPOAS · COO Morning Brief</p>
+<h1 class="page-title">Tuesday, 7 July 2026</h1>
+<p class="page-meta">Generated 07:00 UAE (GST/UTC+4) · Source: Outlook Calendar + Inbox · Notion · Data as of this morning's run</p>
+
+<div class="card">
+  <p class="card-label">Today's Schedule</p>
+  <div class="schedule-item">
+    <div>
+      <p class="schedule-time">17:00 – 18:00 UAE</p>
+    </div>
+    <div>
+      <p class="schedule-title">Review and Relearn MMI</p>
+      <p class="schedule-note">Organiser: Mohaina · No meeting link or location on invite · Only event today</p>
+    </div>
+  </div>
+  <div style="margin-top:14px; font-size:13px; color:var(--text2);">No client meetings. No VAT/CIT filing deadlines today.</div>
+</div>
+
+<div class="card">
+  <p class="card-label">Inbox Priorities</p>
+
+  <div class="inbox-item">
+    <span class="inbox-num">1</span>
+    <div class="inbox-body">
+      <p class="inbox-subject">Cartier / Richemont — Chadi Nasreddine replied</p>
+      <p class="inbox-detail">Happy to proceed. Wants to interview both candidates for the bookkeeping scope. <strong style="color:var(--accent)">EL is Mohaina's to send this week.</strong> Note: Richemont carries AED 16,003.39 overdue 34 days — worth addressing alongside the new EL.</p>
+    </div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="inbox-num">2</span>
+    <div class="inbox-body">
+      <p class="inbox-subject">Menastar FZCO — 3 active SOA chase threads</p>
+      <p class="inbox-detail">Kanoo Travel (no ticket issuance reply), Trans Arabian (SOA attached), internal team chasing Wenrix June invoice. Receivables collection ongoing.</p>
+    </div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="inbox-num">3</span>
+    <div class="inbox-body">
+      <p class="inbox-subject">Yiannis (lastminute.com / Menastar) — year-end balance signing</p>
+      <p class="inbox-detail">Escalating again — called it "very important." Audit cannot complete without Lastminute BV balance confirmation. Directed to Federica Grassi + Consolidation team.</p>
+    </div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="inbox-num">4</span>
+    <div class="inbox-body">
+      <p class="inbox-subject">Almosafer — Claim #2010754 (Apr 2026) still unpaid</p>
+      <p class="inbox-detail"><strong style="color:var(--accent)">70+ days unresolved.</strong> Yiannis chasing again today. Almosafer says reprocessing in progress — no confirmation of payment yet. Owner: Michelle Pacis / Mohaina.</p>
+    </div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="inbox-num">5</span>
+    <div class="inbox-body">
+      <p class="inbox-subject">Amazon MES — data entry method update</p>
+      <p class="inbox-detail">ERP team flagging a change to historical data upload in the system to avoid disrupting current workflow. No action required from Mohaina — FYI.</p>
+    </div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="inbox-num">6</span>
+    <div class="inbox-body">
+      <p class="inbox-subject" style="color:var(--text3);">⚠ Security — FedEx phishing email</p>
+      <p class="inbox-detail" style="color:var(--text2);">"Re: Your Package" from admin@homefrontguttering.com, marked High importance. Fake missed-delivery / signature-required lure. <strong style="color:var(--accent)">Do not click any link. Delete or report to IT.</strong></p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <p class="card-label">Tasks &amp; Deadlines</p>
+
+  <div class="task-item">
+    <span class="task-pill pill-overdue">Overdue</span>
+    <div class="task-body">
+      GL Middle East / Flow Solutions / Wicked Tents (Nandhu)
+      <p class="task-note">EL sent 18 Jun — now 19 days outstanding. <strong style="color:var(--accent)">2 days to 21-day auto-stall.</strong> Raihana will call Nandhu directly if no approval by midday. Owner: Mohaina → Raihana.</p>
+    </div>
+  </div>
+
+  <div class="task-item">
+    <span class="task-pill pill-overdue">Overdue</span>
+    <div class="task-body">
+      The Concept Lab — Mr. George
+      <p class="task-note">EL sent 19 Jun — 18 days outstanding. CIT 30 Sep deadline makes a July start non-negotiable. Owner: Mohaina → Raihana.</p>
+    </div>
+  </div>
+
+  <div class="task-item">
+    <span class="task-pill pill-attention">Attention</span>
+    <div class="task-body">
+      MCM Products Middle East — Joanne Oquendo
+      <p class="task-note">Verbal agreement active. Trade Licence + EL still unsigned. Raihana calling today. Target: EL + Trade Licence by end of week.</p>
+    </div>
+  </div>
+
+  <div class="task-item">
+    <span class="task-pill pill-attention">Attention</span>
+    <div class="task-body">
+      Brilliant Telecom LLC — CIT Partner Confirmation Letters
+      <p class="task-note">Several partners not responding. Raihana chasing by phone and email today. Status report to Mohaina by 17:00.</p>
+    </div>
+  </div>
+
+  <div class="task-item">
+    <span class="task-pill pill-track">On Track</span>
+    <div class="task-body">
+      Richemont / Cartier — Chadi Nasreddine
+      <p class="task-note">Confirmed ready to proceed. EL is Mohaina's to send this week. Raihana on standby — not handling this one.</p>
+    </div>
+  </div>
+
+  <div class="task-item">
+    <span class="task-pill pill-attention">Attention</span>
+    <div class="task-body">
+      Today's LinkedIn Story Post
+      <p class="task-note">Pending Approval — 08:30 UAE slot has passed. Reply "approved" on the Notion CMO Post page to release to Rei Nald.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <p class="card-label">Content Slot · Tuesday</p>
+  <p style="font-size:14px; color:var(--text); margin-bottom:8px;">Story Post · <em>Inside an Owner-Led Firm</em></p>
+  <p style="font-size:13px; color:var(--text2); font-style:italic; margin-bottom:12px;">"A trading company came to us with a stalled license renewal. The hold was not immigration. It was not the bank. It was one line, three years old, in a VAT return nobody had looked at since it was filed."</p>
+  <p style="font-size:12px; color:var(--text3);">Invisibility Diagnostic: 4/4 PASS · No statutory figure or deadline cited · Status: Pending Approval</p>
+</div>
+
+<div class="card">
+  <p class="card-label">BD Pipeline Pulse</p>
+  <div class="bd-grid">
+    <div class="bd-item bd-urgent">
+      <p class="bd-name">Nandhu (GL cluster)</p>
+      <p class="bd-status" style="color:var(--accent);">🔴 Blocked — 19d, 2d to stall</p>
+    </div>
+    <div class="bd-item bd-urgent">
+      <p class="bd-name">Mr. George (Concept Lab)</p>
+      <p class="bd-status" style="color:var(--accent);">🔴 Blocked — 18d, CIT Sept</p>
+    </div>
+    <div class="bd-item bd-blocked">
+      <p class="bd-name">MCM Products ME</p>
+      <p class="bd-status" style="color:var(--amber);">🟡 Raihana calling today</p>
+    </div>
+    <div class="bd-item bd-hot">
+      <p class="bd-name">Richemont / Cartier</p>
+      <p class="bd-status" style="color:var(--green);">🔥 Hot — Mohaina handling EL</p>
+    </div>
+    <div class="bd-item bd-down">
+      <p class="bd-name">New lead discovery</p>
+      <p class="bd-status" style="color:var(--text2);">🔴 Apify down — week 6</p>
+    </div>
+  </div>
+  <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
+    <p style="font-size:12px; color:var(--text3); font-weight:600; text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px;">Raihana's Queue Today</p>
+    <p style="font-size:13px; color:var(--text2);">Nandhu call (if no Mohaina approval by midday) · MCM Products call (EL + Trade Licence) · Brilliant Telecom partner chase · Do not send DM to Nandhu or Mr. George without explicit approval.</p>
+  </div>
+</div>
+
+<div class="card">
+  <p class="card-label">Key Metric · Outstanding Receivables</p>
+  <p class="metric-value">AED 151,491.94</p>
+  <p class="metric-label">35 overdue invoices · As of this morning (Zoho Books, sourced via COO Brief)</p>
+  <p class="metric-sub">
+    Up from 24 invoices / AED 109,229.44 on 6 July and 23 / AED 106,604.44 on 2 July.<br>
+    The jump is largely explained by 11 retainer invoices due 6 July rolling into overdue overnight — not new bad debt, but the trend is worth watching.<br>
+    <strong style="color:var(--accent)">Oldest:</strong> EXLIBRIS MANAGEMENT FZCO — 223+ days (AED 6,300) and 178 days (AED 2,625).<br>
+    <strong style="color:var(--accent)">Largest single:</strong> Richemont (Dubai) FZE — AED 16,003.39, 34 days overdue.
+  </p>
+</div>
+
+<div class="card">
+  <p class="card-label">Flags for Mohaina's Review</p>
+
+  <div class="flag flag-critical">
+    <span class="flag-badge badge-critical">CT</span>
+    <div><strong>Nandhu + Mr. George ELs at stall line.</strong> Both touch CIT-relevant clients. Nandhu is 2 days from the 21-day auto-stall. A yes/no is needed today. Brilliant Telecom CIT partner letters also outstanding. Next step: approve or decline both ELs before midday.</div>
+  </div>
+
+  <div class="flag flag-critical">
+    <span class="flag-badge badge-critical">Cash</span>
+    <div><strong>AED 0 collected in July.</strong> AED 151,491.94 outstanding across 35 invoices. No Zoho Books pull since 2 July in the main CFO run. Reconcile bank feed to confirm whether any July payments have cleared. Owner: Junaifa.</div>
+  </div>
+
+  <div class="flag flag-critical">
+    <span class="flag-badge badge-critical">Ops</span>
+    <div><strong>Zoho Books renewal — AED 166.95 due tomorrow 8 July.</strong> Confirm card on file is valid before EOD today or the subscription lapses, taking the live receivables data offline.</div>
+  </div>
+
+  <div class="flag flag-attention">
+    <span class="flag-badge badge-attention">Client</span>
+    <div><strong>Menastar FZCO audit blocking.</strong> Yiannis pressing on year-end balance signing — calls it critical to complete the audit. Three SOA chase threads active today. Next step: confirm the Lastminute BV balance request has reached the right person (Federica Grassi + Consolidation).</div>
+  </div>
+
+  <div class="flag flag-attention">
+    <span class="flag-badge badge-attention">Client</span>
+    <div><strong>Almosafer Claim #2010754 — 70+ days.</strong> Second pointed follow-up today. Almosafer says they are reprocessing — still no payment confirmation. Escalate to Mohaina if not resolved by Friday.</div>
+  </div>
+
+  <div class="flag flag-attention">
+    <span class="flag-badge badge-attention">BD</span>
+    <div><strong>Richemont / Cartier — EL this week.</strong> Chadi Nasreddine confirmed ready to proceed and wants to interview both candidates. EL is Mohaina's to send. Same account carries AED 16,003.39 overdue 34 days — address both in the same communication.</div>
+  </div>
+
+  <div class="flag flag-attention">
+    <span class="flag-badge badge-attention">Content</span>
+    <div><strong>Today's Story Post pending approval</strong> — 08:30 UAE slot passed. Reply "approved" on Notion to release to Rei. Also: e-Invoicing post correction (3 Jul "is coming" → "has started") now 4 days unresolved — a pinned comment is all that's needed.</div>
+  </div>
+
+  <div class="flag flag-security">
+    <span class="flag-badge badge-security">Security</span>
+    <div><strong>FedEx phishing email in inbox.</strong> High-importance fake missed-delivery notice. Do not click any link. Delete immediately or report to IT.</div>
+  </div>
+
+  <div class="flag flag-info">
+    <span class="flag-badge badge-info">Admin</span>
+    <div><strong>C. Samonte vacation leave (6 Jul)</strong> still unanswered. A yes/no today avoids the request sitting unresolved into the week.</div>
+  </div>
+</div>
+
+<p class="delivery-note">
+  <strong style="color:var(--text2)">Delivery note:</strong> M365 email send unavailable — search/read only since 2 July 2026. This HTML file and the Notion page (<a href="https://app.notion.com/p/3968a33e7fd1814c9c51e3970481c326" style="color:var(--text2)">COO Brief · 7 July</a>) are the completed delivery channels. Push notification has been sent. To restore email delivery: add send scope to the M365 connector, or connect Gmail with send enabled.
+</p>

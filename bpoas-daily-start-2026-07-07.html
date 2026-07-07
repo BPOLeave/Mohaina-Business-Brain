@@ -1,0 +1,537 @@
+<!doctype html>
+<title>BPOAS Daily Start · Tuesday 7 July 2026</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --surface2: #1C1C1A;
+    --surface3: #222220;
+    --border: #242422;
+    --accent: #E8294C;
+    --accent-dim: rgba(232,41,76,0.10);
+    --accent-glow: rgba(232,41,76,0.05);
+    --text: #F0EDE8;
+    --text2: #7A7570;
+    --text3: #4A4845;
+    --green: #22C55E;
+    --green-dim: rgba(34,197,94,0.10);
+    --amber: #F59E0B;
+    --amber-dim: rgba(245,158,11,0.10);
+    --red: #EF4444;
+    --red-dim: rgba(239,68,68,0.10);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #F5F3EF; --surface: #FFFFFF; --surface2: #F0EDE8; --surface3: #E8E5E0;
+      --border: #DDDAD5; --accent-dim: rgba(232,41,76,0.08); --accent-glow: rgba(232,41,76,0.04);
+      --text: #111110; --text2: #6B6560; --text3: #A0A09A;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #F5F3EF; --surface: #FFFFFF; --surface2: #F0EDE8; --surface3: #E8E5E0;
+    --border: #DDDAD5; --accent-dim: rgba(232,41,76,0.08); --accent-glow: rgba(232,41,76,0.04);
+    --text: #111110; --text2: #6B6560; --text3: #A0A09A;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0A0A0A; --surface: #141414; --surface2: #1C1C1A; --surface3: #222220;
+    --border: #242422; --accent-dim: rgba(232,41,76,0.10); --accent-glow: rgba(232,41,76,0.05);
+    --text: #F0EDE8; --text2: #7A7570; --text3: #4A4845;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  body { max-width: 900px; margin: 0 auto; padding: 0 20px 64px; }
+
+  /* ── HERO ── */
+  .hero {
+    border-bottom: 1px solid var(--border);
+    padding: 36px 0 32px;
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+  }
+  .hero-badge {
+    display: inline-block; background: var(--accent); color: #fff;
+    font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 3px;
+  }
+  .hero-date { font-size: 12px; color: var(--text3); letter-spacing: .06em; text-transform: uppercase; }
+  .hero-title { font-family: Georgia, "Times New Roman", serif; font-size: 32px; font-weight: 700; color: var(--text); line-height: 1.2; text-wrap: balance; margin-bottom: 24px; }
+  .hero-title span { color: var(--accent); }
+
+  .pulse-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 1px;
+    background: var(--border); border-radius: 8px; overflow: hidden; border: 1px solid var(--border);
+  }
+  .pulse-cell {
+    background: var(--surface); padding: 18px 20px;
+  }
+  .pulse-cell-label { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--text3); margin-bottom: 8px; }
+  .pulse-cell-value { font-family: Georgia, "Times New Roman", serif; font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--text); line-height: 1.1; }
+  .pulse-cell-value.na { color: var(--text3); font-size: 16px; }
+  .pulse-cell-sub { font-size: 11px; color: var(--text2); margin-top: 4px; line-height: 1.4; }
+
+  .status-chip {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 100px;
+  }
+  .status-chip.at-risk { background: var(--amber-dim); color: var(--amber); }
+  .status-chip.on-track { background: var(--green-dim); color: var(--green); }
+  .status-chip.below { background: var(--accent-dim); color: var(--accent); }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+  .carry-note { margin-top: 12px; font-size: 12px; color: var(--text3); line-height: 1.5; }
+
+  /* ── GRID ── */
+  .main-grid {
+    display: grid; grid-template-columns: 1fr 320px; gap: 16px; margin-bottom: 16px;
+    align-items: start;
+  }
+  @media (max-width: 680px) { .main-grid { grid-template-columns: 1fr; } }
+
+  /* ── CARDS ── */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 22px; }
+  .card + .card { margin-top: 0; }
+  .card-label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--text3); margin-bottom: 14px; }
+  .full-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 22px; margin-bottom: 16px; }
+
+  /* ── FLAGS ── */
+  .flags-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-top: 3px solid var(--accent); border-radius: 8px; padding: 22px;
+  }
+  .flags-card .card-label { color: var(--accent); }
+
+  .flag {
+    display: flex; gap: 10px; padding: 11px 13px; border-radius: 6px; margin-bottom: 8px;
+    font-size: 13px; line-height: 1.5;
+  }
+  .flag:last-child { margin-bottom: 0; }
+  .flag-c { background: var(--accent-dim); border-left: 2px solid var(--accent); }
+  .flag-a { background: var(--amber-dim); border-left: 2px solid var(--amber); }
+  .flag-g { background: var(--green-dim); border-left: 2px solid var(--green); }
+  .flag-i { background: var(--surface2); border-left: 2px solid var(--border); }
+  .flag-s { background: var(--red-dim); border-left: 2px solid var(--red); }
+
+  .flag-tag {
+    font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    padding: 2px 6px; border-radius: 3px; flex-shrink: 0; align-self: flex-start; margin-top: 1px;
+  }
+  .tag-ct { background: var(--accent); color: #fff; }
+  .tag-cash { background: var(--accent); color: #fff; }
+  .tag-client { background: var(--amber); color: #000; }
+  .tag-bd { background: var(--green); color: #000; }
+  .tag-content { background: var(--surface3); color: var(--text2); border: 1px solid var(--border); }
+  .tag-sec { background: var(--red); color: #fff; }
+  .tag-ops { background: var(--accent); color: #fff; }
+  .tag-admin { background: var(--surface3); color: var(--text2); border: 1px solid var(--border); }
+
+  .flag strong { color: var(--text); }
+  .flag .step { color: var(--text2); font-size: 12px; display: block; margin-top: 3px; }
+
+  /* ── RUN LOG ── */
+  .run-table { width: 100%; border-collapse: collapse; }
+  .run-table tr { border-bottom: 1px solid var(--border); }
+  .run-table tr:last-child { border-bottom: none; }
+  .run-table td { padding: 10px 0; font-size: 13px; vertical-align: top; }
+  .run-table td:first-child { color: var(--text); font-weight: 500; padding-right: 12px; white-space: nowrap; }
+  .run-table td:nth-child(2) { min-width: 80px; }
+  .run-table td:last-child { color: var(--text2); }
+
+  .run-status { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; }
+  .run-status.done { color: var(--green); }
+  .run-status.pending { color: var(--amber); }
+  .run-status.skip { color: var(--text3); }
+  .run-status.error { color: var(--accent); }
+
+  /* ── LINKS ── */
+  .links-grid { display: flex; flex-direction: column; gap: 8px; }
+  .link-item {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--surface2); border-radius: 6px; padding: 11px 13px;
+    text-decoration: none; color: var(--text);
+    border: 1px solid var(--border); font-size: 13px;
+    transition: border-color .15s;
+  }
+  .link-item:hover { border-color: var(--accent); }
+  .link-icon { font-size: 16px; flex-shrink: 0; }
+  .link-label { font-weight: 500; }
+  .link-meta { font-size: 11px; color: var(--text2); }
+  .link-arrow { margin-left: auto; color: var(--text3); }
+
+  /* ── POST CARD ── */
+  .post-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin-bottom: 16px; }
+  .post-card .card-label { margin-bottom: 8px; }
+  .post-meta-row { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .post-pillar { font-size: 12px; color: var(--text2); }
+
+  .post-body {
+    background: var(--surface2); border-radius: 6px;
+    border-left: 3px solid var(--accent);
+    padding: 22px 24px; margin-bottom: 16px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px; line-height: 1.85; color: var(--text);
+    white-space: pre-wrap;
+  }
+  .post-hook { font-weight: 700; color: var(--text); }
+  .post-cta { font-style: italic; color: var(--amber); }
+
+  .pinned-grid { display: flex; flex-direction: column; gap: 8px; }
+  .pinned-item { background: var(--surface2); border-radius: 6px; padding: 12px 14px; }
+  .pinned-num { font-size: 10px; letter-spacing: .07em; text-transform: uppercase; color: var(--text3); margin-bottom: 4px; }
+  .pinned-text { font-size: 13px; color: var(--text2); line-height: 1.5; }
+
+  .post-score { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+  .score-num { font-family: Georgia, serif; font-size: 22px; font-weight: 700; color: var(--green); }
+  .score-label { font-size: 12px; color: var(--text2); }
+
+  .approval-bar {
+    background: var(--amber-dim); border: 1px solid var(--amber); border-radius: 6px;
+    padding: 12px 16px; font-size: 13px; color: var(--text); margin-bottom: 16px;
+  }
+  .approval-bar strong { color: var(--amber); }
+
+  /* ── SYSTEM ── */
+  .sys-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+  .sys-item { background: var(--surface2); border-radius: 6px; padding: 12px; }
+  .sys-name { font-size: 12px; color: var(--text2); margin-bottom: 4px; }
+  .sys-status { font-size: 13px; font-weight: 600; }
+  .sys-down { color: var(--accent); }
+  .sys-warn { color: var(--amber); }
+  .sys-ok { color: var(--green); }
+  .sys-note { font-size: 11px; color: var(--text3); margin-top: 3px; line-height: 1.4; }
+
+  /* ── UTIL ── */
+  .section-gap { margin-bottom: 16px; }
+  .delivery-note { font-size: 12px; color: var(--text3); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.6; }
+  a { color: inherit; }
+</style>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-eyebrow">
+    <span class="hero-badge">BPOAS Daily Start</span>
+    <span class="hero-date">Tuesday · 7 July 2026 · 07:00 UAE</span>
+  </div>
+  <h1 class="hero-title">Good morning, <span>Mohaina.</span><br>Here is what needs you today.</h1>
+
+  <div class="pulse-grid">
+    <div class="pulse-cell">
+      <p class="pulse-cell-label">MTD Revenue Received</p>
+      <p class="pulse-cell-value na">AED 0</p>
+      <p class="pulse-cell-sub">Confirmed through 2 July — zero collections for 2+ weeks</p>
+    </div>
+    <div class="pulse-cell">
+      <p class="pulse-cell-label">Monthly Target</p>
+      <p class="pulse-cell-value na">Not on file</p>
+      <p class="pulse-cell-sub">Not found in brand docs — gap cannot be calculated</p>
+    </div>
+    <div class="pulse-cell">
+      <p class="pulse-cell-label">Gap to Target</p>
+      <p class="pulse-cell-value na">N/A</p>
+      <p class="pulse-cell-sub">Cannot calculate without a target</p>
+    </div>
+    <div class="pulse-cell">
+      <p class="pulse-cell-label">Status</p>
+      <p class="pulse-cell-value" style="padding-top:4px;"><span class="status-chip at-risk"><span class="status-dot"></span>At Risk</span></p>
+      <p class="pulse-cell-sub">Zero collections — invoiced but not received</p>
+    </div>
+    <div class="pulse-cell">
+      <p class="pulse-cell-label">Days Remaining (July)</p>
+      <p class="pulse-cell-value">24</p>
+      <p class="pulse-cell-sub">July has 31 days · Today is the 7th</p>
+    </div>
+    <div class="pulse-cell">
+      <p class="pulse-cell-label">Daily Rate Needed</p>
+      <p class="pulse-cell-value na">N/A</p>
+      <p class="pulse-cell-sub">No target on file to calculate from</p>
+    </div>
+  </div>
+
+  <p class="carry-note">
+    📅 Last updated: <strong style="color:var(--text2)">Monday 2 July 2026</strong> (CFO runs Monday-only · 6 July CFO blocked — Zoho Books connector not enabled that session).
+    July invoiced to date: AED 117,007.92+ (retainer billing, recurring — none yet confirmed received).
+    Outstanding overdue: <strong style="color:var(--amber)">AED 151,491.94 across 35 invoices</strong> as of this morning.
+  </p>
+</div>
+
+<!-- ── RUN LOG + FLAGS (2-col) ── -->
+<div class="main-grid">
+  <!-- FLAGS LEFT -->
+  <div class="flags-card">
+    <p class="card-label">Flags for Mohaina · Priority Order</p>
+
+    <div class="flag flag-c">
+      <span class="flag-tag tag-ct">CT</span>
+      <div>
+        <strong>Nandhu (GL cluster) EL — 2 days to auto-stall.</strong> 19 days outstanding since 18 Jun. Yes or no needed before midday — Raihana calls Nandhu directly if no approval by then.
+        <span class="step">→ Approve or decline now. Raihana is waiting.</span>
+      </div>
+    </div>
+
+    <div class="flag flag-c">
+      <span class="flag-tag tag-ct">CT</span>
+      <div>
+        <strong>Mr. George (Concept Lab) EL — 18 days, CIT September deadline.</strong> July start is non-negotiable if the CIT 30 Sep date is to be met. One day behind Nandhu in urgency.
+        <span class="step">→ Approve or decline alongside Nandhu's.</span>
+      </div>
+    </div>
+
+    <div class="flag flag-c">
+      <span class="flag-tag tag-cash">Cash</span>
+      <div>
+        <strong>AED 151,491.94 outstanding · 35 overdue invoices.</strong> Sharp jump from 24 invoices on 6 July — 11 retainer invoices due 6 July just became overdue. Oldest: EXLIBRIS 223+ days. July collections at zero.
+        <span class="step">→ Reconcile bank feed to confirm July receipts. Owner: Junaifa.</span>
+      </div>
+    </div>
+
+    <div class="flag flag-c">
+      <span class="flag-tag tag-ops">Ops</span>
+      <div>
+        <strong>Zoho Books renewal — AED 166.95 due tomorrow 8 July.</strong> If the card on file fails, the subscription lapses and live receivables data goes offline.
+        <span class="step">→ Confirm card valid before EOD today.</span>
+      </div>
+    </div>
+
+    <div class="flag flag-a">
+      <span class="flag-tag tag-client">Client</span>
+      <div>
+        <strong>Menastar FZCO audit — year-end balance blocking.</strong> Yiannis has escalated twice today. Three active SOA chase threads (Kanoo, Trans Arabian, internal). Year-end balance signing needed to complete audit.
+        <span class="step">→ Confirm Lastminute BV balance request has reached Federica Grassi + Consolidation.</span>
+      </div>
+    </div>
+
+    <div class="flag flag-a">
+      <span class="flag-tag tag-client">Client</span>
+      <div>
+        <strong>Almosafer Claim #2010754 — 70+ days unpaid.</strong> Second pointed chase today. Almosafer says reprocessing — no payment confirmation yet.
+        <span class="step">→ Escalate to Mohaina if not resolved by Friday.</span>
+      </div>
+    </div>
+
+    <div class="flag flag-g">
+      <span class="flag-tag tag-bd">BD</span>
+      <div>
+        <strong>Richemont / Cartier — Chadi confirmed ready.</strong> Wants to interview both candidates for the bookkeeping scope. EL is Mohaina's to send this week. Note: AED 16,003.39 overdue 34 days on the same account — address both in one communication.
+        <span class="step">→ Reply to Chadi and send EL this week.</span>
+      </div>
+    </div>
+
+    <div class="flag flag-a">
+      <span class="flag-tag tag-content">Content</span>
+      <div>
+        <strong>Today's Story Post — pending approval.</strong> 08:30 UAE slot has passed. Post references UAE VAT compliance — flag per routine rules. Invisibility Diagnostic 4/4 PASS. Fact-check bar: LOW (narrative post, no penalty figure or deadline cited).
+        <span class="step">→ Reply "approved" on the Notion CMO Post page to release to Rei.</span>
+      </div>
+    </div>
+
+    <div class="flag flag-a">
+      <span class="flag-tag tag-content">Content</span>
+      <div>
+        <strong>e-Invoicing post correction — 4 days outstanding.</strong> Friday 3 July post says "is coming" but Cabinet Decision No. 106/2025 took effect 1 July 2026. A pinned corrective comment is all that's needed.
+        <span class="step">→ Add pinned comment: "Update: the mandate is live as of 1 July 2026."</span>
+      </div>
+    </div>
+
+    <div class="flag flag-s">
+      <span class="flag-tag tag-sec">Security</span>
+      <div>
+        <strong>FedEx phishing email in inbox.</strong> "Re: Your Package" from admin@homefrontguttering.com — marked High importance. Fake missed-delivery lure.
+        <span class="step">→ Do not click any link. Delete or report to IT.</span>
+      </div>
+    </div>
+
+    <div class="flag flag-i">
+      <span class="flag-tag tag-admin">Admin</span>
+      <div>
+        <strong>C. Samonte vacation leave (6 Jul) — still unanswered.</strong> Formal request submitted. Stays open until Mohaina responds.
+        <span class="step">→ Quick yes/no needed today.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RUN LOG + LINKS RIGHT -->
+  <div style="display:flex; flex-direction:column; gap:16px;">
+    <div class="card">
+      <p class="card-label">Run Log · Tuesday Lean Run</p>
+      <table class="run-table">
+        <tr>
+          <td>COO Morning Brief</td>
+          <td><span class="run-status done">✓ Complete</span></td>
+          <td><a href="coo-brief-2026-07-07.html" style="color:var(--text2); font-size:12px;">coo-brief-2026-07-07.html</a></td>
+        </tr>
+        <tr>
+          <td>CFO Weekly Revenue</td>
+          <td><span class="run-status skip">— Skipped</span></td>
+          <td style="font-size:12px;">Monday-only routine</td>
+        </tr>
+        <tr>
+          <td>CRO Prospects</td>
+          <td><span class="run-status skip">— Skipped</span></td>
+          <td style="font-size:12px;">Monday-only · Apify down wk 6</td>
+        </tr>
+        <tr>
+          <td>CMO Daily Post</td>
+          <td><span class="run-status pending">⏳ Approval</span></td>
+          <td><a href="cmo-post-2026-07-07.html" style="color:var(--text2); font-size:12px;">cmo-post-2026-07-07.html</a></td>
+        </tr>
+        <tr>
+          <td>Content Calendar</td>
+          <td><span class="run-status skip">— Skipped</span></td>
+          <td style="font-size:12px;">Monday-only routine</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <p class="card-label">Today's Schedule</p>
+      <div style="padding:8px 0; border-bottom:1px solid var(--border);">
+        <p style="font-size:13px; color:var(--accent); font-family:Georgia,serif; font-variant-numeric:tabular-nums; margin-bottom:3px;">17:00 – 18:00 UAE</p>
+        <p style="font-size:14px; color:var(--text);">Review and Relearn MMI</p>
+        <p style="font-size:12px; color:var(--text2); margin-top:2px;">Organiser: Mohaina · No link or location on invite</p>
+      </div>
+      <p style="font-size:12px; color:var(--text3); margin-top:12px;">No client meetings. No VAT/CIT filing deadlines today.</p>
+    </div>
+
+    <div class="card">
+      <p class="card-label">Quick Links</p>
+      <div class="links-grid">
+        <a href="coo-brief-2026-07-07.html" class="link-item">
+          <span class="link-icon">📋</span>
+          <span>
+            <p class="link-label">COO Brief</p>
+            <p class="link-meta">Schedule · Inbox · Tasks · Pipeline</p>
+          </span>
+          <span class="link-arrow">→</span>
+        </a>
+        <a href="cmo-post-2026-07-07.html" class="link-item">
+          <span class="link-icon">📱</span>
+          <span>
+            <p class="link-label">CMO Post · Approve Here</p>
+            <p class="link-meta">Story Post · Pending Approval · 4/4 Pass</p>
+          </span>
+          <span class="link-arrow">→</span>
+        </a>
+        <a href="https://app.notion.com/p/3968a33e7fd181fd874fffbf98938cfe" class="link-item" target="_blank">
+          <span class="link-icon">🔗</span>
+          <span>
+            <p class="link-label">Notion · CMO Post Page</p>
+            <p class="link-meta">Approve here to release to Rei Nald</p>
+          </span>
+          <span class="link-arrow">→</span>
+        </a>
+        <a href="https://app.notion.com/p/3958a33e7fd181bd9e41f21dd2dfbf2c" class="link-item" target="_blank">
+          <span class="link-icon">📅</span>
+          <span>
+            <p class="link-label">Content Calendar · Week of 6 July</p>
+            <p class="link-meta">5-post plan confirmed Mon 6 July</p>
+          </span>
+          <span class="link-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="card-label">System Health</p>
+      <div class="sys-grid">
+        <div class="sys-item">
+          <p class="sys-name">M365 Email Send</p>
+          <p class="sys-status sys-down">Down</p>
+          <p class="sys-note">Search only since 2 July. Fix: add send scope or connect Gmail send.</p>
+        </div>
+        <div class="sys-item">
+          <p class="sys-name">Apify LinkedIn</p>
+          <p class="sys-status sys-down">Down · Week 6</p>
+          <p class="sys-note">No new leads. CRM uploads on hold.</p>
+        </div>
+        <div class="sys-item">
+          <p class="sys-name">Zoho Books</p>
+          <p class="sys-status sys-warn">Not enabled</p>
+          <p class="sys-note">Connected but off this session. Renewal due tomorrow.</p>
+        </div>
+        <div class="sys-item">
+          <p class="sys-name">Notion</p>
+          <p class="sys-status sys-ok">OK</p>
+          <p class="sys-note">All reads/writes successful.</p>
+        </div>
+        <div class="sys-item">
+          <p class="sys-name">M365 Calendar/Search</p>
+          <p class="sys-status sys-ok">OK</p>
+          <p class="sys-note">Calendar and email search operational.</p>
+        </div>
+        <div class="sys-item">
+          <p class="sys-name">Content Calendar (29 Jun)</p>
+          <p class="sys-status sys-warn">Issue</p>
+          <p class="sys-note">Duplicate entries (10 for 5 days) — editorial pick needed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── POST CARD (FULL WIDTH) ── -->
+<div class="post-card">
+  <p class="card-label">Today's LinkedIn Post · Copy-Ready</p>
+
+  <div class="approval-bar">
+    <strong>Awaiting approval.</strong> Reply "approved" on the <a href="https://app.notion.com/p/3968a33e7fd181fd874fffbf98938cfe" style="color:var(--amber)">Notion CMO Post page</a> to release to Rei Nald for publishing. <strong>Flag:</strong> Post references UAE VAT compliance — no penalty figure or statutory deadline cited. Fact-check bar: LOW.
+  </div>
+
+  <div class="post-meta-row">
+    <span class="status-chip at-risk"><span class="status-dot"></span>Pending Approval</span>
+    <span class="post-pillar">Tuesday · Inside an Owner-Led Firm · Story Post · Variation A · ~115 words</span>
+  </div>
+
+  <div class="post-body"><span class="post-hook">A trading company came to us with a stalled license renewal.</span>
+
+The hold was not immigration.
+It was not the bank.
+It was not a missing document on their side.
+
+It was one line — three years old — in a VAT return nobody had looked at since it was filed.
+
+The return was technically submitted. The line was technically correct at the time it was entered.
+
+But the category had been reclassified. The system had moved on. The return had not.
+
+We found it in the first pass of the file.
+We corrected it.
+The renewal cleared within the week.
+
+Owner-led firms almost always have a version of this.
+Not fraud. Not negligence. A file that was accurate when it was written and quietly wrong by the time it mattered.
+
+<span class="post-cta">Save this for your next license renewal.</span></div>
+
+  <p class="card-label" style="margin-bottom:10px;">Pinned Comments — Rei to post in sequence after publish</p>
+  <div class="pinned-grid">
+    <div class="pinned-item">
+      <p class="pinned-num">Comment 1 — post first</p>
+      <p class="pinned-text">The most common version of this we see: a trading classification changed by the authority, notified in a circular most owners never received. The file never updated. The renewal flags it three years later.</p>
+    </div>
+    <div class="pinned-item">
+      <p class="pinned-num">Comment 2 — post second</p>
+      <p class="pinned-text">If your license renewal is taking longer than expected and the feedback is vague — ask your accountant to pull the original VAT returns and check category alignment. Takes 20 minutes. Can save weeks.</p>
+    </div>
+    <div class="pinned-item">
+      <p class="pinned-num">Comment 3 — post third</p>
+      <p class="pinned-text">We run this check as a standard first step for any new client with a trading licence. It costs nothing. It has cleared two stalled renewals in the last six months.</p>
+    </div>
+  </div>
+
+  <div class="post-score">
+    <span class="score-num">4/4</span>
+    <span class="score-label">Invisibility Diagnostic PASS · No generic opener · Concrete situation · Clear CTA · ICP pain addressed</span>
+  </div>
+</div>
+
+<!-- ── DELIVERY NOTE ── -->
+<p class="delivery-note">
+  <strong style="color:var(--text2)">Delivery note:</strong>
+  M365 email send unavailable — search/read only since 2 July 2026, now 5 days unresolved. Summary email to m.asira@bposervicegroup.com could not be sent. This HTML file, the individual output files, and Notion are the completed delivery channels. A push notification has been sent. To restore email: add send scope to the M365 connector, or connect Gmail with send enabled.<br>
+  Auto-generated · BPOAS Daily Start Master Routine · Tuesday 7 July 2026 · 07:00 UAE (GST/UTC+4)
+</p>

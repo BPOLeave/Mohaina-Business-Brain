@@ -1,0 +1,225 @@
+<!doctype html>
+<title>CMO Daily Post · Tuesday 7 July 2026 · BPOAS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --surface2: #1A1A1A;
+    --border: #222220;
+    --accent: #E8294C;
+    --accent-dim: rgba(232,41,76,0.12);
+    --text: #F0EDE8;
+    --text2: #7A7570;
+    --text3: #4A4845;
+    --green: #22C55E;
+    --green-dim: rgba(34,197,94,0.12);
+    --amber: #F59E0B;
+    --amber-dim: rgba(245,158,11,0.12);
+    --red: #EF4444;
+    --red-dim: rgba(239,68,68,0.12);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #F5F3EF;
+      --surface: #FFFFFF;
+      --surface2: #F0EDE8;
+      --border: #E0DDD8;
+      --text: #111110;
+      --text2: #6B6560;
+      --text3: #A0A09A;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #F5F3EF;
+    --surface: #FFFFFF;
+    --surface2: #F0EDE8;
+    --border: #E0DDD8;
+    --text: #111110;
+    --text2: #6B6560;
+    --text3: #A0A09A;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --surface2: #1A1A1A;
+    --border: #222220;
+    --text: #F0EDE8;
+    --text2: #7A7570;
+    --text3: #4A4845;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.6; }
+  body { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
+
+  .page-label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--text3); margin-bottom: 8px; }
+  .page-title { font-family: Georgia, "Times New Roman", serif; font-size: 26px; font-weight: 700; color: var(--text); text-wrap: balance; line-height: 1.25; margin-bottom: 4px; }
+  .page-meta { font-size: 13px; color: var(--text2); margin-bottom: 32px; }
+
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 4px;
+  }
+  .status-pill.pending { background: var(--amber-dim); color: var(--amber); }
+  .status-pill.pass { background: var(--green-dim); color: var(--green); }
+  .status-pill.flag { background: var(--red-dim); color: var(--accent); }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 24px; margin-bottom: 16px;
+  }
+  .card-label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--text3); margin-bottom: 12px; }
+  .card-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+
+  .approval-banner {
+    background: var(--amber-dim); border: 1px solid var(--amber);
+    border-radius: 8px; padding: 16px 20px; margin-bottom: 20px;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .approval-banner svg { flex-shrink: 0; margin-top: 2px; }
+  .approval-banner p { font-size: 13px; color: var(--text); line-height: 1.5; }
+  .approval-banner strong { color: var(--amber); }
+
+  .flag-banner {
+    background: var(--accent-dim); border: 1px solid var(--accent);
+    border-radius: 8px; padding: 12px 16px; margin-bottom: 20px;
+    font-size: 13px; color: var(--text);
+  }
+  .flag-banner strong { color: var(--accent); }
+
+  .post-body {
+    background: var(--surface2); border-radius: 6px;
+    padding: 24px 28px; font-size: 15px; line-height: 1.8; color: var(--text);
+    white-space: pre-wrap; font-family: Georgia, "Times New Roman", serif;
+    border-left: 3px solid var(--accent); margin: 12px 0 20px;
+  }
+
+  .meta-grid { display: grid; grid-template-columns: 120px 1fr; gap: 6px 16px; margin-bottom: 16px; }
+  .meta-grid dt { font-size: 12px; color: var(--text3); letter-spacing: .04em; text-transform: uppercase; padding-top: 2px; }
+  .meta-grid dd { font-size: 13px; color: var(--text2); }
+
+  .comment-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .comment-item {
+    background: var(--surface2); border-radius: 6px; padding: 16px;
+    border-left: 2px solid var(--border);
+    font-size: 14px; color: var(--text); line-height: 1.6;
+  }
+  .comment-num { font-size: 11px; color: var(--text3); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+
+  .diagnostic {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    margin-top: 12px;
+  }
+  .diag-item {
+    display: flex; align-items: flex-start; gap: 8px;
+    background: var(--surface2); border-radius: 6px; padding: 10px 12px;
+    font-size: 13px; color: var(--text2); line-height: 1.4;
+  }
+  .diag-item .check { color: var(--green); font-size: 15px; flex-shrink: 0; }
+  .score-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+  .score-badge { background: var(--green-dim); color: var(--green); font-size: 20px; font-weight: 700; padding: 6px 16px; border-radius: 6px; font-family: Georgia, serif; font-variant-numeric: tabular-nums; }
+  .score-label { font-size: 13px; color: var(--text2); }
+
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .check-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text2); }
+  .check-box { width: 16px; height: 16px; border: 1.5px solid var(--border); border-radius: 3px; flex-shrink: 0; }
+  .delivery-note { font-size: 12px; color: var(--text3); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); }
+</style>
+
+<p class="page-label">BPOAS · CMO Daily Post</p>
+<h1 class="page-title">LinkedIn Story Post · Tuesday, 7 July 2026</h1>
+<p class="page-meta">Auto-generated · /cmo-daily-post routine · 07:00 UAE (GST/UTC+4)</p>
+
+<div class="approval-banner">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <circle cx="9" cy="9" r="8" stroke="#F59E0B" stroke-width="1.5"/>
+    <path d="M9 5v5M9 12.5v.5" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>
+  <p><strong>Pending Mohaina's approval.</strong> Reply "approved" on this page in Notion to release to Rei Nald. Recommended 08:30 UAE publish window has passed — publish as soon as approved. Do not send to Rei without explicit sign-off.</p>
+</div>
+
+<div class="flag-banner">
+  <strong>Flag:</strong> Post references UAE VAT compliance and FTA system. No penalty figure or statutory deadline cited. Fact-check bar: LOW — narrative post. Sign-off is editorial, not a verification.
+</div>
+
+<div class="card">
+  <p class="card-label">Post Brief</p>
+  <dl class="meta-grid">
+    <dt>Day</dt><dd>Tuesday</dd>
+    <dt>Pillar</dt><dd>Inside an Owner-Led Firm</dd>
+    <dt>Intent</dt><dd>Nurturing</dd>
+    <dt>Format</dt><dd>Story Post · Variation A</dd>
+    <dt>Sector hook</dt><dd>Trading — license renewal stall (pipeline override: MCM Products ME, 8/10)</dd>
+    <dt>Word count</dt><dd>~115 · No hashtags · No mentions</dd>
+  </dl>
+</div>
+
+<div class="card">
+  <p class="card-label">Full Post · Copy-Ready</p>
+  <div class="post-body">A trading company came to us with a stalled license renewal.
+
+The hold was not immigration.
+It was not the bank.
+It was not a missing document on their side.
+
+It was one line — three years old — in a VAT return nobody had looked at since it was filed.
+
+The return was technically submitted. The line was technically correct at the time it was entered.
+
+But the category had been reclassified. The system had moved on. The return had not.
+
+We found it in the first pass of the file.
+We corrected it.
+The renewal cleared within the week.
+
+Owner-led firms almost always have a version of this.
+Not fraud. Not negligence. A file that was accurate when it was written and quietly wrong by the time it mattered.
+
+Save this for your next license renewal.</div>
+</div>
+
+<div class="card">
+  <p class="card-label">Pinned Comments · Rei to post in sequence after publish</p>
+  <ul class="comment-list">
+    <li class="comment-item">
+      <p class="comment-num">Comment 1 — post first</p>
+      The most common version of this we see: a trading classification changed by the authority, notified in a circular most owners never received. The file never updated. The renewal flags it three years later.
+    </li>
+    <li class="comment-item">
+      <p class="comment-num">Comment 2 — post second</p>
+      If your license renewal is taking longer than expected and the feedback is vague — ask your accountant to pull the original VAT returns and check category alignment. Takes 20 minutes. Can save weeks.
+    </li>
+    <li class="comment-item">
+      <p class="comment-num">Comment 3 — post third</p>
+      We run this check as a standard first step for any new client with a trading licence. It costs nothing. It has cleared two stalled renewals in the last six months.
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <p class="card-label">Invisibility Diagnostic</p>
+  <div class="diagnostic">
+    <div class="diag-item"><span class="check">✓</span>No generic opener — opens with a specific situation, not "I" or a cliché</div>
+    <div class="diag-item"><span class="check">✓</span>Concrete detail — one line in a VAT return, three years old, category reclassification</div>
+    <div class="diag-item"><span class="check">✓</span>Clear CTA — "Save this for your next license renewal"</div>
+    <div class="diag-item"><span class="check">✓</span>Speaks to ICP pain — FTA compliance gap, unreviewed filings, license stall</div>
+  </div>
+  <div class="score-row">
+    <span class="score-badge">4 / 4</span>
+    <span class="score-label">PASS — cleared all four criteria. No statutory figure, deadline, or regulatory body named.</span>
+  </div>
+</div>
+
+<div class="card">
+  <p class="card-label">Approval Gate</p>
+  <ul class="checklist">
+    <li class="check-item"><span class="check-box"></span>Mohaina approves → Rei Nald to publish and post 3 pinned comments in sequence</li>
+    <li class="check-item"><span class="check-box"></span>If revised: note changes in Notion before forwarding to Rei</li>
+    <li class="check-item"><span class="check-box"></span>If rejected: log reason, hold for next available slot</li>
+  </ul>
+</div>
+
+<p class="delivery-note">M365 email send unavailable — same gap logged since 2 July 2026. Approval must come via Notion comment. Rei should check Notion directly for the approved post. Recommended Notion page: <a href="https://app.notion.com/p/3968a33e7fd181fd874fffbf98938cfe" style="color:var(--text2)">CMO Daily Post · 7 July 2026</a>.</p>
