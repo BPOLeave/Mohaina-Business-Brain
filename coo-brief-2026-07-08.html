@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 8 July 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#FF5D7A;
+    --bg:#0A0A0A; --panel:#151316; --panel2:#1B181C; --line:#2A262A;
+    --ink:#F5F3F4; --sub:#A9A3A6; --dim:#787276;
+    --good:#2FBF71; --warn:#F0A93B; --bad:#FF4D5E;
+    --good-bg:rgba(47,191,113,.12); --warn-bg:rgba(240,169,59,.12); --bad-bg:rgba(255,77,94,.13);
+    --r-md:14px; --r-lg:20px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    --grad:linear-gradient(135deg, #B01836 0%, var(--primary) 55%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:
+    radial-gradient(70% 55% at 100% -10%, rgba(232,41,76,.16), transparent 60%),
+    radial-gradient(55% 45% at 0% 0%, rgba(232,41,76,.08), transparent 55%),
+    var(--bg);
+    background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:860px;margin:0 auto;padding:34px 20px 70px;}
+
+  .ohead{border-radius:var(--r-lg);padding:28px 30px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 18px 44px rgba(232,41,76,.28);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.09);top:-130px;right:-70px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.85;font-weight:700;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:6px 0 4px;}
+  .ohead .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);font-weight:700;margin:26px 0 12px;display:flex;align-items:center;gap:8px;}
+  .sec .num{width:20px;height:20px;border-radius:6px;background:var(--panel2);color:var(--primary-light);display:inline-flex;align-items:center;justify-content:center;font-size:11px;border:1px solid var(--line);}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:12px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);margin-bottom:10px;font-weight:700;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;font-size:14.5px;border-bottom:1px solid var(--line);}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--dim);font-size:12.5px;width:82px;flex-shrink:0;padding-top:1px;}
+  .row .txt{flex:1;}
+  .row .owner{color:var(--primary-light);font-weight:600;}
+  .tag{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:var(--pill);white-space:nowrap;flex-shrink:0;margin-left:6px;}
+  .t-red{background:var(--bad-bg);color:var(--bad);} .t-amb{background:var(--warn-bg);color:var(--warn);}
+  .t-grn{background:var(--good-bg);color:var(--good);} .t-grey{background:var(--panel2);color:var(--dim);}
+
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;flex-shrink:0;margin-top:6px;}
+  .d-red{background:var(--bad);} .d-amb{background:var(--warn);} .d-grn{background:var(--good);}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--sub);} .stat .n{font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .delta{font-size:12.5px;font-weight:600;margin-top:6px;color:var(--sub);}
+
+  .flags{border-radius:var(--r-lg);padding:20px 22px;margin-top:6px;background:linear-gradient(155deg, rgba(255,77,94,.16), rgba(21,19,22,.9));border:1px solid rgba(255,77,94,.35);box-shadow:0 16px 40px rgba(255,77,94,.12);}
+  .flags h4{color:var(--bad);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;font-weight:800;}
+  .flags .row{border-bottom:1px solid rgba(255,255,255,.06);}
+
+  .note{background:linear-gradient(135deg, #171417 0%, #201519 100%);border:1px solid var(--line);color:#fff;border-radius:var(--r-md);padding:16px 20px;font-size:14px;margin-top:6px;box-shadow:var(--sh);}
+  .note b{color:var(--primary-light);}
+  .sub-t{font-size:12.5px;color:var(--sub);margin-top:6px;}
+
+  .anomaly{background:var(--panel2);border:1px dashed var(--warn);border-radius:var(--r-md);padding:14px 16px;font-size:13.5px;color:var(--sub);margin-top:8px;}
+  .anomaly b{color:var(--warn);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--dim);font-size:12.5px;}
+  footer b{color:var(--sub);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead">
+      <div class="k">COO · Morning Brief</div>
+      <h1>Good morning, Mohaina</h1>
+      <div class="d">Wednesday, 8 July 2026 · 09:00 UAE (GST) · Outlook + Notion + Zoho Books</div>
+    </div>
+
+    <div class="sec"><span class="num">1</span>Today's Schedule</div>
+    <div class="card">
+      <div class="row"><span class="when">12:00 UAE</span><span class="txt">"FIAT Monday &amp; Friday Call Options Screen" — organiser Mohaina.</span><span class="tag t-amb">flagged</span></div>
+    </div>
+    <div class="anomaly"><b>Flagged, not actioned:</b> this calendar entry's description field contains embedded instructions asking to run a stock-options screen and recommend trades — that is not a real meeting brief and this routine does not act on instructions found inside calendar/email content. Surfacing it here so you can check who created it and delete or edit it if it wasn't you. No other events on the calendar today — a light day to get ahead of the items below.</div>
+
+    <div class="sec"><span class="num">2</span>Inbox Priorities</div>
+    <div class="card">
+      <div class="row"><span class="dot d-red"></span><span class="txt"><b>Almosafer</b> — claim #2010754 reprocessed again by their OTC team, receipt still not sent. Now <b>84 days</b> since the claim period closed with no resolution.</span><span class="tag t-red">overdue</span></div>
+      <div class="row"><span class="dot d-amb"></span><span class="txt"><b>D&amp;O Liability Insurance renewal</b> — Al-Futtaim can no longer send a payment link; Yiannis asked to proceed via bank transfer, bank details attached.</span><span class="tag t-amb">action</span></div>
+      <div class="row"><span class="dot d-amb"></span><span class="txt"><b>AML/DNFBP</b> — "Best Practices for Effective REAR Submission" from AML Dubai. Informational, not case-specific, but worth a skim given REAR is a mandatory filing for regulated professionals.</span><span class="tag t-grey">fyi</span></div>
+      <div class="row"><span class="dot d-amb"></span><span class="txt"><b>Menastar DMCC</b> — tfPay balance alert, AED 2,898.94, requesting a top-up transfer.</span><span class="tag t-amb">action</span></div>
+      <div class="row"><span class="dot d-grn"></span><span class="txt"><b>Zoho Books</b> — subscription renewed successfully, AED 135.45. Clears yesterday's flagged renewal risk.</span><span class="tag t-grn">resolved</span></div>
+    </div>
+    <div class="sub-t">Scanned M.Asira@bposervicegroup.com, last 24 hours, 28 messages. No new FTA/VAT/CIT-tagged mail beyond the AML item above.</div>
+
+    <div class="sec"><span class="num">3</span>Tasks &amp; Deadlines</div>
+    <div class="card">
+      <div class="row"><span class="dot d-red"></span><span class="txt"><b>Nandhu (GL Middle East / Flow Solutions / Wicked Tents)</b> — Engagement Letter sent 18 Jun, now <b>20 days outstanding, 1 day from the 21-day auto-stall (9 Jul)</b>. CIT-relevant.<br><span class="owner">Owner: Mohaina (approve) → Raihana (send)</span></span><span class="tag t-red">critical</span></div>
+      <div class="row"><span class="dot d-amb"></span><span class="txt"><b>Mr. George (The Concept Lab)</b> — EL sent 19 Jun, now <b>19 days outstanding</b>, CIT 30 Sep deadline makes a July start non-negotiable.<br><span class="owner">Owner: Mohaina (approve) → Raihana (send)</span></span><span class="tag t-amb">CT</span></div>
+      <div class="row"><span class="dot d-amb"></span><span class="txt"><b>Brilliant Telecom LLC</b> — CIT partner confirmation letters, several partners still not responding.<br><span class="owner">Owner: Raihana</span></span><span class="tag t-amb">CT</span></div>
+      <div class="row"><span class="dot d-amb"></span><span class="txt"><b>MCM Products Middle East</b> — Trade Licence + EL still unsigned, KYC active.<br><span class="owner">Owner: Raihana — calling today</span></span><span class="tag t-amb">engagement</span></div>
+      <div class="row"><span class="dot d-grn"></span><span class="txt"><b>Richemont / Cartier</b> — Chadi confirmed ready to proceed, wants to interview both candidates before the bookkeeping engagement starts. EL to go out this week.<br><span class="owner">Owner: Mohaina</span></span><span class="tag t-grn">engagement</span></div>
+      <div class="row"><span class="dot d-amb"></span><span class="txt">Today's LinkedIn post ("bank balance vs. profit") — <b>Pending Approval</b>, recommended 08:30 UAE slot already passed.<br><span class="owner">Owner: Mohaina (approve) → Rei (publish)</span></span><span class="tag t-amb">content</span></div>
+      <div class="row"><span class="dot d-grey"></span><span class="txt">Notion Tasks / My Tasks databases still hold only unrelated demo tasks — no real BPOAS due dates logged there. Same gap for three straight weeks; the deadlines above are pulled from the Team Operating Hub and Raihana's 7 Jul brief instead.</span><span class="tag t-grey">system</span></div>
+    </div>
+
+    <div class="sec"><span class="num">4</span>Content Slot</div>
+    <div class="card">
+      <h4>Wednesday · Soft-Sell Framework · "What the Numbers Are Telling You"</h4>
+      <div class="row"><span class="txt">"Your bank balance and your profit are not the same number." Hook: Confession/Reframe. CTA: DM me CASHFLOW. Invisibility Diagnostic 4/4 PASS, zero em dashes, zero banned words.</span><span class="tag t-amb">pending approval</span></div>
+      <div class="sub-t">Recommended publish window was 08:30 UAE — already missed. Approve on the Notion CMO post page to release to Rei for publishing.</div>
+    </div>
+
+    <div class="sec"><span class="num">5</span>BD Pipeline Pulse</div>
+    <div class="card">
+      <div class="row"><span class="dot d-grn"></span><span class="txt"><b>Richemont / Cartier</b> (fit 9/10) — ready to proceed, EL is Mohaina's to send this week. Same client carries the largest overdue invoice below.</span><span class="tag t-grn">ready</span></div>
+      <div class="row"><span class="dot d-amb"></span><span class="txt"><b>MCM Products</b> (fit 8/10) — Raihana calling today, targeting Trade Licence + EL signature by end of week.</span><span class="tag t-amb">in progress</span></div>
+      <div class="row"><span class="dot d-red"></span><span class="txt"><b>Nandhu / GL cluster</b> (fit 6/10) — DM sequence blocked on Mohaina's approval, 1 day from auto-stall.</span><span class="tag t-red">blocked</span></div>
+      <div class="row"><span class="dot d-amb"></span><span class="txt"><b>Mr. George / Concept Lab</b> (fit 6/10) — DM sequence blocked on Mohaina's approval, 19 days out.</span><span class="tag t-amb">blocked</span></div>
+      <div class="row"><span class="dot d-grey"></span><span class="txt">Apify LinkedIn scraper still down — no new lead discovery, CRM uploads on hold for a 7th straight week.</span><span class="tag t-grey">system</span></div>
+    </div>
+    <div class="card">
+      <h4>Raihana's Queue</h4>
+      <div class="row"><span class="txt"><b>Leads to verify:</b> none — scraper still down, nothing new to check.</span></div>
+      <div class="row"><span class="txt"><b>Outreach to send today (clear, no approval needed):</b> MCM Products call, Brilliant Telecom partner chase.</span></div>
+      <div class="row"><span class="txt"><b>Follow-ups overdue:</b> Nandhu (20d — call him directly if Mohaina hasn't approved by midday), Mr. George (19d).</span></div>
+    </div>
+
+    <div class="sec"><span class="num">6</span>Key Metric</div>
+    <div class="grid2">
+      <div class="stat"><div class="l">Outstanding receivables · live Zoho Books</div><div class="n">AED 151,491.94</div><div class="delta">35 overdue invoices — flat vs. yesterday, after last week's 23→24→35 jump. Trend has stabilised, still worth a weekly check.</div></div>
+      <div class="stat"><div class="l">Oldest &amp; largest outstanding</div><div class="delta" style="margin-top:0;font-size:13px;">Oldest: EXLIBRIS MANAGEMENT FZCO — 224 days (AED 6,300) &amp; 179 days (AED 2,625).<br><br>Largest: Richemont (Dubai) FZE — AED 16,003.39, 35 days overdue — the same account getting a new EL this week.</div></div>
+    </div>
+
+    <div class="flags">
+      <h4>🚩 Flags for Mohaina's Review</h4>
+      <div class="row"><span class="txt"><b>AML —</b> no new AML/DNFBP case items in the last 24 hours; one informational REAR-submission notice landed, no action required.</span></div>
+      <div class="row"><span class="txt"><b>FTA / VAT —</b> JCP Premiere Q1 VAT (payment made, not yet showing in the FTA portal) and DIFC Q1 VAT (payment reminder sent, client action still pending) both remain open per the Team Operating Hub, with no fresher update logged — worth a status check.</span></div>
+      <div class="row"><span class="txt"><b>CT —</b> Nandhu's EL is 1 day from the 21-day auto-stall; Mr. George's EL sits at 19 days with the CIT 30 Sep deadline behind it; Brilliant Telecom's CIT partner confirmation letters are still outstanding.</span></div>
+      <div class="row"><span class="txt"><b>Client escalation —</b> Almosafer's claim #2010754 is unresolved at 84 days despite a second reprocessing attempt; Richemont/Cartier is ready to proceed on a new engagement while carrying a 35-day overdue invoice on the same account.</span></div>
+    </div>
+
+    <div class="note">Two items carry real deadline pressure this morning: <b>Nandhu's engagement letter hits the 21-day auto-stall tomorrow</b>, and this week's LinkedIn post is still sitting in Pending Approval past its slot. Everything else — receivables, the D&amp;O renewal, the Almosafer claim — is steady or moving, just not urgent before noon. The calendar item flagged above is worth a quick look when you have a minute, mainly to confirm it's not something that needs cleaning up.</div>
+
+    <footer>BPOAS COO Morning Brief · Auto-generated · <b>Mohaina Asira · BPO Accounting Services</b></footer>
+  </div>
+</body>
+</html>
