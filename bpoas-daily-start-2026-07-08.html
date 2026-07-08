@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Wednesday 8 July 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --brand: #E8294C;
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --surface2: #1C1C1C;
+    --border: #2A2A2A;
+    --text: #E8E8E8;
+    --muted: #888;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --blue: #3B82F6;
+  }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 26px; font-weight: 800; color: var(--brand); margin-bottom: 4px; }
+  h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 14px; }
+  h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 16px; }
+  .card-hero { border-color: var(--brand); background: linear-gradient(135deg, #1A0A0E 0%, #141414 100%); }
+  .card-flag { border-left: 4px solid var(--red); }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+  .badge-red { background: rgba(239,68,68,0.15); color: var(--red); }
+  .badge-amber { background: rgba(245,158,11,0.15); color: var(--amber); }
+  .badge-green { background: rgba(34,197,94,0.15); color: var(--green); }
+  .badge-blue { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .badge-brand { background: rgba(232,41,76,0.15); color: var(--brand); }
+  .badge-muted { background: rgba(136,136,136,0.15); color: var(--muted); }
+  .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .metric { background: var(--surface2); border-radius: 8px; padding: 14px; border-top: 3px solid transparent; }
+  .metric-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
+  .metric-value { font-size: 20px; font-weight: 800; }
+  .metric-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .run-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .run-row:last-child { border-bottom: none; }
+  .run-skill { font-weight: 600; font-size: 14px; flex: 1; }
+  .run-output { font-size: 12px; color: var(--muted); flex: 2; }
+  .flag-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .flag-item:last-child { border-bottom: none; }
+  .flag-row { display: flex; gap: 10px; align-items: flex-start; }
+  .flag-title { font-weight: 600; font-size: 14px; margin-bottom: 3px; }
+  .flag-body { font-size: 13px; color: #bbb; }
+  .flag-next { font-size: 12px; margin-top: 4px; color: var(--amber); }
+  .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+  .link-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px; text-decoration: none; color: var(--text); transition: border-color 0.2s; }
+  .link-card:hover { border-color: var(--brand); }
+  .link-card .lc-title { font-weight: 600; font-size: 13px; margin-bottom: 3px; }
+  .link-card .lc-sub { font-size: 11px; color: var(--muted); }
+  .post-preview { font-size: 14px; line-height: 1.8; background: var(--surface2); border-radius: 8px; padding: 20px; border-left: 3px solid var(--brand); white-space: pre-wrap; font-family: Georgia, serif; }
+  .post-hook { font-weight: 700; color: var(--text); display: block; margin-bottom: 12px; }
+  .post-cta { font-weight: 700; color: var(--brand); }
+  .meta { font-size: 11px; color: var(--muted); margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--border); }
+  .header-bar { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 8px; }
+  .header-meta { font-size: 13px; color: var(--muted); text-align: right; }
+  .day-type { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; background: rgba(59,130,246,0.1); color: var(--blue); border: 1px solid rgba(59,130,246,0.3); }
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+  <div>
+    <h1>BPOAS Daily Start</h1>
+    <div style="font-size:14px; color:var(--muted); margin-top:2px;">Wednesday, 8 July 2026 &nbsp;·&nbsp; <span class="day-type">Lean Run · Steps 1 + 4</span></div>
+  </div>
+  <div class="header-meta">
+    Generated: 07:00 UAE (GST, UTC+4)<br>
+    M.Asira@bposervicegroup.com
+  </div>
+</div>
+
+<!-- HERO CARD — Revenue Pulse -->
+<div class="card card-hero">
+  <h2>Revenue Pulse · First Number of the Day</h2>
+
+  <div class="metric-grid">
+    <div class="metric" style="border-top-color: var(--muted);">
+      <div class="metric-label">MTD Revenue Invoiced</div>
+      <div class="metric-value" style="color:var(--text);">AED 117,007</div>
+      <div class="metric-sub">As of 2 Jul · retainer-heavy · likely higher now</div>
+    </div>
+    <div class="metric" style="border-top-color: var(--muted);">
+      <div class="metric-label">Monthly Target</div>
+      <div class="metric-value" style="color:var(--muted);">Not on file</div>
+      <div class="metric-sub">Gap cannot be calculated — no target set</div>
+    </div>
+    <div class="metric" style="border-top-color: var(--red);">
+      <div class="metric-label">Outstanding Receivables</div>
+      <div class="metric-value" style="color:var(--red);">AED 151,491</div>
+      <div class="metric-sub">35 overdue invoices · as of Mon 7 Jul</div>
+    </div>
+    <div class="metric" style="border-top-color: var(--amber);">
+      <div class="metric-label">Days Remaining · July</div>
+      <div class="metric-value" style="color:var(--amber);">23</div>
+      <div class="metric-sub">Run rate needed: cannot calculate (no target)</div>
+    </div>
+  </div>
+
+  <div style="padding:10px 14px; background:rgba(245,158,11,0.08); border-radius:6px; font-size:12px; border:1px solid rgba(245,158,11,0.2);">
+    <strong style="color:var(--amber);">Status: Data Carry-Forward</strong>&nbsp; — CFO brief runs Mondays. Last revenue report: <strong>Thursday 2 July 2026</strong>. Last receivables update: <strong>Monday 7 July 2026</strong> (COO brief). Next CFO refresh: <strong>Monday 13 July 2026</strong>. Revenue received (actual payments to bank): <strong>AED 0 confirmed</strong> as of 2 July — two consecutive weeks of zero posted payments. Manual bank reconciliation still recommended.
+  </div>
+</div>
+
+<!-- RUN LOG -->
+<div class="card">
+  <h2>Run Log · Wednesday 8 July 2026</h2>
+
+  <div class="run-row">
+    <span class="badge badge-green">COMPLETE</span>
+    <div class="run-skill">Step 1 · COO Morning Brief</div>
+    <div class="run-output">coo-brief-2026-07-08.html &nbsp;·&nbsp; Notion: 📄 COO Brief - 2026-07-08</div>
+  </div>
+
+  <div class="run-row">
+    <span class="badge badge-muted">SKIPPED</span>
+    <div class="run-skill">Step 2 · CFO Weekly Revenue</div>
+    <div class="run-output">CFO brief runs Mondays only. Next run: Monday 13 July 2026.</div>
+  </div>
+
+  <div class="run-row">
+    <span class="badge badge-muted">SKIPPED</span>
+    <div class="run-skill">Step 3 · CRO Weekly Prospects</div>
+    <div class="run-output">CRO brief runs Mondays only. Next run: Monday 13 July 2026.</div>
+  </div>
+
+  <div class="run-row">
+    <span class="badge badge-amber">PENDING</span>
+    <div class="run-skill">Step 4 · CMO Daily Post</div>
+    <div class="run-output">cmo-post-2026-07-08.html &nbsp;·&nbsp; Notion: 📱 CMO Daily Post · Wed 8 Jul · Status: Pending Approval</div>
+  </div>
+
+  <div class="run-row">
+    <span class="badge badge-muted">SKIPPED</span>
+    <div class="run-skill">Step 5 · Content Calendar</div>
+    <div class="run-output">Content calendar runs Mondays only. Active calendar: Week of 2026-07-06.</div>
+  </div>
+
+  <div style="margin-top:14px; padding:10px 12px; background:var(--surface2); border-radius:6px; font-size:12px; color:var(--muted);">
+    <strong>Connector Status:</strong> Microsoft 365 (search/read only — email send unavailable) · Notion (read/write) · Apify (connected but LinkedIn actor failing — 7th consecutive week) &nbsp;|&nbsp;
+    <strong>Email send:</strong> NOT AVAILABLE — M365 permission_error on send/draft. Delivery via HTML file + Notion pages + push notification.
+  </div>
+</div>
+
+<!-- FLAGS FOR MOHAINA -->
+<div class="card card-flag">
+  <h2>🚨 Flags for Mohaina · Priority Order: Compliance → Cash → Client → BD</h2>
+
+  <div class="flag-item">
+    <div class="flag-row">
+      <span class="badge badge-red">COMPLIANCE</span>
+      <div>
+        <div class="flag-title">MOHRE — Upload Missing Documents for Staff Permit MB315778130AE · Action Today</div>
+        <div class="flag-body">Email received 01:46 UAE from noreply@mohre.gov.ae. Staff member has an outstanding credential gap at the Ministry of Higher Education for degree recognition. Must be uploaded via the MOHRE portal.</div>
+        <div class="flag-next">→ Next step: Log into MOHRE portal and upload the required documents. Cannot defer — regulatory requirement.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-row">
+      <span class="badge badge-red">COMPLIANCE · CT</span>
+      <div>
+        <div class="flag-title">Nandhu / GL Middle East Cluster — EL at 20 Days · Auto-Stall Triggers Tomorrow (9 Jul)</div>
+        <div class="flag-body">Engagement Letter sent 18 June. Now 20 days outstanding with no sign. DM Sequence blocked on your approval. CIT-relevant scope. If you approved this already, confirm with Raihana. If not, approve now.</div>
+        <div class="flag-next">→ Next step: Approve the DM Sequence M1 this morning. If no approval by midday, Raihana will call Nandhu directly.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-row">
+      <span class="badge badge-red">COMPLIANCE · FTA</span>
+      <div>
+        <div class="flag-title">FTA Open Items — JCP Premiere Q1 VAT + DIFC Q1 VAT Still Unresolved</div>
+        <div class="flag-body">JCP Premiere Q1 VAT: payment made but not yet reflected in FTA portal. DIFC Q1 VAT: payment reminder sent to client, action still pending. Both logged in Team Operating Hub with no update for 4+ days.</div>
+        <div class="flag-next">→ Next step: Check FTA portal for JCP Premiere status. Follow up with DIFC client directly on payment.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-row">
+      <span class="badge badge-amber">COMPLIANCE · CT</span>
+      <div>
+        <div class="flag-title">Mr. George / The Concept Lab — EL 19 Days, CIT Deadline 30 September</div>
+        <div class="flag-body">July start is non-negotiable for CIT. DM Sequence M1 is drafted. Blocked on your approval. 2 days until it also hits the auto-stall threshold.</div>
+        <div class="flag-next">→ Next step: Approve DM Sequence M1 so Raihana can send today.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-row">
+      <span class="badge badge-red">CASH</span>
+      <div>
+        <div class="flag-title">Almosafer Claim #2010754 — 84 Days Unresolved · Second Reprocessing</div>
+        <div class="flag-body">Almosafer OTC reprocessed the payment again and is waiting for the receipt. 84 days since the April 8–15 claim period closed. Yiannis is tracking (cc'd). No resolution confirmation yet.</div>
+        <div class="flag-next">→ Next step: If receipt not received by end of day, escalate via direct call to the Almosafer finance lead (not just email).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-row">
+      <span class="badge badge-amber">CASH</span>
+      <div>
+        <div class="flag-title">Menastar DMCC — tfPay Balance AED 2,898.94 · Immediate Top-Up Needed</div>
+        <div class="flag-body">Travelfusion balance alert received yesterday. Low balance on the tfPay system. Immediate transfer requested.</div>
+        <div class="flag-next">→ Next step: Assign to Michelle Pacis to arrange the top-up transfer today.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-row">
+      <span class="badge badge-amber">CLIENT</span>
+      <div>
+        <div class="flag-title">Richemont / Cartier — New EL Due This Week + AED 16,003 Overdue on Same Account</div>
+        <div class="flag-body">Chadi Nasreddine confirmed ready to proceed on AP + bookkeeping scope. EL is on you to send this week. Same client group has AED 16,003.39 outstanding for 35 days (largest single invoice).</div>
+        <div class="flag-next">→ Next step: Send Engagement Letter to Chadi this week. Raise the overdue invoice in the same conversation — easiest moment to do it.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-row">
+      <span class="badge badge-amber">CONTENT</span>
+      <div>
+        <div class="flag-title">LinkedIn Post — Pending Approval · 08:30 Window Passed</div>
+        <div class="flag-body">Wednesday bank balance vs. profit post. Invisibility Diagnostic 4/4 PASS. No compliance figures or regulatory deadlines cited. Full post inline in this file (see below) and in the CMO file.</div>
+        <div class="flag-next">→ Next step: Reply to the Notion comment on 📱 CMO Daily Post · Wednesday 8 July 2026, or reply to the approval email. Rei publishes once you release it.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK LINKS -->
+<div class="card">
+  <h2>Quick Links</h2>
+  <div class="link-grid">
+    <a class="link-card" href="coo-brief-2026-07-08.html">
+      <div class="lc-title">📄 COO Morning Brief</div>
+      <div class="lc-sub">Wednesday 8 July 2026 · Complete</div>
+    </a>
+    <a class="link-card" href="cmo-post-2026-07-08.html">
+      <div class="lc-title">📱 CMO Daily Post</div>
+      <div class="lc-sub">Wednesday 8 July 2026 · Pending Approval</div>
+    </a>
+    <a class="link-card" href="https://app.notion.com/p/3978a33e7fd1812cbbc1d3057b133117">
+      <div class="lc-title">📄 Notion: COO Brief</div>
+      <div class="lc-sub">8 July 2026 · Full detail</div>
+    </a>
+    <a class="link-card" href="https://app.notion.com/p/3978a33e7fd181e69e92da6c2de0fb2d">
+      <div class="lc-title">📱 Notion: CMO Post</div>
+      <div class="lc-sub">8 July 2026 · Approve here</div>
+    </a>
+    <a class="link-card" href="https://app.notion.com/p/3918a33e7fd1817b958df69392e1901b">
+      <div class="lc-title">📅 Content Calendar</div>
+      <div class="lc-sub">Week of 6 July 2026</div>
+    </a>
+    <a class="link-card" href="https://app.notion.com/p/3918a33e7fd1810aaeb1f0e42b5de996">
+      <div class="lc-title">💰 CFO Revenue Report</div>
+      <div class="lc-sub">Week of 2 July 2026 · Last Monday run</div>
+    </a>
+  </div>
+</div>
+
+<!-- TODAY'S LINKEDIN POST — INLINE -->
+<div class="card">
+  <h2>Today's LinkedIn Post · Copy-Ready</h2>
+  <div style="display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
+    <span class="badge badge-amber">⏳ PENDING APPROVAL</span>
+    <span style="font-size:13px; color:var(--muted);">Wednesday · Soft-Sell Framework · "What the Numbers Are Telling You" pillar</span>
+  </div>
+
+  <div class="post-preview"><span class="post-hook">I used to tell clients: if the bank balance looks healthy, don't worry. I was wrong, and it cost some of them more than they knew.</span>
+Ask any UAE SME owner how the business is doing and most will check one thing: the bank balance.
+
+I get it. It is right there. It updates in real time. It feels like the truth.
+
+It is not the truth. It is one number, at one moment, after some invoices are paid and before others land. Owners hire off that number. Owners hold off on hiring off that number too. Big mistake either way if it is the only thing you are reading.
+
+Here is the one-line gut check we walk clients through:
+
+Bank balance tells you what you have right now.
+Profit tells you what the business actually earned.
+
+The gap between them is everything still moving: money owed to you, money you owe, stock sitting on a shelf, a VAT payment due next week.
+
+A business can hold AED 200,000 in the account and be losing money every month. Another can show AED 12,000 and be genuinely profitable, just waiting on invoices to land.
+
+Three questions to run this week:
+1. What did you actually invoice this month, paid or not?
+2. What do you owe that has not left the account yet?
+3. Strip both out of the bank figure. What is left?
+
+That number, not the bank app, is the one that tells you if the business is working.
+
+Most owners have never run this gut check. Not because they are careless. Because nobody ever showed them where to look.
+
+<span class="post-cta">DM me CASHFLOW and I'll walk you through what your numbers are actually telling you.</span></div>
+
+  <div style="margin-top:14px; background:var(--surface2); border-radius:8px; padding:14px;">
+    <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:var(--muted); letter-spacing:0.06em; margin-bottom:8px;">3 Pinned Comments · Post in Sequence After Publishing</div>
+    <div style="font-size:13px; padding:8px 0; border-bottom:1px solid var(--border);">
+      <strong style="color:var(--blue);">1.</strong> We see this most often right before VAT filing week, when owners assume the balance in the account already includes what needs to be set aside for FTA. It rarely does. Set that portion aside first, then look at what is actually yours.
+    </div>
+    <div style="font-size:13px; padding:8px 0; border-bottom:1px solid var(--border);">
+      <strong style="color:var(--blue);">2.</strong> I made this mistake myself in my first year running the firm. Full account, tight month. Took me a while to separate the two numbers in my own head before I could explain the difference to clients.
+    </div>
+    <div style="font-size:13px; padding:8px 0;">
+      <strong style="color:var(--blue);">3.</strong> If a CT or VAT return is coming up for you and you are working off the bank balance alone, this is the week to check. <strong>DM me CASHFLOW.</strong> It takes fifteen minutes and you will know exactly where you stand before any filing.
+    </div>
+  </div>
+
+  <div style="margin-top:10px; padding:8px 12px; background:rgba(34,197,94,0.06); border-radius:6px; font-size:12px; display:flex; gap:16px; flex-wrap:wrap;">
+    <span>✅ <strong>Invisibility Diagnostic: 4/4</strong></span>
+    <span>📝 1,386 characters</span>
+    <span>🚫 0 em dashes</span>
+    <span>🚫 0 banned words</span>
+    <span>🎯 DM [keyword] CTA</span>
+  </div>
+</div>
+
+<div class="meta">
+  BPOAS Daily Start · Wednesday 8 July 2026 · Lean Run (Steps 1 + 4)<br>
+  Steps skipped: CFO (Step 2) · CRO (Step 3) · Content Calendar (Step 5) — all Monday-only.<br>
+  Email delivery: NOT AVAILABLE — M365 send/draft permission_error (logged every run since 2 July). Delivery channels: HTML repo file + Notion pages + push notification.<br>
+  Brand: #E8294C · Source files: positioning-mohaina-asira.md · voice-dna-mohaina-asira.md · icp-mohaina-asira.md
+</div>
+
+</body>
+</html>
