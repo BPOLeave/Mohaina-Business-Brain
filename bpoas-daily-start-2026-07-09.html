@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Thursday 9 July 2026</title>
+<style>
+  :root {
+    --brand: #E8294C;
+    --bg: #0A0A0A;
+    --card: #141414;
+    --card2: #111;
+    --border: #222;
+    --text: #E8E8E8;
+    --muted: #777;
+    --muted2: #555;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --blue: #3B82F6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px; line-height: 1.6; padding: 20px;
+    max-width: 900px; margin: 0 auto;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 24px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap; gap: 12px;
+  }
+  .page-header .logo { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+  .page-header .logo span { color: var(--brand); }
+  .page-header .meta { font-size: 12px; color: var(--muted); text-align: right; }
+  .day-badge {
+    display: inline-block; background: var(--brand); color: #fff;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; border-radius: 4px; padding: 3px 10px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px; margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted); margin-bottom: 14px;
+  }
+  .flag-card { border-color: rgba(232,41,76,0.35); }
+
+  /* ── HERO REVENUE ── */
+  .hero {
+    background: linear-gradient(135deg, #141414 0%, #0f0f0f 100%);
+    border: 1px solid #1e1e1e; border-left: 4px solid var(--brand);
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px; margin-top: 12px;
+  }
+  .hero-stat {}
+  .hero-stat .value {
+    font-size: 26px; font-weight: 800; color: #fff; line-height: 1.1;
+  }
+  .hero-stat .label { font-size: 11px; color: var(--muted); margin-top: 3px; }
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 600; border-radius: 4px;
+    padding: 4px 10px; margin-top: 4px;
+  }
+  .status-amber { background: rgba(245,158,11,0.12); color: var(--amber); border: 1px solid rgba(245,158,11,0.25); }
+  .status-green { background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
+  .status-red { background: rgba(239,68,68,0.12); color: var(--red); border: 1px solid rgba(239,68,68,0.25); }
+
+  /* ── RUN LOG ── */
+  .run-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .run-table th { text-align: left; color: var(--muted); font-size: 11px; font-weight: 600; text-transform: uppercase; padding: 4px 8px; border-bottom: 1px solid var(--border); }
+  .run-table td { padding: 8px 8px; border-bottom: 1px solid #1a1a1a; vertical-align: top; }
+  .run-table tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; border-radius: 3px; padding: 2px 7px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .badge-done { background: rgba(34,197,94,0.12); color: var(--green); }
+  .badge-skip { background: rgba(119,119,119,0.12); color: var(--muted); }
+  .badge-warn { background: rgba(245,158,11,0.12); color: var(--amber); }
+
+  /* ── FLAGS ── */
+  .flag-item {
+    padding: 12px 0; border-bottom: 1px solid #1a1a1a;
+    display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start;
+  }
+  .flag-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .flag-cat {
+    font-size: 10px; font-weight: 800; letter-spacing: 0.07em;
+    text-transform: uppercase; border-radius: 3px; padding: 2px 7px;
+    white-space: nowrap; margin-top: 2px;
+  }
+  .cat-aml { background: rgba(232,41,76,0.15); color: var(--brand); }
+  .cat-ct { background: rgba(239,68,68,0.12); color: var(--red); }
+  .cat-cash { background: rgba(245,158,11,0.12); color: var(--amber); }
+  .cat-client { background: rgba(59,130,246,0.12); color: var(--blue); }
+  .cat-bd { background: rgba(139,92,246,0.12); color: #a78bfa; }
+  .cat-hr { background: rgba(245,158,11,0.12); color: var(--amber); }
+  .cat-content { background: rgba(34,197,94,0.1); color: var(--green); }
+  .flag-title { font-size: 13px; font-weight: 700; color: #fff; }
+  .flag-body { font-size: 12px; color: var(--muted); margin-top: 3px; }
+  .next-step { font-size: 11px; color: var(--brand); margin-top: 5px; font-weight: 600; }
+
+  /* ── QUICK LINKS ── */
+  .links-grid { display: flex; gap: 10px; flex-wrap: wrap; }
+  .link-chip {
+    display: inline-block; background: #1a1a1a; border: 1px solid var(--border);
+    border-radius: 6px; padding: 8px 14px; font-size: 12px; color: var(--text);
+    text-decoration: none; transition: border-color 0.15s;
+  }
+  .link-chip:hover { border-color: var(--brand); }
+  .link-chip .chip-title { font-weight: 600; display: block; }
+  .link-chip .chip-sub { font-size: 10px; color: var(--muted); }
+
+  /* ── POST PREVIEW ── */
+  .post-preview {
+    background: var(--card2); border: 1px solid #1e1e1e; border-radius: 8px;
+    padding: 18px; font-size: 13px; line-height: 1.8; color: #ddd;
+    white-space: pre-wrap;
+  }
+  .hook-highlight { color: #fff; font-weight: 700; font-size: 14px; }
+  .cta-bold { color: var(--brand); font-weight: 700; }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 4px 0 16px; }
+  .section-label {
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--muted2); margin-bottom: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div>
+    <div class="logo">BP<span>OAS</span> Daily Start</div>
+    <div style="margin-top:4px;"><span class="day-badge">Thursday · Lean Run</span></div>
+  </div>
+  <div class="meta">
+    <div style="font-size:16px;font-weight:700;color:#fff;">9 July 2026</div>
+    <div>Generated 07:00 UAE (GST · UTC+4)</div>
+    <div>Steps run: 1 (COO Brief) + 4 (CMO Post)</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!--  HERO CARD — REVENUE PULSE             -->
+<!-- ═══════════════════════════════════════ -->
+<div class="card hero">
+  <div class="card-title" style="color:var(--brand);">Revenue Pulse — First Number This Morning</div>
+  <div style="font-size:12px;color:var(--muted);margin-bottom:12px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.15);border-radius:4px;padding:6px 10px;">
+    CFO Brief runs Monday only. Last updated: <strong style="color:var(--amber);">Monday 6 July 2026</strong> · Carrying forward.
+  </div>
+  <div class="hero-grid">
+    <div class="hero-stat">
+      <div class="value" style="color:var(--amber);">AED 151,491</div>
+      <div class="label">Outstanding receivables · 35 overdue invoices</div>
+    </div>
+    <div class="hero-stat">
+      <div class="value" style="color:var(--muted);font-size:16px;">—</div>
+      <div class="label">MTD revenue received · Zoho Books not enabled this run</div>
+    </div>
+    <div class="hero-stat">
+      <div class="value" style="color:var(--muted);font-size:16px;">—</div>
+      <div class="label">Monthly target · Not found in positioning doc</div>
+    </div>
+    <div class="hero-stat">
+      <div style="margin-top:2px;"><span class="status-pill status-amber">🟡 Data Carry-Forward</span></div>
+      <div class="label" style="margin-top:6px;">Largest overdue: Richemont/Cartier ~AED 16,003 · 36 days</div>
+    </div>
+  </div>
+  <div style="margin-top:14px;font-size:11px;color:var(--muted2);border-top:1px solid #1e1e1e;padding-top:10px;">
+    Zoho Books connector is installed but not enabled in this session. Enable it in chat connector settings for live MTD revenue and monthly run rate data.
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!--  RUN LOG CARD                           -->
+<!-- ═══════════════════════════════════════ -->
+<div class="card">
+  <div class="card-title">Run Log</div>
+  <table class="run-table">
+    <thead>
+      <tr>
+        <th>Step</th>
+        <th>Skill</th>
+        <th>Status</th>
+        <th>Output</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>COO Morning Brief</td>
+        <td><span class="badge badge-done">Complete</span></td>
+        <td>coo-brief-2026-07-09.html</td>
+        <td>Connectors: M365 + Notion. AML email (04:56 UAE) added to this 07:00 run; preceded the 01:05 AM brief generation.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>CFO Weekly Revenue</td>
+        <td><span class="badge badge-skip">Skipped</span></td>
+        <td>—</td>
+        <td>CFO Brief runs Mondays only.</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>CRO Weekly Prospects + Outreach</td>
+        <td><span class="badge badge-skip">Skipped</span></td>
+        <td>—</td>
+        <td>CRO Brief runs Mondays only.</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>CMO Daily Post + LinkedIn Caption</td>
+        <td><span class="badge badge-warn">Pending Approval</span></td>
+        <td>cmo-post-2026-07-09.html</td>
+        <td>Post ready · 4/4 Diagnostic · Awaiting Mohaina sign-off. 08:30 window passed but can publish today.</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Content Calendar Generator</td>
+        <td><span class="badge badge-skip">Skipped</span></td>
+        <td>—</td>
+        <td>Content Calendar runs Mondays only.</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td>M365 Email Delivery (Summary + CMO Approval)</td>
+        <td><span class="badge badge-warn">Unavailable</span></td>
+        <td>—</td>
+        <td>M365 connector is read-only (no send/draft capability). Gap logged since 2 July. Push notification sent instead.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!--  FLAGS FOR MOHAINA                      -->
+<!-- ═══════════════════════════════════════ -->
+<div class="card flag-card">
+  <div class="card-title" style="color:var(--brand);">Flags for Mohaina — Sorted: Compliance · Cash · Client · BD</div>
+
+  <!-- AML -->
+  <div class="flag-item">
+    <span class="flag-cat cat-aml">AML · Now</span>
+    <div>
+      <div class="flag-title">UAE IEC Sanctions Update — Screen Clients Today</div>
+      <div class="flag-body">UAE IEC (uaeiec.gov.ae) issued a sanctions list amendment this morning (04:56 UAE) re: ISIL/Daesh/Al-Qaeda Sanctions Committee — one entry changed. As a DNFBP-regulated accounting firm, BPOAS must screen all active clients and prospects against the updated list immediately under Cabinet Decision 74 of 2020.</div>
+      <div class="next-step">→ Log into UAE IEC portal · Download updated list · Screen all active clients + prospects · Document the check with today's date.</div>
+    </div>
+  </div>
+
+  <!-- MOHRE -->
+  <div class="flag-item">
+    <span class="flag-cat cat-hr">HR · Action</span>
+    <div>
+      <div class="flag-title">MOHRE — Worker MB315778130AE Missing Documents (Credential Verification)</div>
+      <div class="flag-body">Ministry of Higher Education requires documents for academic credential recognition for this worker. Delay may jeopardise the work permit. Received 02:23 UAE today.</div>
+      <div class="next-step">→ Identify the employee · Coordinate with HR/the employee · Upload required documents via MOHRE portal today.</div>
+    </div>
+  </div>
+
+  <!-- CT Nandhu -->
+  <div class="flag-item">
+    <span class="flag-cat cat-ct">CT · Today</span>
+    <div>
+      <div class="flag-title">Nandhu (GL Middle East / Flow Solutions / Wicked Tents) — EL Auto-Stall Day 21</div>
+      <div class="flag-body">Engagement Letter sent 18 June. Today hits the 21-day auto-stall threshold. CIT scope. Raihana's DM sequence is blocked on Mohaina's approval. If no decision by midday, Raihana should call Nandhu directly.</div>
+      <div class="next-step">→ Approve EL now, or call Nandhu directly by midday. Owner: Mohaina → Raihana.</div>
+    </div>
+  </div>
+
+  <!-- CT George -->
+  <div class="flag-item">
+    <span class="flag-cat cat-ct">CT · This Week</span>
+    <div>
+      <div class="flag-title">The Concept Lab / Mr. George — 20 Days Outstanding, CIT Deadline 30 Sep</div>
+      <div class="flag-body">EL sent 19 June. CIT filing deadline 30 September means a July start is non-negotiable. Every day lost here compresses the delivery window.</div>
+      <div class="next-step">→ Approve EL for Raihana to send. No more delay affordable here.</div>
+    </div>
+  </div>
+
+  <!-- CT Brilliant Telecom -->
+  <div class="flag-item">
+    <span class="flag-cat cat-ct">CT · In Progress</span>
+    <div>
+      <div class="flag-title">Brilliant Telecom — CIT Partner Confirmation Letters Still Outstanding</div>
+      <div class="flag-body">Multiple partners not responding. Raihana chasing. Continued delay risks CIT delivery timeline.</div>
+      <div class="next-step">→ Monitor: Raihana to escalate today if no responses. Consider direct partner outreach.</div>
+    </div>
+  </div>
+
+  <!-- Cash / AR -->
+  <div class="flag-item">
+    <span class="flag-cat cat-cash">Cash · Receivables</span>
+    <div>
+      <div class="flag-title">AED 151,491 Outstanding Across 35 Overdue Invoices</div>
+      <div class="flag-body">Largest single balance: Richemont (Dubai) FZE ~AED 16,003 at ~36 days. This is the same client group being signed for a new engagement this week. Keep the commercial and collections conversations separate.</div>
+      <div class="next-step">→ Prioritise collection outreach this week, especially Richemont before the Tuesday call.</div>
+    </div>
+  </div>
+
+  <!-- Annaka Penalty -->
+  <div class="flag-item">
+    <span class="flag-cat cat-ct">VAT · Penalty</span>
+    <div>
+      <div class="flag-title">Annaka — AED 500/Month Late-Deregistration Penalty Accruing</div>
+      <div class="flag-body">Cancellation certificate still not received. Each month of delay = AED 500 penalty. Mohaina + Cristina Suyom chasing.</div>
+      <div class="next-step">→ Escalate chase to FTA or relevant authority. Confirm whether any formal objection can be lodged.</div>
+    </div>
+  </div>
+
+  <!-- Cartier BD -->
+  <div class="flag-item">
+    <span class="flag-cat cat-bd">BD · Ready</span>
+    <div>
+      <div class="flag-title">Richemont/Cartier — EL This Week, Call Tuesday After 11am (Fit 9/10)</div>
+      <div class="flag-body">Chadi Nasreddine confirmed Tuesday after 11am. Engagement Letter must go out before that call. Highest-scoring active pipeline deal. Do not let the overdue invoice conversation delay the new engagement.</div>
+      <div class="next-step">→ Mohaina to draft and send EL to Chadi before Tuesday. Prep the call agenda.</div>
+    </div>
+  </div>
+
+  <!-- Interview -->
+  <div class="flag-item">
+    <span class="flag-cat cat-hr">HR · Today</span>
+    <div>
+      <div class="flag-title">Raihana Asking: Who Interviews the Candidate?</div>
+      <div class="flag-body">Teams message this morning (01:09 UAE): "Sinong mag interview sakanila?" — asking who will conduct the interview. Needs a decision to move forward.</div>
+      <div class="next-step">→ Reply to Raihana on Teams with the interviewer's name and available time slot.</div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="flag-item">
+    <span class="flag-cat cat-content">Content · Today</span>
+    <div>
+      <div class="flag-title">LinkedIn Post Pending — Approve to Publish Today</div>
+      <div class="flag-body">Post is ready: 4/4 Invisibility Diagnostic, 1,323 chars, 0 em dashes. Preferred 08:30 UAE window has passed but post can still go live today with strong engagement. Pinned Comment 1 cites FTA 5-year VAT record retention — standing rule requires Mohaina's explicit sign-off.</div>
+      <div class="next-step">→ Review post below · Reply "Approved" or "Approved with changes: [notes]" → Rei (reinald.onella1@gmail.com) will publish + post 3 pinned comments in sequence.</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!--  QUICK LINKS CARD                       -->
+<!-- ═══════════════════════════════════════ -->
+<div class="card">
+  <div class="card-title">Quick Links</div>
+  <div class="links-grid">
+    <a href="coo-brief-2026-07-09.html" class="link-chip">
+      <span class="chip-title">COO Morning Brief</span>
+      <span class="chip-sub">coo-brief-2026-07-09.html · Complete</span>
+    </a>
+    <a href="cmo-post-2026-07-09.html" class="link-chip">
+      <span class="chip-title">CMO Daily Post</span>
+      <span class="chip-sub">cmo-post-2026-07-09.html · Pending Approval</span>
+    </a>
+    <span class="link-chip" style="opacity:0.45;cursor:default;">
+      <span class="chip-title">CFO Revenue Report</span>
+      <span class="chip-sub">Runs Monday only · Next: 13 July</span>
+    </span>
+    <span class="link-chip" style="opacity:0.45;cursor:default;">
+      <span class="chip-title">CRO Weekly Prospects</span>
+      <span class="chip-sub">Runs Monday only · Next: 13 July</span>
+    </span>
+    <span class="link-chip" style="opacity:0.45;cursor:default;">
+      <span class="chip-title">Content Calendar</span>
+      <span class="chip-sub">Runs Monday only · Next: 13 July</span>
+    </span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!--  TODAY'S LINKEDIN POST — INLINE        -->
+<!-- ═══════════════════════════════════════ -->
+<div class="card">
+  <div class="card-title">Today's LinkedIn Post — Copy-Ready</div>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center;">
+    <span style="background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.25);color:var(--green);font-size:12px;font-weight:700;border-radius:4px;padding:3px 10px;">4/4 Invisibility Diagnostic PASS</span>
+    <span style="background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);color:var(--amber);font-size:12px;font-weight:600;border-radius:4px;padding:3px 10px;">Pending Approval</span>
+    <span style="font-size:12px;color:var(--muted);">1,323 chars · 0 em dashes · 0 banned words</span>
+  </div>
+
+  <div class="post-preview"><span class="hook-highlight">Filing on time does not mean you are protected. It just means nobody has looked closely yet.</span>
+
+We see this a lot. An owner files VAT every quarter, files CIT on schedule, never misses a deadline. On paper, they look clean.
+
+Then an audit comes, or a bank asks for supporting documents, or the FTA asks a follow up question. And the gap shows up.
+
+Compliant means you submitted the right form on the right date. Audit-ready means every number on that form can be traced back to a document that proves it is true.
+
+Those are not the same thing. Most UAE SME owners only find out the difference the hard way, sitting across from an auditor asking questions their own bookkeeper never asked.
+
+We see this constantly. One client's returns were filed correctly for three years. Nobody had checked whether the input tax claimed on every one of them was actually claimable, or whether the invoices behind it would hold up.
+
+Filing on time had covered the surface. It had not built what was underneath.
+
+Second eyes matter here. One person filing a return is not the same as a team checking that return against the actual paperwork before it goes anywhere near the FTA portal.
+
+If your accountant has never once asked to see the invoice behind a number, that is worth noticing now, not during an audit.
+
+<span class="cta-bold">Tag a founder who needs to see this.</span></div>
+
+  <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
+    <div class="section-label">3 Pinned Comments — Post in Sequence After Publishing</div>
+
+    <div style="background:#0f0f0f;border-left:3px solid #2a2a2a;border-radius:4px;padding:12px 14px;margin-bottom:8px;font-size:12px;">
+      <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:5px;">Comment 1 — Extend <span style="color:var(--brand);margin-left:6px;">⚑ FTA Reference · Requires Approval</span></div>
+      FTA rules require VAT records to be kept for five years, and an auditor can ask for any of them. If your invoices from three years back are not organised and traceable today, that is a much bigger job to fix later than it is to fix now.
+    </div>
+
+    <div style="background:#0f0f0f;border-left:3px solid #2a2a2a;border-radius:4px;padding:12px 14px;margin-bottom:8px;font-size:12px;">
+      <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:5px;">Comment 2 — Humanise (Mohaina)</div>
+      I have sat across from owners in this exact moment, watching them realise their own numbers were never checked past the filing stage. It is not a comfortable conversation. I would rather have it before an audit than during one.
+    </div>
+
+    <div style="background:#0f0f0f;border-left:3px solid #2a2a2a;border-radius:4px;padding:12px 14px;font-size:12px;">
+      <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:5px;">Comment 3 — CTA Amplifier</div>
+      Book a 30-minute compliance review with us and we will tell you honestly whether your books are compliant only, or actually audit-ready. Better to know now than during a review you did not choose the timing of.
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<div style="margin-top:8px;padding:14px 16px;background:#0d0d0d;border:1px solid #1a1a1a;border-radius:8px;font-size:11px;color:var(--muted2);line-height:1.7;">
+  <strong style="color:var(--muted);">System Notes</strong><br>
+  Brand color: #E8294C (default — no hex specified in positioning-mohaina-asira.md)<br>
+  Voice / ICP / Positioning: sourced from Mohaina-Business-Brain repo (not in Notion or Drive)<br>
+  M365 connector: read-only since 2 July — no email send capability. Approval + summary via Notion + push notification.<br>
+  Zoho Books: connected but not enabled in this session — enable for live revenue data.<br>
+  Apify LinkedIn scraper: down 7+ consecutive weeks — LinkedIn analytics unavailable.<br>
+  Scheduled run: 07:00 UAE (GST · UTC+4) · Thursday 9 July 2026 · Lean Run (Steps 1 + 4)<br>
+  Repository: Mohaina-Business-Brain · Branch: claude/cool-noether-83w924
+</div>
+
+</body>
+</html>
