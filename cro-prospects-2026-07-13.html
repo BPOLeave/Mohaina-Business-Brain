@@ -1,1 +1,196 @@
-PLACEHOLDER_WILL_BE_REPLACED
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · Purely Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#1F3A5F; --primary-light:#4A6E9E;
+    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:880px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:26px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .row{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:14.5px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-red{background:#fdecec;color:var(--bad);} .t-amb{background:#fdf1de;color:var(--warn);}
+  .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-grn{background:#e7f6ee;color:var(--good);} .t-blue{background:#e6f0fc;color:#1E6FE0;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .pcard{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-top:4px solid var(--primary);}
+  .ph{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+  .ph .nm{font-weight:800;font-size:16px;} .ph .rl{font-size:12.5px;color:var(--gray-text);width:100%;}
+  .meta{font-size:12.5px;color:var(--gray-text);margin:8px 0 4px;}
+  .meta b{color:var(--ink);}
+  .hook{font-size:14px;background:var(--gray-light);border-radius:10px;padding:9px 12px;margin:8px 0;}
+  .flag{font-size:13px;background:#fdf1de;border-left:3px solid var(--warn);border-radius:0 10px 10px 0;padding:8px 12px;margin:8px 0;color:#7c4a06;}
+  .seqlbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);font-weight:700;margin:12px 0 6px;}
+  .dm{font-size:13.5px;border-left:3px solid var(--gray);background:#fbfbfa;border-radius:0 10px 10px 0;padding:9px 12px;margin:7px 0;}
+  .dm .t{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--gray-text);font-weight:700;display:block;margin-bottom:3px;}
+  .fit{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);}
+
+  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:10px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>10 sourced. 8 matched. 0 held for personal review.</h1><div class="d">Monday, 13 July 2026 · sourced from your ICP via LinkedIn · every DM is a draft, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Sourced (UAE founders)</div><div class="n">10</div></div>
+      <div class="stat"><div class="l">ICP qualified</div><div class="n" style="background:linear-gradient(135deg,var(--good),#34d399);-webkit-background-clip:text;background-clip:text;color:transparent">8</div></div>
+      <div class="stat"><div class="l">Messages drafted</div><div class="n">40</div></div>
+    </div>
+
+    <div class="sec">The prospects · ranked by fit</div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Jen Blandos</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Founder & CEO, Female Fusion · building Zari Health · Healthcare/Wellness · Dubai · <a href="https://www.linkedin.com/in/jenblandos">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive · <b>Opener:</b> Peer · <b>Signal:</b> Running two ventures at once, headline states she is currently raising a pre-seed round</div>
+      <div class="flag"><b>Compliance trigger:</b> active pre-seed fundraise, investors will ask for clean financials before closing</div>
+      <div class="hook"><b>Human hook:</b> Running Female Fusion while building Zari Health and raising your pre-seed round.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Jen, running Female Fusion and building Zari Health at the same time, then raising pre-seed on top of it, that is a lot to hold at once. I run an accounting firm here in Dubai and like meeting founders juggling that much. Would be glad to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting, Jen. Two ventures at once, Female Fusion and now Zari Health, plus a pre-seed round in motion. Which one is pulling more of your time right now, the fundraise or the day to day?</div>
+      <div class="dm"><span class="t">3 · Value-add</span>Saw you're mid pre-seed. Investors usually ask for clean financials before they sign anything, and a lot of early founders here only look at that once the term sheet is already on the table. Is your Zari Health entity registered and filing yet, or still on the to-do list?</div>
+      <div class="dm"><span class="t">4 · Pivot</span>Different question, away from the fundraise for a second. Running two ventures while raising money, how are you protecting your own energy through it, not just the business's cash?</div>
+      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here, Jen. Building Female Fusion, Zari Health, and a fundraise all together takes something most people do not see from outside. Wishing you a smooth close on the pre-seed.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">S J Khoshdel</span><span class="fit t-grn">Fit 7/10</span><span class="rl">CEO & Founder, Mehr Logistics · Logistics/Shipping tech · Dubai · <a href="https://www.linkedin.com/in/s-j-khoshdel-7ab51280">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver · <b>Opener:</b> Directness · <b>Signal:</b> Owner-operator building an AI-driven shipping platform, lean team, no explicit compliance signal found</div>
+      <div class="hook"><b>Human hook:</b> You're using AI to fix a shipping industry still run on phone calls.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi S J, building an AI-driven shipping platform in an industry still mostly run on phone calls and WhatsApp is a hard problem to pick. I run an accounting firm in Dubai and like meeting founders building in logistics. Would be glad to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. Mehr Logistics is going after a market that still runs on relationships more than systems. Where has that been hardest, getting shippers to trust the software, or getting your own operations to move fast enough to keep up?</div>
+      <div class="dm"><span class="t">3 · Value-add</span>The FTA started its e-invoicing pilot this month, mandatory from January 2027 for anyone over 50 million dirhams in revenue. Freight invoicing across borders is exactly where that will bite first. Is your own invoicing already set up to plug into that, or is it still an open question?</div>
+      <div class="dm"><span class="t">4 · Pivot</span>Different angle. Building the tech is one thing, building it while it is your own money on the line is another. What has surprised you most about running Mehr Logistics versus building the product itself?</div>
+      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it there. What you are building at Mehr Logistics, trying to bring real structure to shipping, is not a small thing to take on. Good to be connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Pascal Caloc</span><span class="fit t-grn">Fit 7/10</span><span class="rl">Owner, marketing & sales-systems consultancy · Professional Services · Dubai · <a href="https://www.linkedin.com/in/pascalcaloc">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Analytical · <b>Opener:</b> Peer · <b>Signal:</b> Owner-operated consultancy, fixes clients' sales systems rather than surface branding, no explicit compliance signal found</div>
+      <div class="hook"><b>Human hook:</b> You help brands fix their sales systems, not just repaint their marketing.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Pascal, most consultants sell brands a new look. You seem to be fixing what is actually broken behind the sales, which is a harder and more honest way to work. I run an accounting firm in Dubai and like meeting owners who work that way. Would be glad to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. You are clearly more focused on fixing the sales system than dressing up the brand. When a client comes to you thinking their problem is marketing, how often is the real problem somewhere else entirely?</div>
+      <div class="dm"><span class="t">3 · Value-add</span>The FTA restructured its penalty framework in April, the late filing penalty for corporate tax now starts at 500 dirhams a month and climbs from there. A lot of consultancies here still treat their own books the way their clients used to treat their brand, an afterthought. Is your own filing calendar something you track yourself, or does someone else own that for you?</div>
+      <div class="dm"><span class="t">4 · Pivot</span>Different question, away from client work. Running a consultancy means you are the product as much as the service. How do you keep your own standards up when you are the one everyone is watching?</div>
+      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here, Pascal. The way you talk about fixing what is actually broken, not just what looks broken, is rare. Good to be connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Rebecca Griffiths</span><span class="fit t-grn">Fit 7/10</span><span class="rl">Founder & CEO, Primis (CX platform for retailers) · Ecommerce/Retail-tech · UK & Dubai · <a href="https://www.linkedin.com/in/rebecca-griffiths-726ab0a3">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Hot · <b>Style:</b> Expressive · <b>Opener:</b> Pattern Interrupt · <b>Signal:</b> Publicly stated Primis is doubling down on MENA expansion in 2026 after building the platform in the UK</div>
+      <div class="flag"><b>Compliance trigger:</b> MENA expansion likely means a new UAE entity, VAT and CIT registration from day one</div>
+      <div class="hook"><b>Human hook:</b> Primis is doubling down on MENA in 2026 after building in the UK.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Rebecca, Primis moving from the UK into MENA in 2026 is a real step, not just an announcement. I run an accounting firm in Dubai and end up meeting a lot of founders at exactly this stage of landing here. Would be glad to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. Doubling down on MENA after building Primis in the UK means a different market with different habits around returns, delivery, and customer expectations. What has felt most different about GCC retail so far compared to what you built for back home?</div>
+      <div class="dm"><span class="t">3 · Value-add</span>Foreign companies landing in the UAE often get the product side right and the entity setup wrong, VAT registration, corporate tax, and now e-invoicing all apply from day one, not after you scale. If Primis has a UAE entity in motion, is the accounting side already sorted, or still catching up to the market side?</div>
+      <div class="dm"><span class="t">4 · Pivot</span>Different question. You built Primis in the UK first, now you are earning trust in a market that does not know you yet. What has that meant for how you personally show up, versus how you led back home?</div>
+      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here, Rebecca. Watching a UK-built platform go all in on MENA is not a small bet. Wishing Primis a strong landing here.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Koen Theunis</span><span class="fit t-grn">Fit 7/10</span><span class="rl">Founder & Partner, F&B consultancy / board advisory · F&B · Dubai · <a href="https://www.linkedin.com/in/koentheunis">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Amiable · <b>Opener:</b> Peer · <b>Signal:</b> Fractional F&B leadership, steps into restaurant groups that need steadying, no explicit compliance signal found</div>
+      <div class="hook"><b>Human hook:</b> You step in as fractional leadership for restaurants that need a steady hand.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Koen, fractional leadership in F&B means you are handed someone else's mess and expected to fix it fast, with your name on the outcome. I run an accounting firm in Dubai and like meeting people who take on that kind of pressure. Would be glad to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. Stepping into a restaurant or F&B business as fractional leadership, what is usually the first thing you find broken that the owner did not see coming?</div>
+      <div class="dm"><span class="t">3 · Value-add</span>F&B is one of the sectors that will feel the FTA's new e-invoicing pilot first, high transaction volume, thin margins, and now structured invoicing on top of it from next year. When you step into a new F&B client, is their invoicing usually ready for that, or is it one more thing you end up fixing?</div>
+      <div class="dm"><span class="t">4 · Pivot</span>Different angle. You come in, fix what is broken, then hand it back or move on. What is harder for you, the fixing, or the letting go once it is fixed?</div>
+      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here, Koen. F&B in Dubai needs more people willing to take the mess seriously the way you do. Good to be connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Yasir U.</span><span class="fit t-grn">Fit 7/10</span><span class="rl">Managing Director, boutique real estate firm · Real Estate · Dubai · <a href="https://www.linkedin.com/in/yasirusmankhattak">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver · <b>Opener:</b> Authority Flip · <b>Signal:</b> 20+ years running a boutique commercial/residential investment firm rather than scaling it into a large brokerage</div>
+      <div class="flag"><b>Compliance trigger:</b> real estate brokers sit on the Ministry of Economy's DNFBP list, AML/CDD obligations apply directly</div>
+      <div class="hook"><b>Human hook:</b> Twenty years in Dubai real estate and you still run it like a boutique.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Yasir, twenty plus years in Dubai real estate and still running it boutique rather than scaling it into something impersonal says something about how you work. I run an accounting firm here and like meeting owners who chose depth over size. Would be glad to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. After twenty years in Dubai real estate, what made you keep the firm boutique instead of scaling it the way a lot of people push you to?</div>
+      <div class="dm"><span class="t">3 · Value-add</span>Real estate brokers sit on the Ministry of Economy's DNFBP list, so AML checks are not optional paperwork, they get inspected. The Ministry ran a compliance summit on exactly this in Dubai just last week. Is your AML side something the firm reviews on a schedule, or is it more reactive when a deal needs it?</div>
+      <div class="dm"><span class="t">4 · Pivot</span>Different question. Twenty years in, is the firm still teaching you something new, or is it mostly repetition with better clients now?</div>
+      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here, Yasir. A boutique firm still standing after twenty years in this market is not luck. Good to be connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Kieran Prince</span><span class="fit t-amb">Fit 6/10</span><span class="rl">Founder & MD, KOEM Business Solutions · Retail/Ecommerce consultancy · UK & Dubai · <a href="https://www.linkedin.com/in/kieran-prince-a93538179">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver/Expressive · <b>Opener:</b> Peer · <b>Signal:</b> Moved a UK-built retail/FMCG consultancy into Dubai's ecommerce scene, no explicit compliance signal found</div>
+      <div class="hook"><b>Human hook:</b> You moved a UK retail consultancy into Dubai's ecommerce and FMCG scene.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Kieran, moving a UK-built retail consultancy into Dubai's FMCG and ecommerce scene is a different game with different buyers. I run an accounting firm here and like meeting people making that kind of move. Would be glad to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. KOEM started with UK retail roots, now you are working FMCG and ecommerce brands here. What has taken the most adjusting, the market itself or the clients you are attracting?</div>
+      <div class="dm"><span class="t">3 · Value-add</span>Ecommerce and FMCG brands here often get their VAT wrong on returns and cross-border sales specifically, it is more technical than a standard retail file. When you bring on a new client, do you find their books already clean, or is that usually part of what needs fixing before the real consulting starts?</div>
+      <div class="dm"><span class="t">4 · Pivot</span>Different angle. You help other people's businesses get their systems right. What does your own business look like behind the scenes, is it as tight as what you sell?</div>
+      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here, Kieran. Bringing UK retail experience into Dubai's ecommerce space and making it land is not a small move. Good to be connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Ayub Mohammed</span><span class="fit t-amb">Fit 6/10</span><span class="rl">Ecommerce, distribution & retail investor and advisor · Trading/Ecommerce · Dubai · <a href="https://www.linkedin.com/in/mohammedayub">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Analytical · <b>Opener:</b> Directness · <b>Signal:</b> Sits across multiple ecommerce and distribution deals as investor and advisor, strong referral-partner profile rather than a single operating business</div>
+      <div class="hook"><b>Human hook:</b> You've backed ecommerce and distribution deals across the region as investor and advisor.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">1 · Connection request</span>Hi Ayub, backing ecommerce and distribution deals across the region as both investor and advisor means you see more businesses up close than most operators do. I run an accounting firm in Dubai and value that kind of vantage point. Would be glad to connect.</div>
+      <div class="dm"><span class="t">2 · Icebreaker</span>Thanks for connecting. Across the ecommerce and distribution deals you back, what is the one weakness you keep seeing repeat itself, no matter how good the founder or the product is?</div>
+      <div class="dm"><span class="t">3 · Value-add</span>The pattern I see most in trading and distribution is VAT exposure on imports, it is where the FTA finds the most avoidable errors. Across the businesses you advise, is that something founders usually have handled properly, or is it more often a blind spot until something forces the issue?</div>
+      <div class="dm"><span class="t">4 · Pivot</span>Different question. You sit on the advisor side more than the operator side now. Do you miss actually running something day to day, or does the vantage point suit you better?</div>
+      <div class="dm"><span class="t">5 · Clean exit</span>I will leave it here, Ayub. Seeing that many businesses up close, across investing and advising, gives you a read most people never get. Good to be connected either way.</div>
+    </div>
+
+    <div class="sec">Disqualified from this batch (2) · not your ICP</div>
+    <div class="card">
+      <div class="row">Armin Moradi, CEO & Founder, Qashio<span class="tagi t-grey">funded scale-up, 161 staff, likely full finance team</span></div>
+      <div class="row">Nadia Zaal, Founder & CEO, Zaya / Al Barari Group<span class="tagi t-grey">large developer group, high-profile exec, not an SME owner</span></div>
+    </div>
+
+    <div class="note">Open <b>Jen Blandos</b> and <b>Rebecca Griffiths</b> first. Jen is mid pre-seed, which means an investor will ask her for clean financials before this quarter is out. Rebecca's Primis is actively landing a UK-built platform into the UAE right now, and that is the exact moment a new entity's books either start clean or start messy. No prospect scored 9 or 10 this week, so nothing is held back for your personal review before outreach. Every message here is a draft. You read it, then you send it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.stat,.card,.pcard,.note',{y:20,opacity:0,duration:.5,stagger:.05,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 90%'}});
+    });
+  </script>
+</body>
+</html>
