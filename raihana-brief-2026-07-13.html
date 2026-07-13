@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raihana BD Brief · 13 July 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0A0A0A;
+    color: #E8E8E8;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  .container { max-width: 680px; margin: 0 auto; }
+
+  .header {
+    border-left: 4px solid #E8294C;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    background: #141414;
+    border-radius: 0 6px 6px 0;
+  }
+  .header .brand { color: #E8294C; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+  .header h1 { font-size: 20px; font-weight: 700; color: #FFFFFF; }
+  .header .meta { color: #888; font-size: 12px; margin-top: 4px; }
+
+  .intro {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #CCCCCC;
+  }
+
+  .alert-banner {
+    background: #2A0A0E;
+    border: 1px solid #E8294C;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    color: #FFB3B3;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .alert-banner .alert-title { color: #E8294C; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
+
+  .section {
+    margin-bottom: 24px;
+  }
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #E8294C;
+    border-bottom: 1px solid #222;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+  }
+
+  .card {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .card.critical { border-left: 3px solid #E8294C; }
+  .card.monitor  { border-left: 3px solid #F59E0B; }
+  .card.clear    { border-left: 3px solid #22C55E; }
+  .card.info     { border-left: 3px solid #555; }
+
+  .card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .card-label.red    { color: #E8294C; }
+  .card-label.amber  { color: #F59E0B; }
+  .card-label.green  { color: #22C55E; }
+  .card-label.grey   { color: #888; }
+
+  .card-title { font-size: 14px; font-weight: 700; color: #FFFFFF; margin-bottom: 4px; }
+  .card-sub   { font-size: 12px; color: #AAAAAA; margin-bottom: 6px; }
+  .card-action {
+    font-size: 12px;
+    color: #E8E8E8;
+    background: #1E1E1E;
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin-top: 6px;
+  }
+  .card-action strong { color: #FFFFFF; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  th {
+    background: #1A1A1A;
+    color: #888;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid #2A2A2A;
+  }
+  td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #1A1A1A;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .badge-red    { background: #2A0A0E; color: #E8294C; }
+  .badge-amber  { background: #1F1500; color: #F59E0B; }
+  .badge-green  { background: #061A10; color: #22C55E; }
+  .badge-grey   { background: #1A1A1A; color: #888; }
+
+  .reminder {
+    background: #0F0F0F;
+    border: 1px solid #2A2A2A;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: #888;
+    margin-top: 24px;
+    text-align: center;
+  }
+  .reminder strong { color: #E8294C; }
+
+  .delivery-note {
+    background: #1A0A00;
+    border: 1px solid #F59E0B;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 11px;
+    color: #F59E0B;
+    margin-top: 16px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">BPOAS · Business Development</div>
+    <h1>Raihana BD Brief · Monday 13 July 2026</h1>
+    <div class="meta">Generated 07:30 UAE (GST) · r.asira@bposervicegroup.com · Auto-generated</div>
+  </div>
+
+  <!-- Intro line -->
+  <div class="intro">
+    Here is your prospect queue and follow-up list for today.
+    All first-contact messages on 9–10 scored prospects require <strong>Mohaina's approval before sending</strong>.
+  </div>
+
+  <!-- Alert -->
+  <div class="alert-banner">
+    <div class="alert-title">🚨 Critical — Act Before Noon</div>
+    THREE critical items demand action this morning. Brilliant Telecom partner letters face a firm Wednesday 15 July deadline. Nandhu and Mr. George are past the 21-day EL auto-stall. Richemont EL must go out today — flag to Mohaina if not sent by 10:00 UAE.
+  </div>
+
+  <!-- Section 1: Send Queue -->
+  <div class="section">
+    <div class="section-title">1 · Today's Send Queue</div>
+
+    <div class="card critical">
+      <div class="card-label red">🔴 Critical · #1</div>
+      <div class="card-title">Brilliant Telecom LLC — CIT Partner Confirmation Letters</div>
+      <div class="card-sub">Deadline: Wednesday 15 July 2026 (2 days) · Client on vacation after 20 July</div>
+      <div class="card-action"><strong>Action:</strong> Chase ALL outstanding partners by phone and email this morning. Report full confirmation status to Mohaina by 12:00 UAE. Do not wait — call each partner directly.</div>
+    </div>
+
+    <div class="card critical">
+      <div class="card-label red">🔴 Critical · #2 · Score: 6/10</div>
+      <div class="card-title">GL Middle East / Flow Solutions / Wicked Tents — Nandhu</div>
+      <div class="card-sub">EL sent 18 June · Day 25 — 4 days past the 21-day auto-stall · DM blocked on approval</div>
+      <div class="card-action"><strong>Action:</strong> If Mohaina has approved → send DM Sequence M1 now. If no approval by 09:00 UAE → call Nandhu directly. Log outcome immediately.</div>
+    </div>
+
+    <div class="card critical">
+      <div class="card-label red">🔴 Critical · #3 · Score: 6/10</div>
+      <div class="card-title">The Concept Lab — Mr. George</div>
+      <div class="card-sub">EL sent 19 June · Day 24 — 3 days past the 21-day auto-stall · CIT deadline 30 Sep</div>
+      <div class="card-action"><strong>Action:</strong> If Mohaina has approved → send DM Sequence M1 now. If no approval by 09:00 UAE → call Mr. George directly. Log outcome.</div>
+    </div>
+
+    <div class="card monitor">
+      <div class="card-label amber">🟡 Monitor · #4 · Score: 9/10 · Mohaina Only</div>
+      <div class="card-title">Richemont / Cartier — Chadi Nasreddine</div>
+      <div class="card-sub">Discovery call Tuesday 14 July after 11:00 UAE · Mohaina managing · No Raihana outreach</div>
+      <div class="card-action"><strong>Action:</strong> EL must go out from Mohaina TODAY — flag to Mohaina if not sent by 10:00 UAE. Forward any inbound from Chadi to Mohaina immediately.</div>
+    </div>
+
+    <div class="card clear">
+      <div class="card-label green">🟢 Send Today · No Approval Needed · #5 · Score: 8/10</div>
+      <div class="card-title">MCM Products Middle East — Joanne Oquendo</div>
+      <div class="card-sub">Verbal agreed · KYC active · Trade Licence + EL still unsigned</div>
+      <div class="card-action"><strong>Action:</strong> Push for signatures today. If Joanne is unreachable, send follow-up email and log.</div>
+    </div>
+
+  </div>
+
+  <!-- Section 2: Overdue Follow-Ups -->
+  <div class="section">
+    <div class="section-title">2 · Overdue Follow-Ups 🔴</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Prospect</th>
+          <th>Days Outstanding</th>
+          <th>Priority</th>
+          <th>Action Today</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>GL Middle East / Nandhu</td>
+          <td>25 days — PAST STALL</td>
+          <td><span class="badge badge-red">Critical</span></td>
+          <td>Call by 09:00 UAE if no Mohaina approval</td>
+        </tr>
+        <tr>
+          <td>The Concept Lab / Mr. George</td>
+          <td>24 days — PAST STALL</td>
+          <td><span class="badge badge-red">Critical</span></td>
+          <td>Call by 09:00 UAE if no Mohaina approval</td>
+        </tr>
+        <tr>
+          <td>Brilliant Telecom / Partners</td>
+          <td>2 days to Wed deadline</td>
+          <td><span class="badge badge-red">Critical</span></td>
+          <td>Call all partners · report to Mohaina by 12:00</td>
+        </tr>
+        <tr>
+          <td>MCM Products ME / Joanne</td>
+          <td>Ongoing (verbal agreed)</td>
+          <td><span class="badge badge-amber">Medium</span></td>
+          <td>Push for EL + Trade Licence signatures</td>
+        </tr>
+        <tr>
+          <td>Annaka — Deregistration</td>
+          <td>Ongoing · AED 500/mo penalty</td>
+          <td><span class="badge badge-amber">Medium</span></td>
+          <td>Chase certificate today. Escalate to Mohaina + Cristina.</td>
+        </tr>
+        <tr>
+          <td>Almosafer — Claim #2010754</td>
+          <td>87+ days</td>
+          <td><span class="badge badge-grey">FYI</span></td>
+          <td>Mohaina managing — forward any inbound</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Section 3: Leads to Verify -->
+  <div class="section">
+    <div class="section-title">3 · Leads to Verify 🟡</div>
+    <div class="card info">
+      <div class="card-label grey">Status</div>
+      <div class="card-title">No new leads in pipeline</div>
+      <div class="card-sub">Apify LinkedIn scraper down — 8th consecutive week. CRM uploads on hold. No leads to score or enrich this week.</div>
+      <div class="card-action"><strong>Pending:</strong> Await Mohaina's instructions before manual sourcing. Sectors queued for next scrape: Luxury / Enterprise → Logistics → Hospitality.</div>
+    </div>
+  </div>
+
+  <!-- Section 4: Completed This Week -->
+  <div class="section">
+    <div class="section-title">4 · Completed This Week (w/c 7 July)</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Detail</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Outreach sent</td>
+          <td>5 follow-up contacts (MCM · Brilliant Telecom · Nandhu · Annaka · Mr. George)</td>
+          <td><span class="badge badge-green">Done</span></td>
+        </tr>
+        <tr>
+          <td>Responses received</td>
+          <td>Brilliant Telecom — 2 of N partner letters confirmed; remaining outstanding</td>
+          <td><span class="badge badge-amber">Partial</span></td>
+        </tr>
+        <tr>
+          <td>Temperature changes</td>
+          <td>Richemont/Cartier moved to 🔥 READY · Call confirmed Tue 14 Jul</td>
+          <td><span class="badge badge-green">Hot</span></td>
+        </tr>
+        <tr>
+          <td>Deals signed</td>
+          <td>Halton Middle East FZE — signed. Delivery commencing. Bank details outstanding.</td>
+          <td><span class="badge badge-green">Signed</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Week Ahead -->
+  <div class="section">
+    <div class="section-title">Week Ahead (w/c 13 July)</div>
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Event</th><th>Owner</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mon 13 Jul <strong>TODAY</strong></td><td>Nandhu / GL auto-stall — call or DM if approved</td><td>Raihana + Mohaina</td></tr>
+        <tr><td>Mon 13 Jul <strong>TODAY</strong></td><td>Mr. George auto-stall — call or DM if approved</td><td>Raihana + Mohaina</td></tr>
+        <tr><td>Mon 13 Jul <strong>TODAY</strong></td><td>Richemont/Cartier EL — Mohaina sends today</td><td>Mohaina</td></tr>
+        <tr><td>Tue 14 Jul</td><td>Richemont/Cartier discovery call after 11:00 UAE</td><td>Mohaina</td></tr>
+        <tr><td>Wed 15 Jul</td><td>Brilliant Telecom CIT partner confirmation deadline</td><td>Raihana + Cristina</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Reminder -->
+  <div class="reminder">
+    <strong>Reminder:</strong> All sequences require Mohaina's approval before first contact on prospects scoring 9 or 10.<br>
+    Do not send DM sequences to Nandhu or Mr. George without Mohaina's explicit approval — unless the auto-stall has been reached and you cannot reach Mohaina, in which case a direct call is appropriate.
+  </div>
+
+  <div class="delivery-note">
+    ⚠️ M365 email delivery unavailable (permission_error, ongoing since 2 July) — this brief is Notion-only.<br>
+    Raihana: check Notion Daily Briefs directly. Brief also saved as raihana-brief-2026-07-13.html.
+  </div>
+
+</div>
+</body>
+</html>
