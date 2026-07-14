@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief · Tuesday 14 July 2026 · BPOAS</title>
+<style>
+  :root {
+    --brand: #E8294C;
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --surface2: #1C1C1C;
+    --border: #2A2A2A;
+    --text: #F0F0F0;
+    --muted: #888;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --blue: #3B82F6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; padding: 24px 16px; }
+  .header { border-bottom: 2px solid var(--brand); padding-bottom: 16px; margin-bottom: 24px; }
+  .header h1 { font-size: 20px; font-weight: 700; color: var(--text); }
+  .header .meta { color: var(--muted); font-size: 12px; margin-top: 4px; }
+  .header .meta span { color: var(--brand); font-weight: 600; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+  .card h2 { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .card h3 { font-size: 13px; font-weight: 600; color: var(--text); margin: 12px 0 6px; }
+  .item { padding: 10px 12px; background: var(--surface2); border-radius: 6px; margin-bottom: 8px; border-left: 3px solid var(--border); }
+  .item.red { border-left-color: var(--red); }
+  .item.amber { border-left-color: var(--amber); }
+  .item.green { border-left-color: var(--green); }
+  .item.brand { border-left-color: var(--brand); }
+  .item-title { font-weight: 600; font-size: 13px; }
+  .item-body { color: var(--muted); font-size: 12px; margin-top: 3px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 4px; }
+  .badge-red { background: rgba(239,68,68,0.15); color: var(--red); }
+  .badge-amber { background: rgba(245,158,11,0.15); color: var(--amber); }
+  .badge-green { background: rgba(34,197,94,0.15); color: var(--green); }
+  .badge-brand { background: rgba(232,41,76,0.15); color: var(--brand); }
+  .badge-blue { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { background: var(--surface2); color: var(--muted); font-weight: 600; text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .flag-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .flag-item:last-child { border-bottom: none; }
+  .flag-num { color: var(--brand); font-weight: 700; min-width: 20px; }
+  .flag-content { flex: 1; }
+  .flag-title { font-weight: 600; font-size: 13px; }
+  .flag-why { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .metric-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-label { color: var(--muted); font-size: 12px; }
+  .metric-value { font-weight: 700; font-size: 15px; }
+  .metric-value.red { color: var(--red); }
+  .metric-value.amber { color: var(--amber); }
+  .metric-value.green { color: var(--green); }
+  .alert { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3); border-radius: 6px; padding: 10px 14px; font-size: 12px; color: var(--red); margin-bottom: 12px; }
+  .note { color: var(--muted); font-size: 11px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .sub { color: var(--muted); font-size: 11px; }
+  .inline-badge { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-left: 6px; vertical-align: middle; }
+  .ib-red { background: rgba(239,68,68,0.15); color: var(--red); }
+  .ib-amber { background: rgba(245,158,11,0.15); color: var(--amber); }
+  .ib-green { background: rgba(34,197,94,0.15); color: var(--green); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>COO Morning Brief</h1>
+  <div class="meta">BPOAS · <span>Tuesday 14 July 2026</span> · Generated 07:00 UAE · Step 1 of /bpoas-daily-start</div>
+</div>
+
+<!-- MAILBOX ALERT -->
+<div class="alert">
+  ⚠️ MAILBOX FULL — 61.57 GB / 49.5 GB. Incoming mail may be bouncing. Clear deleted items immediately.
+</div>
+
+<!-- TODAY'S SCHEDULE -->
+<div class="card">
+  <h2>Today's Schedule</h2>
+  <div class="item amber">
+    <div class="badge badge-amber">Not on calendar</div>
+    <div class="item-title">Richemont / Cartier — Discovery Call · After 11:00 UAE</div>
+    <div class="item-body">Chadi Nasreddine. Fit score 9/10. EL must go out BEFORE the call — confirm EL status now. This is not on the Outlook calendar; manage directly.</div>
+  </div>
+  <div class="item" style="border-left-color: var(--blue);">
+    <div class="badge badge-blue">17:00 – 18:00 UAE</div>
+    <div class="item-title">Review and Relearn MMI</div>
+    <div class="item-body">Personal study block. No attendees, no meeting link.</div>
+  </div>
+  <div class="item red" style="margin-top: 12px;">
+    <div class="badge badge-red">Tomorrow · Wed 15 Jul</div>
+    <div class="item-title">Brilliant Telecom LLC — CIT Partner Confirmation Deadline</div>
+    <div class="item-body">Raihana chasing all partners today. Raihana to report to Mohaina by 12:00 UAE today. Client on vacation after 20 July — no buffer.</div>
+  </div>
+</div>
+
+<!-- INBOX PRIORITIES -->
+<div class="card">
+  <h2>Inbox Priorities</h2>
+  <p class="sub" style="margin-bottom:12px;">Searched M.Asira@bposervicegroup.com · Last 72 hours · 25 messages reviewed · Sorted by priority</p>
+
+  <div class="item red">
+    <div class="badge badge-red">FTA — Flag</div>
+    <div class="item-title">Last.minute (Netherlands) — Amend Taxable Person Details</div>
+    <div class="item-body">FTA requested Articles of Association only — not a Trade Licence (none exists in the Netherlands). Yiannis tagged Mohaina directly. Internal thread still shows a Trade Licence request that can't be fulfilled. Needs same-day steer to Cristina Suyom: submit the AoA and close the loop with the FTA.</div>
+  </div>
+
+  <div class="item red">
+    <div class="badge badge-red">CT — Action</div>
+    <div class="item-title">Halton Middle East FZE — Cheque Ready for Collection</div>
+    <div class="item-body">50% advance payment for CT engagement. Cheque ready at Jebel Ali Free Zone, South Area. Bring original receipt in exchange. Contact: Diane Talag / Shierida Orillo, Halton ME FZE. Confirm bank details for the engagement still outstanding separately.</div>
+  </div>
+
+  <div class="item red">
+    <div class="badge badge-red">Client — High Importance</div>
+    <div class="item-title">Richemont — Contract Renewal & Remuneration Update (Kamal Abdelsalam)</div>
+    <div class="item-body">From: libin.stanly@richemont.com · To: R.Lorenzo, M.Asira, clara.lee@richemont.com. Contract renewed for another year from Jul 2026 with salary revision. Acknowledgment required. Note: Richemont also has an overdue invoice (AED 16,003.39, ~40 days). Both items are on today's call agenda.</div>
+  </div>
+
+  <div class="item amber">
+    <div class="badge badge-amber">Client — Resolve</div>
+    <div class="item-title">Almosafer Claim #2010754 — Funds Credited</div>
+    <div class="item-body">87-day claim appears resolved. Michelle Pacis confirmed funds credited. Send a close-out confirmation to Almosafer and log as resolved in Notion.</div>
+  </div>
+
+  <div class="item amber">
+    <div class="badge badge-amber">Admin — Action</div>
+    <div class="item-title">e& Payment Reminder — Customer 37483310</div>
+    <div class="item-body">Outstanding dues as of 13 July 2026 for BPOAS. Pay to avoid service interruption. Attachment has full overdue schedule.</div>
+  </div>
+
+  <div class="item" style="border-left-color: var(--muted);">
+    <div class="badge" style="background: rgba(136,136,136,0.15); color: var(--muted);">Info</div>
+    <div class="item-title">Emirates NBD — AED 4,725.00 Debited · Balance AED 86,764.08</div>
+    <div class="item-body">DTB TR REF EPHCOP1940A84X1V. Account ending 8401. Also received Payment E-Advice with attachment — review against expected payment.</div>
+  </div>
+</div>
+
+<!-- TASKS & DEADLINES -->
+<div class="card">
+  <h2>Tasks &amp; Deadlines</h2>
+  <p class="sub" style="margin-bottom:12px;">Source: BPOAS Team Operating Hub · Inbox · Pipeline reports · Raihana Daily Brief 14 Jul</p>
+
+  <h3>CRITICAL — Act Today</h3>
+  <div class="item red">
+    <div class="badge badge-red">CT / FTA</div>
+    <div class="item-title">Last.minute FTA — Amend Taxable Person Details</div>
+    <div class="item-body">Steer Cristina to submit the Articles of Association (not Trade Licence). Confirm with Yiannis that this unblocks the resubmission. Same-day. Owner: Mohaina → Cristina Suyom.</div>
+  </div>
+  <div class="item red">
+    <div class="badge badge-red">BD — Blocker</div>
+    <div class="item-title">Richemont / Cartier — Send EL Before 11:00 UAE Today</div>
+    <div class="item-body">Discovery call is today. EL is still outstanding. Mohaina's action. Score 9/10.</div>
+  </div>
+  <div class="item red">
+    <div class="badge badge-red">CT — Tomorrow</div>
+    <div class="item-title">Brilliant Telecom LLC — CIT Partner Confirmation Letters</div>
+    <div class="item-body">Deadline Wed 15 Jul. Raihana and Cristina chasing all partners today by phone. Raihana to report full status to Mohaina by 12:00 UAE today.</div>
+  </div>
+  <div class="item red">
+    <div class="badge badge-red">BD — Stalled 26 Days</div>
+    <div class="item-title">GL Middle East / Nandhu — EL Day 26 (Auto-Stall + 5 Days)</div>
+    <div class="item-body">EL sent 18 June. Past the 21-day auto-stall. DM Sequence M1 awaiting Mohaina's approval. If no approval by 09:00 UAE, Raihana calls Nandhu directly. Owner: Mohaina (approve) → Raihana.</div>
+  </div>
+  <div class="item red">
+    <div class="badge badge-red">BD — Stalled 25 Days</div>
+    <div class="item-title">The Concept Lab / Mr. George — EL Day 25 (Auto-Stall + 4 Days)</div>
+    <div class="item-body">EL sent 19 June. CIT 30 September deadline. Same approval blocker. Owner: Mohaina → Raihana.</div>
+  </div>
+
+  <h3>ATTENTION — Action This Week</h3>
+  <div class="item amber">
+    <div class="badge badge-amber">CT / Engagement</div>
+    <div class="item-title">Halton Middle East FZE — Collect Cheque + Confirm Bank Details</div>
+    <div class="item-body">Bring original receipt to Jebel Ali FZ South Area. Also confirm BPOAS bank details for CT engagement payment — outstanding since 9 July. Owner: Mohaina / Finance.</div>
+  </div>
+  <div class="item amber">
+    <div class="badge badge-amber">BD — Ongoing</div>
+    <div class="item-title">MCM Products Middle East — Trade Licence + EL Unsigned</div>
+    <div class="item-body">KYC active. Verbal agreement in place. Score 8/10. Raihana pushing Joanne Oquendo for signatures today. Owner: Raihana.</div>
+  </div>
+  <div class="item amber">
+    <div class="badge badge-amber">CT — Penalty Accruing</div>
+    <div class="item-title">Annaka — Deregistration Cancellation Certificate</div>
+    <div class="item-body">AED 500/month penalty accruing. Chase certificate status today. Escalate to Mohaina and Cristina Suyom. Owner: Raihana / Cristina.</div>
+  </div>
+  <div class="item amber">
+    <div class="badge badge-amber">Engagement</div>
+    <div class="item-title">MMG Art Production LLC — Awaiting KYC + Proposal Response</div>
+    <div class="item-body">CIT Alignment + Audited FS FY2025 proposal sent 9 Jul. KYC form sent 13 Jul. 5 days with no response. Monitor for reply. Owner: Mohaina.</div>
+  </div>
+  <div class="item green">
+    <div class="badge badge-green">Resolved</div>
+    <div class="item-title">Almosafer Claim #2010754 — Confirm Close-Out</div>
+    <div class="item-body">Funds credited. Send final confirmation to Almosafer and log closed in Notion. Owner: Mohaina.</div>
+  </div>
+</div>
+
+<!-- CONTENT SLOT -->
+<div class="card">
+  <h2>Content Slot · Tuesday</h2>
+  <div class="item brand">
+    <div class="badge badge-brand">Story Post · 4/4 PASS</div>
+    <div class="item-title">Inside an Owner-Led Firm — Dubai Freight-Forwarding Owner</div>
+    <div class="item-body">Pillar: Inside an Owner-Led Firm · Intent: Nurturing · Sector: Logistics (anonymised). Hook: "A Dubai freight-forwarding owner walked into his bank last month for a loan. The bank asked one question. He did not have the answer — and neither did his books." CTA: Tag a founder who needs to see this.</div>
+  </div>
+  <div class="alert" style="margin-top: 12px; background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.3); color: var(--amber);">
+    ⚠️ POST BACKLOG: 5 consecutive posts (Wed 8 Jul → Tue 14 Jul) in Pending Approval. Batch-approve now. Thu 9 Jul has an ambiguous "Approved" comment but was never forwarded to Rei (5 days unpublished).
+  </div>
+  <p class="note">M365 email send unavailable (12-day outage, root cause identified). Full post text in cmo-post-2026-07-14.html. Approval required before forwarding to Rei Nald Onella (reinald.onella1@gmail.com).</p>
+</div>
+
+<!-- BD PIPELINE PULSE -->
+<div class="card">
+  <h2>BD Pipeline Pulse</h2>
+  <div class="table-wrap">
+    <table>
+      <tr>
+        <th>Prospect</th>
+        <th>Score</th>
+        <th>Status</th>
+        <th>Owner</th>
+        <th>Next Action</th>
+      </tr>
+      <tr>
+        <td><strong>Richemont / Cartier</strong></td>
+        <td style="color: var(--brand); font-weight: 700;">9/10 🔥</td>
+        <td><span class="inline-badge ib-red">CALL TODAY</span></td>
+        <td>Mohaina</td>
+        <td>Send EL NOW. Call after 11:00 UAE. Raise Richemont overdue invoice (AED 16,003.39 · ~40 days).</td>
+      </tr>
+      <tr>
+        <td><strong>Halton Middle East FZE</strong></td>
+        <td style="color: var(--green); font-weight: 700;">SIGNED</td>
+        <td><span class="inline-badge ib-green">DELIVERY</span></td>
+        <td>Finance / Mohaina</td>
+        <td>Collect cheque. Confirm bank details.</td>
+      </tr>
+      <tr>
+        <td><strong>MCM Products ME</strong></td>
+        <td style="color: var(--amber); font-weight: 700;">8/10</td>
+        <td><span class="inline-badge ib-amber">IN PROGRESS</span></td>
+        <td>Raihana</td>
+        <td>Push EL + Trade Licence signatures today.</td>
+      </tr>
+      <tr>
+        <td><strong>Gulf Seatech FZC</strong></td>
+        <td style="color: var(--amber); font-weight: 700;">7/10</td>
+        <td><span class="inline-badge ib-amber">IN PROGRESS</span></td>
+        <td>Warren + Cristina</td>
+        <td>KYC docs received. Proposal sent. Warren + Cristina handling.</td>
+      </tr>
+      <tr>
+        <td><strong>MMG Art Production LLC</strong></td>
+        <td style="color: var(--muted);">—</td>
+        <td><span class="inline-badge ib-amber">AWAITING</span></td>
+        <td>Mohaina</td>
+        <td>Proposal + KYC form sent 9–13 Jul. Monitor for reply.</td>
+      </tr>
+      <tr>
+        <td><strong>GL Middle East / Nandhu</strong></td>
+        <td style="color: var(--muted);">6/10</td>
+        <td><span class="inline-badge ib-red">BLOCKED D26</span></td>
+        <td>Mohaina → Raihana</td>
+        <td>Approve DM M1 or Raihana calls directly.</td>
+      </tr>
+      <tr>
+        <td><strong>The Concept Lab / Mr. George</strong></td>
+        <td style="color: var(--muted);">6/10</td>
+        <td><span class="inline-badge ib-red">BLOCKED D25</span></td>
+        <td>Mohaina → Raihana</td>
+        <td>CIT 30 Sep deadline. Approve DM M1 or direct call.</td>
+      </tr>
+    </table>
+  </div>
+
+  <h3 style="margin-top: 16px;">Raihana's Queue — Today (14 Jul)</h3>
+  <div class="item red">
+    <div class="item-title">Brilliant Telecom — Call all outstanding partners. Report to Mohaina by 12:00 UAE.</div>
+  </div>
+  <div class="item red">
+    <div class="item-title">Nandhu (Day 26) + Mr. George (Day 25) — DM M1 if approved, or call directly.</div>
+  </div>
+  <div class="item amber">
+    <div class="item-title">MCM Products — Push EL + Trade Licence signatures.</div>
+  </div>
+  <div class="item amber">
+    <div class="item-title">Annaka — Chase deregistration cancellation certificate.</div>
+  </div>
+  <div class="item" style="border-left-color: var(--muted);">
+    <div class="item-title" style="color: var(--muted);">Apify LinkedIn scraper — Down 8+ consecutive weeks. No new lead discovery. CRM uploads on hold. Await Mohaina's decision on manual prospecting.</div>
+  </div>
+</div>
+
+<!-- KEY METRIC -->
+<div class="card">
+  <h2>Key Metric</h2>
+  <div class="metric-row">
+    <div class="metric-label">Outstanding Receivables</div>
+    <div class="metric-value red">AED 153,066.94</div>
+  </div>
+  <div class="metric-row">
+    <div class="metric-label">Overdue Invoice Count</div>
+    <div class="metric-value red">36 invoices</div>
+  </div>
+  <div class="metric-row">
+    <div class="metric-label">Change Since Friday 10 Jul</div>
+    <div class="metric-value amber">+AED 1,575 · +1 invoice</div>
+  </div>
+  <div class="metric-row">
+    <div class="metric-label">EXLIBRIS MANAGEMENT FZCO</div>
+    <div class="metric-value red">~232 days overdue</div>
+  </div>
+  <div class="metric-row">
+    <div class="metric-label">Richemont (Dubai) FZE — INV-2026-000161</div>
+    <div class="metric-value amber">AED 16,003.39 · ~40 days</div>
+  </div>
+  <div class="metric-row">
+    <div class="metric-label">Emirates NBD Available Balance</div>
+    <div class="metric-value" style="color: var(--text);">AED 86,764.08</div>
+  </div>
+  <p class="note">Source: Zoho Books live data from COO Brief session 13 July 2026. No Zoho Books re-query this session. Recommend reconciling bank feed vs Zoho for weekend collections.</p>
+</div>
+
+<!-- FLAGS FOR MOHAINA -->
+<div class="card" style="border-color: rgba(232,41,76,0.4); background: rgba(232,41,76,0.04);">
+  <h2>Flags for Mohaina</h2>
+
+  <div class="flag-item">
+    <div class="flag-num">1</div>
+    <div class="flag-content">
+      <div class="flag-title" style="color: var(--red);">🔴 FTA — Last.minute "Amend Taxable Person Details"</div>
+      <div class="flag-why">Yiannis tagged Mohaina directly. Internal team still requesting a Trade Licence that doesn't exist in the Netherlands. Same-day steer to Cristina: submit the AoA. FTA compliance — unblock today.</div>
+    </div>
+  </div>
+  <div class="flag-item">
+    <div class="flag-num">2</div>
+    <div class="flag-content">
+      <div class="flag-title" style="color: var(--red);">🔴 CT — Brilliant Telecom deadline TOMORROW (Wed 15 Jul)</div>
+      <div class="flag-why">CIT partner confirmation letters. Client on vacation after 20 Jul — no buffer. Raihana reports to Mohaina by 12:00 UAE today.</div>
+    </div>
+  </div>
+  <div class="flag-item">
+    <div class="flag-num">3</div>
+    <div class="flag-content">
+      <div class="flag-title" style="color: var(--red);">🔴 BD — Richemont/Cartier call TODAY · EL not yet sent</div>
+      <div class="flag-why">Discovery call after 11:00 UAE. Fit score 9/10. EL must go out before the call. Not on the Outlook calendar — set a reminder now.</div>
+    </div>
+  </div>
+  <div class="flag-item">
+    <div class="flag-num">4</div>
+    <div class="flag-content">
+      <div class="flag-title" style="color: var(--red);">🔴 BD — Nandhu/GL Middle East · Day 26 (auto-stall +5)</div>
+      <div class="flag-why">Past the 21-day auto-stall. DM Sequence M1 awaiting your approval. Raihana calls directly if no word by 09:00 UAE. Decision needed now.</div>
+    </div>
+  </div>
+  <div class="flag-item">
+    <div class="flag-num">5</div>
+    <div class="flag-content">
+      <div class="flag-title" style="color: var(--red);">🔴 BD — Mr. George/Concept Lab · Day 25 (auto-stall +4) · CIT 30 Sep</div>
+      <div class="flag-why">Same approval needed. CIT deadline creates urgency — delay now compresses delivery time.</div>
+    </div>
+  </div>
+  <div class="flag-item">
+    <div class="flag-num">6</div>
+    <div class="flag-content">
+      <div class="flag-title" style="color: var(--red);">🔴 Operational — Mailbox Full (61.57 GB / 49.5 GB)</div>
+      <div class="flag-why">Incoming emails may be bouncing. Clear deleted items now. The Richemont call and any FTA reply could be missed if unresolved.</div>
+    </div>
+  </div>
+  <div class="flag-item">
+    <div class="flag-num">7</div>
+    <div class="flag-content">
+      <div class="flag-title" style="color: var(--amber);">🟡 Client — Richemont contract renewal (Kamal Abdelsalam)</div>
+      <div class="flag-why">High-importance email from Richemont HR. Acknowledge the renewal. Raise the AED 16,003.39 overdue invoice on today's call.</div>
+    </div>
+  </div>
+  <div class="flag-item">
+    <div class="flag-num">8</div>
+    <div class="flag-content">
+      <div class="flag-title" style="color: var(--amber);">🟡 Cash — AED 153,066.94 overdue receivables · EXLIBRIS ~232 days</div>
+      <div class="flag-why">Steady uptick — up AED 1,575 since Friday. EXLIBRIS has had no resolution in any prior brief. Escalation needed — this is real money at risk.</div>
+    </div>
+  </div>
+  <div class="flag-item">
+    <div class="flag-num">9</div>
+    <div class="flag-content">
+      <div class="flag-title" style="color: var(--amber);">🟡 Content — 5 posts in Pending Approval (Wed 8 Jul → Tue 14 Jul)</div>
+      <div class="flag-why">Batch-approve all five. Thu 9 Jul post has an unverified "Approved" comment but was never forwarded to Rei. Clearing the backlog will restart your LinkedIn presence.</div>
+    </div>
+  </div>
+  <div class="flag-item">
+    <div class="flag-num">10</div>
+    <div class="flag-content">
+      <div class="flag-title" style="color: var(--amber);">🟡 AML — No new circulars · Last: MOET/AML/001/2026 (11 Mar 2026)</div>
+      <div class="flag-why">No new AML/DNFBP circular in the last 24 hours. Status: clear.</div>
+    </div>
+  </div>
+</div>
+
+<p class="note" style="padding: 16px; background: var(--surface); border-radius: 6px; border: 1px solid var(--border);">
+  Auto-generated · BPOAS COO Morning Brief · Tuesday 14 July 2026 · 07:00 UAE<br>
+  Brand: #E8294C · Voice DNA: Mohaina Asira · M365 email send: UNAVAILABLE (12-day outage) — delivery via HTML + Notion only.
+</p>
+
+</body>
+</html>
