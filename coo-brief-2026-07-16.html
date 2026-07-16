@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief · Thursday 16 July 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0A0A0A; color: #E5E5E5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; padding: 24px 16px; }
+  .page { max-width: 800px; margin: 0 auto; }
+  .header { border-left: 4px solid #E8294C; padding-left: 16px; margin-bottom: 32px; }
+  .header h1 { font-size: 22px; font-weight: 700; color: #fff; }
+  .header p { color: #888; font-size: 13px; margin-top: 4px; }
+  .card { background: #111; border: 1px solid #222; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+  .card-title { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888; margin-bottom: 14px; }
+  .flag-card { background: #1a0a0a; border: 1px solid #E8294C44; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+  .flag-card .card-title { color: #E8294C; }
+  .flag-item { padding: 10px 0; border-bottom: 1px solid #1f1f1f; }
+  .flag-item:last-child { border-bottom: none; }
+  .flag-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 8px; }
+  .tag-red { background: #E8294C22; color: #E8294C; }
+  .tag-amber { background: #F59E0B22; color: #F59E0B; }
+  .tag-green { background: #10B98122; color: #10B981; }
+  .tag-blue { background: #3B82F622; color: #3B82F6; }
+  .inbox-item { padding: 10px 0; border-bottom: 1px solid #1a1a1a; }
+  .inbox-item:last-child { border-bottom: none; }
+  .inbox-subject { font-weight: 600; color: #fff; font-size: 14px; }
+  .inbox-meta { font-size: 12px; color: #666; margin-top: 2px; }
+  .inbox-summary { font-size: 13px; color: #aaa; margin-top: 4px; }
+  .task-item { padding: 9px 0; border-bottom: 1px solid #1a1a1a; display: flex; gap: 10px; align-items: flex-start; }
+  .task-item:last-child { border-bottom: none; }
+  .task-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .dot-red { background: #E8294C; }
+  .dot-amber { background: #F59E0B; }
+  .dot-green { background: #10B981; }
+  .task-text { font-size: 13px; color: #ccc; }
+  .task-owner { font-size: 11px; color: #555; margin-top: 2px; }
+  .stat-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .stat { flex: 1; min-width: 140px; background: #0d0d0d; border: 1px solid #222; border-radius: 8px; padding: 14px; }
+  .stat-label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.06em; }
+  .stat-value { font-size: 20px; font-weight: 700; color: #fff; margin-top: 4px; }
+  .stat-sub { font-size: 11px; color: #555; margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.06em; padding: 8px 10px; border-bottom: 1px solid #222; }
+  td { padding: 8px 10px; border-bottom: 1px solid #1a1a1a; color: #ccc; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
+  .badge-red { background: #E8294C22; color: #E8294C; }
+  .badge-amber { background: #F59E0B22; color: #F59E0B; }
+  .badge-green { background: #10B98122; color: #10B981; }
+  .new-flag { display: inline-block; background: #E8294C; color: #fff; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+  @media (prefers-color-scheme: light) {
+    body { background: #f5f5f5; color: #1a1a1a; }
+    .card { background: #fff; border-color: #e0e0e0; }
+    .flag-card { background: #fff8f8; }
+    .stat { background: #f9f9f9; border-color: #e0e0e0; }
+    th { color: #888; }
+    td { color: #333; }
+    .inbox-subject { color: #111; }
+    .inbox-meta, .inbox-summary { color: #666; }
+    .task-text { color: #222; }
+    .stat-value { color: #111; }
+    .header h1 { color: #111; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>COO Morning Brief</h1>
+    <p>Thursday 16 July 2026 · 07:00 UAE (GST / UTC+4) · Mohaina Asira · BPOAS</p>
+  </div>
+
+  <!-- TODAY'S SCHEDULE -->
+  <div class="card">
+    <div class="card-title">Today's Schedule</div>
+    <p style="color:#888; font-size:13px;">No events found on Outlook calendar for today (00:00–23:59 UAE). Calendar returned no results. Nothing formally blocked for client meetings, BD calls, or compliance deadlines today — though several live items below require same-day attention.</p>
+  </div>
+
+  <!-- INBOX PRIORITIES -->
+  <div class="card">
+    <div class="card-title">Inbox Priorities</div>
+    <div class="inbox-item">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span class="badge badge-red">🔴 VAT</span>
+        <span class="inbox-subject">Q1 2026 VAT Filing: Chameleon Paints</span>
+      </div>
+      <div class="inbox-meta">From: w.dy@bposervicegroup.com · 15 Jul 18:31 UAE · Unread</div>
+      <div class="inbox-summary">Warren Dy forwarded client question from Kaycee Villanueva — asking whether the FTA portal submission is BPOAS's responsibility. Unread. Needs a same-day answer. Flag: responsibility ownership of FTA portal submission.</div>
+    </div>
+    <div class="inbox-item">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span class="badge badge-red">🔴 COMPLIANCE</span>
+        <span class="inbox-subject">Trade License Expiry: BUSINESS PROCESS OUTSOURCING ACCOUNTING SERVICES <span class="new-flag">NEW</span></span>
+      </div>
+      <div class="inbox-meta">From: customer.support@alansariex.ae · 15 Jul 06:19 UAE · Unread</div>
+      <div class="inbox-summary">Al Ansari Exchange WPS alert — BPOAS trade license (Membership No. 999905901615) expires 25 July 2026. 9 days remaining. Must update via eExchange portal with company stamp. WPS processing will be blocked if license lapses. Owner: Mohaina.</div>
+    </div>
+    <div class="inbox-item">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span class="badge badge-amber">🟡 CLIENT</span>
+        <span class="inbox-subject">Paluto Restaurant LLC — Signed Engagement Letter <span class="new-flag">NEW</span></span>
+      </div>
+      <div class="inbox-meta">From: palutorestaurantllc@gmail.com · 15 Jul 06:40 UAE · Unread</div>
+      <div class="inbox-summary">Maria Emma Myla Bijasa (Managing Director) returned signed EL for Audited Financial Statement 2025 + Corporate Tax Filing Assistance. New client confirmed. Recipients: Raihana, Mohaina, Warren Dy, Cristina Suyom, Finance. Next step: onboarding.</div>
+    </div>
+    <div class="inbox-item">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span class="badge badge-amber">🟡 OVERDUE</span>
+        <span class="inbox-subject">Credit Balance Transfer — Menastar DMCC (SAR 7,432.78)</span>
+      </div>
+      <div class="inbox-meta">From: m.pacis@bposervicegroup.com · 15 Jul 10:03 UAE · High Importance · Unread</div>
+      <div class="inbox-summary">3rd-plus follow-up to Almatar Group (Omar Esmail) for SAR 7,432.78 credit balance. Previously chased 4 Jun, 10 Jun, 29 Jun — no reply. Marked high importance. No response received.</div>
+    </div>
+    <div class="inbox-item">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span class="badge badge-amber">🟡 CLIENT</span>
+        <span class="inbox-subject">MENASTAR FZCO — Q2 2026 Working Paper</span>
+      </div>
+      <div class="inbox-meta">From: m.pacis@bposervicegroup.com · 15 Jul 19:41 UAE · Unread</div>
+      <div class="inbox-summary">Q2 2026 management report sent to Mohamad (ISSTA) and Yiannis (lastminute) for review. Balances provisional — supplier transactions still pending. Attachment present.</div>
+    </div>
+    <div class="inbox-item">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span class="badge badge-amber">🟡 CLIENT</span>
+        <span class="inbox-subject">Menastar FZCO x Jumbo Travels — ADM from Saudi Arabian Airlines</span>
+      </div>
+      <div class="inbox-meta">From: vijesh.vijayan@jumbotravels.com · 15 Jul 13:56 UAE · Unread</div>
+      <div class="inbox-summary">Statement of Account + Transaction Details as of 7 July received. ADMs from Saudi Arabian Airlines received — Jumbo Travels requesting team to check and action. Attachment present. Owner: Recyline Ramos / Michelle Pacis.</div>
+    </div>
+    <div class="inbox-item">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span class="badge badge-green">🟢 RESOLVED</span>
+        <span class="inbox-subject">Menastar FZCO — VAT Tax Certificate (Federal Digital Seal)</span>
+      </div>
+      <div class="inbox-meta">From: yiannis.papadonikolakis.ext@lastminute.com · 15 Jul 09:30 UAE · Unread</div>
+      <div class="inbox-summary">VAT certificate generated and forwarded by Cristina Suyom. Yiannis acknowledged with "thanks." Thread closed — included for visibility only.</div>
+    </div>
+  </div>
+
+  <!-- TASKS & DEADLINES -->
+  <div class="card">
+    <div class="card-title">Tasks &amp; Deadlines</div>
+    <div class="task-item">
+      <div class="task-dot dot-red"></div>
+      <div>
+        <div class="task-text"><strong>[CRITICAL / COMPLIANCE]</strong> BPOAS Trade License — expires 25 July 2026 (9 days). Update via eExchange portal. WPS blocked if lapsed. <span class="new-flag">NEW TODAY</span></div>
+        <div class="task-owner">Owner: Mohaina</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-dot dot-red"></div>
+      <div>
+        <div class="task-text"><strong>[CRITICAL / CT]</strong> Brilliant Telecom LLC — CIT partner confirmation letters. Deadline was yesterday (15 Jul). No confirmation of final status. Client on vacation after 20 Jul — no buffer left.</div>
+        <div class="task-owner">Owner: Raihana / Cristina Suyom</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-dot dot-red"></div>
+      <div>
+        <div class="task-text"><strong>[CRITICAL / CT]</strong> GL Middle East (Nandhu) — EL sent 18 Jun, now 28 days. Past 21-day auto-stall. Direct call warranted.</div>
+        <div class="task-owner">Owner: Mohaina (approve) → Raihana</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-dot dot-red"></div>
+      <div>
+        <div class="task-text"><strong>[CRITICAL / CT]</strong> The Concept Lab (Mr. George) — EL sent 19 Jun, now 27 days. Auto-stall. CIT 30 Sep deadline approaching.</div>
+        <div class="task-owner">Owner: Mohaina → Raihana</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-dot dot-amber"></div>
+      <div>
+        <div class="task-text"><strong>[ATTENTION / VAT]</strong> Chameleon Paints — client asking whether FTA portal submission is BPOAS's responsibility. Same-day answer needed.</div>
+        <div class="task-owner">Owner: Warren Dy</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-dot dot-amber"></div>
+      <div>
+        <div class="task-text"><strong>[ATTENTION / BD]</strong> Richemont/Cartier — discovery call outcome (14 Jul) still not logged. AED 58,254 of invoices just went overdue (due 15 Jul).</div>
+        <div class="task-owner">Owner: Mohaina</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-dot dot-amber"></div>
+      <div>
+        <div class="task-text"><strong>[ATTENTION / NEW CLIENT]</strong> Paluto Restaurant LLC — signed EL received. Initiate onboarding sequence.</div>
+        <div class="task-owner">Owner: Raihana / Finance</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-dot dot-amber"></div>
+      <div>
+        <div class="task-text"><strong>[ATTENTION]</strong> Annaka — deregistration cancellation certificate chase. AED 500/month penalty accruing.</div>
+        <div class="task-owner">Owner: Mohaina / Cristina Suyom</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-dot dot-amber"></div>
+      <div>
+        <div class="task-text"><strong>[ATTENTION]</strong> MCM Products Middle East — Trade Licence + EL unsigned, KYC active.</div>
+        <div class="task-owner">Owner: Raihana</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-dot dot-amber"></div>
+      <div>
+        <div class="task-text"><strong>[ATTENTION / CONTENT]</strong> LinkedIn approval backlog — 6 posts pending (Wed 8 Jul to Wed 15 Jul). Batch review recommended today.</div>
+        <div class="task-owner">Owner: Mohaina</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BD PIPELINE PULSE -->
+  <div class="card">
+    <div class="card-title">BD Pipeline Pulse</div>
+    <table>
+      <thead>
+        <tr><th>Prospect</th><th>Status</th><th>Next Step</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Richemont/Cartier (Fit 9/10)</td><td><span class="badge badge-amber">⚠ Call Unlogged</span></td><td>Log 14 Jul call outcome. AED 58,254 invoices overdue (1 day). Check Chadi's availability.</td></tr>
+        <tr><td>Halton Middle East FZE</td><td><span class="badge badge-green">Signed</span></td><td>CT + Transfer Pricing underway. Cheque / bank details still outstanding.</td></tr>
+        <tr><td>MCM Products Middle East (Fit 8/10)</td><td><span class="badge badge-amber">In Progress</span></td><td>Raihana: Trade Licence + EL signature. KYC active.</td></tr>
+        <tr><td>Gulf Seatech FZC (Fit 7/10)</td><td><span class="badge badge-amber">In Progress</span></td><td>KYC docs received. Warren + Cristina active. No Raihana action needed.</td></tr>
+        <tr><td>MMG Art Production LLC</td><td><span class="badge badge-amber">Awaiting Response</span></td><td>Proposal sent 9 Jul (7 days). Follow up today.</td></tr>
+        <tr><td>Nandhu / GL Middle East (Fit 6/10)</td><td><span class="badge badge-red">Stalled 28d</span></td><td>Direct call. 7 days past auto-stall protocol.</td></tr>
+        <tr><td>Mr. George / Concept Lab (Fit 6/10)</td><td><span class="badge badge-red">Stalled 27d</span></td><td>CIT 30 Sep deadline. Direct call. Approve DM Sequence M1.</td></tr>
+        <tr><td>Paluto Restaurant LLC</td><td><span class="badge badge-green">✅ EL Signed</span></td><td>New client. Initiate onboarding. <span class="new-flag">NEW</span></td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:14px; padding:10px; background:#0d0d0d; border-radius:6px;">
+      <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Raihana's Queue Today</div>
+      <div style="font-size:13px; color:#aaa;">Chase: MCM Products (Trade Licence + EL) · Annaka (deregistration certificate) · Nandhu direct call (28d stall) · Mr. George direct call (27d stall). Fri 17 Jul: weekly pipeline status report to Mohaina due by 16:00 UAE. Note: Apify LinkedIn scraper down 9+ consecutive weeks — no new lead discovery.</div>
+    </div>
+  </div>
+
+  <!-- KEY METRIC -->
+  <div class="card">
+    <div class="card-title">Key Metric</div>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-label">Overdue Receivables</div>
+        <div class="stat-value" style="color:#E8294C;">AED 215,279</div>
+        <div class="stat-sub">40 invoices · largest 1-day jump in brief history</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Account Balance (ENBD)</div>
+        <div class="stat-value">AED 145,018</div>
+        <div class="stat-sub">After +58,254 credit / -4,966 debit · 15 Jul</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Trade License Expires</div>
+        <div class="stat-value" style="color:#E8294C;">9 Days</div>
+        <div class="stat-sub">25 July 2026 · WPS at risk</div>
+      </div>
+    </div>
+    <p style="font-size:12px; color:#555; margin-top:12px;">Overdue receivables jumped from AED 153,066 (13–15 Jul) to AED 215,279 — an increase of ~AED 62,213 and 4 invoices. Three Richemont (Dubai) FZE invoices (~AED 58,254) crossed overdue on 15 Jul. EXLIBRIS INV-2025-000354 (AED 6,300) now 232 days overdue. CFO revenue data last live: Monday 13 July.</p>
+  </div>
+
+</div>
+</body>
+</html>
