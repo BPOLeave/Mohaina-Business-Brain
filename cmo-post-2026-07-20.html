@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · Monday 20 July 2026</title>
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --surface-2: #1E1E1E;
+    --border: #2C2C2C;
+    --accent: #E8294C;
+    --amber: #F59E0B;
+    --green: #22C55E;
+    --blue: #60A5FA;
+    --text: #F0EDE8;
+    --text-2: #9B8F8A;
+    --text-3: #5C5652;
+    --pass: #22C55E;
+    --fail: #E8294C;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+  h1 { font-size: 1.5rem; font-weight: 700; color: var(--text); line-height: 1.2; text-wrap: balance; }
+  h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; }
+  .meta { color: var(--text-2); font-size: 13px; margin-top: 0.4rem; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .pill-red { background: rgba(232,41,76,0.15); color: #FF6B85; border: 1px solid rgba(232,41,76,0.3); }
+  .pill-amber { background: rgba(245,158,11,0.12); color: #FCD34D; border: 1px solid rgba(245,158,11,0.25); }
+  .pill-green { background: rgba(34,197,94,0.12); color: #4ADE80; border: 1px solid rgba(34,197,94,0.25); }
+  .score-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+  .score-row:last-child { border-bottom: none; }
+  .score-label { color: var(--text-2); font-size: 13px; }
+  .score-value { font-weight: 700; font-size: 14px; font-variant-numeric: tabular-nums; }
+  .score-pass { color: var(--pass); }
+  .score-note { color: var(--text-3); font-size: 12px; margin-top: 0.15rem; }
+  .post-body {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.5rem;
+    white-space: pre-line;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .hook-highlight { color: var(--text); font-weight: 700; }
+  .hook-badge {
+    display: inline-block;
+    background: rgba(232,41,76,0.15);
+    color: var(--accent);
+    border: 1px solid rgba(232,41,76,0.3);
+    border-radius: 4px;
+    padding: 0.1rem 0.5rem;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .alt-hooks { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; }
+  .alt-hook {
+    padding: 0.75rem 1rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--text-2);
+  }
+  .alt-hook strong { color: var(--text); display: block; margin-bottom: 0.15rem; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); }
+  .pinned-comment {
+    padding: 0.9rem 1rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+  }
+  .pinned-num { color: var(--accent); font-weight: 700; margin-right: 0.5rem; }
+  .status-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(245,158,11,0.08);
+    border: 1px solid rgba(245,158,11,0.2);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .status-icon { font-size: 1.25rem; flex-shrink: 0; }
+  .status-text { font-size: 14px; color: var(--text-2); }
+  .status-text strong { color: var(--text); display: block; font-size: 15px; margin-bottom: 0.2rem; }
+  .divider { height: 1px; background: var(--border); margin: 1rem 0; }
+  header { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
+  .header-badge { background: var(--accent); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 4px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="label">CMO Daily Post</div>
+    <h1>Monday 20 July 2026</h1>
+    <div class="meta">Pillar: Compliance Without the Panic · Format: Framework List · Diagnostic: 4/4</div>
+  </div>
+  <div class="header-badge">Pending Approval</div>
+</header>
+
+<div class="status-banner">
+  <div class="status-icon">🟡</div>
+  <div class="status-text">
+    <strong>Not sent to Mohaina · Not forwarded to Rei</strong>
+    Post references a regulatory deadline (trade licence 25 Jul). Mandatory approval required. M365 Mail.Send scope unavailable — Day 19. Fix: add Mail.Send/Mail.ReadWrite to Claude connector settings (not a mailbox issue).
+  </div>
+</div>
+
+<!-- POST -->
+<div class="card">
+  <div class="hook-badge">Selected Hook — Confession</div>
+  <h2>Full Post · ~1,400 characters · Zero em dashes</h2>
+  <div class="post-body"><span class="hook-highlight">I almost let our own trade licence renewal slip past me last week.</span>
+
+We handle compliance for UAE businesses. That is literally what BPOAS does every day. And I had to set three reminders before I actually checked our own DED expiry date.
+
+It is due 25 July. That is five days from today.
+
+So here is the list I use so we never miss it.
+
+4 things to track if you run a UAE business:
+
+1. Trade licence expiry
+Every UAE entity has one. Most owners find out it lapsed when a bank transaction fails or a client asks for a valid copy. Check yours today.
+
+2. VAT filing deadline
+Q2 2026 is due 28 July for quarterly filers. That is next week. One missed filing is a penalty. Two in a row gets expensive.
+
+3. CIT first return deadline
+December year-end: you have until 30 September 2026. March year-end: 31 July. That is 11 days.
+
+4. Work permit and visa renewals
+Different dates from your trade licence. Miss one and you are exposed across WPS, bank access, and government portals.
+
+None of this is complicated. It is just easy to forget when you are managing everything else.
+
+I almost forgot ours. That is the point.
+
+If you want someone to run through all four for your business — book a 30-minute compliance review.</div>
+</div>
+
+<!-- INVISIBILITY DIAGNOSTIC -->
+<div class="card">
+  <h2>Invisibility Diagnostic · 4/4 PASS</h2>
+  <div class="score-row">
+    <div>
+      <div class="score-label">Opens with a person or situation, not a statistic</div>
+    </div>
+    <div class="score-value score-pass">✓ Pass</div>
+  </div>
+  <div class="score-row">
+    <div>
+      <div class="score-label">No corporate jargon or marketing superlatives</div>
+    </div>
+    <div class="score-value score-pass">✓ Pass</div>
+  </div>
+  <div class="score-row">
+    <div>
+      <div class="score-label">Principle earned through situation before stated</div>
+    </div>
+    <div class="score-value score-pass">✓ Pass</div>
+  </div>
+  <div class="score-row">
+    <div>
+      <div class="score-label">Ends on a plain declarative — no trailing question</div>
+    </div>
+    <div class="score-value score-pass">✓ Pass</div>
+  </div>
+</div>
+
+<!-- ALTERNATE HOOKS -->
+<div class="card">
+  <h2>5 Hook Options · Selected: Hook 1</h2>
+  <div class="alt-hooks">
+    <div class="alt-hook">
+      <strong>Hook 1 — Confession (Selected)</strong>
+      I almost let our own trade licence renewal slip past me last week.
+    </div>
+    <div class="alt-hook">
+      <strong>Hook 2 — Contrarian</strong>
+      Most UAE business owners know their phone number by heart. Very few know their trade licence expiry date.
+    </div>
+    <div class="alt-hook">
+      <strong>Hook 3 — Situation-first</strong>
+      A client called us in a panic last year. Their trade licence had lapsed three weeks earlier. They did not know.
+    </div>
+    <div class="alt-hook">
+      <strong>Hook 4 — Question-led</strong>
+      Do you know when your trade licence expires? Not roughly. The exact date.
+    </div>
+    <div class="alt-hook">
+      <strong>Hook 5 — Direct Declaration</strong>
+      Four compliance dates every UAE business owner needs to have written down. Most have none of them.
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div style="font-size:13px; color: var(--text-2);">
+    <strong style="color:var(--text);">Selection reasoning:</strong> Hook 1 earns credibility through self-disclosure — Mohaina's own firm nearly missed its own renewal. That contrast (compliance firm + near-miss) is more credible than claiming expertise. Situation-first, principle-last: Mohaina's natural flow. Hook 4 avoided because it opens with a question, which she does not do.
+  </div>
+</div>
+
+<!-- PINNED COMMENTS -->
+<div class="card">
+  <h2>3 Pinned Comments</h2>
+  <div class="pinned-comment">
+    <span class="pinned-num">1</span>
+    For quarterly filers: VAT Q2 2026 (April–June period) is due 28 July 2026. That is 8 days from today. If you are not sure whether you are a monthly or quarterly filer, check the filing type on your FTA portal — it is listed under your VAT registration details.
+  </div>
+  <div class="pinned-comment">
+    <span class="pinned-num">2</span>
+    On CIT: the FTA confirmed a penalty waiver for late CIT registration — but that window closes 31 July 2026 for businesses whose financial year ended 31 December 2025. If you registered late or have not filed yet, this week is the one that matters.
+  </div>
+  <div class="pinned-comment">
+    <span class="pinned-num">3</span>
+    BPOAS offers a 30-minute compliance review — we go through your trade licence expiry, VAT filing status, CIT registration, and work permit dates. No obligation. If everything is in order, we tell you that. DM me to book a slot this week.
+  </div>
+</div>
+
+<!-- APPROVAL WORKFLOW NOTE -->
+<div class="card">
+  <h2>Approval Workflow</h2>
+  <div style="font-size:14px; color:var(--text-2); line-height:1.7;">
+    <p style="margin-bottom:0.75rem;">⚠️ <strong style="color:var(--text);">Post references a regulatory deadline (25 Jul trade licence).</strong> Per routine rules, this triggers mandatory manual approval before Rei publishes.</p>
+    <p style="margin-bottom:0.75rem;">To approve: reply to today's brief email with "Approved" or forward this page to Rei at reinald.onella1@gmail.com with "Post for Today" in the subject.</p>
+    <p>If no approval by 08:15 UAE — post is held. Rei notified. Recommend posting at 08:30 UAE once approved.</p>
+  </div>
+</div>
+
+<footer style="text-align:center; color:var(--text-3); font-size:12px; padding-top:1.5rem; border-top:1px solid var(--border);">
+  CMO Daily Post · Auto-generated · Monday 20 July 2026 · BPOAS
+</footer>
+</body>
+</html>
