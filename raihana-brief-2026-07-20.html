@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raihana Daily Brief · 20 July 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0A0A0A;
+    color: #E5E5E5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    border-left: 4px solid #E8294C;
+    padding: 16px 20px;
+    background: #111;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 8px;
+  }
+  .header .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #E8294C;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+  }
+  .header .meta {
+    font-size: 12px;
+    color: #888;
+  }
+  .header .meta a { color: #888; text-decoration: none; }
+
+  /* Intro line */
+  .intro {
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 24px;
+  }
+
+  /* Critical alert */
+  .alert-critical {
+    background: #1a0a0a;
+    border: 1px solid #E8294C;
+    border-left: 4px solid #E8294C;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    color: #ffaaaa;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .alert-critical strong { color: #E8294C; }
+
+  /* Section */
+  .section {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .section-header {
+    background: #161616;
+    border-bottom: 1px solid #222;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-header h2 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #E5E5E5;
+  }
+  .section-header .badge {
+    font-size: 11px;
+    background: #222;
+    border-radius: 4px;
+    padding: 2px 7px;
+    color: #888;
+  }
+  .section-body { padding: 0; }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead th {
+    background: #1a1a1a;
+    color: #888;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid #222;
+  }
+  tbody tr {
+    border-bottom: 1px solid #1a1a1a;
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody td {
+    padding: 11px 14px;
+    vertical-align: top;
+    color: #D5D5D5;
+  }
+  tbody tr:hover { background: #161616; }
+
+  /* Status chips */
+  .chip {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .chip-red    { background: #2a0a0a; color: #ff6b6b; border: 1px solid #4a1a1a; }
+  .chip-amber  { background: #1f1800; color: #f5a623; border: 1px solid #3a2e00; }
+  .chip-green  { background: #001a0a; color: #4caf82; border: 1px solid #003318; }
+
+  /* Approval note */
+  .approval-note {
+    font-size: 11px;
+    color: #f5a623;
+    margin-top: 4px;
+  }
+
+  /* Empty state */
+  .empty {
+    padding: 18px 16px;
+    color: #555;
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  /* Completed grid */
+  .completed-grid {
+    padding: 14px 16px;
+    display: grid;
+    gap: 10px;
+  }
+  .completed-item { }
+  .completed-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #888;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .completed-value {
+    font-size: 13px;
+    color: #ccc;
+  }
+  .signed-badge {
+    display: inline-block;
+    background: #001f0d;
+    border: 1px solid #004d1e;
+    color: #4caf82;
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  /* Reminder */
+  .reminder {
+    background: #0f0f0f;
+    border: 1px solid #333;
+    border-top: 3px solid #E8294C;
+    border-radius: 0 0 8px 8px;
+    padding: 14px 16px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #aaa;
+    text-align: center;
+  }
+  .reminder strong { color: #E8294C; }
+
+  /* Delivery note */
+  .delivery-note {
+    margin-top: 16px;
+    padding: 10px 14px;
+    background: #0d0d0d;
+    border: 1px solid #1e1e1e;
+    border-radius: 6px;
+    font-size: 11px;
+    color: #555;
+  }
+
+  /* Prospect name */
+  .prospect-name { font-weight: 600; color: #E5E5E5; }
+  .prospect-score { color: #888; font-size: 11px; }
+  .prospect-note  { font-size: 12px; color: #888; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="label">BPOAS · BD Brief</div>
+    <h1>Raihana Daily Brief · 20 July 2026</h1>
+    <div class="meta">Monday · Generated 07:30 UAE (GST, UTC+4) · <a href="mailto:r.asira@bposervicegroup.com">r.asira@bposervicegroup.com</a></div>
+  </div>
+
+  <!-- Intro -->
+  <div class="intro">
+    Here is your prospect queue and follow-up list for today.
+    All first-contact messages on 9–10 scored prospects require Mohaina's approval before sending.
+  </div>
+
+  <!-- Critical Alert -->
+  <div class="alert-critical">
+    🚨 <strong>CRITICAL — TODAY IS THE LAST DAY —</strong> Brilliant Telecom LLC client vacation starts TODAY (20 Jul). Partner confirmation deadline was 15 Jul — now <strong>5 days overdue</strong>. Raihana or Cristina must resolve and report full partner status to Mohaina before end of business. Zero buffer.
+  </div>
+
+  <!-- Section 1: Today's Send Queue -->
+  <div class="section">
+    <div class="section-header">
+      <h2>1 · Today's Send Queue</h2>
+      <span class="badge">5 prospects</span>
+    </div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Prospect · Contact</th>
+            <th>Company</th>
+            <th>Message / Action</th>
+            <th>Send Today</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="prospect-name">Raihana / Cristina Suyom</span>
+              <div class="prospect-note">Partner confirmation letters</div>
+            </td>
+            <td>Brilliant Telecom LLC</td>
+            <td>Critical operational chase — 5 days past deadline. Client on vacation from today.</td>
+            <td><span class="chip chip-red">🔴 URGENT</span></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="prospect-name">Joanne Oquendo</span>
+              <div class="prospect-score">Score 8/10 · VAT + CIT</div>
+            </td>
+            <td>MCM Products Middle East</td>
+            <td>Follow-up — TL + EL signatures. VAT Assessment forwarded overnight (cc Warren).</td>
+            <td><span class="chip chip-green">✅ YES</span></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="prospect-name">Nandhu</span>
+              <div class="prospect-score">Score 6/10 · TRC (3 entities)</div>
+            </td>
+            <td>GL Middle East</td>
+            <td>Direct call — 32-day stall, 11 days past auto-stall protocol.
+              <div class="approval-note">⚠️ Requires Mohaina approval to proceed — or close.</div>
+            </td>
+            <td><span class="chip chip-amber">🟡 PENDING APPROVAL</span></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="prospect-name">Mr. George</span>
+              <div class="prospect-score">Score 6/10 · CIT Filing</div>
+            </td>
+            <td>The Concept Lab</td>
+            <td>Direct call — 31-day stall, CIT 30 Sep deadline.
+              <div class="approval-note">⚠️ Requires Mohaina approval to proceed — or close.</div>
+            </td>
+            <td><span class="chip chip-amber">🟡 PENDING APPROVAL</span></td>
+          </tr>
+          <tr>
+            <td>
+              <span class="prospect-name">—</span>
+              <div class="prospect-note">Deregistration cancellation certificate</div>
+            </td>
+            <td>Annaka</td>
+            <td>Certificate chase — AED 500/month penalty accruing.</td>
+            <td><span class="chip chip-green">✅ YES</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div style="font-size:12px;color:#555;padding:0 4px 16px 4px;">
+    ℹ️ Richemont / Cartier (9/10) — Mohaina managing directly. Contract renewal request received 17 Jul. No Raihana outreach.
+  </div>
+
+  <!-- Section 2: Overdue Follow-Ups -->
+  <div class="section">
+    <div class="section-header">
+      <h2>2 · Overdue Follow-Ups 🔴</h2>
+      <span class="badge">4 items</span>
+    </div>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Prospect</th>
+            <th>Days Overdue</th>
+            <th>Recommended Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="prospect-name">Brilliant Telecom LLC</span></td>
+            <td><span class="chip chip-red">🔴 5 days past 15 Jul</span></td>
+            <td>Call NOW — confirm all partner confirmation letters. Client vacation starts TODAY (20 Jul). Zero buffer. Report status to Mohaina immediately.</td>
+          </tr>
+          <tr>
+            <td><span class="prospect-name">GL Middle East · Nandhu</span></td>
+            <td><span class="chip chip-red">🔴 32d since EL · 11d past stall</span></td>
+            <td>Mohaina decision required TODAY — approve direct call or close the file. If approved: call direct. No answer → email + WhatsApp. Log outcome and report.</td>
+          </tr>
+          <tr>
+            <td><span class="prospect-name">The Concept Lab · Mr. George</span></td>
+            <td><span class="chip chip-red">🔴 31d since EL · 10d past stall</span></td>
+            <td>Mohaina decision required TODAY — CIT 30 Sep deadline makes urgency real. Approve direct call or close. Log outcome and report.</td>
+          </tr>
+          <tr>
+            <td><span class="prospect-name">MMG Art Production LLC</span></td>
+            <td><span class="chip chip-amber">🟡 11 days since proposal (9 Jul)</span></td>
+            <td>No response to proposal. One-line follow-up call or message today. Flag to Mohaina if no response by end of day — CRO noting close by Wednesday if no reply.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section 3: Leads to Verify -->
+  <div class="section">
+    <div class="section-header">
+      <h2>3 · Leads to Verify 🟡</h2>
+      <span class="badge">0 pending</span>
+    </div>
+    <div class="empty">
+      None — Apify LinkedIn scraper down for <strong style="color:#f5a623;">10+ consecutive weeks</strong>. CRM uploads are on hold.
+      Manual LinkedIn prospecting requires Mohaina's approval before commencing. Await instructions.
+    </div>
+  </div>
+
+  <!-- Section 4: Completed This Week -->
+  <div class="section">
+    <div class="section-header">
+      <h2>4 · Completed This Week</h2>
+      <span class="badge">13–19 Jul 2026</span>
+    </div>
+    <div class="completed-grid">
+
+      <div class="completed-item">
+        <div class="signed-badge">✅ NEW SIGNED</div>
+        <div class="completed-value">
+          <strong>Paluto Restaurant LLC</strong> — EL signed 17 July 2026 · AFS 2025 + CIT Filing Assistance · Onboarding underway · Owner: Raihana / Finance
+        </div>
+      </div>
+
+      <div class="completed-item">
+        <div class="completed-label">Outreach Sent</div>
+        <div class="completed-value">
+          MCM Products follow-up (TL + EL signatures) · Annaka deregistration certificate chase ·
+          Brilliant Telecom partner confirmation chase · GL Middle East (Nandhu) stall protocol ·
+          The Concept Lab (Mr. George) stall protocol
+        </div>
+      </div>
+
+      <div class="completed-item">
+        <div class="completed-label">Responses Received</div>
+        <div class="completed-value">
+          Richemont / Cartier — contract renewal request received overnight 17 Jul (Mohaina managing) ·
+          Discovery call outcome (14 Jul) still not logged — 6 days silent ·
+          MMG Art Production LLC — proposal sent 9 Jul, 11 days, no response
+        </div>
+      </div>
+
+      <div class="completed-item">
+        <div class="completed-label">Temperature Changes</div>
+        <div class="completed-value">
+          <span class="chip chip-green">CONVERTED</span>&nbsp; Paluto Restaurant LLC — signed ·
+          <span class="chip chip-amber">WATCH</span>&nbsp; Richemont / Cartier — contract renewal may signal positive momentum, Mohaina to assess
+        </div>
+      </div>
+
+      <div class="completed-item">
+        <div class="completed-label">Action Still Pending</div>
+        <div class="completed-value" style="color:#f5a623;">
+          Weekly Pipeline Status Report — was due to Mohaina by 16:00 UAE, Friday 17 Jul.
+          Confirm submitted or send today.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Reminder Line -->
+  <div class="reminder">
+    <strong>All sequences require Mohaina's approval before first contact on prospects scoring 9 or 10.</strong>
+  </div>
+
+  <!-- Delivery Note -->
+  <div class="delivery-note">
+    ⚠️ M365 Outlook send unavailable (19th consecutive day — same permission gap logged since 2 Jul).
+    Brief delivered via Notion page and this HTML file committed to repo.
+    Raihana: check Notion directly or open <code>raihana-brief-2026-07-20.html</code> from the repo (branch: <code>claude/loving-hopper-qkrvz1</code>).
+  </div>
+
+</div>
+</body>
+</html>
