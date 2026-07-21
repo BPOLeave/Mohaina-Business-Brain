@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief · Tuesday 21 July 2026</title>
+<style>
+  :root {
+    --brand: #E8294C;
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --surface2: #1C1C1C;
+    --border: #2A2A2A;
+    --text: #F0F0F0;
+    --muted: #888;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #E8294C;
+    --blue: #60A5FA;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; }
+  h1 { font-size: 22px; font-weight: 700; color: var(--brand); margin-bottom: 4px; }
+  h2 { font-size: 15px; font-weight: 700; color: var(--brand); margin-bottom: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+  h3 { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .meta { color: var(--muted); font-size: 12px; margin-bottom: 32px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .card.full { grid-column: 1 / -1; }
+  .card.flag-card { border-left: 3px solid var(--red); }
+  .item { padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .item:last-child { border-bottom: none; }
+  .label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; display: inline-block; margin-bottom: 4px; }
+  .label.red { background: rgba(232,41,76,0.15); color: var(--red); }
+  .label.amber { background: rgba(245,158,11,0.15); color: var(--amber); }
+  .label.green { background: rgba(34,197,94,0.15); color: var(--green); }
+  .label.blue { background: rgba(96,165,250,0.15); color: var(--blue); }
+  .label.grey { background: rgba(136,136,136,0.15); color: var(--muted); }
+  .item-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .item-body { font-size: 12px; color: var(--muted); }
+  .item-body strong { color: var(--text); }
+  .pipeline-row { display: flex; gap: 8px; align-items: flex-start; padding: 9px 0; border-bottom: 1px solid var(--border); }
+  .pipeline-row:last-child { border-bottom: none; }
+  .pipe-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .dot-red { background: var(--red); }
+  .dot-amber { background: var(--amber); }
+  .dot-green { background: var(--green); }
+  .dot-blue { background: var(--blue); }
+  .dot-grey { background: var(--muted); }
+  .pipe-name { font-size: 13px; font-weight: 600; }
+  .pipe-detail { font-size: 12px; color: var(--muted); }
+  .no-events { text-align: center; padding: 24px; color: var(--muted); font-size: 13px; }
+  .flag-item { padding: 10px 12px; background: rgba(232,41,76,0.05); border-left: 2px solid var(--red); border-radius: 4px; margin-bottom: 8px; }
+  .flag-item.amber { border-left-color: var(--amber); background: rgba(245,158,11,0.05); }
+  .flag-item.blue { border-left-color: var(--blue); background: rgba(96,165,250,0.05); }
+  .flag-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .flag-why { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+  .flag-next { font-size: 12px; color: var(--brand); font-weight: 600; }
+  .metric-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-label { font-size: 12px; color: var(--muted); }
+  .metric-value { font-size: 13px; font-weight: 700; }
+  .metric-value.red { color: var(--red); }
+  .metric-value.amber { color: var(--amber); }
+  .metric-value.green { color: var(--green); }
+  .metric-value.grey { color: var(--muted); }
+  footer { margin-top: 32px; text-align: center; font-size: 11px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<h1>COO Morning Brief</h1>
+<div class="meta">Tuesday · 21 July 2026 · 07:00 UAE (GST/UTC+4) · Auto-generated · BPOAS</div>
+
+<!-- SCHEDULE -->
+<div class="grid">
+<div class="card">
+  <h2>Today's Schedule</h2>
+  <div class="no-events">No calendar events found for Tuesday 21 July 2026.<br><span style="font-size:11px">Consistent pattern — calendar appears empty. Check Outlook directly.</span></div>
+</div>
+
+<!-- KEY METRIC -->
+<div class="card">
+  <h2>Key Metric</h2>
+  <div class="metric-row">
+    <span class="metric-label">Overdue Receivables</span>
+    <span class="metric-value red">AED 215,279.86</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Invoices overdue</span>
+    <span class="metric-value red">40 invoices</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Oldest invoice</span>
+    <span class="metric-value red">EXLIBRIS · ~235 days</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Monthly target</span>
+    <span class="metric-value grey">Not on file</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Days remaining in July</span>
+    <span class="metric-value amber">10 days</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Revenue pulse last updated</span>
+    <span class="metric-value grey">Monday 20 Jul 2026</span>
+  </div>
+  <div style="margin-top:10px; font-size:11px; color:var(--muted)">Menastar DMCC refund AED 50,904.55 from Goldmedal — finance processing in progress (unconfirmed timeline).</div>
+</div>
+</div>
+
+<!-- INBOX -->
+<div class="grid">
+<div class="card full">
+  <h2>Inbox Priorities</h2>
+
+  <div class="item">
+    <span class="label red">HIGH · BD</span>
+    <div class="item-title">BPO Contract Renewal 2026–2027 — Richemont Group</div>
+    <div class="item-body">Mohaina sent revised Outsourced Accounting Services Agreement to Raphael (Richemont) on <strong>20 Jul at 12:29 UAE</strong>. HIGH importance. Awaiting reply. AED 58,254 in invoices currently overdue across 3 Richemont entities.</div>
+  </div>
+
+  <div class="item">
+    <span class="label amber">UNREAD · CLIENT/CASH</span>
+    <div class="item-title">CR Balance Transfer — Menastar DMCC (Goldmedal)</div>
+    <div class="item-body">Goldmedal (collections@goldmedal.ae) confirmed <strong>total refund AED 50,904.55</strong> and issued SOA on 20 Jul. R.Ramos has been chasing settlement details. Finance to action and confirm timeline. <strong>Unread by Mohaina.</strong></div>
+  </div>
+
+  <div class="item">
+    <span class="label blue">NEW · BD</span>
+    <div class="item-title">Cartier Fragrance — Bookkeeping Services Proposal</div>
+    <div class="item-body">Chadi Nasreddine (Cartier) confirmed existing trade licence can be used. Clara Lee (Richemont AE) has handed off to the <strong>Cartier Fragrance team</strong>. Mohaina to reach out directly for proposal. New entity, separate from Richemont contract renewal. <strong>Active opportunity.</strong></div>
+  </div>
+
+  <div class="item">
+    <span class="label grey">READ · CLIENT</span>
+    <div class="item-title">MENASTAR DMCC Audit Requirements FY 2025 — Updated List</div>
+    <div class="item-body">Excellence Auditing sent updated requirements list (16 Jul). Michelle Pacis actioning. Read.</div>
+  </div>
+
+  <div class="item">
+    <span class="label grey">READ · CLIENT</span>
+    <div class="item-title">Q2 2026 Working Paper — MENASTAR</div>
+    <div class="item-body">Michelle sent management report to external client Mohamad (15 Jul). Supplier count/average payment query still awaiting BPOAS response. Balances provisional — some transactions pending.</div>
+  </div>
+
+</div>
+</div>
+
+<!-- TASKS & DEADLINES -->
+<div class="grid">
+<div class="card full">
+  <h2>Tasks &amp; Deadlines</h2>
+
+  <div class="item">
+    <span class="label red">🔴 CRITICAL — COMPLIANCE</span>
+    <div class="item-title">BPOAS Trade Licence Expires 25 July 2026 — 4 Days</div>
+    <div class="item-body">Renew via DED eExchange <strong>today</strong>. WPS payroll will be blocked if licence lapses. No confirmation of renewal logged in any prior brief. Owner: Mohaina.</div>
+  </div>
+
+  <div class="item">
+    <span class="label red">🔴 CRITICAL — LEGAL</span>
+    <div class="item-title">Court Notice — Menastar / Lauren at Emirates Advocates</div>
+    <div class="item-body">Court notice forwarded by Yiannis Papadonikolakis (Sunday 19 Jul). Lauren was awaiting Mohaina's input as of 20 Jul. <strong>Status of resolution unconfirmed.</strong> Owner: Mohaina.</div>
+  </div>
+
+  <div class="item">
+    <span class="label red">🔴 BD DECISION — GL Middle East / Nandhu</span>
+    <div class="item-title">EL ~33 Days Stalled — Approve or Close Today</div>
+    <div class="item-body">12 days past auto-stall. No middle option at 33 days. If approved: Raihana calls direct. If closed: log reason, update pipeline. Owner: Mohaina.</div>
+  </div>
+
+  <div class="item">
+    <span class="label red">🔴 BD DECISION — The Concept Lab / Mr. George</span>
+    <div class="item-title">EL ~32 Days Stalled — CIT 30 Sep Deadline — Approve or Close Today</div>
+    <div class="item-body">11 days past auto-stall. CIT filing deadline is 30 September — urgency is real. Raihana cannot act without Mohaina's call. Owner: Mohaina.</div>
+  </div>
+
+  <div class="item">
+    <span class="label amber">🟡 CLIENT — MCM Worldwide</span>
+    <div class="item-title">VAT Assessment Email — 7 Days Unread (CC'd to Mohaina)</div>
+    <div class="item-body">Forwarded by Warren (14 Jul via Cristina). Mohaina CC'd. Review and advise team today.</div>
+  </div>
+
+  <div class="item">
+    <span class="label amber">🟡 BD — Halton Middle East FZE</span>
+    <div class="item-title">Bank Details + CIT / Trial Balance Update Outstanding 5+ Days</div>
+    <div class="item-body">No response to Michelle's chase. Escalate today. Owner: Mohaina / Michelle.</div>
+  </div>
+
+  <div class="item">
+    <span class="label amber">🟡 GOVT — MOHRE Work Permit</span>
+    <div class="item-title">MB315778130AE — Ministry Credential Docs Not Uploaded</div>
+    <div class="item-body">Outstanding since 20 Jul brief. Upload required via MOHRE portal. Owner: Mohaina.</div>
+  </div>
+
+  <div class="item">
+    <span class="label grey">📋 AML</span>
+    <div class="item-title">No New AML / DNFBP Circulars</div>
+    <div class="item-body">Last on file: MOET/AML/001/2026 · 11 March 2026. No new circulars detected this run. Owner: Mohaina (AMLRO).</div>
+  </div>
+
+</div>
+</div>
+
+<!-- BD PIPELINE PULSE -->
+<div class="grid">
+<div class="card full">
+  <h2>BD Pipeline Pulse</h2>
+
+  <div class="pipeline-row">
+    <div class="pipe-dot dot-green"></div>
+    <div>
+      <div class="pipe-name">✅ Paluto Restaurant LLC — SIGNED</div>
+      <div class="pipe-detail">EL signed 17 Jul. AFS 2025 + CIT Filing Assistance. Onboarding in progress. Owner: Raihana / Finance.</div>
+    </div>
+  </div>
+
+  <div class="pipeline-row">
+    <div class="pipe-dot dot-amber"></div>
+    <div>
+      <div class="pipe-name">Richemont / Cartier (Fit 9/10) — Contract Renewal</div>
+      <div class="pipe-detail">Revised Outsourced Accounting Agreement sent 20 Jul (high importance). Awaiting reply from Raphael. AED 58,254 overdue across 3 invoices. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="pipeline-row">
+    <div class="pipe-dot dot-blue"></div>
+    <div>
+      <div class="pipe-name">🆕 Cartier Fragrance — New Proposal Opportunity</div>
+      <div class="pipe-detail">Chadi Nasreddine confirmed TL usable. Clara Lee handed off to Cartier Fragrance team. Mohaina to contact Cartier Fragrance directly. Separate entity from Richemont contract renewal.</div>
+    </div>
+  </div>
+
+  <div class="pipeline-row">
+    <div class="pipe-dot dot-amber"></div>
+    <div>
+      <div class="pipe-name">MCM Products Middle East (Fit 8/10) — TL + EL Pending</div>
+      <div class="pipe-detail">Trade Licence + EL signatures still outstanding. Raihana chasing Joanne Oquendo. Owner: Raihana.</div>
+    </div>
+  </div>
+
+  <div class="pipeline-row">
+    <div class="pipe-dot dot-amber"></div>
+    <div>
+      <div class="pipe-name">Gulf Seatech FZC (Fit 7/10) — Proposal Stage</div>
+      <div class="pipe-detail">Proposal sent. KYC docs received. Warren + Cristina. No Raihana action required.</div>
+    </div>
+  </div>
+
+  <div class="pipeline-row">
+    <div class="pipe-dot dot-amber"></div>
+    <div>
+      <div class="pipe-name">MMG Art Production LLC — Proposal Sent 9 Jul (12 Days)</div>
+      <div class="pipe-detail">No response to proposal. Call or message today. Flag to Mohaina if no response by end of day. Owner: Raihana / Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="pipeline-row">
+    <div class="pipe-dot dot-red"></div>
+    <div>
+      <div class="pipe-name">GL Middle East / Nandhu (Fit 6/10) — 🔴 33 Days Stalled</div>
+      <div class="pipe-detail">12 days past auto-stall. Mohaina decision: Approve or Close today. No middle option.</div>
+    </div>
+  </div>
+
+  <div class="pipeline-row">
+    <div class="pipe-dot dot-red"></div>
+    <div>
+      <div class="pipe-name">The Concept Lab / Mr. George (Fit 6/10) — 🔴 32 Days Stalled</div>
+      <div class="pipe-detail">11 days past auto-stall. CIT 30 Sep deadline. Mohaina decision: Approve or Close today.</div>
+    </div>
+  </div>
+
+  <div class="pipeline-row">
+    <div class="pipe-dot dot-grey"></div>
+    <div>
+      <div class="pipe-name">⚠️ System — Apify LinkedIn Scraper Down (10+ Weeks)</div>
+      <div class="pipe-detail">No new lead discovery. Manual LinkedIn prospecting requires Mohaina's approval before Raihana commences. Brilliant Telecom — client on vacation from 20 Jul. Partner confirmation status unconfirmed.</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- FLAGS -->
+<div class="grid">
+<div class="card full flag-card">
+  <h2>Flags for Mohaina</h2>
+
+  <div class="flag-item">
+    <div class="flag-title">🔴 COMPLIANCE — Trade Licence Expires in 4 Days</div>
+    <div class="flag-why">BPOAS Trade Licence due 25 July 2026. WPS payroll blocked if lapsed. No renewal confirmed in any prior brief.</div>
+    <div class="flag-next">→ Renew via DED eExchange today — this cannot wait.</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-title">🔴 LEGAL — Court Notice (Menastar) — Confirm Lauren Call Outcome</div>
+    <div class="flag-why">Court notice from Yiannis (19 Jul). Lauren at Emirates Advocates was waiting for your input. Resolution status unconfirmed.</div>
+    <div class="flag-next">→ Confirm resolution status with Lauren and log outcome.</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-title">🔴 BD — GL Middle East / Nandhu · 33 Days · Decide Now</div>
+    <div class="flag-why">EL has been stalled 12 days past auto-stall. Raihana cannot act without your call.</div>
+    <div class="flag-next">→ Approve (Raihana calls direct) or Close (log reason, update pipeline). No middle option.</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-title">🔴 BD — The Concept Lab / Mr. George · 32 Days · CIT 30 Sep</div>
+    <div class="flag-why">EL past auto-stall. CIT filing deadline Sep 30 is real urgency for the client. Every day of delay is a day closer to their deadline without help.</div>
+    <div class="flag-next">→ Approve (Raihana calls direct) or Close (log reason). The CIT clock is ticking for them too.</div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-title">🟡 BD — Richemont Contract Renewal — Reply Expected</div>
+    <div class="flag-why">Revised Outsourced Accounting Agreement sent to Raphael (Richemont) on 20 Jul. HIGH importance. AED 58,254 in overdue invoices across 3 Richemont entities.</div>
+    <div class="flag-next">→ Chase Raphael for reply if not received today.</div>
+  </div>
+
+  <div class="flag-item blue">
+    <div class="flag-title">🆕 BD — Cartier Fragrance — New Proposal Opportunity</div>
+    <div class="flag-why">Chadi Nasreddine (Cartier) confirmed TL usable. Clara Lee handed off to Cartier Fragrance team (20 Jul). This is a separate entity from the Richemont renewal — new revenue potential.</div>
+    <div class="flag-next">→ Contact Cartier Fragrance team directly. Propose bookkeeping services.</div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-title">🟡 CLIENT — Menastar CR Balance — SOA Received, Action Needed</div>
+    <div class="flag-why">Goldmedal confirmed AED 50,904.55 total refund and sent SOA on 20 Jul. Email unread by Mohaina. Finance to confirm refund timeline and bank processing.</div>
+    <div class="flag-next">→ Read the Goldmedal email. Finance: confirm refund receipt timeline.</div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-title">🟡 CONNECTOR — M365 Send Scope Missing — Day 21</div>
+    <div class="flag-why">Mail.Send / Mail.ReadWrite still not granted. CMO post approval email has NOT been sent to Mohaina. Rei handoff has NOT been sent. This routine cannot send any email until the scopes are added.</div>
+    <div class="flag-next">→ Fix in Claude connector settings → Microsoft 365 → grant Mail.Send + Mail.ReadWrite. Today's post: see CMO Post card or Notion page "CMO Daily Post · Tuesday 21 July 2026" — reply "approved" to enable Rei handoff.</div>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  BPOAS COO Morning Brief · Auto-generated · Tuesday 21 July 2026 · 07:00 UAE<br>
+  Connectors: Microsoft 365 (read-only) · Notion · Zoho Books (not in session)<br>
+  M365 Outlook send unavailable — Day 21 of same gap first logged 2 July 2026.
+</footer>
+
+</body>
+</html>

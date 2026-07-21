@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Tuesday 21 July 2026</title>
+<style>
+  :root {
+    --brand: #E8294C;
+    --bg: #0A0A0A;
+    --surface: #141414;
+    --surface2: #1C1C1C;
+    --border: #2A2A2A;
+    --text: #F0F0F0;
+    --muted: #888;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #E8294C;
+    --blue: #60A5FA;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; max-width: 960px; margin: 0 auto; }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, #141414 0%, #1a0508 100%); border: 1px solid var(--border); border-radius: 14px; padding: 28px; margin-bottom: 20px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--brand); }
+  .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); margin-bottom: 6px; }
+  .hero-title { font-size: 26px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+  .hero-sub { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+
+  /* REVENUE PULSE */
+  .pulse-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .pulse-cell { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+  .pulse-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+  .pulse-value { font-size: 20px; font-weight: 800; }
+  .pulse-value.red { color: var(--red); }
+  .pulse-value.amber { color: var(--amber); }
+  .pulse-value.grey { color: var(--muted); font-size: 14px; font-weight: 600; margin-top: 4px; }
+  .pulse-note { font-size: 10px; color: var(--muted); margin-top: 4px; }
+  .pulse-status { display: inline-flex; align-items: center; gap: 6px; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); border-radius: 6px; padding: 6px 12px; font-size: 12px; font-weight: 700; color: var(--amber); }
+
+  /* CARDS */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .card.full { grid-column: 1 / -1; }
+  .card.flag-card { border-left: 3px solid var(--red); }
+  h2 { font-size: 13px; font-weight: 700; color: var(--brand); margin-bottom: 14px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  /* RUN LOG */
+  .run-row { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--border); }
+  .run-row:last-child { border-bottom: none; }
+  .run-step { font-size: 11px; font-weight: 700; color: var(--muted); width: 52px; flex-shrink: 0; }
+  .run-skill { font-size: 13px; font-weight: 600; flex: 1; }
+  .run-status { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; }
+  .status-complete { background: rgba(34,197,94,0.12); color: var(--green); }
+  .status-pending { background: rgba(245,158,11,0.12); color: var(--amber); }
+  .status-skipped { background: rgba(136,136,136,0.12); color: var(--muted); }
+  .run-output { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* FLAGS */
+  .flag-item { padding: 12px 14px; border-left: 3px solid var(--red); background: rgba(232,41,76,0.05); border-radius: 4px; margin-bottom: 10px; }
+  .flag-item.amber { border-left-color: var(--amber); background: rgba(245,158,11,0.05); }
+  .flag-item.blue { border-left-color: var(--blue); background: rgba(96,165,250,0.05); }
+  .flag-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .flag-why { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .flag-next { font-size: 12px; color: var(--brand); font-weight: 600; }
+  .flag-next.amber { color: var(--amber); }
+
+  /* POST CARD */
+  .post-hook { font-size: 16px; font-weight: 700; color: var(--brand); margin-bottom: 12px; line-height: 1.4; }
+  .post-body { font-size: 13px; line-height: 1.75; color: var(--text); white-space: pre-wrap; font-family: Georgia, serif; background: var(--surface2); border-radius: 8px; padding: 16px; border: 1px solid var(--border); margin-bottom: 12px; }
+  .post-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .post-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.07em; }
+  .badge-pass { background: rgba(34,197,94,0.12); color: var(--green); }
+  .badge-pillar { background: rgba(232,41,76,0.1); color: var(--brand); }
+  .badge-held { background: rgba(245,158,11,0.12); color: var(--amber); }
+
+  /* QUICK LINKS */
+  .link-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border); }
+  .link-row:last-child { border-bottom: none; }
+  .link-name { font-size: 13px; color: var(--text); }
+  .link-status { font-size: 11px; color: var(--muted); }
+
+  footer { margin-top: 32px; text-align: center; font-size: 11px; color: var(--muted); padding-top: 20px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<!-- HERO CARD -->
+<div class="hero">
+  <div class="hero-eyebrow">BPOAS Daily Start · Lean Run (Steps 1 + 4)</div>
+  <div class="hero-title">Tuesday, 21 July 2026</div>
+  <div class="hero-sub">Generated 07:00 UAE (GST/UTC+4) · Auto-generated via /bpoas-daily-start · Mohaina Asira, Managing Partner</div>
+
+  <div style="margin-bottom:16px">
+    <div style="font-size:11px; font-weight:700; color:var(--brand); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:10px">Revenue Pulse</div>
+    <div class="pulse-grid">
+      <div class="pulse-cell">
+        <div class="pulse-label">MTD Revenue</div>
+        <div class="pulse-value grey">Unconfirmed</div>
+        <div class="pulse-note">Zoho Books not in session</div>
+      </div>
+      <div class="pulse-cell">
+        <div class="pulse-label">Monthly Target</div>
+        <div class="pulse-value grey">Not on File</div>
+        <div class="pulse-note">Flagged every CFO report since 2 Jul</div>
+      </div>
+      <div class="pulse-cell">
+        <div class="pulse-label">Overdue Receivables</div>
+        <div class="pulse-value red">AED 215K</div>
+        <div class="pulse-note">40 invoices · carry-forward Mon 20 Jul</div>
+      </div>
+      <div class="pulse-cell">
+        <div class="pulse-label">Days Remaining in July</div>
+        <div class="pulse-value amber">10</div>
+        <div class="pulse-note">Month-end 31 July 2026</div>
+      </div>
+    </div>
+    <div class="pulse-status">⚠️ Revenue Status: Unconfirmed — Last updated Monday 20 July 2026</div>
+  </div>
+</div>
+
+<!-- RUN LOG -->
+<div class="grid">
+<div class="card full">
+  <h2>Run Log</h2>
+  <div class="run-row">
+    <div class="run-step">Step 1</div>
+    <div>
+      <div class="run-skill">/coo-morning-brief</div>
+      <div class="run-output">coo-brief-2026-07-21.html</div>
+    </div>
+    <div class="run-status status-complete">✅ Complete</div>
+  </div>
+  <div class="run-row">
+    <div class="run-step">Step 2</div>
+    <div>
+      <div class="run-skill">/cfo-weekly-revenue</div>
+      <div class="run-output">Runs Mondays only · Next run: Monday 27 July 2026</div>
+    </div>
+    <div class="run-status status-skipped">— Skipped</div>
+  </div>
+  <div class="run-row">
+    <div class="run-step">Step 3</div>
+    <div>
+      <div class="run-skill">/cro-weekly-prospects</div>
+      <div class="run-output">Runs Mondays only · Next run: Monday 27 July 2026</div>
+    </div>
+    <div class="run-status status-skipped">— Skipped</div>
+  </div>
+  <div class="run-row">
+    <div class="run-step">Step 4</div>
+    <div>
+      <div class="run-skill">/cmo-daily-post → /linkedin-caption-writer</div>
+      <div class="run-output">cmo-post-2026-07-21.html · 4/4 PASS · Pending Approval</div>
+    </div>
+    <div class="run-status status-pending">🟡 Approval</div>
+  </div>
+  <div class="run-row">
+    <div class="run-step">Step 5</div>
+    <div>
+      <div class="run-skill">/content-calendar-generator</div>
+      <div class="run-output">Runs Mondays only · Next run: Monday 27 July 2026</div>
+    </div>
+    <div class="run-status status-skipped">— Skipped</div>
+  </div>
+</div>
+</div>
+
+<!-- FLAGS FOR MOHAINA -->
+<div class="grid">
+<div class="card full flag-card">
+  <h2>Flags for Mohaina · Sorted: Compliance · Cash · Client · BD</h2>
+
+  <div class="flag-item">
+    <div class="flag-title">🔴 COMPLIANCE — Trade Licence Expires in 4 Days · 25 July 2026</div>
+    <div class="flag-why">WPS payroll blocked if licence lapses. No renewal confirmed in any brief since this was first flagged. DED eExchange is the renewal channel.</div>
+    <div class="flag-next">→ Renew today. This cannot be deferred further.</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-title">🔴 LEGAL — Court Notice (Menastar) — Resolution Status Unconfirmed</div>
+    <div class="flag-why">Forwarded by Yiannis Papadonikolakis (Sunday 19 Jul 06:20). Lauren at Emirates Advocates was waiting for Mohaina's input as of 20 Jul. No resolution confirmed in today's data.</div>
+    <div class="flag-next">→ Confirm with Lauren — call or message this morning.</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-title">🔴 CASH — Overdue Receivables AED 215,279.86 · 40 Invoices</div>
+    <div class="flag-why">Up AED 62,213 and 4 invoices since 13 Jul. Richemont block (AED 58,254) is the largest single contributor. Oldest: EXLIBRIS MANAGEMENT FZCO ~235 days. Menastar refund AED 50,904.55 from Goldmedal in process — confirm timeline with Finance.</div>
+    <div class="flag-next">→ Review AR report. Chase Richemont for payment alongside contract renewal reply.</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-title">🔴 BD DECISION — GL Middle East / Nandhu · 33 Days Stalled</div>
+    <div class="flag-why">12 days past auto-stall. Raihana cannot act. No middle option at this age.</div>
+    <div class="flag-next">→ Call it today: Approve (Raihana calls direct) or Close (log reason).</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-title">🔴 BD DECISION — The Concept Lab / Mr. George · 32 Days · CIT 30 Sep</div>
+    <div class="flag-why">11 days past auto-stall. CIT filing deadline Sep 30 is real urgency — for the client, not just BPOAS.</div>
+    <div class="flag-next">→ Call it today: Approve (Raihana calls direct) or Close (log reason).</div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-title">🟡 BD — Richemont Contract Renewal · AED 58,254 Overdue</div>
+    <div class="flag-why">Mohaina sent revised 2026–2027 agreement to Raphael (20 Jul). HIGH importance. No reply yet. AED 58,254 in overdue invoices across 3 Richemont entities.</div>
+    <div class="flag-next amber">→ Chase Raphael today if no reply received. Link payment discussion to contract renewal.</div>
+  </div>
+
+  <div class="flag-item blue">
+    <div class="flag-title">🆕 BD — Cartier Fragrance · New Proposal Opportunity Opened</div>
+    <div class="flag-why">Chadi Nasreddine (Cartier) confirmed existing TL can be used. Clara Lee (Richemont AE) has handed off to Cartier Fragrance team (20 Jul, read). This is a separate entity from the Richemont renewal — independent revenue potential.</div>
+    <div class="flag-next" style="color:var(--blue)">→ Contact Cartier Fragrance team directly. Build bookkeeping services proposal.</div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-title">🟡 CLIENT — MCM Worldwide VAT Assessment · 7 Days Unread (Mohaina CC'd)</div>
+    <div class="flag-why">Forwarded by Warren (14 Jul). Mohaina CC'd. No advisory response logged.</div>
+    <div class="flag-next amber">→ Review email today and advise Warren/team.</div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-title">🟡 CONNECTOR — M365 Send Scope Missing · Day 21 · Post Not Emailed</div>
+    <div class="flag-why">Mail.Send / Mail.ReadWrite still not granted. Today's LinkedIn post was NOT emailed to Mohaina for approval and NOT sent to Rei. This gap has been logged every single run since 2 July 2026 — 21 consecutive days.</div>
+    <div class="flag-next amber">→ Fix in Claude connector settings → Microsoft 365 → grant Mail.Send + Mail.ReadWrite. Unblocks approval emails and all Rei handoffs permanently.</div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-title">🟡 AML — No New Circulars · Last on File 11 March 2026</div>
+    <div class="flag-why">No new AML/DNFBP circulars detected. MOET/AML/001/2026 remains current. AMLRO: Mohaina.</div>
+    <div class="flag-next amber">→ No action required. Monitor FTA/CBUAE channels for new issuances.</div>
+  </div>
+
+</div>
+</div>
+
+<!-- TODAY'S LINKEDIN POST -->
+<div class="grid">
+<div class="card full">
+  <h2>Today's LinkedIn Post · Pending Approval</h2>
+  <div class="post-meta" style="margin-bottom:12px">
+    <span class="post-badge badge-pillar">Inside an Owner-Led Firm</span>
+    <span class="post-badge badge-pass">4/4 Diagnostic Pass</span>
+    <span class="post-badge badge-held">🔴 Held — Awaiting Approval</span>
+  </div>
+  <div class="post-hook">He thought his biggest risk was a bad tenant. It was actually sitting in his inbox.</div>
+  <div class="post-body">A client of ours owns a handful of properties across Dubai. Trading, renting, flipping when the market is right. He came to us to clean up his books. Nothing urgent, just standard onboarding.
+
+When we went through his documents, we found an FTA audit notice. It had been sitting in his email for almost a month. Unopened.
+
+He did not ignore it on purpose. He just did not know what it was. Property owners get a lot of mail. This one looked like every other notice he had scrolled past.
+
+But this one was different. It was an audit request tied to VAT on a commercial unit he had sold the year before. The response window was already closing.
+
+We opened it that same day. Pulled the transaction records, checked what was actually owed, and responded before the deadline ran out.
+
+I think most owners assume VAT is something that happens at filing time. It is not. It follows every transaction, every sale, every lease, whether you are watching for it or not.
+
+If you are the one checking your own email for something you do not know how to recognise, you are not protected. You just have not been caught yet.
+
+Second eyes matter. Not because you are careless. Because you are busy running a business, not reading FTA correspondence line by line.
+
+Tag a property investor who needs to see this.</div>
+  <div style="font-size:12px; color:var(--muted); background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.2); border-radius:6px; padding:10px 14px;">
+    <strong style="color:var(--amber)">To approve:</strong> Comment "approved" / "post it" / "go ahead" on the Notion page: <em>BPOAS Team Operating Hub → CMO Daily Post · Tuesday 21 July 2026</em><br>
+    <strong style="color:var(--amber)">Recommended publish:</strong> 08:30 UAE · Rei Nald: reinald.onella1@gmail.com<br>
+    <strong style="color:var(--amber)">Note:</strong> Approval email channel unavailable — M365 send scope missing (Day 21). Notion comment is the only active approval channel.
+  </div>
+</div>
+</div>
+
+<!-- QUICK LINKS -->
+<div class="grid">
+<div class="card full">
+  <h2>Quick Links</h2>
+  <div class="link-row">
+    <span class="link-name">bpoas-daily-start-2026-07-21.html</span>
+    <span class="link-status">Master · This file</span>
+  </div>
+  <div class="link-row">
+    <span class="link-name">coo-brief-2026-07-21.html</span>
+    <span class="link-status">✅ Step 1 · Complete</span>
+  </div>
+  <div class="link-row">
+    <span class="link-name">cfo-report-2026-07-20.html</span>
+    <span class="link-status">CFO · Last run Mon 20 Jul</span>
+  </div>
+  <div class="link-row">
+    <span class="link-name">cro-prospects-2026-07-20.html</span>
+    <span class="link-status">CRO · Last run Mon 20 Jul</span>
+  </div>
+  <div class="link-row">
+    <span class="link-name">cmo-post-2026-07-21.html</span>
+    <span class="link-status">🟡 Step 4 · Pending Approval</span>
+  </div>
+  <div class="link-row">
+    <span class="link-name">content-calendar-week-2026-07-20.html</span>
+    <span class="link-status">Content Cal · Last run Mon 20 Jul</span>
+  </div>
+  <div class="link-row">
+    <span class="link-name">Notion: CMO Daily Post · Tuesday 21 July 2026</span>
+    <span class="link-status">Approve post here via comment</span>
+  </div>
+</div>
+</div>
+
+<footer>
+  BPOAS Daily Start · Lean Run (Steps 1 + 4) · Tuesday 21 July 2026 · 07:00 UAE<br>
+  Auto-generated via /bpoas-daily-start · Mohaina Asira, Managing Partner<br>
+  Connectors: Microsoft 365 (read-only · send unavailable Day 21) · Notion ✓ · Apify (scraper down 10+ wks) · Zoho Books (not in session)<br>
+  No summary email sent — M365 Mail.Send scope not granted. Fix required in Claude connector settings.
+</footer>
+
+</body>
+</html>
