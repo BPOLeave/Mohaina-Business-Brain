@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · Wednesday 22 July 2026 · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F5607A;
+    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .lead{font-size:16px;}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:15px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-red{background:#fdecec;color:var(--bad);} .t-amb{background:#fdf1de;color:var(--warn);}
+  .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-grn{background:#e7f6ee;color:var(--good);} .t-blue{background:#e6f0fc;color:#1E6FE0;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
+  .note b{color:var(--primary-light);}
+  .lipost{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:20px;}
+  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
+  .lihead .nm{font-weight:700;font-size:15px;} .lihead .mt{font-size:12px;color:var(--gray-text);}
+  .lipost .post{font-size:15px;line-height:1.6;white-space:pre-line;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  .chip{font-size:12px;font-weight:600;background:var(--gray-light);color:var(--gray-text);padding:5px 11px;border-radius:var(--pill);}
+  .score{display:inline-flex;align-items:center;gap:8px;background:#e7f6ee;color:var(--good);font-weight:700;font-size:13px;padding:6px 13px;border-radius:var(--pill);}
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CMO · Daily post</div><h1>Today's post, in your voice</h1><div class="d">Wednesday 22 July 2026 · Pillar: Compliance Without the Panic · scored and scrubbed</div></div>
+
+    <div class="card" style="border-left:4px solid var(--bad)"><h4>Accuracy flag, needs your confirmation before release</h4><div>This post cites <b>AED 10,000</b> as the CIT late-registration penalty and <b>31 July 2026</b> as the waiver deadline, carried over from the Week of 2026-07-20 content calendar (recycled from the Mon 13 Jul draft, rewritten at 11 days left). The calendar report flagged this figure and date for an accuracy check before publish. Per the approval workflow, any post citing UAE law, a penalty figure, or a regulatory deadline needs your explicit sign-off. Please confirm both numbers before this goes to Rei.</div></div>
+
+    <div class="lipost">
+      <div class="lihead"><div class="av">MA</div><div><div class="nm">Mohaina Asira · 1st</div><div class="mt">Managing Partner at BPOAS · now</div></div></div>
+      <div class="post">11 days left to waive an AED 10,000 CIT penalty.
+
+No lawyer needed. Just the right documents, filed before 31 July.
+
+Here's the exact process we run for clients before this window closes:
+
+1. Pull your trade license issue date. It sets your Corporate Tax registration deadline, not the general date everyone quotes.
+2. Confirm you actually registered for Corporate Tax. VAT registration does not cover this.
+3. Check if your first Corporate Tax return or annual declaration was filed. This is what unlocks the waiver.
+4. Match your filing date against your specific window. Some owners assume they have until 31 July when their window closed weeks ago.
+5. Pull any FTA penalty notice already issued. We confirm the waiver applies before a single dirham gets paid.
+6. Get a written compliance summary, dated and signed. A verbal "you're fine" does not count.
+
+I'll keep this short.
+
+You have two choices:
+
+1. Check these six things yourself before the 31st, and hope you read the FTA notice correctly.
+2. Send us your trade license and CIT registration number. We tell you in writing where you stand.
+
+We think like owners here. If a client misses this window on our watch, it comes from our pocket too.
+
+Book a 30-minute compliance review before the 31st, and we will check your status against all six of these ourselves.
+
+P.S. Second eyes matter most in the eleven days before a deadline, not after.</div>
+      <div class="chips"><span class="chip">1,401 chars</span><span class="chip">Hook: Result Lead</span><span class="chip">No em dashes</span><span class="chip">Format: Variation A · Soft-Sell Framework</span></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card"><h4>Hook options</h4>
+        <div class="row">11 days left to waive an AED 10,000 CIT penalty.<span class="tagi t-grn">chosen</span></div>
+        <div class="row">I've had three owners call me panicking this week.</div>
+        <div class="row">You don't need a lawyer for this CIT deadline.</div>
+        <div class="row">One form stands between you and an AED 10,000 fine.</div>
+        <div class="row">Forget your P&amp;L. Check your CIT registration date first.</div>
+      </div>
+      <div class="card"><h4>Why this hook</h4>
+        <div>Apify LinkedIn analytics were unavailable this run (scraper down 9+ consecutive weeks, per the Week of 2026-07-20 calendar report), so hook selection could not be weighted by recent post performance. Selected the Result Lead because the ICP's core fear is FTA penalties, and a specific number with a live countdown speaks to "terrified of fines" harder than a confession or contrarian angle would this week.</div>
+      </div>
+    </div>
+
+    <div class="card"><h4>Publish check</h4>
+      <div class="row">Stops the scroll<span class="tagi t-grn">✓</span></div>
+      <div class="row">Matches Voice DNA<span class="tagi t-grn">✓</span></div>
+      <div class="row">Specific ask (Book a 30-minute compliance review)<span class="tagi t-grn">✓</span></div>
+      <div class="row">Regulatory figures confirmed by Mohaina<span class="tagi t-amb">pending</span></div>
+    </div>
+
+    <div class="sec">Pinned comment options</div>
+    <div class="card">
+      <div class="row"><b>Extend:</b> One thing owners miss: the waiver only applies if your first return or annual declaration was filed inside your specific window, not the general 31 July date everyone quotes. We had a client last month whose window closed four days before he thought it did.</div>
+      <div class="row"><b>Humanise:</b> I get why this feels like one more government deadline to track. I used to feel the same about paperwork before I ran a firm that lives inside it. It takes five minutes to check where you stand.</div>
+      <div class="row"><b>CTA amplifier:</b> Eleven days is not a lot of runway if your documents are not ready. Book your 30-minute compliance review today, not next week, and we will tell you exactly where you stand before the 31st.</div>
+    </div>
+
+    <div style="text-align:center;margin-top:8px"><span class="score">Invisibility Diagnostic: 4 / 4</span></div>
+
+    <div class="sec">Recommended publish time</div>
+    <div class="note">Wednesday, 08:30 UAE time, peak B2B decision-maker activity. <b>This post is not sent or scheduled.</b> It moves to Rei Nald Onella only after Mohaina approves the CIT figures above.</div>
+
+  </div>
+  <footer>The brain thinks. The team works. You approve. · <b>BPOAS · CMO Daily Post</b></footer>
+</body>
+</html>
