@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief · Thursday 23 July 2026 · BPOAS</title>
+<style>
+  :root {
+    --brand: #E8294C;
+    --bg: #0A0A0A;
+    --card: #141414;
+    --border: #2a2a2a;
+    --text: #e8e8e8;
+    --muted: #888;
+    --green: #22c55e;
+    --amber: #f59e0b;
+    --red: #ef4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 700; color: var(--brand); margin-bottom: 4px; }
+  h2 { font-size: 13px; font-weight: 600; color: var(--brand); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+  h3 { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 8px; }
+  .meta { color: var(--muted); font-size: 12px; margin-bottom: 24px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+  .card-flag { border-left: 3px solid var(--red); }
+  .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  .item { padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
+  .item:last-child { border-bottom: none; padding-bottom: 0; }
+  .tag { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .tag-red { background: rgba(239,68,68,0.15); color: var(--red); }
+  .tag-amber { background: rgba(245,158,11,0.15); color: var(--amber); }
+  .tag-green { background: rgba(34,197,94,0.15); color: var(--green); }
+  .tag-muted { background: rgba(136,136,136,0.1); color: var(--muted); }
+  .item-body { flex: 1; }
+  .item-title { font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .item-detail { color: var(--muted); font-size: 13px; }
+  .badge-new { font-size: 10px; font-weight: 700; background: var(--brand); color: white; padding: 1px 6px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+  .metric-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-label { color: var(--muted); font-size: 13px; }
+  .metric-value { font-weight: 700; font-size: 15px; }
+  .metric-value.red { color: var(--red); }
+  .metric-value.amber { color: var(--amber); }
+  .metric-value.green { color: var(--green); }
+  .pipeline-item { padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .pipeline-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .pipeline-title { font-weight: 600; }
+  .pipeline-status { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; }
+  .st-follow { color: var(--amber); }
+  .st-signed { color: var(--green); }
+  .st-blocked { color: var(--red); }
+  .st-new { color: #60a5fa; }
+  .st-progress { color: #a78bfa; }
+  .footer { color: var(--muted); font-size: 11px; margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); }
+  .clear-badge { font-size: 11px; color: var(--green); background: rgba(34,197,94,0.1); padding: 3px 8px; border-radius: 4px; display: inline-block; }
+  .warning-box { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; }
+  .warning-box .w-title { color: var(--red); font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+  .warning-box .w-body { color: #e8e8e8; font-size: 13px; }
+  .next-step { color: var(--brand); font-size: 12px; font-weight: 600; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<h1>COO Morning Brief</h1>
+<div class="meta">Thursday, 23 July 2026 &nbsp;·&nbsp; 07:00 UAE (GST, UTC+4) &nbsp;·&nbsp; BPOAS — BPO Accounting Services &nbsp;·&nbsp; M.Asira@bposervicegroup.com</div>
+
+<!-- CRITICAL FLAGS -->
+<div class="card card-flag">
+  <div class="section-label">🔴 Critical — Act Today</div>
+
+  <div class="warning-box">
+    <div class="w-title">BPOAS Trade Licence Expires in 2 Days — Saturday 25 July 2026</div>
+    <div class="w-body">No renewal confirmation found in 23 days of monitoring. If licence lapses, WPS payroll is blocked for all staff. This is the single most urgent item today.</div>
+    <div class="next-step">→ Confirm renewal status immediately. Owner: Mohaina.</div>
+  </div>
+
+  <div class="warning-box">
+    <div class="w-title">NEW — MOHRE: Upload Missing Document · Work Permit MB315778130AE <span class="badge-new">NEW</span></div>
+    <div class="w-body">Received today 06:31 UAE (after earlier COO brief session). Ministry of Higher Education requires missing documents for degree recognition of the staff member holding this work permit. Must be completed via the Ministry portal.</div>
+    <div class="next-step">→ Check MOHRE portal and upload required credentials today. Owner: Mohaina / HR.</div>
+  </div>
+</div>
+
+<!-- TODAY'S SCHEDULE -->
+<div class="card">
+  <div class="section-label">Today's Schedule</div>
+  <div class="clear-badge">✓ Clear — no events on Outlook calendar today</div>
+  <p style="color: var(--muted); font-size: 13px; margin-top: 10px;">Open day available for client calls, team check-ins, or BD meetings. Trade licence renewal chase and Cartier follow-up should take priority.</p>
+</div>
+
+<!-- INBOX PRIORITIES -->
+<div class="card">
+  <div class="section-label">Inbox Priorities · Last 48 Hours</div>
+
+  <div class="item">
+    <span class="tag tag-red">COMPLIANCE</span>
+    <div class="item-body">
+      <div class="item-title">Ghaf Benefits — FATCA-CRS Self-Certification Urgent</div>
+      <div class="item-detail">Louise (Ghaf Benefits) requested BPOAS complete FATCA-CRS Self-Certification. Follow-up: certificate cannot be located on file either. Louise later confirmed: "This is exactly what I am looking for." Thread partially resolved but certificate gap remains flagged. Reference: Lunate-TAX.FID6207.</div>
+      <div class="next-step">→ Locate and send FATCA-CRS certificate to Ghaf Benefits. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-amber">BD / CONTRACT</span>
+    <div class="item-body">
+      <div class="item-title">Chadi Nasreddine (Cartier/Richemont) — Onboarding Agreement Awaited</div>
+      <div class="item-detail">Chadi emailed 22 Jul: "When do you think we will have the final agreement for Recyline Ramos to prepare for the onboarding?" Auto-reply sent. Separate Richemont legal thread: Raphael Hanna (Richemont Legal) acknowledged revised BPO Contract Renewal 2026-2027 and is reviewing. These are two different engagements (Cartier Fragrance entity vs. main Richemont renewal). Both need attention.</div>
+      <div class="next-step">→ Send Chadi a firm timeline for the Cartier agreement today. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-amber">CLIENT / OPS</span>
+    <div class="item-body">
+      <div class="item-title">Menastar DMCC — Travelfusion tfPay Balance Warning</div>
+      <div class="item-detail">Current AED balance: 2,898.94. System flagged "prompt action — make an immediate transfer." Additionally: credit balance transfer thread with Almatar (SAR 7,432.78 as of 30 April) still being chased for settlement breakdown.</div>
+      <div class="next-step">→ Confirm tfPay top-up action with Michelle Pacis. Owner: Michelle Pacis / Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-amber">CLIENT / ACCOUNTS</span>
+    <div class="item-body">
+      <div class="item-title">Almatar — Account Payables Confirmation 2025 + Q2 Working Paper</div>
+      <div class="item-detail">Omar Esmail (Almatar) asked for pending booking detail. Q2 2026 working paper Version 2 sent — DNATA ledger updated, still awaiting Almatar response. Two threads running: AP confirmation and credit balance chase.</div>
+      <div class="next-step">→ Michelle Pacis to provide pending booking detail and follow up on SAR credit balance. Owner: Michelle Pacis.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-muted">AML / INFO</span>
+    <div class="item-body">
+      <div class="item-title">Idenfo — AML/KYC Platform Vendor Pitch (Informational)</div>
+      <div class="item-detail">Unsolicited pitch for AML software from Idenfo (UK/DIFC). Not a client escalation. No action required but relevant to BPOAS AMLRO obligations if a new platform is under evaluation.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TASKS & DEADLINES -->
+<div class="card">
+  <div class="section-label">Tasks &amp; Deadlines</div>
+  <p style="color: var(--muted); font-size: 12px; margin-bottom: 14px;">Note: Notion Tasks database still holds no BPOAS-linked items with due dates — gap logged every run since 2 July. Items below sourced from inbox, prior briefs, and Zoho Books.</p>
+
+  <div class="item">
+    <span class="tag tag-red">CRITICAL</span>
+    <div class="item-body">
+      <div class="item-title">BPOAS Trade Licence — Expires 25 July 2026 (2 days)</div>
+      <div class="item-detail">WPS payroll blocked for all staff if it lapses. No renewal confirmed. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-red">CRITICAL</span>
+    <div class="item-body">
+      <div class="item-title">MOHRE — Upload Missing Document, Work Permit MB315778130AE <span class="badge-new">NEW</span></div>
+      <div class="item-detail">Degree recognition gap at Ministry of Higher Education. Action via MOHRE portal. Owner: Mohaina / HR.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-red">CRITICAL</span>
+    <div class="item-body">
+      <div class="item-title">Brilliant Telecom LLC — Partner Confirmation Letters (8 days overdue)</div>
+      <div class="item-detail">Deadline was 15 July. Client on vacation since 20 July. Status unconfirmed. Owner: Raihana / Cristina Suyom.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-red">CT / OVERDUE</span>
+    <div class="item-body">
+      <div class="item-title">GL Middle East (Nandhu) — EL Sent 18 June (35 days)</div>
+      <div class="item-detail">Decision overdue. CIT exposure if further delayed. Owner: Mohaina → Raihana.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-red">CT / URGENT</span>
+    <div class="item-body">
+      <div class="item-title">The Concept Lab (Mr. George) — EL Sent 19 June (34 days), CIT 30 Sep</div>
+      <div class="item-detail">Decision overdue. Hard CIT deadline 30 September creates real risk window. Owner: Mohaina → Raihana.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-amber">ATTENTION</span>
+    <div class="item-body">
+      <div class="item-title">Ghaf Benefits — FATCA-CRS Self-Certification</div>
+      <div class="item-detail">Urgent request; original certificate reportedly not on file. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-amber">ATTENTION</span>
+    <div class="item-body">
+      <div class="item-title">Starnext — Loan Agreement Interest-Rate Mismatch (2% vs 6.8%)</div>
+      <div class="item-detail">Flagged as audit risk. Still unresolved. Owner: Michelle Pacis / Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-amber">ATTENTION</span>
+    <div class="item-body">
+      <div class="item-title">Raihana Weekly Pipeline Report — 6 Days Overdue (Due 17 July)</div>
+      <div class="item-detail">Submission still unconfirmed. Owner: Raihana.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-amber">BD</span>
+    <div class="item-body">
+      <div class="item-title">MMG Art Production LLC — Proposal Sent 9 July (14 days, no reply)</div>
+      <div class="item-detail">Follow-up overdue. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <span class="tag tag-green">ON TRACK</span>
+    <div class="item-body">
+      <div class="item-title">AML/DNFBP — No New Circular</div>
+      <div class="item-detail">Last on file: MOET/AML/001/2026 (11 March 2026). No new circular detected. Owner: Mohaina (AMLRO).</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CONTENT SLOT -->
+<div class="card">
+  <div class="section-label">Content Slot · Thursday 23 July</div>
+  <div style="color: var(--muted); font-size: 13px; margin-bottom: 8px;">Pillar: The True Cost of Cheap Accounting &nbsp;·&nbsp; Format: Contrarian Text Post &nbsp;·&nbsp; Intent: Engagement</div>
+  <div style="font-weight: 600; margin-bottom: 6px;">"Most owners think their accountant's job is to keep them out of trouble. That's not the job."</div>
+  <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+    <span class="tag tag-amber">🟡 Pending Approval</span>
+    <span style="font-size: 12px; color: var(--muted);">Invisibility Diagnostic: 4/4 PASS · Char count: 1,367 · References FTA/VAT/CIT → mandatory pre-approval required · Recommended publish: 08:30 UAE</span>
+  </div>
+</div>
+
+<!-- BD PIPELINE -->
+<div class="card">
+  <div class="section-label">BD Pipeline Pulse</div>
+  <p style="color: var(--muted); font-size: 12px; margin-bottom: 14px;">Carried forward from 22 July COO Brief · cross-checked against today's inbox.</p>
+
+  <div class="pipeline-item">
+    <div class="pipeline-title">Richemont / Cartier (Main Renewal) <span class="pipeline-status st-follow">→ FOLLOW UP</span></div>
+    <div style="color: var(--muted); font-size: 13px;">Fit: 9/10. Revised BPO Contract Renewal 2026-2027 under legal review with Raphael Hanna. No committed reply date. Chadi Nasreddine (Cartier Fragrance entity) separately awaiting onboarding agreement.</div>
+  </div>
+
+  <div class="pipeline-item">
+    <div class="pipeline-title">Halton Middle East FZE <span class="pipeline-status st-signed">✓ SIGNED</span></div>
+    <div style="color: var(--muted); font-size: 13px;">CIT + Transfer Pricing delivery underway.</div>
+  </div>
+
+  <div class="pipeline-item">
+    <div class="pipeline-title">Paluto Restaurant LLC <span class="pipeline-status st-signed">✓ SIGNED</span></div>
+    <div style="color: var(--muted); font-size: 13px;">Onboarding underway.</div>
+  </div>
+
+  <div class="pipeline-item">
+    <div class="pipeline-title">MCM Products Middle East <span class="pipeline-status st-progress">IN PROGRESS</span></div>
+    <div style="color: var(--muted); font-size: 13px;">Fit: 8/10. Raihana chasing TL + EL signatures. VAT Assessment forwarded, needs review.</div>
+  </div>
+
+  <div class="pipeline-item">
+    <div class="pipeline-title">Gulf Seatech FZC <span class="pipeline-status st-progress">IN PROGRESS</span></div>
+    <div style="color: var(--muted); font-size: 13px;">Fit: 7/10. Proposal sent, KYC docs received.</div>
+  </div>
+
+  <div class="pipeline-item">
+    <div class="pipeline-title">MMG Art Production LLC <span class="pipeline-status st-follow">→ FOLLOW UP</span></div>
+    <div style="color: var(--muted); font-size: 13px;">Proposal sent 9 July — 14 days, no reply.</div>
+  </div>
+
+  <div class="pipeline-item">
+    <div class="pipeline-title">Nandhu / GL Middle East <span class="pipeline-status st-blocked">BLOCKED</span></div>
+    <div style="color: var(--muted); font-size: 13px;">Fit: 6/10. EL 35 days out. Decision required from Mohaina.</div>
+  </div>
+
+  <div class="pipeline-item">
+    <div class="pipeline-title">Mr. George / Concept Lab <span class="pipeline-status st-blocked">BLOCKED</span></div>
+    <div style="color: var(--muted); font-size: 13px;">Fit: 6/10. EL 34 days out, CIT 30 Sep. Decision required from Mohaina.</div>
+  </div>
+
+  <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border);">
+    <h3>Raihana's Queue (carried from 22 Jul)</h3>
+    <div style="color: var(--muted); font-size: 13px; line-height: 1.8;">
+      Leads to verify: 3 pending — Clearfreight International (7/10), Infinity Prime (7/10), TechHive.ai (6/10)<br>
+      Outreach today: Brilliant Telecom urgent chase · MCM Products follow-up · Annaka certificate chase<br>
+      Follow-ups overdue: Nandhu (35 days) · Mr. George (34 days) · MMG Art Production (14 days)<br>
+      <span style="color: var(--red);">Weekly pipeline report — due 17 Jul, 6 days overdue</span>
+    </div>
+  </div>
+</div>
+
+<!-- KEY METRIC -->
+<div class="card">
+  <div class="section-label">Key Metric</div>
+
+  <div class="metric-row">
+    <span class="metric-label">Outstanding Receivables (Zoho Books live pull · today)</span>
+    <span class="metric-value amber">AED 84,362.50</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Richemont (Dubai) FZE — largest exposure</span>
+    <span class="metric-value red">AED 58,537.50</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Richemont — portion overdue 157 days</span>
+    <span class="metric-value red">AED 17,561.25</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Days until BPOAS trade licence expires</span>
+    <span class="metric-value red">2 days (25 Jul)</span>
+  </div>
+
+  <div style="color: var(--muted); font-size: 12px; margin-top: 10px;">Note: Today's AED 84,362.50 pull is materially lower than the AED 248,249.73/41-invoice figure carried in the 22 Jul brief — reconcile scope (org/status/entity) before treating either as authoritative for collections planning.</div>
+</div>
+
+<div class="footer">
+  COO Morning Brief · Thursday 23 July 2026 · Auto-generated by BPOAS Daily Start routine · Tag: BPOAS COO Morning Brief<br>
+  M365 send/draft capability unavailable this session (read-only tools only). Gap logged every run since 2 July 2026 (day 22).<br>
+  Notion task tracker: still no BPOAS-linked items with due dates since 2 July — manual update recommended.
+</div>
+
+</body>
+</html>
