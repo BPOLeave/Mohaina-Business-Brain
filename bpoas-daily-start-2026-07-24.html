@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Friday 24 July 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0A0A0A; color: #E8E8E8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; }
+  .page { max-width: 980px; margin: 0 auto; }
+
+  /* Hero Card */
+  .hero { background: linear-gradient(135deg, #141414 0%, #1a0a0e 100%); border: 1px solid #2a1018; border-left: 4px solid #E8294C; border-radius: 12px; padding: 28px 32px; margin-bottom: 24px; }
+  .hero-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.4px; color: #E8294C; margin-bottom: 8px; }
+  .hero-title { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+  .hero-sub { color: #888; font-size: 13px; margin-bottom: 24px; }
+  .revenue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .revenue-tile { background: #0f0f0f; border: 1px solid #1f1f1f; border-radius: 8px; padding: 14px 16px; }
+  .revenue-tile-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.9px; color: #555; margin-bottom: 4px; }
+  .revenue-tile-value { font-size: 20px; font-weight: 700; color: #fff; }
+  .revenue-tile-value.red { color: #ff4d4d; }
+  .revenue-tile-value.amber { color: #f5a623; }
+  .revenue-tile-value.green { color: #4caf74; }
+  .revenue-note { font-size: 11px; color: #555; font-style: italic; }
+
+  /* Standard Cards */
+  .card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 24px; margin-bottom: 20px; }
+  .card-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #E8294C; margin-bottom: 16px; }
+
+  /* Run Log */
+  .run-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #1a1a1a; }
+  .run-row:last-child { border-bottom: none; }
+  .run-status { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; margin-top: 1px; }
+  .status-complete { background: rgba(76,175,116,0.15); color: #4caf74; }
+  .status-skipped { background: rgba(100,100,100,0.15); color: #666; }
+  .status-error { background: rgba(255,77,77,0.15); color: #ff4d4d; }
+  .run-label { font-weight: 600; color: #ddd; font-size: 13px; }
+  .run-detail { color: #666; font-size: 12px; }
+
+  /* Flags */
+  .flags-grid { display: flex; flex-direction: column; gap: 10px; }
+  .flag { border-radius: 8px; padding: 14px 16px; display: grid; grid-template-columns: auto 1fr; gap: 10px 14px; align-items: start; }
+  .flag.compliance { background: rgba(232,41,76,0.09); border: 1px solid rgba(232,41,76,0.25); }
+  .flag.cash { background: rgba(255,77,77,0.07); border: 1px solid rgba(255,77,77,0.2); }
+  .flag.client { background: rgba(245,166,35,0.07); border: 1px solid rgba(245,166,35,0.2); }
+  .flag.bd { background: rgba(100,100,255,0.07); border: 1px solid rgba(100,100,255,0.2); }
+  .flag-icon { font-size: 18px; margin-top: 1px; }
+  .flag-cat { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.9px; margin-bottom: 3px; }
+  .flag.compliance .flag-cat { color: #E8294C; }
+  .flag.cash .flag-cat { color: #ff4d4d; }
+  .flag.client .flag-cat { color: #f5a623; }
+  .flag.bd .flag-cat { color: #8080ff; }
+  .flag-title { font-weight: 600; color: #fff; font-size: 13px; margin-bottom: 2px; }
+  .flag-why { color: #aaa; font-size: 12px; margin-bottom: 4px; }
+  .flag-next { font-size: 12px; font-weight: 500; }
+  .flag.compliance .flag-next { color: #E8294C; }
+  .flag.cash .flag-next { color: #ff4d4d; }
+  .flag.client .flag-next { color: #f5a623; }
+  .flag.bd .flag-next { color: #8080ff; }
+
+  /* Quick Links */
+  .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+  .link-card { background: #0f0f0f; border: 1px solid #1f1f1f; border-radius: 8px; padding: 12px 16px; text-decoration: none; color: inherit; transition: border-color 0.15s; display: block; }
+  .link-card:hover { border-color: #E8294C; }
+  .link-card-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: #555; margin-bottom: 4px; }
+  .link-card-title { font-size: 13px; font-weight: 600; color: #ccc; }
+  .link-card-status { font-size: 11px; color: #4caf74; margin-top: 2px; }
+  .link-card-status.amber { color: #f5a623; }
+  .link-card-status.skip { color: #555; }
+
+  /* LinkedIn Post */
+  .post-card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 24px; margin-bottom: 20px; }
+  .post-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
+  .post-card-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #E8294C; }
+  .post-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .post-pill { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 20px; }
+  .pill-amber-s { background: rgba(245,166,35,0.15); color: #f5a623; }
+  .pill-green-s { background: rgba(76,175,116,0.15); color: #4caf74; }
+  .pill-red-s { background: rgba(232,41,76,0.15); color: #E8294C; }
+  .post-hook { background: rgba(232,41,76,0.08); border: 1px solid rgba(232,41,76,0.2); border-radius: 6px; padding: 10px 14px; margin-bottom: 14px; font-size: 14px; font-weight: 700; color: #fff; }
+  .post-hook-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: #E8294C; margin-bottom: 4px; }
+  .post-body { background: #0f0f0f; border: 1px solid #1f1f1f; border-radius: 8px; padding: 18px; white-space: pre-wrap; font-size: 13px; color: #ddd; line-height: 1.75; font-family: inherit; margin-bottom: 14px; }
+  .post-cta { font-weight: 700; color: #fff; }
+  .post-comments-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: #555; margin-bottom: 8px; }
+  .post-comment { background: #0f0f0f; border: 1px solid #1f1f1f; border-radius: 6px; padding: 12px 14px; margin-bottom: 8px; font-size: 12px; color: #bbb; line-height: 1.6; }
+  .comment-num { font-size: 10px; text-transform: uppercase; color: #555; letter-spacing: 0.8px; margin-bottom: 4px; }
+  .approval-box { background: rgba(245,166,35,0.06); border: 1px solid rgba(245,166,35,0.2); border-radius: 8px; padding: 14px 16px; font-size: 12px; color: #bbb; }
+  .approval-box strong { color: #f5a623; }
+
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: #666; padding: 6px 10px; border-bottom: 1px solid #222; }
+  td { padding: 10px 10px; border-bottom: 1px solid #1a1a1a; vertical-align: top; font-size: 13px; }
+  tr:last-child td { border-bottom: none; }
+  .tag { font-size: 10px; color: #333; margin-top: 32px; border-top: 1px solid #1a1a1a; padding-top: 12px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══════════════════════════════════════════════
+       HERO CARD
+  ═══════════════════════════════════════════════ -->
+  <div class="hero">
+    <div class="hero-eyebrow">BPOAS Daily Start</div>
+    <div class="hero-title">Friday, 24 July 2026</div>
+    <div class="hero-sub">Lean Run · Steps 1 + 4 · Auto-generated 07:00 UAE (GST)</div>
+
+    <div class="revenue-grid">
+      <div class="revenue-tile">
+        <div class="revenue-tile-label">Receivables on File</div>
+        <div class="revenue-tile-value amber">AED 215,279</div>
+      </div>
+      <div class="revenue-tile">
+        <div class="revenue-tile-label">Open Invoices</div>
+        <div class="revenue-tile-value amber">40</div>
+      </div>
+      <div class="revenue-tile">
+        <div class="revenue-tile-label">Monthly Target</div>
+        <div class="revenue-tile-value" style="color:#555;">Not Set</div>
+      </div>
+      <div class="revenue-tile">
+        <div class="revenue-tile-label">Days Left in July</div>
+        <div class="revenue-tile-value red">7</div>
+      </div>
+    </div>
+    <p class="revenue-note">Revenue Pulse: CFO connector runs Mondays only. Figures carried forward from Monday 20 July 2026. Set a monthly revenue target in Notion to activate gap-to-target and daily run-rate calculations.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       RUN LOG
+  ═══════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-title">Run Log</div>
+
+    <div class="run-row">
+      <span class="run-status status-complete">✓ Complete</span>
+      <div>
+        <div class="run-label">Step 1 · COO Morning Brief</div>
+        <div class="run-detail">Output: coo-brief-2026-07-24.html · Calendar pulled, inbox scanned (25+ emails), tasks &amp; BD pipeline compiled. 2 compliance flags raised.</div>
+      </div>
+    </div>
+
+    <div class="run-row">
+      <span class="run-status status-skipped">⏭ Skipped</span>
+      <div>
+        <div class="run-label">Step 2 · CFO Weekly Revenue</div>
+        <div class="run-detail">CFO brief runs Mondays only. Next run: Monday 27 July 2026. Last figures: Monday 20 July.</div>
+      </div>
+    </div>
+
+    <div class="run-row">
+      <span class="run-status status-skipped">⏭ Skipped</span>
+      <div>
+        <div class="run-label">Step 3 · CRO Weekly Prospects</div>
+        <div class="run-detail">CRO brief runs Mondays only. Note: Apify LinkedIn scraper has been down 9+ consecutive weeks — manual prospecting required.</div>
+      </div>
+    </div>
+
+    <div class="run-row">
+      <span class="run-status status-complete">✓ Complete</span>
+      <div>
+        <div class="run-label">Step 4 · CMO Daily Post</div>
+        <div class="run-detail">Output: cmo-post-2026-07-24.html (prior run) · Notion: 📱 CMO Daily Post · Friday 24 July 2026 · Status: <strong style="color:#f5a623;">Pending Approval</strong> · Invisibility Diagnostic: 4/4 PASS · Publish window: 09:00 UAE</div>
+      </div>
+    </div>
+
+    <div class="run-row">
+      <span class="run-status status-skipped">⏭ Skipped</span>
+      <div>
+        <div class="run-label">Step 5 · Content Calendar</div>
+        <div class="run-detail">Content calendar runs Mondays only. Active calendar: Week of 20 July 2026. Today's slot: Friday (Framework List) — used by CMO post above.</div>
+      </div>
+    </div>
+
+    <div class="run-row">
+      <span class="run-status status-error">✗ Blocked</span>
+      <div>
+        <div class="run-label">M365 Summary Email</div>
+        <div class="run-detail">outlook_send_mail blocked (permission_error: Mail.Send scope missing). Summary delivered via this HTML file and Notion only. Day 25+ of same gap. Fix: add Mail.Send/Mail.ReadWrite in Claude connector settings.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       FLAGS FOR MOHAINA
+  ═══════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-title">🚩 Flags for Mohaina — Sorted by Priority</div>
+    <p style="color:#666; font-size:12px; margin-bottom:16px;">Compliance · Cash · Client · BD — each flag: what it is · why it matters · one next step.</p>
+
+    <div class="flags-grid">
+
+      <div class="flag compliance">
+        <div class="flag-icon">🔴</div>
+        <div>
+          <div class="flag-cat">Compliance · CRITICAL TODAY</div>
+          <div class="flag-title">BPOAS Trade Licence expires TOMORROW (Saturday 25 July)</div>
+          <div class="flag-why">If the licence lapses, WPS payroll for all staff is blocked. This cannot slip to Monday — the renewal must happen today via DED eExchange.</div>
+          <div class="flag-next">→ Renew via DED eExchange before end of business today.</div>
+        </div>
+      </div>
+
+      <div class="flag compliance">
+        <div class="flag-icon">🔴</div>
+        <div>
+          <div class="flag-cat">Compliance · AML — Action Required</div>
+          <div class="flag-title">Libya Sanctions Update: One vessel added — UAE IEC · 24 Jul 04:10 UAE</div>
+          <div class="flag-why">UAE Executive Office for Combating Money Laundering has notified BPOAS: one vessel added to the UN Libya Sanctions Committee list on 23 July 2026. Cabinet Decision 74/2020 requires all persons (BPOAS is a DNFBP) to implement Targeted Financial Sanctions and report findings to the IEC portal.</div>
+          <div class="flag-next">→ Screen all clients and counterparties against the updated sanctions list immediately. If any match is found, submit TFS report via IEC portal. Do not delay — obligation is immediate.</div>
+        </div>
+      </div>
+
+      <div class="flag compliance">
+        <div class="flag-icon">🔴</div>
+        <div>
+          <div class="flag-cat">Compliance · CIT Waiver — 7 Days</div>
+          <div class="flag-title">CIT Penalty Waiver Deadline: 31 July 2026 (7 days remaining)</div>
+          <div class="flag-why">The CIT penalty waiver window closes in 7 days. Any eligible clients who have not filed or regularised their position will lose this opportunity. Last chance for late FY2023/2024 filers.</div>
+          <div class="flag-next">→ Confirm all at-risk clients are either filed or have a clear plan. Brief clients today if any are at risk.</div>
+        </div>
+      </div>
+
+      <div class="flag compliance">
+        <div class="flag-icon">🔴</div>
+        <div>
+          <div class="flag-cat">Compliance · FTA Guidance (Unread)</div>
+          <div class="flag-title">New FTA Clarification: Adjustments After a Registrant Leaves a Tax Group — 23 Jul 11:19 UAE</div>
+          <div class="flag-why">New public clarification from FTA on how adjustments are handled when a member exits a UAE tax group. Unread. Relevant to any clients in or departing tax group structures.</div>
+          <div class="flag-next">→ Read today. Assess client impact. Update advisory notes for any affected engagements.</div>
+        </div>
+      </div>
+
+      <div class="flag compliance">
+        <div class="flag-icon">🟡</div>
+        <div>
+          <div class="flag-cat">Compliance · LinkedIn Post — Approval Gate</div>
+          <div class="flag-title">Today's post references VAT and CIT directly — awaiting Mohaina's approval</div>
+          <div class="flag-why">The routine's own rule: any post referencing UAE law, a penalty figure, or a regulatory deadline requires explicit approval before forwarding to Rei Nald to publish. Post is ready and scored 4/4. If no approval, post will be held and Rei will be told to stand by.</div>
+          <div class="flag-next">→ Approve the post in Notion (📱 CMO Daily Post · Friday 24 July 2026) or reply to this brief. Forward to reinald.onella1@gmail.com with 3 pinned comments once approved. Recommended publish: 09:00 UAE.</div>
+        </div>
+      </div>
+
+      <div class="flag cash">
+        <div class="flag-icon">🔴</div>
+        <div>
+          <div class="flag-cat">Cash · Office Exit — Decision Needed</div>
+          <div class="flag-title">BPOAS Vacating Office 401: AL DOHA GENERAL TRADING requesting written confirmation to deduct outstanding balance from security deposit</div>
+          <div class="flag-why">AL DOHA GENERAL TRADING L.L.C (the landlord) has emailed Junaifa requesting: (1) written confirmation to deduct BPOAS's outstanding balance from the security deposit, and (2) compliance with move-out requirements (clean office, no damage, all utility bills settled) before they release the NOC. Junaifa forwarded to Mohaina + Finance yesterday.</div>
+          <div class="flag-next">→ Decide: agree to security deposit deduction (confirm via reply to info@aldohageneral.ae) or dispute the outstanding balance with supporting documentation. NOC cannot proceed without this. Do not leave the landlord waiting — they have been told a decision is imminent.</div>
+        </div>
+      </div>
+
+      <div class="flag cash">
+        <div class="flag-icon">🟡</div>
+        <div>
+          <div class="flag-cat">Cash · Receivables</div>
+          <div class="flag-title">AED 215,279.86 across 40 overdue invoices (as of 20 July — 4 days ago)</div>
+          <div class="flag-why">Trending up: was AED 153,066.94 / 36 invoices on 13 July (+AED 62,213 in one week). Richemont/Cartier AED 58,254 is the largest single block (~12 days overdue). EXLIBRIS MANAGEMENT FZCO (INV-2025-000354) is ~236 days overdue at AED 6,300 — still unresolved.</div>
+          <div class="flag-next">→ Raise Richemont invoices with Libin in the same conversation as the contract renewal reply. Schedule EXLIBRIS for a write-off decision or formal chase this week.</div>
+        </div>
+      </div>
+
+      <div class="flag client">
+        <div class="flag-icon">🟡</div>
+        <div>
+          <div class="flag-cat">Client · Systems</div>
+          <div class="flag-title">Zoho Analytics Finance sync failing 24+ hours — data may be stale</div>
+          <div class="flag-why">Zoho Analytics is showing a sync failure between Zoho Finance and the Zoho Books Analytics workspace. Cause: temporary error. Zoho will auto-retry on next schedule. Until resolved, financial dashboard data may not reflect current Zoho Books entries.</div>
+          <div class="flag-next">→ Monitor. If still failing after today's retry window, contact support@zohoanalytics.com. No immediate action required unless confirmed persisting.</div>
+        </div>
+      </div>
+
+      <div class="flag client">
+        <div class="flag-icon">🟡</div>
+        <div>
+          <div class="flag-cat">Client · Advisory Thread</div>
+          <div class="flag-title">E-invoicing thread with GL-events (Julia Guichard) — active, with regulatory deadline and penalty references</div>
+          <div class="flag-why">Client (GL-events/Julia) asked about e-invoicing grace period and penalties for non-compliance by January 2027. Suyom responded with 2 emails covering the phased rollout and penalty schedule. This is a live compliance advisory thread referencing regulatory deadlines and fines. Under the routine's flag rule, Mohaina should spot-check the content before the client acts on it.</div>
+          <div class="flag-next">→ Review Suyom's two replies (23 Jul, 13:27 and 13:31 UAE). Confirm accuracy. If correct, no further action. If amendments needed, reply before client responds.</div>
+        </div>
+      </div>
+
+      <div class="flag bd">
+        <div class="flag-icon">🟡</div>
+        <div>
+          <div class="flag-cat">BD · MCM Products</div>
+          <div class="flag-title">VAT Refund Assistance proposal (5 quarters) — HIGH importance follow-up sent today; still no signature on EL or Trade Licence</div>
+          <div class="flag-why">MCM Products Middle East (Score 8/10, KYC active) has been in pipeline with EL and Trade Licence unsigned. Raihana sent a high-importance follow-up on the VAT Refund Assistance proposal this morning. Warren's VAT Assessment also pending review.</div>
+          <div class="flag-next">→ If no reply by end of day, approve a direct call. Route VAT Assessment to Warren for completion this week. This prospect is close to a decision.</div>
+        </div>
+      </div>
+
+      <div class="flag client">
+        <div class="flag-icon">🟡</div>
+        <div>
+          <div class="flag-cat">Client · PICPA NE</div>
+          <div class="flag-title">picpa-ne.com showing a fatal WordPress error (Blocksy theme, post update 2.1.49 → 2.1.50)</div>
+          <div class="flag-why">WordPress auto-updated Blocksy Companion to v2.1.50 on 23 Jul, then immediately triggered a fatal error notification. The site may be displaying an error page to visitors.</div>
+          <div class="flag-next">→ Log into WordPress admin at picpa-ne.com/wp-admin. Deactivate or revert Blocksy theme/companion plugin to restore the site. Coordinate with the site manager if not handled directly.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       QUICK LINKS
+  ═══════════════════════════════════════════════ -->
+  <div class="card">
+    <div class="card-title">Quick Links</div>
+    <div class="links-grid">
+      <a href="coo-brief-2026-07-24.html" class="link-card">
+        <div class="link-card-label">Step 1 · COO</div>
+        <div class="link-card-title">Morning Brief · 24 Jul</div>
+        <div class="link-card-status">✓ Complete</div>
+      </a>
+      <a href="cmo-post-2026-07-24.html" class="link-card">
+        <div class="link-card-label">Step 4 · CMO</div>
+        <div class="link-card-title">Daily Post · 24 Jul</div>
+        <div class="link-card-status amber">⏳ Pending Approval</div>
+      </a>
+      <a href="https://app.notion.com/p/3a78a33e7fd181aaa37efeb6b9d0ca4f" class="link-card">
+        <div class="link-card-label">Notion</div>
+        <div class="link-card-title">CMO Post · 24 Jul</div>
+        <div class="link-card-status amber">⏳ Approve Here</div>
+      </a>
+      <a href="https://app.notion.com/p/38e8a33e7fd181d0b9c7e1716e43305a" class="link-card">
+        <div class="link-card-label">Notion</div>
+        <div class="link-card-title">BPOAS Team Hub</div>
+        <div class="link-card-status">Hub</div>
+      </a>
+      <a href="https://app.notion.com/p/3a38a33e7fd181a69128de725f515288" class="link-card">
+        <div class="link-card-label">Notion</div>
+        <div class="link-card-title">Monday Briefing · 20 Jul</div>
+        <div class="link-card-status">Week context</div>
+      </a>
+      <div class="link-card">
+        <div class="link-card-label">Step 2 · CFO</div>
+        <div class="link-card-title">Weekly Revenue</div>
+        <div class="link-card-status skip">⏭ Monday only</div>
+      </div>
+      <div class="link-card">
+        <div class="link-card-label">Step 3 · CRO</div>
+        <div class="link-card-title">Weekly Prospects</div>
+        <div class="link-card-status skip">⏭ Monday only</div>
+      </div>
+      <div class="link-card">
+        <div class="link-card-label">Step 5 · Content</div>
+        <div class="link-card-title">Calendar Generator</div>
+        <div class="link-card-status skip">⏭ Monday only</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       TODAY'S LINKEDIN POST
+  ═══════════════════════════════════════════════ -->
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-card-title">Today's LinkedIn Post — Copy-Ready</div>
+      <div class="post-meta">
+        <span class="post-pill pill-amber-s">⏳ Pending Approval</span>
+        <span class="post-pill pill-green-s">4/4 Diagnostic</span>
+        <span class="post-pill pill-red-s">References VAT · CIT</span>
+      </div>
+    </div>
+
+    <div class="post-hook">
+      <div class="post-hook-label">Selected Hook · Curiosity Gap</div>
+      There's one number most UAE owners never check. It matters most.
+    </div>
+
+    <div class="post-body">There's one number most UAE owners never check. It matters most.
+
+Your bank balance can look healthy while the business underneath it is losing money. I see this more than owners think, and usually not until year-end, when it's already too late to fix quietly.
+
+Here are the 3 numbers I'd check every month, if the bank balance wasn't allowed to count.
+
+1. Net profit, not bank balance. Revenue minus real costs, including VAT and CIT you owe but haven't paid yet. The account can be full of money that isn't actually yours.
+
+2. Accounts receivable. What clients owe you, and how old it is. A client who "always pays eventually" is quietly funding their business with your cash flow, not theirs.
+
+3. Cash flow timing. When money actually lands versus when it goes out. A big deposit this week can hide a gap that's coming in three weeks, and by then it's harder to fix.
+
+I think the bank balance is the easiest number to check and the least honest one. It shows you last month's decisions, dressed up as this month's health.
+
+We go through all three with every client, every month. Second eyes catch what one person checking their own balance never will.
+
+<span class="post-cta">Save this for month-end. Check these three before you check the account.</span>
+
+P.S. A full bank account and a profitable business are not always the same thing.</div>
+
+    <div class="post-comments-label">3 Pinned Comments (post in sequence after publishing)</div>
+
+    <div class="post-comment">
+      <div class="comment-num">Comment 1 · Extend</div>
+      Under UAE Corporate Tax law, every taxable person has to maintain proper books and records, not just for the FTA. If you can't separate your net profit from your receivables, you're not managing the business. You're guessing at it.
+    </div>
+    <div class="post-comment">
+      <div class="comment-num">Comment 2 · Humanise</div>
+      I still remember trusting a healthy account balance more than I should have, early on. It took one client's near-miss with cash flow to teach me not to.
+    </div>
+    <div class="post-comment">
+      <div class="comment-num">Comment 3 · CTA Amplifier</div>
+      Save this before month-end close. If you only check one number this week, make it accounts receivable. That's usually the one hiding the surprise.
+    </div>
+
+    <div class="approval-box" style="margin-top:14px;">
+      <strong>Approval required before forwarding to Rei Nald.</strong> This post references VAT and CIT directly (no specific penalty figure or deadline cited). Post when approved: 09:00 UAE · Forward to: reinald.onella1@gmail.com (reinald.onella1@gmail.com) · Subject: <em>Post for Today — Ready to Publish · 24 July 2026</em><br><br>
+      Log status in Notion: Pending Approval → Approved → Sent to Rei → Published.
+    </div>
+  </div>
+
+  <div class="tag">BPOAS Daily Start · Friday 24 July 2026 · Auto-generated 07:00 UAE · Branch: claude/cool-noether-h7llgf · Step 2 (CFO) skipped — Mondays only · Step 3 (CRO) skipped — Mondays only · Step 5 (Content Calendar) skipped — Mondays only</div>
+</div>
+</body>
+</html>
