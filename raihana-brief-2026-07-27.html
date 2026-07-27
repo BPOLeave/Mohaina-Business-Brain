@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raihana BD Brief · 27 July 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0A0A0A;
+    color: #E8E8E8;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    border-top: 3px solid #E8294C;
+    padding-top: 20px;
+    margin-bottom: 28px;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #E8294C;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 12px;
+    color: #888;
+  }
+  .intro-line {
+    background: #141414;
+    border-left: 3px solid #E8294C;
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: #CCC;
+    margin-bottom: 24px;
+  }
+
+  /* Alert banners */
+  .alert {
+    padding: 11px 14px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .alert-red { background: #2A0A0A; border: 1px solid #C0392B; }
+  .alert-amber { background: #2A1F0A; border: 1px solid #B8860B; }
+  .alert-blue { background: #0A0F2A; border: 1px solid #2255CC; }
+  .alert-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+  .alert-text { color: #DDD; }
+  .alert-text strong { color: #FFF; }
+  .alerts-wrap { margin-bottom: 28px; }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #222;
+  }
+  .section-number {
+    background: #E8294C;
+    color: #FFF;
+    font-size: 11px;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFF;
+  }
+  .section-count {
+    margin-left: auto;
+    font-size: 11px;
+    color: #666;
+    font-weight: 500;
+  }
+
+  /* Table */
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table th {
+    background: #161616;
+    color: #999;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #2A2A2A;
+  }
+  .data-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #1A1A1A;
+    vertical-align: top;
+    font-size: 13px;
+    color: #CCC;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: #111; }
+  .data-table td strong { color: #EEE; }
+  .data-table td .sub { font-size: 11px; color: #666; margin-top: 2px; }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-red { background: #3D0B0B; color: #FF6B6B; border: 1px solid #8B0000; }
+  .badge-amber { background: #3D2B0B; color: #FFC107; border: 1px solid #996600; }
+  .badge-green { background: #0B2E1A; color: #4ADE80; border: 1px solid #166534; }
+  .badge-grey { background: #1E1E1E; color: #888; border: 1px solid #333; }
+  .badge-blue { background: #0B1A3D; color: #60A5FA; border: 1px solid #1E3A8A; }
+
+  /* Send badge */
+  .send-yes { color: #4ADE80; font-weight: 700; font-size: 12px; }
+  .send-urgent { color: #FF6B6B; font-weight: 700; font-size: 12px; }
+  .send-final { color: #FFC107; font-weight: 700; font-size: 12px; }
+
+  /* Note box */
+  .note-box {
+    background: #111;
+    border: 1px solid #222;
+    border-left: 3px solid #444;
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+  }
+
+  /* Completed grid */
+  .completed-grid { display: grid; gap: 10px; }
+  .completed-card {
+    background: #111;
+    border: 1px solid #1E1E1E;
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+  .completed-card-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .completed-card-value {
+    font-size: 13px;
+    color: #CCC;
+  }
+  .win-card {
+    background: #0B2E1A;
+    border: 1px solid #166534;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+  }
+  .win-card-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #4ADE80;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .win-card-value {
+    font-size: 14px;
+    color: #D1FAE5;
+    font-weight: 600;
+  }
+  .win-card-sub { font-size: 12px; color: #6EE7B7; margin-top: 3px; }
+
+  /* Footer */
+  .reminder-box {
+    background: #141414;
+    border: 1px solid #E8294C33;
+    border-left: 3px solid #E8294C;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 12px;
+    color: #AAA;
+    font-style: italic;
+  }
+  .footer {
+    padding-top: 16px;
+    border-top: 1px solid #1A1A1A;
+    font-size: 11px;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .score { font-weight: 600; }
+  .score-9 { color: #FF6B6B; }
+  .score-8 { color: #FFC107; }
+  .score-7 { color: #60A5FA; }
+  .score-6 { color: #888; }
+
+  @media (max-width: 600px) {
+    .data-table { font-size: 12px; }
+    .data-table th, .data-table td { padding: 8px 8px; }
+    .header h1 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-label">BPOAS · Business Development</div>
+    <h1>Raihana Daily Brief · Monday 27 July 2026</h1>
+    <div class="header-sub">Generated: 07:30 UAE (GST / UTC+4) · Auto-generated via /raihana-daily-brief · r.asira@bposervicegroup.com</div>
+  </div>
+
+  <div class="intro-line">
+    Here is your prospect queue and follow-up list for today. All first-contact messages on 9–10 scored prospects require Mohaina's approval before sending.
+  </div>
+
+  <!-- Critical Alerts -->
+  <div class="alerts-wrap">
+    <div class="alert alert-red">
+      <span class="alert-icon">🚨</span>
+      <span class="alert-text"><strong>Trade Licence 809563 — expired 25 July.</strong> Confirm renewal status with Mohaina before any client-facing work today. WPS payroll blocked for all staff if lapsed.</span>
+    </div>
+    <div class="alert alert-red">
+      <span class="alert-icon">🔴</span>
+      <span class="alert-text"><strong>CIT Penalty Waiver deadline — 31 July (4 days).</strong> Assigned to Mohaina / Warren / Cristina. Client sweep must be underway this week.</span>
+    </div>
+    <div class="alert alert-red">
+      <span class="alert-icon">🔴</span>
+      <span class="alert-text"><strong>Pipeline Status Report — 10 days overdue</strong> (due 17 Jul). Submit to Mohaina first thing today. Non-negotiable — include all pipeline movements, outreach log, lead status.</span>
+    </div>
+    <div class="alert alert-red">
+      <span class="alert-icon">🚨</span>
+      <span class="alert-text"><strong>Brilliant Telecom LLC partner letters — 12 days past 15 Jul deadline.</strong> Client on vacation since 20 Jul. Attempt all numbers this morning. Escalate to Mohaina same day if still unreachable. CIT filing at risk.</span>
+    </div>
+  </div>
+
+  <!-- Section 1: Send Queue -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <div class="section-title">Today's Send Queue</div>
+      <div class="section-count">5 actions</div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Prospect · Contact</th>
+          <th>Company</th>
+          <th>Action · Message</th>
+          <th>Send Today</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <strong>Raihana / Cristina Suyom</strong>
+            <div class="sub">Partner confirmation letters</div>
+          </td>
+          <td><strong>Brilliant Telecom LLC</strong></td>
+          <td>12 days past 15 Jul deadline. Client on vacation since 20 Jul. Attempt all phone numbers — morning. Escalate to Mohaina same day if unreachable. CIT filing at risk.</td>
+          <td><span class="send-urgent">🔴 URGENT — AM</span></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Joanne Oquendo</strong>
+            <div class="sub"><span class="score score-8">Score 8/10</span> · VAT + CIT</div>
+          </td>
+          <td><strong>MCM Products Middle East</strong></td>
+          <td>TL + EL signatures outstanding. VAT Refund proposal sent 23 Jul — no response (4 days). Follow up today. Escalate to Mohaina if no response by EOD.</td>
+          <td><span class="send-yes">✅ YES</span></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Chadi</strong>
+            <div class="sub">New inbound inquiry · Zoho Forms 22 Jul</div>
+          </td>
+          <td><strong>Unqualified — New</strong></td>
+          <td>Qualification call assigned by Mohaina (23 Jul COO Brief). Call today — qualify sector, scope, size. Score and log in CRM for Mohaina review.</td>
+          <td><span class="send-yes">✅ YES</span></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>—</strong>
+            <div class="sub">Deregistration cancellation cert</div>
+          </td>
+          <td><strong>Annaka</strong></td>
+          <td>Certificate chase — AED 500/month penalty accruing. One call today. Log outcome same day.</td>
+          <td><span class="send-yes">✅ YES</span></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>—</strong>
+            <div class="sub">Proposal follow-up · 18 days</div>
+          </td>
+          <td><strong>MMG Art Production LLC</strong></td>
+          <td>Proposal sent 9 Jul — 18 days, no reply. Final outreach attempt today. One call. Close the file if no response by EOD. Report outcome to Mohaina.</td>
+          <td><span class="send-final">🟡 FINAL</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      Not in queue — blocked pending Mohaina decision: GL Middle East · Nandhu (<span class="score score-6">Score 6/10</span> · 40 days EL · 19 days past auto-stall) · The Concept Lab · Mr. George (<span class="score score-6">Score 6/10</span> · 39 days EL · 18 days past auto-stall). Richemont / Cartier (<span class="score score-9">Score 9/10</span>) — Mohaina managing directly. Cartier Fragrance new entity — awaiting Mohaina direction.
+    </div>
+  </div>
+
+  <!-- Section 2: Overdue -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <div class="section-title">Overdue Follow-Ups 🔴</div>
+      <div class="section-count">5 items</div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Prospect</th>
+          <th>Overdue</th>
+          <th>Recommended Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Brilliant Telecom LLC</strong><div class="sub">Partner confirmation letters</div></td>
+          <td><span class="badge badge-red">12 days past 15 Jul</span></td>
+          <td>All numbers this morning. Escalate to Mohaina same day if still unreachable. CIT filing at risk.</td>
+        </tr>
+        <tr>
+          <td><strong>Raihana Pipeline Status Report</strong><div class="sub">Internal · due 17 Jul</div></td>
+          <td><span class="badge badge-red">10 days overdue</span></td>
+          <td>Submit to Mohaina today — first thing. Include all pipeline movements, outreach log, lead status. Non-negotiable.</td>
+        </tr>
+        <tr>
+          <td><strong>GL Middle East · Nandhu</strong><div class="sub"><span class="score score-6">Score 6/10</span> · TRC (3 entities)</div></td>
+          <td><span class="badge badge-red">40 days EL · 19 days stalled</span></td>
+          <td>BLOCKED — no Raihana action until Mohaina decides. Mohaina: approve direct call OR close today. Cannot carry another week.</td>
+        </tr>
+        <tr>
+          <td><strong>The Concept Lab · Mr. George</strong><div class="sub"><span class="score score-6">Score 6/10</span> · CIT Filing</div></td>
+          <td><span class="badge badge-red">39 days EL · 18 days stalled</span></td>
+          <td>BLOCKED — CIT 30 Sep deadline in 65 days. Mohaina: approve call OR close today. Do not carry another week.</td>
+        </tr>
+        <tr>
+          <td><strong>MMG Art Production LLC</strong><div class="sub">Proposal sent 9 Jul</div></td>
+          <td><span class="badge badge-amber">18 days — no reply</span></td>
+          <td>Final outreach today. One call. If no reply by EOD — close the file and report to Mohaina.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Section 3: Leads to Verify -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <div class="section-title">Leads to Verify 🟡</div>
+      <div class="section-count">4 leads</div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Company · Sector</th>
+          <th>Contact</th>
+          <th>Source · Date</th>
+          <th>Fit</th>
+          <th>Missing Fields</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Clearfreight International</strong><div class="sub">Logistics / Freight</div></td>
+          <td>Dr. Muhammad Hamid</td>
+          <td>Apify<div class="sub">20 Jul 2026</div></td>
+          <td><span class="score score-7">7/10</span> · Cold</td>
+          <td><span class="badge badge-amber">LinkedIn verification</span> <span class="badge badge-red">CRM upload — Mohaina approval req'd</span></td>
+        </tr>
+        <tr>
+          <td><strong>Infinity Prime</strong><div class="sub">Supply Chain Consulting</div></td>
+          <td>Rachid Maliki</td>
+          <td>Apify<div class="sub">20 Jul 2026</div></td>
+          <td><span class="score score-7">7/10</span> · Warm</td>
+          <td><span class="badge badge-amber">LinkedIn verification</span> <span class="badge badge-red">CRM upload — Mohaina approval req'd</span></td>
+        </tr>
+        <tr>
+          <td><strong>TechHive.ai</strong><div class="sub">Cloud / DevOps / AI</div></td>
+          <td>Sohail Asgher</td>
+          <td>Apify<div class="sub">20 Jul 2026</div></td>
+          <td><span class="score score-6">6/10</span> · Warm</td>
+          <td><span class="badge badge-amber">LinkedIn verification</span> <span class="badge badge-red">CRM upload — Mohaina approval req'd</span></td>
+        </tr>
+        <tr>
+          <td><strong>Chadi</strong><div class="sub">Sector unknown · Inbound</div></td>
+          <td>Chadi</td>
+          <td>Zoho Forms<div class="sub">22 Jul 2026</div></td>
+          <td><span class="badge badge-grey">Unscored</span></td>
+          <td><span class="badge badge-red">Qual call · all fields missing</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      DM sequences drafted for 3 Apify leads (Mohaina's voice) — drafts only, nothing sent. All outreach requires Mohaina's CRM upload approval before any contact.
+    </div>
+  </div>
+
+  <!-- Section 4: Completed This Week -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <div class="section-title">Completed This Week · 20–26 July 2026</div>
+    </div>
+
+    <div class="win-card">
+      <div class="win-card-label">🏆 New Signed This Week</div>
+      <div class="win-card-value">Paluto Restaurant LLC</div>
+      <div class="win-card-sub">EL signed 17 July 2026 · AFS 2025 + CIT Filing Assistance · Onboarding underway · Owner: Raihana / Finance</div>
+    </div>
+
+    <div class="completed-grid">
+      <div class="completed-card">
+        <div class="completed-card-label">Outreach Sent</div>
+        <div class="completed-card-value">5 actions — MCM Products (TL + EL + VAT Refund follow-up) · Annaka certificate chase · Brilliant Telecom partner escalation · GL Middle East stall protocol · The Concept Lab stall protocol</div>
+      </div>
+      <div class="completed-card">
+        <div class="completed-card-label">Responses Received</div>
+        <div class="completed-card-value">Richemont / Raphael Hanna — renewal reply 22 Jul ("I'll review and get back") · Mohaina managing · Camille Samonte — leave monitoring attachment 21 Jul · Chadi — Zoho Forms inquiry 22 Jul · auto-response sent</div>
+      </div>
+      <div class="completed-card">
+        <div class="completed-card-label">Temperature Changes</div>
+        <div class="completed-card-value">Paluto Restaurant LLC — CONVERTED / SIGNED ✅ · Cartier Fragrance new entity — TL confirmed usable · new opportunity now active · awaiting Mohaina direction</div>
+      </div>
+      <div class="completed-card">
+        <div class="completed-card-label">Leads Sourced</div>
+        <div class="completed-card-value">3 via Apify (scraper back after 10+ weeks) — Clearfreight International (7/10) · Infinity Prime (7/10) · TechHive.ai (6/10) · All pending Mohaina CRM approval</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reminder -->
+  <div class="reminder-box">
+    All sequences require Mohaina's approval before first contact on prospects scoring 9 or 10.
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>BPOAS · Raihana Daily Brief · 27 July 2026 · r.asira@bposervicegroup.com</span>
+    <span>⚠ M365 Mail.Send blocked — email delivery unavailable. Brief saved to Notion + GitHub.</span>
+  </div>
+
+</div>
+</body>
+</html>
