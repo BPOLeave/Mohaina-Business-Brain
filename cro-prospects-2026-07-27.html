@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · 27 July 2026 · Purely Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F5607A;
+    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:920px;margin:0 auto;padding:34px 22px 70px;}
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:28px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .lead{font-size:16px;}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:15px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--gray-text);font-size:13px;width:74px;flex-shrink:0;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-red{background:#fdecec;color:var(--bad);} .t-amb{background:#fdf1de;color:var(--warn);}
+  .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-grn{background:#e7f6ee;color:var(--good);} .t-blue{background:#e6f0fc;color:#1E6FE0;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .delta{font-size:13px;font-weight:700;margin-top:2px;} .up{color:var(--good);} .down{color:var(--bad);}
+  .bar{height:14px;border-radius:var(--pill);background:var(--gray-light);overflow:hidden;margin-top:10px;}
+  .bar i{display:block;height:100%;width:0;border-radius:var(--pill);background:linear-gradient(90deg,var(--primary),var(--primary-light));}
+  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
+  .note b{color:var(--primary-light);}
+  .pcard{background:#fff;border:1px solid var(--gray);border-radius:var(--r-lg);box-shadow:var(--sh);padding:22px 24px;margin-bottom:20px;}
+  .pcard .ph{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+  .pcard .nm{font-weight:800;font-size:18px;} .pcard .rl{font-size:13px;color:var(--gray-text);margin-top:2px;}
+  .pcard .scorewrap{display:flex;gap:8px;margin-left:auto;align-items:center;flex-wrap:wrap;}
+  .fitpill{font-size:13px;font-weight:800;padding:5px 13px;border-radius:var(--pill);background:var(--grad);color:#fff;}
+  .minigrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0;}
+  .minibox{background:var(--gray-light);border-radius:10px;padding:8px 10px;font-size:11px;color:var(--gray-text);text-align:center;}
+  .minibox b{display:block;font-size:15px;color:var(--ink);margin-top:2px;font-weight:800;}
+  .hookbox{background:color-mix(in srgb,var(--primary) 6%, #fff);border:1px dashed color-mix(in srgb,var(--primary) 40%, var(--gray));border-radius:10px;padding:12px 14px;margin:12px 0;font-size:14px;font-style:italic;}
+  .flagbox{font-size:13px;background:#fdf1de;color:var(--warn);border-radius:10px;padding:10px 12px;margin:10px 0;}
+  .flagbox.none{background:var(--gray-light);color:var(--gray-text);}
+  .dmlabel{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);margin:14px 0 6px;}
+  .dm{font-size:14px;background:var(--gray-light);border-radius:10px;padding:12px 14px;margin-bottom:2px;line-height:1.55;}
+  .dmmeta{font-size:11px;color:var(--gray-text);margin-bottom:10px;}
+  .holdrow{display:flex;align-items:center;gap:10px;padding:10px 0;font-size:14px;border-bottom:1px solid var(--gray-light);}
+  .holdrow:last-child{border-bottom:none;}
+  .holdrow .hn{font-weight:700;} .holdrow .hr{color:var(--gray-text);font-size:13px;}
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid2,.grid3,.grid4,.minigrid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CRO · Weekly prospect pack</div><h1>10 sourced. 6 matched. 30 DMs drafted.</h1><div class="d">Monday 27 July 2026 · 07:00 UAE · Sourced from icp-mohaina-asira.md via Apify LinkedIn search</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Prospects sourced</div><div class="n"><span class="count" data-to="10">0</span></div></div>
+      <div class="stat"><div class="l">Cleared fit gate (6+)</div><div class="n"><span class="count" data-to="6">0</span></div></div>
+      <div class="stat"><div class="l">DMs drafted</div><div class="n"><span class="count" data-to="30">0</span></div></div>
+    </div>
+
+    <div class="note">No prospect scored 9 or 10 this run, nothing held for Mohaina's personal review before outreach this week. Every DM below is a draft only. Nothing has been sent, no LinkedIn connection requests issued. Written in Mohaina's documented voice (voice-dna-mohaina-asira.md, found in this repo) against icp-mohaina-asira.md and positioning-mohaina-asira.md.</div>
+
+    <div class="sec">The 6 prospects who cleared the fit gate</div>
+
+    <!-- PROSPECT 1 -->
+    <div class="pcard">
+      <div class="ph"><div><div class="nm">Mohamed Keshk</div><div class="rl">Founder, ABTSM (Dubai business setup) · Co-Founder, Al-Aqsa BioLab LIMS (Dubai)</div></div>
+        <div class="scorewrap"><span class="fitpill">Fit 7.5 / 10</span><span class="tagi t-amb">warm</span></div></div>
+      <div class="minigrid">
+        <div class="minibox">Role fit<b>9</b></div>
+        <div class="minibox">Pain fit<b>8</b></div>
+        <div class="minibox">Timing<b>6</b></div>
+        <div class="minibox">Relationship<b>7</b></div>
+      </div>
+      <div style="font-size:13px;color:var(--gray-text)">Communication style: <b style="color:var(--ink)">Driver</b> · numbers-first bio (100+ company setups, 95% first-attempt approval, direct WhatsApp CTA), respects efficiency over warmth. Opening strategy: <b style="color:var(--ink)">Directness Play</b>, matches his own no-forms, no-waiting register.</div>
+      <div class="hookbox">Human Hook: "Running company setup and lab software at once, that's two completely different operating rhythms." <span style="font-style:normal;color:var(--gray-text)">(source: runs ABTSM, a Dubai company-formation firm, alongside Al-Aqsa BioLab LIMS, a lab software company, in parallel)</span></div>
+      <div class="flagbox">Compliance trigger: runs two active entities at once (ABTSM and Al-Aqsa BioLab LIMS) processing 100+ client company registrations a year. That volume plus a second co-founded structure means real multi-entity bookkeeping and CIT exposure, likely on his own back office, not just his clients'.</div>
+
+      <div class="dmlabel">M1 · Connection request</div><div class="dmmeta">Send: now · 175 chars</div>
+      <div class="dm">Hi Mohamed, 18 years inside medical labs before building two of your own ventures is a long runway to the founder chapter. Also based in Dubai. Would be good to connect.</div>
+
+      <div class="dmlabel">M2 · Icebreaker</div><div class="dmmeta">Send: day of connection</div>
+      <div class="dm">Hi Mohamed, I'll skip the build-up. Running company setup and lab software at once, that's two completely different operating rhythms. What made you keep both instead of picking one?</div>
+
+      <div class="dmlabel">M3 · Value bridge</div><div class="dmmeta">Send: day 2 to 3 if no reply · e-invoicing pilot, live since 1 July 2026</div>
+      <div class="dm">Saw the FTA's e-invoicing pilot went live this month, mandatory phase follows after it. Every UAE company will need to be plugged into it eventually, including the ones you're setting up for others. Is that on your radar yet for ABTSM itself?</div>
+
+      <div class="dmlabel">M4 · The pivot</div><div class="dmmeta">Send: day 3 to 4 if no reply</div>
+      <div class="dm">Different question, completely unrelated to the last one. Between running two companies, do you ever get to switch off, or does one always bleed into the other?</div>
+
+      <div class="dmlabel">M5 · Clean exit</div><div class="dmmeta">Send: day 5 to 7 if no reply</div>
+      <div class="dm">I'll leave it here, Mohamed. If our paths cross again, good. Wishing both ABTSM and the lab side a strong rest of the year.</div>
+    </div>
+
+    <!-- PROSPECT 2 -->
+    <div class="pcard">
+      <div class="ph"><div><div class="nm">Pelvi Nanda</div><div class="rl">Founder, two fine jewellery brands (natural and lab-grown diamonds) · Dubai</div></div>
+        <div class="scorewrap"><span class="fitpill">Fit 7.3 / 10</span><span class="tagi t-amb">warm</span></div></div>
+      <div class="minigrid">
+        <div class="minibox">Role fit<b>8</b></div>
+        <div class="minibox">Pain fit<b>7</b></div>
+        <div class="minibox">Timing<b>6</b></div>
+        <div class="minibox">Relationship<b>8</b></div>
+      </div>
+      <div style="font-size:13px;color:var(--gray-text)">Communication style: <b style="color:var(--ink)">Expressive</b> · story-first bio, personal and reflective, invites connection directly. Opening strategy: <b style="color:var(--ink)">Peer Opener</b>, low guard, warm register.</div>
+      <div class="hookbox">Human Hook: "You built the in-between option because it simply didn't exist yet in Dubai." <span style="font-style:normal;color:var(--gray-text)">(source: describes searching months for her own engagement ring and finding only two extremes, then building the middle option herself)</span></div>
+      <div class="flagbox">Compliance trigger: bio mentions "expanding our vision through Lab Jewel Nation", a second brand launch. New product line on high-value inventory usually means fresh VAT and stock-tracking setup that gets bolted on late.</div>
+
+      <div class="dmlabel">M1 · Connection request</div><div class="dmmeta">Send: now · 195 chars</div>
+      <div class="dm">Hi Pelvi, going from searching for your own engagement ring to building two jewellery brands is not the usual founder origin story. Also based in Dubai. Would be good to connect.</div>
+
+      <div class="dmlabel">M2 · Icebreaker</div><div class="dmmeta">Send: day of connection</div>
+      <div class="dm">Great to connect, Pelvi. No agenda on my end. You built the in-between option because it simply didn't exist yet in Dubai, that's a specific kind of stubborn. What made you finally decide to build it instead of keep looking?</div>
+
+      <div class="dmlabel">M3 · Value bridge</div><div class="dmmeta">Send: day 2 to 3 if no reply · e-invoicing pilot, live since 1 July 2026</div>
+      <div class="dm">Saw the FTA's e-invoicing pilot went live this month, mandatory phase is coming next. For high-value pieces like yours, every invoice line matters once it's tied straight to the FTA portal. Has anyone walked you through what that will actually change for a jewellery brand?</div>
+
+      <div class="dmlabel">M4 · The pivot</div><div class="dmmeta">Send: day 3 to 4 if no reply</div>
+      <div class="dm">Different question, off the design topic entirely. Between your two brands, is there one that gets more of your actual attention day to day, or do you split it evenly?</div>
+
+      <div class="dmlabel">M5 · Clean exit</div><div class="dmmeta">Send: day 5 to 7 if no reply</div>
+      <div class="dm">I'll leave it here, Pelvi. Whatever direction Lab Jewel Nation takes from here, hope it finds the same people who were looking for the in-between, same as you were.</div>
+    </div>
+
+    <!-- PROSPECT 3 -->
+    <div class="pcard">
+      <div class="ph"><div><div class="nm">Aariyan Ansari</div><div class="rl">Founder & CEO, ALM Univers · Import-export, logistics, real estate, construction, media · Dubai</div></div>
+        <div class="scorewrap"><span class="fitpill">Fit 6.5 / 10</span><span class="tagi t-grey">cold</span></div></div>
+      <div class="minigrid">
+        <div class="minibox">Role fit<b>8</b></div>
+        <div class="minibox">Pain fit<b>7</b></div>
+        <div class="minibox">Timing<b>5</b></div>
+        <div class="minibox">Relationship<b>6</b></div>
+      </div>
+      <div style="font-size:13px;color:var(--gray-text)">Communication style: <b style="color:var(--ink)">Driver</b> · resume-style bio, scale and achievement language, no personal reflection. Opening strategy: <b style="color:var(--ink)">Directness Play</b>, cold temperature, skip small talk.</div>
+      <div class="hookbox">Human Hook: "Coconut husk chips to four countries is an oddly specific way to start a trading company." <span style="font-style:normal;color:var(--gray-text)">(source: started ALM International in 2013 manufacturing coconut husk chips in Tamil Nadu, now runs operations across USA, UK, UAE, Singapore)</span></div>
+      <div class="flagbox">Compliance trigger: active trading and freight operations spanning USA, UK, UAE and Singapore from a Dubai base signals real cross-border VAT and transfer-pricing exposure under UAE CIT.</div>
+
+      <div class="dmlabel">M1 · Connection request</div><div class="dmmeta">Send: now · 190 chars</div>
+      <div class="dm">Hi Aariyan, an MBA in business admin leading into BPO, call centers, then coco peat exports, freight and real estate, that's a wide arc. Also based in Dubai. Would be good to connect.</div>
+
+      <div class="dmlabel">M2 · Icebreaker</div><div class="dmmeta">Send: day of connection</div>
+      <div class="dm">Hi Aariyan, I'll skip the build-up. Coconut husk chips to four countries is an oddly specific way to start a trading company. What made coco peat the thing you started with, out of everything you could have picked?</div>
+
+      <div class="dmlabel">M3 · Value bridge</div><div class="dmmeta">Send: day 2 to 3 if no reply · e-invoicing pilot, live since 1 July 2026</div>
+      <div class="dm">Saw the FTA's e-invoicing pilot went live this month, mandatory phase follows after it. Running invoicing across USA, UK, UAE and Singapore already, I'd guess cross-border compliance is something you think about more than most. Is the UAE side of that already sorted, or still being worked out?</div>
+
+      <div class="dmlabel">M4 · The pivot</div><div class="dmmeta">Send: day 3 to 4 if no reply</div>
+      <div class="dm">Different question. Running operations across four countries at once, is there one market that's been more work than you expected going in?</div>
+
+      <div class="dmlabel">M5 · Clean exit</div><div class="dmmeta">Send: day 5 to 7 if no reply</div>
+      <div class="dm">I'll leave it here, Aariyan. Four countries and still growing is not a small thing to have built. Wishing ALM Univers a strong stretch ahead.</div>
+    </div>
+
+    <!-- PROSPECT 4 -->
+    <div class="pcard">
+      <div class="ph"><div><div class="nm">Sejal Nagjee</div><div class="rl">Founder, Milestone · Luxury interior design, private villas and estates · Dubai</div></div>
+        <div class="scorewrap"><span class="fitpill">Fit 6.5 / 10</span><span class="tagi t-amb">warm</span></div></div>
+      <div class="minigrid">
+        <div class="minibox">Role fit<b>8</b></div>
+        <div class="minibox">Pain fit<b>6</b></div>
+        <div class="minibox">Timing<b>4</b></div>
+        <div class="minibox">Relationship<b>8</b></div>
+      </div>
+      <div style="font-size:13px;color:var(--gray-text)">Communication style: <b style="color:var(--ink)">Expressive</b> · sensory, reflective bio woven with personal history, values-led not stats-led. Opening strategy: <b style="color:var(--ink)">Peer Opener</b>, warm and low guard.</div>
+      <div class="hookbox">Human Hook: "A decade of professional table tennis before design still shapes how you finish a room." <span style="font-style:normal;color:var(--gray-text)">(source: spent over a decade representing India as a professional table tennis player before founding Milestone)</span></div>
+      <div class="flagbox">Compliance trigger: works with private clients across GCC, India and Europe on bespoke high-value projects. Cross-border billing for design services is a common VAT blind spot for owner-led studios.</div>
+
+      <div class="dmlabel">M1 · Connection request</div><div class="dmmeta">Send: now · 180 chars</div>
+      <div class="dm">Hi Sejal, designing around Feng Shui, Ikebana and biophilic thinking instead of pure aesthetics is a specific point of view. Also based in Dubai. Would be good to connect.</div>
+
+      <div class="dmlabel">M2 · Icebreaker</div><div class="dmmeta">Send: day of connection</div>
+      <div class="dm">Great to connect, Sejal. No agenda on my end. A decade of professional table tennis before design still shapes how you finish a room, that's a real thing to carry between two completely different disciplines. Does that discipline still show up in how you work today?</div>
+
+      <div class="dmlabel">M3 · Value bridge</div><div class="dmmeta">Send: day 2 to 3 if no reply · e-invoicing pilot, live since 1 July 2026</div>
+      <div class="dm">Saw the FTA's e-invoicing pilot went live this month, mandatory phase is coming after it. For private clients across GCC, India and Europe, I'd guess your invoicing already has to flex more than most. Has e-invoicing come up yet with any of your UAE clients?</div>
+
+      <div class="dmlabel">M4 · The pivot</div><div class="dmmeta">Send: day 3 to 4 if no reply</div>
+      <div class="dm">Different question, nothing to do with design. Table tennis is a game of small margins. Does that instinct for small margins still show up in how you run Milestone day to day?</div>
+
+      <div class="dmlabel">M5 · Clean exit</div><div class="dmmeta">Send: day 5 to 7 if no reply</div>
+      <div class="dm">I'll leave it here, Sejal. Whatever room you're finishing next, hope it's one that stays with the client the way you intend. Wishing Milestone well.</div>
+    </div>
+
+    <!-- PROSPECT 5 -->
+    <div class="pcard">
+      <div class="ph"><div><div class="nm">Rami Chedid</div><div class="rl">Founder & CEO, 360Basirah & RDC Partners · Credit intelligence, ex-banking and fintech CEO · Dubai</div></div>
+        <div class="scorewrap"><span class="fitpill">Fit 6.3 / 10</span><span class="tagi t-grey">cold</span></div></div>
+      <div class="minigrid">
+        <div class="minibox">Role fit<b>8</b></div>
+        <div class="minibox">Pain fit<b>7</b></div>
+        <div class="minibox">Timing<b>5</b></div>
+        <div class="minibox">Relationship<b>5</b></div>
+      </div>
+      <div style="font-size:13px;color:var(--gray-text)">Communication style: <b style="color:var(--ink)">Analytical</b> · credential-stacked headline, precise and structured, evidence-led. Opening strategy: <b style="color:var(--ink)">Directness Play</b>, lead with a specific credible observation.</div>
+      <div class="hookbox">Human Hook: "Building 360Basirah and RDC Partners at once, that's running two credit ventures in parallel." <span style="font-style:normal;color:var(--gray-text)">(source: headline lists both 360Basirah and RDC Partners as active, self-founded ventures, alongside prior CEO roles in banking and fintech)</span></div>
+      <div class="flagbox">Compliance trigger: two entities under active build. Standing up parallel UAE structures at the same time usually means two sets of books started from scratch, both needing clean CIT registration from day one.</div>
+
+      <div class="dmlabel">M1 · Connection request</div><div class="dmmeta">Send: now · 185 chars</div>
+      <div class="dm">Hi Rami, 20 plus years across banking and fintech CEO roles before building your own ventures is a long, deliberate runway. Also based in Dubai. Would be good to connect.</div>
+
+      <div class="dmlabel">M2 · Icebreaker</div><div class="dmmeta">Send: day of connection</div>
+      <div class="dm">Hi Rami, I'll skip the formalities. Building 360Basirah and RDC Partners at once, that's running two credit ventures in parallel, not one. What made you build two instead of picking the stronger idea and going all in on it?</div>
+
+      <div class="dmlabel">M3 · Value bridge</div><div class="dmmeta">Send: day 2 to 3 if no reply · e-invoicing pilot, live since 1 July 2026</div>
+      <div class="dm">Saw the FTA's e-invoicing pilot went live this month, mandatory phase follows. Standing up two entities at the same time usually means two sets of books getting built from scratch. Are both structured the way you want them yet, or still being worked out?</div>
+
+      <div class="dmlabel">M4 · The pivot</div><div class="dmmeta">Send: day 3 to 4 if no reply</div>
+      <div class="dm">Different question. Between banking, fintech CEO roles and now building your own ventures, which version of the work has actually been the hardest?</div>
+
+      <div class="dmlabel">M5 · Clean exit</div><div class="dmmeta">Send: day 5 to 7 if no reply</div>
+      <div class="dm">I'll leave it here, Rami. Two ventures at once is a lot to carry well. Wishing 360Basirah and RDC Partners a strong stretch ahead.</div>
+    </div>
+
+    <!-- PROSPECT 6 -->
+    <div class="pcard">
+      <div class="ph"><div><div class="nm">Syed Anzar Uddin</div><div class="rl">Founder & Managing Director, RMG Solutions · Talent acquisition, HR & IT services · Dubai</div></div>
+        <div class="scorewrap"><span class="fitpill">Fit 6.3 / 10</span><span class="tagi t-amb">warm</span></div></div>
+      <div class="minigrid">
+        <div class="minibox">Role fit<b>8</b></div>
+        <div class="minibox">Pain fit<b>6</b></div>
+        <div class="minibox">Timing<b>5</b></div>
+        <div class="minibox">Relationship<b>6</b></div>
+      </div>
+      <div style="font-size:13px;color:var(--gray-text)">Communication style: <b style="color:var(--ink)">Amiable</b> · collaborative, service-oriented framing, sincere and open tone. Opening strategy: <b style="color:var(--ink)">Peer Opener</b>, takes its time, mutual benefit.</div>
+      <div class="hookbox">Human Hook: "You built RMG to work both sides, for the company and for the candidate." <span style="font-style:normal;color:var(--gray-text)">(source: describes RMG Solutions as helping businesses hire fast while also supporting candidates in finding roles that genuinely match their goals)</span></div>
+      <div class="flagbox none">Compliance trigger: none detected. Standard recruitment and HR services firm, no explicit public signal beyond ordinary SME VAT and CIT exposure.</div>
+
+      <div class="dmlabel">M1 · Connection request</div><div class="dmmeta">Send: now · 165 chars</div>
+      <div class="dm">Hi Syed, listing your direct email and number right in your headline is not something most founders do. Also based in Dubai. Would be good to connect.</div>
+
+      <div class="dmlabel">M2 · Icebreaker</div><div class="dmmeta">Send: day of connection</div>
+      <div class="dm">Great to connect, Syed. No agenda on my end. You built RMG to work both sides, for the company and for the candidate, that's a harder balance than most recruiters even attempt. Which side do you find yourself defending more often?</div>
+
+      <div class="dmlabel">M3 · Value bridge</div><div class="dmmeta">Send: day 2 to 3 if no reply · e-invoicing pilot, live since 1 July 2026</div>
+      <div class="dm">Saw the FTA's e-invoicing pilot went live this month, mandatory phase is coming next. For a services firm like RMG, invoicing clients properly through the new system is going to matter more than people expect. Has that come up with your own setup yet?</div>
+
+      <div class="dmlabel">M4 · The pivot</div><div class="dmmeta">Send: day 3 to 4 if no reply</div>
+      <div class="dm">Different question. Placing the right person is one kind of win. Is there a specific placement that still sticks with you as the one that mattered most?</div>
+
+      <div class="dmlabel">M5 · Clean exit</div><div class="dmmeta">Send: day 5 to 7 if no reply</div>
+      <div class="dm">I'll leave it here, Syed. Hope RMG keeps bridging the right people to the right roles. Wishing you a strong stretch ahead.</div>
+    </div>
+
+    <div class="sec">Held this cycle, below the fit gate (4 of 10)</div>
+    <div class="card">
+      <div class="holdrow"><div><div class="hn">Farid Ahmed</div><div class="hr">Co-Founder, Embarc Consulting · Amazon and Walmart growth agency, Dubai</div></div><span class="tagi t-grey" style="margin-left:auto">5.8 / 10</span></div>
+      <div class="holdrow"><div><div class="hn">Jakir Shaikh</div><div class="hr">GM Operations & Consumer Experience, Admiral Appliances and Electronics</div></div><span class="tagi t-grey" style="margin-left:auto">5.5 / 10</span></div>
+      <div class="holdrow"><div><div class="hn">Roman K.</div><div class="hr">Co-Founder & CTO, WalletSuite · ex-Binance, crypto wallet infrastructure</div></div><span class="tagi t-grey" style="margin-left:auto">5.0 / 10</span></div>
+      <div class="holdrow"><div><div class="hn">Kiran D'costa</div><div class="hr">Operations Manager, Glow Power Rental · profile has no About section, insufficient signal for a genuine hook</div></div><span class="tagi t-grey" style="margin-left:auto">3.3 / 10</span></div>
+    </div>
+    <div style="font-size:13px;color:var(--gray-text);margin-top:-4px">Reasoning by prospect: Farid, timing and relationship signals were both thin, agency's own compliance pain is inferred not evidenced. Jakir, senior operator but likely not the vendor decision-maker, and Admiral's scale may already carry in-house finance. Roman, technical co-founder rather than the finance decision-maker, and an ex-Binance background suggests sophisticated finance ops may already exist. Kiran, the profile had no About section and no content to build a genuine, specific hook from, per the Prospector rule this gets flagged rather than invented.</div>
+
+    <div class="sec">System notes</div>
+    <div class="grid2">
+      <div class="card"><h4>Reference docs</h4>
+        <div class="row">icp-mohaina-asira.md<span class="tagi t-grn">found</span></div>
+        <div class="row">voice-dna-mohaina-asira.md<span class="tagi t-grn">found</span></div>
+        <div class="row">positioning-mohaina-asira.md<span class="tagi t-grn">found, no hex color specified</span></div>
+      </div>
+      <div class="card"><h4>Apify LinkedIn search</h4>
+        <div class="row">3 search passes, harvestapi/linkedin-profile-search<span class="tagi t-grn">succeeded</span></div>
+        <div class="row">47 raw profiles returned, 10 selected against ICP<span class="tagi t-grey">manual screen</span></div>
+      </div>
+    </div>
+
+    <div class="note">⚠ <b>Delivery note:</b> this routine's instruction was to send a summary email via Microsoft 365 to m.asira@bposervicegroup.com. No send-capable Microsoft 365 tool (send mail, create draft, or create event) was available in this session, only search and calendar read tools. Delivered instead via this HTML file, committed to the Mohaina-Business-Brain repo, and a matching Notion summary page.</div>
+
+    <div class="note" style="margin-top:14px">Open Mohamed Keshk first: highest fit score this week at 7.5, warm temperature, and a compliance trigger with real substance, two active entities running in parallel. Every DM above is a draft. Mohaina and Raihana review before anything is sent.</div>
+
+  </div>
+  <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.card,.stat,.pcard,.note,.bar',{y:20,opacity:0,duration:.55,stagger:.06,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+      gsap.utils.toArray('.count').forEach(function(el){
+        var to=+el.dataset.to,o={v:0};
+        gsap.to(o,{v:to,duration:1.4,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%'},onUpdate:function(){el.textContent=Math.round(o.v).toLocaleString();}});
+      });
+    });
+  </script>
+</body>
+</html>
