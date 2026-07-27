@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CFO Revenue Report · Week of 27 July 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0A0A0A;
+    --surface: #111111;
+    --surface-2: #1A1A1A;
+    --border: #242424;
+    --brand: #E8294C;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --text: #F0F0F0;
+    --text-2: #888;
+    --text-3: #555;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 24px 16px 48px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .header {
+    border-left: 3px solid var(--brand);
+    padding: 4px 0 4px 16px;
+    margin-bottom: 32px;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .header-sub {
+    font-size: 12px;
+    color: var(--text-2);
+    margin-top: 4px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-2);
+  }
+  .card-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-2);
+  }
+  .card-body { padding: 16px; }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  .pill-red { background: rgba(239,68,68,.15); color: var(--red); }
+  .pill-amber { background: rgba(245,158,11,.15); color: var(--amber); }
+  .pill-green { background: rgba(34,197,94,.15); color: var(--green); }
+  .pill-gray { background: rgba(255,255,255,.06); color: var(--text-2); }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .metric {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 14px 16px;
+  }
+  .metric-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    margin-bottom: 6px;
+  }
+  .metric-value {
+    font-size: 22px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+  }
+  .metric-value.red { color: var(--red); }
+  .metric-value.amber { color: var(--amber); }
+  .metric-value.green { color: var(--green); }
+  .metric-value.dim { color: var(--text-2); font-size: 15px; }
+  .metric-sub {
+    font-size: 11px;
+    color: var(--text-3);
+    margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    vertical-align: top;
+    font-variant-numeric: tabular-nums;
+  }
+  table tr:last-child td { border-bottom: none; }
+  table tr:hover td { background: rgba(255,255,255,.02); }
+  .num { text-align: right; font-weight: 600; }
+
+  .flag-row {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    align-items: flex-start;
+  }
+  .flag-row:last-child { border-bottom: none; }
+  .flag-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+  .dot-red { background: var(--red); }
+  .dot-amber { background: var(--amber); }
+  .flag-text { flex: 1; font-size: 13px; line-height: 1.5; }
+  .flag-label { font-weight: 700; }
+  .flag-action { font-size: 12px; color: var(--text-2); margin-top: 2px; }
+
+  .note-box {
+    background: rgba(245,158,11,.07);
+    border: 1px solid rgba(245,158,11,.25);
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--amber);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .inline-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: rgba(255,255,255,.07);
+    color: var(--text-2);
+    margin-left: 4px;
+  }
+
+  .footer {
+    margin-top: 32px;
+    font-size: 11px;
+    color: var(--text-3);
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">BPOAS · Step 2 · CFO Weekly Revenue</div>
+  <div class="header-title">CFO Revenue Report · Week of 27 July 2026</div>
+  <div class="header-sub">Generated: Monday 27 July 2026 · BPOAS Daily Start Routine · Auto-generated</div>
+</div>
+
+<div class="note-box">
+  ⚠ <strong>Data limitation:</strong> Zoho Analytics sync failed again from midnight 27 July (after recovering 25 Jul). Zoho Books accessible directly via COO session this morning — primary BPOAS org data used for overdue receivables. Full 35-org rollup unavailable. Revenue collected (MTD) not queryable without Zoho Analytics. Monthly target not on file (flagged every run since 2 July 2026).
+</div>
+
+<div class="metric-grid">
+  <div class="metric">
+    <div class="metric-label">Overdue Receivables · Primary Org</div>
+    <div class="metric-value red">AED 62,450</div>
+    <div class="metric-sub">16 invoices · live as of today's COO session</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Overdue Receivables · All Orgs (carry-fwd)</div>
+    <div class="metric-value amber">AED 215,279</div>
+    <div class="metric-sub">40 invoices · carry-forward from 17 Jul · Zoho Analytics down</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Revenue Collected MTD</div>
+    <div class="metric-value dim">Unavailable</div>
+    <div class="metric-sub">Zoho Analytics sync failure</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Monthly Target</div>
+    <div class="metric-value dim">Not on file</div>
+    <div class="metric-sub">Flagged every run since 2 Jul 2026</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Days Remaining · July</div>
+    <div class="metric-value amber">4</div>
+    <div class="metric-sub">Month ends 31 July</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">New Signed · July</div>
+    <div class="metric-value green">1</div>
+    <div class="metric-sub">Paluto Restaurant LLC · signed 17 Jul</div>
+  </div>
+</div>
+
+<!-- Known Overdue Invoices -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">Known Overdue Receivables</div>
+    <span class="status-pill pill-red">Requires Action</span>
+  </div>
+  <div class="card-body" style="padding:0; overflow-x:auto;">
+    <table>
+      <thead>
+        <tr>
+          <th>Client</th>
+          <th>Invoice / Detail</th>
+          <th>Days Overdue</th>
+          <th class="num">AED</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Richemont (Dubai) FZE</strong></td>
+          <td>3 invoices · Bookkeeping + CIT</td>
+          <td style="color:var(--red)">~8 days avg (updated)</td>
+          <td class="num" style="color:var(--red)">58,254</td>
+          <td><span class="status-pill pill-red">Largest block</span></td>
+        </tr>
+        <tr>
+          <td><strong>EXLIBRIS Management FZCO</strong></td>
+          <td>INV-2025-000354</td>
+          <td style="color:var(--red)">~243 days</td>
+          <td class="num" style="color:var(--red)">6,300</td>
+          <td><span class="status-pill pill-red">Escalate / Write-off</span></td>
+        </tr>
+        <tr>
+          <td>Other clients (primary org)</td>
+          <td>~14 invoices</td>
+          <td>—</td>
+          <td class="num" style="color:var(--amber)">~57,896</td>
+          <td><span class="status-pill pill-amber">Detail in Zoho Books</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-2)">Other orgs (35 total)</td>
+          <td style="color:var(--text-2)">~24 invoices carry-fwd</td>
+          <td style="color:var(--text-2)">Various</td>
+          <td class="num" style="color:var(--text-2)">~152,830</td>
+          <td><span class="status-pill pill-gray">Zoho Analytics down</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Pipeline Health -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">Pipeline Health · 27 July 2026</div>
+  </div>
+  <div class="card-body" style="padding:0; overflow-x:auto;">
+    <table>
+      <thead>
+        <tr>
+          <th>Prospect / Client</th>
+          <th>Service</th>
+          <th>Score</th>
+          <th>Stage</th>
+          <th>Status / Next Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Paluto Restaurant LLC</strong></td>
+          <td>AFS 2025 + CIT</td>
+          <td style="color:var(--green)">SIGNED</td>
+          <td>Onboarding</td>
+          <td><span class="status-pill pill-green">✓ Converted 17 Jul</span></td>
+        </tr>
+        <tr>
+          <td><strong>Richemont / Cartier</strong></td>
+          <td>CIT + Bookkeeping</td>
+          <td>9/10</td>
+          <td>Active client</td>
+          <td><span class="status-pill pill-red">AED 58,254 overdue · Mohaina managing</span></td>
+        </tr>
+        <tr>
+          <td><strong>Cartier Fragrance</strong> (new entity)</td>
+          <td>Bookkeeping</td>
+          <td>9/10</td>
+          <td>Proposal sent 25 Jul</td>
+          <td><span class="status-pill pill-amber">Awaiting Mohaina direction</span></td>
+        </tr>
+        <tr>
+          <td><strong>Halton Middle East FZE</strong></td>
+          <td>CIT + Transfer Pricing</td>
+          <td>SIGNED</td>
+          <td>Delivery</td>
+          <td><span class="status-pill pill-amber">Bank details missing</span></td>
+        </tr>
+        <tr>
+          <td><strong>MCM Products Middle East</strong></td>
+          <td>VAT + CIT</td>
+          <td>8/10</td>
+          <td>KYC active</td>
+          <td><span class="status-pill pill-amber">VAT refund proposal 4 days no reply · TL+EL unsigned</span></td>
+        </tr>
+        <tr>
+          <td><strong>Gulf Seatech FZC</strong></td>
+          <td>Audit Assist FY2025</td>
+          <td>7/10</td>
+          <td>Proposal sent</td>
+          <td><span class="status-pill pill-green">KYC docs received · Warren monitoring</span></td>
+        </tr>
+        <tr>
+          <td><strong>GL Middle East / Nandhu</strong></td>
+          <td>TRC (3 entities)</td>
+          <td>6/10</td>
+          <td style="color:var(--red)">BLOCKED</td>
+          <td><span class="status-pill pill-red">40 days EL · Mohaina decision today</span></td>
+        </tr>
+        <tr>
+          <td><strong>The Concept Lab / George</strong></td>
+          <td>CIT Filing</td>
+          <td>6/10</td>
+          <td style="color:var(--red)">BLOCKED</td>
+          <td><span class="status-pill pill-red">39 days EL · CIT 30 Sep · Decision today</span></td>
+        </tr>
+        <tr>
+          <td><strong>MMG Art Production LLC</strong></td>
+          <td>CIT + Audited FS</td>
+          <td>—</td>
+          <td>Proposal</td>
+          <td><span class="status-pill pill-amber">18 days no reply · Final attempt today</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Retainer Renewal Tracker -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">Retainer Renewal Tracker</div>
+    <span class="status-pill pill-red">Data Gap</span>
+  </div>
+  <div class="card-body">
+    <p style="font-size:13px; color:var(--text-2); line-height:1.6;">No retainer contract database in Notion. Renewal dates, contract values, and revenue-at-risk from renewals cannot be calculated. <strong style="color:var(--amber)">Flag carried from every CFO report since 2 July 2026.</strong> Recommend creating a Retainer Contracts database this week — 4 days remain in July and any renewal due in August needs to be identified now.</p>
+  </div>
+</div>
+
+<!-- Flags -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">Flags for Mohaina · CFO</div>
+  </div>
+  <div class="card-body">
+    <div class="flag-row">
+      <div class="flag-dot dot-red"></div>
+      <div class="flag-text">
+        <div class="flag-label">Receivables trending — AED 215,279 / 40 invoices (carry-fwd 17 Jul)</div>
+        <div class="flag-action">Live primary-org figure: AED 62,450 / 16 invoices. Full reconciliation needed. Confirm with Junaifa whether any collections occurred over the weekend.</div>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-dot dot-red"></div>
+      <div class="flag-text">
+        <div class="flag-label">EXLIBRIS INV-2025-000354 — 243 days overdue · AED 6,300</div>
+        <div class="flag-action">No resolution in any brief. Escalation or write-off decision needed this week.</div>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-dot dot-red"></div>
+      <div class="flag-text">
+        <div class="flag-label">Richemont discovery call (14 Jul) — outcome never logged · 13 days on</div>
+        <div class="flag-action">Same client has AED 58,254 overdue. Log the 14 Jul call outcome in Notion today. Cartier Fragrance new entity also now active.</div>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-dot dot-amber"></div>
+      <div class="flag-text">
+        <div class="flag-label">No monthly revenue target on file</div>
+        <div class="flag-action">Flagged every run since 2 July. Run-rate vs target gap cannot be calculated. Set a July target — even a carry-forward from June — before this report runs next Monday.</div>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-dot dot-amber"></div>
+      <div class="flag-text">
+        <div class="flag-label">No retainer contract database — revenue-at-risk from renewals unknown</div>
+        <div class="flag-action">Flagged since 2 July. Minimum viable fix: a simple Notion table with client name, retainer AED value, and renewal month.</div>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-dot dot-amber"></div>
+      <div class="flag-text">
+        <div class="flag-label">Zoho Analytics sync failure — since midnight 27 July</div>
+        <div class="flag-action">Brief recovery 25–26 Jul; now failing again. Check the Zoho Analytics workspace. Full AR rollup and MTD revenue figures unavailable until resolved.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Auto-generated · BPOAS CFO Weekly · Week of 27 July 2026 · Step 2 · BPOAS Daily Start<br>
+  Zoho Books: PARTIAL (primary org live via COO session · full 35-org rollup unavailable · Zoho Analytics sync failure)<br>
+  M365 Mail.Send: UNAVAILABLE · Day 25 · Delivered via HTML file only
+</div>
+
+</body>
+</html>

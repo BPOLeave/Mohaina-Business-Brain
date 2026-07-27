@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Content Calendar · Week of 27 July 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0A0A0A;
+    --surface: #111111;
+    --surface-2: #1A1A1A;
+    --border: #242424;
+    --brand: #E8294C;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --text: #F0F0F0;
+    --text-2: #888;
+    --text-3: #555;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 24px 16px 48px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .header {
+    border-left: 3px solid var(--brand);
+    padding: 4px 0 4px 16px;
+    margin-bottom: 32px;
+  }
+  .header-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 6px;
+  }
+  .header-title { font-size: 22px; font-weight: 700; line-height: 1.2; }
+  .header-sub { font-size: 12px; color: var(--text-2); margin-top: 4px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-2);
+  }
+  .card-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-2);
+  }
+  .card-body { padding: 16px; }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  .pill-red { background: rgba(239,68,68,.15); color: var(--red); }
+  .pill-amber { background: rgba(245,158,11,.15); color: var(--amber); }
+  .pill-green { background: rgba(34,197,94,.15); color: var(--green); }
+  .pill-brand { background: rgba(232,41,76,.15); color: var(--brand); }
+  .pill-gray { background: rgba(255,255,255,.06); color: var(--text-2); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  table td {
+    padding: 11px 12px;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  table tr:last-child td { border-bottom: none; }
+
+  .day-badge {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  .pillar-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-top: 4px;
+  }
+  .pt-compliance { background: rgba(239,68,68,.12); color: var(--red); }
+  .pt-story { background: rgba(99,179,237,.12); color: #63B3ED; }
+  .pt-numbers { background: rgba(167,139,250,.12); color: #A78BFA; }
+  .pt-cost { background: rgba(251,146,60,.12); color: #FB923C; }
+  .pt-tech { background: rgba(34,197,94,.12); color: var(--green); }
+
+  .done-row td { opacity: 0.65; }
+  .done-mark {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--green);
+    white-space: nowrap;
+  }
+
+  .pulse-item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    align-items: flex-start;
+    font-size: 13px;
+  }
+  .pulse-item:last-child { border-bottom: none; }
+  .pulse-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .dot-red { background: var(--red); }
+  .dot-green { background: var(--green); }
+
+  .flag-row {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    align-items: flex-start;
+  }
+  .flag-row:last-child { border-bottom: none; }
+  .flag-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .dot-amber { background: var(--amber); }
+  .flag-text { flex: 1; font-size: 13px; line-height: 1.5; }
+  .flag-label { font-weight: 700; }
+  .flag-action { font-size: 12px; color: var(--text-2); margin-top: 2px; }
+
+  .footer {
+    margin-top: 32px;
+    font-size: 11px;
+    color: var(--text-3);
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">BPOAS · Step 5 · Content Calendar</div>
+  <div class="header-title">Content Calendar · Week of 27–31 July 2026</div>
+  <div class="header-sub">Generated: Monday 27 July 2026 · Auto-generated via /content-calendar-generator</div>
+</div>
+
+<!-- Compliance Pulse -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">Section 1 — Compliance Pulse</div>
+  </div>
+  <div class="card-body">
+    <div class="pulse-item">
+      <div class="pulse-dot dot-red"></div>
+      <div><strong style="color:var(--red)">CRITICAL — CIT late-registration penalty waiver closes 31 July 2026 (4 days).</strong> Businesses that missed CIT registration may still avoid the AED 10,000 late penalty by filing within the waiver window and settling the tax due. Auto-credit applies if already paid. Monday's post uses this angle — <em>flag: Mohaina/Warren accuracy check required before approve.</em></div>
+    </div>
+    <div class="pulse-item">
+      <div class="pulse-dot dot-red"></div>
+      <div><strong style="color:var(--red)">BPOAS Trade Licence 809563 — EXPIRED 25 July 2026.</strong> WPS payroll blocked for all staff if renewal not confirmed. No post angle this week — internal operational crisis, not content material until resolved.</div>
+    </div>
+    <div class="pulse-item">
+      <div class="pulse-dot dot-green"></div>
+      <div><strong>eInvoicing pilot ongoing since 1 July 2026.</strong> Voluntary only — no penalties during pilot. Mandatory go-live: 1 Jan 2027 (AED 50M+ revenue), 1 Jul 2027 (SMEs). Friday's post uses this angle.</div>
+    </div>
+    <div class="pulse-item">
+      <div class="pulse-dot dot-green"></div>
+      <div>No new AML/DNFBP circular in the last 7 days. DMCC FZCO transition deadline (30 Jun) passed — no further action required this week.</div>
+    </div>
+    <div class="pulse-item">
+      <div class="pulse-dot dot-green"></div>
+      <div>No new free zone regulatory change (DMCC / DIFC / JAFZA / DAFZA / SPC / RAKEZ) this week.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Content Debt Tracker -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">Section 2 — Content Debt Tracker</div>
+  </div>
+  <div class="card-body" style="padding:0; overflow-x:auto;">
+    <table>
+      <thead>
+        <tr>
+          <th>Period</th>
+          <th>Item</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Week of 20–24 Jul 2026</td>
+          <td>5 posts generated · approval status unknown (M365 send blocked day 25)</td>
+          <td><span class="status-pill pill-amber">Confirm with Rei — which ran? Which held?</span></td>
+        </tr>
+        <tr>
+          <td>Week of 29 Jun 2026</td>
+          <td>Duplicate-entry database — 5 rows confirmed vs 5 unmarked</td>
+          <td><span class="status-pill pill-amber">21+ days past intended publish — recommend closing out</span></td>
+        </tr>
+        <tr>
+          <td>LinkedIn approval backlog</td>
+          <td>Multiple posts held pending M365 connector fix</td>
+          <td><span class="status-pill pill-red">Fix Mail.Send scope in Claude connector settings first</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Weekly Calendar -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">Section 3 — Weekly Calendar · 27–31 July 2026</div>
+  </div>
+  <div class="card-body" style="padding:0; overflow-x:auto;">
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Pillar</th>
+          <th>Topic / Angle</th>
+          <th>Format</th>
+          <th>CTA</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="done-row">
+          <td>
+            <div class="day-badge" style="color:var(--text-2)">Mon 27 Jul</div>
+            <div style="font-size:11px; color:var(--text-3)">Today</div>
+          </td>
+          <td>
+            <div>Compliance Without the Panic</div>
+            <div class="pillar-tag pt-compliance">Compliance</div>
+          </td>
+          <td>CIT late-registration penalty waiver — 4 days left, AED 10,000 exposure, what "filed" actually means</td>
+          <td>Framework List · Curiosity Gap hook</td>
+          <td>Book a 30-minute compliance review.</td>
+          <td><span class="done-mark">✓ Generated — Pending Approval</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="day-badge" style="color:#63B3ED">Tue 28 Jul</div>
+          </td>
+          <td>
+            <div>Inside an Owner-Led Firm</div>
+            <div class="pillar-tag pt-story">Story</div>
+          </td>
+          <td>Healthcare sector — owner running a clinic discovers their accountant never registered for Corporate Tax. One month before the deadline. What happened next. (Sector rotation: Real Estate last week → Healthcare this week)</td>
+          <td>Story Post</td>
+          <td>Tag a clinic or healthcare business owner who needs to see this.</td>
+          <td><span class="status-pill pill-gray">Queue</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="day-badge" style="color:#A78BFA">Wed 29 Jul</div>
+          </td>
+          <td>
+            <div>What the Numbers Are Telling You</div>
+            <div class="pillar-tag pt-numbers">Numbers</div>
+          </td>
+          <td>3 things your accountant should be sending you every month but probably isn't: gross margin %, debtor days, cash conversion cycle. Most SME owners have never seen all three in one place.</td>
+          <td>Framework List</td>
+          <td>Save this and ask your accountant for these three — this week.</td>
+          <td><span class="status-pill pill-gray">Queue</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="day-badge" style="color:#FB923C">Thu 30 Jul</div>
+          </td>
+          <td>
+            <div>The True Cost of Cheap Accounting</div>
+            <div class="pillar-tag pt-cost">Cost of Cheap</div>
+          </td>
+          <td>Tomorrow the waiver window closes. After 31 July the FTA is not obligated to look the other way. What cheap accounting actually cost one client — not just the penalty, but the reconstruction time and the audit exposure. <em>Flag: cites AED 10,000 penalty figure — approval required.</em></td>
+          <td>Urgency / Contrarian</td>
+          <td>Book a review while there's still a day left.</td>
+          <td><span class="status-pill pill-red">Flag · Approval required</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="day-badge" style="color:var(--green)">Fri 31 Jul</div>
+          </td>
+          <td>
+            <div>Tech & Automation</div>
+            <div class="pillar-tag pt-tech">Tech</div>
+          </td>
+          <td>UAE eInvoicing pilot is live. Most businesses are doing nothing, waiting. Here is what "being ready" actually looks like in Zoho Books or Odoo — not what the mandate says, but what the setup requires today.</td>
+          <td>Soft-Sell Framework</td>
+          <td>DM me SYSTEMS and I'll tell you what your setup is missing.</td>
+          <td><span class="status-pill pill-gray">Queue</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Pillar Rotation -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">Section 4 — Pillar Rotation Status</div>
+  </div>
+  <div class="card-body" style="padding:0; overflow-x:auto;">
+    <table>
+      <thead>
+        <tr>
+          <th>Pillar</th>
+          <th>This Week</th>
+          <th>Last Used</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Compliance Without the Panic</td>
+          <td>Monday 27 Jul</td>
+          <td>Mon 20 Jul</td>
+          <td><span class="status-pill pill-green">✅ In rotation</span></td>
+        </tr>
+        <tr>
+          <td>Inside an Owner-Led Firm</td>
+          <td>Tuesday 28 Jul</td>
+          <td>Tue 21 Jul</td>
+          <td><span class="status-pill pill-green">✅ In rotation</span></td>
+        </tr>
+        <tr>
+          <td>What the Numbers Are Telling You</td>
+          <td>Wednesday 29 Jul</td>
+          <td>Wed 22 Jul</td>
+          <td><span class="status-pill pill-green">✅ In rotation</span></td>
+        </tr>
+        <tr>
+          <td>The True Cost of Cheap Accounting</td>
+          <td>Thursday 30 Jul</td>
+          <td>Thu 23 Jul</td>
+          <td><span class="status-pill pill-green">✅ In rotation</span></td>
+        </tr>
+        <tr>
+          <td>Tech & Automation</td>
+          <td>Friday 31 Jul</td>
+          <td>Fri 24 Jul</td>
+          <td><span class="status-pill pill-green">✅ In rotation</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Flags -->
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">Section 5 — Flags for Mohaina · Content</div>
+  </div>
+  <div class="card-body">
+    <div class="flag-row">
+      <div class="flag-dot dot-red"></div>
+      <div class="flag-text">
+        <div class="flag-label">Monday's post (CIT 31 Jul waiver)</div>
+        <div class="flag-action">Explicit approval required before Rei publishes. Post cites AED 10,000 penalty and the 31 July deadline. Recommend Warren verify the exact FTA waiver conditions against the FTA portal before approve. Generated by the CMO run at 07:00 UAE — Notion page and cmo-post-2026-07-27.html. Not yet sent to Rei.</div>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-dot dot-red"></div>
+      <div class="flag-text">
+        <div class="flag-label">Thursday's post (after-waiver angle, AED 10,000 penalty)</div>
+        <div class="flag-action">Also cites the penalty figure and regulatory deadline — explicit approval required before Thursday's publish. Warren accuracy check same as Monday's.</div>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-dot dot-red"></div>
+      <div class="flag-text">
+        <div class="flag-label">M365 Mail.Send — Day 25</div>
+        <div class="flag-action">Approval emails to Mohaina and forwarding to Rei Nald Onella (reinald.onella1@gmail.com) remain blocked. Fix: add Mail.Send and Mail.ReadWrite scopes in the Claude connector settings for Microsoft 365. This single fix unblocks the entire approval → Rei handoff pipeline.</div>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-dot dot-amber"></div>
+      <div class="flag-text">
+        <div class="flag-label">Apify LinkedIn analytics — still unavailable</div>
+        <div class="flag-action">Hook selection for all posts this week is unweighted by engagement data. ICP pain-match used as fallback. Recommend replacing the actor or restoring the stored post URL list.</div>
+      </div>
+    </div>
+    <div class="flag-row">
+      <div class="flag-dot dot-amber"></div>
+      <div class="flag-text">
+        <div class="flag-label">Week of 20–24 Jul publish status unknown</div>
+        <div class="flag-action">5 posts generated and held in Notion. Confirm with Rei which posts were actually published, and log in Notion. Content debt cannot be tracked without this record.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Auto-generated · BPOAS Content Calendar · Week of 2026-07-27 · Step 5 · BPOAS Daily Start<br>
+  Connectors: Notion ✅ · Apify LinkedIn analytics ❌ unavailable · Web search (compliance pulse) ✅<br>
+  M365 Mail.Send: UNAVAILABLE · Day 25 · Delivered via HTML file only
+</div>
+
+</body>
+</html>
