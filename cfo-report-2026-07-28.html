@@ -1,0 +1,144 @@
+<!doctype html>
+<title>CFO Weekly Revenue Report · 28 July 2026 · BPOAS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--bg:#0A0A0A;--card:#141414;--card-2:#1C1C1C;--border:#272727;--border-2:#333;--txt:#F0EDE8;--txt-2:#8C8680;--txt-3:#504C48;--brand:#E8294C;--brand-dim:rgba(232,41,76,0.10);--brand-mid:rgba(232,41,76,0.18);--green:#34C759;--green-dim:rgba(52,199,89,0.10);--amber:#FF9F0A;--amber-dim:rgba(255,159,10,0.10);--red:#E8294C;--red-dim:rgba(232,41,76,0.10);--radius:8px;--radius-lg:12px;}
+@media(prefers-color-scheme:light){:root{--bg:#F5F2EE;--card:#FFFFFF;--card-2:#EDEAE6;--border:#DDD9D4;--border-2:#CBC7C2;--txt:#1A1614;--txt-2:#6B6460;--txt-3:#A09C98;--green-dim:rgba(52,199,89,0.12);--amber-dim:rgba(255,159,10,0.12);--red-dim:rgba(232,41,76,0.09);--brand-dim:rgba(232,41,76,0.08);--brand-mid:rgba(232,41,76,0.15);}}
+:root[data-theme="light"]{--bg:#F5F2EE;--card:#FFFFFF;--card-2:#EDEAE6;--border:#DDD9D4;--border-2:#CBC7C2;--txt:#1A1614;--txt-2:#6B6460;--txt-3:#A09C98;--green-dim:rgba(52,199,89,0.12);--amber-dim:rgba(255,159,10,0.12);--red-dim:rgba(232,41,76,0.09);--brand-dim:rgba(232,41,76,0.08);--brand-mid:rgba(232,41,76,0.15);}
+:root[data-theme="dark"]{--bg:#0A0A0A;--card:#141414;--card-2:#1C1C1C;--border:#272727;--border-2:#333;--txt:#F0EDE8;--txt-2:#8C8680;--txt-3:#504C48;--green-dim:rgba(52,199,89,0.10);--amber-dim:rgba(255,159,10,0.10);--red-dim:rgba(232,41,76,0.10);--brand-dim:rgba(232,41,76,0.10);--brand-mid:rgba(232,41,76,0.18);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:15px;}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;min-height:100vh;}
+.shell{max-width:1000px;margin:0 auto;padding:24px 20px 80px;}
+.masthead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:24px;}
+.masthead-title{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:normal;letter-spacing:.04em;text-transform:uppercase;color:var(--brand);}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;margin-bottom:16px;}
+.card-2{background:var(--card-2);border:1px solid var(--border-2);border-radius:var(--radius);padding:14px 16px;}
+.eyebrow{font-size:.67rem;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:10px;}
+.revenue-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:16px;}
+.rev-cell{background:var(--card-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px;}
+.rev-label{font-size:.68rem;color:var(--txt-2);letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px;}
+.rev-val{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:1.15rem;font-variant-numeric:tabular-nums;color:var(--txt);line-height:1.2;}
+.rev-val.na{color:var(--txt-2);font-size:.9rem;}
+.rev-val.red{color:var(--red);}
+.rev-val.amber{color:var(--amber);}
+.rev-val.green{color:var(--green);}
+.rev-sub{font-size:.7rem;color:var(--txt-3);margin-top:2px;line-height:1.3;}
+.flag-item{display:flex;gap:10px;padding:10px 12px;border-radius:6px;margin-bottom:6px;border-left:3px solid transparent;font-size:.83rem;line-height:1.5;}
+.flag-item.red{background:var(--red-dim);border-left-color:var(--red);}
+.flag-item.amber{background:var(--amber-dim);border-left-color:var(--amber);}
+.flag-title{font-weight:600;color:var(--txt);}
+.flag-why{color:var(--txt-2);}
+.tbl-wrap{overflow-x:auto;margin:10px 0;}
+table{width:100%;border-collapse:collapse;font-size:.8rem;}
+th{text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:var(--txt-2);border-bottom:1px solid var(--border-2);padding:6px 10px;white-space:nowrap;}
+td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--txt);line-height:1.4;font-variant-numeric:tabular-nums;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:var(--card-2);}
+.red-text{color:var(--red);}
+.amber-text{color:var(--amber);}
+.green-text{color:var(--green);}
+.note{font-size:.72rem;color:var(--txt-3);line-height:1.5;margin-top:8px;}
+.divider{border:none;border-top:1px solid var(--border);margin:14px 0;}
+.hero-status{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--amber);background:var(--amber-dim);border:1px solid rgba(255,159,10,0.2);border-radius:6px;padding:8px 12px;}
+@media(max-width:600px){.shell{padding:16px 14px 60px;}.revenue-grid{grid-template-columns:1fr 1fr;}}
+</style>
+<div class="shell">
+
+<div class="masthead">
+  <div>
+    <div class="masthead-title">CFO Weekly Revenue Report — Step 2</div>
+    <div style="font-size:.78rem;color:var(--txt-2);">Monday · 28 July 2026 · Week of 28 Jul – 1 Aug</div>
+  </div>
+  <div style="font-size:.72rem;color:var(--txt-3);font-family:ui-monospace,monospace;">Generated 07:00 GST</div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">Revenue Pulse · July 2026 — 3 Days Remaining</div>
+  <div class="revenue-grid">
+    <div class="rev-cell">
+      <div class="rev-label">Visible Credits (27 Jul)</div>
+      <div class="rev-val">AED 12,153</div>
+      <div class="rev-sub">ENBD alerts only · full MTD from Zoho not run</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Bank Balance (ENBD ···8401)</div>
+      <div class="rev-val amber">AED 21,619</div>
+      <div class="rev-sub">As of 27 Jul · post AED 10,578 credit</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Overdue Receivables</div>
+      <div class="rev-val red">AED 62,450</div>
+      <div class="rev-sub">Live Zoho · primary entity · 16 invoices</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Monthly Target</div>
+      <div class="rev-val na">Not on file</div>
+      <div class="rev-sub">Flagged every report since 2 Jul 2026</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Gap to Target</div>
+      <div class="rev-val na">Cannot calculate</div>
+      <div class="rev-sub">No target set</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Days Remaining in July</div>
+      <div class="rev-val red">3</div>
+      <div class="rev-sub">Jul 28 · 29 · 30 · closes Fri 31 Jul</div>
+    </div>
+  </div>
+  <div class="hero-status">🟡 Partial data — Zoho Books primary entity only. Full 35-org rollup not run. Last full CFO report: AED 215,279 / 40 invoices (17 Jul).</div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">Overdue Receivables — Key Blocks</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>Figure</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Bank Balance (ENBD ···8401)</td><td class="amber-text">AED 21,619.74</td><td>As of 27 Jul · post AED 10,578 credit</td></tr>
+        <tr><td>Overdue Receivables (Primary Entity)</td><td class="red-text">AED 62,450.25</td><td>Live Zoho · 16 invoices · 27 Jul</td></tr>
+        <tr><td>Richemont Block</td><td class="red-text">AED 58,254</td><td>Largest single block · Jul 14 call outcome unlogged — 14 days</td></tr>
+        <tr><td>EXLIBRIS MGMT FZCO</td><td class="red-text">AED 6,300</td><td>237+ days overdue · write-off or escalation decision required</td></tr>
+        <tr><td>Monthly Target</td><td style="color:var(--txt-2);">Not on file</td><td>Flagged every report since 2 Jul 2026. Set a July + August target.</td></tr>
+        <tr><td>Run Rate vs Target Gap</td><td style="color:var(--txt-2);">Cannot calculate</td><td>No target set · 3 days remaining in July</td></tr>
+        <tr><td>Retainer Renewal Tracker</td><td style="color:var(--txt-2);">No database</td><td>Flagged since 2 Jul. Revenue-at-risk from renewals unknown.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">Pipeline Health — Revenue Signals</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Prospect / Client</th><th>Service</th><th>Stage</th><th>Revenue Signal</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Richemont / Cartier</strong></td><td>CIT + Bookkeeping</td><td>Post-call</td><td><span class="red-text">AED 58,254 overdue · call outcome Jul 14 unlogged.</span></td></tr>
+        <tr><td><strong>Halton ME FZE</strong></td><td>CIT + Transfer Pricing</td><td>SIGNED · Delivery</td><td><span class="amber-text">Bank details not received · revenue locked.</span></td></tr>
+        <tr><td><strong>Paluto Restaurant LLC</strong></td><td>AFS 2025 + CIT</td><td>SIGNED · Onboarding</td><td><span class="green-text">New retainer · onboarding underway.</span></td></tr>
+        <tr><td><strong>MCM Products ME</strong></td><td>VAT + CIT</td><td>KYC active</td><td><span class="amber-text">EL + TL unsigned · revenue blocked.</span></td></tr>
+        <tr><td><strong>Gulf Seatech FZC</strong></td><td>Audit Assistance FY2025</td><td>Proposal sent</td><td><span class="amber-text">KYC received · monitoring.</span></td></tr>
+        <tr><td><strong>GL Middle East / Nandhu</strong></td><td>TRC (3 entities)</td><td>🔴 BLOCKED</td><td>EL 40d stalled · revenue lost if closed.</td></tr>
+        <tr><td><strong>Concept Lab / George</strong></td><td>CIT Filing</td><td>🔴 BLOCKED</td><td>EL 39d stalled · CIT 30 Sep · revenue lost if closed.</td></tr>
+        <tr><td><strong>MMG Art Production</strong></td><td>CIT + Audited FS</td><td>Proposal 18d</td><td>Final outreach today · close or convert.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">No deal-value tracking in Notion. Pipeline revenue-at-risk cannot be quantified. Recommend creating a Pipeline database with AED deal values.</div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">CFO Flags</div>
+  <div class="flag-item red"><div>🔴</div><div><span class="flag-title">No monthly revenue target on file</span><span class="flag-why"> — flagged every report since 2 Jul. Cannot measure performance against plan. Set July + August targets this week.</span></div></div>
+  <div class="flag-item red"><div>🔴</div><div><span class="flag-title">EXLIBRIS AED 6,300 / 237+ days</span><span class="flag-why"> — no resolution since July. Write-off or escalation required this week.</span></div></div>
+  <div class="flag-item amber"><div>🟡</div><div><span class="flag-title">No retainer contract database</span><span class="flag-why"> — revenue-at-risk from renewals unknown. Flagged since 2 Jul. Create a Retainer Contracts database in Notion.</span></div></div>
+  <div class="flag-item amber"><div>🟡</div><div><span class="flag-title">Zoho Books full rollup not run</span><span class="flag-why"> — primary entity only. True overdue figure may be significantly higher than AED 62,450. Run full 35-org pull.</span></div></div>
+</div>
+
+<div style="text-align:center;font-size:.7rem;color:var(--txt-3);padding-top:20px;border-top:1px solid var(--border);margin-top:8px;">
+  CFO Revenue Report · Week of 28 July 2026 · BPOAS Daily Start Step 2<br>
+  ← <a href="bpoas-daily-start-2026-07-28.html" style="color:var(--txt-3);">Back to Master Brief</a>
+</div>
+</div>

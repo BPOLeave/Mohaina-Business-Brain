@@ -1,0 +1,303 @@
+<!doctype html>
+<title>CMO Daily Post · 28 July 2026 · BPOAS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --bg:#0A0A0A;--card:#141414;--card-2:#1C1C1C;--border:#272727;
+  --border-2:#333;--txt:#F0EDE8;--txt-2:#8C8680;--txt-3:#504C48;
+  --brand:#E8294C;--brand-dim:rgba(232,41,76,0.10);--brand-mid:rgba(232,41,76,0.18);
+  --green:#34C759;--green-dim:rgba(52,199,89,0.10);
+  --amber:#FF9F0A;--amber-dim:rgba(255,159,10,0.10);
+  --red:#E8294C;--red-dim:rgba(232,41,76,0.10);
+  --radius:8px;--radius-lg:12px;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:#F5F2EE;--card:#FFFFFF;--card-2:#EDEAE6;--border:#DDD9D4;
+    --border-2:#CBC7C2;--txt:#1A1614;--txt-2:#6B6460;--txt-3:#A09C98;
+    --green-dim:rgba(52,199,89,0.12);--amber-dim:rgba(255,159,10,0.12);
+    --red-dim:rgba(232,41,76,0.09);--brand-dim:rgba(232,41,76,0.08);
+    --brand-mid:rgba(232,41,76,0.15);
+  }
+}
+:root[data-theme="light"] {
+  --bg:#F5F2EE;--card:#FFFFFF;--card-2:#EDEAE6;--border:#DDD9D4;
+  --border-2:#CBC7C2;--txt:#1A1614;--txt-2:#6B6460;--txt-3:#A09C98;
+  --green-dim:rgba(52,199,89,0.12);--amber-dim:rgba(255,159,10,0.12);
+  --red-dim:rgba(232,41,76,0.09);--brand-dim:rgba(232,41,76,0.08);--brand-mid:rgba(232,41,76,0.15);
+}
+:root[data-theme="dark"] {
+  --bg:#0A0A0A;--card:#141414;--card-2:#1C1C1C;--border:#272727;
+  --border-2:#333;--txt:#F0EDE8;--txt-2:#8C8680;--txt-3:#504C48;
+  --green-dim:rgba(52,199,89,0.10);--amber-dim:rgba(255,159,10,0.10);
+  --red-dim:rgba(232,41,76,0.10);--brand-dim:rgba(232,41,76,0.10);--brand-mid:rgba(232,41,76,0.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:15px;}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;min-height:100vh;}
+.shell{max-width:780px;margin:0 auto;padding:28px 20px 80px;}
+.masthead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:24px;}
+.masthead-title{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:normal;letter-spacing:.04em;text-transform:uppercase;color:var(--brand);}
+.masthead-meta{font-size:.78rem;color:var(--txt-2);}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;margin-bottom:16px;}
+.card-2{background:var(--card-2);border:1px solid var(--border-2);border-radius:var(--radius);padding:16px 18px;}
+.eyebrow{font-size:.67rem;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:6px;}
+.section-label{font-size:.67rem;text-transform:uppercase;letter-spacing:.08em;color:var(--txt-3);margin:20px 0 10px;border-top:1px solid var(--border);padding-top:14px;}
+.badge{display:inline-block;font-size:.67rem;letter-spacing:.05em;padding:2px 9px;border-radius:4px;text-transform:uppercase;font-weight:600;}
+.badge-pending{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(255,159,10,.25);}
+.badge-ok{background:var(--green-dim);color:var(--green);border:1px solid rgba(52,199,89,.25);}
+.badge-blocked{background:var(--red-dim);color:var(--red);border:1px solid rgba(232,41,76,.25);}
+
+/* Post preview */
+.post-preview{background:var(--card-2);border:1px solid var(--border-2);border-radius:var(--radius);padding:20px 22px;}
+.post-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.avatar{width:44px;height:44px;background:var(--brand);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;color:#fff;flex-shrink:0;}
+.post-name{font-weight:600;font-size:.88rem;}
+.post-role{font-size:.72rem;color:var(--txt-2);}
+.post-hook{font-size:1.05rem;font-weight:700;color:var(--txt);line-height:1.4;margin-bottom:12px;}
+.post-body{font-size:.87rem;color:var(--txt);line-height:1.75;white-space:pre-wrap;}
+.post-cta{margin-top:14px;font-size:.85rem;font-weight:600;color:var(--brand);}
+.copy-tip{font-size:.72rem;color:var(--txt-3);margin-top:10px;font-style:italic;}
+
+/* Diagnostic */
+.diag-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:.82rem;}
+.diag-item:last-child{border-bottom:none;}
+.diag-check{color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+.diag-label{color:var(--txt);flex:1;}
+.diag-detail{color:var(--txt-2);font-size:.75rem;margin-top:2px;}
+
+/* Comments */
+.comment{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px 14px 36px;margin-bottom:10px;font-size:.83rem;line-height:1.65;color:var(--txt-2);position:relative;}
+.comment:last-child{margin-bottom:0;}
+.comment-num{position:absolute;top:12px;left:14px;background:var(--brand);color:#fff;font-size:.65rem;font-weight:700;width:18px;height:18px;display:flex;align-items:center;justify-content:center;border-radius:3px;}
+
+/* Approval workflow */
+.workflow{display:flex;flex-direction:column;gap:6px;}
+.workflow-step{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:6px;font-size:.82rem;line-height:1.5;}
+.workflow-step.done{background:var(--green-dim);border:1px solid rgba(52,199,89,.2);}
+.workflow-step.next{background:var(--brand-dim);border:1px solid var(--brand-mid);}
+.workflow-step.blocked{background:var(--amber-dim);border:1px solid rgba(255,159,10,.2);}
+.workflow-step .ws-icon{flex-shrink:0;font-size:.85rem;margin-top:1px;}
+.workflow-step .ws-body{flex:1;}
+.workflow-step .ws-label{font-weight:600;color:var(--txt);}
+.workflow-step .ws-note{color:var(--txt-2);margin-top:2px;}
+
+/* Alert */
+.alert{background:var(--red-dim);border:1px solid rgba(232,41,76,.25);border-radius:var(--radius);padding:12px 16px;font-size:.82rem;color:var(--red);margin-bottom:16px;line-height:1.55;}
+.alert-amber{background:var(--amber-dim);border:1px solid rgba(255,159,10,.2);color:var(--amber);}
+
+.note{font-size:.72rem;color:var(--txt-3);line-height:1.5;margin-top:8px;}
+.mt-16{margin-top:16px;}
+.mt-12{margin-top:12px;}
+.divider{border:none;border-top:1px solid var(--border);margin:16px 0;}
+
+/* Posting time */
+.publish-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--card-2);border:1px solid var(--border-2);border-radius:var(--radius);padding:12px 16px;font-size:.83rem;}
+.publish-time{font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:1rem;font-weight:700;color:var(--brand);}
+.publish-label{color:var(--txt-2);font-size:.78rem;}
+
+@media(max-width:600px){.shell{padding:16px 14px 60px;}}
+</style>
+
+<div class="shell">
+
+<div class="masthead">
+  <div>
+    <div class="masthead-title">CMO Daily Post</div>
+    <div class="masthead-meta">Monday · 28 July 2026 · Pillar: Compliance Without the Panic</div>
+  </div>
+  <span class="badge badge-pending">Awaiting Mohaina Approval</span>
+</div>
+
+<!-- APPROVAL ALERT -->
+<div class="alert">
+  ⚠ This post cites AED 10,000 regulatory penalty and a 31 July FTA deadline. Explicit Mohaina approval is required before forwarding to Rei Nald Onella. Do not publish without sign-off.
+</div>
+
+<!-- APPROVAL WORKFLOW -->
+<div class="card">
+  <div class="eyebrow">Approval Workflow</div>
+  <div class="workflow">
+    <div class="workflow-step done">
+      <span class="ws-icon">✅</span>
+      <div class="ws-body">
+        <div class="ws-label">Post generated — 4/4 Invisibility Diagnostic PASS</div>
+        <div class="ws-note">Completed by BPOAS Daily Start routine · 07:00 GST · 28 Jul 2026</div>
+      </div>
+    </div>
+    <div class="workflow-step next">
+      <span class="ws-icon">⏳</span>
+      <div class="ws-body">
+        <div class="ws-label">Step 2 — Mohaina reviews and approves</div>
+        <div class="ws-note">Open this file · review post below · reply "Approved" to Rei via WhatsApp or forward email manually</div>
+      </div>
+    </div>
+    <div class="workflow-step blocked">
+      <span class="ws-icon">⚠</span>
+      <div class="ws-body">
+        <div class="ws-label">Step 3 — Forward to Rei Nald Onella after approval</div>
+        <div class="ws-note">reinald.onella1@gmail.com · M365 Mail.Send blocked (Day 26) — forward manually via Gmail or WhatsApp. Include post text + 3 pinned comments below + recommended publish time.</div>
+      </div>
+    </div>
+    <div class="workflow-step blocked">
+      <span class="ws-icon">📅</span>
+      <div class="ws-body">
+        <div class="ws-label">Step 4 — Rei publishes to LinkedIn</div>
+        <div class="ws-note">Recommended publish time: 08:30 GST Tuesday 29 Jul if approved today · or same day 08:30 if approved before 08:00</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- POST PREVIEW -->
+<div class="card">
+  <div class="eyebrow">LinkedIn Post — Copy Ready</div>
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
+    <span style="font-size:.78rem;color:var(--txt-2);">Pillar: Compliance Without the Panic &nbsp;·&nbsp; Format: Urgency Framework</span>
+    <span class="badge badge-ok" style="margin-left:auto;">4/4 PASS</span>
+  </div>
+
+  <div class="post-preview">
+    <div class="post-meta">
+      <div class="avatar">M</div>
+      <div>
+        <div class="post-name">Mohaina Asira, CPA</div>
+        <div class="post-role">Managing Partner · BPO Accounting Services · Dubai, UAE</div>
+      </div>
+    </div>
+
+    <div class="post-hook">31 July. That's it.</div>
+
+    <div class="post-body">If your business missed the CIT registration deadline, the FTA opened a penalty waiver window. It closes Thursday.
+
+Here's what most business owners don't know:
+
+The standard late-registration penalty is AED 10,000. It applies the moment the window closes.
+
+But inside this window — file now, and that penalty gets automatically waived. You don't appeal it. You don't negotiate it. You just have to move before Thursday.
+
+I've seen this play out with clients already this month. One filed last week. No penalty. Done.
+
+The ones who wait until Thursday morning and find their supporting documents aren't ready — that's a different conversation.
+
+What to check before 31 July:
+→ Has your entity filed its first CIT return, or just registered?
+→ Are your books in order enough to support the filing?
+→ Do you have your Trade Licence, MoA, and financial statements ready?
+
+Registration is not the same as filing. Both have deadlines. Both have consequences.
+
+If you're not sure where you stand — this week. Not next week.</div>
+
+    <div class="post-cta">DM me "CIT" before Thursday and I'll tell you exactly where your exposure is.</div>
+    <div class="copy-tip">Copy everything from the hook above through the CTA line. Do not include hashtags — Rei adds those per the social calendar.</div>
+  </div>
+</div>
+
+<!-- INVISIBILITY DIAGNOSTIC -->
+<div class="card">
+  <div class="eyebrow">Invisibility Diagnostic — 4 / 4</div>
+  <div class="diag-item">
+    <span class="diag-check">✓</span>
+    <div>
+      <div class="diag-label">Hook stops scroll</div>
+      <div class="diag-detail">"31 July. That's it." — three words, specific date, visceral deadline. Scroll-stopper confirmed.</div>
+    </div>
+  </div>
+  <div class="diag-item">
+    <span class="diag-check">✓</span>
+    <div>
+      <div class="diag-label">Point of view</div>
+      <div class="diag-detail">Registration is not filing. Both have consequences. Clear, defensible stance on a compliance distinction most owners miss.</div>
+    </div>
+  </div>
+  <div class="diag-item">
+    <span class="diag-check">✓</span>
+    <div>
+      <div class="diag-label">Proves expertise without bragging</div>
+      <div class="diag-detail">Cites specific FTA waiver mechanics and AED 10,000 figure. Client reference ("one filed last week"). No credential claims.</div>
+    </div>
+  </div>
+  <div class="diag-item">
+    <span class="diag-check">✓</span>
+    <div>
+      <div class="diag-label">Clear CTA</div>
+      <div class="diag-detail">"DM me CIT before Thursday" — single action, deadline-bound, low friction. No ask to book a call.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 3 PINNED COMMENTS -->
+<div class="card">
+  <div class="eyebrow">3 Pinned Comments — Post in Order After Publishing</div>
+  <p class="note" style="margin-bottom:14px;">Pin Comment 1 immediately after publishing. Comments 2 and 3 go up in sequence. All three should be live within the first 15 minutes.</p>
+
+  <div class="comment">
+    <div class="comment-num">1</div>
+    For those asking — the waiver covers the late registration penalty specifically (AED 10,000). It doesn't waive penalties for inaccurate returns or for filing after this window closes. Two different things with two different consequences.
+  </div>
+
+  <div class="comment">
+    <div class="comment-num">2</div>
+    I had a client call me last week who thought registering in time was enough. It wasn't — they hadn't filed the first return. We got it sorted before the deadline. But only because they called early enough. That call matters.
+  </div>
+
+  <div class="comment">
+    <div class="comment-num">3</div>
+    DM me "CIT" today and I'll send you the three questions to check before Thursday — whether you're working with us or not. No pitch. Just clarity.
+  </div>
+</div>
+
+<!-- PUBLISH TIMING -->
+<div class="card">
+  <div class="eyebrow">Publishing Details</div>
+  <div class="publish-row" style="margin-bottom:12px;">
+    <div>
+      <div class="publish-label">Recommended publish time</div>
+      <div class="publish-time">08:30 GST</div>
+    </div>
+    <div style="font-size:.78rem;color:var(--txt-2);">
+      Today (Mon 28 Jul) if approved before 08:00<br>
+      Else Tue 29 Jul at 08:30 — post still valid until Thu 31 Jul
+    </div>
+  </div>
+  <div style="font-size:.82rem;color:var(--txt-2);line-height:1.6;">
+    <strong style="color:var(--txt);">Topic urgency window:</strong> Post is valid until EOD Wednesday 30 Jul. After Wednesday, the "3 days left" angle loses punch — do not publish Thursday or after.<br><br>
+    <strong style="color:var(--txt);">Audience:</strong> UAE SME owners. Boosting not required for this post — organic reach expected from the compliance hook.
+  </div>
+</div>
+
+<!-- VOICE CHECK -->
+<div class="card">
+  <div class="eyebrow">Voice Compliance Check</div>
+  <div style="font-size:.82rem;line-height:1.7;color:var(--txt-2);">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+      <div style="background:var(--green-dim);border:1px solid rgba(52,199,89,.2);border-radius:6px;padding:10px 12px;">
+        <div style="font-size:.67rem;color:var(--green);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">✓ Voice Rules Followed</div>
+        <div style="font-size:.78rem;color:var(--txt);">Plain language (Grade 7–8)</div>
+        <div style="font-size:.78rem;color:var(--txt);">Situation → Observation → Principle</div>
+        <div style="font-size:.78rem;color:var(--txt);">Specific number: AED 10,000</div>
+        <div style="font-size:.78rem;color:var(--txt);">Client reference (concrete, no names)</div>
+        <div style="font-size:.78rem;color:var(--txt);">No jargon or corporate phrases</div>
+      </div>
+      <div style="background:var(--card-2);border:1px solid var(--border-2);border-radius:6px;padding:10px 12px;">
+        <div style="font-size:.67rem;color:var(--txt-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">✗ Red-Flag Words Avoided</div>
+        <div style="font-size:.78rem;color:var(--txt-2);">synergies · leverage · world-class</div>
+        <div style="font-size:.78rem;color:var(--txt-2);">passionate · holistic · seamless</div>
+        <div style="font-size:.78rem;color:var(--txt-2);">"I help" opener</div>
+        <div style="font-size:.78rem;color:var(--txt-2);">vague compliance claims</div>
+        <div style="font-size:.78rem;color:var(--txt-2);">exclamation marks</div>
+      </div>
+    </div>
+    <span style="font-size:.72rem;color:var(--txt-3);">Voice source: voice-dna-mohaina-asira.md · BPOAS Business Brain</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;font-size:.7rem;color:var(--txt-3);padding-top:20px;border-top:1px solid var(--border);margin-top:8px;">
+  CMO Daily Post · Monday 28 July 2026 · BPOAS Daily Start routine<br>
+  ← <a href="bpoas-daily-start-2026-07-28.html" style="color:var(--txt-3);">Back to Master Brief</a>
+</div>
+
+</div>

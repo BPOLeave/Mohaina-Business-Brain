@@ -1,0 +1,1221 @@
+<!doctype html>
+<title>BPOAS Daily Start · Monday 28 July 2026</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* ─── Token System ─── */
+:root {
+  --bg:        #0A0A0A;
+  --card:      #141414;
+  --card-2:    #1C1C1C;
+  --border:    #272727;
+  --border-2:  #333;
+  --txt:       #F0EDE8;
+  --txt-2:     #8C8680;
+  --txt-3:     #504C48;
+  --brand:     #E8294C;
+  --brand-dim: rgba(232,41,76,0.10);
+  --brand-mid: rgba(232,41,76,0.18);
+  --green:     #34C759;
+  --green-dim: rgba(52,199,89,0.10);
+  --amber:     #FF9F0A;
+  --amber-dim: rgba(255,159,10,0.10);
+  --red:       #E8294C;
+  --red-dim:   rgba(232,41,76,0.10);
+  --radius:    8px;
+  --radius-lg: 12px;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:        #F5F2EE;
+    --card:      #FFFFFF;
+    --card-2:    #EDEAE6;
+    --border:    #DDD9D4;
+    --border-2:  #CBC7C2;
+    --txt:       #1A1614;
+    --txt-2:     #6B6460;
+    --txt-3:     #A09C98;
+    --green-dim: rgba(52,199,89,0.12);
+    --amber-dim: rgba(255,159,10,0.12);
+    --red-dim:   rgba(232,41,76,0.09);
+    --brand-dim: rgba(232,41,76,0.08);
+    --brand-mid: rgba(232,41,76,0.15);
+  }
+}
+:root[data-theme="light"] {
+  --bg:#F5F2EE;--card:#FFFFFF;--card-2:#EDEAE6;--border:#DDD9D4;
+  --border-2:#CBC7C2;--txt:#1A1614;--txt-2:#6B6460;--txt-3:#A09C98;
+  --green-dim:rgba(52,199,89,0.12);--amber-dim:rgba(255,159,10,0.12);
+  --red-dim:rgba(232,41,76,0.09);--brand-dim:rgba(232,41,76,0.08);
+  --brand-mid:rgba(232,41,76,0.15);
+}
+:root[data-theme="dark"] {
+  --bg:#0A0A0A;--card:#141414;--card-2:#1C1C1C;--border:#272727;
+  --border-2:#333;--txt:#F0EDE8;--txt-2:#8C8680;--txt-3:#504C48;
+  --green-dim:rgba(52,199,89,0.10);--amber-dim:rgba(255,159,10,0.10);
+  --red-dim:rgba(232,41,76,0.10);--brand-dim:rgba(232,41,76,0.10);
+  --brand-mid:rgba(232,41,76,0.18);
+}
+
+/* ─── Reset & Base ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+body {
+  background: var(--bg);
+  color: var(--txt);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ─── Layout ─── */
+.shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+
+/* ─── Masthead ─── */
+.masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+.masthead-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.masthead-date {
+  font-size: 0.78rem;
+  color: var(--txt-2);
+  letter-spacing: 0.03em;
+}
+.masthead-run {
+  font-size: 0.72rem;
+  color: var(--txt-3);
+  font-family: ui-monospace, "SF Mono", "Consolas", monospace;
+}
+
+/* ─── Cards ─── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+.card-2 {
+  background: var(--card-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+.card + .card { margin-top: 0; }
+
+/* ─── Section Labels ─── */
+.step-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.step-num {
+  font-family: ui-monospace, "SF Mono", "Consolas", monospace;
+  font-size: 0.68rem;
+  color: var(--brand);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid var(--brand-mid);
+  border-radius: 4px;
+  background: var(--brand-dim);
+}
+.step-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  color: var(--txt);
+}
+.step-badge {
+  margin-left: auto;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.badge-ok   { background: var(--green-dim);  color: var(--green);  border: 1px solid rgba(52,199,89,0.25); }
+.badge-warn { background: var(--amber-dim);  color: var(--amber);  border: 1px solid rgba(255,159,10,0.25); }
+.badge-err  { background: var(--red-dim);    color: var(--red);    border: 1px solid rgba(232,41,76,0.25); }
+.badge-skip { background: var(--card-2);     color: var(--txt-2);  border: 1px solid var(--border-2); }
+
+/* ─── Hero Revenue Card ─── */
+.hero {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px 20px;
+  margin-bottom: 16px;
+}
+.hero-eyebrow {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--brand);
+  margin-bottom: 4px;
+}
+.hero-headline {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.6rem;
+  color: var(--txt);
+  margin-bottom: 20px;
+  text-wrap: balance;
+}
+.revenue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.rev-cell {
+  background: var(--card-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.rev-label {
+  font-size: 0.68rem;
+  color: var(--txt-2);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.rev-val {
+  font-family: ui-monospace, "SF Mono", "Consolas", monospace;
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--txt);
+  line-height: 1.2;
+}
+.rev-val.na { color: var(--txt-2); font-size: 0.9rem; }
+.rev-val.red  { color: var(--red); }
+.rev-val.amber{ color: var(--amber); }
+.rev-val.green{ color: var(--green); }
+.rev-sub {
+  font-size: 0.7rem;
+  color: var(--txt-3);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+.hero-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--amber);
+  background: var(--amber-dim);
+  border: 1px solid rgba(255,159,10,0.2);
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+/* ─── Flags Card ─── */
+.flags-card {
+  background: var(--card);
+  border: 1px solid var(--brand);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  margin-bottom: 16px;
+}
+.flags-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  color: var(--brand);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.flag-section-label {
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--txt-3);
+  margin: 12px 0 6px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+.flag-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  border-left: 3px solid transparent;
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+.flag-item.red   { background: var(--red-dim);   border-left-color: var(--red); }
+.flag-item.amber { background: var(--amber-dim);  border-left-color: var(--amber); }
+.flag-item.green { background: var(--green-dim);  border-left-color: var(--green); }
+.flag-dot { font-size: 0.7rem; flex-shrink: 0; margin-top: 2px; }
+.flag-body { flex: 1; }
+.flag-title-text { font-weight: 600; color: var(--txt); }
+.flag-why { color: var(--txt-2); margin-top: 1px; }
+.flag-next { color: var(--txt); font-style: italic; margin-top: 3px; }
+
+/* ─── Tables ─── */
+.tbl-wrap { overflow-x: auto; margin: 10px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+th {
+  text-align: left;
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--txt-2);
+  border-bottom: 1px solid var(--border-2);
+  padding: 6px 10px;
+  white-space: nowrap;
+}
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  font-variant-numeric: tabular-nums;
+  color: var(--txt);
+  line-height: 1.4;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--card-2); }
+
+/* ─── Status Dots ─── */
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; flex-shrink: 0; }
+.dot.r { background: var(--red); }
+.dot.a { background: var(--amber); }
+.dot.g { background: var(--green); }
+.dot.b { background: #0A84FF; }
+
+/* ─── Post Card ─── */
+.post-card {
+  background: var(--card-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.post-avatar {
+  width: 40px; height: 40px;
+  background: var(--brand);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; font-weight: 700; color: white; flex-shrink: 0;
+}
+.post-name { font-weight: 600; font-size: 0.85rem; }
+.post-role { font-size: 0.72rem; color: var(--txt-2); }
+.post-hook {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--txt);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.post-body {
+  font-size: 0.85rem;
+  color: var(--txt-2);
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+.post-cta {
+  margin-top: 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--brand);
+}
+
+/* ─── Diagnostic ─── */
+.diag-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+.diag-row:last-child { border-bottom: none; }
+.diag-check { color: var(--green); font-weight: 700; }
+.diag-label { color: var(--txt); flex: 1; }
+.diag-detail { color: var(--txt-2); font-size: 0.75rem; }
+
+/* ─── Run Log ─── */
+.log-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+}
+.log-row:last-child { border-bottom: none; }
+.log-step { color: var(--txt); font-weight: 500; }
+.log-file { font-family: ui-monospace, "SF Mono", monospace; font-size: 0.72rem; color: var(--txt-2); }
+
+/* ─── Prospect Card ─── */
+.prospect-card {
+  background: var(--card-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+.prospect-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.prospect-name { font-weight: 600; font-size: 0.9rem; }
+.prospect-co { font-size: 0.78rem; color: var(--txt-2); }
+.score-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--amber-dim);
+  color: var(--amber);
+  border: 1px solid rgba(255,159,10,0.25);
+  white-space: nowrap;
+}
+.score-badge.warm { background: var(--brand-dim); color: var(--brand); border-color: var(--brand-mid); }
+.prospect-row { font-size: 0.78rem; color: var(--txt-2); margin-bottom: 4px; }
+.prospect-row strong { color: var(--txt); }
+
+/* ─── Calendar Table ─── */
+.cal-table td:first-child { white-space: nowrap; font-weight: 600; }
+.pillar-tag {
+  display: inline-block;
+  font-size: 0.67rem;
+  padding: 1px 6px;
+  border-radius: 3px;
+  background: var(--brand-dim);
+  color: var(--brand);
+  border: 1px solid var(--brand-mid);
+  margin-bottom: 3px;
+}
+
+/* ─── Quick Links ─── */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+}
+.link-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--card-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  color: var(--txt-2);
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+.link-item:hover { border-color: var(--brand); color: var(--brand); }
+.link-item .li-icon { font-size: 0.9rem; }
+.link-item .li-label { font-weight: 500; }
+.link-item .li-sub { font-size: 0.7rem; margin-top: 1px; }
+
+/* ─── Pinned Comments ─── */
+.comment-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--txt-2);
+  position: relative;
+}
+.comment-num {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  background: var(--brand);
+  color: white;
+  font-size: 0.62rem;
+  font-weight: 700;
+  width: 18px; height: 18px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius) 0 var(--radius) 0;
+}
+
+/* ─── System Banner ─── */
+.sys-banner {
+  background: var(--amber-dim);
+  border: 1px solid rgba(255,159,10,0.25);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-size: 0.78rem;
+  color: var(--amber);
+  margin-bottom: 16px;
+}
+
+/* ─── Utility ─── */
+.mono { font-family: ui-monospace, "SF Mono", "Consolas", monospace; }
+.small { font-size: 0.75rem; }
+.txt-2 { color: var(--txt-2); }
+.txt-3 { color: var(--txt-3); }
+.red-text { color: var(--red); }
+.green-text { color: var(--green); }
+.amber-text { color: var(--amber); }
+.mt-8 { margin-top: 8px; }
+.mt-12 { margin-top: 12px; }
+.mt-16 { margin-top: 16px; }
+.mb-4 { margin-bottom: 4px; }
+.mb-8 { margin-bottom: 8px; }
+.divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+.note { font-size: 0.72rem; color: var(--txt-3); line-height: 1.5; margin-top: 8px; }
+p { margin-bottom: 8px; }
+p:last-child { margin-bottom: 0; }
+
+@media (max-width: 600px) {
+  .hero-headline { font-size: 1.2rem; }
+  .revenue-grid { grid-template-columns: 1fr 1fr; }
+  .shell { padding: 16px 14px 60px; }
+}
+</style>
+
+<div class="shell">
+
+<!-- ─── MASTHEAD ─── -->
+<div class="masthead">
+  <div>
+    <div class="masthead-title">BPOAS Daily Start</div>
+    <div class="masthead-date">Monday · 28 July 2026 · Full Run (Steps 1–5)</div>
+  </div>
+  <div class="masthead-run">Generated 07:00 GST · Auto-routine /bpoas-daily-start</div>
+</div>
+
+<!-- ─── SYSTEM BANNER ─── -->
+<div class="sys-banner">
+  ⚠ M365 Mail.Send connector unavailable — Day 26. Summary email to m.asira@bposervicegroup.com and Rei handoff cannot be sent automatically. Delivered via this file and Notion page. Admin fix needed: add Mail.Send + Mail.ReadWrite scope to Claude connector.
+</div>
+
+<!-- ─── HERO: REVENUE PULSE ─── -->
+<div class="hero">
+  <div class="hero-eyebrow">Revenue Pulse · July 2026</div>
+  <div class="hero-headline">3 days left in July.</div>
+  <div class="revenue-grid">
+    <div class="rev-cell">
+      <div class="rev-label">Visible Credits (27 Jul)</div>
+      <div class="rev-val">AED 12,153</div>
+      <div class="rev-sub">ENBD alerts only · full MTD from Zoho not run</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Bank Balance (ENBD ···8401)</div>
+      <div class="rev-val amber">AED 21,619</div>
+      <div class="rev-sub">As of 27 Jul 2026 · post AED 10,578 credit</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Overdue Receivables</div>
+      <div class="rev-val red">AED 62,450</div>
+      <div class="rev-sub">Live Zoho · primary entity · 16 invoices · 27 Jul</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Monthly Target</div>
+      <div class="rev-val na">Not on file</div>
+      <div class="rev-sub">Flagged every report since 2 Jul 2026</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Gap to Target</div>
+      <div class="rev-val na">Cannot calculate</div>
+      <div class="rev-sub">No target set — see flag below</div>
+    </div>
+    <div class="rev-cell">
+      <div class="rev-label">Days Remaining</div>
+      <div class="rev-val red">3</div>
+      <div class="rev-sub">Jul 28 · 29 · 30 · month closes Fri 31 Jul</div>
+    </div>
+  </div>
+  <div class="hero-status">
+    🟡 Incomplete — Zoho Books full rollup (35 orgs) not run this session. Figures above are partial. Last Monday CFO report carries AED 215,279 / 40 invoices from 17 Jul prior to live Zoho access being restored.
+  </div>
+</div>
+
+<!-- ─── FLAGS FOR MOHAINA ─── -->
+<div class="flags-card">
+  <div class="flags-title">🔴 Flags for Mohaina — Monday 28 July 2026</div>
+
+  <div class="flag-section-label">Compliance</div>
+
+  <div class="flag-item red">
+    <div class="flag-dot">🔴</div>
+    <div class="flag-body">
+      <div class="flag-title-text">CIT Penalty Waiver — Closes 31 July · 3 DAYS</div>
+      <div class="flag-why">AED 10,000 penalty per unregistered or unfiled entity. Window closes Thursday. Auto-credit if already paid.</div>
+      <div class="flag-next">→ Sweep all at-risk clients with Warren + Cristina today. File before Thursday morning. Do not wait until the 31st.</div>
+    </div>
+  </div>
+
+  <div class="flag-item red">
+    <div class="flag-dot">🔴</div>
+    <div class="flag-body">
+      <div class="flag-title-text">BPOAS Trade Licence #809563 — Expired 25 Jul · Day 3 Unresolved</div>
+      <div class="flag-why">WPS payroll is blocked for all staff while the licence is lapsed. No renewal confirmation logged since 24 Jul brief.</div>
+      <div class="flag-next">→ Verify with Junaifa today before any client-facing work or payroll runs. Confirm renewal or initiate immediately.</div>
+    </div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-dot">🟡</div>
+    <div class="flag-body">
+      <div class="flag-title-text">E-Invoicing — GL-events Thread (Julia Guichard)</div>
+      <div class="flag-why">Client replied positively to Cristina's e-invoicing guidance (27 Jul). Signals this is an active client concern. eInvoicing mandatory 1 Jan 2027 (AED 50M+) / 1 Jul 2027 (SMEs).</div>
+      <div class="flag-next">→ No action needed on thread — Cristina handled well. Monitor for follow-up from GL-events. Use as content hook.</div>
+    </div>
+  </div>
+
+  <div class="flag-section-label">Cash</div>
+
+  <div class="flag-item red">
+    <div class="flag-dot">🔴</div>
+    <div class="flag-body">
+      <div class="flag-title-text">Brilliant Telecom LLC — CIT Partner Confirmation Letters · 12+ Days Overdue · Draft Expected Wednesday 30 Jul</div>
+      <div class="flag-why">Client (billing@brilliantholdings.com) sent attachments on 27 Jul and expects draft by Wednesday. Partner confirmation letters 12 days past 15 Jul deadline. Client on vacation since 20 Jul. CIT filing at risk.</div>
+      <div class="flag-next">→ Raihana: attempt all numbers this morning. Escalate to Mohaina same day if still unreachable. Cristina: confirm if draft is achievable by Wednesday with available documents.</div>
+    </div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-dot">🟡</div>
+    <div class="flag-body">
+      <div class="flag-title-text">Overdue Receivables — Richemont AED 58,254 · EXLIBRIS AED 6,300 (237+ days)</div>
+      <div class="flag-why">Live Zoho (primary entity, 27 Jul): AED 62,450 / 16 invoices. Richemont call outcome from Jul 14 still unlogged — 14 days. EXLIBRIS AED 6,300 in every report since July, no resolution.</div>
+      <div class="flag-next">→ Log Richemont Jul 14 call outcome in Notion today. EXLIBRIS: decide write-off or escalate — do not carry a third month.</div>
+    </div>
+  </div>
+
+  <div class="flag-section-label">Client</div>
+
+  <div class="flag-item red">
+    <div class="flag-dot">🔴</div>
+    <div class="flag-body">
+      <div class="flag-title-text">GL Middle East / Nandhu — EL 40+ Days Stalled · Mohaina Decision Required Today</div>
+      <div class="flag-why">Engagement Letter 40+ days outstanding, 19 days past auto-stall protocol. TRC service for 3 entities. Cannot carry another week.</div>
+      <div class="flag-next">→ Mohaina: approve direct call to Nandhu OR close the file today. Do not carry to next week.</div>
+    </div>
+  </div>
+
+  <div class="flag-item red">
+    <div class="flag-dot">🔴</div>
+    <div class="flag-body">
+      <div class="flag-title-text">The Concept Lab / Mr. George — EL 39+ Days Stalled · CIT 30 Sep (64 Days)</div>
+      <div class="flag-why">CIT filing deadline 30 September is 64 days away. EL 39 days outstanding, 18 days past auto-stall. Window is closing to set up properly.</div>
+      <div class="flag-next">→ Mohaina: approve Raihana's call OR close today. Every week of delay shortens the window for the actual CIT filing.</div>
+    </div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-dot">🟡</div>
+    <div class="flag-body">
+      <div class="flag-title-text">Annaka — Deregistration Certificate · AED 500/Month Penalty Accruing</div>
+      <div class="flag-why">Certificate not yet received. Monthly penalty accruing. Raihana assigned to chase today.</div>
+      <div class="flag-next">→ Raihana: one call today. Log outcome same day.</div>
+    </div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-dot">🟡</div>
+    <div class="flag-body">
+      <div class="flag-title-text">GASCHEM — WPS Reports Apr–Jul Requested by Michelle Pacis</div>
+      <div class="flag-why">Michelle Pacis emailed Mohaina + Finance (27 Jul). WPS reports for April to July needed. Action required from Finance team.</div>
+      <div class="flag-next">→ Finance: provide WPS reports to Michelle by EOD today.</div>
+    </div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-dot">🟡</div>
+    <div class="flag-body">
+      <div class="flag-title-text">Chadi — Proposal Already Sent (25 Jul) · Awaiting Response</div>
+      <div class="flag-why">Jul 27 Raihana brief said "call to qualify." But email shows Raihana already sent a full proposal on 25 Jul. Status is more advanced than brief indicated.</div>
+      <div class="flag-next">→ No call needed — monitor for Chadi's response to the proposal. If no reply by Wed 30 Jul, follow up.</div>
+    </div>
+  </div>
+
+  <div class="flag-section-label">BD</div>
+
+  <div class="flag-item red">
+    <div class="flag-dot">🔴</div>
+    <div class="flag-body">
+      <div class="flag-title-text">Raihana Pipeline Status Report — 10+ Days Overdue (Due 17 Jul)</div>
+      <div class="flag-why">Non-negotiable. Pipeline data is running on stale carry-forwards from Jul 20 CRO report. Raihana was told to submit "first thing Monday" on both Jul 26 and 27 briefs.</div>
+      <div class="flag-next">→ Raihana: submit today before 09:00. Include all pipeline movements, outreach log, lead status since last submission.</div>
+    </div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-dot">🟡</div>
+    <div class="flag-body">
+      <div class="flag-title-text">2 × New Google Reviews — Ekaterina + JC · Respond Today</div>
+      <div class="flag-why">BPOAS received two new Google Business Profile reviews (27 Jul). Public response builds social proof and signals responsiveness.</div>
+      <div class="flag-next">→ Respond to both reviews today — short, professional, personal. Strong social proof opportunity.</div>
+    </div>
+  </div>
+
+  <div class="flag-item amber">
+    <div class="flag-dot">🟡</div>
+    <div class="flag-body">
+      <div class="flag-title-text">bposervicegroup.com — Pages Blocked from Google Indexing (4xx Error)</div>
+      <div class="flag-why">Google Search Console notification (28 Jul): new 4xx crawl errors preventing pages from being indexed. Not a compliance issue but affects organic visibility.</div>
+      <div class="flag-next">→ Non-urgent. Assign to website team to investigate 4xx pages this week. Check Search Console for affected URLs.</div>
+    </div>
+  </div>
+
+  <div class="flag-section-label">Systems</div>
+
+  <div class="flag-item red">
+    <div class="flag-dot">🔴</div>
+    <div class="flag-body">
+      <div class="flag-title-text">M365 Mail.Send — Still Unavailable · Day 26</div>
+      <div class="flag-why">No outlook_send_mail or create_draft tool exposed in any session since 2 Jul. Approval emails to Mohaina, Rei handoff, and summary emails all blocked. Apify LinkedIn scraper also hit free-tier limit this run.</div>
+      <div class="flag-next">→ Fix: add Mail.Send + Mail.ReadWrite scope to Claude connector in Microsoft 365 admin settings. Contact M365 admin to resolve.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── TODAY'S POST (quick access) ─── -->
+<div class="card">
+  <div class="step-label">
+    <span class="step-num">Post</span>
+    <span class="step-title">Today's LinkedIn Post — Copy Ready</span>
+    <span class="step-badge badge-err">Awaiting Approval</span>
+  </div>
+  <div class="note mb-8">⚠ This post cites AED 10,000 penalty and 31 Jul regulatory deadline. Explicit approval required before forwarding to Rei. Pillar: Compliance Without the Panic. Diagnostic: 4/4 PASS.</div>
+  <div class="post-card">
+    <div class="post-meta">
+      <div class="post-avatar">M</div>
+      <div>
+        <div class="post-name">Mohaina Asira, CPA</div>
+        <div class="post-role">Managing Partner · BPO Accounting Services · Dubai</div>
+      </div>
+    </div>
+    <div class="post-hook">31 July. That's it.</div>
+    <div class="post-body">If your business missed the CIT registration deadline, the FTA opened a penalty waiver window. It closes Thursday.
+
+Here's what most business owners don't know:
+
+The standard late-registration penalty is AED 10,000. It applies the moment the window closes.
+
+But inside this window — file now, and that penalty gets automatically waived. You don't appeal it. You don't negotiate it. You just have to move before Thursday.
+
+I've seen this play out with clients already this month. One filed last week. No penalty. Done.
+
+The ones who wait until Thursday morning and find their supporting documents aren't ready — that's a different conversation.
+
+What to check before 31 July:
+→ Has your entity filed its first CIT return, or just registered?
+→ Are your books in order enough to support the filing?
+→ Do you have your Trade Licence, MoA, and financial statements ready?
+
+Registration is not the same as filing. Both have deadlines. Both have consequences.
+
+If you're not sure where you stand — this week. Not next week.</div>
+    <div class="post-cta">DM me "CIT" before Thursday and I'll tell you exactly where your exposure is.</div>
+  </div>
+
+  <div class="mt-12">
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Invisibility Diagnostic — 4/4 PASS</div>
+    <div class="diag-row"><span class="diag-check">✓</span><span class="diag-label">Hook stops scroll</span><span class="diag-detail">"31 July. That's it." — ultra-short, specific date, immediate urgency</span></div>
+    <div class="diag-row"><span class="diag-check">✓</span><span class="diag-label">Point of view</span><span class="diag-detail">Registration ≠ filing. Both have consequences. Clear stance.</span></div>
+    <div class="diag-row"><span class="diag-check">✓</span><span class="diag-label">Proves expertise without bragging</span><span class="diag-detail">Specific FTA waiver mechanics, client reference, no credential claims</span></div>
+    <div class="diag-row"><span class="diag-check">✓</span><span class="diag-label">Clear CTA</span><span class="diag-detail">"DM me CIT before Thursday" — single action, deadline-bound</span></div>
+  </div>
+
+  <div class="mt-12">
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">3 Pinned Comments</div>
+    <div class="comment-block"><div class="comment-num">1</div>For those asking — the waiver covers the late registration penalty specifically (AED 10,000). It doesn't waive penalties for inaccurate returns or for filing after this window closes. Two different things with two different consequences.</div>
+    <div class="comment-block"><div class="comment-num">2</div>I had a client call me last week who thought registering in time was enough. It wasn't — they hadn't filed the first return. We got it sorted before the deadline. But only because they called early enough. That call matters.</div>
+    <div class="comment-block"><div class="comment-num">3</div>DM me "CIT" today and I'll send you the three questions to check before Thursday — whether you're working with us or not. No pitch. Just clarity.</div>
+  </div>
+
+  <div class="note mt-12">
+    🔴 Approval workflow: Mohaina approves → forward full post to Rei Nald Onella (reinald.onella1@gmail.com). Recommended publish time: 08:30 UAE. M365 Mail.Send unavailable — email delivery blocked; forward manually or via WhatsApp.
+  </div>
+</div>
+
+<!-- ─── STEP 1: COO Morning Brief ─── -->
+<div class="card">
+  <div class="step-label">
+    <span class="step-num">Step 1</span>
+    <span class="step-title">COO Morning Brief</span>
+    <span class="step-badge badge-ok">Complete</span>
+  </div>
+
+  <div style="margin-bottom:14px;">
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Today's Schedule — Monday 28 July 2026</div>
+    <div class="card-2">
+      <div style="font-size:.82rem;color:var(--txt-2);margin-bottom:6px;">Calendar returned no events for today except:</div>
+      <div style="display:flex;gap:12px;align-items:baseline;font-size:.85rem;">
+        <span class="mono amber-text">16:00–16:15</span>
+        <span>FIAT Monday &amp; Friday Call Options Screen <span class="txt-2">(personal · no attendees · no link)</span></span>
+      </div>
+      <div style="font-size:.75rem;color:var(--green);margin-top:8px;">✓ Otherwise clear — full morning available for compliance sweep and BD decisions.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div style="margin-bottom:14px;">
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Inbox Priorities (Top 5 · Past 7 Days)</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Priority</th><th>From / Subject</th><th>What it is</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="dot r"></span>CIT Flag</td>
+            <td style="font-size:.75rem;"><strong>Brilliant Telecom LLC</strong><br>billing@brilliantholdings.com<br><em>Proposal for Audited FS + CIT Filing</em></td>
+            <td style="font-size:.78rem;">Client attached documents (27 Jul) and expects draft by Wednesday 30 Jul. Partner confirmation letters still 12+ days overdue. CIT filing at risk.</td>
+            <td style="font-size:.78rem;color:var(--red);">Raihana chase all numbers this morning. Cristina: confirm Wednesday draft feasibility.</td>
+          </tr>
+          <tr>
+            <td><span class="dot a"></span>Compliance</td>
+            <td style="font-size:.75rem;"><strong>GL-events / Julia Guichard</strong><br>Julia.GUICHARD@GL-events.com<br><em>RE: E-invoicing</em></td>
+            <td style="font-size:.78rem;">Client confirmed eInvoicing guidance helpful (27 Jul). Cristina handled thread well. References regulatory compliance milestone — eInvoicing pilot now live.</td>
+            <td style="font-size:.78rem;color:var(--amber);">No action needed — thread closed positively. Monitor for follow-up.</td>
+          </tr>
+          <tr>
+            <td><span class="dot a"></span>Internal</td>
+            <td style="font-size:.75rem;"><strong>Michelle Pacis → Mohaina + Finance</strong><br>m.pacis@bposervicegroup.com<br><em>GASCHEM: Request for WPS Reports (Apr–Jul)</em></td>
+            <td style="font-size:.78rem;">Michelle requesting WPS reports for GASCHEM client covering April–July 2026.</td>
+            <td style="font-size:.78rem;color:var(--amber);">Finance: provide WPS reports to Michelle by EOD today.</td>
+          </tr>
+          <tr>
+            <td><span class="dot a"></span>Client Ops</td>
+            <td style="font-size:.75rem;"><strong>Odoo Middle East · Warren Dy</strong><br>w.dy@bposervicegroup.com<br><em>Fw: Odoo ME Invoice INV/2026/57125</em></td>
+            <td style="font-size:.78rem;">Mohamed Hassan (client) replied re Odoo implementation invoice. Warren forwarded to Cristina + Joson, cc Mohaina (27 Jul).</td>
+            <td style="font-size:.78rem;color:var(--amber);">Cristina / Joson: confirm invoice status with client.</td>
+          </tr>
+          <tr>
+            <td><span class="dot g"></span>Social Proof</td>
+            <td style="font-size:.75rem;"><strong>Google Business Profile</strong><br>businessprofile-noreply@google.com<br><em>Ekaterina + JC left reviews</em></td>
+            <td style="font-size:.78rem;">Two new Google reviews for BPOAS received 27 Jul. Positive signals — public response builds trust and SEO.</td>
+            <td style="font-size:.78rem;color:var(--green);">Respond to both reviews today — short, professional, personal.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div style="margin-bottom:14px;">
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Tasks &amp; Deadlines This Week</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Status</th><th>Item</th><th>Owner</th><th>Due</th></tr></thead>
+        <tbody>
+          <tr><td><span class="red-text">🔴 3 Days</span></td><td>CIT Penalty Waiver — sweep all at-risk clients</td><td>Mohaina / Warren / Cristina</td><td>31 Jul 2026</td></tr>
+          <tr><td><span class="red-text">🔴 Verify</span></td><td>BPOAS Trade Licence #809563 renewal (expired 25 Jul)</td><td>Junaifa → Mohaina</td><td>Today</td></tr>
+          <tr><td><span class="red-text">🔴 12d Late</span></td><td>Brilliant Telecom — partner confirmation letters / CIT draft</td><td>Raihana / Cristina</td><td>Draft: Wed 30 Jul</td></tr>
+          <tr><td><span class="red-text">🔴 40d Late</span></td><td>GL Middle East / Nandhu EL — Mohaina decision</td><td>Mohaina</td><td>Today</td></tr>
+          <tr><td><span class="red-text">🔴 39d Late</span></td><td>The Concept Lab / George EL — CIT 30 Sep</td><td>Mohaina</td><td>Today</td></tr>
+          <tr><td><span class="red-text">🔴 10d Late</span></td><td>Raihana Pipeline Status Report</td><td>Raihana</td><td>Before 09:00 today</td></tr>
+          <tr><td><span class="amber-text">🟡 5 Days</span></td><td>MCM Products — TL + EL signatures / VAT Refund follow-up</td><td>Raihana</td><td>Today (escalate EOD)</td></tr>
+          <tr><td><span class="amber-text">🟡 Ongoing</span></td><td>Annaka deregistration certificate — AED 500/mo penalty</td><td>Raihana</td><td>One call today</td></tr>
+          <tr><td><span class="amber-text">🟡 Open</span></td><td>Office 401 (Al Doha) move-out NOC reply</td><td>Mohaina</td><td>This week</td></tr>
+          <tr><td><span class="amber-text">🟡 Today</span></td><td>GASCHEM WPS Reports Apr–Jul (Michelle Pacis request)</td><td>Finance</td><td>EOD today</td></tr>
+          <tr><td><span class="green-text">🟢 Monitor</span></td><td>Chadi proposal (sent by Raihana 25 Jul) — await reply</td><td>Raihana</td><td>Follow up Wed if no reply</td></tr>
+          <tr><td><span class="amber-text">🟡 Today</span></td><td>Google Reviews (Ekaterina, JC) — respond publicly</td><td>Mohaina / Raihana</td><td>Today</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div style="margin-bottom:14px;">
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">BD Pipeline Pulse</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Client / Prospect</th><th>Service</th><th>Score</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Richemont / Cartier</strong></td><td>CIT + Bookkeeping</td><td>9/10</td><td><span class="red-text">🔴 AED 58,254 overdue · Jul 14 call outcome unlogged (14 days). Mohaina managing.</span></td></tr>
+          <tr><td><strong>MCM Products ME</strong></td><td>VAT + CIT</td><td>8/10</td><td><span class="amber-text">🟡 KYC active · TL + EL unsigned · VAT refund proposal 5 days unanswered.</span></td></tr>
+          <tr><td><strong>Gulf Seatech FZC</strong></td><td>Audit Assistance FY2025</td><td>7/10</td><td><span class="green-text">🟢 KYC received · Warren + Cristina monitoring.</span></td></tr>
+          <tr><td><strong>Halton Middle East FZE</strong></td><td>CIT + Transfer Pricing</td><td>SIGNED</td><td><span class="amber-text">🟡 Delivery · bank details still not received.</span></td></tr>
+          <tr><td><strong>Paluto Restaurant LLC</strong></td><td>AFS 2025 + CIT</td><td>SIGNED</td><td><span class="green-text">🟢 EL signed 17 Jul · onboarding underway. New win.</span></td></tr>
+          <tr><td><strong>GL Middle East / Nandhu</strong></td><td>TRC (3 entities)</td><td>6/10</td><td><span class="red-text">🔴 BLOCKED · EL 40+ days · Mohaina decision required today.</span></td></tr>
+          <tr><td><strong>The Concept Lab / George</strong></td><td>CIT Filing</td><td>6/10</td><td><span class="red-text">🔴 BLOCKED · EL 39+ days · CIT 30 Sep · Mohaina decision required today.</span></td></tr>
+          <tr><td><strong>MMG Art Production LLC</strong></td><td>CIT + Audited FS</td><td>—</td><td><span class="amber-text">🟡 Final outreach today (18 days). Close file if no EOD response.</span></td></tr>
+          <tr><td><strong>Chadi (inbound)</strong></td><td>Bookkeeping (TBC)</td><td>Unscoredx</td><td><span class="amber-text">🟡 Proposal sent by Raihana 25 Jul · await reply · follow up Wed if silent.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">Raihana's Queue (pending Mohaina approval): Clearfreight Int'l (7/10), Infinity Prime (7/10), TechHive.ai (6/10) — CRM upload approval needed before any contact. Cartier Fragrance new entity — awaiting Mohaina direction. Apify LinkedIn scraper: free-user limit reached this run (0 new leads). Scraper data last available: 20 Jul 2026.</div>
+  </div>
+
+  <hr class="divider">
+
+  <div>
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Key Metric · Live Zoho Books (27 Jul 2026)</div>
+    <div class="card-2" style="font-size:.83rem;line-height:1.6;">
+      Live Zoho pull restored (27 Jul) after weeks of connector unavailability. Primary BPOAS entity: <strong>AED 62,450.25 outstanding across 16 overdue invoices</strong> (AED 80,450.25 total overdue value). This is materially lower than the AED 215,279.86 / 40-invoice figure carried in all CFO reports since 17 Jul — reflects primary entity only. Full rollup across 35 Zoho Books organisations not run this session.
+    </div>
+  </div>
+</div>
+
+<!-- ─── STEP 2: CFO Weekly Revenue ─── -->
+<div class="card">
+  <div class="step-label">
+    <span class="step-num">Step 2</span>
+    <span class="step-title">CFO Weekly Revenue Report</span>
+    <span class="step-badge badge-warn">Monday Run</span>
+  </div>
+
+  <div style="margin-bottom:14px;">
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Headline · Week of 28 July 2026</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Figure</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Bank Balance (ENBD ···8401)</td><td class="amber-text">AED 21,619.74</td><td>As of 27 Jul · post AED 10,578 credit. Yesterday: +AED 12,153 total credits.</td></tr>
+          <tr><td>Overdue Receivables (Primary Entity)</td><td class="red-text">AED 62,450.25</td><td>Live Zoho · 16 invoices · 27 Jul. Full rollup of 35 orgs not available this run.</td></tr>
+          <tr><td>Richemont Block</td><td class="red-text">AED 58,254</td><td>Largest single block. Call outcome Jul 14 unlogged — 14 days.</td></tr>
+          <tr><td>EXLIBRIS MGMT FZCO</td><td class="red-text">AED 6,300</td><td>237+ days overdue. Write-off or escalation decision needed.</td></tr>
+          <tr><td>Monthly Target</td><td class="txt-2">Not on file</td><td>Flagged in every CFO report since 2 Jul 2026. Set a target.</td></tr>
+          <tr><td>Run Rate vs Target Gap</td><td class="txt-2">Cannot calculate</td><td>No target set. 3 days remaining in July.</td></tr>
+          <tr><td>Retainer Renewal Tracker</td><td class="txt-2">No database</td><td>Flagged since July 2. Revenue-at-risk from renewals unknown.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div style="margin-bottom:14px;">
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Pipeline Health (Carry-Forward · Updated 28 Jul)</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Prospect / Client</th><th>Service</th><th>Stage</th><th>Revenue Signal</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Richemont / Cartier</strong></td><td>CIT + Bookkeeping</td><td>Post-call</td><td><span class="red-text">AED 58,254 overdue. Renewal outcome unlogged. Junaifa confirm bank Sat–Sun.</span></td></tr>
+          <tr><td><strong>Halton ME FZE</strong></td><td>CIT + Transfer Pricing</td><td>SIGNED · Delivery</td><td><span class="amber-text">Bank details not received. Revenue locked pending start.</span></td></tr>
+          <tr><td><strong>Paluto Restaurant LLC</strong></td><td>AFS 2025 + CIT</td><td>SIGNED · Onboarding</td><td><span class="green-text">New retainer. Onboarding underway.</span></td></tr>
+          <tr><td><strong>MCM Products ME</strong></td><td>VAT + CIT</td><td>KYC active</td><td><span class="amber-text">EL + TL unsigned. Revenue blocked pending signature.</span></td></tr>
+          <tr><td><strong>Gulf Seatech FZC</strong></td><td>Audit Assistance FY2025</td><td>Proposal sent</td><td><span class="amber-text">KYC received. Monitoring.</span></td></tr>
+          <tr><td><strong>GL Middle East / Nandhu</strong></td><td>TRC (3 entities)</td><td>🔴 BLOCKED</td><td>EL 40d stalled. Revenue lost if closed.</td></tr>
+          <tr><td><strong>Concept Lab / George</strong></td><td>CIT Filing</td><td>🔴 BLOCKED</td><td>EL 39d stalled. CIT 30 Sep. Revenue lost if closed.</td></tr>
+          <tr><td><strong>MMG Art Production</strong></td><td>CIT + Audited FS</td><td>Proposal 18d</td><td>Final outreach today. Close or convert.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">No deal-value tracking in Notion. Pipeline revenue-at-risk cannot be quantified. Recommend creating a Pipeline database with AED deal values.</div>
+  </div>
+
+  <hr class="divider">
+
+  <div>
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">CFO Flags</div>
+    <div class="flag-item red" style="margin-bottom:6px;">
+      <div class="flag-dot">🔴</div>
+      <div class="flag-body"><span class="flag-title-text">No monthly revenue target on file</span><span class="flag-why"> — flagged every report since 2 Jul. Cannot measure performance against plan. Set a July and August target this week.</span></div>
+    </div>
+    <div class="flag-item red" style="margin-bottom:6px;">
+      <div class="flag-dot">🔴</div>
+      <div class="flag-body"><span class="flag-title-text">EXLIBRIS AED 6,300 / 237+ days</span><span class="flag-why"> — no resolution in any brief since July. Write-off or escalation required this week.</span></div>
+    </div>
+    <div class="flag-item amber" style="margin-bottom:6px;">
+      <div class="flag-dot">🟡</div>
+      <div class="flag-body"><span class="flag-title-text">No retainer contract database</span><span class="flag-why"> — revenue-at-risk from renewals unknown. Flagged since July 2. Create a Retainer Contracts database in Notion this week.</span></div>
+    </div>
+    <div class="flag-item amber">
+      <div class="flag-dot">🟡</div>
+      <div class="flag-body"><span class="flag-title-text">Zoho Books full rollup not run</span><span class="flag-why"> — primary entity only pulled this session. 35 orgs. True overdue figure may be significantly higher than AED 62,450.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── STEP 3: CRO Weekly Prospects ─── -->
+<div class="card">
+  <div class="step-label">
+    <span class="step-num">Step 3</span>
+    <span class="step-title">CRO Weekly Prospects</span>
+    <span class="step-badge badge-warn">Monday Run · 0 New Leads</span>
+  </div>
+
+  <div class="sys-banner" style="margin-bottom:14px;">
+    Apify LinkedIn scraper: free-user run limit reached this session — 0 new profiles sourced. Carrying forward 3 leads from 20 July 2026 run (all pending Mohaina CRM upload approval). No new 9/10 or 10/10 prospects to flag.
+  </div>
+
+  <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Carry-Forward Prospect Cards · 20 Jul Run</div>
+
+  <div class="prospect-card">
+    <div class="prospect-header">
+      <div>
+        <div class="prospect-name">Dr. Muhammad Hamid</div>
+        <div class="prospect-co">Clearfreight International · Logistics / Freight · Dubai</div>
+      </div>
+      <div class="score-badge">7/10 · Cold</div>
+    </div>
+    <div class="prospect-row"><strong>Fit:</strong> Freight forwarder — cross-border VAT treatment and input tax on port/handling fees are common compliance gaps in this sector.</div>
+    <div class="prospect-row"><strong>Compliance Trigger:</strong> CIT now in force; multiple UAE entities common in freight; potential transfer pricing exposure.</div>
+    <div class="prospect-row"><strong>Opening Strategy:</strong> Lead with cross-border VAT complexity specific to logistics. Not a generic accounting pitch.</div>
+    <div class="prospect-row"><strong>Status:</strong> <span class="amber-text">Pending Mohaina CRM upload approval · LinkedIn verification needed.</span></div>
+    <hr class="divider">
+    <div class="small txt-2 mb-8">5-Message DM Sequence — Mohaina's Voice</div>
+    <div style="font-size:.78rem;line-height:1.6;color:var(--txt-2);">
+      <p><strong>Msg 1 (Connect):</strong> "Muhammad, I saw you're running freight forwarding operations from Dubai. I work with a few logistics companies on their UAE VAT and CIT compliance — it's a sector where the cross-border treatment trips most people up. Happy to share what I've seen if useful. — Mohaina"</p>
+      <p><strong>Msg 2 (Value):</strong> "Something I notice with freight companies in the UAE — the input VAT on port handling fees and customs duties often gets missed. Not complex to fix but costly when the FTA asks. Worth a second look at your current setup."</p>
+      <p><strong>Msg 3 (Proof):</strong> "One of our logistics clients came to us after a VAT refund claim was rejected. Their previous accountant had been claiming input tax on exempt services for 18 months. We rebuilt the claims from scratch. It's not rare — I'd say it comes up more in this sector than any other."</p>
+      <p><strong>Msg 4 (Ask):</strong> "Muhammad, happy to do a 30-minute compliance review — your VAT position and CIT exposure. No pitch, just clarity. If everything's in order, I'll tell you that too. Worth a call?"</p>
+      <p><strong>Msg 5 (Final):</strong> "One last note — if you're planning CIT filing before 30 September, the supporting documents you'll need are the same ones I'd want to review with you now. Happy to do a quick check before the deadline. Totally up to you. — Mohaina"</p>
+    </div>
+  </div>
+
+  <div class="prospect-card">
+    <div class="prospect-header">
+      <div>
+        <div class="prospect-name">Rachid Maliki</div>
+        <div class="prospect-co">Infinity Prime · Supply Chain Consulting · Dubai</div>
+      </div>
+      <div class="score-badge warm">7/10 · Warm</div>
+    </div>
+    <div class="prospect-row"><strong>Fit:</strong> Supply chain consulting firm — likely multi-entity structure; management fees between entities create transfer pricing and CIT complexity.</div>
+    <div class="prospect-row"><strong>Compliance Trigger:</strong> CIT + transfer pricing scope; consulting firms often bill foreign clients with unclear VAT treatment.</div>
+    <div class="prospect-row"><strong>Opening Strategy:</strong> Peer-level, consultative. CIT + transfer pricing documentation angle. Not a bookkeeping pitch.</div>
+    <div class="prospect-row"><strong>Status:</strong> <span class="amber-text">Pending Mohaina CRM upload approval · LinkedIn verification needed.</span></div>
+    <hr class="divider">
+    <div class="small txt-2 mb-8">5-Message DM Sequence</div>
+    <div style="font-size:.78rem;line-height:1.6;color:var(--txt-2);">
+      <p><strong>Msg 1:</strong> "Rachid, I work with a few supply chain and consulting businesses in the UAE on their accounting and CIT compliance. Your name came up — I think we might know some of the same people in the logistics space. Happy to connect. — Mohaina"</p>
+      <p><strong>Msg 2:</strong> "Something I see with consulting firms in the UAE — the CIT treatment of advisory fees from foreign entities isn't always clear-cut. Especially with transfer pricing now in scope. Worth knowing where your structure sits before the FTA asks."</p>
+      <p><strong>Msg 3:</strong> "I had a consulting client last quarter who'd been paying themselves management fees from a related entity without a transfer pricing policy. Not illegal — just undocumented. The CIT filing made it visible. We fixed it before submission. Worth a conversation?"</p>
+      <p><strong>Msg 4:</strong> "Rachid, happy to do a 30-minute review — your entity structure, CIT position, and whether your books can support the filing before 30 September. No charge, no pitch. Just a clear picture. Interested?"</p>
+      <p><strong>Msg 5:</strong> "Last reach out — September 30 is the CIT deadline for many UAE entities. If your financial year ended December 31, 2024, you're likely in scope. Happy to confirm your position in one call. — Mohaina"</p>
+    </div>
+  </div>
+
+  <div class="prospect-card">
+    <div class="prospect-header">
+      <div>
+        <div class="prospect-name">Sohail Asgher</div>
+        <div class="prospect-co">TechHive.ai · Cloud / DevOps / AI · Dubai</div>
+      </div>
+      <div class="score-badge warm">6/10 · Warm</div>
+    </div>
+    <div class="prospect-row"><strong>Fit:</strong> Tech founder — UAE CIT is new territory for most tech founders; international billing creates VAT and eInvoicing questions.</div>
+    <div class="prospect-row"><strong>Compliance Trigger:</strong> CIT + VAT on digital services + eInvoicing readiness. Tech companies often deprioritise accounting until it's urgent.</div>
+    <div class="prospect-row"><strong>Opening Strategy:</strong> Direct, pragmatic. Frame around CIT and eInvoicing as near-term action items, not abstract compliance.</div>
+    <div class="prospect-row"><strong>Status:</strong> <span class="amber-text">Pending Mohaina CRM upload approval · LinkedIn verification needed.</span></div>
+    <hr class="divider">
+    <div class="small txt-2 mb-8">5-Message DM Sequence</div>
+    <div style="font-size:.78rem;line-height:1.6;color:var(--txt-2);">
+      <p><strong>Msg 1:</strong> "Sohail, I work with a few tech companies and SaaS founders in Dubai on their UAE accounting and compliance. Came across your profile — interesting work in the AI space. Happy to connect. — Mohaina"</p>
+      <p><strong>Msg 2:</strong> "Tech companies in Dubai have an interesting compliance challenge right now — UAE CIT applies, but the international billing structure often creates questions about what's taxable and what's not. I see it a lot. Worth knowing where you stand."</p>
+      <p><strong>Msg 3:</strong> "One thing I'd flag for tech founders: if you're billing clients outside the UAE, your VAT treatment on those invoices matters. I've seen companies issue invoices the wrong way for a year and have to reissue. Not fun. Easy to check upfront."</p>
+      <p><strong>Msg 4:</strong> "Sohail, happy to spend 30 minutes looking at your UAE entity setup — tax position, CIT exposure, eInvoicing readiness. Quick, clear, no charge. If everything's in order, I'll tell you that. Worth a call?"</p>
+      <p><strong>Msg 5:</strong> "Final note — eInvoicing becomes mandatory for businesses over AED 50M in January 2027. If you're scaling, this is worth preparing for now, not later. Happy to check your Zoho or Odoo setup if you're using either. — Mohaina"</p>
+    </div>
+  </div>
+
+  <div class="note">No prospects scoring 9 or 10 to flag this run. Apify scraper on free-tier limit — recommend upgrading or switching to a higher-tier Apify plan to restore weekly sourcing.</div>
+</div>
+
+<!-- ─── STEP 5: Content Calendar ─── -->
+<div class="card">
+  <div class="step-label">
+    <span class="step-num">Step 5</span>
+    <span class="step-title">Content Calendar — Week of 28 July – 1 August 2026</span>
+    <span class="step-badge badge-ok">Monday Run</span>
+  </div>
+
+  <div style="margin-bottom:14px;">
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Compliance Pulse</div>
+    <div class="flag-item red" style="margin-bottom:6px;"><div class="flag-dot">🔴</div><div class="flag-body"><strong>CIT Penalty Waiver closes 31 July (Thursday)</strong> — AED 10,000 per unregistered/unfiled entity. Monday + Thursday posts cite this directly. Accuracy check required from Mohaina/Warren before publish on both days.</div></div>
+    <div class="flag-item amber" style="margin-bottom:6px;"><div class="flag-dot">🟡</div><div class="flag-body"><strong>UAE eInvoicing pilot live 1 Jul 2026 (voluntary)</strong> — Mandatory: 1 Jan 2027 (AED 50M+) / 1 Jul 2027 (SMEs). Friday post uses this angle. Dates verified in prior calendar build (Jul 9, 20).</div></div>
+    <div class="flag-item green" style="margin-bottom:6px;"><div class="flag-dot">🟢</div><div class="flag-body">No new AML/DNFBP circular in last 7 days.</div></div>
+    <div class="flag-item green"><div class="flag-dot">🟢</div><div class="flag-body">No new FTA VAT guide or public clarification. No new free zone regulatory change (DMCC/DIFC/JAFZA).</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <div style="margin-bottom:14px;">
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Content Debt Tracker</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Period</th><th>Item</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>Week of 22–26 Jun</td><td>No topic recorded</td><td>Auto-archive window (21 days) passed ~17 Jul. Treat as archived.</td></tr>
+          <tr><td>Week of 29 Jun</td><td>5 posts — Mohaina/Rei confirmation pending</td><td>21+ days past intended publish. Recommend archiving this week.</td></tr>
+          <tr><td>Approval Backlog</td><td>8+ posts in Pending Approval since 2 Jul</td><td>Blocked by M365 connector gap. Fix connector scope → batch-approve.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div style="margin-bottom:14px;">
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Weekly Calendar — 28 Jul – 1 Aug 2026</div>
+    <div class="tbl-wrap">
+      <table class="cal-table">
+        <thead><tr><th>Day</th><th>Pillar</th><th>Topic / Angle</th><th>Format</th><th>CTA</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Mon 28 Jul</td>
+            <td><span class="pillar-tag">Compliance</span></td>
+            <td><strong>CIT penalty waiver — 31 July deadline. What "registering" vs "filing" actually means.</strong> Urgency angle — 3 days only.</td>
+            <td>Urgency Framework</td>
+            <td>DM "CIT" before Thursday</td>
+          </tr>
+          <tr>
+            <td>Tue 29 Jul</td>
+            <td><span class="pillar-tag">Owner-Led Firm</span></td>
+            <td>Logistics SME owner who filed CIT but didn't know the first return was separate from registration — caught 3 days before the waiver closed. <em>Sector: Logistics.</em></td>
+            <td>Story Post</td>
+            <td>Tag a business owner who might not know the difference</td>
+          </tr>
+          <tr>
+            <td>Wed 30 Jul</td>
+            <td><span class="pillar-tag">Numbers</span></td>
+            <td>Post-waiver: 3 book hygiene checks every UAE SME should run before Q3 ends — cash position, AR days, tax provision.</td>
+            <td>Framework List</td>
+            <td>Save this for your next finance review</td>
+          </tr>
+          <tr>
+            <td>Thu 31 Jul</td>
+            <td><span class="pillar-tag">True Cost</span></td>
+            <td><strong>CIT penalty waiver LAST DAY.</strong> The accountant who filed VAT for 2 years without telling the owner about non-claimable input tax — what happens when FTA discovers it first.</td>
+            <td>Contrarian Story</td>
+            <td>DM "FTA" for 3 questions to ask your accountant</td>
+          </tr>
+          <tr>
+            <td>Fri 1 Aug</td>
+            <td><span class="pillar-tag">Tech &amp; Automation</span></td>
+            <td>UAE eInvoicing: pilot live 1 Jul (voluntary), mandatory Jan 2027 / Jul 2027. 5 questions to check if your Zoho Books setup is ready.</td>
+            <td>Checklist Framework</td>
+            <td>DM "SYSTEMS" — I'll tell you what your setup is missing</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">All 5 pillars used exactly once. No pillar repeats within the week. Tuesday sector: Logistics (rotation: Trading → Real Estate → Logistics). Thursday and Monday posts cite AED 10,000 penalty and 31 Jul deadline — explicit Mohaina approval required before publish.</div>
+  </div>
+
+  <hr class="divider">
+
+  <div>
+    <div class="small txt-2 mb-8" style="text-transform:uppercase;letter-spacing:.06em;">Pillar Rotation Status</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Pillar</th><th>This Week</th><th>Last Used</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Compliance Without the Panic</td><td>Monday</td><td>Mon 20 Jul</td><td><span class="green-text">✅ In rotation</span></td></tr>
+          <tr><td>Inside an Owner-Led Firm</td><td>Tuesday</td><td>Tue 21 Jul</td><td><span class="green-text">✅ In rotation</span></td></tr>
+          <tr><td>What the Numbers Are Telling You</td><td>Wednesday</td><td>Wed 22 Jul</td><td><span class="green-text">✅ In rotation</span></td></tr>
+          <tr><td>The True Cost of Cheap Accounting</td><td>Thursday</td><td>Thu 23 Jul</td><td><span class="green-text">✅ In rotation</span></td></tr>
+          <tr><td>Tech &amp; Automation</td><td>Friday</td><td>Fri 24 Jul</td><td><span class="green-text">✅ In rotation</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ─── RUN LOG ─── -->
+<div class="card">
+  <div class="step-label">
+    <span class="step-num">Log</span>
+    <span class="step-title">Run Log · 28 July 2026</span>
+  </div>
+  <div class="log-row">
+    <span class="log-step"><span class="step-badge badge-ok" style="margin-right:8px;">✓ Complete</span> Step 1 — COO Morning Brief</span>
+    <span class="log-file">coo-brief-2026-07-28.html</span>
+  </div>
+  <div class="log-row">
+    <span class="log-step"><span class="step-badge badge-warn" style="margin-right:8px;">⚠ Partial</span> Step 2 — CFO Weekly Revenue (Monday)</span>
+    <span class="log-file">cfo-report-2026-07-28.html · Zoho Books: primary entity only</span>
+  </div>
+  <div class="log-row">
+    <span class="log-step"><span class="step-badge badge-warn" style="margin-right:8px;">⚠ Carry-fwd</span> Step 3 — CRO Weekly Prospects (Monday)</span>
+    <span class="log-file">cro-prospects-2026-07-28.html · Apify: free-tier limit · 0 new leads</span>
+  </div>
+  <div class="log-row">
+    <span class="log-step"><span class="step-badge badge-err" style="margin-right:8px;">⚠ Pending</span> Step 4 — CMO Daily Post</span>
+    <span class="log-file">cmo-post-2026-07-28.html · Awaiting Mohaina approval · M365 send blocked</span>
+  </div>
+  <div class="log-row">
+    <span class="log-step"><span class="step-badge badge-ok" style="margin-right:8px;">✓ Complete</span> Step 5 — Content Calendar (Monday)</span>
+    <span class="log-file">content-calendar-week-2026-07-28.html</span>
+  </div>
+  <div class="log-row">
+    <span class="log-step"><span class="step-badge badge-err" style="margin-right:8px;">✗ Blocked</span> Summary Email to m.asira@bposervicegroup.com</span>
+    <span class="log-file">M365 Mail.Send unavailable · Day 26 · Delivered via this file + Notion</span>
+  </div>
+  <div class="log-row">
+    <span class="log-step"><span class="step-badge badge-err" style="margin-right:8px;">✗ Blocked</span> Rei Nald post handoff (reinald.onella1@gmail.com)</span>
+    <span class="log-file">M365 Mail.Send unavailable · Forward manually after Mohaina approves</span>
+  </div>
+  <div class="note mt-8">Routine started: 07:00 GST · 28 Jul 2026. Data sources: Microsoft 365 (calendar + inbox), Notion (briefs, CFO, content calendar), Zoho Analytics (sync resumed), Emirates NBD (bank alerts), Apify (free-tier limit reached). Branch: claude/cool-noether-iklton.</div>
+</div>
+
+<!-- ─── QUICK LINKS ─── -->
+<div class="card">
+  <div class="step-label">
+    <span class="step-num">Links</span>
+    <span class="step-title">Quick Links</span>
+  </div>
+  <div class="links-grid">
+    <a class="link-item" href="coo-brief-2026-07-28.html">
+      <span class="li-icon">📋</span>
+      <div><div class="li-label">COO Brief</div><div class="li-sub txt-3">28 Jul 2026</div></div>
+    </a>
+    <a class="link-item" href="cfo-report-2026-07-28.html">
+      <span class="li-icon">💰</span>
+      <div><div class="li-label">CFO Revenue Report</div><div class="li-sub txt-3">Week of 28 Jul 2026</div></div>
+    </a>
+    <a class="link-item" href="cro-prospects-2026-07-28.html">
+      <span class="li-icon">🎯</span>
+      <div><div class="li-label">CRO Prospects</div><div class="li-sub txt-3">Carry-forward · 3 leads</div></div>
+    </a>
+    <a class="link-item" href="cmo-post-2026-07-28.html">
+      <span class="li-icon">✍️</span>
+      <div><div class="li-label">CMO Daily Post</div><div class="li-sub txt-3">Awaiting approval</div></div>
+    </a>
+    <a class="link-item" href="content-calendar-week-2026-07-28.html">
+      <span class="li-icon">📅</span>
+      <div><div class="li-label">Content Calendar</div><div class="li-sub txt-3">Week of 28 Jul – 1 Aug</div></div>
+    </a>
+    <a class="link-item" href="https://app.notion.com/p/3aa8a33e7fd181ac9889c971281513ee">
+      <span class="li-icon">📄</span>
+      <div><div class="li-label">COO Brief 27 Jul (Notion)</div><div class="li-sub txt-3">Prior day reference</div></div>
+    </a>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<div style="text-align:center;font-size:.7rem;color:var(--txt-3);padding-top:24px;border-top:1px solid var(--border);margin-top:8px;">
+  BPOAS Daily Start · Monday 28 July 2026 · Auto-generated /bpoas-daily-start · Branch claude/cool-noether-iklton<br>
+  Generated 07:00 GST · Delivered via Notion + HTML · M365 email blocked (Day 26)
+</div>
+
+</div>

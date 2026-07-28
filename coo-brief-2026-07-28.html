@@ -1,0 +1,165 @@
+<!doctype html>
+<title>COO Morning Brief · 28 July 2026 · BPOAS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{--bg:#0A0A0A;--card:#141414;--card-2:#1C1C1C;--border:#272727;--border-2:#333;--txt:#F0EDE8;--txt-2:#8C8680;--txt-3:#504C48;--brand:#E8294C;--brand-dim:rgba(232,41,76,0.10);--brand-mid:rgba(232,41,76,0.18);--green:#34C759;--green-dim:rgba(52,199,89,0.10);--amber:#FF9F0A;--amber-dim:rgba(255,159,10,0.10);--red:#E8294C;--red-dim:rgba(232,41,76,0.10);--radius:8px;--radius-lg:12px;}
+@media(prefers-color-scheme:light){:root{--bg:#F5F2EE;--card:#FFFFFF;--card-2:#EDEAE6;--border:#DDD9D4;--border-2:#CBC7C2;--txt:#1A1614;--txt-2:#6B6460;--txt-3:#A09C98;--green-dim:rgba(52,199,89,0.12);--amber-dim:rgba(255,159,10,0.12);--red-dim:rgba(232,41,76,0.09);--brand-dim:rgba(232,41,76,0.08);--brand-mid:rgba(232,41,76,0.15);}}
+:root[data-theme="light"]{--bg:#F5F2EE;--card:#FFFFFF;--card-2:#EDEAE6;--border:#DDD9D4;--border-2:#CBC7C2;--txt:#1A1614;--txt-2:#6B6460;--txt-3:#A09C98;--green-dim:rgba(52,199,89,0.12);--amber-dim:rgba(255,159,10,0.12);--red-dim:rgba(232,41,76,0.09);--brand-dim:rgba(232,41,76,0.08);--brand-mid:rgba(232,41,76,0.15);}
+:root[data-theme="dark"]{--bg:#0A0A0A;--card:#141414;--card-2:#1C1C1C;--border:#272727;--border-2:#333;--txt:#F0EDE8;--txt-2:#8C8680;--txt-3:#504C48;--green-dim:rgba(52,199,89,0.10);--amber-dim:rgba(255,159,10,0.10);--red-dim:rgba(232,41,76,0.10);--brand-dim:rgba(232,41,76,0.10);--brand-mid:rgba(232,41,76,0.18);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:15px;}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.6;min-height:100vh;}
+.shell{max-width:1000px;margin:0 auto;padding:24px 20px 80px;}
+.masthead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:24px;}
+.masthead-title{font-family:Georgia,"Times New Roman",serif;font-size:1.05rem;font-weight:normal;letter-spacing:.04em;text-transform:uppercase;color:var(--brand);}
+.masthead-meta{font-size:.78rem;color:var(--txt-2);}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;margin-bottom:16px;}
+.card-2{background:var(--card-2);border:1px solid var(--border-2);border-radius:var(--radius);padding:14px 16px;}
+.eyebrow{font-size:.67rem;text-transform:uppercase;letter-spacing:.1em;color:var(--brand);margin-bottom:10px;}
+.section-lbl{font-size:.67rem;text-transform:uppercase;letter-spacing:.08em;color:var(--txt-3);margin:18px 0 8px;border-top:1px solid var(--border);padding-top:12px;}
+.flag-item{display:flex;gap:10px;padding:10px 12px;border-radius:6px;margin-bottom:6px;border-left:3px solid transparent;font-size:.83rem;line-height:1.5;}
+.flag-item.red{background:var(--red-dim);border-left-color:var(--red);}
+.flag-item.amber{background:var(--amber-dim);border-left-color:var(--amber);}
+.flag-item.green{background:var(--green-dim);border-left-color:var(--green);}
+.flag-title{font-weight:600;color:var(--txt);}
+.flag-why{color:var(--txt-2);margin-top:1px;}
+.flag-next{color:var(--txt);font-style:italic;margin-top:3px;}
+.tbl-wrap{overflow-x:auto;margin:10px 0;}
+table{width:100%;border-collapse:collapse;font-size:.8rem;}
+th{text-align:left;font-size:.67rem;text-transform:uppercase;letter-spacing:.06em;color:var(--txt-2);border-bottom:1px solid var(--border-2);padding:6px 10px;white-space:nowrap;}
+td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--txt);line-height:1.4;font-variant-numeric:tabular-nums;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:var(--card-2);}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;}
+.dot.r{background:var(--red);}
+.dot.a{background:var(--amber);}
+.dot.g{background:var(--green);}
+.red-text{color:var(--red);}
+.amber-text{color:var(--amber);}
+.green-text{color:var(--green);}
+.mono{font-family:ui-monospace,"SF Mono",Consolas,monospace;}
+.note{font-size:.72rem;color:var(--txt-3);line-height:1.5;margin-top:8px;}
+.divider{border:none;border-top:1px solid var(--border);margin:14px 0;}
+p{margin-bottom:8px;}p:last-child{margin-bottom:0;}
+@media(max-width:600px){.shell{padding:16px 14px 60px;}}
+</style>
+<div class="shell">
+
+<div class="masthead">
+  <div>
+    <div class="masthead-title">COO Morning Brief — Step 1</div>
+    <div class="masthead-meta">Monday · 28 July 2026 · Full Run</div>
+  </div>
+  <div style="font-size:.72rem;color:var(--txt-3);font-family:ui-monospace,monospace;">Generated 07:00 GST</div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">Today's Schedule — Monday 28 July 2026</div>
+  <div class="card-2">
+    <div style="font-size:.82rem;color:var(--txt-2);margin-bottom:6px;">Calendar returned no events for today except:</div>
+    <div style="display:flex;gap:12px;align-items:baseline;font-size:.85rem;">
+      <span class="mono amber-text">16:00–16:15</span>
+      <span>FIAT Monday &amp; Friday Call Options Screen <span style="color:var(--txt-2)">(personal · no attendees · no link)</span></span>
+    </div>
+    <div style="font-size:.75rem;color:var(--green);margin-top:8px;">✓ Otherwise clear — full morning available for compliance sweep and BD decisions.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">Inbox Priorities — Top 5 (Past 7 Days)</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Priority</th><th>From / Subject</th><th>What it is</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="dot r"></span><span class="red-text">CIT Flag</span></td>
+          <td style="font-size:.75rem;"><strong>Brilliant Telecom LLC</strong><br>billing@brilliantholdings.com<br><em>Proposal for Audited FS + CIT Filing</em></td>
+          <td style="font-size:.78rem;">Client attached documents (27 Jul) and expects draft by Wednesday 30 Jul. Partner confirmation letters 12+ days overdue. CIT filing at risk.</td>
+          <td style="font-size:.78rem;color:var(--red);">Raihana chase all numbers this morning. Cristina: confirm Wednesday draft feasibility.</td>
+        </tr>
+        <tr>
+          <td><span class="dot a"></span><span class="amber-text">Compliance</span></td>
+          <td style="font-size:.75rem;"><strong>GL-events / Julia Guichard</strong><br>Julia.GUICHARD@GL-events.com<br><em>RE: E-invoicing</em></td>
+          <td style="font-size:.78rem;">Client confirmed eInvoicing guidance helpful (27 Jul). Cristina handled thread well. eInvoicing pilot now live.</td>
+          <td style="font-size:.78rem;color:var(--amber);">No action needed — thread closed positively. Monitor for follow-up.</td>
+        </tr>
+        <tr>
+          <td><span class="dot a"></span><span class="amber-text">Internal</span></td>
+          <td style="font-size:.75rem;"><strong>Michelle Pacis → Mohaina + Finance</strong><br>m.pacis@bposervicegroup.com<br><em>GASCHEM: WPS Reports Apr–Jul</em></td>
+          <td style="font-size:.78rem;">Finance team needs to provide WPS reports for GASCHEM client covering April–July 2026.</td>
+          <td style="font-size:.78rem;color:var(--amber);">Finance: provide to Michelle by EOD today.</td>
+        </tr>
+        <tr>
+          <td><span class="dot a"></span><span class="amber-text">Client Ops</span></td>
+          <td style="font-size:.75rem;"><strong>Warren Dy → Cristina + Joson</strong><br>w.dy@bposervicegroup.com<br><em>Fw: Odoo ME Invoice INV/2026/57125</em></td>
+          <td style="font-size:.78rem;">Mohamed Hassan replied re Odoo implementation invoice. Warren forwarded for action (27 Jul).</td>
+          <td style="font-size:.78rem;color:var(--amber);">Cristina / Joson: confirm invoice status with client.</td>
+        </tr>
+        <tr>
+          <td><span class="dot g"></span><span class="green-text">Social Proof</span></td>
+          <td style="font-size:.75rem;"><strong>Google Business Profile</strong><br><em>Ekaterina + JC left reviews</em></td>
+          <td style="font-size:.78rem;">Two new Google reviews for BPOAS received 27 Jul. Public response builds trust and SEO.</td>
+          <td style="font-size:.78rem;color:var(--green);">Respond to both today — short, professional, personal.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">Tasks &amp; Deadlines This Week</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Status</th><th>Item</th><th>Owner</th><th>Due</th></tr></thead>
+      <tbody>
+        <tr><td><span class="red-text">🔴 3 Days</span></td><td>CIT Penalty Waiver — sweep all at-risk clients</td><td>Mohaina / Warren / Cristina</td><td>31 Jul 2026</td></tr>
+        <tr><td><span class="red-text">🔴 Verify</span></td><td>BPOAS Trade Licence #809563 renewal (expired 25 Jul)</td><td>Junaifa → Mohaina</td><td>Today</td></tr>
+        <tr><td><span class="red-text">🔴 12d Late</span></td><td>Brilliant Telecom — partner confirmation letters / CIT draft</td><td>Raihana / Cristina</td><td>Draft: Wed 30 Jul</td></tr>
+        <tr><td><span class="red-text">🔴 40d Late</span></td><td>GL Middle East / Nandhu EL — Mohaina decision</td><td>Mohaina</td><td>Today</td></tr>
+        <tr><td><span class="red-text">🔴 39d Late</span></td><td>The Concept Lab / George EL — CIT 30 Sep</td><td>Mohaina</td><td>Today</td></tr>
+        <tr><td><span class="red-text">🔴 10d Late</span></td><td>Raihana Pipeline Status Report</td><td>Raihana</td><td>Before 09:00 today</td></tr>
+        <tr><td><span class="amber-text">🟡 5 Days</span></td><td>MCM Products — TL + EL signatures / VAT Refund follow-up</td><td>Raihana</td><td>Today (escalate EOD)</td></tr>
+        <tr><td><span class="amber-text">🟡 Ongoing</span></td><td>Annaka deregistration certificate — AED 500/mo penalty</td><td>Raihana</td><td>One call today</td></tr>
+        <tr><td><span class="amber-text">🟡 Open</span></td><td>Office 401 (Al Doha) move-out NOC reply</td><td>Mohaina</td><td>This week</td></tr>
+        <tr><td><span class="amber-text">🟡 Today</span></td><td>GASCHEM WPS Reports Apr–Jul (Michelle Pacis)</td><td>Finance</td><td>EOD today</td></tr>
+        <tr><td><span class="green-text">🟢 Monitor</span></td><td>Chadi proposal (sent 25 Jul) — await reply</td><td>Raihana</td><td>Follow up Wed if no reply</td></tr>
+        <tr><td><span class="amber-text">🟡 Today</span></td><td>Google Reviews (Ekaterina, JC) — respond publicly</td><td>Mohaina / Raihana</td><td>Today</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">BD Pipeline Pulse</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Client / Prospect</th><th>Service</th><th>Score</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Richemont / Cartier</strong></td><td>CIT + Bookkeeping</td><td>9/10</td><td><span class="red-text">🔴 AED 58,254 overdue · Jul 14 call unlogged (14d) · Mohaina managing.</span></td></tr>
+        <tr><td><strong>MCM Products ME</strong></td><td>VAT + CIT</td><td>8/10</td><td><span class="amber-text">🟡 KYC active · TL + EL unsigned · VAT refund proposal 5d unanswered.</span></td></tr>
+        <tr><td><strong>Gulf Seatech FZC</strong></td><td>Audit Assistance FY2025</td><td>7/10</td><td><span class="green-text">🟢 KYC received · Warren + Cristina monitoring.</span></td></tr>
+        <tr><td><strong>Halton ME FZE</strong></td><td>CIT + Transfer Pricing</td><td>SIGNED</td><td><span class="amber-text">🟡 Delivery · bank details still not received.</span></td></tr>
+        <tr><td><strong>Paluto Restaurant LLC</strong></td><td>AFS 2025 + CIT</td><td>SIGNED</td><td><span class="green-text">🟢 EL signed 17 Jul · onboarding underway. New win.</span></td></tr>
+        <tr><td><strong>GL Middle East / Nandhu</strong></td><td>TRC (3 entities)</td><td>6/10</td><td><span class="red-text">🔴 BLOCKED · EL 40+ days · Mohaina decision required today.</span></td></tr>
+        <tr><td><strong>The Concept Lab / George</strong></td><td>CIT Filing</td><td>6/10</td><td><span class="red-text">🔴 BLOCKED · EL 39+ days · CIT 30 Sep · Mohaina decision required today.</span></td></tr>
+        <tr><td><strong>MMG Art Production LLC</strong></td><td>CIT + Audited FS</td><td>—</td><td><span class="amber-text">🟡 Final outreach today (18d). Close file if no EOD response.</span></td></tr>
+        <tr><td><strong>Chadi (inbound)</strong></td><td>Bookkeeping (TBC)</td><td>—</td><td><span class="amber-text">🟡 Proposal sent by Raihana 25 Jul · await reply · follow up Wed.</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">Raihana queue (pending Mohaina CRM approval): Clearfreight Int'l (7/10), Infinity Prime (7/10), TechHive.ai (6/10). Cartier Fragrance new entity awaiting Mohaina direction. Apify scraper: free-tier limit this run.</div>
+</div>
+
+<div class="card">
+  <div class="eyebrow">Key Metric · Live Zoho Books (27 Jul 2026)</div>
+  <div class="card-2" style="font-size:.83rem;line-height:1.6;">
+    Live Zoho pull restored 27 Jul. Primary entity: <strong>AED 62,450.25 across 16 overdue invoices</strong>. Full rollup of 35 organisations not run this session — true overdue figure may be materially higher.
+  </div>
+</div>
+
+<div style="text-align:center;font-size:.7rem;color:var(--txt-3);padding-top:20px;border-top:1px solid var(--border);margin-top:8px;">
+  COO Brief · 28 July 2026 · BPOAS Daily Start Step 1<br>
+  ← <a href="bpoas-daily-start-2026-07-28.html" style="color:var(--txt-3);">Back to Master Brief</a>
+</div>
+</div>
