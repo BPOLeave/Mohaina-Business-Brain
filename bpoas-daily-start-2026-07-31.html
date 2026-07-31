@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Friday 31 July 2026</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0A0A0A;color:#E8E8E8;font-family:'Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.6;padding:0}
+  .topbar{background:#E8294C;padding:10px 24px;display:flex;align-items:center;justify-content:space-between}
+  .topbar-title{color:#fff;font-weight:800;font-size:15px;letter-spacing:.04em}
+  .topbar-meta{color:rgba(255,255,255,.75);font-size:12px}
+  .container{max-width:880px;margin:0 auto;padding:28px 16px}
+  .hero{background:#141414;border:1px solid #E8294C33;border-radius:10px;padding:24px;margin-bottom:24px}
+  .hero-title{font-size:20px;font-weight:800;color:#fff;margin-bottom:4px}
+  .hero-sub{color:#888;font-size:13px;margin-bottom:20px}
+  .revenue-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:16px}
+  .rev-card{background:#0f0f0f;border:1px solid #222;border-radius:8px;padding:14px}
+  .rev-label{font-size:11px;color:#666;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+  .rev-value{font-size:20px;font-weight:800;color:#fff}
+  .rev-value.amber{color:#F59E0B}
+  .rev-value.red{color:#E8294C}
+  .rev-value.grey{color:#555;font-size:14px;font-weight:500}
+  .rev-note{font-size:11px;color:#555;margin-top:3px}
+  .status-pill{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;margin-top:10px}
+  .pill-amber{background:#2a1f00;border:1px solid #4a3800;color:#F59E0B}
+  h2{font-size:13px;font-weight:700;color:#E8294C;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
+  .card{background:#141414;border:1px solid #222;border-radius:8px;padding:20px;margin-bottom:16px}
+  .run-log{display:grid;gap:8px}
+  .run-row{display:flex;align-items:center;gap:12px;padding:8px 10px;background:#0f0f0f;border-radius:6px;border:1px solid #1a1a1a}
+  .run-status{flex-shrink:0;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.04em}
+  .status-done{background:#0a2a0a;color:#22C55E;border:1px solid #1a4a1a}
+  .status-skip{background:#1a1a1a;color:#555;border:1px solid #222}
+  .status-warn{background:#2a1f00;color:#F59E0B;border:1px solid #4a3800}
+  .run-name{font-size:13px;color:#D0D0D0;flex:1}
+  .run-file{font-size:11px;color:#444}
+  .flag-section .flag{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid #1a1a1a}
+  .flag-section .flag:last-child{border-bottom:none}
+  .dot{flex-shrink:0;width:10px;height:10px;border-radius:50%;margin-top:5px}
+  .dot-red{background:#E8294C}
+  .dot-amber{background:#F59E0B}
+  .dot-green{background:#22C55E}
+  .flag-text{font-size:14px;color:#C8C8C8;line-height:1.5}
+  .flag-text strong{color:#fff}
+  .flag-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-right:6px}
+  .cat-compliance{color:#E8294C}
+  .cat-cash{color:#F59E0B}
+  .cat-client{color:#60A5FA}
+  .cat-bd{color:#A78BFA}
+  .cat-systems{color:#888}
+  .cat-content{color:#34D399}
+  .quicklinks{display:flex;flex-wrap:wrap;gap:10px}
+  .ql{display:inline-block;padding:8px 14px;background:#141414;border:1px solid #2a2a2a;border-radius:6px;color:#D0D0D0;font-size:13px;text-decoration:none;transition:border-color .15s}
+  .ql:hover{border-color:#E8294C;color:#fff}
+  .post-card{background:#0f0f0f;border:1px solid #2a1a00;border-radius:8px;padding:22px;margin-bottom:0}
+  .post-hook{font-size:16px;font-weight:700;color:#E8294C;margin-bottom:14px;line-height:1.4}
+  .post-body{font-size:14px;line-height:1.8;color:#C8C8C8;white-space:pre-wrap;font-family:'Georgia',serif}
+  .post-cta{font-size:14px;font-weight:700;color:#fff;margin-top:12px}
+  .comments-wrap{margin-top:16px;display:grid;gap:8px}
+  .comment{background:#141414;border:1px solid #222;border-radius:6px;padding:12px 14px}
+  .comment-num{font-size:11px;color:#E8294C;font-weight:700;margin-bottom:4px;text-transform:uppercase}
+  .comment-text{font-size:13px;color:#B8B8B8;line-height:1.55}
+  .approval-row{display:flex;align-items:center;gap:10px;background:#1a1000;border:1px solid #4a3000;border-radius:6px;padding:12px 14px;margin-top:12px}
+  .approval-row .icon{font-size:18px}
+  .approval-row .text{font-size:13px;color:#F59E0B}
+  .approval-row strong{color:#fff}
+  .section-note{font-size:12px;color:#555;font-style:italic;margin-bottom:10px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;padding:7px 10px;color:#666;font-weight:600;border-bottom:1px solid #222;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+  td{padding:7px 10px;border-bottom:1px solid #1a1a1a;color:#B8B8B8;vertical-align:top}
+  td strong{color:#fff}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-title">BPOAS Daily Start</div>
+  <div class="topbar-meta">Friday, 31 July 2026 · 07:00 UAE · Lean Run (Thursday–Friday: Steps 1 + 4)</div>
+</div>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════════════
+     HERO CARD
+     ═══════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-title">BPOAS Daily Start · Friday, 31 July 2026</div>
+  <div class="hero-sub">Last day of July · Lean Run · Steps 1 + 4 · Branch: claude/cool-noether-wzqn1x</div>
+
+  <h2>Revenue Pulse</h2>
+  <div class="revenue-grid">
+    <div class="rev-card">
+      <div class="rev-label">MTD Revenue Received</div>
+      <div class="rev-value grey">Not available</div>
+      <div class="rev-note">CFO report did not run Monday 27 Jul. Next run: Monday 3 Aug.</div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-label">Monthly Target</div>
+      <div class="rev-value grey">Not specified</div>
+      <div class="rev-note">Not found in positioning-mohaina-asira.md — set target with Mohaina.</div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-label">Overdue Receivables (Live)</div>
+      <div class="rev-value amber">AED 50,211</div>
+      <div class="rev-note">13 invoices · primary entity · live Zoho pull 31 Jul. Down ~AED 12,239 from Monday.</div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-label">Days Remaining in July</div>
+      <div class="rev-value red">0</div>
+      <div class="rev-note">Today is the last day of July.</div>
+    </div>
+  </div>
+  <div class="status-pill pill-amber">🟡 Revenue data unavailable — CFO brief runs Mondays. Next full picture: Monday 3 August.</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     RUN LOG
+     ═══════════════════════════════════════════ -->
+<div class="card">
+  <h2>Run Log</h2>
+  <div class="run-log">
+    <div class="run-row">
+      <div class="run-status status-done">Complete</div>
+      <div class="run-name"><strong>Step 1 — COO Morning Brief</strong> · coo-brief-2026-07-31.html</div>
+      <div class="run-file">Notion + Outlook + Zoho</div>
+    </div>
+    <div class="run-row">
+      <div class="run-status status-skip">Skipped</div>
+      <div class="run-name">Step 2 — CFO Weekly Revenue · CFO brief runs Mondays only.</div>
+      <div class="run-file">Next: Mon 3 Aug</div>
+    </div>
+    <div class="run-row">
+      <div class="run-status status-skip">Skipped</div>
+      <div class="run-name">Step 3 — CRO Weekly Prospects · CRO brief runs Mondays only.</div>
+      <div class="run-file">Next: Mon 3 Aug</div>
+    </div>
+    <div class="run-row">
+      <div class="run-status status-done">Complete</div>
+      <div class="run-name"><strong>Step 4 — CMO Daily Post</strong> · cmo-post-2026-07-31.html</div>
+      <div class="run-file">Notion content calendar · 4/4 diagnostic pass</div>
+    </div>
+    <div class="run-row">
+      <div class="run-status status-skip">Skipped</div>
+      <div class="run-name">Step 5 — Content Calendar · Runs Mondays only.</div>
+      <div class="run-file">Next: Mon 3 Aug</div>
+    </div>
+    <div class="run-row">
+      <div class="run-status status-warn">Blocked</div>
+      <div class="run-name">Summary email to m.asira@bposervicegroup.com · M365 Mail.Send unavailable (Day 29)</div>
+      <div class="run-file">Delivered via Notion + HTML</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     FLAGS FOR MOHAINA
+     ═══════════════════════════════════════════ -->
+<div class="card">
+  <h2>Flags for Mohaina</h2>
+  <div class="section-note">Sorted by priority: Compliance · Cash · Client · BD · Systems · Content</div>
+  <div class="flag-section">
+
+    <div class="flag">
+      <div class="dot dot-red"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-compliance">Compliance · CT · TODAY</span>
+        <strong>CIT Penalty Waiver closes today, 31 July.</strong> AED 10,000 exposure per unresolved entity. This is the last day. Contact Warren and Cristina now to confirm every at-risk client has registered or filed. <strong>Next step: call the team before 09:00.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-red"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-compliance">Compliance · AML · NEW TODAY</span>
+        <strong>UAE Sanctions List amended — 5 entries on UN Security Council 1988 list.</strong> Email received 08:39 UAE from UAE IEC (no_reply@uaeiec.gov.ae). Cabinet Decision 74/2020 requires BPOAS as a DNFBP to screen all clients against the updated list. This screen is an AML obligation — do not defer. <strong>Next step: run client screen today, document outcomes, update AML register.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-red"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-compliance">Compliance · Trade Licence</span>
+        <strong>BPOAS Trade Licence #809563 — Day 6 of lapse.</strong> Expired 25 July. WPS payroll for all staff is blocked. No renewal confirmation from Junaifa found in the last 24h inbox. <strong>Next step: call Junaifa before 09:00, get written confirmation of renewal status today.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-red"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-compliance">HR/Compliance · NEW TODAY</span>
+        <strong>MOHRE notice — Work Permit MB315778130AE has missing documents at Ministry of Higher Education.</strong> Email received 07:26 UAE from noreply@mohre.gov.ae. Required for degree recognition under the employee's work permit. Failure to upload may affect the permit's validity. <strong>Next step: assign to HR/admin, upload documents via the MOHRE portal today.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-red"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-client">Client · CT</span>
+        <strong>Brilliant Telecom LLC CIT partner confirmation letters — ~16 days past deadline.</strong> Raihana and Cristina are working all contact channels. No resolution email found this run. <strong>Next step: escalate to Mohaina if still unreachable by midday.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-amber"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-cash">Cash</span>
+        <strong>Overdue receivables: AED 50,211.25 across 13 invoices</strong> (live Zoho pull, today). Richemont INV-000086 — AED 17,561.25 — 165 days overdue. Amadeus — 3 invoices at AED 6,300 each — oldest 261 days (note: Amadeus termination thread is live — reconcile immediately). <strong>Next step: Richemont collection call this week; Amadeus reconcile against the termination.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-amber"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-client">Client · Engagement</span>
+        <strong>Richemont / Cartier contract renewal — Raphael Hanna's reply still unanswered.</strong> He flagged unaddressed points on 28 July (3 days ago). <strong>Next step: Mohaina to reply today.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-amber"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-client">Client · Engagement</span>
+        <strong>Cartier Fragrance / Recyline — Chadi still awaiting onboarding direction.</strong> <strong>Next step: Mohaina to confirm go-ahead or next step for this entity today.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-red"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-bd">BD · CT</span>
+        <strong>GL Middle East / Nandhu EL — ~41 days stalled, 19 days past auto-stall.</strong> Cannot carry another week. CRM is stalled entirely on Mohaina's decision. <strong>Next step: approve or close today — this is a binary decision with no middle ground left.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-red"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-bd">BD · CT</span>
+        <strong>The Concept Lab / Mr. George EL — ~40 days stalled.</strong> CIT 30 September deadline is ~61 days out — every week of delay reduces the time available to do the work properly. <strong>Next step: approve or close today.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-red"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-bd">BD · Operational</span>
+        <strong>Raihana's Pipeline Status Report — 13+ days overdue</strong> (due 17 July). Without it, pipeline decisions are operating blind. <strong>Next step: Raihana submits this as her first task today, before any outreach.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-green"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-bd">BD · Win</span>
+        <strong>Ratiolex (Timo Ylikantola) accepted the 2025 CIT Return Filing Assistance proposal.</strong> Reply received 30 July 17:37 UAE. Signed document expected Monday 3 August. <strong>Next step: acknowledge Timo's reply, prepare onboarding file for Monday.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-green"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-bd">BD · Reputation</span>
+        <strong>Google review received from "Jaylyn" for BPOAS.</strong> Email received 08:08 UAE from businessprofile-noreply@google.com. Public reviews build trust with future clients. <strong>Next step: respond publicly via Google Business Profile today.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-amber"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-compliance">Compliance · AML</span>
+        <strong>AML/CFT Programme H2 2026 review — still unscheduled.</strong> Carried forward since 29 July. Today's Sanctions List update makes scheduling this more urgent. <strong>Next step: Mohaina to put a date on the calendar this week.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-amber"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-systems">Systems</span>
+        <strong>M365 Mail.Send/Mail.ReadWrite — Day 29 of the same gap.</strong> Blocks summary email delivery, the CMO approval loop, and Rei Nald handoff. Root cause confirmed: missing OAuth scope. One admin fix in Claude connector settings resolves it. <strong>Next step: Mohaina to grant Mail.Send/Mail.ReadWrite scope in the Microsoft 365 connector settings.</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-amber"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-content">Content</span>
+        <strong>Friday LinkedIn post pending manual approval.</strong> "Bank balance is not a P&L" — Invisibility Diagnostic 4/4 PASS. Strong timing: today is the last day of July. This post is ready — it just needs Mohaina's go-ahead to send to Rei Nald. <strong>Next step: Mohaina approves → forwards to reinald.onella1@gmail.com with "Post for Today — Ready to Publish · 31 July 2026".</strong>
+      </div>
+    </div>
+
+    <div class="flag">
+      <div class="dot dot-amber"></div>
+      <div class="flag-text">
+        <span class="flag-cat cat-content">Content · Structural</span>
+        <strong>0 of 5 posts published this week despite a full content calendar.</strong> All still sit at "Planned." The bottleneck is the approval gate plus the M365 send outage — not content quality. Resolving the M365 scope and setting aside 5 minutes each morning for approval would unblock the entire pipeline.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TODAY'S LINKEDIN POST
+     ═══════════════════════════════════════════ -->
+<div class="card">
+  <h2>Today's LinkedIn Post · Copy-Ready</h2>
+  <div class="post-card">
+    <div class="post-hook">HOOK — "A client had AED 800,000 sitting in receivables. His bank balance never showed it."</div>
+    <div class="post-body">A client in construction showed me his bank balance last year and said business was good.
+
+I think what he didn't know was sitting right under it. He had AED 800,000 in accounts receivable that nobody had chased. On paper, cash felt fine. In reality, he was funding the business out of money that was never actually his to spend yet.
+
+Your bank balance tells you what is in the account today. It does not tell you what you are owed, what you owe, or what is coming due. That is what the numbers are actually telling you, if anyone bothers to look.
+
+Three numbers I ask every owner to check before their bank balance:
+
+What is sitting in receivables, and how old is it. Money you have not collected is not profit. It is a decision you have not made yet.
+
+What is sitting in payables, and when it is due. A healthy bank balance today can disappear the moment three invoices land at once.
+
+What your P&L says for the month, separate from what moved through the account. Cash timing and profit are different stories, and owners who read only one get surprised by the other.
+
+We go through this with every client before we touch a VAT return or a CIT filing, because a report built on the wrong story is not worth submitting.
+
+At the end of the day, the bank balance is the easiest number to check and the least reliable one to trust.
+
+Save this for the next time your bank balance looks better than your business feels.
+
+P.S. The AED 800,000 was recovered. It just took someone actually looking for it.</div>
+  </div>
+
+  <div class="comments-wrap">
+    <div class="comment">
+      <div class="comment-num">Pinned Comment 1 · Extend</div>
+      <div class="comment-text">With Corporate Tax now in force, the FTA does not ask what is in your bank account. It asks what your books say. If those two do not match, that is the conversation to have before they ask it for you.</div>
+    </div>
+    <div class="comment">
+      <div class="comment-num">Pinned Comment 2 · Humanise</div>
+      <div class="comment-text">I used to check my own account balance for reassurance too, back when BPOAS was just me. It took a while to trust the P&L over the feeling in my stomach.</div>
+    </div>
+    <div class="comment">
+      <div class="comment-num">Pinned Comment 3 · CTA Amplifier</div>
+      <div class="comment-text">If you have not looked at your receivables ageing in a while, that is usually where the surprise is hiding. Book a 30-minute compliance review and we will go through it with you.</div>
+    </div>
+  </div>
+
+  <div class="approval-row">
+    <div class="icon">🟡</div>
+    <div class="text"><strong>Pending Approval.</strong> To publish: approve this post → forward to Rei Nald at reinald.onella1@gmail.com · Subject: "Post for Today — Ready to Publish · 31 July 2026" · Recommended time: 09:00 UAE.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     QUICK LINKS
+     ═══════════════════════════════════════════ -->
+<div class="card">
+  <h2>Quick Links</h2>
+  <div class="quicklinks">
+    <a class="ql" href="coo-brief-2026-07-31.html">📄 COO Brief · 31 Jul</a>
+    <a class="ql" href="cmo-post-2026-07-31.html">📱 CMO Post · 31 Jul</a>
+    <a class="ql" href="https://app.notion.com/p/3ae8a33e7fd181569a69ca423af31fd4">Notion — COO Brief</a>
+    <a class="ql" href="https://app.notion.com/p/3ae8a33e7fd18195b47cd48caa933ad4">Notion — CMO Post</a>
+    <a class="ql" href="https://app.notion.com/p/3aa8a33e7fd1813f8e57e00895fd39f4">Notion — Content Calendar Week 27 Jul</a>
+    <a class="ql" href="https://app.notion.com/p/38e8a33e7fd181d0b9c7e1716e43305a">BPOAS Team Operating Hub</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     BD PIPELINE SNAPSHOT
+     ═══════════════════════════════════════════ -->
+<div class="card">
+  <h2>BD Pipeline Snapshot</h2>
+  <p class="section-note" style="margin-bottom:10px">Carried from Raihana's 30 July brief. Pipeline Status Report 13+ days overdue — no fresher data available.</p>
+  <table>
+    <tr><th>Client / Prospect</th><th>Status</th><th>Owner</th><th>Next</th></tr>
+    <tr><td><strong>Ratiolex / Timo Ylikantola</strong></td><td style="color:#22C55E">BD Win</td><td>Mohaina</td><td>Signed doc Monday 3 Aug</td></tr>
+    <tr><td><strong>Richemont / Cartier (Raphael Hanna)</strong></td><td style="color:#F59E0B">Follow Up</td><td>Mohaina</td><td>Reply to renewal points</td></tr>
+    <tr><td><strong>Cartier Fragrance / Recyline (Chadi)</strong></td><td style="color:#F59E0B">Inbound</td><td>Mohaina</td><td>Give onboarding direction</td></tr>
+    <tr><td><strong>MCM Products ME (Joanne)</strong></td><td style="color:#F59E0B">Silent 8d</td><td>Raihana</td><td>Follow up VAT + TL/EL</td></tr>
+    <tr><td><strong>GL Middle East / Nandhu</strong></td><td style="color:#E8294C">Blocked 41d</td><td>Mohaina</td><td>Approve or close TODAY</td></tr>
+    <tr><td><strong>Concept Lab / Mr. George</strong></td><td style="color:#E8294C">Blocked 40d</td><td>Mohaina</td><td>Approve or close TODAY</td></tr>
+    <tr><td><strong>Paluto Restaurant LLC</strong></td><td style="color:#22C55E">Signed</td><td>Team</td><td>Onboarding underway</td></tr>
+    <tr><td><strong>Halton Middle East FZE</strong></td><td style="color:#F59E0B">Signed</td><td>Team</td><td>Bank details missing</td></tr>
+    <tr><td><strong>Gulf Seatech FZC</strong></td><td style="color:#F59E0B">KYC received</td><td>Raihana</td><td>Awaiting next step</td></tr>
+    <tr><td><strong>Middletel</strong></td><td style="color:#F59E0B">Proposal sent</td><td>Raihana</td><td>AED 6,300 inv 30d overdue</td></tr>
+  </table>
+</div>
+
+<div style="color:#333;font-size:12px;margin-top:24px;padding-top:16px;border-top:1px solid #1a1a1a;text-align:center">
+  BPOAS Daily Start · Friday 31 July 2026 · Auto-generated · Lean Run (Steps 1 + 4) · 07:00 UAE · Branch: claude/cool-noether-wzqn1x<br>
+  M365 Mail.Send/Mail.ReadWrite unavailable Day 29 — summary delivered via Notion and this HTML file only.
+</div>
+
+</div>
+</body>
+</html>
