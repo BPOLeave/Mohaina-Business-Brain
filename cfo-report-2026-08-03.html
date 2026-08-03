@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFO Revenue Report · Week of 3 August 2026 · BPOAS</title>
+<style>
+  :root { --brand: #E8294C; --bg: #0A0A0A; --card: #141414; --border: #242424; --text: #E8E8E8; --muted: #888; --green: #22c55e; --amber: #f59e0b; --red: #ef4444; --blue: #3b82f6; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 700; color: var(--brand); margin-bottom: 4px; }
+  h2 { font-size: 15px; font-weight: 600; color: var(--text); margin: 20px 0 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .meta { color: var(--muted); font-size: 12px; margin-bottom: 24px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 16px; }
+  .card-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px; }
+  .big-number { font-size: 32px; font-weight: 700; color: var(--red); }
+  .big-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .flag-card { background: var(--card); border: 1px solid var(--red); border-left: 4px solid var(--red); border-radius: 10px; padding: 16px 18px; margin-bottom: 12px; }
+  .flag-card.amber { border-color: var(--amber); border-left-color: var(--amber); }
+  .flag-card.blue { border-color: var(--blue); border-left-color: var(--blue); }
+  .flag-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--red); font-weight: 700; margin-bottom: 4px; }
+  .flag-label.amber { color: var(--amber); }
+  .flag-label.blue { color: var(--blue); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+  th { text-align: left; color: var(--muted); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--border); padding: 6px 8px; }
+  td { padding: 8px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .status-red { color: var(--red); font-weight: 600; }
+  .status-amber { color: var(--amber); font-weight: 600; }
+  .status-green { color: var(--green); font-weight: 600; }
+  .status-blue { color: var(--blue); }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .pill-red { background: rgba(239,68,68,0.15); color: var(--red); }
+  .pill-amber { background: rgba(245,158,11,0.15); color: var(--amber); }
+  .pill-green { background: rgba(34,197,94,0.15); color: var(--green); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .metric-val { font-size: 22px; font-weight: 700; }
+  .metric-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .note { font-size: 12px; color: var(--muted); font-style: italic; margin-top: 8px; }
+  .section-rule { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  .tag { font-size: 11px; color: var(--muted); margin-top: 24px; }
+</style>
+</head>
+<body>
+
+<h1>CFO Revenue Report · Week of 3 August 2026</h1>
+<div class="meta">Generated: Monday 3 August 2026 · 07:00 UAE (GST, UTC+4) · Auto-generated via BPOAS /cfo-weekly-revenue · Step 2<br>
+Data source: Live Zoho Books pull via COO Brief · Outlook email scan · Notion carry-forward<br>
+⚠️ Zoho Books connector not enabled directly this session — AR figures sourced from live pull embedded in the COO Morning Brief (same session, 3 Aug 2026)</div>
+
+<!-- HEADLINE -->
+<div class="card">
+  <div class="card-title">Weekly Revenue Headline</div>
+  <div class="grid3">
+    <div>
+      <div class="card-title">Overdue Receivables · Aug 3</div>
+      <div class="big-number">AED 91,187.50</div>
+      <div class="big-sub">14 invoices · Primary entity: BPO Service Group FZE<br><span class="status-red">▲ +AED 40,976.25 vs 31 Jul</span> — new Richemont invoice went overdue</div>
+    </div>
+    <div>
+      <div class="card-title">MTD Revenue Collected · Aug</div>
+      <div class="big-number" style="color: var(--amber);">Not yet available</div>
+      <div class="big-sub">Day 3 of August · Zoho Books live pull required<br>Zoho Reseller Commission AED 5,971.59 ready to transfer (pending bank instruction)</div>
+    </div>
+    <div>
+      <div class="card-title">Monthly Target</div>
+      <div class="big-number" style="color: var(--muted);">Not on file</div>
+      <div class="big-sub">Flagged every CFO report since 2 July 2026.<br>Add target to positioning-mohaina-asira.md to activate Revenue Pulse.</div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERDUE RECEIVABLES -->
+<h2>1. Overdue Receivables</h2>
+<div class="card">
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Invoice(s)</th>
+      <th>Amount</th>
+      <th>Age</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Richemont (Dubai) FZE</strong></td>
+      <td>INV-000108 + INV-000086</td>
+      <td class="status-red">AED ~58,537.50</td>
+      <td>INV-108: 3 days · INV-086: 168 days</td>
+      <td>Combined largest exposure. INV-000086 (AED 17,561.25) now 168 days — escalation overdue. Renewal contract reply to Raphael Hanna outstanding since 28 Jul.</td>
+    </tr>
+    <tr>
+      <td><strong>IGEM Group FZE</strong></td>
+      <td>5 invoices</td>
+      <td class="status-red">AED 8,725.00</td>
+      <td>Multiple</td>
+      <td>Second-largest cluster. 5 separate overdue invoices.</td>
+    </tr>
+    <tr>
+      <td><strong>MENASTAR FZCO (Almosafer)</strong></td>
+      <td>Account claim #2010754</td>
+      <td class="status-amber">AED ~10,578.00</td>
+      <td>8+ days</td>
+      <td>Kobus Fourie (Hepstar CFO) sent final remittance amounts as SIA products removed. Response required from Mohaina.</td>
+    </tr>
+    <tr>
+      <td><strong>Other (primary entity)</strong></td>
+      <td>6 invoices</td>
+      <td class="status-amber">AED ~13,347.00</td>
+      <td>Various</td>
+      <td>Remaining balance from 14-invoice total. Full invoice-level breakdown requires Zoho Books session.</td>
+    </tr>
+  </tbody>
+</table>
+<p class="note">Primary entity (BPO Service Group FZE) only. BPOAS has 30+ Zoho Books organisations — not rolled up this run.</p>
+</div>
+
+<!-- NEW INVOICES THIS WEEK -->
+<h2>2. New Recurring Invoices — August 1</h2>
+<div class="card">
+<table>
+  <thead>
+    <tr>
+      <th>Invoice #</th>
+      <th>Client</th>
+      <th>Profile</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>INV-2026-000207</td>
+      <td>Richemont (Dubai) FZE</td>
+      <td>Mary Jane</td>
+      <td><span class="pill pill-amber">Auto-generated · Awaiting send</span></td>
+    </tr>
+    <tr>
+      <td>INV-2026-000206</td>
+      <td>GASCHEM DMCC</td>
+      <td>Gaschem Payroll</td>
+      <td><span class="pill pill-amber">Auto-generated · Awaiting send</span></td>
+    </tr>
+    <tr>
+      <td>INV-2026-000205</td>
+      <td>Richemont (Dubai) FZE</td>
+      <td>Kamal</td>
+      <td><span class="pill pill-amber">Auto-generated · Awaiting send</span></td>
+    </tr>
+  </tbody>
+</table>
+<p class="note">Source: Zoho Books auto-generated invoice notifications, 1 August 2026 02:15 UAE. Review and send to clients from Zoho Books.</p>
+</div>
+
+<!-- PIPELINE HEALTH -->
+<h2>3. Pipeline Health</h2>
+<div class="card">
+<table>
+  <thead>
+    <tr>
+      <th>Prospect / Client</th>
+      <th>Service</th>
+      <th>Stage</th>
+      <th>Value Signal</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Ratiolex / Timo Ylikantola</strong></td>
+      <td>CIT Filing</td>
+      <td>Signed doc expected today</td>
+      <td>—</td>
+      <td><span class="pill pill-green">Verbally Won</span></td>
+    </tr>
+    <tr>
+      <td><strong>Cartier Fragrance / Chadi Nasreddine</strong></td>
+      <td>To confirm</td>
+      <td>Warm → Hot</td>
+      <td>New engagement</td>
+      <td><span class="pill pill-amber">Awaiting Mohaina direction since 28 Jul</span></td>
+    </tr>
+    <tr>
+      <td><strong>Middletel / Nurzhan</strong></td>
+      <td>AFS + CIT</td>
+      <td>Proposal sent 29 Jul</td>
+      <td>High importance</td>
+      <td><span class="pill pill-amber">Awaiting response</span></td>
+    </tr>
+    <tr>
+      <td><strong>Richemont / Raphael Hanna</strong></td>
+      <td>Renewal</td>
+      <td>Reply outstanding</td>
+      <td>Existing client — AED ~58.5K overdue</td>
+      <td><span class="pill pill-red">Reply overdue since 28 Jul</span></td>
+    </tr>
+    <tr>
+      <td><strong>MCM Products ME / Joanne</strong></td>
+      <td>VAT Refund</td>
+      <td>Proposal out</td>
+      <td>8/10 fit</td>
+      <td><span class="pill pill-red">Stalled 11 days · EL + TL unsigned</span></td>
+    </tr>
+    <tr>
+      <td><strong>GL Middle East / Nandhu</strong></td>
+      <td>TRC (3 entities)</td>
+      <td>EL stage</td>
+      <td>6/10 fit</td>
+      <td><span class="pill pill-red">Blocked 44 days — Mohaina decision overdue</span></td>
+    </tr>
+    <tr>
+      <td><strong>The Concept Lab / Mr. George</strong></td>
+      <td>CIT Filing</td>
+      <td>EL stage</td>
+      <td>6/10 fit · CIT 30 Sep · 58 days left</td>
+      <td><span class="pill pill-red">Blocked 43 days — Mohaina decision overdue</span></td>
+    </tr>
+    <tr>
+      <td><strong>Paluto Restaurant LLC</strong></td>
+      <td>Bookkeeping</td>
+      <td>Onboarding</td>
+      <td>New retainer signed 17 Jul</td>
+      <td><span class="pill pill-green">Active</span></td>
+    </tr>
+  </tbody>
+</table>
+<p class="note">No deal-value tracking in Notion. Pipeline revenue-at-risk cannot be calculated until CRM is set up.</p>
+</div>
+
+<!-- MONTHLY RUN RATE -->
+<h2>4. Monthly Run Rate (August)</h2>
+<div class="card">
+<div class="grid2">
+  <div>
+    <div class="card-title">Run Rate Status</div>
+    <div class="metric-val" style="color: var(--muted);">Cannot calculate</div>
+    <div class="metric-sub">Day 3 of 31. Monthly target not on file. MTD collections unconfirmed.</div>
+  </div>
+  <div>
+    <div class="card-title">Zoho Reseller Commission</div>
+    <div class="metric-val" style="color: var(--green);">AED 5,971.59</div>
+    <div class="metric-sub">Ready to transfer. Click "Transfer to Bank" in Zoho Partner Commission dashboard.</div>
+  </div>
+</div>
+</div>
+
+<!-- RETAINER RENEWAL TRACKER -->
+<h2>5. Retainer Renewal Tracker</h2>
+<div class="card">
+  <p style="color: var(--amber);">⚠️ No retainer contract database in Notion. Renewal dates unknown for all clients. Revenue-at-risk from renewals cannot be calculated. This flag has been carried in every CFO report since 2 July 2026.</p>
+  <p class="note" style="margin-top: 10px;">Recommended fix: Create a Retainer Contracts database in Notion with fields: Client · Contract Start · Renewal Date · Monthly Value · Status. One-time setup, immediate value every Monday CFO run.</p>
+</div>
+
+<!-- ATTENTION FLAGS -->
+<h2>6. Attention Flags for Mohaina</h2>
+
+<div class="flag-card">
+  <div class="flag-label">🔴 Cash — Richemont Combined Exposure AED ~58,537.50</div>
+  <p>INV-000086 (AED 17,561.25) is 168 days overdue. INV-000108 (AED 40,976.25) just went overdue 3 days ago. Combined block is the largest single debtor. Raphael Hanna's renewal reply (28 Jul) still unanswered — the two conversations must not be separated.</p>
+</div>
+
+<div class="flag-card">
+  <div class="flag-label">🔴 Cash — AR jumped AED 40,976.25 in 3 days (31 Jul → 3 Aug)</div>
+  <p>From AED 50,211.25 to AED 91,187.50. Driver: new Richemont recurring invoice INV-000108 went overdue. Not a collections failure yet — invoice is only 3 days old — but it needs to be sent if not already done.</p>
+</div>
+
+<div class="flag-card amber">
+  <div class="flag-label amber">🟡 Cash — 3 new recurring invoices from Aug 1 awaiting manual send</div>
+  <p>INV-2026-000205, 000206, 000207 were auto-generated by Zoho Books on 1 August 2026. Review and send to Richemont and GASCHEM DMCC from Zoho Books today to start the collection clock.</p>
+</div>
+
+<div class="flag-card amber">
+  <div class="flag-label amber">🟡 Cash — Almosafer/MENASTAR claim #2010754 ~AED 10,578</div>
+  <p>Kobus Fourie (Hepstar CFO) sent final outstanding remittance amounts (2 Aug). Response needed from Mohaina today — this is a client relationship, not just a collections matter.</p>
+</div>
+
+<div class="flag-card amber">
+  <div class="flag-label amber">🟡 Cash — Zoho Reseller Commission AED 5,971.59 uncollected</div>
+  <p>Ready to transfer since 1 August 2026. Initiate bank transfer via Zoho Partner Commission dashboard. Low effort, immediate cash in.</p>
+</div>
+
+<div class="flag-card amber">
+  <div class="flag-label amber">🟡 Structure — Monthly revenue target still not on file (Day 32+)</div>
+  <p>Every CFO report since 2 July 2026 has carried this flag. Without a target in positioning-mohaina-asira.md, the Revenue Pulse hero card cannot calculate gap or run-rate. One line of text in the doc fixes this permanently.</p>
+</div>
+
+<div class="flag-card blue">
+  <div class="flag-label blue">🔵 Delivery Note — Email not sent (M365 Mail.Send blocked Day 33)</div>
+  <p>The CFO summary email to M.Asira@bposervicegroup.com could not be sent. M365 connector exposes search/calendar access only — Mail.Send and Mail.ReadWrite permissions not granted. Same structural gap every routine run since 2 July 2026. Delivered via this HTML file and Notion only.</p>
+</div>
+
+<hr class="section-rule">
+<div class="tag">Auto-generated · BPOAS CFO Weekly Revenue · Week of 3 August 2026 · Sources: COO Brief Zoho Books live pull (3 Aug 2026) · Outlook email scan · Notion (EOW Reviews, prior CFO reports) · M365 Mail.Send: unavailable</div>
+</body>
+</html>
