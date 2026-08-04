@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raihana BD Brief · 4 August 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0A0A0A;
+    color: #E8E8E8;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 24px 16px;
+  }
+  .wrapper { max-width: 720px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    border-left: 4px solid #E8294C;
+    padding: 16px 20px;
+    background: #111111;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 24px;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #E8294C;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+  }
+  .header-meta {
+    font-size: 12px;
+    color: #888888;
+  }
+  .header-intro {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #CCCCCC;
+    border-top: 1px solid #222222;
+    padding-top: 10px;
+  }
+
+  /* Alert banners */
+  .alert {
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .alert-red { background: rgba(232,41,76,0.12); border: 1px solid rgba(232,41,76,0.35); }
+  .alert-amber { background: rgba(245,166,35,0.10); border: 1px solid rgba(245,166,35,0.35); }
+  .alert-blue { background: rgba(59,130,246,0.10); border: 1px solid rgba(59,130,246,0.35); }
+  .alert-green { background: rgba(34,197,94,0.10); border: 1px solid rgba(34,197,94,0.35); }
+  .alert-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .alert strong { color: #FFFFFF; }
+  .alerts-block { margin-bottom: 24px; }
+
+  /* Section */
+  .section {
+    background: #111111;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #E8294C;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Table */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .data-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #666666;
+    padding: 6px 10px;
+    border-bottom: 1px solid #222222;
+  }
+  .data-table td {
+    padding: 10px 10px;
+    border-bottom: 1px solid #1A1A1A;
+    vertical-align: top;
+    color: #CCCCCC;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: #161616; }
+  .prospect-name { font-weight: 600; color: #FFFFFF; display: block; margin-bottom: 2px; }
+  .prospect-company { font-size: 12px; color: #888888; }
+
+  /* Status badges */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .badge-red { background: rgba(232,41,76,0.20); color: #FF6B8A; border: 1px solid rgba(232,41,76,0.4); }
+  .badge-green { background: rgba(34,197,94,0.15); color: #4ADE80; border: 1px solid rgba(34,197,94,0.35); }
+  .badge-amber { background: rgba(245,166,35,0.15); color: #FBB040; border: 1px solid rgba(245,166,35,0.35); }
+  .badge-blue { background: rgba(59,130,246,0.15); color: #60A5FA; border: 1px solid rgba(59,130,246,0.35); }
+  .badge-gray { background: rgba(150,150,150,0.12); color: #AAAAAA; border: 1px solid rgba(150,150,150,0.25); }
+
+  /* Note under table */
+  .table-note {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #555555;
+    font-style: italic;
+    padding: 8px 10px;
+    border-left: 2px solid #222222;
+  }
+
+  /* Week summary */
+  .week-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+  .week-item {
+    background: #161616;
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+  .week-item-label {
+    font-size: 11px;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .week-item-value {
+    font-size: 13px;
+    color: #E8E8E8;
+    font-weight: 500;
+  }
+  .week-win {
+    grid-column: 1 / -1;
+    background: rgba(34,197,94,0.08);
+    border: 1px solid rgba(34,197,94,0.25);
+  }
+  .week-win .week-item-label { color: #4ADE80; }
+  .week-win .week-item-value { color: #FFFFFF; }
+
+  /* Footer */
+  .footer {
+    margin-top: 28px;
+    padding: 14px 20px;
+    background: #0D0D0D;
+    border: 1px solid #1E1E1E;
+    border-top: 2px solid #E8294C;
+    border-radius: 0 0 8px 8px;
+    font-size: 12px;
+    color: #555555;
+    text-align: center;
+    line-height: 1.8;
+  }
+  .footer strong { color: #E8294C; }
+  .footer-reminder {
+    color: #888888;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  @media (max-width: 520px) {
+    .week-grid { grid-template-columns: 1fr; }
+    .week-win { grid-column: 1; }
+    body { padding: 16px 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">BPOAS · BD Associate Brief</div>
+    <h1>📋 Your BD Brief for Today · 4 August 2026</h1>
+    <div class="header-meta">Tuesday · Generated 07:30 UAE (GST/UTC+4) · r.asira@bposervicegroup.com</div>
+    <div class="header-intro">
+      Here is your prospect queue and follow-up list for today.
+      All first-contact messages on 9–10 scored prospects require Mohaina's approval before sending.
+    </div>
+  </div>
+
+  <!-- PRIORITY ALERTS -->
+  <div class="alerts-block">
+    <div class="alert alert-red">
+      <span class="alert-icon">🔴</span>
+      <span><strong>Pipeline Status Report — 18 days overdue</strong> (due 17 July 2026). Submit to Mohaina this morning. Include all pipeline movements, outreach log, lead status. Non-negotiable.</span>
+    </div>
+    <div class="alert alert-red">
+      <span class="alert-icon">🔴</span>
+      <span><strong>Brilliant Telecom LLC — CIT partner confirmation letters ~20 days past 15 Jul deadline.</strong> Client was on vacation since 20 Jul. Attempt ALL contact numbers AM. Escalate to Mohaina same day if unreachable. CIT filing at risk.</span>
+    </div>
+    <div class="alert alert-green">
+      <span class="alert-icon">🏆</span>
+      <span><strong>Ratiolex (CIT) — Signed EL was expected Monday 3 Aug.</strong> Confirm receipt. Log in CRM immediately. Invoice ready to issue on receipt. If not yet received, chase Timo first thing.</span>
+    </div>
+    <div class="alert alert-blue">
+      <span class="alert-icon">🔵</span>
+      <span><strong>Cartier Fragrance / Recyline (Chadi) — HOLD.</strong> Asking to proceed since 28 Jul. Do not act until Mohaina confirms onboarding direction.</span>
+    </div>
+  </div>
+
+  <!-- SECTION 1: SEND QUEUE -->
+  <div class="section">
+    <div class="section-title">1 · Today's Send Queue</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Prospect</th>
+          <th>Message / Action</th>
+          <th>Send</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="prospect-name">Timo Ylikantola</span>
+            <span class="prospect-company">Ratiolex · CIT Filing · Msg #3</span>
+          </td>
+          <td>Confirm receipt of signed EL (expected Mon 3 Aug). Log in CRM immediately. Issue invoice on receipt. If not yet received, send follow-up chase this morning.</td>
+          <td><span class="badge badge-green">✅ YES — FIRST</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name">Cristina + Raihana</span>
+            <span class="prospect-company">Brilliant Telecom LLC · CIT · Msg #5</span>
+          </td>
+          <td>~20 days past 15 Jul partner confirmation deadline. Client on vacation since 20 Jul. Attempt ALL contact numbers AM. Escalate to Mohaina same day if unreachable.</td>
+          <td><span class="badge badge-red">🔴 URGENT AM</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name">Joanne Oquendo · 8/10</span>
+            <span class="prospect-company">MCM Products Middle East · VAT + CIT · Msg #4</span>
+          </td>
+          <td>VAT Refund proposal sent 23 Jul — 12 days silent. TL + EL signatures outstanding. Follow up today. Escalate to Mohaina if no response by EOD.</td>
+          <td><span class="badge badge-green">✅ YES — Today</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name">Annaka (deregistration)</span>
+            <span class="prospect-company">Annaka FZCo · Msg #3</span>
+          </td>
+          <td>AED 500/month penalty accruing. One call. Log outcome same day.</td>
+          <td><span class="badge badge-green">✅ YES — Today</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name">Chadi Nasreddine</span>
+            <span class="prospect-company">Cartier Fragrance / Recyline · Msg #1</span>
+          </td>
+          <td>Warm→Hot inbound since 28 Jul. Asking to proceed. HOLD — first-contact onboarding requires Mohaina's direction. Do not act until confirmed.</td>
+          <td><span class="badge badge-blue">🔵 HOLD</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-note">
+      Not in queue — blocked pending Mohaina decision: GL Middle East / Nandhu (~45 days EL, 24 days past auto-stall) ·
+      The Concept Lab / Mr. George (~44 days EL, CIT 30 Sep in 57 days) ·
+      Richemont / Raphael Hanna — Mohaina managing directly ·
+      9 Apify leads + 30 DM drafts — awaiting Mohaina CRM go/no-go ·
+      MMG Art Production — close file today if no contact received.
+    </div>
+  </div>
+
+  <!-- SECTION 2: OVERDUE FOLLOW-UPS -->
+  <div class="section">
+    <div class="section-title">2 · Overdue Follow-Ups 🔴</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Prospect / Item</th>
+          <th>Days Overdue</th>
+          <th>Recommended Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="prospect-name">🔴 Pipeline Status Report</span>
+            <span class="prospect-company">Internal · Raihana → Mohaina</span>
+          </td>
+          <td><span class="badge badge-red">18 days</span><br><span style="font-size:11px;color:#666">Due 17 Jul 2026</span></td>
+          <td>Submit to Mohaina this morning. Include all pipeline movements, outreach log, lead status. Non-negotiable.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name">🔴 Brilliant Telecom LLC</span>
+            <span class="prospect-company">CIT partner confirmation letters</span>
+          </td>
+          <td><span class="badge badge-red">~20 days</span><br><span style="font-size:11px;color:#666">Deadline 15 Jul · Client on vacation 20 Jul</span></td>
+          <td>All contact numbers AM. Escalate to Mohaina same day if unreachable. CIT filing at risk.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name">🔴 GL Middle East · Nandhu</span>
+            <span class="prospect-company">Score 6/10 · TRC (3 entities)</span>
+          </td>
+          <td><span class="badge badge-red">~45 days EL</span><br><span style="font-size:11px;color:#666">24 days past auto-stall</span></td>
+          <td>BLOCKED — no Raihana action until Mohaina decides. Mohaina: approve direct call OR close today. Cannot carry another week.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name">🔴 The Concept Lab · Mr. George</span>
+            <span class="prospect-company">Score 6/10 · CIT Filing</span>
+          </td>
+          <td><span class="badge badge-red">~44 days EL</span><br><span style="font-size:11px;color:#666">CIT 30 Sep · 57 days remaining</span></td>
+          <td>BLOCKED — Mohaina must decide: approve call OR close. Window is narrowing fast. Every week of delay closes the filing window.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name">🟡 MCM Products · Joanne Oquendo</span>
+            <span class="prospect-company">Score 8/10 · VAT Refund proposal</span>
+          </td>
+          <td><span class="badge badge-amber">12 days silent</span><br><span style="font-size:11px;color:#666">Proposal sent 23 Jul</span></td>
+          <td>Follow up today. Escalate to Mohaina if no response by EOD.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name">🟡 MMG Art Production LLC</span>
+            <span class="prospect-company">Proposal sent · ~26 days silence</span>
+          </td>
+          <td><span class="badge badge-amber">~26 days</span><br><span style="font-size:11px;color:#666">Last attempt 28 Jul</span></td>
+          <td>Close file today if no response received. One-line update to Mohaina confirming close.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 3: LEADS TO VERIFY -->
+  <div class="section">
+    <div class="section-title">3 · Leads to Verify 🟡</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Company · Sector</th>
+          <th>Contact</th>
+          <th>Source</th>
+          <th>Missing / Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="prospect-name">Clearfreight International</span>
+            <span class="prospect-company">Logistics / Freight · 7/10</span>
+          </td>
+          <td>Dr. Muhammad Hamid</td>
+          <td><span style="font-size:11px;color:#888">20 Jul · Apify</span></td>
+          <td>LinkedIn verification pending. CRM upload requires Mohaina approval.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name">Infinity Prime</span>
+            <span class="prospect-company">Supply Chain Consulting · 7/10</span>
+          </td>
+          <td>Rachid Maliki</td>
+          <td><span style="font-size:11px;color:#888">20 Jul · Apify</span></td>
+          <td>LinkedIn verification pending. CRM upload requires Mohaina approval.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name">TechHive.ai</span>
+            <span class="prospect-company">Cloud / DevOps / AI · 6/10</span>
+          </td>
+          <td>Sohail Asgher</td>
+          <td><span style="font-size:11px;color:#888">20 Jul · Apify</span></td>
+          <td>LinkedIn verification pending. CRM upload requires Mohaina approval.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name" style="color:#FBB040">6 new prospects (wk 27 Jul)</span>
+            <span class="prospect-company">Keshk · Nanda · Ansari · Nagjee · Chedid · Uddin · Scores 6.3–7.5</span>
+          </td>
+          <td>Multiple</td>
+          <td><span style="font-size:11px;color:#888">27 Jul · Apify</span></td>
+          <td>30 DM drafts ready in Mohaina's voice. None sent. Awaiting Mohaina go/no-go before CRM upload and outreach.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="prospect-name">Chadi Nasreddine · Inbound</span>
+            <span class="prospect-company">Cartier Fragrance / Recyline · Unscored</span>
+          </td>
+          <td>Chadi Nasreddine</td>
+          <td><span style="font-size:11px;color:#888">22 Jul · Zoho Forms</span></td>
+          <td>Sector, scope, company size not yet qualified. Score and log all CRM fields before any outreach. Awaiting Mohaina onboarding direction.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-note">
+      Total 9 Apify leads unverified · 30 DM drafts ready in Mohaina's voice · None sent · No 9–10 scored leads in pipeline — no hold-for-approval outreach items today.
+    </div>
+  </div>
+
+  <!-- SECTION 4: COMPLETED THIS WEEK -->
+  <div class="section">
+    <div class="section-title">4 · Completed This Week (27 Jul – 3 Aug 2026)</div>
+    <div class="week-grid">
+      <div class="week-item week-win">
+        <div class="week-item-label">🏆 Won (Verbal — doc expected Mon 3 Aug)</div>
+        <div class="week-item-value">Ratiolex · CIT Filing — Signed EL expected. Invoice ready to issue on receipt.</div>
+      </div>
+      <div class="week-item">
+        <div class="week-item-label">Outreach Sent</div>
+        <div class="week-item-value">7 actions: Ratiolex CIT proposal (30 Jul) · Middletel AFS+CIT (29 Jul) · MCM Products follow-up · Annaka chase · Brilliant Telecom escalation · GL Middle East stall · Concept Lab stall</div>
+      </div>
+      <div class="week-item">
+        <div class="week-item-label">Responses Received</div>
+        <div class="week-item-value">Ratiolex — verbal acceptance ✅ · Chadi (Cartier Fragrance) — asking to proceed 🔥 · No new signed contracts</div>
+      </div>
+      <div class="week-item">
+        <div class="week-item-label">Temperature Changes</div>
+        <div class="week-item-value">Ratiolex → Verbally Won ✅ · Cartier Fragrance → Hot 🔥 · MMG Art Production → Closing ❌ · Amadeus FZCO → Terminated ❌</div>
+      </div>
+      <div class="week-item">
+        <div class="week-item-label">Leads Sourced</div>
+        <div class="week-item-value">9 via Apify · Scores 6.3–7.5 · Pending Mohaina CRM approval · 30 DM drafts ready · No 9–10 scored leads</div>
+      </div>
+      <div class="week-item">
+        <div class="week-item-label">Prior Win (Signed)</div>
+        <div class="week-item-value">Paluto Restaurant LLC · EL signed 17 Jul · AFS 2025 + CIT · Onboarding underway ✅</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER REMINDER -->
+  <div class="footer">
+    <div class="footer-reminder">
+      All sequences require Mohaina's approval before first contact on prospects scoring 9 or 10.
+    </div>
+    <strong>BPOAS · Raihana BD Brief · 4 August 2026</strong> ·
+    r.asira@bposervicegroup.com ·
+    Generated 07:30 UAE · Auto-generated via /raihana-daily-brief
+  </div>
+
+</div>
+</body>
+</html>
