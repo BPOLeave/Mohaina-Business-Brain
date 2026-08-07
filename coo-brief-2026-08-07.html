@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief · Thursday 7 August 2026 · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F5607A;
+    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .lead{font-size:16px;}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:15px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--gray-text);font-size:13px;width:74px;flex-shrink:0;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-red{background:#fdecec;color:var(--bad);}
+  .t-amb{background:#fdf1de;color:var(--warn);}
+  .t-grey{background:var(--gray-light);color:var(--gray-text);}
+  .t-grn{background:#e7f6ee;color:var(--good);}
+  .t-blue{background:#e6f0fc;color:#1E6FE0;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);}
+  .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .delta{font-size:13px;font-weight:700;margin-top:2px;}
+  .up{color:var(--good);} .down{color:var(--bad);}
+  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
+  .note b{color:var(--primary-light);}
+  .flag-card{background:#fff;border:1px solid #fdecec;border-left:4px solid var(--bad);border-radius:var(--r-md);padding:14px 18px;margin-bottom:10px;}
+  .flag-card .flag-label{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--bad);margin-bottom:4px;letter-spacing:.08em;}
+  .flag-card .flag-title{font-size:15px;font-weight:600;margin-bottom:4px;}
+  .flag-card .flag-body{font-size:13px;color:var(--gray-text);}
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="standard">
+<div class="doc">
+
+  <div class="ohead">
+    <div class="k">COO · Morning Brief · BPOAS</div>
+    <h1>Good morning, Mohaina</h1>
+    <div class="d">Thursday, 7 August 2026 · ran while you slept · lean run (Steps 1 + 4)</div>
+  </div>
+
+  <div class="card">
+    <h4>Today, in one line</h4>
+    <div class="lead">Clear calendar, active pipeline, one new BD opportunity needs your go/no-go before the day moves.</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Today's Schedule</h4>
+      <div class="row" style="color:var(--gray-text);font-size:14px;">Outlook Calendar returned no events for today. Your schedule appears clear. Verify in Outlook directly.</div>
+    </div>
+    <div class="card">
+      <h4>Inbox · 5 need you</h4>
+      <div class="row">Richemont RFP NDA (r.asira sent) — Victor Susana, Procurement<span class="tagi t-red">decide</span></div>
+      <div class="row">Google Business Profile — 2 new client reviews<span class="tagi t-amb">reply</span></div>
+      <div class="row">Menastar DMCC · tfPay balance AED 2,898.94 (low)<span class="tagi t-red">act</span></div>
+      <div class="row">MCM Products · Signed VAT Refund Proposal received<span class="tagi t-grn">fyi</span></div>
+      <div class="row">Zoho Books · P&amp;L report 30 Jul–05 Aug attached<span class="tagi t-amb">review</span></div>
+    </div>
+  </div>
+
+  <div class="sec">Tasks</div>
+
+  <div class="card">
+    <h4>Must do today</h4>
+    <div class="row">Richemont Staffing RFP — NDA issued, go/no-go decision on BPOAS participation<span class="tagi t-red">decide</span></div>
+    <div class="row">Cartier Fragrance / Chadi (Recyline) — Day 11 on HOLD, give onboarding direction<span class="tagi t-red">decide</span></div>
+    <div class="row">Approve today's LinkedIn post — post ready, 4/4 pass, send to Rei by 09:00<span class="tagi t-red">approve</span></div>
+  </div>
+
+  <div class="card">
+    <h4>Should do today</h4>
+    <div class="row">The Concept Lab / Mr. George — 54 days to CIT 30 Sep, approve call or close the file<span class="tagi t-amb">decide</span></div>
+    <div class="row">9 Apify leads + 30 DM drafts — CRM go/no-go blocks all outreach<span class="tagi t-amb">unblock</span></div>
+    <div class="row">Reply to 2 new Google Business reviews<span class="tagi t-amb">reply</span></div>
+  </div>
+
+  <div class="card">
+    <h4>Can wait</h4>
+    <div class="row">MOHRE work permit MB315778130AE — assign owner for missing education document<span class="tagi t-grey">assign</span></div>
+    <div class="row">AML/CFT Programme H2 2026 review — schedule the session, no immediate deadline<span class="tagi t-grey">schedule</span></div>
+    <div class="row">M365 Mail.Send fix (Day 36+) — raise with IT/admin to restore OAuth scope<span class="tagi t-grey">IT</span></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Overdue · Active</h4>
+      <div class="row">Brilliant Telecom LLC — CIT partner letters ~23 days past deadline<span class="tagi t-red">escalate</span></div>
+      <div class="row">Raihana Pipeline Status Report — 21 days overdue (due 17 Jul)<span class="tagi t-red">chase</span></div>
+    </div>
+    <div class="stat">
+      <div class="l">Overdue Receivables (last updated Mon 3 Aug)</div>
+      <div class="n">AED <span class="count" data-to="91187">0</span></div>
+      <div class="delta down">14 invoices · Richemont exposure largest</div>
+    </div>
+  </div>
+
+  <div class="sec">Content + Metric</div>
+
+  <div class="card">
+    <h4>Today's LinkedIn Post</h4>
+    <div class="row">Pillar: What the Numbers Are Telling You<span class="tagi t-grn">ready</span></div>
+    <div class="row">Format: Framework List (Variation A) · Hook: Curiosity Gap<span class="tagi t-grn">4/4 pass</span></div>
+    <div class="row">Post ready — pending your approval. Send yes to Rei by 09:00 UAE. Rei: reinald.onella1@gmail.com<span class="tagi t-amb">approve</span></div>
+  </div>
+
+  <div class="sec">Flags for Mohaina</div>
+
+  <div class="flag-card">
+    <div class="flag-label">Compliance · BD</div>
+    <div class="flag-title">Richemont Temporary Staffing RFP — NDA sent, go/no-go needed today</div>
+    <div class="flag-body">r.asira sent NDA to Victor Susana (Procurement, Richemont) at 08:31 UAE today. Raihana notes this requires Mohaina's go/no-go before any further engagement. RFP participation could be significant BD. Decide today while momentum is fresh.</div>
+  </div>
+
+  <div class="flag-card">
+    <div class="flag-label">Cash · Client</div>
+    <div class="flag-title">Menastar DMCC · tfPay balance AED 2,898.94 — immediate top-up required</div>
+    <div class="flag-body">Travelfusion alert received 6 Aug. Balance below threshold. Prompt action to transfer required per the alert. Involves m.pacis@bposervicegroup.com and Lastminute.com (Yiannis). Review with client today.</div>
+  </div>
+
+  <div class="flag-card">
+    <div class="flag-label">Compliance · Cash</div>
+    <div class="flag-title">Brilliant Telecom LLC — CIT partner confirmation letters ~23 days overdue</div>
+    <div class="flag-body">Client has been on vacation since 20 Jul. Raihana attempting all contact numbers this morning. Escalate to Mohaina immediately if unreachable — CIT filing is at risk with no buffer remaining.</div>
+  </div>
+
+  <div class="flag-card">
+    <div class="flag-label">Compliance · Trade Licence</div>
+    <div class="flag-title">BPOAS Trade Licence #809563 — renewal status unconfirmed</div>
+    <div class="flag-body">Monday briefing flagged licence expired 25 Jul (Day 9 of lapse). WPS payroll was blocked. No update found in this run's data sources since 3 Aug. Verify renewal status via DED eExchange before end of day. If still lapsed, this is the highest-priority item today.</div>
+  </div>
+
+  <div class="note">One thing to move the needle today: <b>Give Chadi (Cartier Fragrance / Recyline) an onboarding direction.</b> Day 11 of HOLD. They are asking to proceed. This is an easy close if you decide now. One message to Raihana — hold, proceed, or close. The week ends tomorrow.</div>
+
+  <div class="sec">Run Log</div>
+  <div class="card">
+    <h4>Step Execution · Thursday 7 August 2026</h4>
+    <div class="row">Step 1 · COO Morning Brief<span class="tagi t-grn">complete</span></div>
+    <div class="row">Step 2 · CFO Weekly Revenue<span class="tagi t-grey">skipped — Monday only</span></div>
+    <div class="row">Step 3 · CRO Weekly Prospects<span class="tagi t-grey">skipped — Monday only</span></div>
+    <div class="row">Step 4 · CMO Daily Post<span class="tagi t-grn">complete</span></div>
+    <div class="row">Step 5 · Content Calendar<span class="tagi t-grey">skipped — Monday only</span></div>
+    <div class="row" style="font-size:13px;color:var(--gray-text);">Outlook Calendar returned no events · Outlook Email returned 15+ items · Notion Tasks: no formal due-date entries (persistent gap since 2 Jul) · Pipeline data sourced from Raihana Daily Brief (7 Aug) · M365 Mail.Send FORBIDDEN Day 36+ · Apify LinkedIn analytics unavailable</div>
+  </div>
+
+</div>
+<footer>The brain thinks. The team works. You approve. · <b>BPOAS Daily Start · COO Brief · 7 August 2026</b></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  window.addEventListener('load',function(){
+    if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+    gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+    gsap.from('.card,.stat,.flag-card,.note',{y:20,opacity:0,duration:.55,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    gsap.utils.toArray('.count').forEach(function(el){
+      var to=+el.dataset.to,o={v:0};
+      gsap.to(o,{v:to,duration:1.4,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%'},onUpdate:function(){el.textContent=Math.round(o.v).toLocaleString();}});
+    });
+  });
+</script>
+</body>
+</html>
