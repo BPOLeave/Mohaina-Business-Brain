@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F0667F; --navy:#3D0C16;
+    --bg:#0A0A0A; --panel:#141518; --panel-2:#191b1f; --ink:#F3F5F7; --ink-dim:#A7ADB6;
+    --line:#232629; --line-soft:#1c1e22;
+    --good:#34D399; --warn:#F0B84E; --bad:#F1685E;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.35);
+    --grad:linear-gradient(135deg, #3D0C16 0%, #6E1526 48%, var(--primary) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:880px;margin:0 auto;padding:34px 20px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px rgba(232,41,76,.28);position:relative;overflow:hidden;border:1px solid #5a1420;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.06);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin:28px 0 12px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:14px;border-bottom:1px solid var(--line-soft);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-red{background:rgba(241,104,94,.14);color:var(--bad);} .t-amb{background:rgba(240,184,78,.14);color:var(--warn);}
+  .t-grey{background:#1e2126;color:var(--ink-dim);} .t-grn{background:rgba(52,211,153,.14);color:var(--good);} .t-blue{background:rgba(240,102,127,.16);color:var(--primary-light);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-dim);} .stat .n{font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:linear-gradient(135deg,var(--primary-light),var(--good));-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .pcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-top:4px solid var(--primary);}
+  .ph{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+  .ph .nm{font-weight:800;font-size:16px;color:#fff;} .ph .rl{font-size:12.5px;color:var(--ink-dim);width:100%;}
+  .ph .rl a{color:var(--primary-light);text-decoration:none;} .ph .rl a:hover{text-decoration:underline;}
+  .meta{font-size:12.5px;color:var(--ink-dim);margin:8px 0 4px;}
+  .meta b{color:var(--ink);}
+  .hook{font-size:14px;background:var(--panel-2);border:1px solid var(--line-soft);border-radius:10px;padding:9px 12px;margin:8px 0;}
+  .flag{font-size:12px;background:rgba(240,184,78,.10);border:1px solid rgba(240,184,78,.3);color:var(--warn);border-radius:10px;padding:8px 12px;margin:8px 0;}
+  .seqlbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--primary-light);font-weight:700;margin:12px 0 6px;}
+  .dm{font-size:13.5px;border-left:3px solid var(--line);background:var(--panel-2);border-radius:0 10px 10px 0;padding:9px 12px;margin:7px 0;color:#DADDE1;}
+  .dm .t{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;display:block;margin-bottom:3px;}
+  .fit{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);}
+
+  .note{background:linear-gradient(135deg, #101114 0%, #3D0C16 100%);border:1px solid #5a1420;color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:10px;box-shadow:0 14px 36px rgba(0,0,0,.4);}
+  .note b{color:var(--primary-light);}
+
+  .held{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 18px;margin-bottom:10px;}
+  .held .nm{font-weight:700;font-size:14px;color:#fff;}
+  .held .why{font-size:12.5px;color:var(--ink-dim);margin-top:4px;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-dim);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead"><div class="k">BPOAS · CRO weekly prospect pack</div><h1>10 sourced. 5 qualified. 0 held for review.</h1><div class="d">Monday, 10 August 2026 · sourced via Apify/LinkedIn and verified individually · every DM is a draft, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Sourced (UAE ICP search)</div><div class="n">10</div></div>
+      <div class="stat"><div class="l">ICP qualified (fit 6+)</div><div class="n">5</div></div>
+      <div class="stat"><div class="l">Messages drafted</div><div class="n">25</div></div>
+    </div>
+
+    <div class="note" style="margin-top:18px;"><b>Sourcing note.</b> harvestapi/linkedin-profile-search (the actor used successfully on 27 July and 3 Aug) returned "free user run limit reached" this run &mdash; 0 profiles. Fell back to fabri-lab/linkedin-public-search-lead-extractor, a Google-SERP-based LinkedIn search actor, across 3 passes (34 raw results). Data quality is thinner than the harvestapi runs &mdash; short profile snippets rather than full work history &mdash; so each of the 10 below was individually checked against a second source (a direct profile fetch or a targeted web search) before scoring. Two results that looked promising on first pass didn't survive that check: one is building a new venture in Saudi Arabia, not the UAE, and one had no activity newer than 2022. Both are logged below with the reason, not silently dropped.</div>
+
+    <div class="sec">The prospects · ranked by fit</div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Dmitry Grigorev</span><span class="fit t-grn">Fit 7.5/10</span><span class="rl">Founder, Global Logistics &amp; 3PL · Successful Star General Trading · Trading/Logistics · Dubai · <a href="https://www.linkedin.com/in/dmitry-grigorev/" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> Cross-border expansion work across multiple jurisdictions &mdash; VAT/transfer-pricing exposure</div>
+      <div class="hook"><b>Human hook:</b> Runs global expansion solutions through Successful Star General Trading, moving goods across borders daily.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Dmitry, running global expansion and 3PL solutions out of Dubai while moving freight across borders daily is not a simple business to hold together. I'm Dubai based too and glad to connect with people building in logistics.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Dmitry. With Successful Star General Trading handling global expansion for clients, which region tends to cause the most friction once a shipment actually crosses the border?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the FTA's next VAT return deadline is August 28. Trading businesses moving goods across multiple jurisdictions usually feel filing season differently than a single-location business does. With Successful Star General Trading running multi-country expansion work, is VAT reporting handled as one file or split by market?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different angle, Dmitry. Building a business that helps other companies expand into new markets means you've had to learn those markets faster than anyone. What's one lesson from a market that surprised you the most?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Dmitry. What you've built moving goods and expansion strategy across borders is genuinely hard to pull off, and I'm glad our paths crossed.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Aniruddha R.</span><span class="fit t-grn">Fit 7.5/10</span><span class="rl">Managing Director, Interlogistics-FZCO · Logistics · Dubai (free zone) · <a href="https://www.linkedin.com/in/aniruddha-r-71923511/" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Analytical · <b>Opener:</b> Authority Flip · <b>Compliance signal:</b> FZCO free zone entity serving many industries &mdash; renewal and multi-line VAT scope exposure</div>
+      <div class="hook"><b>Human hook:</b> Leads Interlogistics-FZCO after 35 years across global boardrooms, still hands-on running freight day to day.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Aniruddha, 35 years across global boardrooms and still hands-on leading Interlogistics-FZCO day to day says a lot about how you operate. I'm Dubai based too and glad to connect with people who choose to stay close to the work.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Aniruddha. Interlogistics-FZCO serves a wide spread of industries, from construction to oil and gas. Which sector has changed the most for you operationally over the last couple of years?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the FTA's final VAT return deadline for this quarter lands August 28. Free zone logistics companies serving that many industries usually have more moving parts in their VAT position than people expect. Is Interlogistics-FZCO's reporting centralised, or does it get split by client or industry line?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Aniruddha. After 35 years in leadership across different companies, what's a rule you still hold onto from your first years that most people drop too early?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Aniruddha. What you've built with Interlogistics-FZCO after a career like yours is genuinely worth the respect it gets, and I'm glad our paths crossed.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Jasna S.</span><span class="fit t-grn">Fit 7/10</span><span class="rl">CEO &amp; Managing Partner · Real Estate / International Trade &amp; Market Expansion · Dubai · <a href="https://www.linkedin.com/in/jasnasavic/" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Analytical · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> Real estate firms are named explicitly as DNFBPs under UAE AML law &mdash; mandatory goAML registration</div>
+      <div class="hook"><b>Human hook:</b> Runs real estate and international trade expansion as CEO and Managing Partner, working across two disciplines at once.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Jasna, running real estate and international trade &amp; market expansion as CEO and Managing Partner at the same time is not a common combination. I'm Dubai based too and glad to connect with people building across more than one lane.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Jasna. With real estate and international trade expansion both under your name, which side takes up more of your actual week these days?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the Ministry of Economy pushed an alert this week reminding real estate firms specifically that goAML registration is mandatory under the AML rules, with penalties for firms that haven't completed it. Given real estate is named directly in that list, has that registration already been sorted for your side of the business?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Jasna. Running real estate and international trade expansion at once means you're never fully out of either world. Which one taught you more about the other?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Jasna. What you've built across real estate and international expansion is genuinely impressive to hold together, and I'm glad our paths crossed.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Tolga Neftci</span><span class="fit t-grn">Fit 7/10</span><span class="rl">Co-Founder &amp; CEO, Shorages · Dubai · Harvard Business School · <a href="https://www.linkedin.com/in/tolganeftci/" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Driver · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> Early-stage venture &mdash; fresh UAE entity means first-cycle CIT/VAT registration exposure</div>
+      <div class="hook"><b>Human hook:</b> Co-founded Shorages after Harvard Business School, now building it from the ground in Dubai.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Tolga, going from Harvard Business School into building Shorages from scratch in Dubai is a real leap. I'm Dubai based too and always glad to connect with founders building something new here.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Tolga. Curious what pushed you to start Shorages here in Dubai specifically, rather than somewhere you'd already built a network?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the FTA's final VAT return deadline for this quarter lands August 28. For a business still in its first year like Shorages, that first filing cycle is usually where people find out what they didn't know they didn't know. Is VAT reporting something you're handling in-house right now, or is it too early for that yet?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Tolga. Going from a Harvard classroom to building something from zero in a market you didn't grow up in, what's been the hardest thing nobody warned you about?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Tolga. What you're building with Shorages is a real bet on this market, and I'm glad our paths crossed either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Fatih Öztürk</span><span class="fit t-amb">Fit 6.5/10</span><span class="rl">Founder &amp; Managing Director, Red Consulting · Professional Services · Dubai (10+ years) · <a href="https://www.linkedin.com/in/fatihoeztuerk/" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Expressive · <b>Opener:</b> Pattern Interrupt · <b>Compliance signal:</b> None detected &mdash; standard SME VAT/CIT exposure only</div>
+      <div class="hook"><b>Human hook:</b> Built Red Consulting into a decade-plus practice in Dubai, still leading it as founder and managing director.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Fatih, keeping Red Consulting running as founder and managing director for over a decade in Dubai is not a small thing to hold together. I'm Dubai based too and glad to connect with people who've built something that lasts.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Fatih. Ten plus years running Red Consulting, what's changed the most about the kind of work clients bring you now compared to when you started?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the FTA's final VAT return deadline for this quarter lands August 28. Consultancies tend to treat VAT as background noise until a filing catches them off guard. Is that something you keep a close eye on yourself, or does someone else on your side own it?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Fatih. Ten years in, most founders either drift from the original reason they started or hold onto it tightly. Which one is true for you with Red Consulting?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Fatih. What you've built with Red Consulting over a decade is genuinely rare, and I'm glad our paths crossed.</div>
+    </div>
+
+    <div class="sec">Below the fit gate · held, not pursued</div>
+
+    <div class="held">
+      <div class="nm">Deepak Khushalani &middot; Fit 5.5/10</div>
+      <div class="why">Kaes Holdings (SFO) / Premier Logistics, Dubai. 6+ years on regional "Top 25 CEO" logistics power lists, long-established, high-profile operation. Likely already has a mature in-house finance function &mdash; the ICP's "full in-house finance team" disqualifier probably applies, though not confirmable from public data alone. Held rather than pursued.</div>
+    </div>
+    <div class="held">
+      <div class="nm">George Kunnappally &middot; Fit 4.5/10</div>
+      <div class="why">Managing Director, Nando's UAE (F&amp;B). Multi-outlet UAE franchise of an international brand with corporate backing (Select Group / Gates Hospitality network) &mdash; not an independent owner-operated SME, and almost certainly has existing corporate accounting support. Poor match for the ICP's "informal accounting, unqualified accountant" pain profile.</div>
+    </div>
+    <div class="held">
+      <div class="nm">Ayushman Shukla &middot; Fit 5/10</div>
+      <div class="why">Head of Sales / Commercial Director, food brands marketplace, MENA. Right industry and right company size (team of 22 across 3 countries), but the title doesn't match the ICP's decision-maker roles (Founder/CEO/MD/Finance Manager/Operations Manager) &mdash; a sales lead, not the person who owns the accounting relationship.</div>
+    </div>
+    <div class="held">
+      <div class="nm">Raheel Arif &middot; Fit 4/10</div>
+      <div class="why">General Manager, F&amp;B/manufacturing. A recent post (2 months ago) confirms he's building a new food manufacturing company in Saudi Arabia, not the UAE &mdash; fails the ICP's geography requirement outright, despite being Dubai-based personally.</div>
+    </div>
+    <div class="held">
+      <div class="nm">Ke Ning &middot; Fit 3.5/10</div>
+      <div class="why">Listed as "Business Owner, Keke Bespoke" but the only dated activity on record runs 2021 to 2022. No way to confirm the business, or Ke Ning's UAE presence, is still current. Thin signal &mdash; held rather than guessed at.</div>
+    </div>
+
+    <div class="sec">Notes on this run</div>
+    <div class="note">
+      <b>Reference docs.</b> <code>icp-mohaina-asira.md</code>, <code>voice-dna-mohaina-asira.md</code>, and <code>positioning-mohaina-asira.md</code> read directly from the Mohaina-Business-Brain repo, branch <code>claude/bold-wright-3wwdyd</code>, this run. Brand color: no hex specified in the positioning doc, defaulted to <b>#E8294C</b> per routine default.<br><br>
+      <b>M3 value hooks.</b> Two verified current sources used, both checked directly against the issuing authority's own site rather than a secondary summary: the FTA's own Announcements page (VAT return final deadline, Friday 28 August 2026 &mdash; flagged "New" on tax.gov.ae) and the Ministry of Economy's goAML/DNFBP alert (updated 9 August 2026, one day before this run), which names real estate firms directly as a designated DNFBP category. No fabricated regulatory update was used; where a prospect had no clean current hook, the evergreen VAT-deadline angle was used instead.<br><br>
+      <b>Fit gate.</b> No prospect scored 9&ndash;10 this batch &mdash; nothing held for Mohaina's personal pre-approval review this week. All 25 DM messages (5 per qualified prospect) are drafts only. Nothing sent, no LinkedIn connection requests issued.
+    </div>
+
+    <div class="sec">Delivery blocker &middot; flag for Mohaina</div>
+    <div class="note" style="background:linear-gradient(135deg, #101114 0%, #2a1a12 100%);border-color:#5a3a1e;">
+      <b>M365 email send tested directly this run and failed again.</b> <code>outlook_send_mail</code> returned <code>FORBIDDEN</code> (Mail.Send / Mail.ReadWrite not admin-consented) &mdash; the same structural gap logged on every BPOAS routine since 2 July 2026, confirmed again this morning on the 10 Aug CMO Daily Post run (Day 39&ndash;40). The summary email to <a href="mailto:m.asira@bposervicegroup.com" style="color:#F0B84E;">m.asira@bposervicegroup.com</a> could not be sent. Delivered instead via the companion Notion page and this HTML file, same fallback every routine has used since 2 July. One Mail.Send admin-consent grant in the Entra/Graph app registration would fix this permanently &mdash; re-running the routine will not.<br><br>
+      <b>Also worth knowing:</b> per the 7 Aug EOW Review, 9 leads and 30 DM drafts from prior weeks are already sitting unreviewed, blocked on Raihana's pipeline report (21+ days overdue) before any CRM go/no-go. This week adds 5 more qualified prospects and 25 more drafts to that same queue rather than a fresh, actionable batch.
+    </div>
+
+    <div class="sec">Output file</div>
+    <div class="note">Full report with all 10 prospect cards, complete scoring breakdown, and all 25 DM messages: <code>cro-prospects-2026-08-10.html</code> (Mohaina-Business-Brain repo, branch <code>claude/bold-wright-3wwdyd</code>).</div>
+
+    <div class="sec">Outreach rules</div>
+    <div class="note">
+      No outreach to 9&ndash;10 scored prospects without Mohaina's explicit approval (none scored this high this week).<br>
+      All DM sequences are drafts for Mohaina/Raihana to review before anything is sent.<br>
+      Any reply deviating from the approved script &rarr; flag to Mohaina first.
+    </div>
+
+    <footer>Auto-generated &middot; <b>BPOAS-CRO Weekly</b> &middot; Week of 10 August 2026 &middot; 07:00 UAE &middot; Apify: harvestapi run limit reached, fabri-lab fallback SUCCEEDED (3/3 calls) &middot; M365 send: FORBIDDEN (tested)</footer>
+  </div>
+</body>
+</html>
