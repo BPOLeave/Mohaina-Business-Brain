@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · 11 August 2026 · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F5607A;
+    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:#0A0A0A;color:#EDEDEE;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#9a9aa2;font-weight:700;margin:24px 0 12px;}
+  .card{background:#161619;border:1px solid #2A2A30;border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9a9aa2;margin-bottom:12px;}
+  .lead{font-size:16px;}
+  .row{display:flex;align-items:center;gap:10px;padding:10px 0;font-size:15px;border-bottom:1px solid #232327;}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-red{background:#3a1418;color:#f87171;} .t-amb{background:#3a2a10;color:#facc15;}
+  .t-grey{background:#232327;color:#9a9aa2;} .t-grn{background:#0f2a1c;color:#4ade80;} .t-blue{background:#0f2035;color:#60a5fa;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .note{background:linear-gradient(135deg, #000 0%, color-mix(in srgb,var(--primary) 26%, #000) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:14px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.3);}
+  .note b{color:var(--primary-light);}
+
+  .lipost{background:#161619;border:1px solid #2A2A30;border-radius:var(--r-md);box-shadow:var(--sh);padding:20px;}
+  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .lihead .nm{font-weight:700;font-size:15px;} .lihead .mt{font-size:12px;color:#9a9aa2;}
+  .lipost .post{font-size:15px;line-height:1.7;white-space:pre-line;color:#EDEDEE;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+  .chip{font-size:12px;font-weight:600;background:#232327;color:#9a9aa2;padding:5px 11px;border-radius:var(--pill);}
+  .score{display:inline-flex;align-items:center;gap:8px;background:#0f2a1c;color:#4ade80;font-weight:700;font-size:13px;padding:6px 13px;border-radius:var(--pill);}
+
+  .flagbox{background:#3a2a10;border:1px solid #6b4a10;border-radius:var(--r-md);padding:16px 18px;font-size:14px;color:#facc15;margin-bottom:14px;}
+  .flagbox b{color:#fde68a;}
+  .warnbox{background:#3a1418;border:1px solid #6b1a20;border-radius:var(--r-md);padding:16px 18px;font-size:14px;color:#fca5a5;margin-bottom:14px;}
+  .warnbox b{color:#fecaca;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:#6a6a72;font-size:13px;}
+  footer b{color:#c8c8cc;}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+
+    <div class="ohead">
+      <div class="k">CMO · Daily post</div>
+      <h1>Today's post, in Mohaina's voice</h1>
+      <div class="d">Tuesday 11 August 2026 · Pillar: Inside an Owner-Led Firm · Nurturing · Story-Flow (Variation B)</div>
+    </div>
+
+    <div class="warnbox">
+      <b>⏸ Held — not sent to Rei.</b> This post references CIT taxable profit and FTA review practice. Per the routine's heightened sign-off rule, anything referencing UAE tax law, a penalty figure, or a regulatory deadline needs Mohaina's explicit accuracy check before release, even without a cited article number or fine amount. Flagging this one for that reason. Approval email to Mohaina is attempted below; if M365 send fails, this file and the Notion log are the fallback record.
+    </div>
+
+    <div class="sec">Content source</div>
+    <div class="card">
+      <div class="row">Notion Content Calendar — Week of 2026-08-10, Tuesday row<span class="tagi t-grn">found</span></div>
+      <div class="row">Topic: recycled from 5 Aug per Content Debt Tracker, treated as fresh<span class="tagi t-grey">note</span></div>
+      <div class="row">Apify LinkedIn analytics: scraper down 11+ consecutive weeks (reconfirmed this week)<span class="tagi t-amb">unavailable</span></div>
+    </div>
+
+    <div class="sec">Hook options</div>
+    <div class="card">
+      <div class="row">Pattern Interrupt — "A real estate brokerage in Business Bay was booking commission income the day cash hit the account, not the day it was earned."<span class="tagi t-grn">chosen</span></div>
+      <div class="row">Result Lead — "We caught two quarters of understated CIT profit before the FTA ever needed to."</div>
+      <div class="row">Confession — "I think most owners have no idea their revenue is being booked on the wrong day."</div>
+      <div class="row">Contrarian — "A healthy bank balance is not proof your books are right."</div>
+      <div class="row">Curiosity Gap — "A Business Bay brokerage was booking income on the wrong day for two straight quarters."</div>
+    </div>
+    <div class="note">Selection reason: the Pattern Interrupt hook mirrors the ICP's <b>"no real visibility into their business"</b> pain exactly, a specific, ordinary-looking bookkeeping habit that is quietly wrong. It doesn't lecture or lead with fear, so it builds trust against the <b>"unqualified accountant in charge"</b> objection pattern (owners who've been burned by cheap providers before) rather than triggering it. Apify analytics were unavailable to weight this pick by past performance, so selection ran on ICP-language fit alone.</div>
+
+    <div class="sec">Full post</div>
+    <div class="lipost">
+      <div class="lihead">
+        <div class="av">MA</div>
+        <div><div class="nm">Mohaina Asira · 1st</div><div class="mt">Managing Partner, BPOAS · now</div></div>
+      </div>
+      <div class="post">A real estate brokerage in Business Bay was booking commission income the day cash hit the account, not the day it was earned.
+
+We picked this up during a routine review. Nobody had flagged anything. Nobody thought there was anything to flag.
+
+Two quarters had already gone by. Their bookkeeper had been recording revenue on receipt, so on paper it looked simple. Cash in, income booked.
+
+But commission is earned when the deal closes, not when the client transfers the money. That gap meant two quarters of CIT taxable profit were sitting understated, quietly, with nobody the wiser.
+
+Nobody had done this on purpose. Their accountant had never been trained to separate the two events. He was capable in some ways, but he didn't know what he didn't know, and the owner had no way of checking his work.
+
+I think this is the part most owners miss. You can feel compliant and still be wrong, because the person doing your books doesn't know the difference between cash and income.
+
+We caught it going through the supporting documents line by line, not just the ledger totals. Second eyes on every file, checking the timing, not just the amount. That is the actual job.
+
+At the end of the day, a healthy bank balance tells you nothing about whether your revenue is recognised correctly.
+
+Save this for the situation where nobody has ever reviewed how your revenue is timed.</div>
+      <div class="chips"><span class="chip">1,371 chars</span><span class="chip">Hook: Pattern Interrupt</span><span class="chip">No em dashes</span><span class="chip">Zero banned words</span></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card"><h4>Publish check</h4>
+        <div class="row">Stops the scroll<span class="tagi t-grn">✓</span></div>
+        <div class="row">Matches Voice DNA (I think · we · at the end of the day)<span class="tagi t-grn">✓</span></div>
+        <div class="row">Situation → observation → principle<span class="tagi t-grn">✓</span></div>
+        <div class="row">Specific ask (Save this)<span class="tagi t-grn">✓</span></div>
+      </div>
+      <div class="card"><h4>Invisibility Diagnostic</h4>
+        <div class="row">Voice — sounds like Mohaina, not a firm's marketing desk<span class="tagi t-grn">1/1</span></div>
+        <div class="row">POV — cash timing ≠ correct accounting, second eyes matter<span class="tagi t-grn">1/1</span></div>
+        <div class="row">Specificity — Business Bay, two quarters, CIT taxable profit<span class="tagi t-grn">1/1</span></div>
+        <div class="row">Asking — clear Save CTA<span class="tagi t-grn">1/1</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:8px"><span class="score">Invisibility Diagnostic: 4 / 4</span></div>
+
+    <div class="sec">3 pinned comments</div>
+    <div class="card">
+      <div class="row"><b>Extend —</b>&nbsp;Worth adding: UAE Corporate Tax runs on an accrual basis, not a cash basis. Income counts the day it's earned, not the day it's paid. That's exactly the kind of gap a mid-year review catches, long before a return is ever due.<span class="tagi t-amb">law ref</span></div>
+      <div class="row"><b>Humanise —</b>&nbsp;I think about this one a lot because the owner genuinely had no idea. He trusted the books because the bank balance looked fine. That's the part that stays with me, not the number, the trust.</div>
+      <div class="row"><b>CTA Amplifier —</b>&nbsp;If nobody has ever checked whether your revenue is booked the right way, not just the right amount, that's worth 30 minutes before your next filing, not after. Book a 30-minute compliance review.<span class="tagi t-blue">CTA</span></div>
+    </div>
+    <div class="flagbox"><b>⚠ Accuracy flag:</b> the Extend comment references UAE Corporate Tax's accrual-basis treatment in general terms (no article number or penalty figure cited). Still counts as a UAE law reference under the routine's sign-off rule, so it needs Mohaina's confirmation alongside the main post before either goes out.</div>
+
+    <div class="sec">Recommended publish time</div>
+    <div class="card"><div class="row">Tuesday · Story post · peak connection-building engagement window<span class="tagi t-blue">08:30 UAE</span></div></div>
+
+  </div>
+  <footer>BPOAS CMO Daily Post · Auto-generated · <b>Held for Mohaina's approval</b></footer>
+</body>
+</html>
