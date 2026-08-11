@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Tuesday 11 August 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:#E8294C; --primary-light:#F5607A;
+    --black:#0A0A0A; --ink:#E8E8E8;
+    --gray:#2A2A2A; --gray-text:#888;  --gray-light:#1F1F1F;
+    --good:#22C55E; --warn:#F59E0B; --bad:#EF4444;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 2px 6px rgba(0,0,0,.5),0 8px 28px rgba(0,0,0,.35);
+    --grad:linear-gradient(135deg,color-mix(in srgb,var(--primary) 78%,#000) 0%,var(--primary) 48%,var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:#0A0A0A;color:#E8E8E8;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:900px;margin:0 auto;padding:34px 22px 70px;}
+
+  /* Hero */
+  .hero{border-radius:var(--r-lg);padding:32px 32px 28px;margin-bottom:22px;background:var(--grad);box-shadow:0 20px 50px color-mix(in srgb,var(--primary) 35%,transparent);position:relative;overflow:hidden;color:#fff;}
+  .hero::after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.07);top:-160px;right:-80px;pointer-events:none;}
+  .hero .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.7;font-weight:700;margin-bottom:6px;}
+  .hero h1{font-size:clamp(22px,3.5vw,30px);font-weight:800;letter-spacing:-.02em;margin-bottom:4px;}
+  .hero .sub{font-size:14px;opacity:.8;}
+  .day-tag{display:inline-block;background:rgba(255,255,255,.18);font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--pill);margin-top:10px;letter-spacing:.07em;}
+
+  /* Revenue Pulse */
+  .pulse{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px;}
+  .pc{background:rgba(0,0,0,.28);border-radius:10px;padding:13px 15px;}
+  .pc .pl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.65;font-weight:700;}
+  .pc .pv{font-size:20px;font-weight:800;letter-spacing:-.02em;margin-top:4px;}
+  .pc .ps{font-size:11px;opacity:.6;margin-top:2px;}
+  .pulse-note{font-size:11.5px;opacity:.5;margin-top:12px;line-height:1.5;}
+
+  /* Section label */
+  .sec{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:28px 0 12px;}
+
+  /* Cards */
+  .card{background:#141414;border:1px solid #252525;border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card.plain{border-left:1px solid #252525;}
+  .card h4{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin-bottom:14px;}
+
+  /* Rows */
+  .row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;font-size:14px;border-bottom:1px solid #1A1A1A;line-height:1.5;}
+  .row:last-child{border-bottom:none;}
+  .row .lbl{color:var(--gray-text);font-size:12px;flex-shrink:0;min-width:52px;}
+  .tagi{font-size:10px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-red{background:rgba(239,68,68,.18);color:#EF4444;}
+  .t-amb{background:rgba(245,158,11,.18);color:#F59E0B;}
+  .t-grn{background:rgba(34,197,94,.18);color:#22C55E;}
+  .t-grey{background:#1F1F1F;color:var(--gray-text);}
+
+  /* Alert banner */
+  .alert{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.4);border-radius:10px;padding:13px 16px;margin-bottom:18px;font-size:13.5px;color:#EF4444;display:flex;gap:10px;align-items:flex-start;line-height:1.5;}
+
+  /* Run log */
+  .run-row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:14px;border-bottom:1px solid #1A1A1A;}
+  .run-row:last-child{border-bottom:none;}
+  .rs{color:var(--gray-text);font-size:13px;width:20px;flex-shrink:0;font-weight:700;}
+  .rn{flex:1;}
+  .rf{font-size:11.5px;color:var(--gray-text);margin-top:1px;}
+
+  /* Flag cards */
+  .fcard{border-radius:var(--r-md);padding:18px 20px;margin-bottom:14px;}
+  .fcard.red{background:#140505;border:1px solid rgba(239,68,68,.3);}
+  .fcard.amb{background:#120e00;border:1px solid rgba(245,158,11,.25);}
+  .fcard h4{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
+  .fcard.red h4{color:#EF4444;}
+  .fcard.amb h4{color:#F59E0B;}
+  .fr{display:flex;align-items:flex-start;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:13.5px;line-height:1.55;}
+  .fr:last-child{border-bottom:none;}
+  .fi{font-size:15px;flex-shrink:0;margin-top:2px;}
+  .fb{color:#E8E8E8;}
+  .fb strong{color:#fff;}
+  .fd{font-size:12px;color:#777;margin-top:3px;}
+  .fn{font-size:11.5px;background:rgba(239,68,68,.12);color:#EF4444;padding:3px 9px;border-radius:var(--pill);display:inline-block;margin-top:5px;font-weight:600;}
+  .fn.a{background:rgba(245,158,11,.12);color:#F59E0B;}
+
+  /* LinkedIn post */
+  .lipost{background:#141414;border:1px solid #252525;border-radius:var(--r-md);padding:20px;margin-bottom:12px;}
+  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .av{width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0;}
+  .nm{font-weight:700;font-size:14px;}
+  .mt{font-size:12px;color:var(--gray-text);}
+  .post{font-size:14px;line-height:1.75;white-space:pre-line;color:#CCC;}
+  .hook-line{color:#fff;font-weight:600;}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px;}
+  .chip{font-size:11px;font-weight:600;background:#1F1F1F;color:var(--gray-text);padding:4px 10px;border-radius:var(--pill);}
+  .score{display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,.14);color:#22C55E;font-weight:700;font-size:12px;padding:5px 13px;border-radius:var(--pill);}
+  .appr{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:10px;padding:12px 16px;font-size:13px;color:#F59E0B;margin-top:12px;line-height:1.5;}
+
+  /* Quick links */
+  .ql{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #1A1A1A;font-size:14px;}
+  .ql:last-child{border-bottom:none;}
+  .ql a{color:var(--primary-light);text-decoration:none;font-weight:600;font-size:13px;}
+  .ql a:hover{text-decoration:underline;}
+
+  /* Pinned comments */
+  .pc-row{padding:10px 0;border-bottom:1px solid #1A1A1A;font-size:13.5px;line-height:1.55;color:#CCC;}
+  .pc-row:last-child{border-bottom:none;}
+  .pc-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-text);margin-bottom:4px;}
+
+  footer{text-align:center;padding:30px 22px 10px;color:#333;font-size:12px;}
+  footer b{color:#555;}
+
+  @media(max-width:640px){.pulse{grid-template-columns:1fr 1fr;}}
+  @media(max-width:380px){.pulse{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- HERO CARD -->
+  <div class="hero">
+    <div class="k">BPOAS · Daily Start · Auto-generated · Lean Run</div>
+    <h1>Good morning, Mohaina.</h1>
+    <div class="sub">Tuesday, 11 August 2026 · Steps 1 + 4 · No meetings today · ran while you slept</div>
+    <div class="day-tag">TUESDAY · lean run</div>
+
+    <div style="margin-top:22px;">
+      <div style="font-size:10px;letter-spacing:.13em;text-transform:uppercase;opacity:.6;font-weight:700;margin-bottom:10px;">Revenue Pulse</div>
+      <div class="pulse">
+        <div class="pc">
+          <div class="pl">MTD Collected</div>
+          <div class="pv" style="font-size:14px;opacity:.45;">Not tracked</div>
+          <div class="ps">No target on file</div>
+        </div>
+        <div class="pc">
+          <div class="pl">Monthly Target</div>
+          <div class="pv" style="font-size:14px;opacity:.45;">Not on file</div>
+          <div class="ps">Add to positioning doc</div>
+        </div>
+        <div class="pc">
+          <div class="pl">Overdue AR</div>
+          <div class="pv">AED 101K</div>
+          <div class="ps">18 invoices · as of today</div>
+        </div>
+        <div class="pc">
+          <div class="pl">Days Left in Aug</div>
+          <div class="pv">20</div>
+          <div class="ps">of 31</div>
+        </div>
+      </div>
+      <div class="pulse-note">Last CFO run: Monday 3 August 2026. Revenue target not on file since 2 July 2026 — Revenue Pulse cannot calculate run-rate gap. Add monthly target to positioning-mohaina-asira.md to activate.</div>
+    </div>
+  </div>
+
+  <!-- M365 BLOCKER BANNER -->
+  <div class="alert">
+    <span style="font-size:18px;flex-shrink:0;">🔴</span>
+    <div><strong>M365 Mail.Send not granted — Day 41.</strong> This brief, the CMO post approval request, and today's summary email cannot reach your inbox. Review this page and the Notion links below directly. One admin-consent grant in Entra fixes every blocked routine permanently.</div>
+  </div>
+
+  <!-- RUN LOG -->
+  <div class="sec">Run Log</div>
+  <div class="card plain">
+    <h4>Steps · Tuesday 11 August 2026 · Lean run</h4>
+    <div class="run-row">
+      <span class="rs">1</span>
+      <div class="rn">COO Morning Brief
+        <div class="rf">coo-brief-2026-08-11.html · ran 09:00 UAE · 11 flags · branch claude/gracious-archimedes-7ynzre</div>
+      </div>
+      <span class="tagi t-grn">Complete</span>
+    </div>
+    <div class="run-row">
+      <span class="rs">2</span>
+      <div class="rn">CFO Weekly Revenue
+        <div class="rf">Monday only — skipped. Last run: Monday 3 August 2026.</div>
+      </div>
+      <span class="tagi t-grey">Skipped</span>
+    </div>
+    <div class="run-row">
+      <span class="rs">3</span>
+      <div class="rn">CRO Weekly Prospects
+        <div class="rf">Monday only — skipped.</div>
+      </div>
+      <span class="tagi t-grey">Skipped</span>
+    </div>
+    <div class="run-row">
+      <span class="rs">4</span>
+      <div class="rn">CMO Daily Post
+        <div class="rf">cmo-post-2026-08-11.html · ran 07:00 UAE · Pillar: Inside an Owner-Led Firm · 4/4 PASS · Pending Approval · branch claude/confident-newton-mjev3d</div>
+      </div>
+      <span class="tagi t-amb">Pending Approval</span>
+    </div>
+    <div class="run-row">
+      <span class="rs">5</span>
+      <div class="rn">Content Calendar
+        <div class="rf">Monday only — skipped. Current week: Content Calendar · Week of 2026-08-10 (built Monday).</div>
+      </div>
+      <span class="tagi t-grey">Skipped</span>
+    </div>
+  </div>
+
+  <!-- FLAGS FOR MOHAINA -->
+  <div class="sec">Flags for Mohaina · Sorted by Priority</div>
+
+  <!-- Compliance -->
+  <div class="fcard red">
+    <h4>Compliance</h4>
+
+    <div class="fr">
+      <div class="fi">🔴</div>
+      <div>
+        <div class="fb"><strong>NEW — FTA Corporate Tax Return Reminder, PICPA NE CHAPTER FZE</strong> (TRN 104324388800001)</div>
+        <div class="fd">FTA emailed directly 10 Aug (ali.kuwair@tax.gov.ae). Deadline described as "fast approaching." Filing status not yet confirmed. Client CT return must be verified today.</div>
+        <span class="fn">Confirm CT filing status today — Owner: Mohaina</span>
+      </div>
+    </div>
+
+    <div class="fr">
+      <div class="fi">🔴</div>
+      <div>
+        <div class="fb"><strong>BPOAS Trade Licence #809563 — Day 17 of lapse</strong> (expired 25 Jul 2026)</div>
+        <div class="fd">WPS payroll blocked for all staff. Renewal has not been confirmed in any brief since 25 July. Every day adds regulatory exposure.</div>
+        <span class="fn">Chase Junaifa first thing — Owner: Junaifa</span>
+      </div>
+    </div>
+
+    <div class="fr">
+      <div class="fi">🟡</div>
+      <div>
+        <div class="fb"><strong>AML/CFT Programme H2 2026 review — Day 13 unscheduled</strong></div>
+        <div class="fd">Carried from 29 July with no scheduling confirmed. New lead Jasna S. (Real Estate) sourced 10 Aug carries a DNFBP/AML trigger — adds urgency to this review.</div>
+        <span class="fn a">Block time this week — Owner: Mohaina</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cash -->
+  <div class="fcard red">
+    <h4>Cash</h4>
+
+    <div class="fr">
+      <div class="fi">🔴</div>
+      <div>
+        <div class="fb"><strong>Overdue AR: AED 101,687.50 across 18 invoices</strong> — flat since 6 August</div>
+        <div class="fd">Richemont (Dubai) FZE: ~AED 58,537.50 (~57.6% of total). INV-000086 now 176+ days overdue. No collection movement confirmed in the past 5 days.</div>
+        <span class="fn">Richemont collection call this week — Owner: Mohaina</span>
+      </div>
+    </div>
+
+    <div class="fr">
+      <div class="fi">🔴</div>
+      <div>
+        <div class="fb"><strong>Menastar DMCC / dnata — Outstanding balance 01-07 Aug requested urgently</strong></div>
+        <div class="fd">Email from f.khalid@emirates.com received 10 Aug. Has attachment. Settlement request to multiple parties including BPOAS. Unread.</div>
+        <span class="fn">Open attachment + respond today — Owner: Mohaina</span>
+      </div>
+    </div>
+
+    <div class="fr">
+      <div class="fi">🟡</div>
+      <div>
+        <div class="fb"><strong>Zoho referral commission AED 5,971.59 uncollected</strong></div>
+        <div class="fd">Confirmed in CFO report 3 Aug. No collection action logged in any brief since. Ready to claim via Zoho partner portal.</div>
+        <span class="fn a">Initiate via Zoho partner portal — Owner: Mohaina</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client -->
+  <div class="fcard red">
+    <h4>Client</h4>
+
+    <div class="fr">
+      <div class="fi">🔴</div>
+      <div>
+        <div class="fb"><strong>Brilliant Telecom LLC CIT partner confirmation — ~27 days past 15 Jul deadline</strong></div>
+        <div class="fd">Client was on vacation from 20 Jul and should be reachable now. CIT filing at risk. Raihana to attempt all contact numbers and escalate.</div>
+        <span class="fn">Escalate today — Owner: Raihana / Mohaina</span>
+      </div>
+    </div>
+
+    <div class="fr">
+      <div class="fi">🔴</div>
+      <div>
+        <div class="fb"><strong>Agreement for Audit — unresolved since 6 August</strong></div>
+        <div class="fd">Issta extension + Starnext revision both need a decision from Mohaina. Michelle Pacis is holding this file.</div>
+        <span class="fn">Decide today — Owner: Mohaina</span>
+      </div>
+    </div>
+
+    <div class="fr">
+      <div class="fi">🟡</div>
+      <div>
+        <div class="fb"><strong>Richemont — two open threads</strong></div>
+        <div class="fd">Raphael Hanna: Clause 6.6 reply outstanding since 5 Aug. Ahmed Shalaby: Nada Shalabi quotation still owed.</div>
+        <span class="fn a">Reply to both this week — Owner: Mohaina</span>
+      </div>
+    </div>
+
+    <div class="fr">
+      <div class="fi">🟡</div>
+      <div>
+        <div class="fb"><strong>Cartier Fragrance / Recyline — Chadi awaiting onboarding direction, Day 13</strong></div>
+        <div class="fd">No direction given since 28 Jul. Chadi cannot proceed without instruction from Mohaina.</div>
+        <span class="fn a">Give Chadi direction today — Owner: Mohaina</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BD -->
+  <div class="fcard amb">
+    <h4>BD Pipeline</h4>
+
+    <div class="fr">
+      <div class="fi">🔴</div>
+      <div>
+        <div class="fb"><strong>The Concept Lab / Mr. George EL — ~51 days stalled</strong></div>
+        <div class="fd">CIT 30 Sep window is now ~50 days out. Cannot carry past this week without a go or close decision. Every week of stall reduces the CIT filing window.</div>
+        <span class="fn">Approve or close today — Owner: Mohaina</span>
+      </div>
+    </div>
+
+    <div class="fr">
+      <div class="fi">🔴</div>
+      <div>
+        <div class="fb"><strong>GL Middle East / Nandhu TRC (3 entities) — ~51 days EL-stalled</strong></div>
+        <div class="fd">25 days past auto-stall. Three entities in scope. No movement confirmed since July.</div>
+        <span class="fn">Decision needed this week — Owner: Mohaina</span>
+      </div>
+    </div>
+
+    <div class="fr">
+      <div class="fi">🔴</div>
+      <div>
+        <div class="fb"><strong>Raihana's Pipeline Status Report — 25 days overdue</strong> (due 17 Jul)</div>
+        <div class="fd">Blocking CRM go/no-go on 14 leads + 55 DM drafts. Non-negotiable. Every day without it costs pipeline momentum.</div>
+        <span class="fn">Submit before anything else — Owner: Raihana</span>
+      </div>
+    </div>
+
+    <div class="fr">
+      <div class="fi">🟡</div>
+      <div>
+        <div class="fb"><strong>New lead: Jasna S. (Real Estate / Intl Trade Expansion) — 7/10, sourced 10 Aug</strong></div>
+        <div class="fd">AML/DNFBP trigger noted. Factor into compliance review before approving for outreach.</div>
+        <span class="fn a">Review in CRM go/no-go session — Owner: Mohaina</span>
+      </div>
+    </div>
+
+    <div class="fr">
+      <div class="fi">🟡</div>
+      <div>
+        <div class="fb"><strong>Richemont Temporary Staffing RFP — NDA received, go/no-go pending</strong></div>
+        <div class="fd">NDA received. No go/no-go decision logged.</div>
+        <span class="fn a">Review NDA + decide — Owner: Mohaina</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="sec">Quick Links</div>
+  <div class="card plain">
+    <div class="ql">
+      <span>COO Morning Brief · 11 Aug</span>
+      <a href="https://github.com/BPOLeave/Mohaina-Business-Brain/blob/claude/gracious-archimedes-7ynzre/coo-brief-2026-08-11.html" target="_blank">coo-brief-2026-08-11.html</a>
+    </div>
+    <div class="ql">
+      <span>CMO Daily Post · 11 Aug · <span style="color:#F59E0B;">Pending Approval</span></span>
+      <a href="https://github.com/BPOLeave/Mohaina-Business-Brain/blob/claude/confident-newton-mjev3d/cmo-post-2026-08-11.html" target="_blank">cmo-post-2026-08-11.html</a>
+    </div>
+    <div class="ql">
+      <span>Approve post in Notion (direct link)</span>
+      <a href="https://app.notion.com/p/3b98a33e7fd18163bfc8c20bbc9d96b8" target="_blank">Open + reply approved</a>
+    </div>
+    <div class="ql">
+      <span>Content Calendar · Week of 10 Aug</span>
+      <a href="https://app.notion.com/p/3b88a33e7fd181018215c6403e6da49c" target="_blank">Open in Notion</a>
+    </div>
+    <div class="ql">
+      <span>Last CFO Revenue Report · 3 Aug 2026</span>
+      <a href="https://app.notion.com/p/3b18a33e7fd1812fbb62dd37ed55095b" target="_blank">Open in Notion</a>
+    </div>
+  </div>
+
+  <!-- TODAY'S POST -->
+  <div class="sec">Today's LinkedIn Post · Copy-Ready</div>
+
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
+    <span class="score">Invisibility Diagnostic: 4 / 4 PASS</span>
+    <span class="chip">1,371 chars</span>
+    <span class="chip">Pattern Interrupt hook</span>
+    <span class="chip">Pillar: Inside an Owner-Led Firm</span>
+    <span class="chip">Variation B: Story-Flow</span>
+  </div>
+
+  <div class="lipost">
+    <div class="lihead">
+      <div class="av">MA</div>
+      <div>
+        <div class="nm">Mohaina Asira · 1st</div>
+        <div class="mt">Managing Partner, BPO Accounting Services · now</div>
+      </div>
+    </div>
+    <div class="post"><span class="hook-line">A real estate brokerage in Business Bay was booking commission income the day cash hit the account, not the day it was earned.</span>
+
+We picked this up during a routine review. Nobody had flagged anything. Nobody thought there was anything to flag.
+
+Two quarters had already gone by. Their bookkeeper had been recording revenue on receipt, so on paper it looked simple. Cash in, income booked.
+
+But commission is earned when the deal closes, not when the client transfers the money. That gap meant two quarters of CIT taxable profit were sitting understated, quietly, with nobody the wiser.
+
+Nobody had done this on purpose. Their accountant had never been trained to separate the two events. He was capable in some ways, but he didn't know what he didn't know, and the owner had no way of checking his work.
+
+I think this is the part most owners miss. You can feel compliant and still be wrong, because the person doing your books doesn't know the difference between cash and income.
+
+We caught it going through the supporting documents line by line, not just the ledger totals. Second eyes on every file, checking the timing, not just the amount. That is the actual job.
+
+At the end of the day, a healthy bank balance tells you nothing about whether your revenue is recognised correctly.
+
+Save this for the situation where nobody has ever reviewed how your revenue is timed.</div>
+
+    <div class="chips">
+      <span class="chip">Intent: Nurturing</span>
+      <span class="chip">No em dashes</span>
+      <span class="chip">Zero banned words</span>
+    </div>
+  </div>
+
+  <div class="appr">
+    <strong>Approval required before forwarding to Rei.</strong> This post references UAE Corporate Tax (CIT accrual-basis treatment) and FTA review practice — heightened regulatory sign-off applies. Verify accuracy, then reply "approved" in the Notion page linked above. Forward to Rei Nald Onella (reinald.onella1@gmail.com) with subject: "Post for Today — Ready to Publish · 11 August 2026". Recommended publish window: 08:30 UAE (Tuesday) — still viable if approved by mid-morning.
+  </div>
+
+  <!-- PINNED COMMENTS -->
+  <div class="sec">Pinned Comment Options · Publish in Sequence</div>
+  <div class="card plain">
+    <div class="pc-row">
+      <div class="pc-lbl">1 — Extend</div>
+      Worth adding: UAE Corporate Tax runs on an accrual basis, not a cash basis. Income counts the day it's earned, not the day it's paid. That's exactly the kind of gap a mid-year review catches, long before a return is ever due.
+    </div>
+    <div class="pc-row">
+      <div class="pc-lbl">2 — Humanise</div>
+      I think about this one a lot because the owner genuinely had no idea. He trusted the books because the bank balance looked fine. That's the part that stays with me, not the number, the trust.
+    </div>
+    <div class="pc-row">
+      <div class="pc-lbl">3 — CTA Amplifier</div>
+      If nobody has ever checked whether your revenue is booked the right way, not just the right amount, that's worth 30 minutes before your next filing, not after. Book a 30-minute compliance review.
+    </div>
+  </div>
+
+  <!-- SCHEDULE + INBOX -->
+  <div class="grid2">
+    <div>
+      <div class="sec">Today's Schedule</div>
+      <div class="card plain">
+        <div class="row" style="font-size:13.5px;color:#AAA;">No client meetings today. Day is open.</div>
+        <div class="row" style="font-size:13px;color:#777;line-height:1.5;">Recommended use: FTA/PICPA CT filing confirmation, Concept Lab go/close call, GL Middle East decision, Audit agreement decision, Menastar settlement reply, Trade Licence chase.</div>
+      </div>
+    </div>
+    <div>
+      <div class="sec">Inbox Priorities · Top 5</div>
+      <div class="card plain">
+        <div class="row">
+          <div class="lbl">🔴 CT</div>
+          <div><strong>FTA / ali.kuwair@tax.gov.ae</strong> — CT return reminder, PICPA NE CHAPTER FZE. Deadline fast approaching.</div>
+          <span class="tagi t-red">reply</span>
+        </div>
+        <div class="row">
+          <div class="lbl">🔴 WPS</div>
+          <div><strong>Al Ansari eExchange</strong> — WPS salary file received, pending fund confirmation.</div>
+          <span class="tagi t-amb">confirm</span>
+        </div>
+        <div class="row">
+          <div class="lbl">🔴 Client</div>
+          <div><strong>dnata / f.khalid@emirates.com</strong> — Menastar DMCC settlement 01-07 Aug. Attachment present.</div>
+          <span class="tagi t-red">review</span>
+        </div>
+        <div class="row">
+          <div class="lbl">🟡 Zoho</div>
+          <div><strong>Zoho Partner tagging</strong> — mohaina.asira Expense module. Needs approval.</div>
+          <span class="tagi t-amb">decide</span>
+        </div>
+        <div class="row">
+          <div class="lbl">Teams</div>
+          <div><strong>Michelle Pacis</strong> — Adobe Acrobat subscription query. Non-urgent.</div>
+          <span class="tagi t-grey">fyi</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>The brain thinks. The team works. You approve. · <b>BPOAS · Daily Start · Tuesday 11 August 2026 · Auto-generated</b></footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  window.addEventListener('load',function(){
+    if(!window.gsap)return;
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero',{y:24,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+    gsap.from('.hero h1',{y:12,opacity:0,duration:.6,delay:.1,ease:'power3.out'});
+    gsap.from('.alert',{y:10,opacity:0,duration:.5,delay:.2,ease:'power2.out'});
+    gsap.from('.card,.fcard,.lipost',{y:16,opacity:0,duration:.5,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 88%'}});
+  });
+</script>
+</body>
+</html>
