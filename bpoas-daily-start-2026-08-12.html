@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Wednesday 12 August 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0A0A0A; color: #E5E5E5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.65; padding: 24px 16px 80px; }
+  .container { max-width: 900px; margin: 0 auto; }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, #12060A 0%, #0F0F0F 100%); border: 1px solid rgba(232,41,76,0.3); border-radius: 14px; padding: 28px 32px; margin-bottom: 24px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(232,41,76,0.08) 0%, transparent 70%); border-radius: 50%; }
+  .hero-date { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #E8294C; margin-bottom: 6px; }
+  .hero-title { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 20px; }
+  .revenue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+  .revenue-tile { background: rgba(255,255,255,0.04); border: 1px solid #222; border-radius: 10px; padding: 14px 16px; }
+  .revenue-label { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .revenue-value { font-size: 20px; font-weight: 700; color: #fff; }
+  .revenue-sub { font-size: 11px; color: #555; margin-top: 4px; }
+  .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+  .dot-amber { background: #F59E0B; }
+  .dot-red { background: #E8294C; }
+  .dot-green { background: #10B981; }
+  .carry-note { font-size: 11px; color: #555; margin-top: 16px; font-style: italic; border-top: 1px solid #1A1A1A; padding-top: 10px; }
+
+  /* Cards */
+  .card { background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 24px; margin-bottom: 20px; }
+  .card-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #888; margin-bottom: 14px; }
+  .card-red { border-left: 3px solid #E8294C; }
+  .card-amber { border-left: 3px solid #F59E0B; }
+
+  /* Badges */
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; vertical-align: middle; margin-right: 6px; }
+  .badge-red { background: rgba(232,41,76,0.2); color: #E8294C; }
+  .badge-amber { background: rgba(245,158,11,0.15); color: #F59E0B; }
+  .badge-green { background: rgba(16,185,129,0.15); color: #10B981; }
+  .badge-grey { background: #222; color: #666; }
+
+  /* Run Log */
+  .run-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #1A1A1A; }
+  .run-item:last-child { border-bottom: none; }
+  .run-step { min-width: 60px; font-weight: 700; font-size: 13px; color: #aaa; }
+  .run-name { flex: 1; }
+  .run-name strong { color: #eee; }
+  .run-file { font-size: 11px; color: #555; margin-top: 2px; }
+
+  /* Flags */
+  .flag-item { padding: 12px 0; border-bottom: 1px solid #1A1A1A; }
+  .flag-item:last-child { border-bottom: none; }
+  .flag-title { font-weight: 600; color: #eee; margin-bottom: 4px; }
+  .flag-detail { font-size: 13px; color: #888; }
+  .flag-next { font-size: 12px; color: #555; margin-top: 4px; }
+
+  /* Links */
+  .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+  .link-card { background: #0F0F0F; border: 1px solid #222; border-radius: 8px; padding: 12px 14px; text-decoration: none; color: inherit; transition: border-color 0.2s; }
+  .link-card:hover { border-color: #E8294C; }
+  .link-card-label { font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .link-card-name { font-size: 14px; font-weight: 600; color: #ccc; }
+
+  /* Post */
+  .post-body { background: #0F0F0F; border: 1px solid #2A2A2A; border-radius: 8px; padding: 20px 24px; font-size: 15px; line-height: 1.8; color: #E0E0E0; white-space: pre-wrap; }
+  .post-hook { color: #E8294C; font-weight: 700; }
+  .post-cta { color: #10B981; font-weight: 700; }
+  .warning-box { background: rgba(232,41,76,0.07); border: 1px solid rgba(232,41,76,0.25); border-radius: 8px; padding: 12px 16px; margin-top: 12px; font-size: 13px; color: #E8294C; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ═══ HERO CARD ═══ -->
+  <div class="hero">
+    <div class="hero-date">Wednesday · 12 August 2026 · BPOAS Daily Start · 07:00 UAE</div>
+    <div class="hero-title">BPOAS Daily Start</div>
+
+    <div class="revenue-grid">
+      <div class="revenue-tile">
+        <div class="revenue-label">Month-to-Date Revenue</div>
+        <div class="revenue-value" style="color:#888;">—</div>
+        <div class="revenue-sub">CFO data: Mondays only. Last updated Mon 10 Aug.</div>
+      </div>
+      <div class="revenue-tile">
+        <div class="revenue-label">Monthly Target</div>
+        <div class="revenue-value" style="color:#888;">—</div>
+        <div class="revenue-sub">Not specified in positioning doc.</div>
+      </div>
+      <div class="revenue-tile">
+        <div class="revenue-label">Overdue Receivables</div>
+        <div class="revenue-value" style="color:#F59E0B;">AED 91,187</div>
+        <div class="revenue-sub">14 invoices · As of 3 Aug (last Zoho pull)</div>
+      </div>
+      <div class="revenue-tile">
+        <div class="revenue-label">Revenue Status</div>
+        <div class="revenue-value" style="font-size:15px;padding-top:6px;">
+          <span class="status-dot dot-amber"></span>
+          <span style="color:#F59E0B;">Carry Forward</span>
+        </div>
+        <div class="revenue-sub">Last CFO brief: Monday 3 August 2026</div>
+      </div>
+    </div>
+
+    <div class="carry-note">
+      Revenue Pulse carries forward last known figures from Monday 3 August 2026 CFO Report. CFO brief (Step 2) runs Mondays only — skipped today (Wednesday). For latest numbers, see Monday 10 August CFO report if generated. Days remaining in August: <strong>19</strong>.
+    </div>
+  </div>
+
+  <!-- ═══ RUN LOG ═══ -->
+  <div class="card">
+    <div class="card-title">📋 Run Log · Wednesday 12 August 2026</div>
+
+    <div class="run-item">
+      <div class="run-step">Step 1</div>
+      <div class="run-name">
+        <strong>COO Morning Brief</strong> <span class="badge badge-green">Complete</span><br>
+        <div class="run-file">Output: coo-brief-2026-08-12.html · Connectors used: Microsoft 365 (Calendar + Email), Notion</div>
+      </div>
+    </div>
+
+    <div class="run-item">
+      <div class="run-step">Step 2</div>
+      <div class="run-name">
+        <strong>CFO Weekly Revenue</strong> <span class="badge badge-grey">Skipped</span><br>
+        <div class="run-file">Runs Mondays only. Today is Wednesday — skipped per schedule.</div>
+      </div>
+    </div>
+
+    <div class="run-item">
+      <div class="run-step">Step 3</div>
+      <div class="run-name">
+        <strong>CRO Weekly Prospects</strong> <span class="badge badge-grey">Skipped</span><br>
+        <div class="run-file">Runs Mondays only. Today is Wednesday — skipped per schedule.</div>
+      </div>
+    </div>
+
+    <div class="run-item">
+      <div class="run-step">Step 4</div>
+      <div class="run-name">
+        <strong>CMO Daily Post</strong> <span class="badge badge-green">Complete</span> <span class="badge badge-amber">Pending Approval</span><br>
+        <div class="run-file">Output: cmo-post-2026-08-12.html · Pillar: Tech &amp; Automation · Format: Soft-Sell · Diagnostic: 4/4</div>
+      </div>
+    </div>
+
+    <div class="run-item">
+      <div class="run-step">Step 5</div>
+      <div class="run-name">
+        <strong>Content Calendar</strong> <span class="badge badge-grey">Skipped</span><br>
+        <div class="run-file">Runs Mondays only. Today is Wednesday — skipped per schedule.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;padding:10px 12px;background:#0F0F0F;border-radius:6px;font-size:12px;color:#555;">
+      <strong style="color:#F59E0B;">Connector Issues:</strong> Notion: search returned 500 error (tool-level issue) — recent pages fetched instead. M365 Mail.Send: FORBIDDEN (Day 41 of gap). Apify LinkedIn analytics: unavailable (12+ weeks). Summary email to m.asira@bposervicegroup.com: <strong>could not be sent</strong> — Mail.Send not granted.
+    </div>
+  </div>
+
+  <!-- ═══ FLAGS FOR MOHAINA ═══ -->
+  <div class="card card-red">
+    <div class="card-title">🚨 Flags for Mohaina · Priority Order</div>
+
+    <div class="flag-item">
+      <span class="badge badge-red">🔴 Compliance</span>
+      <div class="flag-title">MOHRE — Employee work permit MB315778130AE: missing degree recognition document</div>
+      <div class="flag-detail">Received today (12 Aug, 02:15 UAE), unread. Ministry of Human Resources formally notified. BPOAS establishment no. 953198. Upload required via the MOHRE portal link in the email before further processing. Risk: work permit status at risk if not resolved promptly.</div>
+      <div class="flag-next">→ Next step: Junaifa to action today. Confirm upload by EOD.</div>
+    </div>
+
+    <div class="flag-item">
+      <span class="badge badge-red">🔴 CT · Client</span>
+      <div class="flag-title">FTA — Formal CT Return reminder: PICPA NE CHAPTER FZE (TRN 104324388800001)</div>
+      <div class="flag-detail">Received 11 Aug from FTA Tax Collector Ali Kuwair. Formal reminder stating the deadline is "fast approaching" and must be addressed "without further delay." The FTA's system flags non-compliance automatically — no manual detection needed. If the return has already been filed, ignore this notice. If not: urgent.</div>
+      <div class="flag-next">→ Next step: Confirm filing status with assigned accountant today. File immediately if outstanding, or confirm to client if their information is still missing.</div>
+    </div>
+
+    <div class="flag-item">
+      <span class="badge badge-amber">🟡 BD · Contract</span>
+      <div class="flag-title">Richemont — BPO Contract Renewal 2026–2027 with tracked changes (received 11 Aug)</div>
+      <div class="flag-detail">Raphael Hanna (Richemont) sent the latest agreement version. Tracked changes require Mohaina's approval. Victor Susana is OOO until 31 Aug. Richemont is also the largest outstanding debtor: combined ~AED 58,537.50 across two invoices (INV-000108 + INV-000086, 168+ days overdue).</div>
+      <div class="flag-next">→ Next step: Review the tracked changes and respond to Raphael Hanna. Also address the overdue invoices in the same correspondence.</div>
+    </div>
+
+    <div class="flag-item">
+      <span class="badge badge-amber">🟡 Operational</span>
+      <div class="flag-title">Office 1206, Centurion Tower — water leak unresolved since 26 July (17 days)</div>
+      <div class="flag-detail">Lease started 26 July. Two follow-up emails sent (11 Aug). Office remains unusable. No confirmed maintenance date from Square Assets (Nathan). Victor OOO as well. Sara Aboelella named as backup contact at Richemont — but this is a different matter (property).</div>
+      <div class="flag-next">→ Next step: If no response by midday today, consider escalating to building management directly or reviewing lease remedies.</div>
+    </div>
+
+    <div class="flag-item">
+      <span class="badge badge-amber">🟡 Content</span>
+      <div class="flag-title">LinkedIn post approval backlog — 10 posts pending, zero published in 2+ weeks</div>
+      <div class="flag-detail">Today's Wednesday post + Monday 10 Aug post = 2 pending this week. Full week of 4–8 Aug (5 posts) still Planned. 3+ posts from week of 28 Jul–1 Aug also unresolved. Approval email cannot be sent (Mail.Send blocked). M365 fix or manual approval via Notion/HTML files is the path forward.</div>
+      <div class="flag-next">→ Next step: Bulk decision this week — publish late, or formally lapse. Then fix Mail.Send (one admin-consent grant, ~15 minutes).</div>
+    </div>
+
+    <div class="flag-item">
+      <span class="badge badge-amber">🟡 AML</span>
+      <div class="flag-title">AML Dubai newsletter: AI Adoption Framework in AML Compliance (received today)</div>
+      <div class="flag-detail">From info@amldubai.com. Informational content on AI-assisted AML compliance. Useful context for BPOAS's internal AML/CFT Programme H2 2026 review, which is still unscheduled.</div>
+      <div class="flag-next">→ Next step: File for reference. Use as input when scheduling the AML/CFT Programme review.</div>
+    </div>
+
+    <div class="flag-item">
+      <span class="badge badge-amber">🟡 Systems</span>
+      <div class="flag-title">M365 Mail.Send: Day 41 of outage — every BPOAS routine's email delivery is blocked</div>
+      <div class="flag-detail">Root cause unchanged: Mail.Send / Mail.ReadWrite OAuth scope not granted in the Graph API app registration. All routine approval emails, summary emails, and forwarding to Rei are blocked. This is a structural gap, not a transient error. Flagged every day since 2 July 2026.</div>
+      <div class="flag-next">→ Next step: Grant Mail.Send / Mail.ReadWrite via Entra admin centre (~15 minutes, one-time fix). This resolves every affected routine permanently.</div>
+    </div>
+  </div>
+
+  <!-- ═══ QUICK LINKS ═══ -->
+  <div class="card">
+    <div class="card-title">🔗 Quick Links · Today's Output Files</div>
+    <div class="link-grid">
+      <div class="link-card">
+        <div class="link-card-label">Step 1 · COO Brief</div>
+        <div class="link-card-name">coo-brief-2026-08-12.html</div>
+      </div>
+      <div class="link-card">
+        <div class="link-card-label">Step 4 · CMO Post</div>
+        <div class="link-card-name">cmo-post-2026-08-12.html</div>
+      </div>
+      <div class="link-card">
+        <div class="link-card-label">Master File</div>
+        <div class="link-card-name">bpoas-daily-start-2026-08-12.html</div>
+      </div>
+      <div class="link-card">
+        <div class="link-card-label">Notion · Operating Hub</div>
+        <div class="link-card-name">BPOAS Team Operating Hub</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TODAY'S LINKEDIN POST ═══ -->
+  <div class="card">
+    <div class="card-title">📱 Today's LinkedIn Post · Copy-Ready</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+      <span class="badge badge-grey">Pillar: Tech &amp; Automation</span>
+      <span class="badge badge-grey">Format: Soft-Sell Framework</span>
+      <span class="badge badge-grey">Wednesday Slot</span>
+      <span class="badge badge-amber">Pending Mohaina's Approval</span>
+    </div>
+
+    <div class="post-body"><span class="post-hook">There are two eInvoicing deadlines in the UAE. Most accounting software only talks about one of them.</span>
+
+I think the confusion started because the first announcement focused on large businesses — companies with annual turnover above AED 150 million. They're required to connect to the FTA's system from 1 January 2027. That's the date that spread everywhere.
+
+But for the businesses I work with — UAE SMEs, most of them under AED 50 million — the live date is 1 July 2027.
+
+Six months later. But still this financial year.
+
+And here is the part most owners do not realise: the FTA's system is not plug-and-play. You cannot flip a switch on 30 June and call yourself compliant. The system requires a connected accounting platform that can generate and transmit structured electronic invoices in the FTA's PEPPOL-based format — every invoice you issue, from that date forward, automatically.
+
+If your accounting system is manual, outdated, or not PEPPOL-ready, you have about 11 months to fix it. That sounds long. A proper system implementation — Zoho Books or Odoo, configured and tested — takes three to six months minimum. Testing, data migration, and staff training come on top of that.
+
+We started getting these calls from clients who found out in the second half of 2025. The ones who called early had options. The ones who called in Q4 were making decisions under pressure.
+
+I am not saying this to push anyone. I am saying it because the window is smaller than it looks.
+
+If your business is on manual invoicing or a system you know is not PEPPOL-ready, the time to check is now. Not December.
+
+<span class="post-cta">Book a 30-minute systems review.</span>
+
+P.S. If you're already on Zoho Books or Odoo, we can check your configuration. It may need to be updated even if the system itself is fine.</div>
+
+    <div class="warning-box">
+      ⚠️ This post references UAE regulatory deadlines (1 Jan 2027 large businesses · 1 Jul 2027 SMEs under AED 50M) and the FTA's PEPPOL-based eInvoicing mandate. <strong>Verify with tax.gov.ae before approving.</strong>
+    </div>
+
+    <div style="margin-top:14px;padding:12px 14px;background:#0F0F0F;border-radius:8px;">
+      <p style="font-size:12px;color:#555;margin-bottom:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;">Approval Workflow</p>
+      <p style="font-size:13px;color:#888;">1. Mohaina approves this post (via Notion / this file — email blocked)<br>
+      2. Forward to Rei Nald Onella: <strong style="color:#ccc;">reinald.onella1@gmail.com</strong><br>
+      Subject: <em>"Post for Today — Ready to Publish · 12 August 2026"</em><br>
+      Body: plain text post above + 3 pinned comments (in cmo-post-2026-08-12.html) + recommended time: 08:30–09:00 UAE<br>
+      3. Log status in Notion: Pending → Approved → Sent to Rei → Published</p>
+    </div>
+  </div>
+
+  <p style="color:#333;font-size:11px;text-align:center;margin-top:24px;">Auto-generated · BPOAS Daily Start · Wednesday 12 August 2026 · 07:00 UAE (GST, UTC+4)</p>
+
+</div>
+</body>
+</html>
