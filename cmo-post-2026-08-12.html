@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F5607A; --primary-rgb:232,41,76;
+    --bg:#0A0A0A; --card:#111111; --card2:#181818;
+    --border:rgba(255,255,255,.08); --border2:rgba(255,255,255,.14);
+    --text:#FFFFFF; --text2:rgba(255,255,255,.62); --text3:rgba(255,255,255,.34);
+    --good:#22C55E; --good-bg:rgba(34,197,94,.10); --warn:#F59E0B; --warn-bg:rgba(245,158,11,.10);
+    --r-md:14px; --r-lg:20px; --pill:9999px;
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(70% 50% at 90% -10%, rgba(232,41,76,.16), transparent 60%), var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px rgba(232,41,76,.28);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);font-weight:700;margin:26px 0 12px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 20px;margin-bottom:14px;border-left:3px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:12px;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;font-size:14px;border-bottom:1px solid var(--border);color:var(--text2);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:10px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-grn{background:var(--good-bg);color:var(--good);} .t-amb{background:var(--warn-bg);color:var(--warn);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+  .lipost{background:var(--card);border:1px solid var(--border);border-radius:var(--r-md);padding:20px;}
+  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+  .lihead .nm{font-weight:700;font-size:15px;color:var(--text);} .lihead .mt{font-size:12px;color:var(--text3);}
+  .lipost .post{font-size:15px;line-height:1.65;white-space:pre-line;color:var(--text2);}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+  .chip{font-size:11px;font-weight:600;background:var(--card2);color:var(--text2);border:1px solid var(--border);padding:5px 11px;border-radius:var(--pill);}
+  .score{display:inline-flex;align-items:center;gap:8px;background:var(--good-bg);color:var(--good);font-weight:700;font-size:13px;padding:7px 16px;border-radius:var(--pill);border:1px solid rgba(34,197,94,.25);}
+
+  .note{background:linear-gradient(135deg, var(--card2) 0%, color-mix(in srgb,var(--primary) 20%, var(--card2)) 100%);border:1px solid var(--border2);color:var(--text);border-radius:var(--r-md);padding:18px 22px;font-size:14px;margin-top:6px;}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--text3);font-size:13px;}
+  footer b{color:var(--text2);}
+
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead"><div class="k">CMO · Daily post</div><h1>Today's post, in your voice</h1><div class="d">Pillar: Compliance Without the Panic · Soft-Sell Framework · Wednesday 12 August 2026 · scored and scrubbed</div></div>
+
+    <div class="sec">Content source</div>
+    <div class="card">
+      <div style="font-size:14px;line-height:1.7;color:var(--text2)">Notion "Content Calendar — Week of 2026-08-10," Wednesday row. Pillar <b style="color:var(--text)">Compliance Without the Panic</b> · Intent <b style="color:var(--text)">Soft Selling</b> · Format <b style="color:var(--text)">Soft-Sell Framework</b> · CTA direction <b style="color:var(--text)">DM me AML</b>. Topic was auto-prioritised into today's slot by this week's Content Calendar routine off a real, dated trigger: a Ministry of Economy goAML/DNFBP update (9 Aug 2026) naming real estate as a designated category. <span style="color:var(--warn)">This post cites a specific regulatory update and requires Mohaina's accuracy check before approval, per the heightened sign-off rule.</span></div>
+    </div>
+
+    <div class="sec">Step 1 — Hook options</div>
+    <div class="card">
+      <div class="row">1 · Result Lead: "A real estate client asked me last week if their AML file was actually complete. It wasn't."</div>
+      <div class="row">2 · Confession: "I used to think goAML registration was a real estate afterthought. The Ministry of Economy just proved me wrong."</div>
+      <div class="row">3 · Contrarian: "Having a goAML account is not the same as being AML compliant. Most real estate firms think it is."</div>
+      <div class="row">4 · Curiosity Gap: "Real estate is now a named DNFBP category on goAML. Most brokers still don't know what that means for them."<span class="tagi t-grn">chosen</span></div>
+      <div class="row">5 · Pattern Interrupt: "Stop assuming your AML/CFT file is 'in progress.' The Ministry of Economy just started checking."</div>
+    </div>
+    <div class="card">
+      <div style="font-size:13px;color:var(--text2)"><b style="color:var(--text)">Selection reason:</b> Notion's own Hook Direction for this slot calls for Curiosity Gap / Insider Warning. It matches the ICP's exact pain, wanting to be compliant but not having the internal expertise to know if they actually are, against a real dated update rather than a fabricated scenario. Apify LinkedIn analytics were checked live this run and remain unavailable (no configured pipeline for BPOAS exists), consistent with the outage logged in every prior CMO run, so selection was made on ICP pain-match alone.</div>
+    </div>
+
+    <div class="lipost">
+      <div class="lihead"><div class="av">MA</div><div><div class="nm">Mohaina Asira · 1st</div><div class="mt">Managing Partner, BPO Accounting Services · now</div></div></div>
+      <div class="post">Real estate is now a named DNFBP category on goAML. Most brokers still don't know what that means for them.
+
+I think a lot of real estate firms register for goAML and consider the job done. It isn't. Registration is the start of the file, not the end of it.
+
+The Ministry of Economy updated its DNFBP guidance on 9 August, naming real estate directly. We've seen this pattern before with VAT and CIT. The first update is awareness. The second is enforcement. Compliance checks rarely start the week a law changes. They start once the regulator decides everyone has had enough time to catch up.
+
+Here's what "actually complete" looks like for an AML/CFT file, not just started:
+
+A registered goAML account, with the right person named as the compliance officer.
+A risk assessment written for your actual transactions, signed and dated this year.
+Customer due diligence records on every deal, not only the big ones.
+A log of ongoing monitoring, updated as new deals close.
+
+If you're missing even one of those four, your file is started. It's not complete.
+
+We think like owners, so we tell every real estate client the same thing. A missing AML file doesn't show up until someone asks for it. By then it's too late to build one properly.
+
+DM me AML and I'll walk you through what a complete file actually looks like.
+
+P.S. Second eyes on your AML file costs you 30 minutes. Not having one costs a lot more.</div>
+      <div class="chips"><span class="chip">1,405 chars</span><span class="chip">Hook: Curiosity Gap</span><span class="chip">Format: Soft-Sell Framework</span><span class="chip">No em dashes</span><span class="chip">One CTA</span></div>
+    </div>
+
+    <div class="sec">Step 3 — Invisibility Diagnostic</div>
+    <div class="grid2">
+      <div class="card"><h4>Score</h4>
+        <div class="row">Voice — sounds like Mohaina, not a marketing team<span class="tagi t-grn">✓</span></div>
+        <div class="row">POV — registered is not the same as complete<span class="tagi t-grn">✓</span></div>
+        <div class="row">Specificity — dated update + 4-point file checklist<span class="tagi t-grn">✓</span></div>
+        <div class="row">Asking — one CTA, "DM me AML"<span class="tagi t-grn">✓</span></div>
+      </div>
+      <div class="card"><h4>Publish check</h4>
+        <div class="row">Zero em dashes<span class="tagi t-grn">✓</span></div>
+        <div class="row">Zero banned words<span class="tagi t-grn">✓</span></div>
+        <div class="row">1,300–1,500 characters (1,405)<span class="tagi t-grn">✓</span></div>
+        <div class="row">CTA matches approved format list<span class="tagi t-grn">✓</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:4px;margin-bottom:6px"><span class="score">Invisibility Diagnostic: 4 / 4 PASS</span></div>
+
+    <div class="sec">Step 4 — 3 pinned comment options (post as the first comment)</div>
+    <div class="card">
+      <div class="row"><b style="color:var(--text);flex-shrink:0">Extend:</b> Real estate brokers and agents have been named DNFBPs under UAE AML law since 2019. What changed on 9 August is the Ministry of Economy calling out the goAML registration gap specifically, which is usually where the next round of checks lands first.</div>
+      <div class="row"><b style="color:var(--text);flex-shrink:0">Humanise:</b> We picked up a real estate client last year whose goAML account had been open for two years with nothing filed against it. Nobody had touched the file since the day it was created. It happens more than people think.</div>
+      <div class="row"><b style="color:var(--text);flex-shrink:0">CTA amplifier:</b> If it's been a while since anyone looked at your AML file, DM me AML this week. Thirty minutes now is a lot cheaper than an FTA or Ministry query later.</div>
+    </div>
+
+    <div class="sec">Recommended publish time</div>
+    <div class="note">Wednesday slot, per Rei's posting guide: <b>08:30 UAE</b> — peak B2B decision-maker activity window. Forward to Rei Nald Onella only after Mohaina's explicit approval, given the regulatory-citation sign-off rule above.</div>
+
+    <div class="sec">Approval workflow status</div>
+    <div class="card">
+      <div style="font-size:14px;line-height:1.75;color:var(--text2)">
+      Approval email to Mohaina (m.asira@bposervicegroup.com) was attempted via <code>outlook_send_mail</code> this run. M365 Mail.Send has been unable to send from this integration since early July (Day 41 as of yesterday's COO Brief, confirmed failing again on multiple routines each day this week) — a Microsoft Entra/Graph admin-consent grant is required to fix it, and no routine re-run will resolve it on its own. This post is delivered via this Notion page and the companion HTML file only, held at <b style="color:var(--text)">Pending Approval</b> until Mohaina replies here with "approved," "revise," or "hold."
+      </div>
+    </div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>BPOAS CMO Daily Post</b></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    window.addEventListener('load',function(){
+      if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+      gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+      gsap.from('.lipost,.card,.note,.score',{y:20,opacity:0,duration:.55,stagger:.06,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+    });
+  </script>
+</body>
+</html>
