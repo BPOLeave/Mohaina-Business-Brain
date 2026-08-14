@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EOW Review · 14 August 2026</title>
+<style>
+/* ── Token system ─────────────────────────────────────── */
+:root {
+  --bg:          #0A0A0A;
+  --surface:     #141414;
+  --surface-2:   #1E1E1E;
+  --border:      #2A2A2A;
+  --text-1:      #F0EFED;
+  --text-2:      #9A9896;
+  --text-3:      #606060;
+  --brand:       #E8294C;
+  --brand-dim:   rgba(232,41,76,0.12);
+  --green:       #22C55E;
+  --green-bg:    rgba(34,197,94,0.10);
+  --amber:       #F59E0B;
+  --amber-bg:    rgba(245,158,11,0.10);
+  --red:         #EF4444;
+  --red-bg:      rgba(239,68,68,0.10);
+  --blue:        #60A5FA;
+  --blue-bg:     rgba(96,165,250,0.10);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg:          #F5F4F1;
+    --surface:     #FFFFFF;
+    --surface-2:   #EFEEEB;
+    --border:      #D8D7D4;
+    --text-1:      #0F0F0F;
+    --text-2:      #5C5B58;
+    --text-3:      #9A9896;
+    --brand-dim:   rgba(232,41,76,0.08);
+    --green-bg:    rgba(22,163,74,0.08);
+    --amber-bg:    rgba(217,119,6,0.08);
+    --red-bg:      rgba(220,38,38,0.08);
+    --blue-bg:     rgba(37,99,235,0.08);
+  }
+}
+
+:root[data-theme="light"] {
+  --bg:          #F5F4F1;
+  --surface:     #FFFFFF;
+  --surface-2:   #EFEEEB;
+  --border:      #D8D7D4;
+  --text-1:      #0F0F0F;
+  --text-2:      #5C5B58;
+  --text-3:      #9A9896;
+  --brand-dim:   rgba(232,41,76,0.08);
+  --green-bg:    rgba(22,163,74,0.08);
+  --amber-bg:    rgba(217,119,6,0.08);
+  --red-bg:      rgba(220,38,38,0.08);
+  --blue-bg:     rgba(37,99,235,0.08);
+}
+
+/* ── Reset & base ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ── Layout shell ─────────────────────────────────────── */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+/* ── Masthead ─────────────────────────────────────────── */
+.masthead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.masthead-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand-mark {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.masthead h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+  line-height: 1.2;
+}
+
+.masthead-meta {
+  font-size: 11.5px;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+}
+
+.overall-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.overall-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.overall-rating {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 2px;
+  background: var(--amber-bg);
+  color: var(--amber);
+  letter-spacing: 0.04em;
+}
+
+/* ── Hero scorecard ───────────────────────────────────── */
+.hero-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--brand);
+  border-radius: 2px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+}
+
+.hero-top {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.scorecard-table {
+  flex: 1;
+  min-width: 260px;
+}
+
+.scorecard-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scorecard-table th {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  text-align: left;
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.scorecard-table td {
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.scorecard-table td:first-child { color: var(--text-2); width: 100px; }
+.scorecard-table td:last-child { color: var(--text-1); font-size: 12px; }
+
+.scorecard-table tr:last-child td { border-bottom: none; }
+
+.hero-summary {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.summary-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+
+.summary-quote {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-1);
+  font-style: italic;
+  border-left: 2px solid var(--brand);
+  padding-left: 14px;
+}
+
+.mini-scores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── Status pill ──────────────────────────────────────── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.02em;
+}
+
+.pill::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pill-green  { background: var(--green-bg);  color: var(--green); }
+.pill-green::before  { background: var(--green); }
+.pill-amber  { background: var(--amber-bg);  color: var(--amber); }
+.pill-amber::before  { background: var(--amber); }
+.pill-red    { background: var(--red-bg);    color: var(--red);   }
+.pill-red::before    { background: var(--red); }
+.pill-blue   { background: var(--blue-bg);   color: var(--blue);  }
+.pill-blue::before   { background: var(--blue); }
+.pill-brand  { background: var(--brand-dim); color: var(--brand); }
+.pill-brand::before  { background: var(--brand); }
+
+/* ── Card grid ────────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 720px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .hero-top { flex-direction: column; }
+}
+
+/* ── Review card ──────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.card-green  { border-left: 3px solid var(--green); }
+.card-amber  { border-left: 3px solid var(--amber); }
+.card-red    { border-left: 3px solid var(--red); }
+.card-brand  { border-left: 3px solid var(--brand); }
+
+.card-head {
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-head h2 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.card-body { padding: 16px 18px; }
+
+/* ── Data rows ────────────────────────────────────────── */
+.data-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12.5px;
+}
+
+.data-row:last-child { border-bottom: none; }
+
+.data-label {
+  color: var(--text-2);
+  flex-shrink: 0;
+  max-width: 55%;
+}
+
+.data-value {
+  color: var(--text-1);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-value.mono {
+  font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+  font-size: 12px;
+}
+
+.data-value .aed {
+  font-size: 10px;
+  color: var(--text-3);
+  margin-right: 2px;
+  font-family: inherit;
+}
+
+/* ── Inline table ─────────────────────────────────────── */
+.inline-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  overflow-x: auto;
+  display: block;
+}
+
+.inline-table thead th {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  text-align: left;
+  padding: 0 10px 7px 0;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.inline-table tbody td {
+  padding: 7px 10px 7px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-1);
+  vertical-align: top;
+}
+
+.inline-table tbody tr:last-child td { border-bottom: none; }
+
+.inline-table .col-label { color: var(--text-2); }
+.inline-table .col-num   { font-variant-numeric: tabular-nums; font-family: "SF Mono","Fira Code","Consolas",monospace; }
+
+/* ── Section label ────────────────────────────────────── */
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin: 14px 0 8px;
+}
+
+.section-label:first-child { margin-top: 0; }
+
+/* ── Flag strip ───────────────────────────────────────── */
+.flags-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--red);
+  border-radius: 2px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.flags-head {
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flags-head h2 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.flags-body { padding: 0 18px; }
+
+.flag-row {
+  display: flex;
+  gap: 14px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+  font-size: 12.5px;
+}
+
+.flag-row:last-child { border-bottom: none; }
+
+.flag-icon {
+  flex-shrink: 0;
+  width: 18px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.flag-text { color: var(--text-1); }
+.flag-owner {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+/* ── Full-width card ─────────────────────────────────── */
+.full-card {
+  grid-column: 1 / -1;
+}
+
+/* ── Forward look layout ─────────────────────────────── */
+.forward-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  padding-top: 4px;
+}
+
+@media (max-width: 720px) {
+  .forward-grid { grid-template-columns: 1fr; }
+}
+
+.forward-col h3 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Priority item ────────────────────────────────────── */
+.priority-item {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12.5px;
+}
+
+.priority-item:last-child { border-bottom: none; }
+
+.priority-num {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--brand);
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+}
+
+.priority-title {
+  color: var(--text-1);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.priority-why {
+  color: var(--text-2);
+  font-size: 11.5px;
+}
+
+.priority-owner {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  margin-top: 4px;
+}
+
+/* ── Radar item ───────────────────────────────────────── */
+.radar-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.radar-item:last-child { border-bottom: none; }
+
+.radar-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.radar-dot.red    { background: var(--red); }
+.radar-dot.amber  { background: var(--amber); }
+.radar-dot.green  { background: var(--green); }
+
+.radar-text { color: var(--text-1); }
+.radar-sub  { color: var(--text-2); font-size: 11px; display: block; margin-top: 1px; }
+
+/* ── Delivery note ─────────────────────────────────────── */
+.delivery-note {
+  font-size: 11px;
+  color: var(--text-3);
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+.delivery-note a { color: var(--text-3); }
+
+/* ── Spacer utility ──────────────────────────────────── */
+.gap-top { margin-top: 10px; }
+.text-red { color: var(--red); }
+.text-amber { color: var(--amber); }
+.text-green { color: var(--green); }
+.text-2 { color: var(--text-2); }
+.small { font-size: 11.5px; color: var(--text-2); margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Masthead ─────────────────────────────── -->
+  <div class="masthead">
+    <div class="masthead-left">
+      <div class="brand-mark">BPOAS · BPO Accounting Services</div>
+      <h1>End of Week Review</h1>
+      <div class="masthead-meta">Week of 10 August 2026 &nbsp;·&nbsp; Friday 14 August 2026 &nbsp;·&nbsp; Auto-generated</div>
+    </div>
+    <div class="overall-badge">
+      <div class="overall-label">Overall</div>
+      <div class="overall-rating">⚠ Needs Attention</div>
+    </div>
+  </div>
+
+  <!-- ── Hero: Scorecard + Summary ────────────── -->
+  <div class="hero-card">
+    <div class="hero-top">
+
+      <div class="scorecard-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Revenue</td>
+              <td><span class="pill pill-amber">At Risk</span></td>
+              <td>AED 7,350 received · AED 101,687 outstanding</td>
+            </tr>
+            <tr>
+              <td>Pipeline</td>
+              <td><span class="pill pill-green">On Track</span></td>
+              <td>Richemont RFP in · Middletel approved · Growing</td>
+            </tr>
+            <tr>
+              <td>Content</td>
+              <td><span class="pill pill-red">Below Target</span></td>
+              <td>0 / 5 posts published · 5+ week streak</td>
+            </tr>
+            <tr>
+              <td>Compliance</td>
+              <td><span class="pill pill-amber">Watch</span></td>
+              <td>PICPA CT urgent · AML review unscheduled</td>
+            </tr>
+            <tr>
+              <td>Team</td>
+              <td><span class="pill pill-red">Below Target</span></td>
+              <td>Pipeline report 28d overdue · Rei channel broken</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="hero-summary">
+        <div>
+          <div class="summary-label">Week in one sentence</div>
+          <div class="summary-quote">Good deals moved this week — Richemont RFP in and Middletel cleared — but zero posts have gone out for five weeks running and Raihana's pipeline report is sitting four weeks overdue, so I need both of those fixed before next Friday.</div>
+        </div>
+        <div class="mini-scores">
+          <span class="pill pill-green">1 Green</span>
+          <span class="pill pill-amber">2 Amber</span>
+          <span class="pill pill-red">2 Red</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── 2-column card grid ─────────────────── -->
+  <div class="card-grid">
+
+    <!-- ── 1. Revenue ─────────────────────────── -->
+    <div class="card card-amber">
+      <div class="card-head">
+        <h2>1 · Revenue Week in Review</h2>
+        <span class="pill pill-amber">At Risk</span>
+      </div>
+      <div class="card-body">
+        <div class="data-row">
+          <span class="data-label">Received this week</span>
+          <span class="data-value mono"><span class="aed">AED</span>7,350.00</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Prior week received</span>
+          <span class="data-value text-2">Not available — Zoho P&L attachment unread</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Invoices raised (week)</span>
+          <span class="data-value">MCM Products INV-000113 + 000114 (<span class="mono">AED 7,350</span>) · Ratiolex CIT (amount pending)</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Invoices paid gap</span>
+          <span class="data-value text-2">Calculation blocked — no Zoho direct connector this run</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Outstanding AR</span>
+          <span class="data-value mono text-red"><span class="aed">AED</span>101,687.50 <span class="text-2" style="font-size:10px;font-family:inherit;">(17 overdue invoices)</span></span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Richemont cluster</span>
+          <span class="data-value mono text-red"><span class="aed">AED</span>58,537.50 <span class="text-2" style="font-size:10px;font-family:inherit;">(57.6% of AR)</span></span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">New retainer signed</span>
+          <span class="data-value text-2">No — last signings were Ratiolex (3 Aug) + MCM (6 Aug) prior week</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Monthly target</span>
+          <span class="data-value text-2">Not configured in positioning doc — manual input needed</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Month-to-date gap</span>
+          <span class="data-value text-2">Cannot calculate without target — see flag</span>
+        </div>
+        <div class="small gap-top">Source: Emirates NBD bank alert (13 Aug) · COO Brief live Zoho pull (14 Aug) · Zoho Books scheduled P&L report (06–12 Aug, attachment unread)</div>
+      </div>
+    </div>
+
+    <!-- ── 2. BD & Pipeline ────────────────────── -->
+    <div class="card card-green">
+      <div class="card-head">
+        <h2>2 · BD & Pipeline Movement</h2>
+        <span class="pill pill-green">Growing</span>
+      </div>
+      <div class="card-body">
+
+        <div class="section-label">Raihana's Outreach this week</div>
+        <table class="inline-table">
+          <thead>
+            <tr>
+              <th>Prospect / Contact</th>
+              <th>Action</th>
+              <th>Response</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ratiolex — Timo Y.</td>
+              <td class="col-label">Onboarding update (CIT won)</td>
+              <td><span class="pill pill-green">Won + Paid</span></td>
+            </tr>
+            <tr>
+              <td>Brilliant Telecom LLC</td>
+              <td class="col-label">CIT chase — all contacts AM</td>
+              <td><span class="pill pill-red">No response</span></td>
+            </tr>
+            <tr>
+              <td>MMG Art Production LLC</td>
+              <td class="col-label">EL signature chase (VAT)</td>
+              <td><span class="pill pill-amber">Teams follow-up</span></td>
+            </tr>
+            <tr>
+              <td>MCM Products ME</td>
+              <td class="col-label">Final follow-up VAT+CIT</td>
+              <td><span class="pill pill-green">Won — VAT Refund</span></td>
+            </tr>
+            <tr>
+              <td>Annaka FZCo</td>
+              <td class="col-label">Deregistration chase</td>
+              <td><span class="pill pill-amber">No outcome logged</span></td>
+            </tr>
+            <tr>
+              <td>Richemont — Victor S.</td>
+              <td class="col-label">RFP docs + NDA (12 Aug)</td>
+              <td><span class="pill pill-green">Active RFP stage</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="section-label gap-top">Proposals &amp; Deals</div>
+        <div class="data-row">
+          <span class="data-label">Proposals sent this week</span>
+          <span class="data-value">0 formal new proposals</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Deals won (this week)</span>
+          <span class="data-value">0 — wins were 3 &amp; 6 Aug (prior week)</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">EL approved this week</span>
+          <span class="data-value text-green">Middletel — FY2025 Audited FS + CIT (12 Aug)</span>
+        </div>
+
+        <div class="section-label gap-top">Stalled / At Risk</div>
+        <div class="data-row">
+          <span class="data-label">Concept Lab / Mr. George</span>
+          <span class="data-value text-red">~54 days EL stalled · CIT 30 Sep in 47d</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">GL Middle East / Nandhu</span>
+          <span class="data-value text-red">~55 days EL stalled · 3 entities · No owner action</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Brilliant Telecom LLC</span>
+          <span class="data-value text-red">~30 days past 15 Jul CIT deadline · All contacts AM</span>
+        </div>
+
+        <div class="section-label gap-top">New CRO Leads (10 Aug run)</div>
+        <table class="inline-table">
+          <thead>
+            <tr><th>Prospect</th><th>Company · Sector</th><th>Score</th><th>Temp</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Dmitry Grigorev</td><td class="col-label">Successful Star General Trading</td><td class="col-num">7.5</td><td><span class="pill pill-amber">Warm</span></td></tr>
+            <tr><td>Aniruddha R.</td><td class="col-label">Interlogistics-FZCO</td><td class="col-num">7.5</td><td><span class="pill pill-amber">Warm</span></td></tr>
+            <tr><td>Jasna S.</td><td class="col-label">Real Estate / DNFBP trigger</td><td class="col-num">7.0</td><td><span class="pill pill-amber">Warm</span></td></tr>
+            <tr><td>Tolga Neftci</td><td class="col-label">Shorages · Early-stage</td><td class="col-num">7.0</td><td><span class="pill pill-blue">Cold</span></td></tr>
+            <tr><td>Fatih Öztürk</td><td class="col-label">Red Consulting · Professional Svc</td><td class="col-num">6.5</td><td><span class="pill pill-blue">Cold</span></td></tr>
+          </tbody>
+        </table>
+        <div class="small gap-top">80 DM drafts ready across 19 leads — none sent. Blocked on Raihana's pipeline report (28d overdue) → Mohaina CRM go/no-go. Richemont Temporary Staffing RFP is new and being managed directly by Mohaina.</div>
+      </div>
+    </div>
+
+    <!-- ── 3. Content ──────────────────────────── -->
+    <div class="card card-red">
+      <div class="card-head">
+        <h2>3 · Content Performance</h2>
+        <span class="pill pill-red">0 / 5 Published</span>
+      </div>
+      <div class="card-body">
+        <div class="data-row">
+          <span class="data-label">Posts published vs planned</span>
+          <span class="data-value text-red">0 of 5 — zero published for 5+ consecutive weeks</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Top performing post</span>
+          <span class="data-value text-2">N/A — no posts published this week</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Lowest performing post</span>
+          <span class="data-value text-2">N/A — no posts published this week</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">LinkedIn follower movement</span>
+          <span class="data-value text-2">Unavailable — Apify scraper down 11+ consecutive weeks</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Engagement rate</span>
+          <span class="data-value text-2">Unavailable — no published posts + analytics blocked</span>
+        </div>
+
+        <div class="section-label gap-top">This Week's Planned Calendar</div>
+        <table class="inline-table">
+          <thead>
+            <tr><th>Day</th><th>Pillar</th><th>Format</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Mon 10</td><td class="col-label">Compliance Without the Panic</td><td>Framework List</td><td><span class="pill pill-red">Unpublished</span></td></tr>
+            <tr><td>Tue 11</td><td class="col-label">Inside an Owner-Led Firm (RE)</td><td>Story Post</td><td><span class="pill pill-red">Unpublished</span></td></tr>
+            <tr><td>Wed 12</td><td class="col-label">Compliance Without the Panic</td><td>Soft-Sell (AML)</td><td><span class="pill pill-red">Unpublished</span></td></tr>
+            <tr><td>Thu 13</td><td class="col-label">True Cost of Cheap Accounting</td><td>Contrarian</td><td><span class="pill pill-red">Unpublished</span></td></tr>
+            <tr><td>Fri 14</td><td class="col-label">What the Numbers Are Telling You</td><td>Framework List</td><td><span class="pill pill-amber">Pending Approval</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="section-label gap-top">Content Debt</div>
+        <div class="data-row">
+          <span class="data-label">Unpublished approved posts</span>
+          <span class="data-value text-red">9+ from weeks of 27 Jul &amp; 3 Aug + this week's 5</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Root cause</span>
+          <span class="data-value text-2">No working delivery channel to Rei Nald — content problem is solved, delivery is not</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Monday 17 Aug slot</span>
+          <span class="data-value text-green">Confirmed — "Compliance Without the Panic" Framework List · Pending Mohaina sign-off</span>
+        </div>
+        <div class="small gap-top">Content calendar built for week of 10 Aug. All 5 posts approved-quality. Decision needed: bulk-publish late vs. formally lapse prior weeks' content. Avoid letting backlog grow into a third month.</div>
+      </div>
+    </div>
+
+    <!-- ── 4. Compliance ───────────────────────── -->
+    <div class="card card-amber">
+      <div class="card-head">
+        <h2>4 · Compliance & Operations</h2>
+        <span class="pill pill-amber">Watch</span>
+      </div>
+      <div class="card-body">
+
+        <div class="section-label">Completed this week</div>
+        <div class="data-row">
+          <span class="data-label">BPOAS Trade License</span>
+          <span class="data-value text-green">Renewed — 2027 license confirmed (10 Aug email)</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Richemont contract extension</span>
+          <span class="data-value text-green">4% increase aligned · Proforma invoice issued (13 Aug)</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">MENASTAR Audit FY2025</span>
+          <span class="data-value text-amber">Revised financials sent to Excellence Auditing (13 Aug) · Awaiting auditor confirmation</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Ratiolex TRC</span>
+          <span class="data-value text-amber">EL sent (13 Aug) to Timo Ylikantola · Awaiting signature</span>
+        </div>
+
+        <div class="section-label gap-top">Engagement Letters</div>
+        <table class="inline-table">
+          <thead>
+            <tr><th>Client</th><th>Service</th><th>Status</th><th>Owner</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Middletel IT</td>
+              <td class="col-label">FY2025 Audited FS + CIT</td>
+              <td><span class="pill pill-green">Signed 12 Aug</span></td>
+              <td>Raihana</td>
+            </tr>
+            <tr>
+              <td>Montfort Trading FZE</td>
+              <td class="col-label">Quarterly VAT Filing</td>
+              <td><span class="pill pill-amber">Revised EL sent · Pending Yannick Luce</span></td>
+              <td>Raihana</td>
+            </tr>
+            <tr>
+              <td>Ratiolex Oy</td>
+              <td class="col-label">Tax Residency Certificate</td>
+              <td><span class="pill pill-amber">EL sent 13 Aug · Awaiting Timo</span></td>
+              <td>Raihana</td>
+            </tr>
+            <tr>
+              <td>Issta / Starnext</td>
+              <td class="col-label">Audit Agreement</td>
+              <td><span class="pill pill-red">Day 8 unresolved · Decision needed</span></td>
+              <td>Mohaina</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="section-label gap-top">Open Compliance Items</div>
+        <div class="data-row">
+          <span class="data-label">PICPA NE CHAPTER FZE CT</span>
+          <span class="data-value text-red">FTA emailed direct 13 Aug · Deadline fast approaching · TRN 104324388800001</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">AML/CFT H2 2026 Review</span>
+          <span class="data-value text-amber">Day 16 unscheduled · goAML/DNFBP alert active (Ministry of Economy 9 Aug)</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">MOHRE missing document</span>
+          <span class="data-value text-amber">Work permit MB315778130AE · Ministry of Higher Education credential gap · Upload required</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Brilliant Telecom CIT</span>
+          <span class="data-value text-red">Partner confirmation letters ~30 days past 15 Jul deadline · All contacts unanswered</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">M365 Mail.Send blocked</span>
+          <span class="data-value text-red">Day 44 — all routine emails failing · FORBIDDEN: Mail.Send not admin-consented</span>
+        </div>
+        <div class="data-row">
+          <span class="data-label">Al Ansari WPS upload</span>
+          <span class="data-value text-amber">Trade license portal file-upload error — confirm resolved (license is current)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 5. Team Pulse ──────────────────────── -->
+    <div class="card card-red full-card">
+      <div class="card-head">
+        <h2>5 · Team Pulse</h2>
+        <span class="pill pill-red">Two Items Need Mohaina</span>
+      </div>
+      <div class="card-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;flex-wrap:wrap;">
+
+          <div>
+            <div class="section-label">Raihana M. Asira — BD Associate</div>
+            <div class="data-row">
+              <span class="data-label">Outreach sent</span>
+              <span class="data-value">6 contacts</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">Responses received</span>
+              <span class="data-value">2 (MMG Teams · Richemont)</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">Leads sourced</span>
+              <span class="data-value">5 (via CRO run 10 Aug)</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">DM drafts ready</span>
+              <span class="data-value">80 (none sent — blocked)</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">Pipeline Status Report</span>
+              <span class="data-value text-red">28 days overdue (due 17 Jul) · Blocking 19 leads + 80 drafts</span>
+            </div>
+            <div class="small">Raihana's outreach activity is solid this week. The pipeline report blockage is the single item that unlocks everything else — CRM uploads, lead verification, DM sends.</div>
+          </div>
+
+          <div>
+            <div class="section-label">Rei Nald Onella — Marketing</div>
+            <div class="data-row">
+              <span class="data-label">Posts published</span>
+              <span class="data-value text-red">0 this week · 0 for 5+ weeks</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">Posts not published</span>
+              <span class="data-value text-red">14+ approved posts sitting in backlog</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">Reason</span>
+              <span class="data-value text-2">No working delivery channel to Rei confirmed in any routine</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">This week's CMO posts</span>
+              <span class="data-value">5 drafted (Mon–Fri) · All pending approval + forwarding to Rei</span>
+            </div>
+            <div class="small">Content is not the problem. Every post this week passed the Invisibility Diagnostic (4/4). The issue is the publish step — Rei is not receiving posts or is not publishing them. Mohaina needs to confirm the channel and give a bulk-publish or lapse decision for prior weeks.</div>
+          </div>
+
+          <div>
+            <div class="section-label">Junaifa M. Asira — Authorised Signatory</div>
+            <div class="data-row">
+              <span class="data-label">Actions this week</span>
+              <span class="data-value text-2">No authorisation or signatory actions logged this week</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">Data source</span>
+              <span class="data-value text-2">Notion task log · Outlook inbox search</span>
+            </div>
+            <div class="small">Team data for Junaifa not available this run — manual input recommended.</div>
+
+            <div class="section-label gap-top">Items Needing Mohaina Next Week</div>
+            <div class="data-row" style="flex-direction:column;gap:3px;">
+              <span class="data-label" style="max-width:100%;">1. CRM go/no-go for 19 leads + 80 DM drafts — unblocked only when Raihana's pipeline report is in</span>
+            </div>
+            <div class="data-row" style="flex-direction:column;gap:3px;">
+              <span class="data-label" style="max-width:100%;">2. Concept Lab / Mr. George — approve direct call OR close. CIT 30 Sep in 47 days</span>
+            </div>
+            <div class="data-row" style="flex-direction:column;gap:3px;">
+              <span class="data-label" style="max-width:100%;">3. GL Middle East / Nandhu — same decision. 55+ days stalled on 3 entities</span>
+            </div>
+            <div class="data-row" style="flex-direction:column;gap:3px;">
+              <span class="data-label" style="max-width:100%;">4. Content channel + bulk-publish/lapse decision for 14+ backlog posts</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Forward Look ───────────────────────── -->
+    <div class="card card-brand full-card">
+      <div class="card-head">
+        <h2>Forward Look · Week of 17 August 2026</h2>
+      </div>
+      <div class="card-body">
+        <div class="forward-grid">
+
+          <div class="forward-col">
+            <h3>Top 3 Priorities for Monday</h3>
+
+            <div class="priority-item">
+              <div class="priority-num">01</div>
+              <div class="priority-title">PICPA NE CHAPTER FZE — CT Return</div>
+              <div class="priority-why">FTA emailed directly on 13 Aug. Deadline fast approaching. This is a client penalty risk if it slips further. No owner action logged yet.</div>
+              <div class="priority-owner">Owner: Mohaina</div>
+            </div>
+
+            <div class="priority-item">
+              <div class="priority-num">02</div>
+              <div class="priority-title">Raihana's Pipeline Status Report</div>
+              <div class="priority-why">28 days overdue. Blocking CRM go/no-go for 19 leads and 80 ready DM drafts. Every day it stays unsubmitted is a day of BD capacity sitting idle. Submit Monday morning — no exceptions.</div>
+              <div class="priority-owner">Owner: Raihana (submit to Mohaina by 09:00 Monday)</div>
+            </div>
+
+            <div class="priority-item">
+              <div class="priority-num">03</div>
+              <div class="priority-title">Unblock Content Publishing</div>
+              <div class="priority-why">Five weeks of zero published posts is a brand silence Mohaina is actively aware of. Confirm the Rei Nald delivery channel. Make a bulk decision: publish late, lapse, or pick the 3 best posts and publish this week.</div>
+              <div class="priority-owner">Owner: Mohaina + Rei Nald</div>
+            </div>
+          </div>
+
+          <div class="forward-col">
+            <h3>Compliance Radar — Next 14 Days</h3>
+
+            <div class="radar-item">
+              <div class="radar-dot red"></div>
+              <div>
+                <div class="radar-text">PICPA NE CHAPTER FZE CT Return</div>
+                <span class="radar-sub">FTA emailed direct 13 Aug · Deadline unconfirmed but imminent · TRN 104324388800001</span>
+              </div>
+            </div>
+
+            <div class="radar-item">
+              <div class="radar-dot amber"></div>
+              <div>
+                <div class="radar-text">VAT Return — 28 August 2026</div>
+                <span class="radar-sub">14 days out · FTA Announcements page flagged "New" · Affects monthly VAT filers</span>
+              </div>
+            </div>
+
+            <div class="radar-item">
+              <div class="radar-dot amber"></div>
+              <div>
+                <div class="radar-text">AML/CFT Programme H2 2026 Review</div>
+                <span class="radar-sub">Day 16 unscheduled · goAML/DNFBP alert active (Ministry of Economy 9 Aug) naming real estate firms directly</span>
+              </div>
+            </div>
+
+            <div class="radar-item">
+              <div class="radar-dot amber"></div>
+              <div>
+                <div class="radar-text">MOHRE Missing Document — Work Permit MB315778130AE</div>
+                <span class="radar-sub">Ministry of Higher Education credential gap · Portal upload required urgently</span>
+              </div>
+            </div>
+
+            <div class="radar-item">
+              <div class="radar-dot green"></div>
+              <div>
+                <div class="radar-text">BPOAS Trade License 2027</div>
+                <span class="radar-sub">Renewed — confirmed. Al Ansari WPS portal upload error pending resolution only</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="forward-col">
+            <h3>Revenue Gap Action</h3>
+            <div class="data-row">
+              <span class="data-label">Monthly target gap</span>
+              <span class="data-value text-2">Unknown — target not configured</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">Outstanding AR</span>
+              <span class="data-value mono text-red"><span class="aed">AED</span>101,687.50</span>
+            </div>
+            <p style="font-size:12.5px;color:var(--text-2);margin-top:10px;line-height:1.65;">The fastest revenue action next week is chasing the Richemont cluster directly. INV-000108 (AED 40,976.25) is 14 days overdue — send a payment reminder this week before it ages. INV-000086 (179 days overdue) needs an escalation call, not another email.</p>
+            <p style="font-size:12.5px;color:var(--text-2);margin-top:10px;line-height:1.65;">Secondary action: trigger the Richemont contract renewal proforma follow-up — 4% increase is agreed, invoice is issued, just needs payment confirmation and signature.</p>
+            <p style="font-size:12.5px;color:var(--text-2);margin-top:10px;line-height:1.65;"><strong style="color:var(--text-1);">Monday content slot confirmed:</strong> "Compliance Without the Panic" · Framework List · CTA "Book a 30-minute compliance review" · Pending Mohaina approval before forwarding to Rei.</p>
+
+            <h3 style="margin-top:20px;">Monday Content Slot</h3>
+            <div class="data-row">
+              <span class="data-label">Pillar</span>
+              <span class="data-value">Compliance Without the Panic</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">Format</span>
+              <span class="data-value">Framework List</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">CTA</span>
+              <span class="data-value">Book a 30-minute compliance review</span>
+            </div>
+            <div class="data-row">
+              <span class="data-label">Status</span>
+              <span class="data-value"><span class="pill pill-amber">Pending Mohaina Approval</span></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /card-grid -->
+
+  <!-- ── Flags for Mohaina ─────────────────────── -->
+  <div class="flags-card">
+    <div class="flags-head">
+      <h2>Flags for Mohaina — Before Close of Business Today</h2>
+    </div>
+    <div class="flags-body">
+      <div class="flag-row">
+        <div class="flag-icon text-red">🔴</div>
+        <div class="flag-text"><strong>PICPA NE CHAPTER FZE CT Return</strong> — FTA emailed directly on 13 Aug, deadline fast approaching. No owner action logged. TRN 104324388800001. Confirm filing status today.</div>
+        <div class="flag-owner">Mohaina</div>
+      </div>
+      <div class="flag-row">
+        <div class="flag-icon text-red">🔴</div>
+        <div class="flag-text"><strong>Richemont INV-000108 — AED 40,976.25</strong> overdue 14 days. Over AED 5,000 threshold. Send payment reminder before EOB today or it will hit 21 days Monday.</div>
+        <div class="flag-owner">Mohaina / Raihana</div>
+      </div>
+      <div class="flag-row">
+        <div class="flag-icon text-red">🔴</div>
+        <div class="flag-text"><strong>Richemont INV-000086 — 179 days overdue</strong> (~AED 17,561.25 estimated). This is the longest-aged invoice in the AR book. Escalation call needed — not another email.</div>
+        <div class="flag-owner">Mohaina</div>
+      </div>
+      <div class="flag-row">
+        <div class="flag-icon text-red">🔴</div>
+        <div class="flag-text"><strong>GL Middle East / Nandhu EL — ~55 days stalled.</strong> 3 entities with no engagement letter. Cannot carry into another week. Approve direct call OR formally close the file today.</div>
+        <div class="flag-owner">Mohaina</div>
+      </div>
+      <div class="flag-row">
+        <div class="flag-icon text-red">🔴</div>
+        <div class="flag-text"><strong>Concept Lab / Mr. George EL — ~54 days stalled.</strong> CIT 30 September filing window is 47 days away. If the EL doesn't move next week, the window closes on BPOAS. Decide: approve call OR close.</div>
+        <div class="flag-owner">Mohaina</div>
+      </div>
+      <div class="flag-row">
+        <div class="flag-icon text-red">🔴</div>
+        <div class="flag-text"><strong>M365 Mail.Send blocked — Day 44.</strong> Every routine's closing email has failed since late June. This EOW review, every COO Brief, every content calendar, every daily brief is landing in Notion and GitHub only — not the inbox. One Entra/Graph admin-consent grant on Mail.Send fixes this permanently for every routine. This is not going to self-resolve.</div>
+        <div class="flag-owner">Mohaina</div>
+      </div>
+      <div class="flag-row">
+        <div class="flag-icon text-amber">🟡</div>
+        <div class="flag-text"><strong>Brilliant Telecom LLC — ~30 days past 15 Jul CIT deadline.</strong> All contact numbers unanswered. CIT penalty risk is real. Escalate or formally acknowledge inability to proceed.</div>
+        <div class="flag-owner">Mohaina / Raihana</div>
+      </div>
+      <div class="flag-row">
+        <div class="flag-icon text-amber">🟡</div>
+        <div class="flag-text"><strong>Richemont BPO Contract Renewal 2026–2027 — Clause 6.15 reply pending.</strong> Raphael Hanna sent their position on 13 Aug. No response logged. Reply before next week or momentum stalls on the full contract.</div>
+        <div class="flag-owner">Mohaina</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Delivery note ──────────────────────── -->
+  <div class="delivery-note">
+    Auto-generated · BPOAS End of Week Review · Week of 10 August 2026 · Friday 14 August 2026 · 17:00 UAE<br>
+    Sources: Microsoft 365 Outlook (calendar + email, 10–14 Aug 2026) · Notion (COO Brief 14 Aug · Raihana Daily Brief 14 Aug · Content Calendar Report · CRO Prospects Report) · Emirates NBD bank alert · Zoho Books scheduled P&L report (06–12 Aug, attachment unread) · Web search (UAE FTA/AML compliance deadlines)<br>
+    Zoho Books direct connector: not available this run — revenue figures sourced from COO Brief live pull and bank transaction alerts.<br>
+    Monthly revenue target: not configured in positioning-mohaina-asira.md — manual input required to complete revenue section.<br>
+    M365 Mail.Send: FORBIDDEN (Day 44) — summary email to m.asira@bposervicegroup.com could not be sent. Delivered via Notion page + HTML file only.
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>
