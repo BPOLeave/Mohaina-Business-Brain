@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief · Friday 14 August 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Rethink+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #E8294C; --primary-dark: #C4203D; --primary-light: #F5607A;
+    --primary-rgb: 232,41,76;
+    --bg: #0A0A0A; --bg-card: #111111; --bg-card-2: #181818; --bg-card-3: #1F1F1F;
+    --border: rgba(255,255,255,0.07); --border-2: rgba(255,255,255,0.13);
+    --text: #FFFFFF; --text-2: rgba(255,255,255,0.58); --text-3: rgba(255,255,255,0.28);
+    --green: #22C55E; --green-bg: rgba(34,197,94,0.10);
+    --amber: #F59E0B; --amber-bg: rgba(245,158,11,0.10);
+    --red-status: #EF4444; --red-status-bg: rgba(239,68,68,0.10);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Rethink Sans', system-ui, sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --r-sm: 8px; --r-md: 16px; --r-lg: 24px; --r-pill: 9999px;
+    --shadow-card: 0 4px 24px rgba(0,0,0,0.45);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--bg); color: var(--text);
+    -webkit-font-smoothing: antialiased; padding: 40px 32px 80px; max-width: 820px; margin: 0 auto; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+  .fade-up { opacity:0; animation: fadeUp .45s ease forwards; }
+  .fd-1{animation-delay:.05s} .fd-2{animation-delay:.10s} .fd-3{animation-delay:.15s}
+  .fd-4{animation-delay:.20s} .fd-5{animation-delay:.25s} .fd-6{animation-delay:.30s}
+
+  /* HERO */
+  .hero {
+    background: radial-gradient(ellipse at 60% 20%, rgba(232,41,76,0.16) 0%, transparent 65%), #0A0A0A;
+    border: 1px solid var(--border); border-radius: var(--r-lg);
+    padding: 48px 40px 40px; margin-bottom: 24px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background-image: radial-gradient(rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 24px 24px; pointer-events:none;
+  }
+  .hero__badge {
+    font-family: var(--font-mono); font-size:11px; font-weight:500;
+    letter-spacing:.12em; text-transform:uppercase; color: var(--primary);
+    background: rgba(232,41,76,0.10); border:1px solid rgba(232,41,76,0.25);
+    padding:5px 14px; border-radius: var(--r-pill); display:inline-block; margin-bottom:20px;
+  }
+  .hero__title { font-family: var(--font-display); font-size: clamp(28px,4vw,42px);
+    font-weight:900; letter-spacing:-.02em; line-height:1.15; margin-bottom:10px; }
+  .hero__sub { font-size:15px; color: var(--text-2); line-height:1.6; }
+  .hero__meta { font-family: var(--font-mono); font-size:11px; color: var(--text-3);
+    margin-top:20px; }
+
+  /* SECTION LABEL */
+  .sec-label { font-family: var(--font-mono); font-size:11px; font-weight:500;
+    letter-spacing:.12em; text-transform:uppercase; color: var(--primary);
+    margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+  .sec-label::after { content:''; flex:1; height:1px; background: var(--border); }
+
+  /* CARDS */
+  .card { background: var(--bg-card); border:1px solid var(--border);
+    border-radius: var(--r-lg); padding:24px 28px; margin-bottom:14px; }
+  .card--accent { border-left:3px solid var(--primary); }
+  .card--dark { background: var(--bg-card-2); }
+  .card--red { background: var(--red-status-bg); border:1px solid rgba(239,68,68,0.25); }
+  .card__label { font-family: var(--font-mono); font-size:10px; font-weight:500;
+    letter-spacing:.12em; text-transform:uppercase; color: var(--primary); margin-bottom:10px; }
+  .card__title { font-family: var(--font-display); font-size:18px; font-weight:800;
+    margin-bottom:10px; }
+  .card__body { font-size:14px; line-height:1.8; color: var(--text-2); }
+
+  /* INBOX ROW */
+  .inbox-item { display:flex; gap:14px; align-items:flex-start;
+    padding:14px 0; border-bottom:1px solid var(--border); }
+  .inbox-item:last-child { border-bottom:none; }
+  .inbox-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:6px; }
+  .dot-red { background: var(--red-status); }
+  .dot-amber { background: var(--amber); }
+  .dot-green { background: var(--green); }
+  .inbox-sender { font-family: var(--font-mono); font-size:11px; color: var(--text-3);
+    text-transform:uppercase; letter-spacing:.08em; margin-bottom:4px; }
+  .inbox-subject { font-size:14px; font-weight:600; color: var(--text); margin-bottom:4px; }
+  .inbox-action { font-size:13px; color: var(--text-2); }
+  .inbox-tag { font-family: var(--font-mono); font-size:10px; padding:2px 8px;
+    border-radius: var(--r-pill); font-weight:500; letter-spacing:.06em; }
+  .tag-red { background: var(--red-status-bg); color: var(--red-status); border:1px solid rgba(239,68,68,0.3); }
+  .tag-amber { background: var(--amber-bg); color: var(--amber); border:1px solid rgba(245,158,11,0.3); }
+  .tag-green { background: var(--green-bg); color: var(--green); border:1px solid rgba(34,197,94,0.3); }
+
+  /* TASK TABLE */
+  .task-row { display:grid; grid-template-columns:120px 1fr; gap:16px;
+    padding:12px 0; border-bottom:1px solid var(--border); align-items:start; }
+  .task-row:last-child { border-bottom:none; }
+  .task-badge { font-family: var(--font-mono); font-size:10px; font-weight:500;
+    letter-spacing:.08em; text-transform:uppercase; padding:3px 8px;
+    border-radius: var(--r-pill); text-align:center; }
+  .badge-red { background: var(--red-status-bg); color: var(--red-status); border:1px solid rgba(239,68,68,0.3); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber); border:1px solid rgba(245,158,11,0.3); }
+  .badge-green { background: var(--green-bg); color: var(--green); border:1px solid rgba(34,197,94,0.3); }
+  .task-name { font-size:14px; font-weight:600; color: var(--text); margin-bottom:3px; }
+  .task-detail { font-size:13px; color: var(--text-2); line-height:1.5; }
+  .task-owner { font-family: var(--font-mono); font-size:10px; color: var(--text-3);
+    letter-spacing:.06em; margin-top:4px; }
+
+  /* BD PIPELINE */
+  .pipeline-row { display:flex; gap:14px; align-items:flex-start;
+    padding:12px 0; border-bottom:1px solid var(--border); }
+  .pipeline-row:last-child { border-bottom:none; }
+  .pipeline-name { font-size:14px; font-weight:600; color: var(--text); }
+  .pipeline-detail { font-size:13px; color: var(--text-2); margin-top:3px; }
+
+  /* KEY METRIC */
+  .metric-big { font-family: var(--font-display); font-size:clamp(36px,5vw,56px);
+    font-weight:900; color: var(--amber); line-height:1; }
+  .metric-label { font-family: var(--font-mono); font-size:11px; color: var(--text-3);
+    letter-spacing:.1em; text-transform:uppercase; margin-top:8px; }
+  .metric-sub { font-size:13px; color: var(--text-2); margin-top:8px; }
+
+  /* FLAGS */
+  .flag-item { display:flex; gap:14px; align-items:flex-start;
+    padding:14px; background: var(--bg-card-2); border-radius: var(--r-md);
+    border:1px solid var(--border); margin-bottom:10px; }
+  .flag-item:last-child { margin-bottom:0; }
+  .flag-icon { font-size:18px; flex-shrink:0; }
+  .flag-title { font-size:14px; font-weight:700; color: var(--text); margin-bottom:4px; }
+  .flag-why { font-size:13px; color: var(--text-2); margin-bottom:4px; }
+  .flag-next { font-size:13px; font-weight:600; color: var(--primary); }
+
+  /* FOOTER */
+  footer { margin-top:56px; padding-top:24px; border-top:1px solid var(--border);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  .footer__brand { font-family: var(--font-display); font-size:18px; font-weight:800; color: var(--primary); }
+  .footer__meta { font-family: var(--font-mono); font-size:11px; color: var(--text-3); }
+
+  .mb-24 { margin-bottom:24px; }
+  .empty-state { font-size:14px; color: var(--text-3); font-style:italic; padding:16px 0; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero fade-up fd-1">
+  <div class="hero__badge">COO Morning Brief</div>
+  <div class="hero__title">Good morning, Mohaina.<br>Friday, 14 August 2026.</div>
+  <div class="hero__sub">You have 0 meetings today · 5 inbox priorities · 2 critical compliance actions needed now.</div>
+  <div class="hero__meta">Auto-generated · 07:00 UAE · M.Asira@bposervicegroup.com · M365 Calendar + Outlook</div>
+</div>
+
+<!-- SECTION 1: SCHEDULE -->
+<div class="fade-up fd-2 mb-24">
+  <div class="sec-label">1 · Today's Schedule</div>
+  <div class="card">
+    <div class="empty-state">No calendar events found for Friday 14 August 2026. Day is open.</div>
+    <div class="card__body" style="margin-top:12px;">
+      Recommended blocks: AML client screen (morning) · MOHRE credential upload (before noon) · GASCHEM WPS August update · PICPA CT filing confirmation.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: INBOX PRIORITIES -->
+<div class="fade-up fd-2 mb-24">
+  <div class="sec-label">2 · Inbox Priorities</div>
+  <div class="card">
+
+    <div class="inbox-item">
+      <div class="inbox-dot dot-red" style="margin-top:8px;"></div>
+      <div style="flex:1;">
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:4px;">
+          <span class="inbox-tag tag-red">AML · URGENT</span>
+        </div>
+        <div class="inbox-sender">no_reply@uaeiec.gov.ae · Today 04:27 UAE</div>
+        <div class="inbox-subject">Amending Four Entries — ISIL/Daesh and AlQaida Sanctions Committee</div>
+        <div class="inbox-action">UAE Executive Office for Combating Money Laundering: 4 entries amended on the UN Sanctions Committee list. Cabinet Decision 74/2020 requires all Persons (BPOAS is a DNFBP) to implement Targeted Financial Sanctions. Screen all clients and counterparties now. Submit TFS report if any match found via IEC portal.</div>
+      </div>
+    </div>
+
+    <div class="inbox-item">
+      <div class="inbox-dot dot-red" style="margin-top:8px;"></div>
+      <div style="flex:1;">
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:4px;">
+          <span class="inbox-tag tag-red">MOHRE · Action Required</span>
+        </div>
+        <div class="inbox-sender">noreply@mohre.gov.ae · Today 02:14 UAE</div>
+        <div class="inbox-subject">Upload Missing Document — Work Permit MB315778130AE</div>
+        <div class="inbox-action">Staff member's work permit has missing credentials at the Ministry of Higher Education for degree recognition. Upload the required documents via MOHRE portal before the application lapses. Action: Junaifa/Mohaina to resolve today.</div>
+      </div>
+    </div>
+
+    <div class="inbox-item">
+      <div class="inbox-dot dot-amber" style="margin-top:8px;"></div>
+      <div style="flex:1;">
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:4px;">
+          <span class="inbox-tag tag-amber">Client · Action From Mohaina</span>
+        </div>
+        <div class="inbox-sender">admin@gaschem.ae · Yesterday 12:11 UAE</div>
+        <div class="inbox-subject">RE: Workmen Compensation Insurance Renewal — GASCHEM FZCO</div>
+        <div class="inbox-action">Liliia Fatkhutdinova (GASCHEM): "Mohaina please update in the WPS system and provide the amount for August." WPS update is directly on Mohaina. Review amended list from XIX Consulting first, then update WPS.</div>
+      </div>
+    </div>
+
+    <div class="inbox-item">
+      <div class="inbox-dot dot-green" style="margin-top:8px;"></div>
+      <div style="flex:1;">
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:4px;">
+          <span class="inbox-tag tag-green">BD Win · Richemont</span>
+        </div>
+        <div class="inbox-sender">tara.mcevoy@richemont.com · Yesterday 14:43 UAE</div>
+        <div class="inbox-subject">RE: External Employee Nada Shalabi — Contract Extension</div>
+        <div class="inbox-action">Tara McEvoy (Richemont) confirmed: "We are aligned with the 4% increase and proforma invoice issued." Contract extension for Nada Shalabi is confirmed. Log as won. Follow up with R.Lorenzo and r.asira on next steps for proforma payment and contract signing.</div>
+      </div>
+    </div>
+
+    <div class="inbox-item">
+      <div class="inbox-dot dot-amber" style="margin-top:8px;"></div>
+      <div style="flex:1;">
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:4px;">
+          <span class="inbox-tag tag-amber">Finance · Review</span>
+        </div>
+        <div class="inbox-sender">nigel@zappit.software · Yesterday 12:32 UAE</div>
+        <div class="inbox-subject">Zappit Check — Renewal Documents + Invoice AED 1,916.25</div>
+        <div class="inbox-action">Nigel (Zappit Software International) sent 3 documents: Trade Licence, client re-scan procedure at renewal, and renewal agreement. Invoice 2115 for AED 1,916.25 also sent via QuickBooks. Review documents and confirm payment timeline.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 3: TASKS -->
+<div class="fade-up fd-3 mb-24">
+  <div class="sec-label">3 · Tasks &amp; Deadlines</div>
+  <div class="card">
+
+    <div style="font-family:var(--font-mono);font-size:10px;color:var(--primary);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;">Must Do Today</div>
+
+    <div class="task-row">
+      <div><span class="task-badge badge-red">🔴 AML NOW</span></div>
+      <div>
+        <div class="task-name">UAE IEC Sanctions — Screen All Clients</div>
+        <div class="task-detail">4 entries amended on ISIL/Daesh/AlQaida list. Cabinet Decision 74/2020 requires immediate TFS screening and IEC portal report if match found.</div>
+        <div class="task-owner">Owner: Mohaina</div>
+      </div>
+    </div>
+
+    <div class="task-row">
+      <div><span class="task-badge badge-red">🔴 MOHRE</span></div>
+      <div>
+        <div class="task-name">Upload Missing Credential — Work Permit MB315778130AE</div>
+        <div class="task-detail">Ministry of Higher Education credential recognition gap. Upload required documents via MOHRE portal before permit processing lapses.</div>
+        <div class="task-owner">Owner: Junaifa / Mohaina</div>
+      </div>
+    </div>
+
+    <div class="task-row">
+      <div><span class="task-badge badge-red">🔴 Day 20</span></div>
+      <div>
+        <div class="task-name">BPOAS Trade Licence #809563 — Still Lapsed</div>
+        <div class="task-detail">Expired 25 Jul. WPS payroll blocked for all staff. Renewal via DED eExchange. Day 20 of lapse.</div>
+        <div class="task-owner">Owner: Junaifa — confirm status today</div>
+      </div>
+    </div>
+
+    <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;margin:16px 0 12px;">Should Do Today</div>
+
+    <div class="task-row">
+      <div><span class="task-badge badge-amber">🟡 Client</span></div>
+      <div>
+        <div class="task-name">GASCHEM FZCO — WPS August Update</div>
+        <div class="task-detail">Liliia has asked Mohaina directly to update WPS and provide the August payroll amount. Requires Mohaina's direct action.</div>
+        <div class="task-owner">Owner: Mohaina</div>
+      </div>
+    </div>
+
+    <div class="task-row">
+      <div><span class="task-badge badge-amber">🟡 CT</span></div>
+      <div>
+        <div class="task-name">PICPA NE CHAPTER FZE — CT Return Confirmation</div>
+        <div class="task-detail">FTA sent direct reminder on 10 Aug. Deadline fast approaching, still unconfirmed. Day 20+ since FTA flag first raised.</div>
+        <div class="task-owner">Owner: Mohaina</div>
+      </div>
+    </div>
+
+    <div class="task-row">
+      <div><span class="task-badge badge-amber">🟡 CT</span></div>
+      <div>
+        <div class="task-name">Brilliant Telecom LLC — CIT Partner Confirmation</div>
+        <div class="task-detail">30 days past 15 Jul deadline. All contact numbers unanswered. Escalate through alternate channel today.</div>
+        <div class="task-owner">Owner: Raihana / Mohaina</div>
+      </div>
+    </div>
+
+    <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;margin:16px 0 12px;">Can Wait</div>
+
+    <div class="task-row">
+      <div><span class="task-badge" style="background:rgba(255,255,255,0.05);color:var(--text-3);border:1px solid var(--border);">Later</span></div>
+      <div>
+        <div class="task-name">Zappit Software — Review Renewal Docs + Invoice AED 1,916.25</div>
+        <div class="task-detail">3 documents received from Nigel. Review and confirm payment timeline. Not urgent today.</div>
+        <div class="task-owner">Owner: Mohaina</div>
+      </div>
+    </div>
+
+    <div class="task-row">
+      <div><span class="task-badge" style="background:rgba(255,255,255,0.05);color:var(--text-3);border:1px solid var(--border);">Later</span></div>
+      <div>
+        <div class="task-name">Richemont BPO Renewal — Next Steps Post Nada Shalabi Win</div>
+        <div class="task-detail">Nada Shalabi contract extension confirmed. Update R.Lorenzo. Raphael Hanna's Section 6.15 negligence standard agreed. Contract can proceed to signature.</div>
+        <div class="task-owner">Owner: Mohaina</div>
+      </div>
+    </div>
+
+    <div style="font-size:12px;color:var(--text-3);margin-top:16px;font-family:var(--font-mono);">
+      + Raihana's Pipeline Report (28d overdue) · Concept Lab/Mr. George EL (55d stalled) · GL Middle East/Nandhu TRC (56d stalled) · AML/CFT Programme H2 review (Day 16 unscheduled) — carried from prior briefs.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: CONTENT -->
+<div class="fade-up fd-4 mb-24">
+  <div class="sec-label">4 · Content Slot · Friday</div>
+  <div class="card card--accent">
+    <div class="card__label">CMO Post · Status: Pending Your Approval</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
+      <span class="inbox-tag tag-green">4/4 PASS</span>
+      <span class="inbox-tag tag-amber">Approval Needed</span>
+      <span class="inbox-tag" style="background:rgba(232,41,76,0.10);color:var(--primary);border:1px solid rgba(232,41,76,0.25);">Pillar: What the Numbers Are Telling You</span>
+    </div>
+    <div class="card__body">
+      <strong style="color:var(--text);">Hook (Curiosity Gap):</strong><br>
+      "There are three numbers your P&L will never show you, and they are usually the ones deciding whether you make it through the year."<br><br>
+      <strong style="color:var(--text);">Intent:</strong> Educating · <strong style="color:var(--text);">Format:</strong> Framework List · <strong style="color:var(--text);">CTA:</strong> Save this for your next board or bank conversation.<br><br>
+      <strong style="color:var(--text);">1,455 characters · 0 em dashes · 0 banned words · Invisibility Diagnostic 4/4</strong><br><br>
+      <span style="color:var(--amber);">Flag: Pinned Comment 1 references UAE Corporate Tax — heightened sign-off applies before forwarding to Rei.</span><br><br>
+      <strong style="color:var(--text-3);font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;">Recommended publish: 09:00 UAE · Forward to: reinald.onella1@gmail.com</strong>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: BD PIPELINE -->
+<div class="fade-up fd-4 mb-24">
+  <div class="sec-label">5 · BD Pipeline Pulse</div>
+  <div class="card">
+    <div class="card__label">Raihana's Queue · Source: Daily Brief 13 Aug</div>
+
+    <div class="pipeline-row">
+      <span class="inbox-tag tag-green" style="flex-shrink:0;margin-top:2px;">WIN</span>
+      <div>
+        <div class="pipeline-name">Richemont / Nada Shalabi — Contract Extension</div>
+        <div class="pipeline-detail">4% increase CONFIRMED. Proforma invoice accepted (Tara McEvoy, today). Log as won. Next: proforma payment + full contract signature.</div>
+      </div>
+    </div>
+
+    <div class="pipeline-row">
+      <span class="inbox-tag tag-green" style="flex-shrink:0;margin-top:2px;">WIN</span>
+      <div>
+        <div class="pipeline-name">MCM Products ME — VAT Refund Assistance</div>
+        <div class="pipeline-detail">Signed 6 Aug. Invoiced AED 7,350. In delivery.</div>
+      </div>
+    </div>
+
+    <div class="pipeline-row">
+      <span class="inbox-tag tag-green" style="flex-shrink:0;margin-top:2px;">WIN</span>
+      <div>
+        <div class="pipeline-name">Ratiolex — CIT Filing</div>
+        <div class="pipeline-detail">Signed 3 Aug. Invoice issued. In delivery.</div>
+      </div>
+    </div>
+
+    <div class="pipeline-row">
+      <span class="inbox-tag tag-amber" style="flex-shrink:0;margin-top:2px;">CHASE</span>
+      <div>
+        <div class="pipeline-name">MMG Art Production LLC — VAT Engagement Letter</div>
+        <div class="pipeline-detail">VAT EL sent 4 Aug (AED 3,500/qtr). Client following up via Teams. Chase signature today.</div>
+      </div>
+    </div>
+
+    <div class="pipeline-row">
+      <span class="inbox-tag tag-red" style="flex-shrink:0;margin-top:2px;">URGENT</span>
+      <div>
+        <div class="pipeline-name">Brilliant Telecom LLC — CIT Partner Confirmation</div>
+        <div class="pipeline-detail">30 days past deadline. All contact numbers unanswered. Escalate via alternate channel.</div>
+      </div>
+    </div>
+
+    <div class="pipeline-row">
+      <span class="inbox-tag tag-amber" style="flex-shrink:0;margin-top:2px;">HOLD</span>
+      <div>
+        <div class="pipeline-name">Cartier Fragrance / Recyline — Chadi Onboarding</div>
+        <div class="pipeline-detail">Day 17. Chadi awaiting direction from Mohaina. Decision needed.</div>
+      </div>
+    </div>
+
+    <div class="pipeline-row">
+      <span class="inbox-tag tag-amber" style="flex-shrink:0;margin-top:2px;">DECIDE</span>
+      <div>
+        <div class="pipeline-name">Richemont Temporary Staffing RFP</div>
+        <div class="pipeline-detail">NDA review pending. Mohaina go/no-go required.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border);">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;">Raihana's Queue</div>
+      <div style="font-size:13px;color:var(--text-2);">19 leads pending Mohaina CRM go/no-go · 80 DM drafts ready, none sent · Pipeline Status Report 28 days overdue (blocking all CRM releases)</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: KEY METRIC -->
+<div class="fade-up fd-5 mb-24">
+  <div class="sec-label">6 · Key Metric</div>
+  <div class="card card--dark">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+      <div>
+        <div class="metric-big">AED 101,687</div>
+        <div class="metric-label">Outstanding AR · 17 Overdue Invoices</div>
+        <div class="metric-sub">Source: Zoho Books (BPO Service Group FZE) · Last read: 13 Aug 2026. Essentially flat since 6 Aug.<br><br>Richemont (Dubai) FZE: ~AED 58,537 (~57.6% of total AR), including one invoice 170+ days overdue.</div>
+      </div>
+      <div>
+        <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;">Monthly Revenue Pulse</div>
+        <div style="font-size:13px;color:var(--text-2);">Monthly target not yet configured in positioning-mohaina-asira.md.<br><br>MTD revenue data available Mondays only (CFO connector). Last CFO run: Monday 11 Aug.<br><br>To activate Revenue Pulse: add monthly target to positioning doc.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FLAGS FOR MOHAINA -->
+<div class="fade-up fd-5 mb-24">
+  <div class="sec-label">Flags for Mohaina · Sorted by Priority</div>
+  <div class="card card--red">
+
+    <div class="flag-item">
+      <div class="flag-icon">🔴</div>
+      <div>
+        <div class="flag-title">AML — UAE IEC Sanctions Update (Today)</div>
+        <div class="flag-why">4 entries amended on ISIL/Daesh/AlQaida list. Cabinet Decision 74/2020 requires all Persons to implement TFS immediately. BPOAS is a DNFBP — non-implementation is a compliance breach.</div>
+        <div class="flag-next">Action: Screen all clients and counterparties now. Submit TFS report via IEC portal if any match found.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-icon">🔴</div>
+      <div>
+        <div class="flag-title">MOHRE — Missing Credential Upload (Work Permit MB315778130AE)</div>
+        <div class="flag-why">Staff member's Ministry of Higher Education credential recognition is incomplete. The permit processing will lapse if documents are not uploaded.</div>
+        <div class="flag-next">Action: Upload required documents via MOHRE portal today. Assign to Junaifa and confirm completion.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-icon">🔴</div>
+      <div>
+        <div class="flag-title">M365 Mail.Send — Day 44 of FORBIDDEN Error</div>
+        <div class="flag-why">This routine cannot email you. Every COO Brief, CMO approval request, and summary email since late June has reached only Notion and GitHub — never your inbox. The cause is a missing admin-consent grant on the app registration (tenantId 052efaf8, clientId api://07c030f6).</div>
+        <div class="flag-next">Action: One Entra/Graph admin-consent grant (Mail.Send + Mail.ReadWrite) fixes every blocked routine permanently.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-icon">🔴</div>
+      <div>
+        <div class="flag-title">BPOAS Trade Licence #809563 — Day 20 of Lapse</div>
+        <div class="flag-why">Expired 25 Jul. WPS payroll blocked for all staff. Every day without renewal compounds the compliance exposure.</div>
+        <div class="flag-next">Action: Confirm Junaifa's renewal status with DED eExchange today.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-icon">🔴</div>
+      <div>
+        <div class="flag-title">PICPA NE CHAPTER FZE — CT Return Deadline Approaching</div>
+        <div class="flag-why">FTA sent direct reminder to PICPA NE on 10 Aug (TRN 104324388800001). Deadline is fast approaching. Status is still unconfirmed.</div>
+        <div class="flag-next">Action: Confirm CT return filing status with the team today.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-icon">🟡</div>
+      <div>
+        <div class="flag-title">GASCHEM FZCO — WPS August Update Requested Directly</div>
+        <div class="flag-why">Liliia Fatkhutdinova (GASCHEM) asked Mohaina directly to update WPS and provide August payroll amount. This is on Mohaina specifically.</div>
+        <div class="flag-next">Action: Update WPS system today and provide August amount to GASCHEM.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-icon">🟡</div>
+      <div>
+        <div class="flag-title">CMO Post — Pending Approval Before 08:15 UAE</div>
+        <div class="flag-why">Today's LinkedIn post (4/4 PASS, 1,455 chars) is ready. Pinned Comment 1 references UAE Corporate Tax — heightened sign-off rule applies. Cannot be forwarded to Rei without Mohaina's explicit approval.</div>
+        <div class="flag-next">Action: Approve or revise → forward to reinald.onella1@gmail.com. Recommended publish: 09:00 UAE.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <span class="footer__brand">BPOAS</span>
+    <span class="footer__meta" style="margin-left:8px;">COO Morning Brief · Auto-generated · Friday 14 August 2026 · 07:00 UAE</span>
+  </div>
+  <div class="footer__meta">M.Asira@bposervicegroup.com · /coo-morning-brief</div>
+</footer>
+
+</body>
+</html>

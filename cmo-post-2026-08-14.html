@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · Friday 14 August 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Rethink+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:#E8294C; --primary-dark:#C4203D; --primary-light:#F5607A;
+    --primary-rgb:232,41,76;
+    --bg:#0A0A0A; --bg-card:#111111; --bg-card-2:#181818; --bg-card-3:#1F1F1F;
+    --border:rgba(255,255,255,0.07); --border-2:rgba(255,255,255,0.13);
+    --text:#FFFFFF; --text-2:rgba(255,255,255,0.58); --text-3:rgba(255,255,255,0.28);
+    --green:#22C55E; --green-bg:rgba(34,197,94,0.10);
+    --amber:#F59E0B; --amber-bg:rgba(245,158,11,0.10);
+    --red-status:#EF4444; --red-status-bg:rgba(239,68,68,0.10);
+    --font-display:'Playfair Display',Georgia,serif;
+    --font-body:'Rethink Sans',system-ui,sans-serif;
+    --font-mono:'DM Mono',monospace;
+    --r-sm:8px; --r-md:16px; --r-lg:24px; --r-pill:9999px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-body);background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;padding:40px 32px 80px;max-width:820px;margin:0 auto;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+  .fade-up{opacity:0;animation:fadeUp .45s ease forwards;}
+  .fd-1{animation-delay:.05s}.fd-2{animation-delay:.10s}.fd-3{animation-delay:.15s}
+  .fd-4{animation-delay:.20s}.fd-5{animation-delay:.25s}
+
+  .hero{background:radial-gradient(ellipse at 60% 20%,rgba(232,41,76,0.16) 0%,transparent 65%),#0A0A0A;
+    border:1px solid var(--border);border-radius:var(--r-lg);padding:48px 40px 40px;
+    margin-bottom:24px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,0.015) 1px,transparent 1px);
+    background-size:24px 24px;pointer-events:none;}
+  .hero__badge{font-family:var(--font-mono);font-size:11px;font-weight:500;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--primary);
+    background:rgba(232,41,76,0.10);border:1px solid rgba(232,41,76,0.25);
+    padding:5px 14px;border-radius:var(--r-pill);display:inline-block;margin-bottom:20px;}
+  .hero__title{font-family:var(--font-display);font-size:clamp(28px,4vw,42px);
+    font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:10px;}
+  .hero__sub{font-size:15px;color:var(--text-2);line-height:1.6;}
+  .hero__meta{font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-top:20px;}
+
+  .sec-label{font-family:var(--font-mono);font-size:11px;font-weight:500;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--primary);
+    margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .sec-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+  .card{background:var(--bg-card);border:1px solid var(--border);
+    border-radius:var(--r-lg);padding:24px 28px;margin-bottom:14px;}
+  .card--accent{border-left:3px solid var(--primary);}
+  .card--dark{background:var(--bg-card-2);}
+  .card__label{font-family:var(--font-mono);font-size:10px;font-weight:500;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin-bottom:12px;}
+
+  .pillar-badge{display:inline-block;font-family:var(--font-mono);font-size:10px;
+    font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);
+    background:rgba(232,41,76,0.10);border:1px solid rgba(232,41,76,0.25);
+    padding:4px 12px;border-radius:var(--r-pill);margin-right:8px;margin-bottom:12px;}
+  .tag{font-family:var(--font-mono);font-size:10px;padding:3px 10px;
+    border-radius:var(--r-pill);font-weight:500;letter-spacing:.06em;display:inline-block;}
+  .tag-green{background:var(--green-bg);color:var(--green);border:1px solid rgba(34,197,94,0.3);}
+  .tag-amber{background:var(--amber-bg);color:var(--amber);border:1px solid rgba(245,158,11,0.3);}
+  .tag-red{background:var(--red-status-bg);color:var(--red-status);border:1px solid rgba(239,68,68,0.3);}
+
+  /* LINKEDIN POST CARD */
+  .post-card{background:var(--bg-card-2);border:1px solid var(--border-2);
+    border-radius:var(--r-lg);padding:32px;margin-bottom:14px;}
+  .post-hook{font-family:var(--font-display);font-size:18px;font-weight:800;
+    color:var(--primary);line-height:1.4;margin-bottom:20px;
+    padding-bottom:16px;border-bottom:1px solid rgba(232,41,76,0.2);}
+  .post-body{font-size:15px;line-height:1.9;color:var(--text);white-space:pre-wrap;}
+  .post-cta{font-weight:700;color:var(--text);}
+  .post-ps{color:var(--text-2);font-style:italic;}
+  .char-count{font-family:var(--font-mono);font-size:11px;color:var(--text-3);
+    margin-top:16px;padding-top:14px;border-top:1px solid var(--border);}
+
+  /* DIAGNOSTIC */
+  .diag-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .diag-item{background:var(--bg-card-2);border:1px solid var(--border);
+    border-radius:var(--r-md);padding:16px;}
+  .diag-score{font-family:var(--font-display);font-size:28px;font-weight:900;color:var(--green);}
+  .diag-label{font-family:var(--font-mono);font-size:10px;color:var(--text-3);
+    letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}
+  .diag-note{font-size:12px;color:var(--text-2);margin-top:6px;line-height:1.5;}
+
+  /* HOOKS ALTERNATE */
+  .hook-alt{padding:12px 0;border-bottom:1px solid var(--border);}
+  .hook-alt:last-child{border-bottom:none;}
+  .hook-num{font-family:var(--font-mono);font-size:10px;color:var(--text-3);
+    letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
+  .hook-text{font-size:14px;color:var(--text-2);line-height:1.6;}
+  .hook-selected{color:var(--text);background:rgba(232,41,76,0.05);
+    border-radius:var(--r-sm);padding:12px;margin:-12px;}
+
+  /* PINNED COMMENTS */
+  .comment-item{background:var(--bg-card-2);border:1px solid var(--border);
+    border-radius:var(--r-md);padding:16px;margin-bottom:10px;}
+  .comment-item:last-child{margin-bottom:0;}
+  .comment-type{font-family:var(--font-mono);font-size:10px;color:var(--primary);
+    letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
+  .comment-text{font-size:14px;line-height:1.7;color:var(--text-2);}
+
+  footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--border);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .footer__brand{font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--primary);}
+  .footer__meta{font-family:var(--font-mono);font-size:11px;color:var(--text-3);}
+  .mb-24{margin-bottom:24px;}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero fade-up fd-1">
+  <div class="hero__badge">CMO Daily Post</div>
+  <div class="hero__title">Friday 14 August 2026<br>LinkedIn Post · Ready for Approval</div>
+  <div class="hero__sub">Pillar: What the Numbers Are Telling You · Invisibility Diagnostic 4/4 · 1,455 characters</div>
+  <div class="hero__meta">Auto-generated · 07:00 UAE · /cmo-daily-post → /linkedin-caption-writer · Brand color: #E8294C (default)</div>
+</div>
+
+<!-- CONTENT SOURCE -->
+<div class="fade-up fd-2 mb-24">
+  <div class="sec-label">Content Source</div>
+  <div class="card">
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+      <span class="pillar-badge">What the Numbers Are Telling You</span>
+      <span class="tag tag-green">Educating</span>
+      <span class="tag" style="background:rgba(232,41,76,0.10);color:var(--primary);border:1px solid rgba(232,41,76,0.25);">Framework List</span>
+    </div>
+    <div style="font-size:14px;color:var(--text-2);line-height:1.7;">
+      Source: Content Calendar — Week of 2026-08-10, Friday row.<br>
+      CTA Direction: "Save this for your next board or bank conversation."<br>
+      Recycled from 8 Aug Content Debt Tracker item ("3 numbers P&amp;L hides" framework) per 10 Aug Content Calendar Report.<br>
+      Hook selected: Curiosity Gap — matched to calendar direction and ICP pain (owners using bank balance as primary business health indicator).
+    </div>
+  </div>
+</div>
+
+<!-- FULL POST -->
+<div class="fade-up fd-2 mb-24">
+  <div class="sec-label">Full Post · Copy-Ready</div>
+  <div class="post-card card--accent">
+    <div class="post-hook">There are three numbers your P&amp;L will never show you, and they are usually the ones deciding whether you make it through the year.</div>
+    <div class="post-body">We had a client in construction whose P&L looked fine every month. Profitable on paper, invoices going out, work coming in. But he kept running short on cash right when payroll and supplier payments landed together, and he could never explain why.
+
+The P&L wasn't wrong. It was just incomplete. It never showed him the three things actually controlling his cash position.
+
+I think this is the part most owners miss. A profit and loss statement tells you what you earned. It does not tell you when you will see that money, or what it really cost you to earn it.
+
+The first is receivables aging, not just what clients owe, but how long it has sat unpaid. Thirty days is a different business than ninety. The second is real margin after cost allocation, what is left once every project cost is actually charged against the invoice, not the headline margin. The third is cash conversion timing, the gap between paying suppliers and getting paid, which decides whether growth funds itself or drains you.
+
+Once we built these three into his monthly reporting, the surprises stopped. Not because the business changed. Because he could finally see what the numbers were telling him.
+
+At the end of the day, a bank balance tells you where you stand today. It cannot tell you why.
+
+<span class="post-cta">Save this for your next board or bank conversation.</span></div>
+    <div class="char-count">1,455 characters · 0 em dashes · 0 banned words · Variation B (Story-Flow) · Educating intent</div>
+  </div>
+</div>
+
+<!-- INVISIBILITY DIAGNOSTIC -->
+<div class="fade-up fd-3 mb-24">
+  <div class="sec-label">Invisibility Diagnostic · 4/4 PASS</div>
+  <div class="diag-grid">
+    <div class="diag-item">
+      <div class="diag-score">1/1</div>
+      <div class="diag-label">Voice</div>
+      <div class="diag-note">"I think" opener, "what the numbers are telling him" signature phrase, "at the end of the day" — sounds like a specific human.</div>
+    </div>
+    <div class="diag-item">
+      <div class="diag-score">1/1</div>
+      <div class="diag-label">POV</div>
+      <div class="diag-note">Clear position: a clean P&L can still hide the three numbers that decide survival.</div>
+    </div>
+    <div class="diag-item">
+      <div class="diag-score">1/1</div>
+      <div class="diag-label">Specificity</div>
+      <div class="diag-note">Construction client, thirty vs. ninety day receivables framing, cost-allocation detail, cash conversion timing gap.</div>
+    </div>
+    <div class="diag-item">
+      <div class="diag-score">1/1</div>
+      <div class="diag-label">Asking</div>
+      <div class="diag-note">Single CTA: "Save this for your next board or bank conversation." Exact calendar CTA Direction. No second ask.</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOOK OPTIONS -->
+<div class="fade-up fd-3 mb-24">
+  <div class="sec-label">Hook Options Generated</div>
+  <div class="card">
+    <div class="hook-alt">
+      <div class="hook-num">1 · Result Lead</div>
+      <div class="hook-text">A construction client of ours was profitable on paper and short on cash every single month. The numbers were hiding the difference.</div>
+    </div>
+    <div class="hook-alt">
+      <div class="hook-num">2 · Confession</div>
+      <div class="hook-text">I used to think a healthy bank balance meant a healthy business. I don't think that anymore.</div>
+    </div>
+    <div class="hook-alt">
+      <div class="hook-num">3 · Contrarian</div>
+      <div class="hook-text">Your P&L can say you made money and your bank account can still be wrong about how you're doing.</div>
+    </div>
+    <div class="hook-alt" style="background:rgba(232,41,76,0.05);border-radius:var(--r-sm);padding:12px;">
+      <div class="hook-num" style="color:var(--primary);">4 · Curiosity Gap · SELECTED</div>
+      <div class="hook-text" style="color:var(--text);font-weight:600;">There are three numbers your P&L will never show you, and they are usually the ones deciding whether you make it through the year.</div>
+    </div>
+    <div class="hook-alt">
+      <div class="hook-num">5 · Pattern Interrupt</div>
+      <div class="hook-text">Stop checking your bank balance to see how the business is doing. It is lying to you, quietly.</div>
+    </div>
+    <div style="font-size:12px;color:var(--text-3);margin-top:14px;font-family:var(--font-mono);">
+      Selection reason: ICP pain-match — "owners look at their bank balance to judge how the company is doing" (icp-mohaina-asira.md). Curiosity Gap hook names that exact blind spot before opening into the three-number framework. Apify LinkedIn analytics unavailable (12+ consecutive weeks).
+    </div>
+  </div>
+</div>
+
+<!-- PINNED COMMENTS -->
+<div class="fade-up fd-4 mb-24">
+  <div class="sec-label">3 Pinned Comment Options</div>
+  <div class="card">
+    <div class="comment-item">
+      <div class="comment-type">1 · Extend — adds a second layer</div>
+      <div class="comment-text">Worth adding: under UAE Corporate Tax, your taxable income calculation starts from your accounting profit. If the margin number feeding your P&L is wrong before cost allocation, that error carries straight into your CIT filing, not just your board deck.</div>
+    </div>
+    <div class="comment-item">
+      <div class="comment-type">2 · Humanise — behind the scenes</div>
+      <div class="comment-text">This one stayed with me because the owner wasn't careless with money. He was making real profit. He just couldn't see the timing gap until it hit him mid-month. That's not carelessness. That's a blind spot nobody had ever shown him.</div>
+    </div>
+    <div class="comment-item">
+      <div class="comment-type">3 · CTA Amplifier — reinforces the ask</div>
+      <div class="comment-text">If reading this made you realise you don't actually have these three numbers in front of you, that's usually the first sign it's worth a second set of eyes on your reporting. Book a 30-minute compliance review and we'll walk through where yours stand.</div>
+    </div>
+    <div style="margin-top:14px;padding:12px;background:var(--amber-bg);border:1px solid rgba(245,158,11,0.25);border-radius:var(--r-md);">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--amber);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">Flag — Heightened Sign-Off Required</div>
+      <div style="font-size:13px;color:var(--text-2);">Pinned Comment 1 references UAE Corporate Tax and the accounting-profit starting point for taxable income. Mohaina's explicit approval required before forwarding this comment to Rei.</div>
+    </div>
+  </div>
+</div>
+
+<!-- APPROVAL WORKFLOW -->
+<div class="fade-up fd-4 mb-24">
+  <div class="sec-label">Approval Workflow</div>
+  <div class="card card--accent">
+    <div class="card__label">Status: Pending Mohaina's Approval</div>
+    <div style="font-size:14px;color:var(--text-2);line-height:1.8;">
+      <span style="color:var(--text-3);">1.</span> Mohaina approves → <span style="color:var(--text);">confirm "approved" via any channel</span><br>
+      <span style="color:var(--text-3);">2.</span> Forward to Rei Nald Onella: <span style="color:var(--primary);">reinald.onella1@gmail.com</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Subject: <em>Post for Today — Ready to Publish · 14 August 2026</em><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Body: plain text post above + 3 pinned comments + recommended posting time<br>
+      <span style="color:var(--text-3);">3.</span> Recommended publish window: <span style="color:var(--text);">09:00 UAE (Friday slot)</span><br><br>
+      <span style="color:var(--red-status);">M365 Mail.Send is blocked (Day 44). Approval email and Rei handoff CANNOT be automated. Manual forward required.</span>
+    </div>
+  </div>
+</div>
+
+<!-- RUN LOG -->
+<div class="fade-up fd-5 mb-24">
+  <div class="sec-label">CMO Run Log</div>
+  <div class="card card--dark">
+    <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-2);line-height:2;">
+      Post generated: Friday 14 August 2026 · 07:00 UAE<br>
+      Hook: Curiosity Gap (calendar direction match + ICP pain-match, Apify unavailable)<br>
+      Variation: B (Story-Flow) · Intent: Educating<br>
+      Invisibility Diagnostic: 4/4 PASS · Character count: 1,455<br>
+      Em dashes: 0 · Banned words: 0<br>
+      Content calendar: Week of 2026-08-10, Friday row<br>
+      LinkedIn analytics: UNAVAILABLE (12+ consecutive weeks, no configured Apify pipeline)<br>
+      M365 email: BLOCKED — FORBIDDEN (Mail.Send not admin-consented, Day 44)<br>
+      Delivery: This Notion page + GitHub commit only
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <span class="footer__brand">BPOAS</span>
+    <span class="footer__meta" style="margin-left:8px;">CMO Daily Post · Auto-generated · Friday 14 August 2026 · 07:00 UAE</span>
+  </div>
+  <div class="footer__meta">Mohaina Asira · /cmo-daily-post · #E8294C</div>
+</footer>
+
+</body>
+</html>

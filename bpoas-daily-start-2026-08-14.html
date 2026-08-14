@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Friday 14 August 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Rethink+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary:#E8294C; --primary-dark:#C4203D; --primary-light:#F5607A;
+    --primary-rgb:232,41,76;
+    --bg:#0A0A0A; --bg-card:#111111; --bg-card-2:#181818; --bg-card-3:#1F1F1F;
+    --border:rgba(255,255,255,0.07); --border-2:rgba(255,255,255,0.13);
+    --text:#FFFFFF; --text-2:rgba(255,255,255,0.58); --text-3:rgba(255,255,255,0.28);
+    --green:#22C55E; --green-bg:rgba(34,197,94,0.10);
+    --amber:#F59E0B; --amber-bg:rgba(245,158,11,0.10);
+    --red-status:#EF4444; --red-status-bg:rgba(239,68,68,0.10);
+    --font-display:'Playfair Display',Georgia,serif;
+    --font-body:'Rethink Sans',system-ui,sans-serif;
+    --font-mono:'DM Mono',monospace;
+    --r-sm:8px; --r-md:16px; --r-lg:24px; --r-pill:9999px;
+    --shadow-card:0 4px 24px rgba(0,0,0,0.45);
+    --shadow-glow:0 0 40px rgba(232,41,76,0.22);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-body);background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;padding:40px 32px 80px;max-width:860px;margin:0 auto;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+  .fade-up{opacity:0;animation:fadeUp .45s ease forwards;}
+  .fd-1{animation-delay:.05s}.fd-2{animation-delay:.10s}.fd-3{animation-delay:.15s}
+  .fd-4{animation-delay:.20s}.fd-5{animation-delay:.25s}.fd-6{animation-delay:.30s}
+
+  /* HERO CARD */
+  .hero{background:radial-gradient(ellipse at 60% 10%,rgba(232,41,76,0.20) 0%,transparent 60%),#0A0A0A;
+    border:1px solid var(--border);border-radius:var(--r-lg);padding:52px 44px 44px;
+    margin-bottom:24px;position:relative;overflow:hidden;box-shadow:var(--shadow-glow);}
+  .hero::before{content:'';position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,0.015) 1px,transparent 1px);
+    background-size:24px 24px;pointer-events:none;}
+  .hero__day-badge{font-family:var(--font-mono);font-size:11px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--primary);
+    background:rgba(232,41,76,0.10);border:1px solid rgba(232,41,76,0.28);
+    padding:5px 16px;border-radius:var(--r-pill);display:inline-block;margin-bottom:22px;}
+  .hero__title{font-family:var(--font-display);font-size:clamp(32px,5vw,52px);
+    font-weight:900;letter-spacing:-.025em;line-height:1.1;margin-bottom:8px;}
+  .hero__subtitle{font-size:15px;color:var(--text-2);margin-bottom:32px;}
+
+  .hero__pulse{background:var(--bg-card-2);border:1px solid var(--border-2);
+    border-radius:var(--r-md);padding:20px 24px;display:grid;
+    grid-template-columns:1fr 1fr 1fr;gap:20px;}
+  .pulse-item__label{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--text-3);margin-bottom:6px;}
+  .pulse-item__value{font-family:var(--font-display);font-size:22px;font-weight:900;line-height:1;}
+  .pulse-item__sub{font-size:12px;color:var(--text-3);margin-top:4px;}
+  .pulse-on-track{color:var(--green);}
+  .pulse-at-risk{color:var(--amber);}
+  .pulse-below{color:var(--red-status);}
+  .pulse-na{color:var(--text-3);}
+  .hero__meta{font-family:var(--font-mono);font-size:11px;color:var(--text-3);margin-top:16px;}
+
+  .sec-label{font-family:var(--font-mono);font-size:11px;font-weight:500;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--primary);
+    margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .sec-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+  .card{background:var(--bg-card);border:1px solid var(--border);
+    border-radius:var(--r-lg);padding:24px 28px;margin-bottom:14px;}
+  .card--accent{border-left:3px solid var(--primary);}
+  .card--dark{background:var(--bg-card-2);}
+  .card__label{font-family:var(--font-mono);font-size:10px;font-weight:500;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin-bottom:10px;}
+  .card__title{font-family:var(--font-display);font-size:18px;font-weight:800;margin-bottom:8px;}
+  .card__body{font-size:14px;line-height:1.8;color:var(--text-2);}
+
+  /* TAGS */
+  .tag{font-family:var(--font-mono);font-size:10px;padding:3px 10px;
+    border-radius:var(--r-pill);font-weight:500;letter-spacing:.06em;display:inline-block;margin-right:6px;}
+  .tag-red{background:var(--red-status-bg);color:var(--red-status);border:1px solid rgba(239,68,68,0.3);}
+  .tag-amber{background:var(--amber-bg);color:var(--amber);border:1px solid rgba(245,158,11,0.3);}
+  .tag-green{background:var(--green-bg);color:var(--green);border:1px solid rgba(34,197,94,0.3);}
+  .tag-skip{background:rgba(255,255,255,0.05);color:var(--text-3);border:1px solid var(--border);}
+  .tag-primary{background:rgba(232,41,76,0.10);color:var(--primary);border:1px solid rgba(232,41,76,0.25);}
+
+  /* RUN LOG */
+  .run-row{display:grid;grid-template-columns:36px 1fr 100px 120px;
+    gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);}
+  .run-row:last-child{border-bottom:none;}
+  .run-step{font-family:var(--font-display);font-size:20px;font-weight:900;color:var(--primary);}
+  .run-name{font-size:14px;font-weight:600;color:var(--text);}
+  .run-file{font-family:var(--font-mono);font-size:10px;color:var(--text-3);margin-top:3px;}
+
+  /* FLAGS */
+  .flag-item{background:var(--bg-card-2);border:1px solid var(--border);
+    border-radius:var(--r-md);padding:16px;margin-bottom:10px;display:flex;gap:14px;}
+  .flag-item:last-child{margin-bottom:0;}
+  .flag-ico{font-size:20px;flex-shrink:0;line-height:1.3;}
+  .flag-cat{font-family:var(--font-mono);font-size:10px;color:var(--primary);
+    letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+  .flag-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+  .flag-why{font-size:13px;color:var(--text-2);margin-bottom:5px;line-height:1.5;}
+  .flag-next{font-size:13px;font-weight:600;color:var(--primary);}
+
+  /* QUICK LINKS */
+  .links-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .link-card{background:var(--bg-card-2);border:1px solid var(--border);
+    border-radius:var(--r-md);padding:16px;text-decoration:none;color:inherit;
+    transition:border-color .2s;}
+  .link-card:hover{border-color:rgba(232,41,76,0.4);}
+  .link-label{font-family:var(--font-mono);font-size:10px;color:var(--text-3);
+    letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+  .link-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;}
+  .link-file{font-family:var(--font-mono);font-size:11px;color:var(--primary);}
+
+  /* POST INLINE */
+  .post-inline{background:var(--bg-card-2);border:1px solid var(--border-2);
+    border-radius:var(--r-lg);padding:28px;}
+  .post-hook-inline{font-family:var(--font-display);font-size:16px;font-weight:800;
+    color:var(--primary);line-height:1.4;margin-bottom:16px;
+    padding-bottom:14px;border-bottom:1px solid rgba(232,41,76,0.2);}
+  .post-body-inline{font-size:14px;line-height:1.9;color:var(--text);white-space:pre-wrap;}
+  .post-cta{font-weight:700;}
+
+  footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--border);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .footer__brand{font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--primary);}
+  .footer__meta{font-family:var(--font-mono);font-size:11px;color:var(--text-3);}
+  .mb-24{margin-bottom:24px;}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO CARD ══ -->
+<div class="hero fade-up fd-1">
+  <div class="hero__day-badge">BPOAS Daily Start · Friday · Lean Run</div>
+  <div class="hero__title">Friday<br>14 August 2026</div>
+  <div class="hero__subtitle">Steps 1 + 4 · COO Brief + CMO Post · Steps 2, 3, 5 skipped (Monday only)</div>
+
+  <div class="hero__pulse">
+    <div>
+      <div class="pulse-item__label">AR Outstanding</div>
+      <div class="pulse-item__value pulse-at-risk">AED 101,687</div>
+      <div class="pulse-item__sub">17 overdue invoices · Zoho Books 13 Aug</div>
+    </div>
+    <div>
+      <div class="pulse-item__label">Monthly Target</div>
+      <div class="pulse-item__value pulse-na">Not Set</div>
+      <div class="pulse-item__sub">Add target to positioning doc to activate</div>
+    </div>
+    <div>
+      <div class="pulse-item__label">MTD Revenue</div>
+      <div class="pulse-item__value pulse-na">Mon Only</div>
+      <div class="pulse-item__sub">Last CFO run: Mon 11 Aug 2026</div>
+    </div>
+  </div>
+
+  <div class="hero__meta">Auto-generated · 07:00 UAE · Mohaina Asira · M.Asira@bposervicegroup.com</div>
+</div>
+
+<!-- ══ RUN LOG ══ -->
+<div class="fade-up fd-2 mb-24">
+  <div class="sec-label">Run Log</div>
+  <div class="card">
+    <div class="run-row">
+      <div class="run-step">1</div>
+      <div>
+        <div class="run-name">COO Morning Brief</div>
+        <div class="run-file">coo-brief-2026-08-14.html</div>
+      </div>
+      <div><span class="tag tag-green">Complete</span></div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);">M365 Calendar + Email</div>
+    </div>
+    <div class="run-row">
+      <div class="run-step" style="color:var(--text-3);">2</div>
+      <div>
+        <div class="run-name" style="color:var(--text-2);">CFO Weekly Revenue</div>
+        <div class="run-file">Runs Mondays only</div>
+      </div>
+      <div><span class="tag tag-skip">Skipped</span></div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);">Next: Mon 18 Aug</div>
+    </div>
+    <div class="run-row">
+      <div class="run-step" style="color:var(--text-3);">3</div>
+      <div>
+        <div class="run-name" style="color:var(--text-2);">CRO Weekly Prospects</div>
+        <div class="run-file">Runs Mondays only</div>
+      </div>
+      <div><span class="tag tag-skip">Skipped</span></div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);">Next: Mon 18 Aug</div>
+    </div>
+    <div class="run-row">
+      <div class="run-step">4</div>
+      <div>
+        <div class="run-name">CMO Daily Post</div>
+        <div class="run-file">cmo-post-2026-08-14.html · 4/4 PASS · 1,455 chars</div>
+      </div>
+      <div><span class="tag tag-amber">Pending Approval</span></div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);">Notion + GitHub</div>
+    </div>
+    <div class="run-row">
+      <div class="run-step" style="color:var(--text-3);">5</div>
+      <div>
+        <div class="run-name" style="color:var(--text-2);">Content Calendar</div>
+        <div class="run-file">Runs Mondays only</div>
+      </div>
+      <div><span class="tag tag-skip">Skipped</span></div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-3);">Next: Mon 18 Aug</div>
+    </div>
+    <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);
+      font-family:var(--font-mono);font-size:11px;color:var(--text-3);">
+      Delivery note: M365 Mail.Send BLOCKED (Day 44 — FORBIDDEN, Mail.Send not admin-consented).
+      Summary email to m.asira@bposervicegroup.com could not be sent. All output in Notion + GitHub only.
+    </div>
+  </div>
+</div>
+
+<!-- ══ FLAGS FOR MOHAINA ══ -->
+<div class="fade-up fd-3 mb-24">
+  <div class="sec-label">Flags for Mohaina · Sorted by Priority</div>
+  <div class="card" style="background:rgba(239,68,68,0.04);border-color:rgba(239,68,68,0.18);">
+
+    <div class="flag-item">
+      <div class="flag-ico">🔴</div>
+      <div>
+        <div class="flag-cat">Compliance · AML</div>
+        <div class="flag-title">UAE IEC Sanctions Update — 4 Entries Amended (Today)</div>
+        <div class="flag-why">UAE Executive Office for Combating Money Laundering issued an update to the ISIL/Daesh and AlQaida Sanctions Committee list today at 04:27 UAE. Cabinet Decision 74/2020 requires all Persons, including BPOAS as a DNFBP, to implement Targeted Financial Sanctions and report findings.</div>
+        <div class="flag-next">Action now: Screen all clients and counterparties against the updated list. Submit TFS report via IEC portal if any match is found.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-ico">🔴</div>
+      <div>
+        <div class="flag-cat">Compliance · MOHRE</div>
+        <div class="flag-title">Work Permit MB315778130AE — Missing Credentials</div>
+        <div class="flag-why">MOHRE notified at 02:14 UAE today that a staff member's work permit has missing documentation at the Ministry of Higher Education for degree recognition. Processing will lapse without action.</div>
+        <div class="flag-next">Action today: Upload required documents via MOHRE portal. Assign to Junaifa and confirm completion.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-ico">🔴</div>
+      <div>
+        <div class="flag-cat">Infrastructure · M365</div>
+        <div class="flag-title">Mail.Send FORBIDDEN — Day 44 — Routines Cannot Email You</div>
+        <div class="flag-why">Every COO Brief, CMO approval request, and summary email since late June has failed with FORBIDDEN (Mail.Send not admin-consented). Today's brief and post are reachable only via Notion and GitHub. This is the same issue flagged every single day since late June.</div>
+        <div class="flag-next">One Entra/Graph admin-consent grant (Mail.Send + Mail.ReadWrite, tenantId 052efaf8, clientId api://07c030f6) fixes this permanently.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-ico">🔴</div>
+      <div>
+        <div class="flag-cat">Compliance · Trade Licence</div>
+        <div class="flag-title">BPOAS Trade Licence #809563 — Day 20 of Lapse</div>
+        <div class="flag-why">Expired 25 Jul. WPS payroll has been blocked for all BPOAS staff since expiry. Day 20 of a growing compliance exposure.</div>
+        <div class="flag-next">Confirm Junaifa's DED eExchange renewal status today.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-ico">🔴</div>
+      <div>
+        <div class="flag-cat">Client · CT</div>
+        <div class="flag-title">PICPA NE CHAPTER FZE — CT Return Deadline Approaching</div>
+        <div class="flag-why">FTA sent a direct reminder to PICPA NE on 10 Aug (TRN 104324388800001). Deadline is fast approaching. Filing status is still unconfirmed as of this run.</div>
+        <div class="flag-next">Confirm CT return status with the team today. If not filed, escalate immediately.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-ico">🟡</div>
+      <div>
+        <div class="flag-cat">Cash · Client</div>
+        <div class="flag-title">GASCHEM FZCO — WPS August Update Requested from Mohaina Directly</div>
+        <div class="flag-why">Liliia Fatkhutdinova (GASCHEM) specifically asked Mohaina to update the WPS system and provide August payroll amount in yesterday's thread. This requires Mohaina's direct action, not delegation.</div>
+        <div class="flag-next">Review the amended list from XIX Consulting, then update WPS and send the August amount to GASCHEM today.</div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-ico">🟡</div>
+      <div>
+        <div class="flag-cat">Content · CMO</div>
+        <div class="flag-title">Today's LinkedIn Post — Pending Approval Before 08:15 UAE</div>
+        <div class="flag-why">Post scored 4/4, 1,455 characters, ready to publish. Pinned Comment 1 references UAE Corporate Tax — heightened sign-off rule applies. Cannot be forwarded to Rei Nald Onella without Mohaina's explicit approval. M365 is blocked, so approval must reach this routine via alternate channel.</div>
+        <div class="flag-next">Approve or revise, then manually forward to reinald.onella1@gmail.com. Recommended publish: 09:00 UAE.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ QUICK LINKS ══ -->
+<div class="fade-up fd-4 mb-24">
+  <div class="sec-label">Quick Links</div>
+  <div class="links-grid">
+    <div class="link-card">
+      <div class="link-label">Step 1</div>
+      <div class="link-name">COO Morning Brief</div>
+      <div class="link-file">coo-brief-2026-08-14.html</div>
+    </div>
+    <div class="link-card">
+      <div class="link-label">Step 4</div>
+      <div class="link-name">CMO Daily Post</div>
+      <div class="link-file">cmo-post-2026-08-14.html</div>
+    </div>
+    <div class="link-card" style="opacity:0.5;">
+      <div class="link-label">Step 2 · Monday Only</div>
+      <div class="link-name">CFO Weekly Revenue</div>
+      <div class="link-file">cfo-report-2026-08-11.html (last run)</div>
+    </div>
+    <div class="link-card" style="opacity:0.5;">
+      <div class="link-label">Step 3 · Monday Only</div>
+      <div class="link-name">CRO Weekly Prospects</div>
+      <div class="link-file">cro-prospects-2026-08-11.html (last run)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TODAY'S POST INLINE ══ -->
+<div class="fade-up fd-5 mb-24">
+  <div class="sec-label">Today's LinkedIn Post · Copy-Ready</div>
+  <div class="card card--accent">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+      <span class="tag tag-primary">What the Numbers Are Telling You</span>
+      <span class="tag tag-green">4/4 PASS</span>
+      <span class="tag tag-amber">Pending Approval</span>
+    </div>
+    <div class="post-inline">
+      <div class="post-hook-inline">There are three numbers your P&amp;L will never show you, and they are usually the ones deciding whether you make it through the year.</div>
+      <div class="post-body-inline">We had a client in construction whose P&L looked fine every month. Profitable on paper, invoices going out, work coming in. But he kept running short on cash right when payroll and supplier payments landed together, and he could never explain why.
+
+The P&L wasn't wrong. It was just incomplete. It never showed him the three things actually controlling his cash position.
+
+I think this is the part most owners miss. A profit and loss statement tells you what you earned. It does not tell you when you will see that money, or what it really cost you to earn it.
+
+The first is receivables aging, not just what clients owe, but how long it has sat unpaid. Thirty days is a different business than ninety. The second is real margin after cost allocation, what is left once every project cost is actually charged against the invoice, not the headline margin. The third is cash conversion timing, the gap between paying suppliers and getting paid, which decides whether growth funds itself or drains you.
+
+Once we built these three into his monthly reporting, the surprises stopped. Not because the business changed. Because he could finally see what the numbers were telling him.
+
+At the end of the day, a bank balance tells you where you stand today. It cannot tell you why.
+
+<span class="post-cta">Save this for your next board or bank conversation.</span></div>
+    </div>
+    <div style="margin-top:16px;font-family:var(--font-mono);font-size:11px;color:var(--text-3);">
+      1,455 chars · 0 em dashes · Invisibility Diagnostic 4/4 · Pinned Comment 1: UAE CT reference — heightened sign-off applies
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <span class="footer__brand">BPOAS</span>
+    <span class="footer__meta" style="margin-left:10px;">Daily Start · Auto-generated · Friday 14 August 2026 · 07:00 UAE</span>
+  </div>
+  <div class="footer__meta">Mohaina Asira · M.Asira@bposervicegroup.com · #E8294C</div>
+</footer>
+
+</body>
+</html>
