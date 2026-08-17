@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · 17 Aug 2026 · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F5607A;
+    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:15px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-grn{background:#e7f6ee;color:var(--good);} .t-amb{background:#fdf1de;color:var(--warn);} .t-red{background:#fdecec;color:var(--bad);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
+  .note b{color:var(--primary-light);}
+  .lipost{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:20px;}
+  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;}
+  .lihead .nm{font-weight:700;font-size:15px;} .lihead .mt{font-size:12px;color:var(--gray-text);}
+  .lipost .post{font-size:15px;line-height:1.6;white-space:pre-line;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  .chip{font-size:12px;font-weight:600;background:var(--gray-light);color:var(--gray-text);padding:5px 11px;border-radius:var(--pill);}
+  .score{display:inline-flex;align-items:center;gap:8px;background:#e7f6ee;color:var(--good);font-weight:700;font-size:13px;padding:6px 13px;border-radius:var(--pill);}
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="standard">
+  <div class="doc">
+    <div class="ohead"><div class="k">CMO · Daily post</div><h1>Today's post, in Mohaina's voice</h1><div class="d">Monday 17 August 2026 · Pillar: Compliance Without the Panic · scored and scrubbed</div></div>
+
+    <div class="sec">Hooks, VAT return checklist</div>
+    <div class="card">
+      <div class="row">1. Result Lead — "11 days until your VAT return is due."</div>
+      <div class="row">2. Confession — "We still catch VAT errors in returns clients call clean."</div>
+      <div class="row">3. Contrarian — "On time and correct are not the same thing."<span class="tagi t-grn">chosen</span></div>
+      <div class="row">4. Curiosity Gap — "There's one VAT return mistake we catch every single time."</div>
+      <div class="row">5. Pattern Interrupt — "Stop reviewing your VAT return the night before it's due."</div>
+    </div>
+    <div class="card"><h4>Why this hook</h4><div>The Contrarian hook was auto-selected. LinkedIn analytics were unavailable this run (Apify scraper has returned no data for 11+ consecutive weeks per the 14 Aug EOW Review), so selection was made on ICP fit: the ICP is "terrified of fines but don't have the internal expertise to know if they're actually compliant," and this hook attacks the false comfort of "we filed on time" directly, which is that exact gap.</div></div>
+
+    <div class="lipost">
+      <div class="lihead"><div class="av">MA</div><div><div class="nm">Mohaina Asira · 1st</div><div class="mt">Managing Partner, BPOAS · now</div></div></div>
+      <div class="post">On time and correct are not the same thing.
+
+11 days until your VAT return is due. Here's the checklist we run before any client's return goes to the FTA portal.
+
+1. Reconcile the VAT account to the general ledger. If the two don't match, don't file yet.
+2. Check every input tax claim against the actual invoice, not a summary sheet.
+3. Confirm zero-rated and exempt supplies are coded correctly. Mixing these up is the error we catch most.
+4. Match the sales register to actual bank credits for the period.
+5. Review credit notes issued this quarter. They belong in the same period as the original invoice.
+6. Run the reverse charge entries separately. The FTA reads these as two transactions, not one.
+7. Second eyes on the return before it's submitted. Whoever prepared it should not be the one who signs off.
+8. Screenshot the FTA portal confirmation. Keep it in your working file, not just your inbox.
+
+Once it's on the FTA portal, you cannot change it again. Miss one of these and the FTA doesn't read it as a correction. It reads as a penalty, then it follows you into next year's CIT filing.
+
+Late filing is AED 1,000 the first time, AED 2,000 if it happens again. Late payment adds 2% immediately, then 4% a month after that.
+
+We think like owners. If a client loses a dirham, it's something that also comes from our pocket too.
+
+P.S. Book a 30-minute compliance review before the 28th. We'll catch what the checklist won't.</div>
+      <div class="chips"><span class="chip">1,434 chars</span><span class="chip">Hook: Contrarian</span><span class="chip">Variation A · Framework List</span><span class="chip">No em dashes</span></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card"><h4>Publish check</h4>
+        <div class="row">Stops the scroll<span class="tagi t-grn">check</span></div>
+        <div class="row">Matches Mohaina's Voice DNA<span class="tagi t-grn">check</span></div>
+        <div class="row">One clear ask<span class="tagi t-grn">check</span></div>
+        <div class="row">Zero banned words / em dashes<span class="tagi t-grn">check</span></div>
+      </div>
+      <div class="card"><h4>Regulatory sign-off flag</h4>
+        <div class="row">Cites AED 1,000 / 2,000 / 2% / 4% FTA VAT penalty figures<span class="tagi t-amb">review</span></div>
+        <div>This post references specific UAE law and penalty figures. Per the routine's flag rule, it requires Mohaina's explicit approval before release, regardless of diagnostic score.</div>
+      </div>
+    </div>
+
+    <div class="sec">Pinned comment options</div>
+    <div class="card">
+      <div class="row">Extend — "One more thing on point 6: reverse charge is where we catch the most disputes with clients running their own software. The system nets it into one line. The FTA wants it broken into supply and tax separately."</div>
+      <div class="row">Humanise — "I still open every VAT file myself before it goes out. I've seen what one missed line costs a client. I'd rather catch it than explain it later."</div>
+      <div class="row">CTA Amplifier — "If you're not sure your last VAT return would survive this checklist, that's exactly what the 30-minute review is for. No pitch, the file's just open on the call."</div>
+    </div>
+
+    <div style="text-align:center;margin-top:8px"><span class="score">Invisibility Diagnostic: 4 / 4</span></div>
+
+    <div class="note">Recommended publish time: <b>08:30 UAE</b>, Monday framework-post window. Status: drafted, held for Mohaina's approval per the regulatory sign-off flag above. Nothing here has been sent or published.</div>
+  </div>
+  <footer>The brain thinks. The team works. You approve. · <b>BPOAS · CMO Daily Post</b></footer>
+</body>
+</html>
