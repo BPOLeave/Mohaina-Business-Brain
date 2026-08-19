@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief · 19 August 2026 · Purely Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F5607A;
+    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .lead{font-size:16px;line-height:1.55;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;font-size:14px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--gray-text);font-size:13px;width:74px;flex-shrink:0;padding-top:1px;}
+  .row .txt{flex:1;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-red{background:#fdecec;color:var(--bad);} .t-amb{background:#fdf1de;color:var(--warn);}
+  .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-grn{background:#e7f6ee;color:var(--good);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);} .stat .n{font-size:28px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .delta{font-size:13px;font-weight:700;margin-top:2px;} .up{color:var(--good);} .down{color:var(--bad);} .flat{color:var(--warn);}
+  .flag-card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--bad);}
+  .flag-card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--bad);margin-bottom:12px;}
+  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
+  .note b{color:var(--primary-light);}
+  .pill-status{display:inline-block;font-size:11px;font-weight:700;padding:2px 10px;border-radius:var(--pill);margin-left:8px;}
+  .ps-red{background:#fdecec;color:var(--bad);} .ps-amb{background:#fdf1de;color:var(--warn);} .ps-grn{background:#e7f6ee;color:var(--good);}
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="standard">
+<div class="doc">
+
+  <div class="ohead">
+    <div class="k">COO · Morning Brief</div>
+    <h1>Good morning, Mohaina</h1>
+    <div class="d">Wednesday, 19 August 2026 · ran at 07:00 UAE · Wednesday lean run (Steps 1 + 4)</div>
+  </div>
+
+  <div class="card">
+    <h4>Today, in one line</h4>
+    <div class="lead">The FTA emailed you directly about a CT return filing. One compliance action this morning clears the biggest risk on the board right now.</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Calendar · 1 event</h4>
+      <div class="row">
+        <span class="when">16:00</span>
+        <span class="txt">FIAT Options Screen · personal trading task · no meeting link</span>
+        <span class="tagi t-grey">personal</span>
+      </div>
+      <div class="row">
+        <span class="when">all day</span>
+        <span class="txt">No client meetings scheduled today</span>
+        <span class="tagi t-grn">clear</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>Inbox · 5 need you</h4>
+      <div class="row">
+        <span class="txt">FTA (Ali.Kuwair@tax.gov.ae) · Official CT Return filing reminder · deadline approaching</span>
+        <span class="tagi t-red">act now</span>
+      </div>
+      <div class="row">
+        <span class="txt">Brilliant Telecom (billing@brilliantholdings.com) · Signed audit ready · chasing TRC certificate · paid April</span>
+        <span class="tagi t-red">reply</span>
+      </div>
+      <div class="row">
+        <span class="txt">Kora Corporate Services (joelle@korauae.com) · Sent Trade License + VAT cert for invoicing · EL progressing</span>
+        <span class="tagi t-amb">decide</span>
+      </div>
+      <div class="row">
+        <span class="txt">SOA - MENASTAR (r.ramos@bposervicegroup.com) · Statement of accounts query · Lufthansa accountant</span>
+        <span class="tagi t-amb">review</span>
+      </div>
+      <div class="row">
+        <span class="txt">AML Dubai (info@amldubai.com) · AML Regulations guide for TCSPs in UAE · relevant to pending H2 review</span>
+        <span class="tagi t-grey">fyi</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">Tasks · carry-forward from 17 Aug brief</div>
+
+  <div class="flag-card">
+    <h4>Compliance · CT · AML · Flags for Mohaina</h4>
+    <div class="row">
+      <span class="txt"><strong>PICPA NE CHAPTER FZE CT Return</strong> · FTA emailed direct 13 Aug · today is Day 6 · new official reminder in inbox · deadline imminent</span>
+      <span class="tagi t-red">critical</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>Brilliant Telecom LLC partner confirmation letters</strong> · 34 days past 15 Jul deadline · AND TRC now requested · signed audit in hand · they paid in April</span>
+      <span class="tagi t-red">critical</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>The Concept Lab / Mr. George EL</strong> · 57 days stalled · CIT 30 Sep deadline in 42 days · approve a call or close today</span>
+      <span class="tagi t-red">critical</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>GL Middle East / Nandhu main EL (3 entities)</strong> · 58 days stalled · approve a call or close today</span>
+      <span class="tagi t-red">critical</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>Amazon MES · Zoho Chart of Accounts urgent</strong> · repeat chase overnight · still unresolved · blocking client's AMZ Marine UOM setup</span>
+      <span class="tagi t-red">reply</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>AML/CFT H2 2026 Programme Review</strong> · Day 20 unscheduled · goAML/DNFBP alert active · schedule it today</span>
+      <span class="tagi t-amb">schedule</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>MemberCheck AML deactivation notice</strong> · from Zappit Software · no owner assigned · triage today</span>
+      <span class="tagi t-amb">triage</span>
+    </div>
+  </div>
+
+  <div class="flag-card" style="border-left-color:var(--warn);">
+    <h4>Finance · AR Collection</h4>
+    <div class="row">
+      <span class="txt"><strong>Richemont (Dubai) FZE</strong> · INV-000108 AED 40,976.25 (19 days overdue) + INV-000086 AED 17,561.25 (184 days overdue) · total ~AED 58,537.50</span>
+      <span class="tagi t-red">escalate</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>Amadeus IT FZCO</strong> · 4 invoices ~AED 22,050 · oldest 278 days overdue · collections call this week</span>
+      <span class="tagi t-amb">call</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>Total outstanding AR</strong> · AED 101,687.50 across 17 invoices · carry-forward from 17 Aug · flat since 6 Aug</span>
+      <span class="tagi t-amb">watch</span>
+    </div>
+  </div>
+
+  <div class="flag-card" style="border-left-color:#666;">
+    <h4>Operational · Raihana's Queue</h4>
+    <div class="row">
+      <span class="txt"><strong>Raihana Weekly Pipeline Status Report</strong> · 33 days overdue (due 17 Jul) · blocking 19 leads + 80 DM drafts · Priority 1 still open</span>
+      <span class="tagi t-red">overdue</span>
+    </div>
+    <div class="row">
+      <span class="txt">Outreach priority today: Brilliant Telecom urgent chase · MMG Art Production EL signature · Annaka deregistration call · Middletel + Montfort follow-ups</span>
+      <span class="tagi t-grey">raihana</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>M365 Mail.Send blocked · Day 49</strong> · One Entra admin-consent grant fixes this permanently · self-delivery cannot be restored without it</span>
+      <span class="tagi t-red">infra</span>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Content · Wednesday slot</h4>
+      <div class="row">
+        <span class="txt">Post generated: "Tech & Automation · Soft-Sell Framework · eInvoicing ASP deadline" · 1,405 chars · 4/4 Invisibility Diagnostic PASS</span>
+        <span class="tagi t-amb">pending approval</span>
+      </div>
+      <div class="row">
+        <span class="txt">Recommended publish: 08:30 UAE · Forward to Rei Nald (reinald.onella1@gmail.com) ONLY after Mohaina approves</span>
+        <span class="tagi t-grey">awaiting</span>
+      </div>
+    </div>
+
+    <div class="stat">
+      <div class="l">Outstanding AR · carry-forward 17 Aug</div>
+      <div class="n">AED 101,687</div>
+      <div class="delta flat">Flat since 6 Aug · 17 overdue invoices</div>
+    </div>
+  </div>
+
+  <div class="note">One thing that moves the needle today: <b>Respond to the FTA's official CT Return reminder and confirm PICPA NE CHAPTER FZE filing status.</b> Day 6 since they emailed direct. A formal government reminder in the inbox this morning makes this the top action before anything else. The engagement letters (Concept Lab, GL Middle East) come right after.</div>
+
+  <div class="sec">Skipped steps · Wednesday lean run</div>
+  <div class="card" style="border-left-color:var(--gray-text);">
+    <h4>Run Log</h4>
+    <div class="row"><span class="txt">Step 1 · COO Morning Brief</span><span class="tagi t-grn">complete</span></div>
+    <div class="row"><span class="txt">Step 2 · CFO Weekly Revenue</span><span class="tagi t-grey">skipped · Monday only</span></div>
+    <div class="row"><span class="txt">Step 3 · CRO Weekly Prospects</span><span class="tagi t-grey">skipped · Monday only</span></div>
+    <div class="row"><span class="txt">Step 4 · CMO Daily Post (eInvoicing / Tech & Automation)</span><span class="tagi t-grn">complete · 07:00 UAE</span></div>
+    <div class="row"><span class="txt">Step 5 · Content Calendar</span><span class="tagi t-grey">skipped · Monday only</span></div>
+  </div>
+
+  <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  window.addEventListener('load',function(){
+    if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+    gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+    gsap.from('.card,.stat,.flag-card,.note',{y:20,opacity:0,duration:.55,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+  });
+</script>
+</body>
+</html>

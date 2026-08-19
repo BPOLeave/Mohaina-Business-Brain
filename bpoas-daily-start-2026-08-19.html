@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · Wednesday 19 August 2026 · Purely Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F5607A;
+    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:860px;margin:0 auto;padding:34px 22px 70px;}
+  .ohead{border-radius:var(--r-md);padding:28px 30px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.09);top:-130px;right:-70px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(26px,4.5vw,36px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:28px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .lead{font-size:16px;line-height:1.55;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;font-size:14px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .row .txt{flex:1;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-red{background:#fdecec;color:var(--bad);} .t-amb{background:#fdf1de;color:var(--warn);}
+  .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-grn{background:#e7f6ee;color:var(--good);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--gray-text);margin-bottom:4px;}
+  .stat .n{font-size:26px;font-weight:800;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .delta{font-size:13px;font-weight:600;margin-top:4px;} .up{color:var(--good);} .down{color:var(--bad);} .flat{color:var(--warn);}
+  .flag-card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;}
+  .flag-card.crit{border-left:4px solid var(--bad);}
+  .flag-card.warn{border-left:4px solid var(--warn);}
+  .flag-card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
+  .flag-card.crit h4{color:var(--bad);}
+  .flag-card.warn h4{color:var(--warn);}
+  .hero{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:22px 24px;margin-bottom:22px;border-top:4px solid var(--primary);}
+  .hero h3{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:16px;}
+  .revenue-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:6px;}
+  .rev-item .rl{font-size:12px;color:var(--gray-text);} .rev-item .rv{font-size:20px;font-weight:800;margin-top:2px;}
+  .status-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:var(--pill);font-weight:700;font-size:13px;margin-top:10px;}
+  .sb-warn{background:#fdf1de;color:var(--warn);}
+  .lipost{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:20px;margin-bottom:14px;}
+  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .av{width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;}
+  .lihead .nm{font-weight:700;font-size:15px;} .lihead .mt{font-size:12px;color:var(--gray-text);}
+  .lipost .post{font-size:14px;line-height:1.65;white-space:pre-line;}
+  .lipost .post strong{font-weight:700;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .chip{font-size:11px;font-weight:600;background:var(--gray-light);color:var(--gray-text);padding:4px 10px;border-radius:var(--pill);}
+  .score{display:inline-flex;align-items:center;gap:8px;background:#e7f6ee;color:var(--good);font-weight:700;font-size:13px;padding:7px 14px;border-radius:var(--pill);}
+  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:20px 24px;font-size:15px;margin-top:8px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
+  .note b{color:var(--primary-light);}
+  .links-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:14px;}
+  .link-card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:14px 16px;text-decoration:none;color:var(--ink);transition:border-color .2s;}
+  .link-card:hover{border-color:var(--primary);}
+  .link-card .lk{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);margin-bottom:4px;}
+  .link-card .lt{font-size:14px;font-weight:600;}
+  .approval-box{background:#fffbf0;border:1px solid #f5d76e;border-radius:var(--r-md);padding:14px 18px;margin-bottom:14px;}
+  .approval-box p{font-size:14px;color:#8a6a00;line-height:1.55;}
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid2,.grid3,.revenue-grid,.links-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- HERO HEADER -->
+  <div class="ohead">
+    <div class="k">BPOAS Daily Start · AI Executive Routine</div>
+    <h1>Wednesday, 19 August 2026</h1>
+    <div class="d">Lean run · Steps 1 + 4 · Generated 07:00 UAE · Mohaina Asira · BPOAS</div>
+  </div>
+
+  <!-- HERO CARD: REVENUE PULSE -->
+  <div class="hero">
+    <h3>Revenue Pulse · First number of the morning</h3>
+    <div class="revenue-grid">
+      <div class="rev-item">
+        <div class="rl">Month-to-date received</div>
+        <div class="rv" style="color:var(--warn);">AED 7,350</div>
+        <div style="font-size:12px;color:var(--gray-text);margin-top:2px;">MCM Products (13 Aug)</div>
+      </div>
+      <div class="rev-item">
+        <div class="rl">Outstanding AR</div>
+        <div class="rv" style="color:var(--bad);">AED 101,687</div>
+        <div style="font-size:12px;color:var(--gray-text);margin-top:2px;">17 overdue invoices</div>
+      </div>
+      <div class="rev-item">
+        <div class="rl">Monthly target</div>
+        <div class="rv" style="color:var(--gray-text);">Not set</div>
+        <div style="font-size:12px;color:var(--gray-text);margin-top:2px;">Add to positioning doc</div>
+      </div>
+      <div class="rev-item">
+        <div class="rl">Days left in August</div>
+        <div class="rv" style="color:var(--ink);">12</div>
+        <div style="font-size:12px;color:var(--gray-text);margin-top:2px;">Ends 31 August</div>
+      </div>
+    </div>
+    <div class="status-badge sb-warn">Revenue: At Risk · AR flat since 6 Aug · Richemont + Amadeus collections urgent</div>
+    <div style="font-size:12px;color:var(--gray-text);margin-top:8px;">Last CFO data: Monday 17 August 2026 · CFO brief runs Mondays only · next update Monday 25 August</div>
+  </div>
+
+  <!-- FLAGS FOR MOHAINA -->
+  <div class="sec">Flags for Mohaina · Priority order: Compliance · Cash · Client · BD</div>
+
+  <div class="flag-card crit">
+    <h4>Compliance · FTA · CT</h4>
+    <div class="row">
+      <span class="txt"><strong>1. FTA Official CT Reminder in inbox</strong> · from Ali.Kuwair@tax.gov.ae · "Submission of Corporate Tax Return" · deadline fast approaching · received 18 Aug · <strong>Next step: Open the email, confirm which TRN and entity, action today.</strong></span>
+      <span class="tagi t-red">act first</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>2. PICPA NE CHAPTER FZE CT Return</strong> · Day 6 since FTA emailed direct (13 Aug) · TRN 104324388800001 · still no status update logged · <strong>Next step: Confirm filing status this morning before anything else.</strong></span>
+      <span class="tagi t-red">day 6</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>3. Brilliant Telecom LLC</strong> · 34 days past the 15 Jul partner confirmation deadline · AND billing@brilliantholdings.com emailed: signed audit in hand, chasing TRC certificate they paid for in April · <strong>Next step: Respond to TRC request + escalate partner confirmation letters today.</strong></span>
+      <span class="tagi t-red">client waiting</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>4. Concept Lab / Mr. George EL</strong> · 57 days stalled · CIT 30 Sep deadline in 42 days · <strong>Next step: Approve a call OR close this today. No more carries.</strong></span>
+      <span class="tagi t-red">57 days</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>5. GL Middle East / Nandhu EL (3 entities)</strong> · 58 days stalled · <strong>Next step: Approve a call OR close this today.</strong></span>
+      <span class="tagi t-red">58 days</span>
+    </div>
+  </div>
+
+  <div class="flag-card warn">
+    <h4>AML · Operational</h4>
+    <div class="row">
+      <span class="txt"><strong>6. AML/CFT H2 2026 Programme Review</strong> · Day 20 unscheduled · goAML/DNFBP alert active · <strong>Next step: Schedule a date this week.</strong></span>
+      <span class="tagi t-amb">day 20</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>7. MemberCheck AML deactivation</strong> · Zappit Software notice · no owner assigned · <strong>Next step: Triage today, assign owner.</strong></span>
+      <span class="tagi t-amb">triage</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>8. Amazon MES · Zoho Chart of Accounts</strong> · repeat overnight chase still unresolved · blocking AMZ Marine UOM creation · <strong>Next step: Reply today.</strong></span>
+      <span class="tagi t-amb">client</span>
+    </div>
+  </div>
+
+  <div class="flag-card warn">
+    <h4>Cash · AR Collection</h4>
+    <div class="row">
+      <span class="txt"><strong>9. Richemont (Dubai) FZE</strong> · INV-000108 AED 40,976.25 (19 days overdue) + INV-000086 AED 17,561.25 (184 days overdue) · combined ~AED 58,537.50 · 57.6% of total AR · <strong>Next step: Payment reminder on INV-000108, escalation call (not email) on INV-000086.</strong></span>
+      <span class="tagi t-red">184 days</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>10. Amadeus IT FZCO</strong> · 4 invoices ~AED 22,050 · oldest two 248 and 278 days overdue · <strong>Next step: Collections call this week.</strong></span>
+      <span class="tagi t-amb">278 days</span>
+    </div>
+  </div>
+
+  <div class="flag-card" style="border-left:4px solid #666;">
+    <h4 style="color:#444;">BD · Infrastructure</h4>
+    <div class="row">
+      <span class="txt"><strong>11. Raihana Pipeline Status Report</strong> · 33 days overdue · blocking 19 leads + 80 DM drafts · Priority 1 still open as of 17 Aug brief</span>
+      <span class="tagi t-red">33 days</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>12. M365 Mail.Send blocked · Day 49</strong> · One Entra admin-consent grant (Mail.Send, Mail.ReadWrite) fixes every blocked routine permanently. This is why approval emails, summary emails, and the CMO approval workflow cannot reach Mohaina automatically.</span>
+      <span class="tagi t-grey">infra fix needed</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>13. Content delivery to Rei Nald still blocked</strong> · 15+ approved-quality posts in backlog · 6+ weeks without a published post · delivery-channel problem, not content problem</span>
+      <span class="tagi t-amb">6 weeks</span>
+    </div>
+  </div>
+
+  <!-- RUN LOG -->
+  <div class="sec">Run Log</div>
+  <div class="card">
+    <h4>Wednesday 19 August 2026 · Lean Run</h4>
+    <div class="row"><span class="txt"><strong>Step 1 · COO Morning Brief</strong> · coo-brief-2026-08-19.html</span><span class="tagi t-grn">complete</span></div>
+    <div class="row"><span class="txt"><strong>Step 2 · CFO Weekly Revenue</strong></span><span class="tagi t-grey">skipped · Monday only</span></div>
+    <div class="row"><span class="txt"><strong>Step 3 · CRO Weekly Prospects</strong></span><span class="tagi t-grey">skipped · Monday only</span></div>
+    <div class="row"><span class="txt"><strong>Step 4 · CMO Daily Post</strong> · "Tech &amp; Automation / eInvoicing ASP deadline" · cmo-post-2026-08-19.html · 4/4 Diagnostic PASS · 1,405 chars</span><span class="tagi t-grn">complete · 07:00</span></div>
+    <div class="row"><span class="txt"><strong>Step 5 · Content Calendar</strong></span><span class="tagi t-grey">skipped · Monday only</span></div>
+    <div class="row"><span class="txt"><strong>M365 email · Summary to m.asira@bposervicegroup.com</strong> · attempted · returned FORBIDDEN (Mail.Send not admin-consented, Day 49) · delivered via Notion + GitHub only</span><span class="tagi t-red">failed · day 49</span></div>
+  </div>
+
+  <!-- TODAY'S LINKEDIN POST (inline) -->
+  <div class="sec">Today's LinkedIn Post · Copy-Ready</div>
+
+  <div class="approval-box">
+    <p><strong>Approval required</strong> · Post cites Ministerial Decision No. 244 of 2025 and the AED 50 million revenue threshold. Review below, then reply "approved" via WhatsApp, Teams, or Notion before forwarding to Rei.</p>
+  </div>
+
+  <div class="lipost">
+    <div class="lihead">
+      <div class="av">MA</div>
+      <div>
+        <div class="nm">Mohaina Asira · 1st</div>
+        <div class="mt">Managing Partner, BPOAS · now · Wednesday 19 August 2026</div>
+      </div>
+    </div>
+    <div class="post"><strong>The eInvoicing date everyone's rushing to beat isn't the one that applies to most UAE SMEs.</strong>
+
+We've had a few conversations this month with owners convinced they're already behind. The Ministry of Finance moved the eInvoicing service provider deadline to 30 October 2026, and everyone quoting that date is talking about businesses doing AED 50 million or more a year. If that's not your revenue, that date isn't yours yet.
+
+Here's what actually is yours. The mandate itself goes live 1 January 2027 for those larger businesses first. Smaller UAE SMEs are expected to follow around mid 2027. Most owners we talk to are already anxious about FTA penalties without knowing if they're even compliant, and confusing which date applies to them only adds to that.
+
+I think the real risk for most owners isn't missing an October date that was never theirs. It's waking up next year with a live mandate and a system that was never built to talk to the FTA portal. Zoho Books and Odoo both need proper setup time, a clean chart of accounts, correct invoice formatting, and integration testing. That's not something you do the week the mandate lands.
+
+We're already doing this groundwork with a few clients now, not because their deadline is close, but because being ready before it's urgent costs less than being ready after.
+
+DM me eInvoicing and I'll walk you through where your business actually sits on this timeline.</div>
+    <div class="chips">
+      <span class="chip">1,405 chars</span>
+      <span class="chip">Hook: Curiosity Gap</span>
+      <span class="chip">No em dashes</span>
+      <span class="chip">Pillar: Tech &amp; Automation</span>
+      <span class="chip">Intent: Soft Selling</span>
+    </div>
+    <div style="margin-top:12px;"><span class="score">Invisibility Diagnostic: 4 / 4 PASS</span></div>
+  </div>
+
+  <div class="card">
+    <h4>3 Pinned Comments (post in sequence after publishing)</h4>
+    <div class="row">
+      <span class="txt"><strong>Extend:</strong> For anyone who wants the exact mechanics: the ASP appointment deadline moved under an amendment to Ministerial Decision No. 244 of 2025, tied to the AED 50 million revenue threshold. Full mandatory go-live for that first phase is 1 January 2027. If your business sits under that threshold, you're not exempt, you're just later in the rollout, and later is exactly when system setup should start, not when the deadline lands.</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>Humanise:</strong> I think what surprises me most in these conversations isn't that owners are behind. It's how much energy goes into worrying about the wrong date instead of just asking someone who tracks this daily. A five-minute question saves weeks of second-guessing.</span>
+    </div>
+    <div class="row">
+      <span class="txt"><strong>CTA Amplifier:</strong> If you're not sure whether the October date is yours or the 2027 one is, that's exactly what a five-minute DM answers. DM me eInvoicing and I'll tell you straight where your business sits, no guessing.</span>
+    </div>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="sec">Quick Links · Today's Output Files</div>
+  <div class="links-grid">
+    <div class="link-card">
+      <div class="lk">Step 1 · COO</div>
+      <div class="lt">coo-brief-2026-08-19.html</div>
+    </div>
+    <div class="link-card">
+      <div class="lk">Step 4 · CMO</div>
+      <div class="lt">cmo-post-2026-08-19.html</div>
+    </div>
+    <div class="link-card">
+      <div class="lk">Notion · COO</div>
+      <div class="lt">Daily Briefs · BPOAS Team Hub</div>
+    </div>
+    <div class="link-card">
+      <div class="lk">Notion · CMO Post</div>
+      <div class="lt">CMO Daily Post · Wed 19 Aug 2026</div>
+    </div>
+    <div class="link-card">
+      <div class="lk">Content Calendar</div>
+      <div class="lt">Week of 2026-08-17 (Mon build)</div>
+    </div>
+  </div>
+
+  <div class="note">One action before anything else: <b>Open the FTA email from Ali.Kuwair@tax.gov.ae and confirm the PICPA NE CHAPTER FZE CT return filing status.</b> Day 6 since direct FTA contact, now a formal government reminder is in the inbox. Do this first, then decide on the Concept Lab and GL Middle East ELs. The FTA does not follow up twice without meaning it.</div>
+
+  <footer>BPOAS Daily Start · Wednesday 19 August 2026 · Lean run (Steps 1 + 4) · Auto-generated · <b>Purely Personal</b></footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  window.addEventListener('load',function(){
+    if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+    gsap.from('.ohead h1',{y:14,opacity:0,duration:.7,delay:.12,ease:'power3.out'});
+    gsap.from('.hero,.card,.stat,.flag-card,.lipost,.approval-box,.note,.link-card',{y:20,opacity:0,duration:.55,stagger:.06,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+  });
+</script>
+</body>
+</html>

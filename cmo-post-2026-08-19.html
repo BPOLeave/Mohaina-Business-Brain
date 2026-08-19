@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · 19 August 2026 · Purely Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F5607A;
+    --black:#0A0A0A; --ink:#15151A; --white:#FFFFFF; --off-white:#F8F7F5;
+    --gray:#E4E3E0; --gray-text:#5b5b62; --gray-light:#F2F1EE;
+    --good:#16A34A; --warn:#D97706; --bad:#DC2626;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.04),0 8px 28px rgba(0,0,0,.06);
+    --grad:linear-gradient(135deg, color-mix(in srgb,var(--primary) 78%, #000) 0%, var(--primary) 48%, var(--primary-light) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:radial-gradient(80% 60% at 96% -12%, color-mix(in srgb,var(--primary) 14%, transparent), transparent 60%), radial-gradient(60% 50% at 0% 6%, color-mix(in srgb,var(--primary-light) 10%, transparent), transparent 55%), var(--off-white);background-attachment:fixed;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:840px;margin:0 auto;padding:34px 22px 70px;}
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px color-mix(in srgb,var(--primary) 30%, transparent);position:relative;overflow:hidden;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);font-weight:700;margin:24px 0 12px;}
+  .card{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-text);margin-bottom:12px;}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;font-size:14px;border-bottom:1px solid var(--gray-light);}
+  .row:last-child{border-bottom:none;}
+  .row .txt{flex:1;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-red{background:#fdecec;color:var(--bad);} .t-amb{background:#fdf1de;color:var(--warn);}
+  .t-grey{background:var(--gray-light);color:var(--gray-text);} .t-grn{background:#e7f6ee;color:var(--good);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .lipost{background:#fff;border:1px solid var(--gray);border-radius:var(--r-md);box-shadow:var(--sh);padding:20px;margin-bottom:14px;}
+  .lihead{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .av{width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0;}
+  .lihead .nm{font-weight:700;font-size:15px;} .lihead .mt{font-size:12px;color:var(--gray-text);}
+  .lipost .post{font-size:15px;line-height:1.65;white-space:pre-line;}
+  .lipost .post strong{background:color-mix(in srgb,var(--primary) 12%, transparent);padding:0 2px;border-radius:3px;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+  .chip{font-size:12px;font-weight:600;background:var(--gray-light);color:var(--gray-text);padding:5px 11px;border-radius:var(--pill);}
+  .score{display:inline-flex;align-items:center;gap:8px;background:#e7f6ee;color:var(--good);font-weight:700;font-size:13px;padding:8px 16px;border-radius:var(--pill);}
+  .note{background:linear-gradient(135deg, var(--ink) 0%, color-mix(in srgb,var(--primary) 26%, var(--ink)) 100%);color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:6px;box-shadow:0 14px 36px rgba(0,0,0,.16);}
+  .note b{color:var(--primary-light);}
+  .approval-box{background:#fffbf0;border:1px solid #f5d76e;border-radius:var(--r-md);padding:16px 20px;margin-bottom:14px;}
+  .approval-box h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--warn);margin-bottom:10px;}
+  footer{text-align:center;padding:30px 22px 10px;color:var(--gray-text);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-theme="standard">
+<div class="doc">
+
+  <div class="ohead">
+    <div class="k">CMO · Daily Post</div>
+    <h1>Today's post, in your voice</h1>
+    <div class="d">Pillar: Tech &amp; Automation · Soft-Sell Framework · Wednesday 19 August 2026</div>
+  </div>
+
+  <div class="approval-box">
+    <h4>Approval Required Before Publishing</h4>
+    <div style="font-size:14px;line-height:1.6;">This post cites a UAE regulatory deadline (Ministerial Decision No. 244 of 2025) and a revenue threshold figure (AED 50 million). Per the routine's heightened sign-off rule, explicit approval is required before forwarding to Rei. Review the post below, then reply "approved" / "revise" / "hold" via whichever channel reaches you.</div>
+  </div>
+
+  <div class="lipost">
+    <div class="lihead">
+      <div class="av">MA</div>
+      <div>
+        <div class="nm">Mohaina Asira · 1st</div>
+        <div class="mt">Managing Partner, BPOAS · now</div>
+      </div>
+    </div>
+    <div class="post"><strong>The eInvoicing date everyone's rushing to beat isn't the one that applies to most UAE SMEs.</strong>
+
+We've had a few conversations this month with owners convinced they're already behind. The Ministry of Finance moved the eInvoicing service provider deadline to 30 October 2026, and everyone quoting that date is talking about businesses doing AED 50 million or more a year. If that's not your revenue, that date isn't yours yet.
+
+Here's what actually is yours. The mandate itself goes live 1 January 2027 for those larger businesses first. Smaller UAE SMEs are expected to follow around mid 2027. Most owners we talk to are already anxious about FTA penalties without knowing if they're even compliant, and confusing which date applies to them only adds to that.
+
+I think the real risk for most owners isn't missing an October date that was never theirs. It's waking up next year with a live mandate and a system that was never built to talk to the FTA portal. Zoho Books and Odoo both need proper setup time, a clean chart of accounts, correct invoice formatting, and integration testing. That's not something you do the week the mandate lands.
+
+We're already doing this groundwork with a few clients now, not because their deadline is close, but because being ready before it's urgent costs less than being ready after.
+
+DM me eInvoicing and I'll walk you through where your business actually sits on this timeline.</div>
+    <div class="chips">
+      <span class="chip">1,405 chars</span>
+      <span class="chip">Hook: Curiosity Gap</span>
+      <span class="chip">No em dashes</span>
+      <span class="chip">0 banned words</span>
+      <span class="chip">Soft-Sell Framework</span>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>Hook options</h4>
+      <div class="row"><span class="txt">The eInvoicing date everyone's rushing to beat isn't the one that applies to most UAE SMEs.</span><span class="tagi t-grn">chosen</span></div>
+      <div class="row"><span class="txt">We've had three SME owners this month convinced they're already late on an eInvoicing deadline that isn't theirs yet.</span></div>
+      <div class="row"><span class="txt">Stop checking the eInvoicing deadline against your calendar. Check it against your revenue first.</span></div>
+      <div class="row"><span class="txt">The eInvoicing deadline you're worried about isn't actually your deadline.</span></div>
+    </div>
+    <div class="card">
+      <h4>Publish check</h4>
+      <div class="row"><span class="txt">Stops the scroll</span><span class="tagi t-grn">yes</span></div>
+      <div class="row"><span class="txt">Matches Voice DNA</span><span class="tagi t-grn">yes</span></div>
+      <div class="row"><span class="txt">Specific regulatory detail</span><span class="tagi t-grn">yes</span></div>
+      <div class="row"><span class="txt">Single CTA (DM me eInvoicing)</span><span class="tagi t-grn">yes</span></div>
+      <div class="row"><span class="txt">Zero exclamation marks or em dashes</span><span class="tagi t-grn">yes</span></div>
+      <div class="row"><span class="txt">Regulatory flag · needs approval</span><span class="tagi t-amb">required</span></div>
+    </div>
+  </div>
+
+  <div class="sec">Pinned comment options</div>
+
+  <div class="card">
+    <h4>Comment 1 · Extend</h4>
+    <div style="font-size:14px;line-height:1.6;">For anyone who wants the exact mechanics: the ASP appointment deadline moved under an amendment to Ministerial Decision No. 244 of 2025, and it's specifically tied to the AED 50 million revenue threshold. Full mandatory go-live for that first phase is 1 January 2027. If your business sits under that threshold, you're not exempt, you're just later in the rollout, and later is exactly when system setup should start, not when the deadline lands.</div>
+  </div>
+
+  <div class="card">
+    <h4>Comment 2 · Humanise (Mohaina)</h4>
+    <div style="font-size:14px;line-height:1.6;">I think what surprises me most in these conversations isn't that owners are behind. It's how much energy goes into worrying about the wrong date instead of just asking someone who tracks this daily. A five-minute question saves weeks of second-guessing.</div>
+  </div>
+
+  <div class="card">
+    <h4>Comment 3 · CTA Amplifier</h4>
+    <div style="font-size:14px;line-height:1.6;">If you're not sure whether the October date is yours or the 2027 one is, that's exactly what a five-minute DM answers. DM me eInvoicing and I'll tell you straight where your business sits, no guessing.</div>
+  </div>
+
+  <div style="text-align:center;margin:18px 0;">
+    <span class="score">Invisibility Diagnostic: 4 / 4 PASS</span>
+  </div>
+
+  <div class="note">This post is a draft. <b>Do not publish or forward to Rei Nald until Mohaina approves.</b> Recommended publish window: 08:30 UAE today. M365 email not available (Mail.Send blocked Day 49) · Deliver approval via WhatsApp, Teams, or directly in Notion.</div>
+
+  <footer>The brain thinks. The team works. You approve. · <b>Built by Daniel Paul · Purely Personal</b></footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  window.addEventListener('load',function(){
+    if(!window.gsap)return; gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.ohead',{y:26,opacity:0,scale:.98,duration:.7,ease:'power3.out'});
+    gsap.from('.approval-box,.lipost,.card,.note',{y:20,opacity:0,duration:.55,stagger:.07,ease:'power2.out',scrollTrigger:{trigger:'.doc',start:'top 85%'}});
+  });
+</script>
+</body>
+</html>
