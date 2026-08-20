@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief — Thursday 20 August 2026</title>
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --card: #141414;
+    --border: #242424;
+    --primary: #E8294C;
+    --text: #E8E8E8;
+    --muted: #888;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --blue: #3B82F6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  h2 { font-size: 14px; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+  h3 { font-size: 13px; font-weight: 600; color: var(--muted); margin: 12px 0 6px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+  .card-red { border-left: 3px solid var(--red); }
+  .meta { color: var(--muted); font-size: 12px; margin-bottom: 16px; }
+  .flag { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+  .flag:last-child { border-bottom: none; padding-bottom: 0; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .dot-red { background: var(--red); }
+  .dot-amber { background: var(--amber); }
+  .dot-green { background: var(--green); }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; margin-right: 6px; }
+  .tag-red { background: rgba(239,68,68,0.15); color: var(--red); }
+  .tag-amber { background: rgba(245,158,11,0.15); color: var(--amber); }
+  .tag-green { background: rgba(34,197,94,0.15); color: var(--green); }
+  .tag-blue { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .flag-text { flex: 1; }
+  .flag-title { font-weight: 600; font-size: 13px; color: #fff; }
+  .flag-detail { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .schedule-empty { color: var(--muted); font-style: italic; padding: 12px 0; }
+  .inbox-item { padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .inbox-item:last-child { border-bottom: none; }
+  .inbox-sender { font-size: 11px; color: var(--muted); }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+  .metric-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-label { color: var(--muted); font-size: 12px; }
+  .metric-value { font-weight: 700; font-size: 14px; }
+  .note { background: rgba(232,41,76,0.08); border: 1px solid rgba(232,41,76,0.2); border-radius: 8px; padding: 12px 16px; font-size: 12px; color: var(--muted); margin-top: 12px; }
+  .note strong { color: var(--primary); }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>📋 COO Morning Brief</h1>
+  <div class="meta">Thursday 20 August 2026 · 07:00 UAE (GST, UTC+4) · Auto-generated via /coo-morning-brief<br>
+  Connectors: Microsoft 365 (Outlook Calendar + Email) · Notion<br>
+  Brand color: #E8294C (default — no hex in positioning doc)</div>
+</div>
+
+<!-- FLAGS -->
+<div class="card card-red">
+  <h2>🚨 Flags for Mohaina — Priority Order</h2>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">AML · NEW TODAY</span>UAE IEC — Sanctions List Update: 21 Entries Amended (ISIL/Daesh &amp; AlQaida)</div>
+      <div class="flag-detail">Received 04:24 UAE from no_reply@uaeiec.gov.ae, directly addressed to Business Process Outsourcing Accounting Services. Cabinet Decision 74 of 2020 requires all persons to implement updated sanctions list immediately. As a DNFBP, BPOAS must screen existing and new clients against the updated list. <strong>Action: run full client screening against new list today. Owner: Mohaina.</strong></div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">CT · Day 7</span>PICPA NE CHAPTER FZE — Corporate Tax Return</div>
+      <div class="flag-detail">TRN 104324388800001. Second FTA direct reminder received 18 Aug. No status update logged. Deadline approaching. Action: confirm filing status today. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">CT · ~35 days late</span>Brilliant Telecom LLC — Partner Confirmation Letters</div>
+      <div class="flag-detail">All contact numbers being attempted this morning. Escalate to Mohaina same day if unreachable. Owner: Raihana.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">CT · ~59 days stalled</span>The Concept Lab / Mr. George — Engagement Letter</div>
+      <div class="flag-detail">CIT 30 Sep filing window now 41 days out. BLOCKED — approve a call or close today. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">Engagement · ~60 days stalled</span>GL Middle East / Nandhu — Engagement Letter (3 entities)</div>
+      <div class="flag-detail">BLOCKED — cannot carry another week. Approve or close today. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">Cash · AED 58,537</span>Richemont (Dubai) FZE — Overdue AR</div>
+      <div class="flag-detail">INV-000108: AED 40,976.25 (now 20 days overdue) — send payment reminder today. INV-000086: AED 17,561.25 (now 185 days overdue) — escalation call, not another email. Combined: ~AED 58,537.50 (57.6% of total AR). Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-amber">Cash · AED 22,050</span>Amadeus IT FZCO — 4 Overdue Invoices</div>
+      <div class="flag-detail">Oldest two now 251 and 281 days overdue. Creeping weekly with no reminder action. Schedule a collections call. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-amber">AML · Day 22</span>AML/CFT Programme H2 2026 Review — Unscheduled</div>
+      <div class="flag-detail">Carried forward every brief since 29 Jul. Schedule it today. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-amber">Staff · NEW TODAY</span>Kamal Mohamed — Salary Advance Request (Gentle Reminder)</div>
+      <div class="flag-detail">Received 12:23 UAE yesterday. Second message — first sent 17 Aug. Staff member requesting salary advance / contract renewal adjustment. Copied to Finance (r.asira, Finance@). Needs HR decision. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-amber">Insurance · NEW TODAY</span>GASCHEM FZCO — Workmen Compensation Insurance Renewal</div>
+      <div class="flag-detail">Kind reminder from admin@gaschem.ae (second reminder, original 13 Aug). Multiple BPOAS team copied (m.pacis, r.ramos). Client waiting on confirmation. Owner: Michelle Pacis / Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-amber">Operational</span>BPOAS e&amp; (Etisalat) Account — Overdue, Eligible for Disconnect</div>
+      <div class="flag-detail">Customer #37483310. Risk of service interruption to the firm itself. Confirm payment status today. Owner: Mohaina / Finance.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-amber">Finance · Sep 3</span>Zoho Books Subscription Auto-Renewal</div>
+      <div class="flag-detail">Renewal reminder received. AED 1,039.50 will be auto-charged on 3 September 2026. Confirm payment method is valid. Owner: Finance.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">Operational · Day 34</span>Raihana's Pipeline Status Report — Overdue</div>
+      <div class="flag-detail">Due 17 Jul. Blocks CRM go/no-go on ~19 leads + 80 drafted DMs. Non-negotiable. Owner: Raihana.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-amber">Content · Pending</span>Today's LinkedIn Post — Awaiting Mohaina's Approval</div>
+      <div class="flag-detail">Generated at 07:00 UAE. Contrarian hook, "Bookkeeping and accounting are not the same job." 4/4 Invisibility Diagnostic PASS. Pinned Comment 1 references UAE Corporate Tax Law 7-year record-keeping — flagged per heightened sign-off rule. Approved by Mohaina → forward to Rei (reinald.onella1@gmail.com). Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">System · Day 50</span>Mail.Send Permission Still Not Granted</div>
+      <div class="flag-detail">outlook_send_mail returns FORBIDDEN (Mail.Send not admin-consented, tenantId 052efaf8, clientId api://07c030f6). Approval emails, summary emails, and post forwarding to Rei all blocked. Zero posts have reached Rei in 7+ weeks. One Entra/Graph admin-consent grant fixes this permanently. Owner: Mohaina / IT Admin.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TODAY'S SCHEDULE -->
+<div class="card">
+  <h2>1. Today's Schedule — Thursday 20 August 2026</h2>
+  <p class="schedule-empty">No meetings or events found in Outlook for today (calendar search returned 0 results for 00:00–23:59 UAE, 20 Aug 2026).</p>
+  <hr class="divider">
+  <p style="color:var(--muted); font-size:12px;">Note: Yiannis Papadonikolakis (lastminute.ae) sent a message via WhatsApp — relayed by Michelle Pacis via Teams (19 Aug 13:49 UAE). Check WA directly. STARNEXT invoice matter may need follow-up.</p>
+</div>
+
+<!-- INBOX PRIORITIES -->
+<div class="card">
+  <h2>2. Inbox Priorities</h2>
+  <p style="color:var(--muted); font-size:12px; margin-bottom:12px;">M.Asira@bposervicegroup.com · Last 48 hours · Sorted by priority</p>
+
+  <div class="inbox-item">
+    <span class="tag tag-red">AML · MUST ACT</span>
+    <strong>UAE IEC Sanctions Update — 21 Entries Amended (ISIL/Daesh/AlQaida)</strong>
+    <div class="inbox-sender">no_reply@uaeiec.gov.ae · 20 Aug · 04:24 UAE</div>
+    <div class="flag-detail" style="margin-top:4px;">Cabinet Decision 74/2020 compliance required. BPOAS directly addressed. Screen all clients now.</div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="tag tag-red">CT</span>
+    <strong>[Carried] FTA — Second Reminder: PICPA NE CHAPTER FZE CT Return (TRN 104324388800001)</strong>
+    <div class="inbox-sender">Received 18 Aug — Day 7 unresolved</div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="tag tag-amber">Staff</span>
+    <strong>Re: Salary Advance / Contract Renewal — Kamal Mohamed (Gentle Reminder)</strong>
+    <div class="inbox-sender">kamalmohameedd@gmail.com · 19 Aug · 12:23 UAE</div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="tag tag-amber">Insurance</span>
+    <strong>RE: Workmen Compensation Insurance Renewal — GASCHEM FZCO (Kind Reminder)</strong>
+    <div class="inbox-sender">admin@gaschem.ae · 19 Aug · 21:51 UAE</div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="tag tag-amber">Finance</span>
+    <strong>Zoho Books Subscription — Auto-Renewal on 3 September 2026 (AED 1,039.50)</strong>
+    <div class="inbox-sender">notification@zohostore.com · 19 Aug · 15:48 UAE</div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="tag tag-blue">Bank</span>
+    <strong>Emirates NBD: AED 4,725.00 CREDITED — Balance AED 82,667.65</strong>
+    <div class="inbox-sender">alert@emiratesnbd.com · 20 Aug · 05:27 UAE · Account ending 8401</div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="tag tag-blue">Client</span>
+    <strong>Re: STARNEXT Extras — August 2026 (lastminute.ae confirmation)</strong>
+    <div class="inbox-sender">mohammad.othman@lastminute.ae · 19 Aug · 10:38 UAE — invoices approved, send now</div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="tag tag-blue">Engagement</span>
+    <strong>RE: EXLIBRIS AFS 2025 — Sales Invoice Copies Requested</strong>
+    <div class="inbox-sender">c.suyom@bposervicegroup.com · 19 Aug · 07:10 UAE — request forwarded to client</div>
+  </div>
+
+  <div class="inbox-item">
+    <span class="tag tag-blue">PR Opp</span>
+    <strong>CIO Views Magazine — Feature Invitation: "Middle East's Top Business Leaders 2026"</strong>
+    <div class="inbox-sender">veronica@cioviews.com · 19 Aug · 15:57 UAE — review and decide</div>
+  </div>
+</div>
+
+<!-- TASKS & DEADLINES -->
+<div class="card">
+  <h2>3. Tasks &amp; Deadlines — Thursday 20 Aug</h2>
+  <p style="color:var(--muted); font-size:12px; margin-bottom:12px;">Compiled from today's inbox, yesterday's COO Brief, and Raihana's 18 Aug brief (freshest available). Notion Tasks/My Tasks databases: still no BPOAS-linked items with due dates — same gap since 2 July.</p>
+
+  <h3>🔴 Critical — Act Today</h3>
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text"><div class="flag-title">AML Sanctions Screen — implement UAE IEC update (21 entries) across all clients. Owner: Mohaina.</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text"><div class="flag-title">PICPA NE CHAPTER FZE — confirm CT return filing status (Day 7, second FTA reminder). Owner: Mohaina.</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text"><div class="flag-title">The Concept Lab / Mr. George EL — approve call or close (59 days, CIT window 41 days). Owner: Mohaina.</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text"><div class="flag-title">GL Middle East / Nandhu EL (3 entities) — approve or close (60 days stalled). Owner: Mohaina.</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text"><div class="flag-title">Richemont — payment reminder INV-000108 (20d) + escalation call INV-000086 (185d). Owner: Mohaina.</div></div>
+  </div>
+
+  <h3>🟡 Attention — This Week</h3>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">AML/CFT H2 2026 Review — schedule it (Day 22 unscheduled). Owner: Mohaina.</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">GASCHEM FZCO Insurance Renewal — confirm status / respond to second reminder. Owner: Michelle Pacis.</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">Kamal Mohamed salary advance — HR decision needed (Day 3 pending). Owner: Mohaina.</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">e&amp; account — confirm payment status, avoid disconnect. Owner: Mohaina / Finance.</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">Amadeus IT FZCO — schedule collections call (AED 22,050, 251/281 day oldest invoices). Owner: Mohaina.</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">Brilliant Telecom — Raihana to attempt all numbers this AM, escalate if unreachable. Owner: Raihana.</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">STARNEXT/lastminute — confirm tax invoices sent (Mohammad Othman approved, awaiting invoice). Owner: Finance.</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">Raihana Pipeline Status Report — Day 34 overdue. Non-negotiable — submit today. Owner: Raihana.</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">Today's LinkedIn Post — review and approve. Full post in CMO Daily Post Notion page. Owner: Mohaina.</div></div>
+  </div>
+</div>
+
+<!-- CONTENT SLOT -->
+<div class="card">
+  <h2>4. Content Slot — Thursday</h2>
+  <p><strong>Post ready.</strong> Pillar: The True Cost of Cheap Accounting. Intent: Engagement. Format: Contrarian Text Post.</p>
+  <p style="margin-top:8px; color:var(--muted); font-size:13px;">Hook: <em>"Bookkeeping and accounting are not the same job. Most owners never find out the difference until it costs them."</em></p>
+  <p style="margin-top:8px; color:var(--muted); font-size:12px;">Invisibility Diagnostic: <strong style="color:var(--green);">4/4 PASS</strong> · 1,343 characters · 0 em dashes · 0 banned words</p>
+  <p style="margin-top:8px; color:var(--muted); font-size:12px;">⚠️ Pinned Comment 1 references UAE Corporate Tax Law 7-year record-keeping — flagged for Mohaina's explicit approval per heightened sign-off rule.</p>
+  <p style="margin-top:8px; font-size:12px;">Full post: <a href="https://app.notion.com/p/3c28a33e7fd1815ca804e66cea009a8f" style="color:var(--primary);">📱 CMO Daily Post · Thursday 20 August 2026</a></p>
+  <p style="margin-top:8px; font-size:12px;">Recommended publish window: <strong>08:30 UAE</strong>. Forward to Rei (reinald.onella1@gmail.com) — pending Mohaina's approval.</p>
+</div>
+
+<!-- BD PIPELINE -->
+<div class="card">
+  <h2>5. BD Pipeline Pulse</h2>
+  <p style="color:var(--muted); font-size:12px; margin-bottom:12px;">Source: Raihana's Daily Brief · 18 Aug 2026 (freshest available — no 19 or 20 Aug refresh yet)</p>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text"><div class="flag-title">Brilliant Telecom LLC — urgent chase, all contact numbers this AM</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">MMG Art Production LLC — VAT EL sent 4 Aug (AED 3,500/qtr), chasing signature via Teams</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">Ratiolex — confirm invoice payment + onboarding progress update (TRC EL sent 13 Aug)</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">Annaka FZCo deregistration — AED 500/month penalty accruing, one call needed</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">Montfort Trading FZE — chase CFO feedback on VAT EL</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">Cartier Fragrance / Recyline (Chadi Nasreddine) — Day 28+, awaiting Mohaina's onboarding direction</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text"><div class="flag-title">GL Middle East / Nandhu (~60d) + The Concept Lab / Mr. George (~59d) — BLOCKED, awaiting Mohaina's approve-or-close</div></div>
+  </div>
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text"><div class="flag-title">Richemont Temporary Staffing RFP — NDA received, Mohaina managing directly</div></div>
+  </div>
+
+  <hr class="divider">
+  <h3>Raihana's Queue</h3>
+  <p style="color:var(--muted); font-size:12px;">~19 leads to verify · 80 DM drafts ready, none sent — blocked on CRM go/no-go and overdue Pipeline Status Report (Day 34).</p>
+  <p style="color:var(--muted); font-size:12px; margin-top:6px;">Latest Apify batch (10 Aug): Dmitry Grigorev 7.5, Aniruddha R. 7.5, Jasna S. 7.0 ⚠️ (AML/DNFBP flag — review before upload), Tolga Neftci 7.0, Fatih Öztürk 6.5. No 9–10 scored prospects — no first-contact approval hold.</p>
+</div>
+
+<!-- KEY METRIC -->
+<div class="card">
+  <h2>6. Key Metric</h2>
+  <div class="metric-row">
+    <span class="metric-label">Total AR Outstanding (Overdue)</span>
+    <span class="metric-value" style="color:var(--red);">AED 101,687.50</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Richemont cluster (57.6% of AR)</span>
+    <span class="metric-value">AED 58,537.50</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Amadeus IT cluster</span>
+    <span class="metric-value">AED 22,050.00</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Emirates NBD Balance (as of 20 Aug 05:27 UAE)</span>
+    <span class="metric-value" style="color:var(--green);">AED 82,667.65</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Zoho Books Subscription Renewal (3 Sep)</span>
+    <span class="metric-value" style="color:var(--amber);">AED 1,039.50</span>
+  </div>
+  <p style="color:var(--muted); font-size:12px; margin-top:10px;">Source: Yesterday's Zoho Books pull (primary entity BPO Service Group FZE). 17 overdue invoices across primary entity only — 30+ other Zoho Books organisations not rolled up. MTD revenue data available Mondays via CFO brief.</p>
+</div>
+
+<div class="note">
+  <strong>Email Delivery:</strong> outlook_send_mail returned FORBIDDEN (Mail.Send not admin-consented, Day 50). This brief delivered via Notion and GitHub HTML only. Push notification sent. Fix: Entra/Graph admin-consent on Mail.Send and Mail.ReadWrite on app registration api://07c030f6-5743-41b7-ba00-0a6e85f37c17.
+</div>
+
+<p style="color:var(--muted); font-size:11px; margin-top:20px; text-align:center;">BPOAS COO Morning Brief · Auto-generated · Thursday 20 August 2026 · /coo-morning-brief</p>
+
+</body>
+</html>

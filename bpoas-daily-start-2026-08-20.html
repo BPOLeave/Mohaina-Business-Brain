@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start — Thursday 20 August 2026</title>
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --card: #141414;
+    --border: #242424;
+    --primary: #E8294C;
+    --text: #E8E8E8;
+    --muted: #888;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --blue: #3B82F6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; padding: 24px; max-width: 960px; margin: 0 auto; }
+  .hero { background: linear-gradient(135deg, #1A0608 0%, #0A0A0A 100%); border: 1px solid rgba(232,41,76,0.3); border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+  .hero-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--primary); margin-bottom: 6px; }
+  .hero-name { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+  .hero-sub { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+  .revenue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .rev-tile { background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+  .rev-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
+  .rev-value { font-size: 20px; font-weight: 800; }
+  .rev-note { font-size: 10px; color: var(--muted); margin-top: 3px; }
+  .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 10px; }
+  .status-amber { background: rgba(245,158,11,0.15); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+  .card-red { border-left: 3px solid var(--red); }
+  h2 { font-size: 13px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+  .flag { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+  .flag:last-child { border-bottom: none; padding-bottom: 0; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .dot-red { background: var(--red); }
+  .dot-amber { background: var(--amber); }
+  .dot-green { background: var(--green); }
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; margin-right: 6px; }
+  .tag-red { background: rgba(239,68,68,0.15); color: var(--red); }
+  .tag-amber { background: rgba(245,158,11,0.15); color: var(--amber); }
+  .tag-green { background: rgba(34,197,94,0.15); color: var(--green); }
+  .tag-blue { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .flag-text { flex: 1; }
+  .flag-title { font-weight: 600; font-size: 13px; color: #fff; }
+  .flag-detail { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .run-table { width: 100%; border-collapse: collapse; }
+  .run-table th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); padding: 6px 12px; border-bottom: 1px solid var(--border); }
+  .run-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .run-table tr:last-child td { border-bottom: none; }
+  .status-ok { color: var(--green); font-weight: 700; }
+  .status-skip { color: var(--muted); }
+  .status-warn { color: var(--amber); font-weight: 700; }
+  .post-box { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 18px; white-space: pre-wrap; font-size: 13px; line-height: 1.7; }
+  .post-hook { background: rgba(232,41,76,0.1); border-left: 3px solid var(--primary); padding: 10px 14px; border-radius: 0 6px 6px 0; margin-bottom: 12px; font-weight: 600; font-size: 14px; color: #fff; }
+  .post-cta { font-weight: 700; color: var(--primary); }
+  .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+  .link-tile { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 14px; text-decoration: none; color: var(--text); transition: border-color 0.2s; }
+  .link-tile:hover { border-color: var(--primary); }
+  .link-tile-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
+  .link-tile-name { font-size: 13px; font-weight: 600; color: #fff; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+  .note { background: rgba(232,41,76,0.06); border: 1px solid rgba(232,41,76,0.2); border-radius: 8px; padding: 12px 16px; font-size: 12px; color: var(--muted); margin-top: 12px; }
+  .note strong { color: var(--primary); }
+  .comment-block { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; padding: 14px; margin-bottom: 10px; }
+  .comment-num { font-size: 10px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<!-- HERO CARD -->
+<div class="hero">
+  <div class="hero-title">BPOAS Daily Start</div>
+  <div class="hero-name">Thursday, 20 August 2026</div>
+  <div class="hero-sub">Lean Run · Steps 1 + 4 · Scheduled 07:00 UAE (GST)</div>
+
+  <div class="revenue-grid">
+    <div class="rev-tile">
+      <div class="rev-label">Bank Balance</div>
+      <div class="rev-value" style="color:var(--green);">AED 82,668</div>
+      <div class="rev-note">Emirates NBD · 05:27 UAE today</div>
+    </div>
+    <div class="rev-tile">
+      <div class="rev-label">Total AR Overdue</div>
+      <div class="rev-value" style="color:var(--red);">AED 101,688</div>
+      <div class="rev-note">17 invoices · primary entity only</div>
+    </div>
+    <div class="rev-tile">
+      <div class="rev-label">Largest Exposure</div>
+      <div class="rev-value" style="color:var(--amber);">AED 58,538</div>
+      <div class="rev-note">Richemont (Dubai) FZE · 57.6% of AR</div>
+    </div>
+    <div class="rev-tile">
+      <div class="rev-label">MTD Revenue</div>
+      <div class="rev-value" style="color:var(--muted);">—</div>
+      <div class="rev-note">CFO brief runs Mondays.<br>Last updated: Mon 17 Aug.</div>
+    </div>
+  </div>
+
+  <div class="status-badge status-amber">⚠ Revenue data last updated Monday — full CFO refresh on Monday 24 Aug</div>
+</div>
+
+<!-- CRITICAL AML ALERT -->
+<div class="card card-red" style="border: 1px solid rgba(239,68,68,0.4); background: rgba(239,68,68,0.05);">
+  <h2>🚨 URGENT AML ALERT — Action Required Today</h2>
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">AML · NEW</span>UAE IEC — 21 Sanctions Entries Amended (ISIL/Daesh &amp; AlQaida)</div>
+      <div class="flag-detail">Received 04:24 UAE from the UAE Integrated Economic Register (no_reply@uaeiec.gov.ae), directly addressed to Business Process Outsourcing Accounting Services. Under Cabinet Decision 74 of 2020, BPOAS as a DNFBP must implement the updated sanctions list immediately — screen all current and prospective clients against the amended 21 entries today. Failure to comply is a regulatory violation. <strong style="color:#fff;">Owner: Mohaina. Do not delegate first triage.</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- FLAGS FOR MOHAINA -->
+<div class="card card-red">
+  <h2>🔴 All Flags for Mohaina — Sorted by Priority</h2>
+  <p style="color:var(--muted); font-size:11px; margin-bottom:12px;">Compliance · Cash · Client · BD</p>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">Compliance · AML</span>Sanctions List Update — run full BPOAS client screen today</div>
+      <div class="flag-detail">What: UAE IEC updated 21 ISIL/Daesh/AlQaida entries. Why: Cabinet Decision 74/2020 compliance — DNFBP obligation. Next step: Obtain updated list from uaeiec.gov.ae, screen all clients, document findings.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">Compliance · CT · Day 7</span>PICPA NE CHAPTER FZE — second FTA reminder, no action logged</div>
+      <div class="flag-detail">What: FTA sent a second direct corporate tax return reminder. Why: Non-filing will result in penalties. Next step: Confirm filing status with the team handling it — today.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">Compliance · AML · Day 22</span>AML/CFT H2 2026 Programme Review — still unscheduled</div>
+      <div class="flag-detail">What: Mandatory H2 review has no date set. Why: Required under UAE AML regulations. Next step: Pick a date this week and book it.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">Cash · AED 58,538</span>Richemont — send reminder (INV-000108) + escalation call (INV-000086)</div>
+      <div class="flag-detail">What: INV-000108 (AED 40,976, 20d overdue) needs a payment reminder. INV-000086 (AED 17,561, 185d overdue) needs a call — not another email. Why: 57.6% of total AR sitting here. Next step: Send reminder today; call this week.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">Client · ~59 days</span>The Concept Lab / Mr. George — approve call or close</div>
+      <div class="flag-detail">What: Engagement letter stalled 59 days. CIT window closes in 41 days. Why: If not engaged now, filing deadline will be missed. Next step: Call or close the engagement today.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">BD · ~60 days</span>GL Middle East / Nandhu — approve or close (3 entities)</div>
+      <div class="flag-detail">What: Engagement letter stalled 60 days across 3 entities. Why: Keeps pipeline clogged. Next step: Decision today — approve or formally close.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-amber">Cash · AED 22,050</span>Amadeus IT FZCO — 4 invoices, oldest 281 days overdue</div>
+      <div class="flag-detail">No reminder or collections action visible in Zoho. Schedule a call this week. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-amber">Staff</span>Kamal Mohamed — salary advance/contract renewal (Day 3, gentle reminder)</div>
+      <div class="flag-detail">Staff member sent a second message. Finance team copied. Needs an HR decision today. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-amber">Client</span>GASCHEM FZCO — Workmen Compensation Insurance Renewal (second reminder)</div>
+      <div class="flag-detail">Original request: 13 Aug. Kind reminder received yesterday from admin@gaschem.ae. Michelle Pacis to action. Owner: Michelle Pacis.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-amber">Operational</span>e&amp; (Etisalat) Account — overdue, eligible for disconnect</div>
+      <div class="flag-detail">Customer #37483310. Risk of firm's own service interruption. Confirm payment status today. Owner: Mohaina / Finance.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-amber"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-amber">Content · Regulatory ref</span>Today's LinkedIn Post — approval needed before 08:30 UAE</div>
+      <div class="flag-detail">Pinned Comment 1 references UAE Corporate Tax Law (Federal Decree-Law No. 47 of 2022) 7-year record-keeping requirement. Flagged per heightened sign-off rule. Full post below. Owner: Mohaina.</div>
+    </div>
+  </div>
+
+  <div class="flag">
+    <div class="dot dot-red"></div>
+    <div class="flag-text">
+      <div class="flag-title"><span class="tag tag-red">System · Day 50</span>Mail.Send permission still not granted — zero posts reached Rei in 7+ weeks</div>
+      <div class="flag-detail">What: Graph API Mail.Send not admin-consented. Why: All email-based delivery from this routine is blocked — approval requests, summary emails, and post forwarding to Rei. Next step: IT admin to grant Mail.Send + Mail.ReadWrite consent on app registration api://07c030f6 in Entra. One action, permanent fix.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TODAY'S POST -->
+<div class="card">
+  <h2>📱 Today's LinkedIn Post — Copy-Ready</h2>
+  <p style="color:var(--muted); font-size:12px; margin-bottom:14px;">Contrarian Text Post · Pillar: The True Cost of Cheap Accounting · 4/4 Invisibility Diagnostic PASS · 1,343 characters</p>
+
+  <div class="post-hook">Bookkeeping and accounting are not the same job. Most owners never find out the difference until it costs them.</div>
+
+  <div class="post-box">I think a lot of business owners hand their books to whoever is available, not whoever is qualified. A secretary. A relative. Someone who knows Excel. It looks efficient. It isn't the same as knowing what the numbers mean.
+
+We picked up a construction company where the owner had handed everything to his secretary. She entered transactions into an outdated system every month. She kept the ledger moving. But she couldn't tell you what the reports actually showed, because nobody had ever taught her what to look for.
+
+The owner didn't know either. He was running a growing business without a real view of its own performance.
+
+We came in and trained the team from the ground up. How to record properly. How to generate reports that mean something. How to read what those reports were actually telling them. That company has grown from 8 employees to more than 50 since.
+
+I think the real risk of cheap accounting isn't a missed deadline or a wrong number. It's an owner who thinks his books are handled, when nobody in the building actually understands what they say.
+
+At the end of the day, if nobody around you can read the numbers, you're not running the business. You're guessing at it.
+
+<span class="post-cta">Tag a founder who needs to see this.</span></div>
+
+  <hr class="divider">
+  <p style="color:var(--muted); font-size:12px; margin-bottom:10px;"><strong style="color:#fff;">3 Pinned Comments</strong> — post in sequence after publishing</p>
+
+  <div class="comment-block">
+    <div class="comment-num">Comment 1 — Extend (⚠️ references UAE CT Law — flagged for approval)</div>
+    Worth adding: under UAE Corporate Tax Law (Federal Decree-Law No. 47 of 2022), businesses must keep accounting records for 7 years, not 5. If nobody in the business actually understands what those records show, keeping them for 7 years just means keeping 7 years of a problem nobody can see.
+  </div>
+
+  <div class="comment-block">
+    <div class="comment-num">Comment 2 — Humanise (Mohaina)</div>
+    This one stays with me because the secretary wasn't the problem. She was doing exactly what she was asked to do, she just was never taught what accounting actually required. The owner didn't fail either, he trusted that if the numbers were being entered, the job was being done. Nobody set out to get this wrong.
+  </div>
+
+  <div class="comment-block">
+    <div class="comment-num">Comment 3 — CTA Amplifier</div>
+    If someone in your business is entering numbers without ever being trained to read what they mean, that's not a bookkeeping gap, that's a blind spot. Tag the founder who needs to check that before year end.
+  </div>
+
+  <p style="color:var(--muted); font-size:11px; margin-top:10px;">Recommended publish time: <strong style="color:#fff;">08:30 UAE</strong> · Forward to: reinald.onella1@gmail.com (pending Mohaina's approval) · Email delivery blocked (Mail.Send not consented)</p>
+</div>
+
+<!-- RUN LOG -->
+<div class="card">
+  <h2>📋 Run Log</h2>
+  <table class="run-table">
+    <thead>
+      <tr>
+        <th>Step</th>
+        <th>Skill</th>
+        <th>Status</th>
+        <th>Output</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Step 1</td>
+        <td>/coo-morning-brief</td>
+        <td class="status-ok">✓ Complete</td>
+        <td>coo-brief-2026-08-20.html</td>
+      </tr>
+      <tr>
+        <td>Step 2</td>
+        <td>/cfo-weekly-revenue</td>
+        <td class="status-skip">— Skipped</td>
+        <td>CFO brief runs Mondays only.</td>
+      </tr>
+      <tr>
+        <td>Step 3</td>
+        <td>/cro-weekly-prospects</td>
+        <td class="status-skip">— Skipped</td>
+        <td>CRO brief runs Mondays only.</td>
+      </tr>
+      <tr>
+        <td>Step 4</td>
+        <td>/cmo-daily-post → /linkedin-caption-writer</td>
+        <td class="status-ok">✓ Complete</td>
+        <td>cmo-post-2026-08-20.html · Notion page created · Pending approval</td>
+      </tr>
+      <tr>
+        <td>Step 5</td>
+        <td>/content-pillars-extractor → /content-calendar-generator</td>
+        <td class="status-skip">— Skipped</td>
+        <td>Content calendar runs Mondays only.</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>outlook_send_mail → m.asira@bposervicegroup.com</td>
+        <td class="status-warn">⚠ Failed</td>
+        <td>FORBIDDEN: Mail.Send not admin-consented. Day 50. Delivered via Notion + GitHub + push notification.</td>
+      </tr>
+      <tr>
+        <td>Apify</td>
+        <td>LinkedIn analytics</td>
+        <td class="status-warn">⚠ Unavailable</td>
+        <td>No configured pipeline exists for BPOAS — 13+ consecutive weeks. Hook selected via calendar format-match.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="color:var(--muted); font-size:11px; margin-top:10px;">Actual execution time: Thursday 20 August 2026 · ~07:00 UAE (scheduled). Day: Thursday = Lean Run (Steps 1 + 4).</p>
+</div>
+
+<!-- QUICK LINKS -->
+<div class="card">
+  <h2>🔗 Quick Links</h2>
+  <div class="link-grid">
+    <a class="link-tile" href="coo-brief-2026-08-20.html">
+      <div class="link-tile-label">Step 1</div>
+      <div class="link-tile-name">COO Morning Brief</div>
+    </a>
+    <a class="link-tile" href="https://app.notion.com/p/3c28a33e7fd1815ca804e66cea009a8f">
+      <div class="link-tile-label">Step 4 · Notion</div>
+      <div class="link-tile-name">CMO Daily Post</div>
+    </a>
+    <a class="link-tile" href="https://github.com/BPOLeave/Mohaina-Business-Brain/blob/claude/confident-newton-j5f7f8/cmo-post-2026-08-20.html">
+      <div class="link-tile-label">Step 4 · GitHub</div>
+      <div class="link-tile-name">cmo-post-2026-08-20.html</div>
+    </a>
+  </div>
+</div>
+
+<div class="note">
+  <strong>Email delivery blocked (Day 50):</strong> outlook_send_mail has returned FORBIDDEN on every run since late June 2026. This output delivered via Notion, GitHub, and push notification only. Admin fix: grant Mail.Send + Mail.ReadWrite consent on app registration api://07c030f6-5743-41b7-ba00-0a6e85f37c17 in Microsoft Entra admin centre (tenant 052efaf8-7f9d-4ad8-8436-b017c0720022).
+</div>
+
+<p style="color:var(--muted); font-size:11px; margin-top:20px; text-align:center;">BPOAS Daily Start · Thursday 20 August 2026 · 07:00 UAE · Auto-generated via /bpoas-daily-start (Lean Run)</p>
+
+</body>
+</html>
