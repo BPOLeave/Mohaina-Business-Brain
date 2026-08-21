@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EOW Review · Week of 18 August 2026</title>
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --card: #141414;
+    --card-border: #222;
+    --brand: #E8294C;
+    --brand-dim: rgba(232, 41, 76, 0.12);
+    --green: #22c55e;
+    --green-dim: rgba(34, 197, 94, 0.12);
+    --amber: #f59e0b;
+    --amber-dim: rgba(245, 158, 11, 0.12);
+    --red: #E8294C;
+    --red-dim: rgba(232, 41, 76, 0.10);
+    --text: #f0f0f0;
+    --muted: #888;
+    --subtle: #444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 24px 16px 60px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .meta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .meta-header .brand { font-size: 13px; color: var(--brand); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+  .meta-header .date { font-size: 13px; color: var(--muted); }
+  .hero {
+    background: var(--card);
+    border: 1px solid var(--brand);
+    border-radius: 12px;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+  }
+  .hero-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .hero-sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+  .scorecard-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 600px) { .scorecard-grid { grid-template-columns: repeat(3, 1fr); } }
+  .score-cell {
+    background: #1a1a1a;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+  }
+  .score-cell .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .score-cell .dot { font-size: 20px; display: block; }
+  .rating-pill {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    background: var(--red-dim);
+    color: var(--red);
+    border: 1px solid var(--red);
+    margin-bottom: 16px;
+  }
+  .summary-quote {
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.7;
+    font-style: italic;
+    border-left: 3px solid var(--brand);
+    padding-left: 14px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 22px 22px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--brand);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-title .badge {
+    font-size: 11px;
+    background: var(--brand-dim);
+    color: var(--brand);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 6px 14px;
+    margin-bottom: 8px;
+    align-items: baseline;
+  }
+  @media (max-width: 500px) { .row { grid-template-columns: 1fr; } }
+  .row .k { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .row .v { font-size: 14px; color: var(--text); }
+  .divider { border: none; border-top: 1px solid var(--card-border); margin: 14px 0; }
+  .status-green { color: var(--green); font-weight: 600; }
+  .status-amber { color: var(--amber); font-weight: 600; }
+  .status-red { color: var(--red); font-weight: 600; }
+  .pill-green { display: inline-block; font-size: 12px; padding: 2px 10px; border-radius: 12px; background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,197,94,0.3); font-weight: 600; }
+  .pill-amber { display: inline-block; font-size: 12px; padding: 2px 10px; border-radius: 12px; background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); font-weight: 600; }
+  .pill-red { display: inline-block; font-size: 12px; padding: 2px 10px; border-radius: 12px; background: var(--red-dim); color: var(--red); border: 1px solid rgba(232,41,76,0.3); font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+  th { text-align: left; color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 10px; border-bottom: 1px solid var(--card-border); }
+  td { padding: 9px 10px; border-bottom: 1px solid #1e1e1e; color: var(--text); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .flag-card {
+    background: var(--red-dim);
+    border: 1px solid var(--brand);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+  }
+  .flag-card .card-title { color: var(--brand); }
+  .flag-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(232,41,76,0.15);
+    font-size: 14px;
+    align-items: baseline;
+  }
+  .flag-item:last-child { border-bottom: none; }
+  .flag-num { min-width: 22px; font-weight: 700; color: var(--brand); }
+  .priority-item { margin-bottom: 14px; }
+  .priority-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand); margin-bottom: 3px; }
+  .priority-text { font-size: 14px; color: var(--text); }
+  .priority-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .radar-item { display: flex; align-items: baseline; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1e1e1e; font-size: 14px; }
+  .radar-item:last-child { border-bottom: none; }
+  .footer { text-align: center; font-size: 12px; color: var(--subtle); margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<div class="meta-header">
+  <span class="brand">BPOAS · End of Week Review</span>
+  <span class="date">Friday 21 August 2026 · Auto-generated 17:00 UAE</span>
+</div>
+
+<!-- HERO: SCORECARD -->
+<div class="hero">
+  <div class="hero-title">EOW Review · Week of 18 August 2026</div>
+  <div class="hero-sub">M.Asira@bposervicegroup.com · BPO Accounting Services</div>
+
+  <div class="scorecard-grid">
+    <div class="score-cell">
+      <div class="label">Revenue</div>
+      <span class="dot">🔴</span>
+    </div>
+    <div class="score-cell">
+      <div class="label">Pipeline</div>
+      <span class="dot">🟡</span>
+    </div>
+    <div class="score-cell">
+      <div class="label">Content</div>
+      <span class="dot">🔴</span>
+    </div>
+    <div class="score-cell">
+      <div class="label">Compliance</div>
+      <span class="dot">🔴</span>
+    </div>
+    <div class="score-cell">
+      <div class="label">Team</div>
+      <span class="dot">🟡</span>
+    </div>
+  </div>
+
+  <div class="rating-pill">⚠ Needs Attention — 0 of 5 Green</div>
+
+  <div class="summary-quote">
+    I think it was a week where a lot of things moved but nothing landed — outreach is active, the content is written, but the broken delivery channel and the blocked decisions are starting to cost us real money.
+  </div>
+</div>
+
+<!-- 1. REVENUE -->
+<div class="card">
+  <div class="card-title">1 · Revenue Week in Review <span class="badge">🔴 Below Target</span></div>
+
+  <div class="row"><span class="k">Cash Received (AED)</span><span class="v"><strong>AED 3,285.45</strong> — two Emirates NBD credits Aug 20 (AED 2,100.00 + AED 1,185.45)</span></div>
+  <div class="row"><span class="k">Prior Week</span><span class="v">Data from Zoho Books P&L (13–19 Aug) received via email — attachment not parsed this run. Prior comparison unavailable.</span></div>
+  <div class="row"><span class="k">Invoices Raised</span><span class="v">MCM Products ME — INV-000113 + INV-000114 (AED 7,350, raised earlier in Aug). MMG Art Production VAT EL (AED 3,500/qtr) and Montfort Trading VAT EL — both unsigned at week end.</span></div>
+  <div class="row"><span class="k">Invoices Paid</span><span class="v">AED 3,285.45 visible from bank alerts. Gap between raised and received: significant — AR flat for 15 consecutive days.</span></div>
+  <div class="row"><span class="k">New Retainer Signed</span><span class="v">No</span></div>
+  <div class="row"><span class="k">Outstanding AR</span><span class="v"><span class="status-red">AED 101,687.50</span> across 17 overdue invoices — flat since 6 August (15 consecutive days no movement)</span></div>
+
+  <hr class="divider">
+
+  <table>
+    <thead>
+      <tr><th>AR Cluster</th><th>Amount (AED)</th><th>Share</th><th>Oldest</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Richemont (Dubai) FZE — 2 invoices</td><td><strong>58,537.50</strong></td><td>57.6%</td><td><span class="status-red">186 days</span></td></tr>
+      <tr><td>Amadeus IT FZCO — 4 invoices</td><td>22,050.00</td><td>21.7%</td><td><span class="status-red">282 days</span></td></tr>
+      <tr><td>MCM Products ME — 2 invoices</td><td>7,350.00</td><td>7.2%</td><td>15 days</td></tr>
+      <tr><td>Middletel Information Technology</td><td>6,300.00</td><td>6.2%</td><td>51 days</td></tr>
+      <tr><td>BPOAS Internal — 2 invoices</td><td>4,200.00</td><td>4.1%</td><td>81 days</td></tr>
+      <tr><td>IGEM Group FZE — 6 invoices</td><td>3,250.00</td><td>3.2%</td><td>177 days</td></tr>
+    </tbody>
+  </table>
+
+  <hr class="divider">
+  <div class="row"><span class="k">Monthly Target</span><span class="v">Not specified in positioning documents — manual input recommended.</span></div>
+  <div class="row"><span class="k">Status</span><span class="v"><span class="status-red">🔴 Below Target</span> — AR collection stalled 15 days; no retainer signed this week; three chasers to Richemont with no payment.</span></div>
+</div>
+
+<!-- 2. BD & PIPELINE -->
+<div class="card">
+  <div class="card-title">2 · BD & Pipeline Movement <span class="badge">🟡 Flat</span></div>
+
+  <div class="row"><span class="k">Prospects Contacted</span><span class="v">5 active targets — Brilliant Telecom LLC, MMG Art Production, Ratiolex, Annaka FZCo, Montfort Trading FZE. Raihana ran 5 queued actions Mon–Wed.</span></div>
+  <div class="row"><span class="k">Responses Received</span><span class="v">Kora Corporate Services (inbound chase — client, not prospect). No new warm/hot transitions logged. Raihana's Pipeline Status Report 35 days overdue — temperature tracking not available.</span></div>
+  <div class="row"><span class="k">Proposals Sent</span><span class="v">Montfort Trading VAT EL (final attempt Wed) · MMG Art Production VAT EL (AED 3,500/qtr) chase active · Kora Corporate EL — client chased three times</span></div>
+  <div class="row"><span class="k">Deals Won This Week</span><span class="v">0 this week. (Ratiolex CIT signed 3 Aug · MCM Products VAT signed 6 Aug — prior weeks.)</span></div>
+  <div class="row"><span class="k">Deals Lost / Stalled</span><span class="v"><span class="status-red">GL Middle East / Nandhu — 61 days stalled · The Concept Lab / Mr. George — 60 days stalled · CIT deadline 30 Sep in 40 days</span></span></div>
+  <div class="row"><span class="k">Active RFP</span><span class="v">Richemont Temporary Staffing — NDA received 4 Aug, technical proposal pending. Mohaina managing directly.</span></div>
+  <div class="row"><span class="k">Leads Pipeline</span><span class="v">19 leads verified, 80 DM drafts ready, 0 sent — all blocked on Mohaina's CRM go/no-go (itself blocked on Raihana's 35-day overdue Pipeline Status Report)</span></div>
+
+  <hr class="divider">
+  <div class="row"><span class="k">Net Pipeline</span><span class="v"><span class="status-amber">🟡 Flat</span> — Raihana active in outreach but no new wins or warm conversions. Two high-value deals in 60-day stall. 19 leads sitting uncontacted.</span></div>
+</div>
+
+<!-- 3. CONTENT PERFORMANCE -->
+<div class="card">
+  <div class="card-title">3 · Content Performance <span class="badge">🔴 0 of 5 Published</span></div>
+
+  <div class="row"><span class="k">Posts Planned</span><span class="v">5 (full calendar built for week of 17 Aug)</span></div>
+  <div class="row"><span class="k">Posts Published</span><span class="v"><span class="status-red">0</span> — content delivery channel to Rei Nald Onella broken for <strong>5+ consecutive weeks</strong>. Posts generated in Notion but nothing reaching publish. Not a content quality problem — a delivery infrastructure problem.</span></div>
+
+  <hr class="divider">
+
+  <table>
+    <thead>
+      <tr><th>Day</th><th>Pillar</th><th>Intent</th><th>Format</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Mon 17 Aug</td><td>Compliance Without the Panic</td><td>Educating</td><td>Framework List</td><td><span class="status-red">Not published</span></td></tr>
+      <tr><td>Tue 18 Aug</td><td>Inside an Owner-Led Firm</td><td>Nurturing</td><td>Story Post</td><td><span class="status-red">Not published</span></td></tr>
+      <tr><td>Wed 19 Aug</td><td>Tech & Automation</td><td>Soft Selling</td><td>Soft-Sell Framework</td><td><span class="status-red">Not published</span></td></tr>
+      <tr><td>Thu 20 Aug</td><td>The True Cost of Cheap Accounting</td><td>Engagement</td><td>Contrarian Text Post</td><td><span class="status-red">Not published</span></td></tr>
+      <tr><td>Fri 21 Aug</td><td>What the Numbers Are Telling You</td><td>Educating</td><td>Framework List</td><td><span class="status-amber">Pending Mohaina approval</span></td></tr>
+    </tbody>
+  </table>
+
+  <hr class="divider">
+  <div class="row"><span class="k">Top Performer</span><span class="v">N/A — no posts published. LinkedIn analytics unavailable (Apify scraper down 12+ consecutive weeks).</span></div>
+  <div class="row"><span class="k">Content Debt</span><span class="v">Growing. 14+ approved-quality posts backlogged. Week of 10 Aug items recycled/rescheduled into this week's calendar but still undelivered. Content Debt now spans multiple weeks.</span></div>
+  <div class="row"><span class="k">Follower Movement</span><span class="v">Not available — Apify LinkedIn scraper down.</span></div>
+</div>
+
+<!-- 4. COMPLIANCE & OPERATIONS -->
+<div class="card">
+  <div class="card-title">4 · Compliance & Operations <span class="badge">🔴 Multiple Open Items</span></div>
+
+  <table>
+    <thead>
+      <tr><th>Item</th><th>Type</th><th>Status</th><th>Owner</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>PICPA NE CHAPTER FZE — Corporate Tax Return (TRN 104324388800001)</td>
+        <td>CT / FTA</td>
+        <td><span class="status-red">Day 8 since FTA direct reminder (13 Aug). No confirmation logged.</span></td>
+        <td>Mohaina</td>
+      </tr>
+      <tr>
+        <td>AML/CFT Programme H2 2026 Review</td>
+        <td>AML</td>
+        <td><span class="status-amber">Unscheduled — Day 23. BPOAS is DNFBP; Mohaina is AMLRO.</span></td>
+        <td>Mohaina</td>
+      </tr>
+      <tr>
+        <td>Brilliant Telecom LLC — Partner Confirmation Letters</td>
+        <td>CT</td>
+        <td><span class="status-red">~37 days past 15 Jul deadline. All contacts attempted, unanswered.</span></td>
+        <td>Mohaina + Raihana</td>
+      </tr>
+      <tr>
+        <td>Emirates Group eInvoicing — Customer Master Data Update</td>
+        <td>eInvoicing</td>
+        <td><span class="status-amber">High-importance email received 20 Aug. UAE MoF mandatory framework. Action required this week.</span></td>
+        <td>Mohaina</td>
+      </tr>
+      <tr>
+        <td>Engagement Letters — Montfort Trading FZE (VAT, quarterly)</td>
+        <td>EL</td>
+        <td><span class="status-amber">Awaiting Mr. Yannick Luce signature. Raihana chased 20 Aug.</span></td>
+        <td>Raihana</td>
+      </tr>
+      <tr>
+        <td>Engagement Letters — MMG Art Production LLC (VAT, AED 3,500/qtr)</td>
+        <td>EL</td>
+        <td><span class="status-amber">Sent 4 Aug. Client engaged via Teams. Day 17 unsigned.</span></td>
+        <td>Raihana</td>
+      </tr>
+      <tr>
+        <td>Engagement Letters — Kora Corporate Services</td>
+        <td>EL</td>
+        <td><span class="status-red">Client chased 3× since 17 Aug. Raihana sent holding reply. Mohaina decision required.</span></td>
+        <td>Mohaina</td>
+      </tr>
+      <tr>
+        <td>M365 Mail.Send Admin Consent</td>
+        <td>Infrastructure</td>
+        <td><span class="status-red">Day 50+. Every routine's email delivery blocked. One Entra admin-consent grant fixes permanently.</span></td>
+        <td>Mohaina / IT</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="divider">
+  <div class="row"><span class="k">Overdue Carrying to Next Week</span><span class="v">PICPA CT Return (Mohaina) · AML/CFT schedule (Mohaina) · Brilliant Telecom partner letters (Mohaina + Raihana) · Kora EL decision (Mohaina) · eInvoicing Emirates action (Mohaina)</span></div>
+</div>
+
+<!-- 5. TEAM PULSE -->
+<div class="card">
+  <div class="card-title">5 · Team Pulse <span class="badge">🟡 Partially Active</span></div>
+
+  <div class="priority-item">
+    <div class="priority-label">Raihana Asira · BD Associate</div>
+    <div class="priority-text">Active this week. Outreach queue run Mon–Wed (5 actions/day) across Brilliant Telecom, MMG Art, Ratiolex, Annaka, Montfort. Engagement letter follow-ups sent for Montfort and Kora. One Teams message relayed to Mohaina 20 Aug (re: CCs on leave). <strong>Pipeline Status Report 35 days overdue</strong> — the single item blocking 19 leads and 80 DM drafts from moving. Non-negotiable for Monday.</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="priority-item">
+    <div class="priority-label">Rei Nald Onella · Marketing</div>
+    <div class="priority-text">5 posts generated by CMO Daily Post routine this week (Mon–Fri). <span class="status-red">0 published.</span> Content delivery channel to Rei is broken for 5+ consecutive weeks — content is not reaching them. This is an infrastructure/process problem, not a performance issue. Needs Mohaina's decision: confirm a working delivery channel or bulk-approve a back-publish to clear the backlog.</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="priority-item">
+    <div class="priority-label">Junaifa M. Asira · Authorised Signatory</div>
+    <div class="priority-text">No logged authorisation or signatory actions this week in Notion. Outstanding items carrying over: IGEM Group FZE reconciliation (AED 3,250 across 6 invoices) · BPOAS internal invoices INV-000110 + INV-000111 (AED 4,200, 81 days — clear or write off) · Zoho receipts inbox address bouncing (fix the forwarding address). Team data for signatory actions not available via Notion this run — manual input recommended.</div>
+  </div>
+
+  <hr class="divider">
+  <div class="row"><span class="k">Needs Mohaina Next Week</span><span class="v">Raihana's Pipeline Status Report review + CRM go/no-go · Rei's content delivery resolution · Junaifa: IGEM + internal invoice direction</span></div>
+</div>
+
+<!-- 6. FORWARD LOOK -->
+<div class="card">
+  <div class="card-title">6 · Forward Look — Week of 25 August 2026</div>
+
+  <div class="priority-label" style="font-size:13px; margin-bottom:12px; color: var(--brand);">Top 3 Priorities for Monday</div>
+
+  <div class="priority-item">
+    <div class="priority-label">1 · PICPA NE CHAPTER FZE — Corporate Tax Return</div>
+    <div class="priority-text">Day 8 since the FTA's first direct reminder. No third reminder in the last 24h doesn't mean it's resolved — it means the clock is running. Confirm filing status first thing Monday morning.</div>
+    <div class="priority-meta">Why it matters: FTA direct contact on a CT return is a compliance escalation, not a routine notice. · Owner: Mohaina</div>
+  </div>
+
+  <div class="priority-item">
+    <div class="priority-label">2 · GL Middle East + The Concept Lab — EL Decisions Today</div>
+    <div class="priority-text">GL Middle East (61 days stalled) and The Concept Lab (60 days, CIT window now 40 days out). Both are blocked on the same approve-or-close call. A CIT filing engagement won now has 40 days of runway. Every week this sits undecided is a week of real work lost.</div>
+    <div class="priority-meta">Why it matters: 30 Sep CIT deadline. Letting it lapse risks the engagement permanently. · Owner: Mohaina</div>
+  </div>
+
+  <div class="priority-item">
+    <div class="priority-label">3 · Richemont Collections Call — AED 58,537.50</div>
+    <div class="priority-text">Three reminders sent. Nothing landing. 15 days of flat AR. INV-000086 is 186 days old. This is the single highest-value action to move the revenue needle. A direct call — not an email — is what's needed next.</div>
+    <div class="priority-meta">Why it matters: 57.6% of total AR. Every week it stays uncollected is a week of cash the business isn't using. · Owner: Mohaina</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="priority-label" style="font-size:13px; margin-bottom:12px; color: var(--brand);">Compliance Radar — Next 14 Days</div>
+
+  <div class="radar-item">
+    <span style="min-width:22px;">🔴</span>
+    <div><strong>VAT Return Final Deadline — Friday 28 August 2026</strong> (7 days). For any client with a quarterly VAT return ending 31 Jul — confirm all returns filed or in progress before the week starts.</div>
+  </div>
+  <div class="radar-item">
+    <span style="min-width:22px;">🟡</span>
+    <div><strong>Prophet Muhammad's Birthday — Thursday 27 August 2026</strong>. Official paid holiday. Plan client communications and internal workload around the shortened week.</div>
+  </div>
+  <div class="radar-item">
+    <span style="min-width:22px;">🟡</span>
+    <div><strong>AML/CFT H2 2026 Programme Review</strong> — still unscheduled. Day 23. BPOAS is a DNFBP. Mohaina is AMLRO. This needs a date on the calendar this week.</div>
+  </div>
+  <div class="radar-item">
+    <span style="min-width:22px;">🟡</span>
+    <div><strong>Corporate Tax Return Deadline — 30 September 2026</strong> (40 days). Any BPOAS client with a FY ending 31 Dec 2025 (or aligned date) needs CT returns filed. The Concept Lab engagement is the most urgent active case.</div>
+  </div>
+  <div class="radar-item">
+    <span style="min-width:22px;">🟢</span>
+    <div>No other FTA correspondence or AML alerts landed this week. Clear for now.</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="priority-label" style="font-size:13px; margin-bottom:8px; color: var(--brand);">Revenue Gap Action</div>
+  <div style="font-size:14px; margin-bottom:16px;">AR flat for 15 days at AED 101,687.50. The one action with the highest single-week impact: <strong>a direct call to Richemont Dubai FZE (Raphael, the decision-maker Mohaina manages directly) on Monday morning</strong>. Three email reminders have not moved AED 58,537.50 in six weeks. A call is the next logical step — not another email.</div>
+
+  <hr class="divider">
+
+  <div class="priority-label" style="font-size:13px; margin-bottom:8px; color: var(--brand);">Monday Content Slot — 25 August</div>
+  <div style="font-size:14px;"><span class="status-amber">⚠ Content Calendar for Week of 25 Aug not yet built.</span> No Monday post confirmed. Flag as Content Debt. Mohaina to confirm topic before EOD Friday — or trigger /content-calendar-generator over the weekend. Suggested pillar for Monday 25 Aug: <strong>Compliance Without the Panic</strong> (VAT return deadline approaching 28 Aug — high relevance this week).</div>
+</div>
+
+<!-- FLAGS FOR MOHAINA -->
+<div class="flag-card">
+  <div class="card-title">⚑ Flags for Mohaina — Before Close of Business Today</div>
+
+  <div class="flag-item">
+    <span class="flag-num">1</span>
+    <div><strong>PICPA NE CHAPTER FZE CT Return</strong> — FTA compliance deadline, Day 8 of direct FTA contact. No owner confirmed. Confirm filing status today. Owner: Mohaina.</div>
+  </div>
+  <div class="flag-item">
+    <span class="flag-num">2</span>
+    <div><strong>Richemont (Dubai) FZE — INV-000108 + INV-000086</strong> — AED 58,537.50 outstanding. INV-000108 21 days overdue; INV-000086 186 days overdue. Combined 57.6% of total AR. No payment received despite 3 reminders. Direct call required.</div>
+  </div>
+  <div class="flag-item">
+    <span class="flag-num">3</span>
+    <div><strong>The Concept Lab / Mr. George EL</strong> — Proposal at proposal stage, no follow-up call scheduled, CIT window now 40 days. Approve a call or close it today. Owner: Mohaina.</div>
+  </div>
+  <div class="flag-item">
+    <span class="flag-num">4</span>
+    <div><strong>GL Middle East / Nandhu EL (3 entities)</strong> — 61 days stalled. Same approve-or-close decision as Concept Lab. Both can be cleared in one decision. Owner: Mohaina.</div>
+  </div>
+  <div class="flag-item">
+    <span class="flag-num">5</span>
+    <div><strong>Kora Corporate Services (Joelle Link)</strong> — Client chased three times since 17 Aug. Raihana holding reply sent 20 Aug. Client is waiting for a real decision on the engagement letter — not another holding message. Owner: Mohaina.</div>
+  </div>
+  <div class="flag-item">
+    <span class="flag-num">6</span>
+    <div><strong>Raihana's Pipeline Status Report — 35 days overdue</strong>. 19 leads and 80 DM drafts blocked until submitted. Without this, CRM cannot move. Non-negotiable for Monday. Owner: Raihana (Mohaina to follow up directly).</div>
+  </div>
+  <div class="flag-item">
+    <span class="flag-num">7</span>
+    <div><strong>Content delivery to Rei Nald — broken 5+ weeks</strong>. 14+ approved-quality posts backlogged. 0 published. This is not a content problem. A process decision is needed: establish a working delivery channel before Monday's post drops. Owner: Mohaina + Rei.</div>
+  </div>
+  <div class="flag-item">
+    <span class="flag-num">8</span>
+    <div><strong>M365 Mail.Send admin consent — Day 50+</strong>. Every routine's email delivery is blocked. One Entra admin-consent grant (Mail.Send permission) permanently fixes every routine's email output. Raise with IT or action directly in Azure Entra admin. Owner: Mohaina / IT.</div>
+  </div>
+  <div class="flag-item">
+    <span class="flag-num">9</span>
+    <div><strong>Emirates Group eInvoicing — Action Required</strong>. UAE MoF mandatory eInvoicing framework. Emirates Group requires BPOAS customer master data update. High-importance email received 20 Aug. This also sits on BPOAS's own eInvoicing advisory positioning — act and document it. Owner: Mohaina.</div>
+  </div>
+  <div class="flag-item">
+    <span class="flag-num">10</span>
+    <div><strong>AML/CFT H2 2026 Review — 23 days unscheduled</strong>. BPOAS is a DNFBP. Mohaina is the AMLRO. This needs a date on the calendar now. Owner: Mohaina.</div>
+  </div>
+</div>
+
+<div class="footer">
+  Auto-generated · BPOAS EOW Review · Friday 21 August 2026 · 17:00 UAE<br>
+  Sources: Outlook Calendar + Email (M365) · Notion (BPOAS Team Operating Hub · COO Brief · Raihana Daily Brief · Content Calendar) · Zoho Books (via COO Brief pull) · Emirates NBD transaction alerts<br>
+  LinkedIn analytics unavailable (Apify scraper down 12+ consecutive weeks) · Zoho Books direct access not available this run · Monthly revenue target not specified in positioning documents
+</div>
+
+</body>
+</html>
