@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BPOAS Daily Start · 26 August 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A0A0A;
+    --card: #141414;
+    --card-border: #222222;
+    --primary: #E8294C;
+    --primary-dim: #a81d35;
+    --ink: #E8E6E0;
+    --ink-soft: #9A9891;
+    --ink-muted: #5A5955;
+    --green: #27A56E;
+    --green-bg: #0D2B1F;
+    --amber: #C68A1A;
+    --amber-bg: #2A2010;
+    --red: #E8294C;
+    --red-bg: #2A0D14;
+    --hairline: #222222;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 0 0 60px;
+  }
+
+  /* ─── Header band ─── */
+  .header-band {
+    background: #0E0E0E;
+    border-bottom: 1px solid var(--hairline);
+    padding: 28px 24px 20px;
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-dot {
+    width: 10px; height: 10px;
+    background: var(--primary);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .header-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .header-date {
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+    margin-top: 3px;
+  }
+  .header-day-badge {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: var(--red-bg);
+    border: 1px solid #3a0f1a;
+    border-radius: 4px;
+    padding: 3px 8px;
+    align-self: center;
+  }
+
+  /* ─── Content area ─── */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* ─── Card ─── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .card-header {
+    padding: 14px 20px 12px;
+    border-bottom: 1px solid var(--hairline);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .card-body {
+    padding: 20px;
+  }
+
+  /* ─── Hero / Revenue Pulse card ─── */
+  .hero-card {
+    background: #111;
+    border-color: #282828;
+  }
+  .hero-card .card-header {
+    border-color: #282828;
+  }
+  .revenue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0;
+  }
+  .revenue-cell {
+    padding: 16px 20px;
+    border-right: 1px solid var(--hairline);
+  }
+  .revenue-cell:last-child { border-right: none; }
+  .revenue-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 6px;
+  }
+  .revenue-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .revenue-value.large { font-size: 28px; }
+  .revenue-sub {
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-top: 4px;
+  }
+  .status-pill.amber { background: var(--amber-bg); color: var(--amber); border: 1px solid #4a3010; }
+  .status-pill.green { background: var(--green-bg); color: var(--green); border: 1px solid #0d4a2f; }
+  .status-pill.red { background: var(--red-bg); color: var(--red); border: 1px solid #4a0d1a; }
+  .carry-note {
+    padding: 10px 20px;
+    background: #0d0d0d;
+    border-top: 1px solid var(--hairline);
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+
+  /* ─── Run log ─── */
+  .run-log-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .run-log-table th {
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding: 0 0 10px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .run-log-table th:last-child { text-align: right; }
+  .run-log-table td {
+    padding: 10px 0;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 13px;
+    vertical-align: middle;
+  }
+  .run-log-table tr:last-child td { border-bottom: none; }
+  .run-log-table td:last-child { text-align: right; }
+  .step-name { color: var(--ink); }
+  .step-output { font-size: 11px; color: var(--ink-muted); margin-top: 2px; }
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+  .badge.complete { background: var(--green-bg); color: var(--green); }
+  .badge.skipped { background: #1a1a1a; color: var(--ink-muted); }
+  .badge.error { background: var(--red-bg); color: var(--red); }
+
+  /* ─── Flags card ─── */
+  .flags-card .card-header {
+    background: #1a0510;
+    border-color: #3a0d1a;
+  }
+  .flags-card .card-title { color: var(--primary); }
+  .flag-count {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--red-bg);
+    border: 1px solid #3a0d1a;
+    border-radius: 3px;
+    padding: 1px 7px;
+  }
+  .flag-item {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .flag-item:last-child { border-bottom: none; }
+  .flag-category-divider {
+    padding: 8px 20px 6px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    background: #0d0d0d;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .flag-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .flag-severity {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .flag-severity.red { background: var(--red); }
+  .flag-severity.amber { background: var(--amber); }
+  .flag-body {}
+  .flag-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .flag-detail {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .flag-action {
+    font-size: 11px;
+    color: var(--amber);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* ─── Quick links ─── */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .link-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #181818;
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 12px;
+    transition: border-color 0.15s;
+  }
+  .link-chip:hover { border-color: #444; }
+  .link-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--primary);
+    flex-shrink: 0;
+  }
+  .link-chip-label { font-weight: 500; }
+  .link-chip-sub { font-size: 10px; color: var(--ink-muted); margin-top: 1px; }
+
+  /* ─── LinkedIn post card ─── */
+  .post-card .card-header {
+    background: #0d1520;
+    border-color: #1a2a3a;
+  }
+  .post-card .card-title { color: #4D9FD6; }
+  .post-status-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #0d0d0d;
+    border-bottom: 1px solid var(--hairline);
+    font-size: 11px;
+    color: var(--amber);
+    flex-wrap: wrap;
+  }
+  .post-status-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+  .post-meta-row {
+    display: flex;
+    gap: 16px;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--hairline);
+    flex-wrap: wrap;
+  }
+  .post-meta-item {
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+  .post-meta-item span {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .post-text {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink);
+    white-space: pre-wrap;
+    font-family: -apple-system, "Segoe UI", sans-serif;
+  }
+  .post-hook {
+    font-weight: 700;
+    font-size: 15px;
+    background: #1a150a;
+    border-left: 3px solid var(--amber);
+    padding: 10px 14px;
+    margin: 0 20px 16px;
+    border-radius: 0 4px 4px 0;
+    display: block;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .post-cta-marker {
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .pinned-comments {
+    padding: 0 20px 20px;
+  }
+  .pinned-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .pinned-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--hairline);
+  }
+  .pinned-comment {
+    background: #181818;
+    border: 1px solid #242424;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .pinned-comment:last-child { margin-bottom: 0; }
+  .pinned-comment-type {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+
+  /* ─── Resolved card ─── */
+  .resolved-item {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--hairline);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .resolved-item:last-child { border-bottom: none; }
+  .check-icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--green-bg);
+    border: 1px solid var(--green);
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: var(--green);
+  }
+  .resolved-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .resolved-detail {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    .revenue-grid { grid-template-columns: 1fr 1fr; }
+    .revenue-cell { border-right: none; border-bottom: 1px solid var(--hairline); }
+    .revenue-cell:last-child { border-bottom: none; }
+    .links-grid { grid-template-columns: 1fr; }
+    .content { padding: 16px; }
+    .revenue-value.large { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header-band">
+  <div class="header-inner">
+    <div class="header-brand">
+      <div class="logo-dot"></div>
+      <div>
+        <div class="header-title">BPOAS Daily Start</div>
+        <div class="header-date">Wednesday · 26 August 2026 · Generated 07:00 UAE</div>
+      </div>
+    </div>
+    <div class="header-day-badge">Lean Run — Steps 1 + 4</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- ─── HERO: Revenue Pulse ─── -->
+  <div class="card hero-card">
+    <div class="card-header">
+      <span class="card-title">Revenue Pulse</span>
+      <span style="font-size:11px;color:var(--ink-muted);">Last updated: Monday 24 Aug 2026</span>
+    </div>
+    <div class="revenue-grid">
+      <div class="revenue-cell">
+        <div class="revenue-label">MTD Revenue Received</div>
+        <div class="revenue-value large" style="color:var(--ink-muted);font-size:20px;">Carry forward</div>
+        <div class="revenue-sub">Zoho Books not queried today — lean run. See Monday's CFO report.</div>
+      </div>
+      <div class="revenue-cell">
+        <div class="revenue-label">Outstanding AR</div>
+        <div class="revenue-value">AED 101,687</div>
+        <div class="revenue-sub">17 invoices open (as of Mon 24 Aug)</div>
+      </div>
+      <div class="revenue-cell">
+        <div class="revenue-label">Monthly Target</div>
+        <div class="revenue-value" style="color:var(--ink-muted);font-size:18px;">—</div>
+        <div class="revenue-sub">Not set in reference documents</div>
+      </div>
+      <div class="revenue-cell">
+        <div class="revenue-label">Days Left in August</div>
+        <div class="revenue-value">5</div>
+        <div class="status-pill amber">⬤ Check Monday's CFO report</div>
+      </div>
+    </div>
+    <div class="carry-note">Zoho Books revenue data queried on Mondays only (CFO run). Tuesday–Friday carries forward the last known figure. Full figures in <strong>cfo-report-2026-08-25.html</strong> — not yet generated; next CFO run is Monday 31 August.</div>
+  </div>
+
+  <!-- ─── RUN LOG ─── -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">Run Log · Wednesday 26 Aug 2026</span>
+    </div>
+    <div class="card-body" style="padding:0;">
+      <table class="run-log-table" style="padding:0 20px;">
+        <thead>
+          <tr style="padding:0 20px;">
+            <th style="padding:12px 20px 8px;">Step</th>
+            <th>Output</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:12px 20px;">
+              <div class="step-name">1 — COO Morning Brief</div>
+              <div class="step-output">Connectors: M365 Calendar + Email · Notion</div>
+            </td>
+            <td style="padding:12px 20px;font-size:11px;color:var(--ink-muted);">coo-brief-2026-08-26.html<br>Notion: COO Brief - 2026-08-26</td>
+            <td style="padding:12px 20px;"><span class="badge complete">Complete</span></td>
+          </tr>
+          <tr>
+            <td style="padding:12px 20px;">
+              <div class="step-name">2 — CFO Weekly Revenue</div>
+              <div class="step-output">Runs Mondays only</div>
+            </td>
+            <td style="padding:12px 20px;font-size:11px;color:var(--ink-muted);">—</td>
+            <td style="padding:12px 20px;"><span class="badge skipped">Skipped</span></td>
+          </tr>
+          <tr>
+            <td style="padding:12px 20px;">
+              <div class="step-name">3 — CRO Weekly Prospects</div>
+              <div class="step-output">Runs Mondays only</div>
+            </td>
+            <td style="padding:12px 20px;font-size:11px;color:var(--ink-muted);">—</td>
+            <td style="padding:12px 20px;"><span class="badge skipped">Skipped</span></td>
+          </tr>
+          <tr>
+            <td style="padding:12px 20px;">
+              <div class="step-name">4 — CMO Daily Post</div>
+              <div class="step-output">Connectors: Notion · Apify (n/a — no scraper configured)</div>
+            </td>
+            <td style="padding:12px 20px;font-size:11px;color:var(--ink-muted);">cmo-post-2026-08-26.html<br>Notion: CMO Daily Post · Wed 26 Aug<br><em style="color:#5a3010;">Approval email: Gmail (M365 blocked, Day 56)</em></td>
+            <td style="padding:12px 20px;"><span class="badge complete">Complete</span></td>
+          </tr>
+          <tr>
+            <td style="padding:12px 20px;">
+              <div class="step-name">5 — Content Calendar</div>
+              <div class="step-output">Runs Mondays only</div>
+            </td>
+            <td style="padding:12px 20px;font-size:11px;color:var(--ink-muted);">—</td>
+            <td style="padding:12px 20px;"><span class="badge skipped">Skipped</span></td>
+          </tr>
+          <tr>
+            <td style="padding:12px 20px;">
+              <div class="step-name">Summary email → m.asira@bposervicegroup.com</div>
+              <div class="step-output">Via M365 outlook_send_mail</div>
+            </td>
+            <td style="padding:12px 20px;font-size:11px;color:var(--ink-muted);">Attempting this run</td>
+            <td style="padding:12px 20px;"><span class="badge" style="background:#1a1a00;color:#aaa;border:1px solid #333;" id="email-status">Pending</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ─── FLAGS FOR MOHAINA ─── -->
+  <div class="card flags-card">
+    <div class="card-header">
+      <span class="card-title">Flags for Mohaina</span>
+      <span class="flag-count">13 flags</span>
+    </div>
+
+    <div class="flag-category-divider">Compliance</div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity red"></div>
+        <div class="flag-body">
+          <div class="flag-title">VAT Return deadline: 28 August — 2 days away</div>
+          <div class="flag-detail">The VAT Return final deadline is this Friday. If any client filing is still open, it needs to be submitted by end of Thursday at the latest.</div>
+          <div class="flag-action">Next step: confirm all open VAT returns are filed or in-progress with a team member today.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity red"></div>
+        <div class="flag-body">
+          <div class="flag-title">PICPA NE Chapter FZE: Corporate Tax Return still unconfirmed — Day 13</div>
+          <div class="flag-detail">The CT return for this client has been pending confirmation for 13 days. No update in the inbox today.</div>
+          <div class="flag-action">Next step: direct follow-up with the responsible team member today.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity amber"></div>
+        <div class="flag-body">
+          <div class="flag-title">AML/CFT H2 2026 Programme review — unscheduled, Day 28</div>
+          <div class="flag-detail">The H2 2026 AML/CFT internal review has not been scheduled. At Day 28, this is past a normal scheduling window.</div>
+          <div class="flag-action">Next step: schedule the review before end of August.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag-category-divider">Cash &amp; Finance</div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity amber"></div>
+        <div class="flag-body">
+          <div class="flag-title">HBM Fuels Zoho org: inactive 120+ days, scheduled for deletion</div>
+          <div class="flag-detail">Zoho Books sent a notice: the HBM Fuels organisation (Org ID: 837425289) has been inactive for over 120 days and is queued for deletion. Client data will be lost if not reactivated.</div>
+          <div class="flag-action">Next step: log in to the HBM Fuels Zoho org or contact the client to confirm if the account should be retained or closed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity amber"></div>
+        <div class="flag-body">
+          <div class="flag-title">Kelvion FZE — verify bank details before processing payment</div>
+          <div class="flag-detail">A bank-details caution was raised for Kelvion FZE. Do not process any payment until the details have been verified directly with the client contact.</div>
+          <div class="flag-action">Next step: call the client to confirm account details before authorising.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag-category-divider">Client</div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity red"></div>
+        <div class="flag-body">
+          <div class="flag-title">Montfort Investment Ltd — Gideon requesting a same-day call</div>
+          <div class="flag-detail">Gideon (Montfort Investment Ltd) is asking for a call today to confirm the 10-entity engagement scope. This is a live BD conversation; delay risks losing momentum.</div>
+          <div class="flag-action">Next step: confirm or schedule the call today.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity amber"></div>
+        <div class="flag-body">
+          <div class="flag-title">Montfort Trading FZE — engagement letter converged, awaiting BPOAS countersignature</div>
+          <div class="flag-detail">The engagement letter has been agreed. It is waiting on BPOAS to countersign before the engagement can officially start.</div>
+          <div class="flag-action">Next step: sign and return the engagement letter.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity red"></div>
+        <div class="flag-body">
+          <div class="flag-title">The Concept Lab — Mr. George EL: ~65 days stalled</div>
+          <div class="flag-detail">This engagement has been stalled for approximately 65 days with no progress. A decision is needed: approve a direct call to move it forward, or formally close it.</div>
+          <div class="flag-action">Next step: decide by end of day — call or close.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity red"></div>
+        <div class="flag-body">
+          <div class="flag-title">GL Middle East — Nandhu engagement: ~65 days stalled</div>
+          <div class="flag-detail">Same pattern as The Concept Lab. The main engagement letter has not progressed for approximately 65 days.</div>
+          <div class="flag-action">Next step: same — call or close by end of day.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity red"></div>
+        <div class="flag-body">
+          <div class="flag-title">Kora Corporate Services (Joelle) — decision needed</div>
+          <div class="flag-detail">This client situation has escalated and requires a real decision from Mohaina. The team has no authority to close it without her.</div>
+          <div class="flag-action">Next step: review and decide today.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag-category-divider">Operations &amp; BD</div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity red"></div>
+        <div class="flag-body">
+          <div class="flag-title">Raihana's Weekly Pipeline Status Report — 40 days overdue</div>
+          <div class="flag-detail">The weekly BD pipeline report from Raihana's queue has not been submitted for 40 days. Mohaina has no current visibility into the pipeline Raihana manages.</div>
+          <div class="flag-action">Next step: direct conversation with Raihana on cadence and format.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity red"></div>
+        <div class="flag-body">
+          <div class="flag-title">M365 Mail.Send permission still not admin-consented — Day 56</div>
+          <div class="flag-detail">The Microsoft 365 <code style="background:#1a1a1a;padding:1px 4px;border-radius:2px;font-size:11px;">outlook_send_mail</code> permission has been blocked for 56 consecutive days. This is preventing all automated Outlook sends: approval emails, Rei forwarding, and the end-of-run summary. App registration: client ID <code style="background:#1a1a1a;padding:1px 4px;border-radius:2px;font-size:11px;">07c030f6-5743-41b7-ba00-0a6e85f37c17</code>, tenant <code style="background:#1a1a1a;padding:1px 4px;border-radius:2px;font-size:11px;">052efaf8-7f9d-4ad8-8436-b017c0720022</code>.</div>
+          <div class="flag-action">Next step: ask your IT admin or Microsoft 365 administrator to grant admin consent for the Mail.Send delegated permission on that app registration. One action unblocks every affected routine permanently.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flag-category-divider">Content</div>
+
+    <div class="flag-item">
+      <div class="flag-row">
+        <div class="flag-severity amber"></div>
+        <div class="flag-body">
+          <div class="flag-title">Today's LinkedIn post — awaiting your approval before Rei can publish</div>
+          <div class="flag-detail">The post was generated, scored 4/4, and sent to your inbox via Gmail (approval email from moanne.asira@gmail.com, subject: BPOAS CMO Daily Post Complete · 26 Aug 2026). The post cites a UAE regulatory deadline and penalty figure — explicit approval is required before it goes to Rei. Timeout was 08:15 UAE; the post is held.</div>
+          <div class="flag-action">Next step: reply Approved / Revise / Hold to the Gmail approval email.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ─── RESOLVED ─── -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">Resolved</span>
+    </div>
+    <div class="resolved-item">
+      <div class="check-icon">✓</div>
+      <div>
+        <div class="resolved-title">MENASTAR DMCC Audit FY 2025 — fee approved, payment by end of week</div>
+        <div class="resolved-detail">Yiannis (LastMinute/MENASTAR) confirmed yesterday (25 Aug) via email: "The amount is approved, we will proceed to the payment by the end of the week." Excellence Auditing shared the requirements for the clean report. This thread has moved forward without needing Mohaina's involvement.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── QUICK LINKS ─── -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">Quick Links</span>
+    </div>
+    <div class="card-body">
+      <div class="links-grid">
+        <a href="https://github.com/BPOLeave/Mohaina-Business-Brain/blob/claude/gracious-archimedes-p7hkzy/coo-brief-2026-08-26.html" class="link-chip" target="_blank">
+          <div class="link-dot"></div>
+          <div>
+            <div class="link-chip-label">COO Brief</div>
+            <div class="link-chip-sub">coo-brief-2026-08-26.html</div>
+          </div>
+        </a>
+        <a href="https://app.notion.com/p/3c88a33e7fd1818ba35ce594f7cac58d" class="link-chip" target="_blank">
+          <div class="link-dot"></div>
+          <div>
+            <div class="link-chip-label">COO Brief (Notion)</div>
+            <div class="link-chip-sub">COO Brief · 26 Aug 2026</div>
+          </div>
+        </a>
+        <a href="https://app.notion.com/p/3c88a33e7fd181ccb0ccc5475c972c79" class="link-chip" target="_blank">
+          <div class="link-dot"></div>
+          <div>
+            <div class="link-chip-label">CMO Post (Notion)</div>
+            <div class="link-chip-sub">CMO Daily Post · Wed 26 Aug</div>
+          </div>
+        </a>
+        <a href="https://app.notion.com/p/3c68a33e7fd18197bd48f4224d2f68a0" class="link-chip" target="_blank">
+          <div class="link-dot"></div>
+          <div>
+            <div class="link-chip-label">Content Calendar</div>
+            <div class="link-chip-sub">Week of 24 August 2026</div>
+          </div>
+        </a>
+        <a href="https://app.notion.com/p/38e8a33e7fd181d0b9c7e1716e43305a" class="link-chip" target="_blank">
+          <div class="link-dot"></div>
+          <div>
+            <div class="link-chip-label">Team Operating Hub</div>
+            <div class="link-chip-sub">BPOAS Notion workspace</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TODAY'S LINKEDIN POST ─── -->
+  <div class="card post-card">
+    <div class="card-header">
+      <span class="card-title">Today's LinkedIn Post</span>
+      <span style="font-size:11px;color:#4D9FD6;">Tech &amp; Automation · Soft Selling · 4/4 Diagnostic</span>
+    </div>
+    <div class="post-status-row">
+      <div class="post-status-dot"></div>
+      <strong>Awaiting your approval</strong> — post holds until you reply to the Gmail approval email. Contains UAE regulatory deadline + penalty figure.
+    </div>
+    <div class="post-meta-row">
+      <div class="post-meta-item">Pillar: <span>Tech &amp; Automation</span></div>
+      <div class="post-meta-item">Format: <span>Soft-Sell (Variation A)</span></div>
+      <div class="post-meta-item">Hook: <span>Curiosity Gap</span></div>
+      <div class="post-meta-item">Characters: <span>1,436</span></div>
+      <div class="post-meta-item">CTA: <span>DM me eInvoicing</span></div>
+    </div>
+
+    <span class="post-hook">The eInvoicing deadline just moved. Most owners still think it's the old date.</span>
+
+    <div class="post-text">I've spoken to a few business owners recently who are still planning around 31 July as the ASP appointment window. That date passed — and the FTA already extended Phase 1.
+
+The actual deadline for appointing an Accredited Service Provider is now <strong>30 October 2026</strong>. Go-live is unchanged at 1 January 2027.
+
+Phase 1 applies to businesses with revenue over AED 50 million. If that's you — or if your accountant hasn't flagged this — you need to act now.
+
+Penalty for non-compliance: up to AED 5,000 per month, under Cabinet Resolution No. 106 of 2025.
+
+Here's what I think gets missed: eInvoicing isn't just a filing change. It's a system integration. Your accounting platform needs to connect to the FTA portal through an approved ASP — and there are roughly 33 FTA-approved providers right now.
+
+Not all of them support Zoho Books or Odoo. Implementation isn't quick. And the October deadline sounds far until you start counting backwards from onboarding timelines.
+
+The window isn't really October. It's now.
+
+If you're above AED 50 million, or you're helping someone who is — start the ASP conversation today, not next month.
+
+<span class="post-cta-marker">DM me eInvoicing</span> and I'll tell you exactly where businesses get stuck in this process.</div>
+
+    <div class="pinned-comments">
+      <div class="pinned-label">3 Pinned Comments</div>
+      <div class="pinned-comment">
+        <div class="pinned-comment-type">Comment 1 — Extend</div>
+        The 33-ASP number matters more than it looks. Not all of them cover every accounting system. If you're on Zoho or Odoo, the shortlist is shorter than you think — and some of those are already fully booked for Q4 implementations.
+      </div>
+      <div class="pinned-comment">
+        <div class="pinned-comment-type">Comment 2 — Humanise</div>
+        We've started getting calls from owners who thought they had until 2027 to do anything. They didn't realise the ASP appointment is a separate step that has to happen first. The system won't integrate itself in January.
+      </div>
+      <div class="pinned-comment">
+        <div class="pinned-comment-type">Comment 3 — CTA Amplifier</div>
+        If you DM me "eInvoicing" — I'll send you the current list of FTA-approved ASPs and which ones are compatible with the most common SME accounting platforms in the UAE. No charge, no pitch. Just the information.
+      </div>
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+</body>
+</html>
