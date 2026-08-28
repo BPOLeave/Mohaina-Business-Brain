@@ -1,1 +1,255 @@
-see local file — full content committed
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · 28 Aug 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0A0A;--surface:#111;--surface2:#151515;--border:#1e1e1e;
+  --ink:#E8E8E4;--ink-soft:#888;--ink-muted:#555;
+  --red:#E8294C;--red-bg:#1a0004;--red-border:#4a0010;
+  --amber:#C8852A;--amber-bg:#1a0e00;--amber-border:#4a2800;
+  --green:#2A8C4A;--green-bg:#001a08;--green-border:#004a18;
+}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Segoe UI",sans-serif;font-size:14px;line-height:1.6;min-height:100vh}
+.page{max-width:900px;margin:0 auto;padding:28px 16px 60px}
+.hero{background:linear-gradient(135deg,#120004 0%,#0a0a0a 60%);border:1px solid #2a0008;border-radius:14px;padding:28px 28px 24px;margin-bottom:20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+.hero-title{font-size:22px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.hero-date{font-size:13px;color:var(--ink-soft);margin-top:3px}
+.hero-run{font-size:12px;background:#1a0004;border:1px solid #3a0008;color:var(--red);padding:4px 10px;border-radius:20px;align-self:flex-start;white-space:nowrap}
+.revenue-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.rev-tile{background:#0d0003;border:1px solid #2a0008;border-radius:8px;padding:14px}
+.rev-tile-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-muted);margin-bottom:4px}
+.rev-tile-value{font-size:18px;font-weight:700;color:#fff}
+.rev-tile-sub{font-size:11px;color:var(--ink-soft);margin-top:2px}
+.status-pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:3px;margin-top:6px}
+.pill-amber{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-border)}
+.pill-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
+.morning-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:0;margin-bottom:20px;overflow:hidden}
+.morning-top{padding:20px 24px;border-bottom:1px solid var(--border)}
+.morning-daydate{font-size:12px;color:var(--ink-soft);margin-bottom:4px;letter-spacing:.03em}
+.morning-headline{font-family:Georgia,serif;font-size:28px;color:#fff;line-height:1.25;font-weight:400}
+.terrain-wrap{padding:0;background:#0d0d0d}
+.acts{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--border)}
+.act{padding:16px 20px;border-right:1px solid var(--border)}
+.act:last-child{border-right:none}
+.act-time{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--red);margin-bottom:5px}
+.act-text{font-size:13px;color:var(--ink-soft);line-height:1.55}
+@media(max-width:640px){.acts{grid-template-columns:1fr}.act{border-right:none;border-bottom:1px solid var(--border)}.acts .act:last-child{border-bottom:none}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:16px}
+.card-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-muted);margin-bottom:16px}
+.run-table{width:100%;border-collapse:collapse}
+.run-table td{padding:8px 10px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:top}
+.run-table tr:last-child td{border-bottom:none}
+.run-table td:first-child{width:40%;color:var(--ink-soft)}
+.status-complete{color:#2A8C4A;font-weight:600}
+.status-skip{color:var(--ink-muted)}
+.status-fail{color:var(--red);font-weight:600}
+.status-pending{color:var(--amber);font-weight:600}
+.flags-card{background:#0d0002;border:1px solid #3a0008;border-radius:12px;padding:22px 24px;margin-bottom:16px}
+.flags-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--red);margin-bottom:4px}
+.flags-sub{font-size:12px;color:#664;margin-bottom:18px}
+.flag-group-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-muted);margin:16px 0 8px;padding-bottom:4px;border-bottom:1px solid #2a0008}
+.flag-group-label:first-of-type{margin-top:0}
+.flag-item{display:grid;grid-template-columns:28px 1fr;gap:8px;margin-bottom:10px;font-size:13px}
+.flag-icon{font-size:14px;padding-top:1px}
+.flag-title{font-weight:600;color:#fff;margin-bottom:2px}
+.flag-body{color:#aaa;font-size:12px;line-height:1.5}
+.flag-next{color:var(--red);font-size:12px;margin-top:2px;font-weight:500}
+.links-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.link-tile{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--ink)}
+.link-tile-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-muted);margin-bottom:4px}
+.link-tile-name{font-size:13px;font-weight:600;color:#ddd}
+.post-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:16px}
+.post-hook{font-size:15px;font-weight:700;color:#fff;background:#0d0002;border-left:3px solid var(--red);padding:10px 14px;border-radius:0 6px 6px 0;margin-bottom:16px;line-height:1.4}
+.post-body{white-space:pre-wrap;font-size:14px;line-height:1.75;color:#ccc}
+.post-cta{color:var(--red);font-weight:700}
+.comment-strip{background:#0d0d0d;border:1px solid #1a1a1a;border-radius:8px;padding:12px 16px;margin-top:10px;font-size:13px;color:#999;line-height:1.5}
+.comment-num{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-muted);margin-bottom:5px}
+.score-bar{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.score-pip{background:var(--red);width:22px;height:6px;border-radius:3px}
+.score-label{font-size:12px;color:var(--ink-soft);margin-left:4px;align-self:center}
+.approval-banner{background:#1a0a00;border:1px solid #4a2800;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:#C8852A}
+.foot{font-size:11px;color:var(--ink-muted);text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="hero">
+  <div class="hero-top">
+    <div>
+      <div class="hero-title">BPOAS Daily Start</div>
+      <div class="hero-date">Friday · 28 August 2026 &nbsp;·&nbsp; Lean Run (Steps 1 + 4)</div>
+    </div>
+    <div class="hero-run">Lean Run · Fri</div>
+  </div>
+  <div class="revenue-grid">
+    <div class="rev-tile">
+      <div class="rev-tile-label">MTD Revenue</div>
+      <div class="rev-tile-value" style="font-size:14px;color:var(--ink-soft)">Not available this run</div>
+      <div class="rev-tile-sub">CFO brief runs Mondays</div>
+      <div class="status-pill pill-amber">Last updated Mon 25 Aug</div>
+    </div>
+    <div class="rev-tile">
+      <div class="rev-tile-label">Monthly Target</div>
+      <div class="rev-tile-value" style="font-size:14px;color:var(--ink-soft)">Not on file</div>
+      <div class="rev-tile-sub">Add to positioning-mohaina-asira.md</div>
+    </div>
+    <div class="rev-tile">
+      <div class="rev-tile-label">AR Outstanding</div>
+      <div class="rev-tile-value">AED 101,687</div>
+      <div class="rev-tile-sub">17 overdue invoices · flat 22 days</div>
+      <div class="status-pill pill-red">At Risk</div>
+    </div>
+    <div class="rev-tile">
+      <div class="rev-tile-label">Days Left in August</div>
+      <div class="rev-tile-value">3</div>
+      <div class="rev-tile-sub">Including today</div>
+    </div>
+  </div>
+</div>
+<div class="morning-card">
+  <div class="morning-top">
+    <div class="morning-daydate">Friday · 28 August 2026</div>
+    <div class="morning-headline">The whole day is yours, Mohaina. Use it on the three decisions that have been waiting.</div>
+  </div>
+  <div class="terrain-wrap">
+    <svg viewBox="0 0 840 120" width="100%" height="100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,75 C80,72 160,76 240,74 C320,72 400,76 480,74 C560,72 640,75 720,73 C780,72 820,74 840,74" fill="none" stroke="#2E2C27" stroke-width="2"/>
+      <circle cx="760" cy="52" r="13" fill="none" stroke="#C6613F" stroke-width="1.5"/>
+      <line x1="760" y1="32" x2="760" y2="27" stroke="#C6613F" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="760" y1="72" x2="760" y2="77" stroke="#C6613F" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="740" y1="52" x2="735" y2="52" stroke="#C6613F" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="780" y1="52" x2="785" y2="52" stroke="#C6613F" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="746" y1="38" x2="742" y2="34" stroke="#C6613F" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="774" y1="66" x2="778" y2="70" stroke="#C6613F" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="774" y1="38" x2="778" y2="34" stroke="#C6613F" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="746" y1="66" x2="742" y2="70" stroke="#C6613F" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="acts">
+    <div class="act">
+      <div class="act-time">Morning</div>
+      <div class="act-text">VAT deadline window closes today. Confirm all client returns filed or in progress before anything else moves.</div>
+    </div>
+    <div class="act">
+      <div class="act-time">Midday onwards</div>
+      <div class="act-text">Concept Lab, GL Middle East, and Kora have been waiting weeks for an approve-or-close decision. The open calendar is the window.</div>
+    </div>
+    <div class="act">
+      <div class="act-time">Before close</div>
+      <div class="act-text">Raihana’s pipeline report is 42 days overdue. One firm instruction, before the weekend, unblocks 19 leads and 80 DM drafts.</div>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">Run Log · Friday 28 August 2026</div>
+  <table class="run-table">
+    <tr><td>Step 1 · COO Morning Brief</td><td><span class="status-complete">Complete</span> · 09:00 UAE · <a href="https://github.com/BPOLeave/Mohaina-Business-Brain/blob/claude/gracious-archimedes-2enmnu/coo-brief-2026-08-28.html" style="color:#E8294C">coo-brief-2026-08-28.html</a></td></tr>
+    <tr><td>Step 2 · CFO Weekly Revenue</td><td><span class="status-skip">Skipped</span> · Monday only</td></tr>
+    <tr><td>Step 3 · CRO Weekly Prospects</td><td><span class="status-skip">Skipped</span> · Monday only</td></tr>
+    <tr><td>Step 4 · CMO Daily Post</td><td><span class="status-complete">Complete</span> · <span style="color:var(--amber)">Pending approval</span> · <a href="https://github.com/BPOLeave/Mohaina-Business-Brain/blob/claude/blissful-ritchie-mifrj0/cmo-post-2026-08-28.html" style="color:#E8294C">cmo-post-2026-08-28.html</a></td></tr>
+    <tr><td>Step 5 · Content Calendar</td><td><span class="status-skip">Skipped</span> · Monday only</td></tr>
+    <tr><td>Summary email</td><td><span class="status-fail">Failed</span> · M365 Mail.Send blocked Day 58 · Delivered via Notion + GitHub + push notification</td></tr>
+    <tr><td>CMO approval email</td><td><span class="status-fail">Failed</span> · M365 blocked · Post included below for direct approval</td></tr>
+    <tr><td>Forward to Rei</td><td><span class="status-pending">Waiting</span> · Needs Mohaina approval first · reinald.onella1@gmail.com</td></tr>
+  </table>
+</div>
+<div class="flags-card">
+  <div class="flags-title">⚑ Flags for Mohaina</div>
+  <div class="flags-sub">Sorted: Compliance · Cash · Client · BD · Infrastructure</div>
+  <div class="flag-group-label">Compliance</div>
+  <div class="flag-item"><div class="flag-icon">🔴</div><div><div class="flag-title">VAT Return Final Deadline — TODAY 28 Aug</div><div class="flag-body">No grace period. FTA penalties apply automatically from tomorrow. Confirm all client returns filed or in progress today.</div><div class="flag-next">Next step: Compliance sweep before midday. Owner: Mohaina.</div></div></div>
+  <div class="flag-item"><div class="flag-icon">🔴</div><div><div class="flag-title">PICPA NE CHAPTER FZE — CT Return unconfirmed, Day 15</div><div class="flag-body">FTA sent first direct reminder 15 days ago. TRN 104324388800001. Still unconfirmed.</div><div class="flag-next">Next step: Confirm filing status today. Owner: Mohaina.</div></div></div>
+  <div class="flag-item"><div class="flag-icon">🟡</div><div><div class="flag-title">AML/CFT Programme H2 2026 — unscheduled, Day 30</div><div class="flag-body">H2 review required, not yet scheduled. 30 days since first flagged.</div><div class="flag-next">Next step: Schedule today. Owner: Mohaina.</div></div></div>
+  <div class="flag-group-label">Cash</div>
+  <div class="flag-item"><div class="flag-icon">🔴</div><div><div class="flag-title">Outstanding AR: AED 101,687.50 — flat 22 days</div><div class="flag-body">17 overdue invoices. Richemont (Dubai) FZE AED 58,537.50 at 193 days (57.6%). Amadeus IT FZCO AED 22,050 at 289 days. Direct collections call overdue.</div><div class="flag-next">Next step: Direct call to Richemont today. Owner: Mohaina.</div></div></div>
+  <div class="flag-item"><div class="flag-icon">🟡</div><div><div class="flag-title">Zoho Books renews 3 Sep — AED 1,039.50 auto-charge</div><div class="flag-body">6 days. Confirm the correct card is on file to avoid service interruption.</div><div class="flag-next">Next step: Confirm card. Owner: Finance.</div></div></div>
+  <div class="flag-item"><div class="flag-icon">🟡</div><div><div class="flag-title">Travelfusion tfPay — Menastar DMCC balance low (AED 2,898.94)</div><div class="flag-body">Automated balance warning received. Needs prompt top-up or transfers will be blocked.</div><div class="flag-next">Next step: Flag to Menastar DMCC contact. Owner: Mohaina / Finance.</div></div></div>
+  <div class="flag-item"><div class="flag-icon">🟡</div><div><div class="flag-title">Kelvion FZE — bank-details caution on INV-2026-000192</div><div class="flag-body">Possible BEC risk. Verify any new payment details with a known Kelvion contact before transferring.</div><div class="flag-next">Next step: Verify before paying. Owner: Mohaina / Finance.</div></div></div>
+  <div class="flag-group-label">Client</div>
+  <div class="flag-item"><div class="flag-icon">🔴</div><div><div class="flag-title">The Concept Lab / Mr. George — 67 days stalled, CIT window 33 days out</div><div class="flag-body">Engagement letter stalled 67 days. CT return deadline 30 Sep is 33 days away. Approve call or close today.</div><div class="flag-next">Next step: Decide today. Owner: Mohaina.</div></div></div>
+  <div class="flag-item"><div class="flag-icon">🔴</div><div><div class="flag-title">GL Middle East / Nandhu — 67 days stalled (3 entities)</div><div class="flag-body">Main engagement letter waiting 67 days. No movement logged.</div><div class="flag-next">Next step: Decide today. Owner: Mohaina.</div></div></div>
+  <div class="flag-item"><div class="flag-icon">🟡</div><div><div class="flag-title">Montfort Investment Ltd — Gideon requesting scope call on 10-entity CIT/TP EL</div><div class="flag-body">EL sent 27 Aug. Gideon needs to confirm which of the 10 group entities are covered (QFZP treatment).</div><div class="flag-next">Next step: Take Gideon’s call. Owner: Raihana → Mohaina.</div></div></div>
+  <div class="flag-item"><div class="flag-icon">🟡</div><div><div class="flag-title">Montfort Trading FZE — UBO Emirates ID missing, EL stalled</div><div class="flag-body">VAT certificate received. EL can’t be countersigned until UBO Emirates ID lands.</div><div class="flag-next">Next step: Chase UBO Emirates ID. Owner: Raihana.</div></div></div>
+  <div class="flag-item"><div class="flag-icon">🟡</div><div><div class="flag-title">Kora Corporate Services — confirm EL decision before Tuesday call</div><div class="flag-body">EL decision was due yesterday. Zoho Books implementation rescheduled to Tuesday. Confirm decision landed.</div><div class="flag-next">Next step: Confirm today. Owner: Mohaina.</div></div></div>
+  <div class="flag-group-label">BD</div>
+  <div class="flag-item"><div class="flag-icon">🔴</div><div><div class="flag-title">Raihana’s Pipeline Status Report — 42 days overdue</div><div class="flag-body">Due 17 July. 19 leads + 80 DM drafts blocked behind it. Yesterday’s holiday excuse is gone.</div><div class="flag-next">Next step: Firm instruction before end of day. Owner: Raihana.</div></div></div>
+  <div class="flag-item"><div class="flag-icon">🟡</div><div><div class="flag-title">CIOViews — cover story second reminder, needs a reply</div><div class="flag-body">“Middle East’s Top Business Leaders 2026” edition. Second reminder 27 Aug from Veronica at CIOViews.</div><div class="flag-next">Next step: Reply or decline. Owner: Mohaina.</div></div></div>
+  <div class="flag-group-label">Content</div>
+  <div class="flag-item"><div class="flag-icon">🟡</div><div><div class="flag-title">Today’s LinkedIn post — needs approval, then forward to Rei</div><div class="flag-body">Post: “3 numbers your P&amp;L hides.” Diagnostic 4/4. Pipeline broken 7+ weeks, 17+ posts backlogged. M365 blocked — forward to Rei manually via Gmail.</div><div class="flag-next">Next step: Approve below → forward to reinald.onella1@gmail.com. Owner: Mohaina.</div></div></div>
+  <div class="flag-group-label">Infrastructure</div>
+  <div class="flag-item"><div class="flag-icon">🔴</div><div><div class="flag-title">M365 Mail.Send — Day 58, not admin-consented</div><div class="flag-body">Every routine’s summary email, CMO approval, and Rei forwarding blocked. One Entra admin-consent grant fixes all permanently.</div><div class="flag-next">Next step: Entra admin-consent grant. Owner: Mohaina / IT.</div></div></div>
+  <div class="flag-item"><div class="flag-icon">🟡</div><div><div class="flag-title">HBM Fuels Zoho org — inactive 120+ days, scheduled for deletion</div><div class="flag-body">Zoho has flagged it for deletion. Decide: keep, archive, or lapse.</div><div class="flag-next">Next step: Confirm decision. Owner: Mohaina / Finance.</div></div></div>
+</div>
+<div class="card">
+  <div class="card-title">Quick Links</div>
+  <div class="links-grid">
+    <a class="link-tile" href="https://github.com/BPOLeave/Mohaina-Business-Brain/blob/claude/gracious-archimedes-2enmnu/coo-brief-2026-08-28.html"><div class="link-tile-label">Step 1 · COO Brief</div><div class="link-tile-name">coo-brief-2026-08-28.html</div></a>
+    <a class="link-tile" href="https://app.notion.com/p/3ca8a33e7fd18195b192f7c68c3bec9c"><div class="link-tile-label">COO Brief · Notion</div><div class="link-tile-name">📔 COO Brief - 2026-08-28</div></a>
+    <a class="link-tile" href="https://github.com/BPOLeave/Mohaina-Business-Brain/blob/claude/blissful-ritchie-mifrj0/cmo-post-2026-08-28.html"><div class="link-tile-label">Step 4 · CMO Post</div><div class="link-tile-name">cmo-post-2026-08-28.html</div></a>
+    <a class="link-tile" href="https://app.notion.com/p/3c68a33e7fd18197bd48f4224d2f68a0"><div class="link-tile-label">Content Calendar</div><div class="link-tile-name">📋 Week of 2026-08-24</div></a>
+  </div>
+</div>
+<div class="post-card">
+  <div class="card-title">Today’s LinkedIn Post · Copy-Ready</div>
+  <div class="approval-banner">⏳ Pending Mohaina’s approval. Once approved, send plain-text copy to Rei at reinald.onella1@gmail.com. Log in Notion: Pending Approval → Approved → Sent to Rei → Published.</div>
+  <div style="margin-bottom:12px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <div class="score-bar"><div class="score-pip"></div><div class="score-pip"></div><div class="score-pip"></div><div class="score-pip"></div></div>
+      <div class="score-label">Invisibility Diagnostic 4 / 4</div>
+    </div>
+    <div style="font-size:12px;color:var(--ink-muted)">Pillar: What the Numbers Are Telling You · Educating · Framework List · No regulatory flags</div>
+  </div>
+  <div class="post-hook">I think most business owners look at their P&amp;L and feel like they know where the business stands.</div>
+  <div class="post-body">They’re reading one number. The business has three more it isn’t showing them.
+
+Here are the numbers your P&amp;L hides:
+
+1. Your real cash position.
+Profit on paper and cash in hand are different things. If receivables are aging and payables are due this week, the P&amp;L won’t tell you. The cash flow statement will.
+
+2. What your inventory is actually worth.
+Slow-moving stock sits on the P&amp;L at cost. But if it hasn’t moved in months, that number is wrong. We’ve seen clients carry product at full stated value for years. The real figure was far lower.
+
+3. Who is actually paying you.
+Revenue recognized. Invoices outstanding. A client who looks like a strong account might be 120 days behind on three invoices. The P&amp;L won’t separate them. The AR aging report will.
+
+The fix isn’t a new system.
+
+It’s reading three reports you probably already have — alongside the one you’re already reading:
+→ Cash flow statement
+→ Inventory valuation schedule
+→ AR aging report
+
+If a client loses a dirham, it’s something that also comes from our pocket. So we make sure they see all of these numbers, not just the one that reads best.
+
+<span class="post-cta">Save this for your next board or bank conversation.</span></div>
+  <div style="margin-top:20px">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-muted);margin-bottom:10px">3 Pinned Comments</div>
+    <div class="comment-strip"><div class="comment-num">Pinned 1</div>These three reports already exist in your accounting system. You don’t need anything new. Ask your accountant to send them alongside the P&amp;L every month. See what the picture looks like when all four are in front of you at the same time.</div>
+    <div class="comment-strip"><div class="comment-num">Pinned 2</div>This is exactly why we go to client offices and check supporting documents physically. Not to be thorough for its own sake. Because what’s recorded in the system and what’s actually in the business are not always the same number.</div>
+    <div class="comment-strip"><div class="comment-num">Pinned 3</div>If you want to know where your business actually stands before your next investor, bank, or board meeting — DM me “NUMBERS” and I will tell you which of these three gaps is showing up in your books right now.</div>
+  </div>
+  <div style="margin-top:14px;font-size:12px;color:var(--ink-muted)">Recommended posting time: 7:30–8:30 AM UAE or 12:00–1:00 PM UAE</div>
+</div>
+<div class="card">
+  <div class="card-title">Resolved · Since Yesterday</div>
+  <div style="font-size:13px;color:#777;line-height:1.7">
+    <p style="margin-bottom:8px"><span style="color:#2A8C4A;font-weight:600">✓</span> WPS payroll August 2026 processed — SIF 1301092002260425, AED 43,840 for 3 employees, confirmed to UAE Central Bank 27 Aug via Al Ansari Exchange.</p>
+    <p style="margin-bottom:8px"><span style="color:#2A8C4A;font-weight:600">✓</span> Emirates NBD credit advice received — AED 43,882 credited 27 Aug (payroll funds confirmed).</p>
+    <p><span style="color:#2A8C4A;font-weight:600">✓</span> Menastar DMCC FY2025 CT &amp; Audit — onboarded with Excellence, file opened, payment confirmed.</p>
+  </div>
+</div>
+<div class="foot">
+  Auto-generated · BPOAS Daily Start · Friday 28 August 2026 · 07:00 UAE<br>
+  Sources: Microsoft 365 (Outlook Calendar + Email) · Notion (BPOAS Team Operating Hub) · GitHub (Mohaina-Business-Brain reference docs)<br>
+  M365 summary email: FAILED · Day 58 · Delivered via Notion, GitHub, and push notification
+</div>
+</div>
+</body>
+</html>
