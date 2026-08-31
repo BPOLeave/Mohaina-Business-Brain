@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2E5B88; --primary-light:#5C8AC0; --navy:#1F3A5F;
+    --bg:#0A0A0A; --panel:#141518; --panel-2:#191b1f; --ink:#F3F5F7; --ink-dim:#A7ADB6;
+    --line:#232629; --line-soft:#1c1e22;
+    --good:#34D399; --warn:#F0B84E; --bad:#F1685E;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.35);
+    --grad:linear-gradient(135deg, #142A45 0%, var(--navy) 48%, var(--primary) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:880px;margin:0 auto;padding:34px 20px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px rgba(46,91,136,.28);position:relative;overflow:hidden;border:1px solid #2c3f57;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.06);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin:28px 0 12px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:14px;border-bottom:1px solid var(--line-soft);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-red{background:rgba(241,104,94,.14);color:var(--bad);} .t-amb{background:rgba(240,184,78,.14);color:var(--warn);}
+  .t-grey{background:#1e2126;color:var(--ink-dim);} .t-grn{background:rgba(52,211,153,.14);color:var(--good);} .t-blue{background:rgba(92,138,192,.16);color:var(--primary-light);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-dim);} .stat .n{font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:linear-gradient(135deg,var(--primary-light),var(--good));-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .pcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-top:4px solid var(--primary);}
+  .pcard.hold9{border-top-color:var(--warn);}
+  .ph{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+  .ph .nm{font-weight:800;font-size:16px;color:#fff;} .ph .rl{font-size:12.5px;color:var(--ink-dim);width:100%;}
+  .ph .rl a{color:var(--primary-light);text-decoration:none;} .ph .rl a:hover{text-decoration:underline;}
+  .meta{font-size:12.5px;color:var(--ink-dim);margin:8px 0 4px;}
+  .meta b{color:var(--ink);}
+  .hook{font-size:14px;background:var(--panel-2);border:1px solid var(--line-soft);border-radius:10px;padding:9px 12px;margin:8px 0;}
+  .flag{font-size:12px;background:rgba(240,184,78,.10);border:1px solid rgba(240,184,78,.3);color:var(--warn);border-radius:10px;padding:8px 12px;margin:8px 0;}
+  .review{font-size:12.5px;background:rgba(241,104,94,.10);border:1px solid rgba(241,104,94,.35);color:#ff9a92;border-radius:10px;padding:9px 12px;margin:8px 0;font-weight:600;}
+  .seqlbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--primary-light);font-weight:700;margin:12px 0 6px;}
+  .dm{font-size:13.5px;border-left:3px solid var(--line);background:var(--panel-2);border-radius:0 10px 10px 0;padding:9px 12px;margin:7px 0;color:#DADDE1;}
+  .dm .t{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;display:block;margin-bottom:3px;}
+  .fit{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);}
+
+  .note{background:linear-gradient(135deg, #101114 0%, #16283f 100%);border:1px solid #223350;color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:10px;box-shadow:0 14px 36px rgba(0,0,0,.4);}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-dim);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead"><div class="k">BPOAS · CRO weekly prospect pack</div><h1>10 sourced. 10 qualified. 1 held for your review.</h1><div class="d">Monday, 31 August 2026 · sourced via Apify/LinkedIn and verified individually · every DM is a draft, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Sourced (UAE ICP search)</div><div class="n">10</div></div>
+      <div class="stat"><div class="l">ICP qualified (fit 6+)</div><div class="n">10</div></div>
+      <div class="stat"><div class="l">Messages drafted</div><div class="n">50</div></div>
+    </div>
+
+    <div class="sec">Flagged for your personal review</div>
+    <div class="card" style="border-left-color:var(--warn)">
+      <div class="row"><b style="margin-right:6px">Darshna Kotedia</b> Co-Founder &amp; GM, Skyline Freight &amp; Logistics (also Founder, SRD General Trading) · Logistics/Trading · Dubai<span class="tagi t-amb">Fit 9/10</span></div>
+      <div class="row" style="border:none;padding-top:0;font-size:13px;color:var(--ink-dim)">She has personally held full financial authority, banking, cash management, expense approvals and budget decisions, at Skyline since co-founding it in 2007, across 20+ countries of freight operations, and is now running a second trading company alongside it. That is about as direct a compliance pain signal as this search turns up. Per the fit 9-10 rule, her draft sequence is below but held for your sign off before anything goes out.</div>
+    </div>
+
+    <div class="sec">The prospects · ranked by fit</div>
+
+    <div class="pcard hold9">
+      <div class="ph"><span class="nm">Darshna Kotedia</span><span class="fit t-amb">Fit 9/10</span><span class="rl">Co-Founder &amp; General Manager, Skyline Freight &amp; Logistics · also Founder, SRD General Trading · Logistics/Trading · Dubai · <a href="https://www.linkedin.com/in/ACwAAAqhjvMBy1ck-b8hPTji6VAHOpDKDM0euAs" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Analytical · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> Self-manages all banking, cash and budget decisions, no dedicated finance function</div>
+      <div class="review">Held for Mohaina's personal review before any outreach. Fit scored 9/10.</div>
+      <div class="hook"><b>Human hook:</b> Has run Skyline's finances herself, banking, cash management, budget decisions, since 2007, while now building a second trading company on the side.</div>
+      <div class="seqlbl">5-message sequence (draft only)</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Darshna, running Skyline's finances yourself since 2007 while building SRD General Trading on the side is a lot to carry alone. I'm Dubai based too, would be good to connect with someone who does both.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Darshna. Skyline's grown to cover 20+ countries and you still hold banking, cash management and budget decisions yourself after almost two decades. What made you keep that part in your own hands instead of handing it off?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's 2025 corporate tax return is due by the end of September, just a few weeks out now. Freight and trading businesses running across multiple countries usually have the messiest year end because the numbers touch every market at once. With Skyline and SRD both under your name, is that filing handled together or kept separate?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Darshna. You've held the finances of one company for almost twenty years and just started building a second one. What's the part of running two businesses at once that nobody warns you about?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Darshna. Building Skyline for almost twenty years while still holding every number in your own hands is genuinely rare, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Dana Awadallah</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Founder &amp; CEO, The VIP Real Estate · Real Estate · Dubai · <a href="https://ae.linkedin.com/in/dana-awadallah-25a48021" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> Real estate now a named DNFBP sector under the updated AML framework</div>
+      <div class="hook"><b>Human hook:</b> Helped over 1,000 families find a home in two years while also working through a PhD in AI and Innovation.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Dana, helping more than 1,000 families find a home in Dubai in just two years while also working on a PhD in AI is a serious pace to keep. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Dana. The VIP Real Estate has grown fast since you founded it, and you're doing a PhD in AI and Innovation alongside it. Does the AI side feed back into how you actually run the brokerage day to day, or is it kept separate?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw that real estate brokerages are named directly under the UAE's updated AML framework this year, with registration on the goAML platform now required. Firms helping this many families a year usually have more transactions running through them than most people realise. Is that registration something your team has already sorted, or still on the list?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Dana. Helping over a thousand families find a home in two years while finishing a PhD means you're never really off either clock. What's the part of that balance you find hardest to protect?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Dana. What you've built with The VIP Real Estate in two years is a genuinely fast climb, and I'm glad our paths crossed either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Hind Jouini</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Chief Executive Officer, Real Choice Real Estate Brokers LLC · Real Estate · Dubai · <a href="https://www.linkedin.com/in/hindjouini/" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Analytical · <b>Opener:</b> Pattern Interrupt · <b>Compliance signal:</b> Real estate now a named DNFBP sector under the updated AML framework</div>
+      <div class="hook"><b>Human hook:</b> Named one of the Top 100 Real Estate Brokers in the World for 2025, after building Real Choice as an independent brokerage since 2007.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Hind, being named one of the Top 100 Real Estate Brokers in the World for 2025 after building Real Choice since 2007 is not a small thing to reach. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Hind. You've been RERA certified since 2008 and still run Real Choice as an independent brokerage almost two decades later. What's the one thing about staying independent that you'd never trade for being part of a bigger group?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw that real estate brokerages are now named directly under the UAE's updated AML framework, with goAML registration and a compliance officer required. Independent brokerages tend to feel that kind of requirement more directly than the big franchise names, since there's no head office handling it centrally. Has that side been set up already?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Hind. Almost two decades in, and you're still named among the best brokers in the world individually, not just as a firm. What's the part of that recognition that means the most to you personally?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Hind. Building an independent brokerage into a globally recognised name over almost two decades is genuinely rare in this market, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Suraj Gautam</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Managing Director, Far Way General Trading LLC · Trading · Dubai · <a href="https://ae.linkedin.com/in/surajgautamdubai" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Grew Far Way from a Dubai FMCG trader into a company opening branches across four more countries.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Suraj, growing Far Way from a Dubai FMCG trader into a company with branches in Tanzania, Kenya, Ireland and Poland is a serious expansion. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Suraj. Far Way's been running for 22 years and is now opening offices across four more countries. Which of those new markets has been the hardest to get right so far?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's 2025 corporate tax return is due by the end of September, just a few weeks from now. Trading businesses running branches across several countries usually have the most tangled year end of anyone, since every market books differently. Is Far Way's UAE filing handled centrally, or does each branch feed in separately?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Suraj. Twenty-two years in FMCG trading and you're still opening new countries instead of settling into what already works. What keeps you pushing for the next market instead of just protecting this one?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Suraj. Taking Far Way from Dubai into four more countries after 22 years is a real achievement, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Erika Blazeviciute Doyle</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Founder &amp; Managing Director, Drink Dry Beverages Trading LLC · E-commerce/F&amp;B · Dubai · <a href="https://www.linkedin.com/company/drink-dry" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Built the UAE's first non-alcoholic drinks marketplace from an online store into retail shelves at Choithrams.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Erika, building the UAE's first non-alcoholic drinks marketplace from an online store into Choithrams shelves is a real jump. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Erika. Drink Dry now supports close to 300 venues across the UAE with alcohol free menus, on top of the retail and online sides. Which of those three, online, retail or venues, takes up most of your time these days?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's 2025 corporate tax return is due by the end of September, just a few weeks out. Businesses selling online, through retail and to venues all at once usually have the messiest revenue picture to close out, since each channel books differently. Is that side kept in one system, or spread across a few?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Erika. You built Drink Dry as the first of its kind here, no one else's playbook to copy. What's the part of being first that people underestimate the most?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Erika. Building the UAE's first non-alcoholic drinks marketplace from nothing is genuinely rare, and I'm glad our paths crossed either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Abu Nahyan Al Nuaimi</span><span class="fit t-blue">Fit 7/10</span><span class="rl">CEO &amp; Co-Founder, Atlantis Real Estate · also CEO, Aryaam Honey · Real Estate/Trading · Dubai · <a href="https://www.linkedin.com/in/ACwAADfcF14BVGzEXDgRn8WVQphYn-NmC_4y2Cc" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> Real estate now a named DNFBP sector under the updated AML framework</div>
+      <div class="hook"><b>Human hook:</b> Runs a luxury real estate brokerage and a honey trading business rooted in his family's farm, two very different worlds.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Abu Nahyan, running a luxury real estate brokerage and a honey business that started on your family's farm is two very different worlds under one name. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. Atlantis Real Estate and Aryaam Honey could not be further apart as businesses. Which one did you start first, and did one push you toward building the other?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw that real estate brokerages are now named directly under the UAE's updated AML framework, with goAML registration required. Running a second business on the side tends to push that kind of admin further down the list. Has Atlantis got that piece sorted already?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question. Building a luxury brokerage and a honey business at the same time means you're never solving the same kind of problem twice in one day. What's the part of switching between the two that you've had to get better at?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here. Running two businesses this different from each other well is not common, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Liju Thomas Eapen</span><span class="fit t-blue">Fit 7/10</span><span class="rl">Chief Executive Officer, LAADS Contracting LLC · Professional Services/Contracting · Dubai · <a href="https://www.linkedin.com/in/ACwAAAPpBycBqqgHbWFyJewVNPl9lCIyP796hgs" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Leads a Dubai construction and fit-out company with roots to 1994, working across F&amp;B, healthcare and commercial projects.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Liju, running a construction and fit-out company with roots back to 1994 across F&amp;B, healthcare and commercial projects is a lot of ground to cover well. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Liju. LAADS works across some very different sectors, F&amp;B fit-outs, healthcare builds, commercial and residential. Which of those is the most different to deliver well compared to the others?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's 2025 corporate tax return is due by the end of September, just a few weeks out. Contracting businesses running several project types at once usually have the most complex job costing at year end, since every project sits at a different stage. Is that tracked project by project, or rolled up together at year end?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Liju. A company with roots back to 1994 has seen a lot of Dubai construction cycles come and go. What's the one thing about running a contracting business here that hasn't changed at all?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Liju. A company still standing and building across this many sectors since the 90s is a real track record, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Amanda Llewellyn</span><span class="fit t-blue">Fit 7/10</span><span class="rl">Mortgage Concierge &amp; Co-Founder, The Mortgage Boutique · FinTech/Professional Services · Dubai · <a href="https://ae.linkedin.com/in/amanda-llewellyn" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Amiable · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Built a mortgage concierge on the promise that clients only ever deal with a founder directly, no call centre, no handovers.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Amanda, building The Mortgage Boutique on the idea that clients only ever deal with you or Arnab directly, no call centre, no handovers, is a hard promise to keep as you grow. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Amanda. You and Arnab built The Mortgage Boutique specifically to avoid the call centre model most mortgage brokers use here. What made you certain that was the right way to build it from day one?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's 2025 corporate tax return is due by the end of September, just a few weeks out. Boutique advisory businesses with only a couple of partners often leave the finance side until closer to the deadline than they mean to, since it competes with client time. Is that side already wrapped up on your end?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Amanda. You built The Mortgage Boutique specifically to stay small and personal instead of scaling into a call centre model. What's the trade off you've had to accept to keep it that way?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Amanda. Building a mortgage concierge on client relationships instead of volume is a real position to hold in this market, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Shumaila Naqvi</span><span class="fit t-blue">Fit 7/10</span><span class="rl">Owner, Zyva Dental &amp; Aesthetics Clinic · Healthcare · Arjan, Dubai · <a href="https://www.linkedin.com/in/ACwAABWWcAMBun1VUAXmwtEJhVk8LY2QsPKtsNk" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Amiable · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> New clinic, opened 10 months ago, books likely still on starter setup</div>
+      <div class="hook"><b>Human hook:</b> Spent years as a hospital medical director before opening her own dental and aesthetics clinic in Arjan ten months ago.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Shumaila, moving from hospital medical director to opening your own clinic in Arjan ten months ago is a big shift in how you practice. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Shumaila. You spent years leading critical care teams and mentoring residents before opening Zyva. What's the biggest difference between running your own clinic and leading a department inside a hospital?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's 2025 corporate tax return is due by the end of September, just a few weeks out. New clinics opened within the last year often have their books left in whatever setup they started with, since the focus goes straight to patients first. Has that side been properly set up yet, or is it still on the list?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Shumaila. You spent years managing acute patients and leading teams before choosing to build something of your own instead. What made ten months ago the right time to finally do it?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Shumaila. Going from hospital leadership to building your own clinic in under a year is a real step to take, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Rahul Jain</span><span class="fit t-blue">Fit 7/10</span><span class="rl">Founder, Green Water Freight &amp; Forwarding LLC · also Managing Director, R Square Freight &amp; Forwarding DMCC · Logistics · Dubai · <a href="https://www.linkedin.com/in/ACwAAA3adukBSQlRXXrXK0qflic2552l0fzXK1g" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> Two entities, one DMCC free zone, tax treatment may not be checked for the newer one</div>
+      <div class="hook"><b>Human hook:</b> Runs two freight forwarding companies at once, one four years established in DMCC, one brand new at eleven months old.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Rahul, running R Square Freight in DMCC for over four years and then starting Green Water Freight just eleven months ago is building two companies at once. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Rahul. You're running R Square and Green Water side by side right now. What made you start a second freight company instead of just growing the first one further?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's 2025 corporate tax return is due by the end of September, just a few weeks out. DMCC-based freight companies sometimes assume free zone status covers more than it actually does on the corporate tax side. With two entities running now, has that been checked for both, or just the older one so far?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Rahul. Starting a second freight company less than a year ago while the first one is still growing is a lot to run at once. What's the part of doing both together that surprised you the most?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Rahul. Building a second freight company while the first one keeps growing is a lot to carry at once, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="sec">Researched and disqualified (for transparency)</div>
+    <div class="card">
+      <div class="row">GazMin International Group, Business Bay<span class="tagi t-grey">government/semi-government client base, likely in-house finance</span></div>
+      <div class="row">LKI Consulting (Web3 marketing agency)<span class="tagi t-grey">wrong sector, London HQ, tier-1 crypto clients</span></div>
+      <div class="row">Axxion Claims Settlement Services<span class="tagi t-grey">part of Skelmore Group, ~4,000 staff, definite in-house finance</span></div>
+      <div class="row">Sovereign Financial Partners / Charles Mardon<span class="tagi t-grey">UK HQ, tied to a listed wealth manager network</span></div>
+      <div class="row">Kings Capital Real Estate / Dr. AbdulAziz AlHamad<span class="tagi t-grey">identity unconfirmed, multiple similarly named entities online</span></div>
+      <div class="row">AZUR Properties, Business Bay<span class="tagi t-grey">public headcount data shows 3 staff, below SME range</span></div>
+    </div>
+
+    <div class="note">Darshna Kotedia is the one to look at personally before anything goes out, fit 9 and the clearest compliance signal in the batch: she has run every number at Skyline herself since 2007 and is now doing it twice. After that, open with <b>Dana Awadallah</b>, <b>Hind Jouini</b>, or <b>Suraj Gautam</b>, all warm, fit 8, and each with a hook that's specific to what they've actually built. The FTA's FY2025 corporate tax return deadline of 30 September sits inside this week's value bridge for most of the list, since it's genuinely close for anyone with a December year end. Real estate brokerages get a sharper hook this cycle: the updated AML framework now names them directly as a DNFBP sector requiring goAML registration, used with Dana, Hind, and Abu Nahyan. FinTech sourced only one clean fit this week, Amanda Llewellyn's mortgage boutique, real fintech platforms in the ICP size band were either too early stage to verify an owner or too enterprise to qualify. Every message here is a draft. You read it, then you send it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>BPOAS · We think like owners</b></footer>
+  </div>
+</body>
+</html>
