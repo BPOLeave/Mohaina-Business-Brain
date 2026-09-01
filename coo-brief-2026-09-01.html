@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 1 September 2026 · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Rethink+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary:        #E8294C;
+  --primary-dark:   #C4203D;
+  --primary-light:  #F5607A;
+  --primary-rgb:    232, 41, 76;
+  --bg:             #0A0A0A;
+  --bg-card:        #111111;
+  --bg-card-2:      #181818;
+  --bg-card-3:      #1F1F1F;
+  --border:         rgba(255,255,255,0.07);
+  --border-2:       rgba(255,255,255,0.13);
+  --text:           #FFFFFF;
+  --text-2:         rgba(255,255,255,0.58);
+  --text-3:         rgba(255,255,255,0.28);
+  --green:          #22C55E;
+  --green-bg:       rgba(34,197,94,0.10);
+  --amber:          #F59E0B;
+  --amber-bg:       rgba(245,158,11,0.10);
+  --red-status:     #EF4444;
+  --red-status-bg:  rgba(239,68,68,0.10);
+  --font-display:   'Playfair Display', Georgia, serif;
+  --font-body:      'Rethink Sans', system-ui, sans-serif;
+  --font-mono:      'DM Mono', monospace;
+  --r-sm:  8px;
+  --r-md:  16px;
+  --r-lg:  24px;
+  --r-pill: 9999px;
+  --shadow-card:  0 4px 24px rgba(0,0,0,0.45);
+  --shadow-glow:  0 0 40px rgba(232,41,76,0.22);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  padding: 40px 20px 80px;
+}
+.doc { max-width: 820px; margin: 0 auto; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-card); }
+::-webkit-scrollbar-thumb { background: rgba(232,41,76,0.4); border-radius: 3px; }
+::selection { background: rgba(232,41,76,0.25); }
+
+.cover {
+  background: radial-gradient(ellipse at 60% 10%, rgba(232,41,76,0.20) 0%, transparent 65%), var(--bg-card);
+  background-image:
+    radial-gradient(ellipse at 60% 10%, rgba(232,41,76,0.20) 0%, transparent 65%),
+    radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: auto, 18px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 40px 32px;
+  margin-bottom: 22px;
+}
+.cover .badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(var(--primary-rgb), 0.10);
+  border: 1px solid rgba(var(--primary-rgb), 0.25);
+  padding: 5px 14px; border-radius: var(--r-pill);
+  margin-bottom: 18px;
+}
+.cover h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(28px, 5vw, 42px);
+  letter-spacing: -.02em;
+  margin-bottom: 8px;
+}
+.cover .sub { font-size: 15px; color: var(--text-2); }
+.cover .meta { margin-top: 18px; font-family: var(--font-mono); font-size: 12px; color: var(--text-3); }
+.cover .meta a { color: var(--primary-light); }
+
+.sec-label {
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--primary); margin: 34px 0 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 22px 24px;
+  margin-bottom: 12px;
+}
+.card--accent { border-left: 3px solid var(--primary); }
+.card--dark { background: var(--bg-card-2); }
+.card__label {
+  font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--primary); margin-bottom: 10px;
+}
+.card__title {
+  font-family: var(--font-display);
+  font-size: 19px; font-weight: 800;
+  letter-spacing: -.01em; margin-bottom: 8px; color: var(--text);
+}
+.card__body { font-size: 14px; line-height: 1.75; color: var(--text-2); }
+
+/* flags card */
+.flags {
+  background: rgba(var(--primary-rgb), 0.06);
+  border: 1px solid rgba(var(--primary-rgb), 0.28);
+  border-radius: var(--r-lg);
+  padding: 24px 26px;
+  margin-bottom: 12px;
+}
+.flag-item {
+  display: flex; gap: 12px; padding: 11px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 14px; line-height: 1.65; color: var(--text);
+}
+.flag-item:last-child { border-bottom: none; }
+.flag-item .dot { flex-shrink: 0; font-size: 14px; line-height: 1.5; }
+.flag-item b { color: var(--text); }
+.flag-item .owner { color: var(--text-3); font-family: var(--font-mono); font-size: 11px; }
+
+/* rows */
+.row {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+  font-size: 14px; line-height: 1.6;
+}
+.row:last-child { border-bottom: none; }
+.tag {
+  font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: var(--r-pill);
+  white-space: nowrap; flex-shrink: 0;
+}
+.t-red { background: var(--red-status-bg); color: var(--red-status); }
+.t-amb { background: var(--amber-bg); color: var(--amber); }
+.t-grn { background: var(--green-bg); color: var(--green); }
+.t-grey { background: rgba(255,255,255,0.06); color: var(--text-3); }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 22px 24px;
+  position: relative; overflow: hidden;
+}
+.stat::before { content: ''; position: absolute; top:0; left:0; right:0; height:3px; background: linear-gradient(90deg,var(--primary),var(--primary-light)); }
+.stat .l { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); letter-spacing: .08em; text-transform: uppercase; }
+.stat .n { font-family: var(--font-display); font-size: 34px; font-weight: 800; margin-top: 6px; color: var(--amber); }
+.stat .d { font-size: 12px; color: var(--text-3); margin-top: 4px; }
+
+table.tbl { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 6px; }
+table.tbl th { text-align: left; font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); padding: 8px 10px; border-bottom: 1px solid var(--border-2); }
+table.tbl td { padding: 9px 10px; border-bottom: 1px solid var(--border); color: var(--text-2); }
+table.tbl tr:last-child td { border-bottom: none; }
+
+.pillar-badge {
+  display: inline-block; font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--primary); background: rgba(var(--primary-rgb), 0.10);
+  border: 1px solid rgba(var(--primary-rgb), 0.25);
+  padding: 4px 12px; border-radius: var(--r-pill); margin-right: 8px; margin-bottom: 10px;
+}
+
+.note {
+  background: linear-gradient(135deg, var(--bg-card-2) 0%, rgba(var(--primary-rgb),0.14) 100%);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-lg);
+  padding: 20px 24px; font-size: 14px; line-height: 1.7; color: var(--text-2);
+  margin-top: 6px;
+}
+.note b { color: var(--primary-light); }
+
+footer {
+  margin-top: 46px; padding-top: 22px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer__brand { font-family: var(--font-display); font-size: 17px; font-weight: 800; color: var(--primary); }
+.footer__meta { font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
+
+@keyframes fadeUp { from { opacity:0; transform: translateY(14px);} to {opacity:1; transform: translateY(0);} }
+.fade-up { opacity:0; animation: fadeUp .5s ease forwards; }
+
+@media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <div class="cover fade-up">
+    <div class="badge">COO · Morning Brief</div>
+    <h1>Good morning, Mohaina.</h1>
+    <div class="sub">Tuesday, 1 September 2026 · 09:00 UAE (GST) · ran while you slept</div>
+    <div class="meta">Auto-generated via /coo-morning-brief · positioning-mohaina-asira.md / voice-dna-mohaina-asira.md read from Mohaina-Business-Brain repo, no hex specified, defaulted to <span style="color:var(--primary-light)">#E8294C</span></div>
+  </div>
+
+  <div class="sec-label">Flags for Mohaina's Review</div>
+  <div class="flags fade-up">
+    <div class="flag-item"><span class="dot">🔴</span><div><b>VAT — VAT Return Final Deadline (28 Aug) now 4 days overdue,</b> still unconfirmed. Confirm every client return was filed or escalate today. <span class="owner">Owner: Mohaina</span></div></div>
+    <div class="flag-item"><span class="dot">🔴</span><div><b>CT/FTA — PICPA NE CHAPTER FZE Corporate Tax Return</b> still unconfirmed (TRN 104324388800001). A fresh FTA reminder landed in the inbox again this morning, Day ~19 since the first direct notice. <span class="owner">Owner: Mohaina</span></div></div>
+    <div class="flag-item"><span class="dot">🔴</span><div><b>Client escalation — Kora Corporate Services (Joelle Link),</b> HOT, 3rd inbound chase carried over from Raihana's brief. No update in today's inbox — the EL go/no-go is still outstanding and the deal is still at risk. <span class="owner">Owner: Mohaina</span></div></div>
+    <div class="flag-item"><span class="dot">🔴</span><div><b>CT/Client — Brilliant Telecom LLC</b> partner confirmation letters, ~48 days past the 15 Jul deadline. CIT 30 Sep window is 29 days out. All-contacts push today, escalate if unreachable. <span class="owner">Owner: Raihana → Mohaina</span></div></div>
+    <div class="flag-item"><span class="dot">🔴</span><div><b>CT/Engagement — The Concept Lab / Mr. George EL,</b> ~71 days stalled. CIT window 29 days out. Approve a call or close today. <span class="owner">Owner: Mohaina</span></div></div>
+    <div class="flag-item"><span class="dot">🔴</span><div><b>Engagement — GL Middle East / Nandhu main EL</b> (3 entities), ~71 days stalled. <span class="owner">Owner: Mohaina</span></div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><b>CT/Engagement — Montfort Investment Ltd</b> TP+CIT EL (10 entities, issued 27 Aug) — Gideon Eclevia still awaiting a call to confirm which entities are covered (QFZP treatment). <span class="owner">Owner: Raihana → Mohaina</span></div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><b>VAT/Engagement — Montfort Trading FZE</b> — UBO Emirates ID still missing from the KYC pack; EL can't be countersigned until it lands. <span class="owner">Owner: Raihana</span></div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><b>AML — AML/CFT Programme H2 2026 review</b> still unscheduled, Day 34. <span class="owner">Owner: Mohaina</span></div></div>
+    <div class="flag-item"><span class="dot">🔴</span><div><b>Operational — Raihana's Weekly Pipeline Status Report,</b> now 46 days overdue (due 17 Jul). Blocking 19 leads + 80 DM drafts. <span class="owner">Owner: Raihana</span></div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><b>New today — Client/Engagement — GASCHEM</b> management report approved by the client; they've asked BPOAS to prepare the engagement letter to formally start the audit. <span class="owner">Owner: Mohaina</span></div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><b>New today — Client — Richemont (Dubai) FZE</b> BPO Contract Renewal 2026-2027 thread active, wider distribution added on the client side. Review latest terms. <span class="owner">Owner: Mohaina</span></div></div>
+    <div class="flag-item"><span class="dot">🔵</span><div><b>New today — Client meeting confirmed —</b> ORLEN/PGNIG VAT Refund & Liquidation, 8 Sept 11:00 with Acuvat, at your Dubai office. <span class="owner">Owner: Mohaina / Camille</span></div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><b>Operational — HBM Fuels Zoho org</b> flagged inactive 120+ days and scheduled for deletion by Zoho — still no keep/archive/lapse decision. <span class="owner">Owner: Mohaina / Finance</span></div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><b>Operational — MOHRE missing-document notice</b> for staff work-permit MB315778130AE — education-certificate attestation gap needs uploading to avoid a permit delay. <span class="owner">Owner: Mohaina / HR</span></div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><b>Content — Publishing to Rei broken 8+ consecutive weeks;</b> today's client-story post is also pending approval, and it carries an integrity flag (anonymised composite, not a verified case) that needs your explicit sign-off. <span class="owner">Owner: Mohaina → Rei</span></div></div>
+    <div class="flag-item"><span class="dot">🔴</span><div><b>Infrastructure — M365 Mail.Send still not admin-consented, Day 62+.</b> Confirmed failing again this run. One Entra admin-consent grant fixes every blocked routine permanently. <span class="owner">Owner: Mohaina / IT</span></div></div>
+  </div>
+
+  <div class="sec-label">1 · Today's Schedule</div>
+  <div class="card card--accent fade-up">
+    <div class="card__body">🟢 Searched Mohaina's Outlook calendar, 00:00–23:59 UAE, 1 Sept 2026. <b style="color:var(--text)">No events found.</b> A fully open day — the window to close the Kora EL decision, the Concept Lab and GL Middle East approve-or-close calls, the Brilliant Telecom escalation, confirm the (now 4-days-overdue) VAT deadline status, and respond to GASCHEM's audit engagement-letter request.</div>
+  </div>
+
+  <div class="sec-label">2 · Inbox Priorities</div>
+  <div class="card fade-up">
+    <div class="card__label">Searched M.Asira@bposervicegroup.com · last 24 hours · 13 messages</div>
+    <div class="row"><span class="tag t-red">FTA · CT</span> <div>Federal Tax Authority — formal reminder on the pending Corporate Tax filing for <b>PICPA NE CHAPTER FZE</b> (TRN 104324388800001). Deadline language is now urgent.</div></div>
+    <div class="row"><span class="tag t-amb">Client · Engagement</span> <div><b>GASCHEM</b> — management report for Dec 2025 approved by the client; asked BPOAS to prepare the engagement letter to formally start the audit.</div></div>
+    <div class="row"><span class="tag t-amb">Client · VAT</span> <div><b>ORLEN / PGNIG</b> — meeting confirmed for 8 Sept, 11:00, at your Dubai office: VAT Refund & Liquidation, with the liquidation company (Acuvat) joining.</div></div>
+    <div class="row"><span class="tag t-grey">Client</span> <div><b>Richemont (Dubai) FZE</b> — BPO Contract Renewal 2026-2027 thread continues, wider distribution added on their side.</div></div>
+    <div class="row"><span class="tag t-grey">Finance/Ops</span> <div><b>GASCHEM</b> — "Please proceed with the WPS" for August salary.</div></div>
+    <div class="card__body" style="margin-top:10px;font-size:13px">8 lower-priority messages not shown: a client AR claim from Almosafer/Discover Saudi (Menastar DMCC), a PGNIG end-of-service payment-method question, a Zoho partner event registration, a visa-cancellation follow-up, and 4 newsletters/notifications.</div>
+  </div>
+
+  <div class="sec-label">3 · Tasks & Deadlines</div>
+  <div class="card fade-up">
+    <div class="card__body">Notion Tasks / My Tasks databases still hold no BPOAS-linked items with due dates — same gap logged every run since 2 July. Compiled from the Flags above, Raihana's 30 Aug brief (freshest available), today's inbox, and a live Zoho Books pull.</div>
+  </div>
+  <div class="card card--dark fade-up">
+    <div class="card__label">AML · VAT · CT · Engagement Letters</div>
+    <div class="row"><span class="tag t-red">Critical</span><div>VAT Return Final Deadline (28 Aug) — now 4 days overdue, confirm filed. <i style="color:var(--text-3)">Mohaina</i></div></div>
+    <div class="row"><span class="tag t-red">Critical</span><div>PICPA NE CHAPTER FZE — confirm CT return filing status, Day ~19, fresh FTA reminder today. <i style="color:var(--text-3)">Mohaina</i></div></div>
+    <div class="row"><span class="tag t-red">Critical</span><div>Brilliant Telecom LLC — CIT partner confirmation letters, ~48 days late, all contacts today. <i style="color:var(--text-3)">Raihana + Mohaina</i></div></div>
+    <div class="row"><span class="tag t-red">Critical</span><div>The Concept Lab / Mr. George EL — ~71 days stalled, approve a call or close today. <i style="color:var(--text-3)">Mohaina</i></div></div>
+    <div class="row"><span class="tag t-red">Critical</span><div>GL Middle East / Nandhu main EL — ~71 days stalled, decide today. <i style="color:var(--text-3)">Mohaina</i></div></div>
+    <div class="row"><span class="tag t-red">Critical</span><div>Kora Corporate Services — EL go/no-go, HOT, still outstanding. <i style="color:var(--text-3)">Mohaina</i></div></div>
+    <div class="row"><span class="tag t-amb">Attention</span><div>Montfort Investment Ltd — confirm entity scope, take Gideon's call. <i style="color:var(--text-3)">Raihana → Mohaina</i></div></div>
+    <div class="row"><span class="tag t-amb">Attention</span><div>Montfort Trading FZE — chase UBO Emirates ID, then countersign EL. <i style="color:var(--text-3)">Raihana</i></div></div>
+    <div class="row"><span class="tag t-amb">Attention</span><div>AML/CFT Programme H2 2026 review — schedule it, Day 34. <i style="color:var(--text-3)">Mohaina</i></div></div>
+    <div class="row"><span class="tag t-amb">Attention</span><div>MMG Art Production LLC VAT EL — resume signature chase, Day ~30. <i style="color:var(--text-3)">Raihana</i></div></div>
+    <div class="row"><span class="tag t-amb">New</span><div>GASCHEM — prepare and issue the audit engagement letter now that the management report is approved. <i style="color:var(--text-3)">Mohaina</i></div></div>
+  </div>
+  <div class="card card--dark fade-up">
+    <div class="card__label">Operational · Client · Finance</div>
+    <div class="row"><span class="tag t-red">Urgent</span><div>Richemont (Dubai) FZE — AED 58,537.50, 2 invoices, oldest 197 days — direct collections call. <i style="color:var(--text-3)">Mohaina</i></div></div>
+    <div class="row"><span class="tag t-amb">Attention</span><div>Amadeus IT FZCO — AED 22,050, 4 invoices, oldest 293 days. <i style="color:var(--text-3)">Mohaina</i></div></div>
+    <div class="row"><span class="tag t-amb">Attention</span><div>MCM Products ME — AED 7,350, 2 invoices, 26 days overdue. <i style="color:var(--text-3)">Junaifa</i></div></div>
+    <div class="row"><span class="tag t-amb">Attention</span><div>IGEM Group FZE — AED 3,250, 6 invoices, oldest 188 days. <i style="color:var(--text-3)">Junaifa</i></div></div>
+    <div class="row"><span class="tag t-amb">Attention</span><div>BPOAS internal invoices — AED 4,200, 92 days overdue, clear or write off. <i style="color:var(--text-3)">Junaifa</i></div></div>
+    <div class="row"><span class="tag t-amb">Attention</span><div>Middletel Information Technology — AED 6,300, 62 days overdue. <i style="color:var(--text-3)">Junaifa</i></div></div>
+    <div class="row"><span class="tag t-red">Critical</span><div>Raihana's Weekly Pipeline Status Report — 46 days overdue. <i style="color:var(--text-3)">Raihana</i></div></div>
+    <div class="row"><span class="tag t-amb">Ops</span><div>HBM Fuels Zoho org — inactive 120+ days, scheduled for deletion, confirm disposition. <i style="color:var(--text-3)">Mohaina / Finance</i></div></div>
+    <div class="row"><span class="tag t-amb">HR</span><div>MOHRE work-permit missing document (MB315778130AE) — resolve to avoid delay. <i style="color:var(--text-3)">Mohaina</i></div></div>
+    <div class="row"><span class="tag t-grey">Content</span><div>Today's client-story LinkedIn post needs approval, including the integrity flag, before Rei publishes. <i style="color:var(--text-3)">Mohaina → Rei</i></div></div>
+    <div class="row"><span class="tag t-grey">Ops</span><div>GASCHEM WPS — proceed with August salary disbursement. <i style="color:var(--text-3)">Mohaina / Finance</i></div></div>
+    <div class="row"><span class="tag t-grey">Infra</span><div>M365 Mail.Send admin consent — Day 62+. <i style="color:var(--text-3)">Mohaina / IT</i></div></div>
+  </div>
+
+  <div class="sec-label">4 · Content Slot · Tuesday</div>
+  <div class="card card--accent fade-up">
+    <span class="pillar-badge">Inside an Owner-Led Firm</span><span class="pillar-badge">Nurturing</span><span class="pillar-badge">Story Post</span>
+    <div class="card__title">"Their books were spotless. Their Corporate Tax registration did not exist."</div>
+    <div class="card__body">A professional-services client story built around the gap between clean books and an actual CT registration, found during onboarding rather than an FTA review. 1,463 characters, Invisibility Diagnostic 4/4.<br><br>
+    🔴 <b>Pending approval</b> — the main post is general, but Pinned Comment 1 cites a specific UAE Cabinet Decision and an AED 10,000 penalty figure, so it needs your explicit sign-off per the standing rule. There is also an <b>integrity flag</b>: the client story is an anonymised composite, not a case pulled from the verified proof vault. Please confirm a real matching client exists, or that the anonymised framing is acceptable.<br><br>
+    Full post: <a href="https://app.notion.com/p/3ce8a33e7fd181c781fcfe99ec936f69" style="color:var(--primary-light)">CMO Daily Post · Tuesday 1 September 2026</a></div>
+  </div>
+
+  <div class="sec-label">5 · BD Pipeline Pulse</div>
+  <div class="card fade-up">
+    <div class="card__label">Source: Raihana's Daily Brief · 30 Aug 2026 (freshest available; weekend brief, prep for this week)</div>
+    <div class="row"><span class="tag t-red">Urgent</span><div><b>Kora Corporate Services (Joelle Link)</b> — 3rd inbound chase, HOT — you must give the EL go/no-go or risk losing the deal.</div></div>
+    <div class="row"><span class="tag t-red">Critical</span><div><b>Brilliant Telecom LLC</b> — CIT partner confirmation ~48 days late, all contacts today, CIT window 29 days.</div></div>
+    <div class="row"><span class="tag t-amb">Follow-up</span><div><b>Chadi Nasreddine / Cartier Fragrance</b> — back from holiday, first-contact window open, pending your onboarding direction (blocked since 28 Jul).</div></div>
+    <div class="row"><span class="tag t-amb">Chase</span><div><b>MMG Art Production LLC</b> — VAT EL signature chase, Day ~30, escalate if no reply by EOD.</div></div>
+    <div class="row"><span class="tag t-amb">Follow-up</span><div><b>Ratiolex (Timo Ylikantola)</b> — CIT onboarding, Day ~20 progress update due.</div></div>
+    <div class="row"><span class="tag t-grey">Blocked</span><div><b>GL Middle East / Nandhu</b> and <b>The Concept Lab / Mr. George</b> — both waiting on your approve-or-close call.</div></div>
+    <div class="row"><span class="tag t-grey">Monitoring</span><div><b>Montfort Investment</b> TP+CIT EL (10 entities) and <b>Montfort Trading</b> VAT EL (pending UBO EID) — track responses today.</div></div>
+  </div>
+  <div class="card card--dark fade-up">
+    <div class="card__label">Raihana's Queue</div>
+    <div class="card__body">
+    <b style="color:var(--text)">Leads to verify:</b> 19 total · 80 DM drafts ready · none sent — blocked on the 46-day-overdue Pipeline Status Report.<br>
+    <b style="color:var(--text)">Highest-scored leads:</b> Successful Star General Trading (7.5) · Interlogistics-FZCO (7.5) · Real Estate/Intl Trade lead (7.0, AML/DNFBP flag — your review required).<br>
+    <b style="color:var(--text)">Outreach to send today:</b> MMG Art signature chase · Ratiolex progress update · Brilliant Telecom all-contacts push · Chadi/Cartier prep (hold pending you).<br>
+    <b style="color:var(--text)">Follow-ups overdue:</b> Pipeline Status Report (46 days) · Brilliant Telecom CIT confirmation (~48 days).
+    </div>
+  </div>
+
+  <div class="sec-label">6 · Key Metric</div>
+  <div class="stat fade-up">
+    <div class="l">Outstanding AR · BPO Service Group FZE</div>
+    <div class="n">AED 101,687.50</div>
+    <div class="d">17 overdue invoices · live Zoho Books pull · flat for 26 consecutive days (since 6 Aug)</div>
+    <table class="tbl">
+      <tr><th>Cluster</th><th>Amount (AED)</th><th>Share</th><th>Oldest</th></tr>
+      <tr><td>Richemont (Dubai) FZE — 2 invoices</td><td>58,537.50</td><td>57.6%</td><td>197 days</td></tr>
+      <tr><td>Amadeus IT FZCO — 4 invoices</td><td>22,050.00</td><td>21.7%</td><td>293 days</td></tr>
+      <tr><td>MCM Products ME — 2 invoices</td><td>7,350.00</td><td>7.2%</td><td>26 days</td></tr>
+      <tr><td>Middletel Information Technology — 1 invoice</td><td>6,300.00</td><td>6.2%</td><td>62 days</td></tr>
+      <tr><td>BPOAS internal — 2 invoices</td><td>4,200.00</td><td>4.1%</td><td>92 days</td></tr>
+      <tr><td>IGEM Group FZE — 6 invoices</td><td>3,250.00</td><td>3.2%</td><td>188 days</td></tr>
+    </table>
+  </div>
+
+  <div class="note fade-up">One thing to move the needle today: <b>close the Kora Corporate Services EL go/no-go first</b>, before anything else — Raihana flags it as the fastest new revenue on the table and the client is out of patience. Everything else in the Flags card above is real and unresolved, but Kora is the one with a closing window.</div>
+
+  <div class="sec-label">Run Log · Tuesday 1 September 2026</div>
+  <div class="card fade-up">
+    <table class="tbl">
+      <tr><th>Step</th><th>Status</th><th>Notes</th></tr>
+      <tr><td>Reference docs</td><td style="color:var(--green)">Complete</td><td>positioning-mohaina-asira.md / voice-dna-mohaina-asira.md read from Mohaina-Business-Brain repo. No hex specified, defaulted to #E8294C.</td></tr>
+      <tr><td>Outlook Calendar</td><td style="color:var(--green)">Complete</td><td>1 Sept 2026, 00:00–23:59 UAE. 0 events.</td></tr>
+      <tr><td>Outlook Email</td><td style="color:var(--green)">Complete</td><td>13 messages in last 24 hours, keyword sweep run.</td></tr>
+      <tr><td>Notion — Tasks</td><td style="color:var(--amber)">Gap</td><td>No BPOAS-linked tasks with due dates. Same gap every run since 2 July.</td></tr>
+      <tr><td>Notion — Content Calendar / CMO Post</td><td style="color:var(--green)">Complete</td><td>CMO Daily Post for 1 Sept read directly from Notion.</td></tr>
+      <tr><td>Zoho Books</td><td style="color:var(--green)">Complete</td><td>Live pull, BPO Service Group FZE. 17 overdue invoices, AED 101,687.50.</td></tr>
+      <tr><td>HTML output</td><td style="color:var(--green)">Complete</td><td>coo-brief-2026-09-01.html committed to Mohaina-Business-Brain repo, branch claude/gracious-archimedes-1j7zac.</td></tr>
+      <tr><td>M365 summary email</td><td id="email-status" style="color:var(--amber)">Pending</td><td id="email-notes">Attempt logged below under Email Delivery Status.</td></tr>
+    </table>
+  </div>
+
+  <div class="sec-label">Email Delivery Status</div>
+  <div class="card fade-up">
+    <div class="card__body" id="email-delivery-note">See covering message for delivery outcome to m.asira@bposervicegroup.com.</div>
+  </div>
+
+  <footer class="fade-up">
+    <div><span class="footer__brand">BPOAS</span></div>
+    <div class="footer__meta">Auto-generated · Tuesday 1 September 2026 · Tag: BPOAS COO Morning Brief</div>
+  </footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+window.addEventListener('load', function(){
+  if(!window.gsap) return;
+  gsap.utils.toArray('.fade-up').forEach(function(el,i){
+    gsap.to(el,{opacity:1,y:0,duration:.5,delay:Math.min(i*0.04,0.6),ease:'power2.out'});
+  });
+});
+</script>
+</body>
+</html>
