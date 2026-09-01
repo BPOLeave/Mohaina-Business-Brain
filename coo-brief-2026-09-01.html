@@ -344,13 +344,13 @@ footer {
       <tr><td>Notion — Content Calendar / CMO Post</td><td style="color:var(--green)">Complete</td><td>CMO Daily Post for 1 Sept read directly from Notion.</td></tr>
       <tr><td>Zoho Books</td><td style="color:var(--green)">Complete</td><td>Live pull, BPO Service Group FZE. 17 overdue invoices, AED 101,687.50.</td></tr>
       <tr><td>HTML output</td><td style="color:var(--green)">Complete</td><td>coo-brief-2026-09-01.html committed to Mohaina-Business-Brain repo, branch claude/gracious-archimedes-1j7zac.</td></tr>
-      <tr><td>M365 summary email</td><td id="email-status" style="color:var(--amber)">Pending</td><td id="email-notes">Attempt logged below under Email Delivery Status.</td></tr>
+      <tr><td>M365 summary email</td><td style="color:var(--red-status)">Failed · Day 62+</td><td>Mail.Send delegated permission not admin-consented (ErrorAccessDenied, HTTP 403). Delivered via Gmail instead.</td></tr>
     </table>
   </div>
 
   <div class="sec-label">Email Delivery Status</div>
   <div class="card fade-up">
-    <div class="card__body" id="email-delivery-note">See covering message for delivery outcome to m.asira@bposervicegroup.com.</div>
+    <div class="card__body">Email to m.asira@bposervicegroup.com: attempted via <code>outlook_send_mail</code> this run and <b style="color:var(--red-status)">failed</b>. Graph returned FORBIDDEN — Mail.Send delegated permission not admin-consented (tenantId 052efaf8-7f9d-4ad8-8436-b017c0720022, clientId api://07c030f6-5743-41b7-ba00-0a6e85f37c17, graphErrorCode ErrorAccessDenied, HTTP 403). Identical failure mode to every run since late June, now Day 62+. The brief was delivered via Gmail, this Notion page, and the GitHub HTML file.</div>
   </div>
 
   <footer class="fade-up">
