@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 3 September 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #0A0A0A;
+  --surface: #111827;
+  --surface-2: #1a2537;
+  --navy: #1F3A5F;
+  --navy-deep: #142A45;
+  --accent: #2E5B88;
+  --accent-bright: #4A8EC2;
+  --brand-red: #C0392B;
+  --amber: #D97706;
+  --green: #16A34A;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --border: #1E3A5F;
+  --flag-red: rgba(192,57,43,0.12);
+  --flag-amber: rgba(217,119,6,0.12);
+  --flag-green: rgba(22,163,74,0.12);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.header {
+  border-left: 3px solid var(--accent-bright);
+  padding-left: 16px;
+  margin-bottom: 32px;
+}
+.header-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--accent-bright);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.header-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+.header-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.section {
+  margin-bottom: 24px;
+}
+.section-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+.card.flag-red { border-left: 3px solid var(--brand-red); background: var(--flag-red); }
+.card.flag-amber { border-left: 3px solid var(--amber); background: var(--flag-amber); }
+.card.flag-green { border-left: 3px solid var(--green); background: var(--flag-green); }
+.card-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.card-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.card-body {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.card-body strong { color: var(--text-primary); }
+.pill {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.pill-red { background: rgba(192,57,43,0.2); color: #F87171; }
+.pill-amber { background: rgba(217,119,6,0.2); color: #FBB03B; }
+.pill-blue { background: rgba(74,142,194,0.2); color: var(--accent-bright); }
+.pill-green { background: rgba(22,163,74,0.2); color: #4ADE80; }
+.pill-muted { background: rgba(100,116,139,0.2); color: var(--text-muted); }
+.no-data {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 12px;
+  background: var(--surface);
+  border-radius: 6px;
+  border: 1px dashed var(--border);
+}
+.metric-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.metric-tile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  flex: 1;
+  min-width: 140px;
+}
+.metric-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.metric-value {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+.metric-value.amber { color: #FBB03B; }
+.metric-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.email-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(30,58,95,0.5);
+}
+.email-row:last-child { border-bottom: none; }
+.email-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.dot-red { background: var(--brand-red); }
+.dot-amber { background: var(--amber); }
+.dot-blue { background: var(--accent-bright); }
+.dot-muted { background: var(--text-muted); }
+.email-subject {
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+.email-from {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'IBM Plex Mono', monospace;
+}
+.email-note {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 3px;
+}
+footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">COO Morning Brief</div>
+  <div class="header-title">Thursday, 3 September 2026</div>
+  <div class="header-meta">Generated: 07:00 GST · BPOAS · Mohaina Asira, CPA</div>
+</div>
+
+<!-- TODAY'S SCHEDULE -->
+<div class="section">
+  <div class="section-label">Today's Schedule</div>
+  <div class="no-data">No calendar events returned for today. Outlook calendar connector returned no data for 3 September 2026. Verify manually if meetings were added after sync.</div>
+  <div class="card flag-amber" style="margin-top:10px;">
+    <div class="pill pill-amber">UPCOMING</div>
+    <div class="card-title">Client Meeting — Orlen S.A RAK Branch · Liquidation Procedures</div>
+    <div class="card-meta">Monday 8 September 2026 · Confirmed by Moiz Alamdar (Acuvat Group) · Awaiting liquidation team confirmation</div>
+    <div class="card-body">Camille confirmed external party has confirmed. Still awaiting liquidation team's slot confirmation. Team to follow up by phone if no response before Friday.</div>
+  </div>
+</div>
+
+<!-- INBOX PRIORITIES -->
+<div class="section">
+  <div class="section-label">Inbox Priorities</div>
+
+  <div class="card">
+    <div class="email-row">
+      <div class="email-dot dot-red"></div>
+      <div>
+        <div class="email-subject">Establishment Card Renewal — 30-Day Notice</div>
+        <div class="email-from">cx@spcfz.ae · 03 Sep 2026, 09:02 UAE</div>
+        <div class="email-note"><strong>BPO Service Group FZE · Expires 03/10/2026.</strong> Renew before expiry to avoid late penalties. Action needed within 30 days.</div>
+      </div>
+    </div>
+    <div class="email-row">
+      <div class="email-dot dot-amber"></div>
+      <div>
+        <div class="email-subject">Emirates NBD — Account Debit: AED 300.00 Non-Maintenance Fee</div>
+        <div class="email-from">alert@emiratesnbd.com · 03 Sep 2026, 04:33 UAE</div>
+        <div class="email-note">Account ending 8401. Available balance: <strong>AED 5,567.55</strong> after debit. Aug-2026 min balance fee charged. Balance is low — monitor for upcoming payments.</div>
+      </div>
+    </div>
+    <div class="email-row">
+      <div class="email-dot dot-amber"></div>
+      <div>
+        <div class="email-subject">Menastar DMCC — Travelfusion tfPay Warning Alert</div>
+        <div class="email-from">noreply@travelfusion.com · 02 Sep 2026, 20:44 UAE</div>
+        <div class="email-note">Current AED tfPay balance: <strong>AED 2,898.94</strong>. Client needs to make an immediate transfer to maintain system access. Escalate to client contact.</div>
+      </div>
+    </div>
+    <div class="email-row">
+      <div class="email-dot dot-blue"></div>
+      <div>
+        <div class="email-subject">Montfort Group — Revised Proposal Sent by Raihana</div>
+        <div class="email-from">r.asira@bposervicegroup.com · 02 Sep 2026, 19:52 UAE</div>
+        <div class="email-note">Revised proposal for Transfer Pricing Documentation &amp; Accounting Support for CIT Filing FY2025 sent to Gideon Eclevia. Awaiting client response. Raihana's queue — monitor.</div>
+      </div>
+    </div>
+    <div class="email-row">
+      <div class="email-dot dot-blue"></div>
+      <div>
+        <div class="email-subject">PGNIG / Orlen S.A — VAT Refund &amp; Liquidation Meeting Sep 8</div>
+        <div class="email-from">c.samonte@bposervicegroup.com → pgnig.pl · 02 Sep 2026, 18:30 UAE</div>
+        <div class="email-note">Camille updated Sir Hassan: awaiting liquidation team confirmation. Follow-up by phone today to expedite. Meeting remains scheduled for Sep 8 at 11:00.</div>
+      </div>
+    </div>
+    <div class="email-row">
+      <div class="email-dot dot-muted"></div>
+      <div>
+        <div class="email-subject">Zoho Partner Academy — Training Session Started</div>
+        <div class="email-from">notifications@mailer.trainercentral.in · 02 Sep 2026, 03:50 UAE</div>
+        <div class="email-note">Slot 2 – Enhanced Customer Onboarding &amp; Training by Zach. Session started. Check if any team members attended and capture notes for Odoo/Zoho implementation pipeline.</div>
+      </div>
+    </div>
+    <div class="email-row">
+      <div class="email-dot dot-muted"></div>
+      <div>
+        <div class="email-subject">M365 Automation — Mail.Send Still Not Admin-Consented</div>
+        <div class="email-from">System log · Day 65+ · FORBIDDEN / ErrorAccessDenied</div>
+        <div class="email-note">Routine completion emails continue to route via Gmail fallback (moanne.asira@gmail.com). Microsoft 365 Outlook sending permissions require admin consent. Unresolved since late June 2026.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TASKS & DEADLINES -->
+<div class="section">
+  <div class="section-label">Tasks &amp; Deadlines</div>
+  <div class="card flag-red">
+    <div class="pill pill-red">DEADLINE: 03 OCT 2026</div>
+    <div class="card-title">SPC Free Zone — Establishment Card Renewal</div>
+    <div class="card-body">30 days remaining. Initiate renewal process this week. Contact SPC Free Zone (cx@spcfz.ae) for required documents and renewal fee schedule.</div>
+  </div>
+  <div class="card flag-amber">
+    <div class="pill pill-amber">THIS WEEK</div>
+    <div class="card-title">Menastar DMCC — tfPay Top-Up</div>
+    <div class="card-body">Current balance AED 2,898.94. Client needs to be contacted to initiate immediate bank transfer. Assign to finance team / Camille for follow-up today.</div>
+  </div>
+  <div class="card flag-amber">
+    <div class="pill pill-amber">BEFORE FRI 4 SEP</div>
+    <div class="card-title">PGNIG — Liquidation Team Phone Follow-Up</div>
+    <div class="card-body">Camille to call liquidation team today per email update. Confirm slot for Sep 8 meeting or escalate if no response. Keep PGNIG / Orlen team informed.</div>
+  </div>
+  <div class="card">
+    <div class="pill pill-blue">MONITORING</div>
+    <div class="card-title">Montfort Group — CIT Proposal Awaiting Response</div>
+    <div class="card-body">Raihana sent revised Transfer Pricing + CIT FY2025 proposal on 2 Sep. No client response yet. Follow up if no response by 5 September.</div>
+  </div>
+</div>
+
+<!-- CONTENT SLOT -->
+<div class="section">
+  <div class="section-label">Content Slot — Today</div>
+  <div class="card">
+    <div class="pill pill-blue">THURSDAY · PILLAR: THE TRUE COST OF CHEAP ACCOUNTING</div>
+    <div class="card-title">LinkedIn Post · Contrarian Format · Intent: Engagement</div>
+    <div class="card-body">Post drafted and sent for approval at 04:05 UAE. <strong>No approval received as of 07:00 UAE.</strong> Approval window closes at 08:15 UAE. CMO file: <code>cmo-post-2026-09-03.html</code></div>
+  </div>
+</div>
+
+<!-- BD PIPELINE PULSE -->
+<div class="section">
+  <div class="section-label">BD Pipeline Pulse · incl. Raihana's Queue</div>
+  <div class="card">
+    <div class="email-row">
+      <div class="email-dot dot-amber"></div>
+      <div>
+        <div class="email-subject">Orlen S.A / PGNIG — VAT Refund &amp; Liquidation Advisory</div>
+        <div class="card-body">Sep 8 meeting confirmed with Acuvat (Moiz) and PGNIG. Liquidation team confirmation still pending. High-value engagement — full team attending (Camille, Finance, R. Lorenzo, W. Dy).</div>
+      </div>
+    </div>
+    <div class="email-row">
+      <div class="email-dot dot-amber"></div>
+      <div>
+        <div class="email-subject">Montfort Group — Transfer Pricing + CIT FY2025</div>
+        <div class="card-body">Raihana's queue: revised proposal sent 2 Sep. Entities scope and fee structure in attachment. Awaiting Gideon Eclevia's sign-off. Raihana managing this thread.</div>
+      </div>
+    </div>
+    <div class="email-row">
+      <div class="email-dot dot-blue"></div>
+      <div>
+        <div class="email-subject">Zoho Partner Program — Enhanced Onboarding Training</div>
+        <div class="card-body">Training session (Slot 2) ran 02 Sep. Relevant for Odoo ERP + Zoho Books implementation pipeline. Check with team if implementation tooling was updated.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KEY METRIC -->
+<div class="section">
+  <div class="section-label">Key Metric</div>
+  <div class="metric-row">
+    <div class="metric-tile">
+      <div class="metric-label">Emirates NBD Balance</div>
+      <div class="metric-value amber">5,567</div>
+      <div class="metric-sub">AED · Account 8401 · After AED 300 fee · 03 Sep 2026</div>
+    </div>
+    <div class="metric-tile">
+      <div class="metric-label">Establishment Card</div>
+      <div class="metric-value amber">30</div>
+      <div class="metric-sub">Days to expiry · SPC Free Zone · Expires 03 Oct 2026</div>
+    </div>
+    <div class="metric-tile">
+      <div class="metric-label">Sep 8 Meetings</div>
+      <div class="metric-value" style="color:var(--accent-bright)">2</div>
+      <div class="metric-sub">Orlen/PGNIG (11:00) · Acuvat confirmed · Liq. team TBC</div>
+    </div>
+  </div>
+  <div class="card flag-red">
+    <div class="pill pill-red">FLAG — PERSISTENT SYSTEM ISSUE</div>
+    <div class="card-title">Microsoft 365 Mail.Send Not Admin-Consented · Day 65+</div>
+    <div class="card-body">All automated routine emails are routing through <strong>moanne.asira@gmail.com</strong> as fallback. This is a known issue since late June 2026. Admin consent required in Microsoft 365 admin center for Mail.Send permission. This will not resolve on its own — Microsoft admin action required.</div>
+  </div>
+</div>
+
+<footer>
+  <span>BPOAS · COO Morning Brief · 3 September 2026</span>
+  <span>Mohaina Asira, CPA · M.Asira@bposervicegroup.com</span>
+</footer>
+
+</body>
+</html>
