@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Brief · 4 September 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #0A0A0A;
+  --surface: #131313;
+  --surface-2: #1A1A1A;
+  --border: #272727;
+  --border-subtle: #1E1E1E;
+  --accent: #E8294C;
+  --accent-dim: rgba(232,41,76,0.12);
+  --text-primary: #F0EDE6;
+  --text-secondary: #8C887F;
+  --text-tertiary: #524E48;
+  --green: #22C55E;
+  --green-dim: rgba(34,197,94,0.12);
+  --amber: #F59E0B;
+  --amber-dim: rgba(245,158,11,0.12);
+  --blue: #60A5FA;
+  --blue-dim: rgba(96,165,250,0.10);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #F5F2EE;
+    --surface: #FFFFFF;
+    --surface-2: #F0EDE8;
+    --border: #DDD9D2;
+    --border-subtle: #E8E4DE;
+    --accent: #C8213A;
+    --accent-dim: rgba(200,33,58,0.08);
+    --text-primary: #18150F;
+    --text-secondary: #6B6560;
+    --text-tertiary: #9E9990;
+    --green: #15803D;
+    --green-dim: rgba(21,128,61,0.10);
+    --amber: #B45309;
+    --amber-dim: rgba(180,83,9,0.10);
+    --blue: #2563EB;
+    --blue-dim: rgba(37,99,235,0.08);
+  }
+}
+:root[data-theme="light"] {
+  --bg: #F5F2EE;
+  --surface: #FFFFFF;
+  --surface-2: #F0EDE8;
+  --border: #DDD9D2;
+  --border-subtle: #E8E4DE;
+  --accent: #C8213A;
+  --accent-dim: rgba(200,33,58,0.08);
+  --text-primary: #18150F;
+  --text-secondary: #6B6560;
+  --text-tertiary: #9E9990;
+  --green: #15803D;
+  --green-dim: rgba(21,128,61,0.10);
+  --amber: #B45309;
+  --amber-dim: rgba(180,83,9,0.10);
+  --blue: #2563EB;
+  --blue-dim: rgba(37,99,235,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  padding: 2rem 1rem 4rem;
+  min-height: 100vh;
+}
+.page-wrap { max-width: 760px; margin: 0 auto; }
+.brief-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.brief-wordmark {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.brief-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+.brief-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.section { margin-bottom: 1.75rem; }
+.section-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 0.75rem;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.flag-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem 1.25rem 1rem 1.5rem;
+  margin-bottom: 0.5rem;
+  border-left-width: 3px;
+  display: grid;
+  gap: 0.35rem;
+}
+.flag-card.critical { border-left-color: var(--accent); }
+.flag-card.warning { border-left-color: var(--amber); }
+.flag-what { font-weight: 600; font-size: 0.95rem; color: var(--text-primary); }
+.flag-why { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; }
+.flag-action { font-size: 0.82rem; color: var(--text-secondary); font-style: italic; }
+.flag-action strong { color: var(--text-primary); font-style: normal; }
+.cat-tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+.cat-tag.cit { background: var(--accent-dim); color: var(--accent); }
+.cat-tag.cash { background: var(--amber-dim); color: var(--amber); }
+.cat-tag.client { background: var(--blue-dim); color: var(--blue); }
+.cat-tag.bd { background: var(--green-dim); color: var(--green); }
+.inbox-item { display: grid; gap: 0.2rem; padding: 1rem 0; border-bottom: 1px solid var(--border-subtle); }
+.inbox-item:last-child { border-bottom: none; padding-bottom: 0; }
+.inbox-item:first-child { padding-top: 0; }
+.inbox-subject { font-weight: 600; font-size: 0.93rem; color: var(--text-primary); line-height: 1.4; }
+.inbox-meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--text-tertiary); }
+.inbox-summary { font-size: 0.87rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.2rem; }
+.inbox-tags { display: flex; gap: 0.4rem; margin-top: 0.3rem; flex-wrap: wrap; }
+.pipeline-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border-subtle); }
+.pipeline-item:last-child { border-bottom: none; padding-bottom: 0; }
+.pipeline-item:first-child { padding-top: 0; }
+.pipeline-client { font-weight: 600; font-size: 0.9rem; }
+.pipeline-service { font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.15rem; }
+.pipeline-status { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; white-space: nowrap; padding: 0.2rem 0.55rem; border-radius: 3px; font-weight: 500; }
+.pipeline-status.active { background: var(--green-dim); color: var(--green); }
+.pipeline-status.risk { background: var(--accent-dim); color: var(--accent); }
+.pipeline-status.scheduled { background: var(--blue-dim); color: var(--blue); }
+.pipeline-status.in-progress { background: var(--amber-dim); color: var(--amber); }
+.empty-note { font-size: 0.87rem; color: var(--text-tertiary); font-style: italic; padding: 0.75rem 0; }
+.task-item { display: flex; align-items: baseline; gap: 0.75rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border-subtle); font-size: 0.9rem; }
+.task-item:last-child { border-bottom: none; }
+.task-item:first-child { padding-top: 0; }
+.task-due { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--text-tertiary); white-space: nowrap; min-width: 90px; }
+.task-due.today { color: var(--accent); }
+.task-desc { color: var(--text-primary); line-height: 1.45; }
+.task-owner { color: var(--text-secondary); font-size: 0.82rem; }
+.rq-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 0; border-bottom: 1px solid var(--border-subtle); font-size: 0.9rem; }
+.rq-item:last-child { border-bottom: none; }
+.rq-item:first-child { padding-top: 0; }
+.rq-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.rq-dot.done { background: var(--green); }
+.rq-dot.overdue { background: var(--accent); }
+.rq-dot.pending { background: var(--amber); }
+.rq-text { color: var(--text-primary); }
+.rq-note { color: var(--text-secondary); font-size: 0.82rem; }
+.metric-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.metric-block { flex: 1; min-width: 160px; }
+.metric-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); margin-bottom: 0.25rem; font-family: 'IBM Plex Mono', monospace; }
+.metric-value { font-family: 'IBM Plex Mono', monospace; font-size: 1.1rem; font-weight: 500; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.metric-note { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.2rem; }
+.brief-footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--text-tertiary); }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+  <header class="brief-header">
+    <div>
+      <div class="brief-wordmark">BPOAS · COO Brief</div>
+      <h1 class="brief-title">Morning Brief</h1>
+    </div>
+    <div class="brief-date">Friday · 4 September 2026 · 07:00 GST</div>
+  </header>
+  <div class="section">
+    <div class="section-label">Flags for Mohaina</div>
+    <div class="flag-card critical">
+      <div class="inbox-tags"><span class="cat-tag cit">CIT</span></div>
+      <div class="flag-what">PEL LIMITED – CIT Return Fee at Risk</div>
+      <div class="flag-why">Client (acc@pellimited.com) pushed back on AED 8,000 fee, claiming it is "significantly higher than market" for a company with limited transactions. Raihana replied this morning holding firm and setting out the basis (not priced on transaction count, includes multi-department review and compliance sign-off).</div>
+      <div class="flag-action"><strong>Next step:</strong> Mohaina to decide — support Raihana's position or agree a revised figure. Risk: client walks away from the CIT engagement.</div>
+    </div>
+    <div class="flag-card warning">
+      <div class="inbox-tags"><span class="cat-tag client">Client</span></div>
+      <div class="flag-what">Kelvion – INV-2026-000192 Bank Verification Reminder</div>
+      <div class="flag-why">Arlin Flordeliza (Kelvion) sent a reminder on Sep 3 regarding bank details verification for INV-2026-000192. This is blocking payment. Raihana and Finance are CC'd but no reply visible yet.</div>
+      <div class="flag-action"><strong>Next step:</strong> Finance/Raihana to send verified bank details today. Collection stalled until resolved.</div>
+    </div>
+    <div class="flag-card warning">
+      <div class="inbox-tags"><span class="cat-tag cash">Cash</span></div>
+      <div class="flag-what">Google Ads Suspended – AED 152.37 Past Due</div>
+      <div class="flag-why">Google sent a suspension notice. Customer ID 817-829-0627. Payments profile 4741-5096-6570. BPOAS paid advertising is currently offline.</div>
+      <div class="flag-action"><strong>Next step:</strong> Make AED 152.37 payment to resume. Small amount — quick fix.</div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Today's Schedule</div>
+    <div class="card">
+      <div class="empty-note">No calendar events found for Friday 4 September 2026. Clear day.</div>
+      <div style="height:0.5rem;"></div>
+      <div class="metric-note">Upcoming: ORLEN – VAT Refund &amp; Liquidation meeting · Monday 8 September · 11:00 AM (confirmed)</div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Inbox Priorities</div>
+    <div class="card">
+      <div class="inbox-item">
+        <div class="inbox-tags"><span class="cat-tag cit">CIT</span></div>
+        <div class="inbox-subject">Re: PEL LIMITED DUBAI – CIT Return Filing 2025 · Fee Dispute</div>
+        <div class="inbox-meta">Raihana → acc@pellimited.com · 4 Sep · 08:59 GST</div>
+        <div class="inbox-summary">Raihana replied holding firm on AED 8,000. Client replied previous day saying the fee is significantly higher than market. Raihana has set out the basis clearly. Awaiting client's next move. <strong>Flagged for Mohaina above.</strong></div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-tags"><span class="cat-tag bd">BD</span></div>
+        <div class="inbox-subject">Re: Kora Corporate Services – Zoho Books Implementation · Update Needed</div>
+        <div class="inbox-meta">Joelle Link (joelle@korauae.com) → Camille · 4 Sep · 09:04 GST</div>
+        <div class="inbox-summary">Client connected bank accounts Tuesday and is asking for next steps. Camille (c.samonte) is the lead. No reply sent yet. <strong>Action: Camille to respond today.</strong></div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-tags"><span class="cat-tag client">Client</span></div>
+        <div class="inbox-subject">INV-2026-000192 – Bank Details Verification Reminder · Kelvion</div>
+        <div class="inbox-meta">Arlin Flordeliza (Kelvion) → Raihana, Finance, Mohaina · 3 Sep · 16:46 GST</div>
+        <div class="inbox-summary">Third reminder on bank details verification. Payment is blocked pending BPOAS to confirm banking details. <strong>Flagged for Mohaina above.</strong></div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-tags"><span class="cat-tag cash">Cash</span></div>
+        <div class="inbox-subject">Google Ads – Service Suspended · AED 152.37 Due</div>
+        <div class="inbox-meta">payments-noreply@google.com → Mohaina · 3 Sep · 18:06 GST</div>
+        <div class="inbox-summary">Paid advertising offline. Customer ID 817-829-0627. Quick payment to resume. <strong>Flagged for Mohaina above.</strong></div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-tags"><span class="cat-tag bd">BD</span></div>
+        <div class="inbox-subject">ORLEN S.A. RAK – VAT Refund &amp; Liquidation Meeting · 8 Sep Confirmed</div>
+        <div class="inbox-meta">Mohamed Hassan (ORLEN) → Camille · 3 Sep · 12:27 GST</div>
+        <div class="inbox-summary">Client confirmed attendance. Meeting is Monday 8 September at 11:00 AM. Liquidation team also attending. New office address (Centurion Star Tower A, 12th Floor) communicated to client.</div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-tags"><span class="cat-tag client">Client</span></div>
+        <div class="inbox-subject">Tax Residency Certificate – GL Middle East, Flow Air &amp; Water, Wicked Tents</div>
+        <div class="inbox-meta">Nandhu Vijayan (GL Events) → Cristina · 3 Sep · 15:42 GST</div>
+        <div class="inbox-summary">Documents submitted. Wicked and Flow share office space; Ejari is under Flow's name. Additional warehouse documents for Wicked requested. Cristina acknowledged and asked for folder structure. Active, progressing.</div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-tags"><span class="cat-tag cash">Cash</span></div>
+        <div class="inbox-subject">Zoho Books – Weekly P&amp;L Report Attached (Aug 27 – Sep 2)</div>
+        <div class="inbox-meta">no-reply@zohobooks.com → Mohaina · 3 Sep · 18:05 GST</div>
+        <div class="inbox-summary">Automated weekly Profit &amp; Loss report for the period 27 Aug – 2 Sep 2026 is attached as PDF. Review for revenue figures. <em>Full CFO revenue analysis runs Mondays.</em></div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Tasks &amp; Deadlines</div>
+    <div class="card">
+      <div class="task-item"><div class="task-due today">Today</div><div><div class="task-desc">Kora/Zoho: Camille to reply to Joelle with next steps after bank account connection</div><div class="task-owner">Owner: Camille Samonte</div></div></div>
+      <div class="task-item"><div class="task-due today">Today</div><div><div class="task-desc">Kelvion: Finance/Raihana to send confirmed bank details to resolve collection block</div><div class="task-owner">Owner: Finance / Raihana</div></div></div>
+      <div class="task-item"><div class="task-due today">Today</div><div><div class="task-desc">Google Ads: Pay AED 152.37 to resume BPOAS paid advertising</div><div class="task-owner">Owner: Mohaina / Finance</div></div></div>
+      <div class="task-item"><div class="task-due">PEL LIMITED</div><div><div class="task-desc">Decide on CIT return fee — support Raihana's AED 8,000 hold or agree revised figure</div><div class="task-owner">Owner: Mohaina (decision)</div></div></div>
+      <div class="task-item"><div class="task-due">8 Sep · Mon</div><div><div class="task-desc">ORLEN meeting: VAT Refund &amp; Liquidation · 11:00 AM · Centurion Star Tower A</div><div class="task-owner">Owner: Camille, Cristina, liquidation team</div></div></div>
+      <div class="task-item"><div class="task-due">Ongoing</div><div><div class="task-desc">GL Middle East TRC: Collect warehouse documents for Wicked Tents</div><div class="task-owner">Owner: Cristina Suyom</div></div></div>
+      <div class="task-item"><div class="task-due">25–27 Sep</div><div><div class="task-desc">Business Accelerator Bootcamp – prep and confirm logistics</div><div class="task-owner">Owner: Mohaina</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">BD Pipeline Pulse</div>
+    <div class="card">
+      <div class="pipeline-item"><div><div class="pipeline-client">PEL LIMITED DUBAI</div><div class="pipeline-service">CIT Return Filing 2025 · AED 8,000 proposed · Fee dispute active</div></div><div class="pipeline-status risk">At Risk</div></div>
+      <div class="pipeline-item"><div><div class="pipeline-client">Kora Corporate Services</div><div class="pipeline-service">Zoho Books Implementation · Bank accounts connected · Awaiting next steps</div></div><div class="pipeline-status active">Active</div></div>
+      <div class="pipeline-item"><div><div class="pipeline-client">ORLEN S.A. RAK Branch</div><div class="pipeline-service">VAT Refund &amp; Liquidation · Meeting 8 Sep · 11:00 AM confirmed</div></div><div class="pipeline-status scheduled">Meeting Set</div></div>
+      <div class="pipeline-item"><div><div class="pipeline-client">GL Middle East · Flow Air · Wicked Tents</div><div class="pipeline-service">Tax Residency Certificate Services · Documents being collected</div></div><div class="pipeline-status in-progress">In Progress</div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Raihana's Queue</div>
+    <div class="card">
+      <div class="rq-item"><div class="rq-dot done"></div><div><div class="rq-text">PEL LIMITED CIT reply — sent this morning, holding AED 8,000 with full basis set out</div><div class="rq-note">Done · Mohaina's decision needed on next move</div></div></div>
+      <div class="rq-item"><div class="rq-dot pending"></div><div><div class="rq-text">Kelvion bank details — reply pending</div><div class="rq-note">Blocking invoice collection</div></div></div>
+      <div class="rq-item"><div class="rq-dot overdue"></div><div><div class="rq-text">Weekly Pipeline Status Report — overdue</div><div class="rq-note">Same gap logged every brief since July. No structured pipeline report received.</div></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-label">Revenue Pulse</div>
+    <div class="card">
+      <div class="metric-row">
+        <div class="metric-block"><div class="metric-label">MTD Revenue</div><div class="metric-value">—</div><div class="metric-note">CFO brief runs Mondays · Last updated Monday 1 Sep 2026</div></div>
+        <div class="metric-block"><div class="metric-label">Monthly Target</div><div class="metric-value">—</div><div class="metric-note">See Monday CFO report</div></div>
+        <div class="metric-block"><div class="metric-label">Days Remaining</div><div class="metric-value">26</div><div class="metric-note">September 2026</div></div>
+      </div>
+      <div style="margin-top:0.85rem; padding-top:0.85rem; border-top:1px solid var(--border-subtle);">
+        <div class="metric-note">Zoho Books P&amp;L for Aug 27 – Sep 2 emailed as PDF — review attachment for latest figures. Full CFO analysis on Monday 7 September.</div>
+      </div>
+    </div>
+  </div>
+  <footer class="brief-footer">BPOAS COO Morning Brief · Generated 07:00 GST · Friday 4 September 2026 · M365 Mail.Send pending admin consent (Day 70+) — summary sent via push notification.</footer>
+</div>
+</body>
+</html>

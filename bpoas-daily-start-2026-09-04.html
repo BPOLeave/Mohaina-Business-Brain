@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · 4 Sep 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #0A0A0A; --surface: #131313; --surface-2: #1A1A1A; --border: #272727;
+  --border-subtle: #1E1E1E; --accent: #E8294C; --accent-dim: rgba(232,41,76,0.12);
+  --accent-mid: rgba(232,41,76,0.25); --text-primary: #F0EDE6; --text-secondary: #8C887F;
+  --text-tertiary: #524E48; --green: #22C55E; --green-dim: rgba(34,197,94,0.12);
+  --amber: #F59E0B; --amber-dim: rgba(245,158,11,0.12); --blue: #60A5FA; --blue-dim: rgba(96,165,250,0.10);
+}
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
+  --bg: #F5F2EE; --surface: #FFFFFF; --surface-2: #F0EDE8; --border: #DDD9D2;
+  --border-subtle: #E8E4DE; --accent: #C8213A; --accent-dim: rgba(200,33,58,0.08);
+  --accent-mid: rgba(200,33,58,0.18); --text-primary: #18150F; --text-secondary: #6B6560;
+  --text-tertiary: #9E9990; --green: #15803D; --green-dim: rgba(21,128,61,0.10);
+  --amber: #B45309; --amber-dim: rgba(180,83,9,0.10); --blue: #2563EB; --blue-dim: rgba(37,99,235,0.08);
+} }
+:root[data-theme="light"] {
+  --bg: #F5F2EE; --surface: #FFFFFF; --surface-2: #F0EDE8; --border: #DDD9D2;
+  --border-subtle: #E8E4DE; --accent: #C8213A; --accent-dim: rgba(200,33,58,0.08);
+  --accent-mid: rgba(200,33,58,0.18); --text-primary: #18150F; --text-secondary: #6B6560;
+  --text-tertiary: #9E9990; --green: #15803D; --green-dim: rgba(21,128,61,0.10);
+  --amber: #B45309; --amber-dim: rgba(180,83,9,0.10); --blue: #2563EB; --blue-dim: rgba(37,99,235,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+body { background: var(--bg); color: var(--text-primary); font-family: 'Source Sans 3', system-ui, sans-serif; line-height: 1.6; padding: 0 1rem 4rem; min-height: 100vh; }
+.page-wrap { max-width: 820px; margin: 0 auto; }
+.hero { background: var(--surface); border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; padding: 2rem 2rem 1.75rem; margin-bottom: 1.75rem; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+.hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--text-tertiary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.35rem; }
+.hero-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 4vw, 2.2rem); color: var(--text-primary); line-height: 1.15; text-wrap: balance; margin-bottom: 0.25rem; }
+.hero-date { font-size: 1rem; color: var(--text-secondary); margin-bottom: 1.75rem; }
+.revenue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+.revenue-tile { background: var(--surface-2); border: 1px solid var(--border); border-radius: 5px; padding: 0.9rem 1rem; }
+.rev-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 0.35rem; }
+.rev-value { font-family: 'IBM Plex Mono', monospace; font-size: 1.35rem; font-weight: 500; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.rev-value.muted { color: var(--text-tertiary); font-size: 1rem; }
+.rev-note { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.2rem; }
+.hero-notice { font-size: 0.82rem; color: var(--text-secondary); border-top: 1px solid var(--border-subtle); padding-top: 0.85rem; font-style: italic; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+@media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+.card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+.card-title .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.dot-accent { background: var(--accent); } .dot-green { background: var(--green); } .dot-amber { background: var(--amber); } .dot-blue { background: var(--blue); }
+.flag-card-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+.flag-badge { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: white; font-size: 0.7rem; font-weight: 700; font-family: 'IBM Plex Mono', monospace; }
+.flag-item { padding: 0.9rem 0 0.9rem 1rem; border-left: 3px solid; border-bottom: 1px solid var(--border-subtle); display: grid; gap: 0.25rem; }
+.flag-item:last-child { border-bottom: none; }
+.flag-item.sev-critical { border-left-color: var(--accent); }
+.flag-item.sev-warning { border-left-color: var(--amber); }
+.flag-category { font-family: 'IBM Plex Mono', monospace; font-size: 0.64rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+.flag-category.cit { color: var(--accent); } .flag-category.cash { color: var(--amber); } .flag-category.client { color: var(--blue); }
+.flag-what { font-weight: 600; font-size: 0.93rem; color: var(--text-primary); }
+.flag-why { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+.flag-next { font-size: 0.82rem; color: var(--text-secondary); }
+.flag-next strong { color: var(--text-primary); }
+.run-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--border-subtle); }
+.run-row:last-child { border-bottom: none; } .run-row:first-child { padding-top: 0; }
+.run-skill { font-size: 0.88rem; color: var(--text-primary); font-weight: 500; }
+.run-output { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--text-tertiary); }
+.run-status { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 3px; white-space: nowrap; font-weight: 500; }
+.run-status.complete { background: var(--green-dim); color: var(--green); }
+.run-status.skipped { background: var(--border-subtle); color: var(--text-tertiary); }
+.run-status.error { background: var(--accent-dim); color: var(--accent); }
+.post-hook { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--accent); margin-bottom: 0.75rem; border-left: 3px solid var(--accent); padding-left: 0.75rem; line-height: 1.4; }
+.post-text { font-size: 0.95rem; line-height: 1.8; color: var(--text-primary); white-space: pre-line; }
+.post-cta { font-weight: 700; color: var(--accent); }
+.score-chip { display: inline-block; background: var(--green-dim); color: var(--green); border-radius: 4px; padding: 0.2rem 0.6rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; font-weight: 500; margin-bottom: 1rem; }
+.link-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border-subtle); }
+.link-row:last-child { border-bottom: none; } .link-row:first-child { padding-top: 0; }
+.link-label { font-size: 0.9rem; color: var(--text-primary); font-weight: 500; }
+.link-file { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--text-tertiary); }
+.link-arrow { color: var(--text-tertiary); font-size: 0.9rem; }
+.page-footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--text-tertiary); line-height: 1.7; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+  <div class="hero">
+    <div class="hero-eyebrow">BPOAS Daily Start · Lean Run (Steps 1 + 4)</div>
+    <h1 class="hero-title">Friday, 4 September 2026</h1>
+    <div class="hero-date">Generated 07:00 GST · Mohaina Asira, Managing Partner</div>
+    <div class="revenue-grid">
+      <div class="revenue-tile"><div class="rev-label">MTD Revenue</div><div class="rev-value muted">— AED</div><div class="rev-note">See Monday CFO brief</div></div>
+      <div class="revenue-tile"><div class="rev-label">Monthly Target</div><div class="rev-value muted">— AED</div><div class="rev-note">From positioning doc</div></div>
+      <div class="revenue-tile"><div class="rev-label">Days Remaining</div><div class="rev-value">26</div><div class="rev-note">September 2026</div></div>
+      <div class="revenue-tile"><div class="rev-label">Status</div><div class="rev-value muted">—</div><div class="rev-note">Awaiting Monday CFO</div></div>
+    </div>
+    <div class="hero-notice">Revenue figures carry forward from last Monday, 1 September 2026. Zoho Books P&amp;L for Aug 27 – Sep 2 attached to this morning's automated email — review PDF for latest figures. Full CFO analysis runs Monday 7 September.</div>
+  </div>
+  <div class="card">
+    <div class="flag-card-title"><span class="flag-badge">3</span> Flags for Mohaina</div>
+    <div class="flag-item sev-critical"><div class="flag-category cit">CIT · Compliance</div><div class="flag-what">PEL LIMITED – CIT Return Fee Dispute</div><div class="flag-why">Client pushed back on AED 8,000 saying it's "significantly higher than market." Raihana is holding firm this morning and has set out the basis. Risk: engagement walks.</div><div class="flag-next"><strong>Action:</strong> Mohaina to decide — support Raihana's hold or agree revised figure. Decide today.</div></div>
+    <div class="flag-item sev-warning"><div class="flag-category client">Client · Collection</div><div class="flag-what">Kelvion – INV-2026-000192 Bank Verification Blocking Payment</div><div class="flag-why">Third reminder from Kelvion's Finance team. Bank details verification unresolved. Invoice payment on hold.</div><div class="flag-next"><strong>Action:</strong> Finance/Raihana to send bank confirmation today.</div></div>
+    <div class="flag-item sev-warning"><div class="flag-category cash">Cash · Advertising</div><div class="flag-what">Google Ads Suspended – AED 152.37 Past Due</div><div class="flag-why">BPOAS paid advertising is offline. Customer ID 817-829-0627.</div><div class="flag-next"><strong>Action:</strong> Pay AED 152.37 to resume. Immediate.</div></div>
+  </div>
+  <div class="two-col">
+    <div class="card" style="margin-bottom:0;">
+      <div class="card-title"><span class="dot dot-green"></span> Run Log</div>
+      <div class="run-row"><div><div class="run-skill">Step 1 · COO Morning Brief</div><div class="run-output">coo-brief-2026-09-04.html</div></div><div class="run-status complete">Complete</div></div>
+      <div class="run-row"><div><div class="run-skill">Step 2 · CFO Weekly Revenue</div><div class="run-output">Runs Mondays only</div></div><div class="run-status skipped">Skipped</div></div>
+      <div class="run-row"><div><div class="run-skill">Step 3 · CRO Prospects</div><div class="run-output">Runs Mondays only</div></div><div class="run-status skipped">Skipped</div></div>
+      <div class="run-row"><div><div class="run-skill">Step 4 · CMO Daily Post</div><div class="run-output">cmo-post-2026-09-04.html</div></div><div class="run-status complete">Complete</div></div>
+      <div class="run-row"><div><div class="run-skill">Step 5 · Content Calendar</div><div class="run-output">Runs Mondays only</div></div><div class="run-status skipped">Skipped</div></div>
+      <div class="run-row"><div><div class="run-skill">M365 Email Send</div><div class="run-output">Mail.Send not consented (Day 70+)</div></div><div class="run-status error">Blocked</div></div>
+    </div>
+    <div class="card" style="margin-bottom:0;">
+      <div class="card-title"><span class="dot dot-blue"></span> Quick Links</div>
+      <div class="link-row"><div><div class="link-label">COO Morning Brief</div><div class="link-file">coo-brief-2026-09-04.html</div></div><div class="link-arrow">→</div></div>
+      <div class="link-row"><div><div class="link-label">CMO Daily Post</div><div class="link-file">cmo-post-2026-09-04.html</div></div><div class="link-arrow">→</div></div>
+      <div class="link-row"><div><div class="link-label">CFO Revenue Report</div><div class="link-file">Runs Monday 7 Sep</div></div><div class="link-arrow" style="opacity:0.3;">→</div></div>
+      <div class="link-row"><div><div class="link-label">Zoho P&amp;L Attachment</div><div class="link-file">Aug 27 – Sep 2 · in Outlook</div></div><div class="link-arrow">→</div></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:1rem;">
+    <div class="card-title"><span class="dot dot-accent"></span> Today's LinkedIn Post · Approval Required</div>
+    <div class="score-chip">4/4 Invisibility Diagnostic · Passed</div>
+    <div class="post-hook">I had a client come to us last year.</div>
+    <div class="post-text">He'd been filing his own VAT returns for two years.
+
+Confident. Efficient. Saving money.
+
+Then we went to his office.
+
+Checked the supporting documents.
+
+Found input tax being claimed on invoices that didn't meet FTA requirements.
+
+Nothing malicious. Just a gap in what he knew.
+
+We submitted a voluntary disclosure before the FTA found it themselves.
+
+The penalty was a fraction of what it would have been.
+
+But here's what I think about more than the number:
+
+He had no idea the exposure existed. None.
+
+That's not his fault. He's running a business. He's not a tax specialist.
+
+The risk doesn't go away because you don't see it.
+
+It just waits.
+
+<span class="post-cta">If your accountant has never physically checked your supporting documents, that's worth a conversation this week.</span>
+
+#UAE #VAT #FTA #SmallBusiness #AccountingUAE #BPOAS #Compliance</div>
+    <div style="margin-top:1.25rem; padding-top:1rem; border-top:1px solid var(--border-subtle);">
+      <div style="font-size:0.82rem; color:var(--text-secondary); line-height:1.55;">⚠️ <strong style="color:var(--amber);">Flag:</strong> Post references UAE VAT, FTA, and compliance penalties. Mohaina to approve before Rei publishes. On approval: forward full post + 3 pinned comments to Rei Nald Onella (reinald.onella1@gmail.com) — <em>Subject: Post for Today — Ready to Publish · 4 September 2026.</em></div>
+    </div>
+  </div>
+  <footer class="page-footer">
+    BPOAS Daily Start · Lean Run · Friday 4 September 2026 · 07:00 GST<br>
+    Steps run: 1 (COO Brief) · 4 (CMO Post) · Steps 2, 3, 5 skipped (Monday-only)<br>
+    M365 Mail.Send: not admin-consented (Day 70+, FORBIDDEN/ErrorAccessDenied) — summary via push notification<br>
+    Connectors: Microsoft 365 ✓ · Notion ✓ · Zoho Books (scheduled email ✓) · Apify (not queried this run)
+  </footer>
+</div>
+</body>
+</html>
