@@ -1,1 +1,1118 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CFO Weekly Revenue Report</title>
+<style>
+:root{
+  --primary:#E8294C;
+  --bg:#0A0A0A;
+  --card:#151517;
+  --card-border:#242428;
+  --text:#F2F2F3;
+  --text-dim:#9A9AA0;
+  --green:#22C55E;
+  --amber:#F5A623;
+  --red:#EF4444;
+  --green-bg:rgba(34,197,94,0.12);
+  --amber-bg:rgba(245,166,35,0.12);
+  --red-bg:rgba(239,68,68,0.12);
+}
+*{box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;margin:0;padding:32px 24px 80px;}
+.wrap{max-width:1180px;margin:0 auto;}
+h1{font-size:26px;margin:0 0 4px;letter-spacing:-0.02em;}
+.subhead{color:var(--text-dim);font-size:13px;margin-bottom:28px;}
+.subhead b{color:var(--text);}
+h2{font-size:16px;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-dim);margin:40px 0 14px;border-bottom:1px solid var(--card-border);padding-bottom:8px;}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media (max-width:900px){.metrics{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.metrics{grid-template-columns:1fr;}}
+.metric{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:18px;border-top:3px solid var(--text-dim);}
+.metric.green{border-top-color:var(--green);}
+.metric.amber{border-top-color:var(--amber);}
+.metric.red{border-top-color:var(--red);}
+.metric .label{font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;}
+.metric .value{font-size:22px;font-weight:700;margin-bottom:6px;}
+.metric .detail{font-size:12.5px;color:var(--text-dim);line-height:1.5;}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:20px 22px;margin-bottom:16px;}
+.card p{line-height:1.6;font-size:14px;color:var(--text);margin:0 0 10px;}
+.card p:last-child{margin-bottom:0;}
+.card ul{margin:8px 0;padding-left:20px;font-size:14px;line-height:1.7;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+.table-scroll{overflow-x:auto;border:1px solid var(--card-border);border-radius:12px;}
+th{text-align:left;padding:10px 12px;background:#1B1B1E;color:var(--text-dim);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:0.04em;position:sticky;top:0;}
+td{padding:9px 12px;border-top:1px solid var(--card-border);}
+td.num{text-align:right;font-variant-numeric:tabular-nums;}
+tr.red td{background:rgba(239,68,68,0.06);}
+tr.amber td{background:rgba(245,166,35,0.06);}
+.pill{display:inline-block;padding:2px 9px;border-radius:99px;font-size:10.5px;font-weight:700;letter-spacing:0.03em;}
+.pill-red{background:var(--red-bg);color:var(--red);}
+.pill-amber{background:var(--amber-bg);color:var(--amber);}
+.pill-normal{background:rgba(154,154,160,0.15);color:var(--text-dim);}
+.flag{border-left:3px solid var(--red);background:var(--red-bg);border-radius:0 10px 10px 0;padding:16px 18px;margin-bottom:12px;}
+.flag .num{color:var(--red);font-weight:700;margin-right:8px;}
+.flag h3{margin:0 0 6px;font-size:14.5px;}
+.flag p{margin:4px 0;font-size:13.5px;line-height:1.55;color:var(--text);}
+.flag .owner{color:var(--text-dim);font-size:12.5px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media (max-width:800px){.grid2{grid-template-columns:1fr;}}
+.retainer-risk{margin-top:14px;padding:12px 16px;background:var(--amber-bg);border-radius:10px;color:var(--amber);font-weight:600;font-size:13.5px;}
+.fu-grid{display:grid;grid-template-columns:1fr;gap:10px;max-height:640px;overflow-y:auto;padding-right:4px;}
+.fu-item{background:#1B1B1E;border:1px solid var(--card-border);border-radius:10px;padding:12px 14px;}
+.fu-meta{font-size:11.5px;color:var(--text-dim);margin-bottom:5px;}
+.fu-org{color:var(--primary);}
+.fu-msg{font-size:13.5px;line-height:1.5;}
+.badge-src{color:var(--text-dim);font-size:11.5px;}
+.callout{background:linear-gradient(90deg, rgba(232,41,76,0.14), rgba(232,41,76,0.02));border:1px solid rgba(232,41,76,0.35);border-radius:12px;padding:16px 18px;margin-bottom:20px;font-size:13.5px;line-height:1.6;}
+.callout b{color:var(--primary);}
+footer{margin-top:48px;color:var(--text-dim);font-size:11.5px;text-align:center;}
+a{color:var(--primary);}
+.small{font-size:12px;color:var(--text-dim);}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>CFO Weekly Revenue Report</h1>
+<div class="subhead">BPOAS &middot; Week of 7 September 2026 &middot; Generated Monday 7 September 2026 &middot; Auto-generated via BPOAS-CFO Weekly<br>
+Sources: <b>Zoho Books</b> (both billing entities, live) &middot; <b>Notion</b> (BPOAS Team Operating Hub) &middot; <b>Microsoft 365</b> (M.Asira mailbox)</div>
+
+<div class="callout">
+<b>Continuing finding:</b> zero client payments recorded in either Zoho Books entity since <b>28 July</b> (Org A) / <b>14 July</b> (Org B) &mdash; this is the <b>6th consecutive week</b> of AED 0 collections. Combined overdue AR has grown to <b>AED 390,534.02 across 74 invoices</b>, up AED 41,475.00 / +11 invoices from last week. No monthly revenue target and no retainer contract database exist in Notion &mdash; both flags now in their <b>10th consecutive week</b> unresolved (first raised 2 July 2026).
+</div>
+
+<h2>At a Glance</h2>
+<div class="metrics">
+<div class="metric red">
+<div class="label">Weekly Revenue</div>
+<div class="value">AED 0</div>
+<div class="detail">Received this week (31 Aug&ndash;6 Sep) and prior week (24&ndash;30 Aug). 6 straight weeks at zero. 🔴 Down</div>
+</div>
+<div class="metric amber">
+<div class="label">Pipeline Health</div>
+<div class="value">~7 active deals</div>
+<div class="detail">Kora Corporate Services critical (4th unprompted chase, no EL issued). 2 ELs out awaiting signature. No deal-value tracking in Notion.</div>
+</div>
+<div class="metric red">
+<div class="label">Run Rate</div>
+<div class="value">AED 109,218</div>
+<div class="detail">Invoiced Sep MTD (Org A only). AED 0 collected. No monthly target on file &mdash; gap cannot be calculated. 🔴 Below Target</div>
+</div>
+<div class="metric red">
+<div class="label">Overdue Count</div>
+<div class="value">74 invoices</div>
+<div class="detail">AED 390,534.02 combined. 48 red (30+d) &middot; 17 amber (7&ndash;29d) &middot; 9 not yet due.</div>
+</div>
+</div>
+
+<h2>1 &middot; Weekly Revenue</h2>
+<div class="card">
+<p><b>AED 0</b> received this week (31 Aug&ndash;6 Sep 2026) and <b>AED 0</b> the prior week (24&ndash;30 Aug) &mdash; the 6th consecutive week with zero recorded collections across both Zoho Books entities. Last recorded client payment: 28 Jul (Business Process Outsourcing Accounting Services, org 664944021) / 14 Jul (BPO Service Group FZE, org 805469116).</p>
+<p><b>Revenue breakdown by stream</b> (Retainer &middot; Project &middot; Compliance &middot; Advisory): not available &mdash; Zoho invoice line items carry no service-line tag. Recommend adding a custom field in Zoho Books to enable this breakdown in future reports.</p>
+<p><b>Invoiced this week:</b> Org A (Business Process Outsourcing Accounting Services) AED 109,218.07 across 15 invoices, all dated 1 Sep &mdash; a large retainer-renewal batch (Richemont, GASCHEM, Middletel, DMG MORI, MENASTAR, DIFC, Mizuho, WRT, Paluto, JC Premiere). Org B (BPO Service Group FZE): AED 0 invoiced this week.</p>
+<p class="small">Status: 🔴 Down &mdash; flat at zero for a 6th straight week while overdue AR keeps growing.</p>
+</div>
+
+<h2>2 &middot; Pipeline Health</h2>
+<div class="card">
+<p>No deal-value tracking exists in Notion &mdash; flagged in every CFO report since 2 July 2026 (10th consecutive week). Pipeline revenue-at-risk and the &gt;AED 15,000 stalled-deal threshold cannot be confirmed numerically as a result.</p>
+<div class="table-scroll">
+<table>
+<thead><tr><th>Deal / Prospect</th><th>Tracked Value</th><th>Stage</th><th>Days Since Last Activity</th><th>Flag</th></tr></thead>
+<tbody>
+<tr class="red"><td>The Concept Lab / Mr. George</td><td class="num">Not tracked</td><td>EL sent 19 Jun, unsigned</td><td class="num">~77d</td><td><span class="pill pill-red">CIT deadline 30 Sep &mdash; 23 days out</span></td></tr>
+<tr class="red"><td>GL Middle East FZE / Nandhu</td><td class="num">Not tracked</td><td>EL stalled, docs collected 3 Sep</td><td class="num">~78d</td><td><span class="pill pill-red">Stalled 21+ days</span></td></tr>
+<tr class="amber"><td>Kora Corporate Services</td><td class="num">Not tracked</td><td>Proposal / EL stage &mdash; no EL issued</td><td class="num">Active (4th inbound chase)</td><td><span class="pill pill-amber">No EL issued &mdash; BD risk</span></td></tr>
+<tr><td>Montfort Group (TP + CIT + Accounting)</td><td class="num">Not tracked</td><td>EL sent 2 Sep</td><td class="num">5d</td><td><span class="pill pill-normal">Awaiting signature</span></td></tr>
+<tr><td>Marina Marketing Co. LLC (CIT filing)</td><td class="num">Not tracked</td><td>EL sent 1 Sep</td><td class="num">6d</td><td><span class="pill pill-normal">Awaiting signature</span></td></tr>
+<tr><td>MMG Art Production LLC</td><td class="num">3,500 / quarter</td><td>Active client, quarterly</td><td class="num">&mdash;</td><td><span class="pill pill-normal">Only deal with a tracked AED value</span></td></tr>
+<tr><td>Cartier Fragrance / Chadi</td><td class="num">Not tracked</td><td>Re-engaged after holiday</td><td class="num">&mdash;</td><td><span class="pill pill-normal">Watch</span></td></tr>
+</tbody>
+</table>
+</div>
+<p class="small" style="margin-top:12px;">Separately: Raihana's internal Pipeline Status Report is 49+ days overdue as of this run, per Notion COO Briefs &mdash; this blocks 19 sourced leads and 80 drafted outreach messages from going out. Operational blocker, not a client-facing risk, but compounds the BD gap above.</p>
+</div>
+
+<h2>3 &middot; Unpaid Invoices</h2>
+<div class="card" style="margin-bottom:10px;">
+<p><b>AED 390,534.02 across 74 invoices</b>, two Zoho Books entities. Business Process Outsourcing Accounting Services (org 664944021): AED 286,221.52 / 56 invoices. BPO Service Group FZE (org 805469116): AED 104,312.50 / 18 invoices. Two internal BPOAS-to-BPOAS invoices (AED 4,200 combined, INV-000110/111) are included in the total but excluded from client follow-ups below &mdash; flagged by Junaifa as a write-off candidate.</p>
+</div>
+<div class="table-scroll">
+<table>
+<thead><tr><th>Client</th><th>Invoice #</th><th>Entity</th><th>Amount (AED)</th><th>Invoice Date</th><th>Days Overdue</th><th>Status</th></tr></thead>
+<tbody>
+<tr class="red">
+<td>Amadeus IT FZCO</td>
+<td>INV-000079</td>
+<td>BPO Service Group FZE</td>
+<td class="num">6,300.00</td>
+<td>2025-11-03</td>
+<td class="num">299d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>EXLIBRIS MANAGEMENT FZCO</td>
+<td>INV-2025-000354</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">6,300.00</td>
+<td>2025-11-21</td>
+<td class="num">285d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Amadeus IT FZCO</td>
+<td>INV-000082</td>
+<td>BPO Service Group FZE</td>
+<td class="num">6,300.00</td>
+<td>2025-12-03</td>
+<td class="num">269d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>EXLIBRIS MANAGEMENT FZCO</td>
+<td>INV-2026-000023</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,625.00</td>
+<td>2026-01-05</td>
+<td class="num">240d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Richemont (Dubai) FZE</td>
+<td>INV-000086</td>
+<td>BPO Service Group FZE</td>
+<td class="num">17,561.25</td>
+<td>2026-02-02</td>
+<td class="num">203d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Asia Transit FZ LLC</td>
+<td>INV-2026-000060</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">10,875.00</td>
+<td>2026-02-20</td>
+<td class="num">199d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>IGEM Group FZE</td>
+<td>INV-000090</td>
+<td>BPO Service Group FZE</td>
+<td class="num">125.00</td>
+<td>2026-02-25</td>
+<td class="num">194d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>GASCHEM DMCC</td>
+<td>INV-2026-000086</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">1,575.00</td>
+<td>2026-03-01</td>
+<td class="num">185d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>IGEM Group FZE</td>
+<td>INV-000093</td>
+<td>BPO Service Group FZE</td>
+<td class="num">125.00</td>
+<td>2026-03-23</td>
+<td class="num">168d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>MARINA MARKETING CO. LLC</td>
+<td>INV-2026-000092</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,100.00</td>
+<td>2026-03-25</td>
+<td class="num">161d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>First Support For Business Service</td>
+<td>INV-2026-000113</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">4,050.00</td>
+<td>2026-04-01</td>
+<td class="num">145d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>IGEM Group FZE</td>
+<td>INV-000094</td>
+<td>BPO Service Group FZE</td>
+<td class="num">125.00</td>
+<td>2026-04-01</td>
+<td class="num">135d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>MARINA MARKETING CO. LLC</td>
+<td>INV-2026-000117</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,100.00</td>
+<td>2026-04-25</td>
+<td class="num">130d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>XIX FZ - LLC</td>
+<td>INV-2026-000139</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">3,675.00</td>
+<td>2026-05-19</td>
+<td class="num">111d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>IGEM Group FZE</td>
+<td>INV-000101</td>
+<td>BPO Service Group FZE</td>
+<td class="num">125.00</td>
+<td>2026-05-04</td>
+<td class="num">102d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>MARINA MARKETING CO. LLC</td>
+<td>INV-2026-000141</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,100.00</td>
+<td>2026-05-25</td>
+<td class="num">100d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>JC Premiere General Trading LLC</td>
+<td>INV-2026-000145</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">3,675.00</td>
+<td>2026-06-01</td>
+<td class="num">98d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>BUSINESS PROCESS OUTSOURCING ACCOUNTING SERVICES (internal)</td>
+<td>INV-000111</td>
+<td>BPO Service Group FZE</td>
+<td class="num">1,050.00</td>
+<td>2026-06-01</td>
+<td class="num">98d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>BUSINESS PROCESS OUTSOURCING ACCOUNTING SERVICES (internal)</td>
+<td>INV-000110</td>
+<td>BPO Service Group FZE</td>
+<td class="num">3,150.00</td>
+<td>2026-06-01</td>
+<td class="num">98d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Amadeus IT FZCO</td>
+<td>INV-000102</td>
+<td>BPO Service Group FZE</td>
+<td class="num">6,300.00</td>
+<td>2026-06-02</td>
+<td class="num">88d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>MARINA MARKETING CO. LLC</td>
+<td>INV-2026-000166</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,100.00</td>
+<td>2026-06-25</td>
+<td class="num">69d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Middletel Information Technology</td>
+<td>INV-000105</td>
+<td>BPO Service Group FZE</td>
+<td class="num">6,300.00</td>
+<td>2026-07-01</td>
+<td class="num">68d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>CHAMELEON PAINTS TRADING L.L.C</td>
+<td>INV-2026-000168</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,625.00</td>
+<td>2026-06-30</td>
+<td class="num">64d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Paluto Restaurant LLC</td>
+<td>INV-2026-000172</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,625.00</td>
+<td>2026-07-01</td>
+<td class="num">63d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>DIFC Insurance Association NPIO</td>
+<td>INV-2026-000177</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">1,575.00</td>
+<td>2026-07-01</td>
+<td class="num">58d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>First Support For Business Service</td>
+<td>INV-2026-000183</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">4,050.00</td>
+<td>2026-07-01</td>
+<td class="num">54d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>IGEM Group FZE</td>
+<td>INV-000103</td>
+<td>BPO Service Group FZE</td>
+<td class="num">125.00</td>
+<td>2026-06-24</td>
+<td class="num">51d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>IGEM Group FZE</td>
+<td>INV-000109</td>
+<td>BPO Service Group FZE</td>
+<td class="num">2,625.00</td>
+<td>2026-07-24</td>
+<td class="num">45d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>MENASTAR FZCO</td>
+<td>INV-2026-000180</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">10,578.00</td>
+<td>2026-07-01</td>
+<td class="num">43d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>MARINA MARKETING CO. LLC</td>
+<td>INV-2026-000187</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,100.00</td>
+<td>2026-07-25</td>
+<td class="num">39d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Richemont (Dubai) FZE</td>
+<td>INV-000108</td>
+<td>BPO Service Group FZE</td>
+<td class="num">40,976.25</td>
+<td>2026-07-15</td>
+<td class="num">38d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>GL Middle East FZE</td>
+<td>INV-2026-000210</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">3,150.00</td>
+<td>2026-08-04</td>
+<td class="num">34d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>GASCHEM DMCC</td>
+<td>INV-2026-000191</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,625.00</td>
+<td>2026-07-30</td>
+<td class="num">34d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Paluto Restaurant LLC</td>
+<td>INV-2026-000213</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,625.00</td>
+<td>2026-08-06</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Aspire Health Management Solutions Holdings RSC LTD</td>
+<td>INV-2026-000204</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">3,937.50</td>
+<td>2026-08-01</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>GASCHEM DMCC</td>
+<td>INV-2026-000203</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">5,775.00</td>
+<td>2026-08-01</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Pel Limited - Dubai Branch</td>
+<td>INV-2026-000202</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">5,775.00</td>
+<td>2026-08-01</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Middletel Information Technology</td>
+<td>INV-2026-000200</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,100.00</td>
+<td>2026-08-01</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Flow Solutions Air and Power LLC</td>
+<td>INV-2026-000199</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,100.00</td>
+<td>2026-08-01</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>WRT Middle East</td>
+<td>INV-2026-000197</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">3,150.00</td>
+<td>2026-08-01</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>DMG MORI MIDDLE EAST FZE</td>
+<td>INV-2026-000196</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">7,875.00</td>
+<td>2026-08-01</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>DMG MORI MIDDLE EAST FZE</td>
+<td>INV-2026-000195</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">6,825.00</td>
+<td>2026-08-01</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Paluto Restaurant LLC</td>
+<td>INV-2026-000194</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,625.00</td>
+<td>2026-08-01</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Gulf Seatech FZC</td>
+<td>INV-2026-000193</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,625.00</td>
+<td>2026-08-01</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Kelvion FZE</td>
+<td>INV-2026-000192</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">4,725.00</td>
+<td>2026-08-01</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>MCM Products Middle East LLC</td>
+<td>INV-000114</td>
+<td>BPO Service Group FZE</td>
+<td class="num">5,250.00</td>
+<td>2026-08-06</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>MCM Products Middle East LLC</td>
+<td>INV-000113</td>
+<td>BPO Service Group FZE</td>
+<td class="num">2,100.00</td>
+<td>2026-08-06</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="red">
+<td>Amadeus IT FZCO</td>
+<td>INV-000112</td>
+<td>BPO Service Group FZE</td>
+<td class="num">3,150.00</td>
+<td>2026-07-28</td>
+<td class="num">32d</td>
+<td><span class="pill pill-red">RED</span></td>
+</tr>
+<tr class="amber">
+<td>Flow Solutions Air and Power LLC</td>
+<td>INV-2026-000211</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">3,150.00</td>
+<td>2026-08-04</td>
+<td class="num">29d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>WICKED TENTS L.L.C</td>
+<td>INV-2026-000209</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">3,150.00</td>
+<td>2026-08-04</td>
+<td class="num">29d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>MMG Art Production LLC</td>
+<td>INV-2026-000212</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">7,350.00</td>
+<td>2026-08-05</td>
+<td class="num">28d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>CHAMELEON PAINTS TRADING L.L.C</td>
+<td>INV-2026-000214</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">1,185.45</td>
+<td>2026-08-06</td>
+<td class="num">27d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>DIFC Insurance Association NPIO</td>
+<td>INV-2026-000198</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">1,575.00</td>
+<td>2026-08-01</td>
+<td class="num">27d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>Asianajotoimisto Ratiolex Oy (Branch)</td>
+<td>INV-2026-000208</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">5,250.00</td>
+<td>2026-08-04</td>
+<td class="num">24d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>Richemont (Dubai) FZE</td>
+<td>INV-2026-000207</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">17,382.97</td>
+<td>2026-08-01</td>
+<td class="num">23d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>EXLIBRIS MANAGEMENT FZCO</td>
+<td>INV-2026-000215</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">6,300.00</td>
+<td>2026-08-11</td>
+<td class="num">22d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>Middletel Information Technology</td>
+<td>INV-2026-000217</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">6,300.00</td>
+<td>2026-08-12</td>
+<td class="num">21d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>Middletel Information Technology</td>
+<td>INV-2026-000216</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">8,925.00</td>
+<td>2026-08-12</td>
+<td class="num">21d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>Richemont (Dubai) FZE</td>
+<td>INV-2026-000205</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">18,767.70</td>
+<td>2026-08-05</td>
+<td class="num">19d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>Orlen S A - RAK Branch</td>
+<td>INV-2026-000189</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">8,977.50</td>
+<td>2026-07-30</td>
+<td class="num">18d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>Richemont (Dubai) FZE</td>
+<td>INV-2026-000220</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">24,242.40</td>
+<td>2026-08-26</td>
+<td class="num">12d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>Kora Corporate Services</td>
+<td>INV-2026-000218</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">3,675.00</td>
+<td>2026-08-21</td>
+<td class="num">12d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>MENASTAR FZCO</td>
+<td>INV-2026-000201</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">10,500.00</td>
+<td>2026-08-01</td>
+<td class="num">12d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>MARINA MARKETING CO. LLC</td>
+<td>INV-2026-000219</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,100.00</td>
+<td>2026-08-25</td>
+<td class="num">8d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="amber">
+<td>IGEM Group FZE</td>
+<td>INV-000115</td>
+<td>BPO Service Group FZE</td>
+<td class="num">2,625.00</td>
+<td>2026-08-31</td>
+<td class="num">7d</td>
+<td><span class="pill pill-amber">AMBER</span></td>
+</tr>
+<tr class="normal">
+<td>JC Premiere General Trading LLC</td>
+<td>INV-2026-000223</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">3,675.00</td>
+<td>2026-09-01</td>
+<td class="num">6d</td>
+<td><span class="pill pill-normal">OK</span></td>
+</tr>
+<tr class="normal">
+<td>Mizuho Gulf Capital Partners Ltd</td>
+<td>INV-2026-000227</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">4,725.00</td>
+<td>2026-09-01</td>
+<td class="num">2d</td>
+<td><span class="pill pill-normal">OK</span></td>
+</tr>
+<tr class="normal">
+<td>GASCHEM DMCC</td>
+<td>INV-2026-000235</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,625.00</td>
+<td>2026-09-01</td>
+<td class="num">1d</td>
+<td><span class="pill pill-normal">OK</span></td>
+</tr>
+<tr class="normal">
+<td>Middletel Information Technology</td>
+<td>INV-2026-000231</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,100.00</td>
+<td>2026-09-01</td>
+<td class="num">1d</td>
+<td><span class="pill pill-normal">OK</span></td>
+</tr>
+<tr class="normal">
+<td>WRT Middle East</td>
+<td>INV-2026-000229</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">3,150.00</td>
+<td>2026-09-01</td>
+<td class="num">1d</td>
+<td><span class="pill pill-normal">OK</span></td>
+</tr>
+<tr class="normal">
+<td>DMG MORI MIDDLE EAST FZE</td>
+<td>INV-2026-000228</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">7,875.00</td>
+<td>2026-09-01</td>
+<td class="num">1d</td>
+<td><span class="pill pill-normal">OK</span></td>
+</tr>
+<tr class="normal">
+<td>WICKED TENTS L.L.C</td>
+<td>INV-2026-000226</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">3,150.00</td>
+<td>2026-09-01</td>
+<td class="num">1d</td>
+<td><span class="pill pill-normal">OK</span></td>
+</tr>
+<tr class="normal">
+<td>DMG MORI MIDDLE EAST FZE</td>
+<td>INV-2026-000225</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">6,825.00</td>
+<td>2026-09-01</td>
+<td class="num">1d</td>
+<td><span class="pill pill-normal">OK</span></td>
+</tr>
+<tr class="normal">
+<td>Paluto Restaurant LLC</td>
+<td>INV-2026-000224</td>
+<td>Business Process Outsourcing Accounting Services</td>
+<td class="num">2,625.00</td>
+<td>2026-09-01</td>
+<td class="num">1d</td>
+<td><span class="pill pill-normal">OK</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h2>4 &middot; Monthly Run Rate</h2>
+<div class="card">
+<p>September MTD invoiced: <b>AED 109,218.07</b> (Org A only &mdash; a single 1 Sep retainer-renewal batch; Org B has issued no September invoices yet). Collected MTD: <b>AED 0</b>.</p>
+<p>No monthly revenue target is on file in <a href="https://github.com/BPOLeave/Mohaina-Business-Brain/blob/main/positioning-mohaina-asira.md">positioning-mohaina-asira.md</a> &mdash; flagged in every CFO report since 2 July 2026, now the <b>10th consecutive week</b> unaddressed. Gap to target cannot be calculated without a number to compare against.</p>
+<p>For reference, August's full-month invoiced total (both entities) was AED 217,660.90 against AED 0 collected &mdash; a 0% collection rate for the month. Front-loaded retainer billing (most invoices issued day 1&ndash;2 of the month) means a simple linear day-rate projection would overstate mid-month revenue; treat any extrapolated September total as directional only.</p>
+<p class="small">Status: 🔴 Below Target (in substance &mdash; zero collections against any plausible target).</p>
+</div>
+
+<h2>5 &middot; Attention Flags</h2>
+<div class="flag">
+<h3><span class="num">1</span>Cash flow risk &mdash; 6 consecutive weeks of zero collections, AR growing</h3>
+<p>Combined overdue AR is now AED 390,534.02 across 74 invoices, up AED 41,475.00 and 11 invoices from last week, with no payment recorded in either Zoho entity since 28 Jul / 14 Jul. Richemont (Dubai) FZE is the single largest exposure across both entities: AED 118,930.57 combined across 5 invoices, oldest 203 days.</p>
+<p class="owner">Why it matters: at zero collection velocity, every new invoice simply enlarges an AR balance the business cannot presently convert to cash. Owner: <b>Mohaina + Junaifa</b> &mdash; reconcile both entities against the bank feed this week and place a direct call to Richemont's Raphael/Komal (email chasing has not worked per prior reports).</p>
+</div>
+<div class="flag">
+<h3><span class="num">2</span>Compliance exposure &mdash; two CIT-linked engagement letters still stalled on a Mohaina decision</h3>
+<p>The Concept Lab/Mr. George (EL sent 19 Jun, ~77 days stalled) and GL Middle East/Nandhu (~78 days stalled) both remain blocked on Mohaina's approve-call-or-close decision. The Concept Lab's CIT filing deadline is 30 September &mdash; 23 days away.</p>
+<p class="owner">Why it matters: missing the CIT filing window exposes both BPOAS and the client to FTA penalty risk on a deadline that is now fixed and non-negotiable. Owner: <b>Mohaina</b> &mdash; decide both this week; no further slippage room on Concept Lab.</p>
+</div>
+<div class="flag">
+<h3><span class="num">3</span>BD opportunity at risk &mdash; Kora Corporate Services still has no EL despite repeated inbound chasing</h3>
+<p>Kora Corporate Services has chased BPOAS for an engagement letter decision at least 4 times without prompting, most recently flagged as "critical HOT" in this week's team log. No EL has been issued.</p>
+<p class="owner">Why it matters: a prospect chasing you this actively is a rare, close-to-closing signal &mdash; continued delay risks losing the account to a competitor who responds faster. Owner: <b>Mohaina</b> &mdash; issue the EL decision this week.</p>
+</div>
+<div class="card">
+<p><b>Explicit threshold flags for Mohaina's review:</b></p>
+<ul>
+<li>Single invoices &gt;AED 10,000 unpaid 30+ days: Richemont (Dubai) FZE INV-000108 (AED 40,976.25, 38d) &middot; Richemont (Dubai) FZE INV-000086 (AED 17,561.25, 203d) &middot; MENASTAR FZCO INV-2026-000180 (AED 10,578.00, 43d) &middot; Asia Transit FZ LLC INV-2026-000060 (AED 10,875.00 balance, 199d)</li>
+<li>Month-end run-rate gap &gt;AED 20,000: cannot confirm numerically &mdash; no target on file &mdash; but AED 0 collected against any realistic target is well past this threshold in substance</li>
+<li>Pipeline deal &gt;AED 15,000 stalled 21+ days: cannot confirm &mdash; no deal-value tracking exists in Notion (10th consecutive week)</li>
+</ul>
+</div>
+
+<h2>6 &middot; Retainer Renewal Tracker</h2>
+<div class="card">
+<p>No retainer contracts database exists in Notion &mdash; flagged in every CFO report since 2 July 2026, now the <b>10th consecutive week unresolved</b>. Recurring-billing patterns in Zoho suggest roughly 29 likely-active retainer clients, but none carry a tracked contract start date, duration, or renewal date. Per instructions, no dates are assumed or estimated.</p>
+<p>Every retainer client is flagged: <b>"Renewal Date Missing &mdash; update client record."</b> Recommended action (repeated, unaddressed since 2 July): create a Retainer Contracts database in Notion with start date, contract duration, and renewal date per client, so this check can run as designed.</p>
+<div class="retainer-risk">Retainer revenue-at-risk: not calculable without renewal dates &mdash; read this as <b>unknown risk, not zero risk.</b></div>
+</div>
+
+<h2>Copy-Ready Follow-Up Messages</h2>
+<div class="card">
+<p>63 individually-templated follow-up messages (one per client invoice 7+ days overdue; 2 internal BPOAS-to-BPOAS invoices excluded, flagged separately above as a write-off candidate).</p>
+</div>
+<div class="fu-grid">
+<div class="fu-item">
+<div class="fu-meta">Amadeus IT FZCO &middot; INV-000079 &middot; AED 6,300.00 &middot; 299d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi Amadeus IT FZCO, invoice INV-000079 for AED 6,300.00, due 2025-11-12, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">EXLIBRIS MANAGEMENT FZCO &middot; INV-2025-000354 &middot; AED 6,300.00 &middot; 285d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi EXLIBRIS MANAGEMENT FZCO, invoice INV-2025-000354 for AED 6,300.00, due 2025-11-26, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Amadeus IT FZCO &middot; INV-000082 &middot; AED 6,300.00 &middot; 269d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi Amadeus IT FZCO, invoice INV-000082 for AED 6,300.00, due 2025-12-12, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">EXLIBRIS MANAGEMENT FZCO &middot; INV-2026-000023 &middot; AED 2,625.00 &middot; 240d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi EXLIBRIS MANAGEMENT FZCO, invoice INV-2026-000023 for AED 2,625.00, due 2026-01-10, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Richemont (Dubai) FZE &middot; INV-000086 &middot; AED 17,561.25 &middot; 203d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi Richemont (Dubai) FZE, invoice INV-000086 for AED 17,561.25, due 2026-02-16, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Asia Transit FZ LLC &middot; INV-2026-000060 &middot; AED 10,875.00 &middot; 199d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Asia Transit FZ LLC, invoice INV-2026-000060 for AED 10,875.00, due 2026-02-20, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">IGEM Group FZE &middot; INV-000090 &middot; AED 125.00 &middot; 194d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi IGEM Group FZE, invoice INV-000090 for AED 125.00, due 2026-02-25, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">GASCHEM DMCC &middot; INV-2026-000086 &middot; AED 1,575.00 &middot; 185d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi GASCHEM DMCC, invoice INV-2026-000086 for AED 1,575.00, due 2026-03-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">IGEM Group FZE &middot; INV-000093 &middot; AED 125.00 &middot; 168d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi IGEM Group FZE, invoice INV-000093 for AED 125.00, due 2026-03-23, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">MARINA MARKETING CO. LLC &middot; INV-2026-000092 &middot; AED 2,100.00 &middot; 161d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi MARINA MARKETING CO. LLC, invoice INV-2026-000092 for AED 2,100.00, due 2026-03-30, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">First Support For Business Service &middot; INV-2026-000113 &middot; AED 4,050.00 &middot; 145d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi First Support For Business Service, invoice INV-2026-000113 for AED 4,050.00, due 2026-04-15, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">IGEM Group FZE &middot; INV-000094 &middot; AED 125.00 &middot; 135d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi IGEM Group FZE, invoice INV-000094 for AED 125.00, due 2026-04-25, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">MARINA MARKETING CO. LLC &middot; INV-2026-000117 &middot; AED 2,100.00 &middot; 130d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi MARINA MARKETING CO. LLC, invoice INV-2026-000117 for AED 2,100.00, due 2026-04-30, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">XIX FZ - LLC &middot; INV-2026-000139 &middot; AED 3,675.00 &middot; 111d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi XIX FZ - LLC, invoice INV-2026-000139 for AED 3,675.00, due 2026-05-19, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">IGEM Group FZE &middot; INV-000101 &middot; AED 125.00 &middot; 102d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi IGEM Group FZE, invoice INV-000101 for AED 125.00, due 2026-05-28, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">MARINA MARKETING CO. LLC &middot; INV-2026-000141 &middot; AED 2,100.00 &middot; 100d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi MARINA MARKETING CO. LLC, invoice INV-2026-000141 for AED 2,100.00, due 2026-05-30, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">JC Premiere General Trading LLC &middot; INV-2026-000145 &middot; AED 3,675.00 &middot; 98d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi JC Premiere General Trading LLC, invoice INV-2026-000145 for AED 3,675.00, due 2026-06-01, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Amadeus IT FZCO &middot; INV-000102 &middot; AED 6,300.00 &middot; 88d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi Amadeus IT FZCO, invoice INV-000102 for AED 6,300.00, due 2026-06-11, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">MARINA MARKETING CO. LLC &middot; INV-2026-000166 &middot; AED 2,100.00 &middot; 69d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi MARINA MARKETING CO. LLC, invoice INV-2026-000166 for AED 2,100.00, due 2026-06-30, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Middletel Information Technology &middot; INV-000105 &middot; AED 6,300.00 &middot; 68d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi Middletel Information Technology, invoice INV-000105 for AED 6,300.00, due 2026-07-01, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">CHAMELEON PAINTS TRADING L.L.C &middot; INV-2026-000168 &middot; AED 2,625.00 &middot; 64d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi CHAMELEON PAINTS TRADING L.L.C, invoice INV-2026-000168 for AED 2,625.00, due 2026-07-05, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Paluto Restaurant LLC &middot; INV-2026-000172 &middot; AED 2,625.00 &middot; 63d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Paluto Restaurant LLC, invoice INV-2026-000172 for AED 2,625.00, due 2026-07-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">DIFC Insurance Association NPIO &middot; INV-2026-000177 &middot; AED 1,575.00 &middot; 58d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi DIFC Insurance Association NPIO, invoice INV-2026-000177 for AED 1,575.00, due 2026-07-11, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">First Support For Business Service &middot; INV-2026-000183 &middot; AED 4,050.00 &middot; 54d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi First Support For Business Service, invoice INV-2026-000183 for AED 4,050.00, due 2026-07-15, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">IGEM Group FZE &middot; INV-000103 &middot; AED 125.00 &middot; 51d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi IGEM Group FZE, invoice INV-000103 for AED 125.00, due 2026-07-18, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">IGEM Group FZE &middot; INV-000109 &middot; AED 2,625.00 &middot; 45d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi IGEM Group FZE, invoice INV-000109 for AED 2,625.00, due 2026-07-24, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">MENASTAR FZCO &middot; INV-2026-000180 &middot; AED 10,578.00 &middot; 43d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi MENASTAR FZCO, invoice INV-2026-000180 for AED 10,578.00, due 2026-07-26, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">MARINA MARKETING CO. LLC &middot; INV-2026-000187 &middot; AED 2,100.00 &middot; 39d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi MARINA MARKETING CO. LLC, invoice INV-2026-000187 for AED 2,100.00, due 2026-07-30, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Richemont (Dubai) FZE &middot; INV-000108 &middot; AED 40,976.25 &middot; 38d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi Richemont (Dubai) FZE, invoice INV-000108 for AED 40,976.25, due 2026-07-31, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">GL Middle East FZE &middot; INV-2026-000210 &middot; AED 3,150.00 &middot; 34d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi GL Middle East FZE, invoice INV-2026-000210 for AED 3,150.00, due 2026-08-04, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">GASCHEM DMCC &middot; INV-2026-000191 &middot; AED 2,625.00 &middot; 34d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi GASCHEM DMCC, invoice INV-2026-000191 for AED 2,625.00, due 2026-08-04, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Paluto Restaurant LLC &middot; INV-2026-000213 &middot; AED 2,625.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Paluto Restaurant LLC, invoice INV-2026-000213 for AED 2,625.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Aspire Health Management Solutions Holdings RSC LTD &middot; INV-2026-000204 &middot; AED 3,937.50 &middot; 32d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Aspire Health Management Solutions Holdings RSC LTD, invoice INV-2026-000204 for AED 3,937.50, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">GASCHEM DMCC &middot; INV-2026-000203 &middot; AED 5,775.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi GASCHEM DMCC, invoice INV-2026-000203 for AED 5,775.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Pel Limited - Dubai Branch &middot; INV-2026-000202 &middot; AED 5,775.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Pel Limited - Dubai Branch, invoice INV-2026-000202 for AED 5,775.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Middletel Information Technology &middot; INV-2026-000200 &middot; AED 2,100.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Middletel Information Technology, invoice INV-2026-000200 for AED 2,100.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Flow Solutions Air and Power LLC &middot; INV-2026-000199 &middot; AED 2,100.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Flow Solutions Air and Power LLC, invoice INV-2026-000199 for AED 2,100.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">WRT Middle East &middot; INV-2026-000197 &middot; AED 3,150.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi WRT Middle East, invoice INV-2026-000197 for AED 3,150.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">DMG MORI MIDDLE EAST FZE &middot; INV-2026-000196 &middot; AED 7,875.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi DMG MORI MIDDLE EAST FZE, invoice INV-2026-000196 for AED 7,875.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">DMG MORI MIDDLE EAST FZE &middot; INV-2026-000195 &middot; AED 6,825.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi DMG MORI MIDDLE EAST FZE, invoice INV-2026-000195 for AED 6,825.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Paluto Restaurant LLC &middot; INV-2026-000194 &middot; AED 2,625.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Paluto Restaurant LLC, invoice INV-2026-000194 for AED 2,625.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Gulf Seatech FZC &middot; INV-2026-000193 &middot; AED 2,625.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Gulf Seatech FZC, invoice INV-2026-000193 for AED 2,625.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Kelvion FZE &middot; INV-2026-000192 &middot; AED 4,725.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Kelvion FZE, invoice INV-2026-000192 for AED 4,725.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">MCM Products Middle East LLC &middot; INV-000114 &middot; AED 5,250.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi MCM Products Middle East LLC, invoice INV-000114 for AED 5,250.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">MCM Products Middle East LLC &middot; INV-000113 &middot; AED 2,100.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi MCM Products Middle East LLC, invoice INV-000113 for AED 2,100.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Amadeus IT FZCO &middot; INV-000112 &middot; AED 3,150.00 &middot; 32d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi Amadeus IT FZCO, invoice INV-000112 for AED 3,150.00, due 2026-08-06, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Flow Solutions Air and Power LLC &middot; INV-2026-000211 &middot; AED 3,150.00 &middot; 29d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Flow Solutions Air and Power LLC, invoice INV-2026-000211 for AED 3,150.00, due 2026-08-09, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">WICKED TENTS L.L.C &middot; INV-2026-000209 &middot; AED 3,150.00 &middot; 29d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi WICKED TENTS L.L.C, invoice INV-2026-000209 for AED 3,150.00, due 2026-08-09, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">MMG Art Production LLC &middot; INV-2026-000212 &middot; AED 7,350.00 &middot; 28d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi MMG Art Production LLC, invoice INV-2026-000212 for AED 7,350.00, due 2026-08-10, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">CHAMELEON PAINTS TRADING L.L.C &middot; INV-2026-000214 &middot; AED 1,185.45 &middot; 27d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi CHAMELEON PAINTS TRADING L.L.C, invoice INV-2026-000214 for AED 1,185.45, due 2026-08-11, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">DIFC Insurance Association NPIO &middot; INV-2026-000198 &middot; AED 1,575.00 &middot; 27d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi DIFC Insurance Association NPIO, invoice INV-2026-000198 for AED 1,575.00, due 2026-08-11, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Asianajotoimisto Ratiolex Oy (Branch) &middot; INV-2026-000208 &middot; AED 5,250.00 &middot; 24d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Asianajotoimisto Ratiolex Oy (Branch), invoice INV-2026-000208 for AED 5,250.00, due 2026-08-14, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Richemont (Dubai) FZE &middot; INV-2026-000207 &middot; AED 17,382.97 &middot; 23d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Richemont (Dubai) FZE, invoice INV-2026-000207 for AED 17,382.97, due 2026-08-15, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">EXLIBRIS MANAGEMENT FZCO &middot; INV-2026-000215 &middot; AED 6,300.00 &middot; 22d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi EXLIBRIS MANAGEMENT FZCO, invoice INV-2026-000215 for AED 6,300.00, due 2026-08-16, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Middletel Information Technology &middot; INV-2026-000217 &middot; AED 6,300.00 &middot; 21d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Middletel Information Technology, invoice INV-2026-000217 for AED 6,300.00, due 2026-08-17, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Middletel Information Technology &middot; INV-2026-000216 &middot; AED 8,925.00 &middot; 21d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Middletel Information Technology, invoice INV-2026-000216 for AED 8,925.00, due 2026-08-17, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Richemont (Dubai) FZE &middot; INV-2026-000205 &middot; AED 18,767.70 &middot; 19d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Richemont (Dubai) FZE, invoice INV-2026-000205 for AED 18,767.70, due 2026-08-19, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Orlen S A - RAK Branch &middot; INV-2026-000189 &middot; AED 8,977.50 &middot; 18d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Orlen S A - RAK Branch, invoice INV-2026-000189 for AED 8,977.50, due 2026-08-20, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Richemont (Dubai) FZE &middot; INV-2026-000220 &middot; AED 24,242.40 &middot; 12d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Richemont (Dubai) FZE, invoice INV-2026-000220 for AED 24,242.40, due 2026-08-26, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">Kora Corporate Services &middot; INV-2026-000218 &middot; AED 3,675.00 &middot; 12d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi Kora Corporate Services, invoice INV-2026-000218 for AED 3,675.00, due 2026-08-26, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">MENASTAR FZCO &middot; INV-2026-000201 &middot; AED 10,500.00 &middot; 12d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi MENASTAR FZCO, invoice INV-2026-000201 for AED 10,500.00, due 2026-08-26, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">MARINA MARKETING CO. LLC &middot; INV-2026-000219 &middot; AED 2,100.00 &middot; 8d overdue &middot; <span class="fu-org">BPO Accounting Services</span></div>
+<div class="fu-msg">Hi MARINA MARKETING CO. LLC, invoice INV-2026-000219 for AED 2,100.00, due 2026-08-30, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+<div class="fu-item">
+<div class="fu-meta">IGEM Group FZE &middot; INV-000115 &middot; AED 2,625.00 &middot; 7d overdue &middot; <span class="fu-org">BPO Service Group FZE</span></div>
+<div class="fu-msg">Hi IGEM Group FZE, invoice INV-000115 for AED 2,625.00, due 2026-08-31, remains outstanding — please confirm settlement or flag if there's a query.</div>
+</div>
+</div>
+
+<footer>
+Auto-generated &middot; BPOAS-CFO Weekly &middot; Week of 7 September 2026 &middot; Zoho Books: full pull, both entities &middot; Brand color: default #E8294C (no hex specified in positioning-mohaina-asira.md) &middot; Monthly target: not on file
+</footer>
+</div>
+</body>
+</html>
