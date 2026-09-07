@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E8294C; --primary-light:#F0748B; --navy:#3A1420;
+    --bg:#0A0A0A; --panel:#141518; --panel-2:#191b1f; --ink:#F3F5F7; --ink-dim:#A7ADB6;
+    --line:#232629; --line-soft:#1c1e22;
+    --good:#34D399; --warn:#F0B84E; --bad:#F1685E;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.35);
+    --grad:linear-gradient(135deg, #3A1420 0%, #7A1E33 48%, var(--primary) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:880px;margin:0 auto;padding:34px 20px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px rgba(232,41,76,.28);position:relative;overflow:hidden;border:1px solid #5a2233;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.06);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin:28px 0 12px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:14px;border-bottom:1px solid var(--line-soft);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-red{background:rgba(241,104,94,.14);color:var(--bad);} .t-amb{background:rgba(240,184,78,.14);color:var(--warn);}
+  .t-grey{background:#1e2126;color:var(--ink-dim);} .t-grn{background:rgba(52,211,153,.14);color:var(--good);} .t-blue{background:rgba(240,116,139,.16);color:var(--primary-light);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-dim);} .stat .n{font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:linear-gradient(135deg,var(--primary-light),var(--good));-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .pcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-top:4px solid var(--primary);}
+  .ph{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+  .ph .nm{font-weight:800;font-size:16px;color:#fff;} .ph .rl{font-size:12.5px;color:var(--ink-dim);width:100%;}
+  .ph .rl a{color:var(--primary-light);text-decoration:none;} .ph .rl a:hover{text-decoration:underline;}
+  .meta{font-size:12.5px;color:var(--ink-dim);margin:8px 0 4px;}
+  .meta b{color:var(--ink);}
+  .hook{font-size:14px;background:var(--panel-2);border:1px solid var(--line-soft);border-radius:10px;padding:9px 12px;margin:8px 0;}
+  .flag{font-size:12px;background:rgba(240,184,78,.10);border:1px solid rgba(240,184,78,.3);color:var(--warn);border-radius:10px;padding:8px 12px;margin:8px 0;}
+  .seqlbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--primary-light);font-weight:700;margin:12px 0 6px;}
+  .dm{font-size:13.5px;border-left:3px solid var(--line);background:var(--panel-2);border-radius:0 10px 10px 0;padding:9px 12px;margin:7px 0;color:#DADDE1;}
+  .dm .t{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;display:block;margin-bottom:3px;}
+  .fit{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);}
+
+  .note{background:linear-gradient(135deg, #101114 0%, #3f1622 100%);border:1px solid #5a2233;color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:10px;box-shadow:0 14px 36px rgba(0,0,0,.4);}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-dim);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead"><div class="k">BPOAS · CRO weekly prospect pack</div><h1>11 sourced. 8 qualified. 2 held.</h1><div class="d">Monday, 7 September 2026 · sourced via Apify/LinkedIn, profiles and recent posts verified individually · every DM is a draft, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Sourced (UAE ICP search)</div><div class="n">11</div></div>
+      <div class="stat"><div class="l">ICP qualified (fit 6+)</div><div class="n">8</div></div>
+      <div class="stat"><div class="l">Messages drafted</div><div class="n">40</div></div>
+    </div>
+
+    <div class="sec">The prospects · ranked by fit</div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Sejal Nagjee</span><span class="fit t-grn">Fit 8.5/10</span><span class="rl">Founder &amp; Principal Designer, Milestone Dubai (+ new venture Galleria Exclusive) · Design &amp; Build / Professional Services · Dubai · <a href="https://www.linkedin.com/in/sejalnagjee" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm-Hot · <b>Style:</b> Expressive · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> New entity, Galleria Exclusive, launched 2025</div>
+      <div class="hook"><b>Human hook:</b> You started Galleria Exclusive in 2025 as a tribute to your mother.</div>
+      <div class="flag">Compliance trigger: brand new second entity this year, alongside a running 80-person firm. Worth checking whether Galleria's own CT registration and filings are set up.</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Sejal, your story from table tennis to Pure Joy to Milestone's 80 person team was genuinely one of the better founder journeys I've read this year. Good to connect with someone who's built three ventures from scratch.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Great to connect, Sejal. You started Galleria Exclusive in 2025 as a tribute to your mother, twenty five years after Pure Joy, that's a full circle most people never get to close. With Milestone and Galleria both running now, how are you splitting your attention between the two?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Since Galleria is brand new, worth flagging, the FTA confirmed this month that every new entity has to register and file corporate tax from year one, regardless of profit. Is that already sorted for Galleria, or still being set up alongside Milestone's own filings?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Switching gears, after 23 years of saying yes before knowing how, is there anything left that still scares you before you start it?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here for now, Sejal. That table tennis to 80-person-team story stuck with me, the door's open whenever.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Mansi Panchal</span><span class="fit t-grn">Fit 8.5/10</span><span class="rl">Founder &amp; CEO, FounderX · Professional Services (Business Setup) · Dubai · <a href="https://www.linkedin.com/in/mansi-panchal-a28715a0" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Hot · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> None observed, but unusually fluent on her own margins and unit economics</div>
+      <div class="hook"><b>Human hook:</b> You broke down CAC and contribution margin in a rant about discounting agents.</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Mansi, your post on discount-happy agency reps and contribution margin was the most refreshingly blunt take on unit economics I've seen from a UAE founder. Good to connect with someone who talks numbers this openly.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Hi Mansi, I'll get straight to it. You broke down CAC and contribution margin in a rant about discounting agents, most founders don't talk numbers that openly. Do you track FounderX's own margins that closely, or was that post more about the industry?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA just confirmed corporate tax returns and payment are due 30 September for anyone whose year closed 31 December. You clearly don't let numbers slide, so I'd guess this one's already handled. Is it in house or outsourced?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, you trained your HR person to close her first deal. What's the next thing at FounderX you're planning to teach someone outside their role?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll stop here for now, Mansi. Respect for how openly you talk about the numbers, the door's open whenever.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Dana Awadallah</span><span class="fit t-blue">Fit 7.8/10</span><span class="rl">Founder &amp; CEO, The VIP Real Estate · Real Estate · Dubai · <a href="https://www.linkedin.com/in/dana-awadallah-25a48021" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Analytical · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Your checklist for real estate decisions read like a due-diligence memo, not a pitch.</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Dana, your post on real estate decisions read more like a due diligence checklist than a sales pitch, rare in this market. Good to find someone building real estate the structured way.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Hi Dana, I'll skip the build up. Your post on real estate decisions read like a due-diligence memo, not a pitch, and that's rare in this market. What made you build The VIP around the full investment journey instead of just brokerage?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Real estate brokerages fall under the Ministry of Economy's AML rules, and the FTA just confirmed corporate tax returns are due 30 September for anyone on a calendar year end. Two compliance deadlines landing on real estate firms at the same time. Which one is taking up more of your attention right now?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different angle, with a PhD in AI and innovation alongside running The VIP, how do you actually split your week between the two?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave this here, Dana. Wishing The VIP a strong finish to the year, the door stays open.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Suresh Rowvey</span><span class="fit t-blue">Fit 7.5/10</span><span class="rl">Founder &amp; CEO, Meridian Management Consultancy (MeridianMac UAE) · Professional Services / Business Setup · Dubai · <a href="https://www.linkedin.com/in/suresh-rowvey-0212662a" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Amiable · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> Publicly welcomed the MoF UAE small-business relief announcement</div>
+      <div class="hook"><b>Human hook:</b> Thirteen years strong, and your milestone post led with gratitude, not achievement.</div>
+      <div class="flag">Compliance trigger: reacted publicly to the MoF small-business relief news, he's already watching this space closely.</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Suresh, congrats on Meridian stepping into year 14, that kind of consistency in this market says a lot. Good to connect with someone who's kept it running that long.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Great to connect, Suresh. Thirteen years strong, and your milestone post led with gratitude, not achievement, that stood out. What's changed the most about running Meridian since year one?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Noticed you flagged the MoF relief announcement a while back, you clearly keep an eye on this stuff. The FTA just confirmed corporate tax returns and payment are due 30 September for anyone on a calendar year end. Is that something Meridian handles in house or through a partner?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Switching gears, with the newsletter and the client calls, when do you actually get time to think about Meridian's own numbers, not just clients'?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll step back for now, Suresh. Here's to a strong year 14 for Meridian, always happy to reconnect.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Sheheryar Zahoor</span><span class="fit t-blue">Fit 7.0/10</span><span class="rl">Founder &amp; CEO, SZERA Real Estate · Real Estate · Dubai · <a href="https://www.linkedin.com/in/sheheryar-zahoor-13a316136" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver / Expressive · <b>Opener:</b> Pattern Interrupt · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> That Southern Punjab investor trip in 2024 turned into the deal in your photo.</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Sheheryar, that photo from your Southern Punjab investor trip turning into an actual deal was a good reminder that relationships still close business. Good to connect with someone in Dubai real estate.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Hey Sheheryar, good to connect. Most people in Dubai real estate are chasing quick leads, but that Southern Punjab investor trip in 2024 turning into the deal in your photo looked like it came from patience, not a funnel. Is that how most of SZERA's business comes together?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Real estate advisory firms are on the Ministry of Economy's AML list, and the FTA just confirmed corporate tax returns are due 30 September for anyone on a calendar year end. Two years into running SZERA, is that side of the business already set up properly, or still being figured out?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, cross border deals like the Pakistan one, is that becoming a bigger part of SZERA's business, or still the exception?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Sheheryar. Respect for the consistency in your posts, the door's open whenever.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Hind Jouini</span><span class="fit t-blue">Fit 7.3/10</span><span class="rl">Managing Director, Real Choice Real Estate Brokers LLC · Real Estate · Dubai · <a href="https://www.linkedin.com/in/hindjouini" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Amiable · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Your Azizi award post thanked the team and the client before yourself.</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Hind, Real Choice picking up the Azizi Channel Partnership Award after 22 years in the same market says a lot about the brand you've built. Good to find another long-running Dubai business on here.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Great to connect, Hind. Your Azizi award post thanked the team and the client before yourself, not many people lead with that. Twenty two years running the same brokerage in this market, what's the one thing about the business that still surprises you?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the FTA pushed out a reminder this month, corporate tax returns and payment are due by 30 September for anyone whose year closed 31 December. A lot of real estate firms treat that date like it's still far off. Has your team already squared away the filing for this year?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question for you, after 22 years in the same business, do you still enjoy the deals themselves, or is it mostly the team now?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Hind. Wishing Real Choice a strong close to the year, and the door's open whenever.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Maryna Barysheva</span><span class="fit t-blue">Fit 6.8/10</span><span class="rl">CEO, LKI Consulting · FinTech / Professional Services (Web3 growth consultancy) · Dubai · <a href="https://www.linkedin.com/in/maryna-barysheva" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Hot · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> You called referral-commission partnerships worth nothing in a post with 99 reactions.</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Maryna, your take on referral partnerships being worth nothing hit different, most people in this space wouldn't say that publicly. Good to connect with someone building in this space.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Hi Maryna, I'll skip the warm up. You called referral-commission partnerships worth nothing in a post that pulled 99 reactions, that's not the popular opinion in this industry. Is that view something LKI built into how you actually structure client relationships?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA confirmed this month that corporate tax returns and payment are due 30 September for anyone on a calendar year end. With clients across defense tech, AI and fintech, is LKI's own filing something you handle directly or hand off?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different angle, you said grit beats access, experience and knowledge because it can't be taught. What's one thing you tried to teach a hire and just couldn't?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it there, Maryna. Appreciated the honesty in your posts, the door's open if it's ever useful.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Pelvi Nanda</span><span class="fit t-blue">Fit 6.5/10</span><span class="rl">Founder, Diamonds by Pelvi &amp; Lab Jewel Nation · Trading (Fine Jewellery) · Dubai · <a href="https://www.linkedin.com/in/pelvi-nanda-8744a1319" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Amiable · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> You said the fastest decision isn't always the smartest, while building two jewellery brands.</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Pelvi, your post on slow decisions being the smarter ones was a good reminder, especially building two brands at once. Good to connect with a fellow Dubai founder.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Great to connect, Pelvi. You said the fastest decision isn't always the smartest, while building two jewellery brands, that takes discipline most people talk about but don't practice. Between Diamonds by Pelvi and Lab Jewel Nation, do you keep the two completely separate day to day, or do they overlap more than people think?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Precious metals and jewellery dealers are actually named on the Ministry of Economy's DNFBP list, the same one real estate and accountants fall under. Most people running jewellery brands don't realise that applies to them too. Has that side of things come up for either of your brands yet?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, between the two brands, which one feels more like play right now, and which one feels more like work?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Pelvi. Loved the craftsmanship in Sheetal's ring post, the door's open whenever.</div>
+    </div>
+
+    <div class="sec">Held · revisit next cycle (fit below 6)</div>
+    <div class="card">
+      <div class="row"><b style="margin-right:6px">Abu Nahyan Al Nuaimi</b> CEO, Atlantis Real Estate Dubai · Real Estate · Dubai, high-profile "UAE Society Ambassador" personal brand<span class="tagi t-amb">Fit 5.8/10</span></div>
+      <div class="row" style="border:none;padding-top:0;font-size:13px;color:var(--ink-dim)">Held rather than scored up: every recent post is a reshare of general UAE/Dubai news, nothing personal or about Atlantis's own operations. No pain or timing signal to build a genuine hook on right now, and a high-volume public profile like his is likely already flooded with DMs. Worth a fresh look if he posts something about his own firm.</div>
+    </div>
+    <div class="card">
+      <div class="row"><b style="margin-right:6px">Sahil Arora</b> CEO, Stokastra Capital Management · Financial Services / Brokerage Infrastructure · Dubai<span class="tagi t-amb">Fit 5.5/10</span></div>
+      <div class="row" style="border:none;padding-top:0;font-size:13px;color:var(--ink-dim)">Held rather than scored up: his posting is broad macro and geopolitical commentary, not about Stokastra's own operations, plus a hiring call for a freelance developer, nothing pointing to a bookkeeping or compliance pain right now. Revisit if a post surfaces about his own firm's growth or a UAE entity milestone.</div>
+    </div>
+
+    <div class="note">Open with <b>Sejal Nagjee</b> or <b>Mansi Panchal</b> first, both fit 8.5, both have a real recent hook, and Sejal's brand new entity is a genuine reason to reach out this week. No prospect scored 9 or 10, so nothing is held for your personal review. F&amp;B, Logistics and Healthcare sourced nothing verifiable in this pass, worth a follow-up search with different keywords next cycle. Every message here is a draft. You read it, then you send it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>BPOAS · We think like owners</b></footer>
+  </div>
+</body>
+</html>
