@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · 11 Sep 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* ── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --bg:        #0A0A0A;
+  --surface:   #111114;
+  --surface-2: #18181D;
+  --surface-3: #222228;
+  --border:    rgba(255,255,255,0.08);
+  --border-s:  rgba(255,255,255,0.04);
+  --text:      #E2E2EA;
+  --text-muted:#888898;
+  --text-dim:  #4A4A58;
+  --accent:    #E8294C;
+  --accent-bg: rgba(232,41,76,0.10);
+  --accent-border: rgba(232,41,76,0.30);
+  --green:     #28C76F;
+  --green-bg:  rgba(40,199,111,0.08);
+  --amber:     #F5A623;
+  --amber-bg:  rgba(245,166,35,0.08);
+  --red:       #E8294C;
+  --red-bg:    rgba(232,41,76,0.08);
+  --blue:      #4A9EFF;
+  --blue-bg:   rgba(74,158,255,0.08);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg:        #F5F5F7;
+    --surface:   #FFFFFF;
+    --surface-2: #F0F0F3;
+    --surface-3: #E8E8EC;
+    --border:    rgba(0,0,0,0.09);
+    --border-s:  rgba(0,0,0,0.04);
+    --text:      #111118;
+    --text-muted:#6B6B7C;
+    --text-dim:  #AAAABC;
+    --accent-bg: rgba(232,41,76,0.07);
+    --accent-border: rgba(232,41,76,0.25);
+    --green-bg:  rgba(40,199,111,0.06);
+    --amber-bg:  rgba(245,166,35,0.07);
+    --red-bg:    rgba(232,41,76,0.07);
+    --blue-bg:   rgba(74,158,255,0.07);
+  }
+}
+:root[data-theme="light"] {
+  --bg:        #F5F5F7;
+  --surface:   #FFFFFF;
+  --surface-2: #F0F0F3;
+  --surface-3: #E8E8EC;
+  --border:    rgba(0,0,0,0.09);
+  --border-s:  rgba(0,0,0,0.04);
+  --text:      #111118;
+  --text-muted:#6B6B7C;
+  --text-dim:  #AAAABC;
+  --accent-bg: rgba(232,41,76,0.07);
+  --accent-border: rgba(232,41,76,0.25);
+  --green-bg:  rgba(40,199,111,0.06);
+  --amber-bg:  rgba(245,166,35,0.07);
+  --red-bg:    rgba(232,41,76,0.07);
+  --blue-bg:   rgba(74,158,255,0.07);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 24px 20px 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.syne { font-family: 'Syne', sans-serif; }
+h1, h2, h3 { font-family: 'Syne', sans-serif; text-wrap: balance; line-height: 1.2; }
+h2 { font-size: 1.05rem; font-weight: 700; color: var(--text); letter-spacing: 0.02em; text-transform: uppercase; }
+h3 { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.10em; text-transform: uppercase; }
+.num { font-variant-numeric: tabular-nums; }
+
+.hero {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 600px) { .hero { grid-template-columns: 1fr; padding: 20px; } }
+
+.hero-eyebrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.hero-sub { font-size: 0.88rem; color: var(--text-muted); margin-top: 6px; }
+.hero-sub .pill {
+  display: inline-block;
+  background: var(--blue-bg);
+  color: var(--blue);
+  border-radius: 4px;
+  padding: 1px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-right: 6px;
+}
+.revenue-block { text-align: right; }
+@media (max-width: 600px) { .revenue-block { text-align: left; } }
+.revenue-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.revenue-rows { display: flex; flex-direction: column; gap: 6px; }
+.rev-row { display: flex; justify-content: flex-end; gap: 12px; font-size: 0.85rem; }
+@media (max-width: 600px) { .rev-row { justify-content: flex-start; } }
+.rev-row .k { color: var(--text-muted); font-size: 0.78rem; }
+.rev-row .v { font-weight: 600; color: var(--text); }
+.rev-row .v.carry { color: var(--text-muted); font-style: italic; font-weight: 400; }
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 5px;
+  padding: 3px 10px 3px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-top: 8px;
+}
+.badge-hold { background: var(--amber-bg); color: var(--amber); }
+.badge-ok   { background: var(--green-bg); color: var(--green); }
+.badge-err  { background: var(--red-bg);   color: var(--red); }
+.badge-skip { background: var(--surface-2); color: var(--text-muted); }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+@media (max-width: 780px) { .grid-2 { grid-template-columns: 1fr; } }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.card-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--border-s); }
+.card-body { padding: 16px 20px; }
+
+.flags-card { margin-bottom: 16px; }
+.flag-group { margin-bottom: 8px; }
+.flag-group-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 10px 20px 6px;
+  border-top: 1px solid var(--border-s);
+}
+.flag-group:first-child .flag-group-label { border-top: none; padding-top: 4px; }
+.flag-item {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 8px;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border-s);
+  font-size: 0.85rem;
+}
+.flag-item:last-child { border-bottom: none; }
+.flag-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+.dot-red    { background: var(--red); }
+.dot-amber  { background: var(--amber); }
+.dot-green  { background: var(--green); }
+.flag-title { font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 2px; }
+.flag-desc  { color: var(--text-muted); font-size: 0.80rem; line-height: 1.4; }
+.flag-next  { display: inline-block; margin-top: 4px; font-size: 0.75rem; font-weight: 600; color: var(--accent); letter-spacing: 0.02em; }
+.flag-new {
+  display: inline-block;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-radius: 3px;
+  padding: 0 5px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+.run-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.run-table th {
+  text-align: left;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 6px 10px 8px;
+  border-bottom: 1px solid var(--border);
+}
+.run-table td { padding: 9px 10px; border-bottom: 1px solid var(--border-s); vertical-align: top; }
+.run-table tr:last-child td { border-bottom: none; }
+.run-table .skill-name { font-weight: 600; color: var(--text); font-family: 'Syne', sans-serif; font-size: 0.83rem; }
+.run-table .status-text { font-size: 0.80rem; font-weight: 500; }
+.st-ok     { color: var(--green); }
+.st-held   { color: var(--amber); }
+.st-err    { color: var(--red); }
+.st-skip   { color: var(--text-dim); }
+.run-table .out { color: var(--text-muted); font-size: 0.75rem; }
+
+.link-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.link-list li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--surface-2);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: background 0.15s;
+}
+.link-list li a:hover { background: var(--surface-3); text-decoration: none; }
+.link-arrow { margin-left: auto; color: var(--text-dim); font-size: 0.9rem; }
+
+.post-hold-banner {
+  background: var(--amber-bg);
+  border: 1px solid rgba(245,166,35,0.20);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  color: var(--amber);
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.post-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.meta-chip {
+  background: var(--surface-2);
+  border-radius: 4px;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+}
+.post-body {
+  font-size: 0.90rem;
+  line-height: 1.75;
+  color: var(--text);
+  white-space: pre-wrap;
+  background: var(--surface-2);
+  border-radius: 8px;
+  padding: 20px;
+  border-left: 3px solid var(--accent);
+  font-family: 'Inter', sans-serif;
+}
+.post-hook { color: var(--text); font-weight: 700; }
+.score-row { display: flex; align-items: center; gap: 10px; margin: 14px 0; font-size: 0.82rem; font-weight: 600; }
+.score-val { background: var(--green-bg); color: var(--green); border-radius: 4px; padding: 2px 10px; font-size: 0.80rem; }
+.pinned-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+.pinned-item {
+  background: var(--surface-2);
+  border-radius: 7px;
+  padding: 12px 16px;
+  font-size: 0.83rem;
+  color: var(--text);
+  line-height: 1.6;
+  border-left: 2px solid var(--border);
+}
+.pinned-item .p-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+.compliance-note {
+  background: var(--amber-bg);
+  border: 1px solid rgba(245,166,35,0.15);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.80rem;
+  color: var(--amber);
+  margin-top: 14px;
+}
+.section { margin-bottom: 16px; }
+.footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  padding-top: 32px;
+  border-top: 1px solid var(--border-s);
+  margin-top: 32px;
+}
+</style>
+</head>
+<body>
+
+<div class="hero section">
+  <div>
+    <div class="hero-eyebrow">BPOAS Daily Start</div>
+    <h1 class="hero-title syne">Friday, 11 September 2026</h1>
+    <p class="hero-sub">
+      <span class="pill">Lean Run</span>
+      Steps 1 + 4 &middot; Steps 2, 3, 5 skipped (Friday)
+    </p>
+    <p class="hero-sub" style="margin-top:8px; font-size:0.78rem;">
+      Second firing today &mdash; previous run completed ~05:08 UAE. This run adds new inbox items flagged after that.
+    </p>
+  </div>
+  <div class="revenue-block">
+    <div class="revenue-label">Revenue Pulse</div>
+    <div class="revenue-rows">
+      <div class="rev-row"><span class="k">MTD Received</span><span class="v carry">Carry forward*</span></div>
+      <div class="rev-row"><span class="k">Monthly Target</span><span class="v carry">See CFO report</span></div>
+      <div class="rev-row"><span class="k">Overdue Invoices</span><span class="v num">AED 104,312.50</span></div>
+      <div class="rev-row"><span class="k">Overdue count</span><span class="v num">18 invoices</span></div>
+      <div class="rev-row"><span class="k">Sep days remaining</span><span class="v num">19</span></div>
+    </div>
+    <div class="status-badge badge-hold" style="margin-top:10px;">CFO data: last updated Mon 7 Sep</div>
+    <p style="font-size:0.70rem; color:var(--text-dim); margin-top:6px;">*CFO report runs Mondays only.</p>
+  </div>
+</div>
+
+<div class="grid-2 section">
+  <div class="card">
+    <div class="card-head">
+      <h2>Run Log</h2>
+      <span style="font-size:0.75rem; color:var(--text-muted);">11 Sep 2026 &middot; Friday lean run</span>
+    </div>
+    <div class="card-body" style="padding: 0;">
+      <table class="run-table">
+        <thead><tr><th>Skill</th><th>Status</th><th>Output</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="skill-name">/coo-morning-brief</span></td>
+            <td><span class="status-text st-ok">&#10003; Complete</span><br><span style="font-size:0.72rem;color:var(--text-dim);">05:08 UAE (earlier run)</span></td>
+            <td><span class="out">coo-brief-2026-09-11.html</span></td>
+          </tr>
+          <tr>
+            <td><span class="skill-name">/cfo-weekly-revenue</span></td>
+            <td><span class="status-text st-skip">&mdash; Skipped</span></td>
+            <td><span class="out" style="color:var(--text-dim);">CFO runs Mondays</span></td>
+          </tr>
+          <tr>
+            <td><span class="skill-name">/cro-weekly-prospects</span></td>
+            <td><span class="status-text st-skip">&mdash; Skipped</span></td>
+            <td><span class="out" style="color:var(--text-dim);">CRO runs Mondays</span></td>
+          </tr>
+          <tr>
+            <td><span class="skill-name">/cmo-daily-post</span></td>
+            <td><span class="status-text st-held">&#9873; HELD</span><br><span style="font-size:0.72rem;color:var(--text-dim);">Awaiting approval &middot; reminder sent 08:16 UAE</span></td>
+            <td><span class="out">cmo-post-2026-09-11.html</span></td>
+          </tr>
+          <tr>
+            <td><span class="skill-name">/content-calendar</span></td>
+            <td><span class="status-text st-skip">&mdash; Skipped</span></td>
+            <td><span class="out" style="color:var(--text-dim);">Calendar runs Mondays</span></td>
+          </tr>
+          <tr>
+            <td><span class="skill-name">M365 Summary Email</span></td>
+            <td><span class="status-text st-err">&#10007; Error</span><br><span style="font-size:0.72rem;color:var(--text-dim);">Mail.Send not consented &middot; Day 75+ &middot; Gmail fallback</span></td>
+            <td><span class="out">Delivered via Gmail</span></td>
+          </tr>
+          <tr>
+            <td><span class="skill-name">Notion Tasks</span></td>
+            <td><span class="status-text st-err">&#10007; Gap</span></td>
+            <td><span class="out" style="color:var(--text-dim);">No BPOAS-linked tasks (since 2 Jul)</span></td>
+          </tr>
+          <tr>
+            <td><span class="skill-name">LinkedIn / Apify</span></td>
+            <td><span class="status-text st-err">&#10007; Unavailable</span></td>
+            <td><span class="out" style="color:var(--text-dim);">ICP pain-match fallback used for post</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2>Quick Links</h2></div>
+    <div class="card-body">
+      <ul class="link-list">
+        <li><a href="https://github.com/BPOLeave/Mohaina-Business-Brain/blob/claude/gracious-archimedes-uu6mzd/coo-brief-2026-09-11.html" target="_blank">&#128203; COO Brief &middot; 11 Sep 2026 <span class="link-arrow">&#8599;</span></a></li>
+        <li><a href="https://app.notion.com/p/3d88a33e7fd18112b7a1f3ffede8449a" target="_blank">&#128221; Notion &middot; COO Brief <span class="link-arrow">&#8599;</span></a></li>
+        <li><a href="https://app.notion.com/p/3d48a33e7fd181e3a0aef192ad66052a" target="_blank">&#128197; Content Calendar &middot; Week of 7 Sep <span class="link-arrow">&#8599;</span></a></li>
+        <li><a href="https://app.notion.com/p/38e8a33e7fd181d0b9c7e1716e43305a" target="_blank">&#127970; BPOAS Team Operating Hub <span class="link-arrow">&#8599;</span></a></li>
+      </ul>
+    </div>
+    <div class="card-head" style="border-top:1px solid var(--border-s); border-bottom:none; margin-top:0;"><h2>Today's Calendar</h2></div>
+    <div class="card-body">
+      <p style="color:var(--text-muted); font-size:0.85rem;">No events found for 11 September 2026.</p>
+      <p style="color:var(--text-dim); font-size:0.78rem; margin-top:6px;">Business Accelerator Bootcamp (MindSpace/Mac Attram) &middot; 25&ndash;27 Sep. Registration confirmed.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card flags-card section">
+  <div class="card-head">
+    <h2 style="color:var(--red);">Flags for Mohaina</h2>
+    <span style="font-size:0.75rem; color:var(--text-muted);">22 items &middot; Compliance &rarr; Cash &rarr; Client &rarr; BD &rarr; Infrastructure</span>
+  </div>
+
+  <div class="flag-group">
+    <div class="flag-group-label">Compliance</div>
+    <div class="flag-item"><div><div class="flag-dot dot-red"></div></div><div><div class="flag-title">VAT Return Final Deadline (28 Aug) &mdash; 14 days overdue <span class="flag-new">NEW</span></div><div class="flag-desc">Still unconfirmed as of this run. Owner: Mohaina.</div><span class="flag-next">&rarr; Confirm filing status today</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-red"></div></div><div><div class="flag-title">PICPA NE CHAPTER FZE &mdash; CIT Return unconfirmed</div><div class="flag-desc">TRN 104324388800001 &middot; Day ~29. Owner: Mohaina.</div><span class="flag-next">&rarr; Confirm filing status today</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-red"></div></div><div><div class="flag-title">Brilliant Telecom LLC &mdash; CIT partner confirmation 58+ days overdue</div><div class="flag-desc">CIT 30 Sep filing window is 19 days out. Owner: Raihana &rarr; Mohaina.</div><span class="flag-next">&rarr; Escalate today &mdash; 19 days to 30 Sep window</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-red"></div></div><div><div class="flag-title">MOHRE: Missing worker documents &mdash; Permit MB315778130AE <span class="flag-new">NEW</span></div><div class="flag-desc">Ministry of Higher Education degree recognition documents incomplete. Notice received today at 06:28 UAE via noreply@mohre.gov.ae. Owner: HR/Mohaina.</div><span class="flag-next">&rarr; Upload required documents via MOHRE portal immediately</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">AML/CFT H2 2026 Programme Review &mdash; unscheduled, Day ~44</div><div class="flag-desc">Owner: Mohaina.</div><span class="flag-next">&rarr; Schedule before end of September</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">GL Middle East / Nandhu &mdash; Active CIT thread (provisions deductibility)</div><div class="flag-desc">Active correspondence 10 Sep re: CIT for Flow Holdings, Wicked Tents, Flow Solutions, Unique Structures, GL Middle East FZE. Cristina handling. EL ~82 days stalled. Owner: Mohaina.</div><span class="flag-next">&rarr; Decision needed: approve engagement, call client, or close pipeline</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">Marina Marketing Co. LLC &mdash; CIT Engagement Letter awaiting countersignature</div><div class="flag-desc">Sent 2 Sep &middot; Day 9. Owner: Mohaina.</div><span class="flag-next">&rarr; Follow up if no reply by Monday</span></div></div>
+  </div>
+
+  <div class="flag-group">
+    <div class="flag-group-label">Cash</div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">Google Ads suspended &mdash; AED 152.37 past due <span class="flag-new">NEW</span></div><div class="flag-desc">Customer ID 817-829-0627. Service paused. Notice received 13:49 UAE yesterday.</div><span class="flag-next">&rarr; Pay AED 152.37 to restore ads service</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">Zoho Books subscription renewal failed &mdash; invalid card <span class="flag-new">NEW</span></div><div class="flag-desc">Failed again as of 11:19 UAE yesterday. Platform at risk of suspension. Owner: Mohaina/Finance.</div><span class="flag-next">&rarr; Update card details in Zoho billing portal</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">Overdue Invoices &mdash; AED 104,312.50 across 18 accounts</div><div class="flag-desc">Source: Zoho Books &middot; as of this run. Flat vs yesterday.</div><span class="flag-next">&rarr; Review ageing list &mdash; prioritise invoices 30+ days</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">Menastar DMCC &mdash; dnata/Emirates SOA requesting full settlement</div><div class="flag-desc">Re-sent with reminder. Owner: Mohaina/Finance.</div><span class="flag-next">&rarr; Confirm settlement plan with Finance today</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">HBM Fuels &mdash; Zoho org inactive 120+ days</div><div class="flag-desc">Owner: Mohaina/Finance.</div><span class="flag-next">&rarr; Review: retain, suspend, or close org</span></div></div>
+  </div>
+
+  <div class="flag-group">
+    <div class="flag-group-label">Client</div>
+    <div class="flag-item"><div><div class="flag-dot dot-red"></div></div><div><div class="flag-title">Kora Corporate Services (Joelle Link) &mdash; 6th+ inbound chase</div><div class="flag-desc">Client asked again 10 Sep for confirmation on Mon 15 Sep 11am call. No reply logged. High close-loss risk. Owner: Mohaina.</div><span class="flag-next">&rarr; Confirm the 15 Sep 11am call with Joelle today</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-red"></div></div><div><div class="flag-title">The Concept Lab / Mr. George EL &mdash; 81 days stalled</div><div class="flag-desc">BLOCKED pending Mohaina's approve/call/close decision. Owner: Mohaina.</div><span class="flag-next">&rarr; Decide: approve, schedule call, or close pipeline</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">GASCHEM &mdash; audit engagement letter still to be issued</div><div class="flag-desc">Owner: Mohaina.</div><span class="flag-next">&rarr; Issue engagement letter this week</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">MENASTAR DMCC Audit FY2025 &mdash; awaiting Excellence Auditing draft timeline</div><div class="flag-desc">Owner: Michelle.</div><span class="flag-next">&rarr; Chase Excellence Auditing for timeline</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">CIT Engagement Letter Tracker &mdash; team review pending</div><div class="flag-desc">Circulated by Raihana. Owner: Junaifa/Team.</div><span class="flag-next">&rarr; Confirm all team members have reviewed</span></div></div>
+  </div>
+
+  <div class="flag-group">
+    <div class="flag-group-label">BD</div>
+    <div class="flag-item"><div><div class="flag-dot dot-red"></div></div><div><div class="flag-title">Raihana's Pipeline Status Report &mdash; 56 days overdue</div><div class="flag-desc">Due 17 Jul. Blocking 19 leads + 80 DM drafts in queue. Owner: Raihana.</div><span class="flag-next">&rarr; Require submission from Raihana today &mdash; non-negotiable</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">Richemont (Dubai) FZE &mdash; Temporary Staffing RFP, proposal not received <span class="flag-new">NEW</span></div><div class="flag-desc">Victor Susana (Sourcing Manager) followed up 10 Sep 12:43 UAE: &ldquo;Could you please confirm?&rdquo; Proposal appears not submitted. Owner: Mohaina/Raihana.</div><span class="flag-next">&rarr; Confirm proposal status with Raihana. Reply to Victor today.</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">SPC Free Zone Establishment Card renewal &mdash; expires 03 Oct 2026</div><div class="flag-desc">22 days out. Owner: Mohaina/Ops.</div><span class="flag-next">&rarr; Start renewal process before 20 Sep</span></div></div>
+  </div>
+
+  <div class="flag-group">
+    <div class="flag-group-label">Infrastructure</div>
+    <div class="flag-item"><div><div class="flag-dot dot-red"></div></div><div><div class="flag-title">M365 Mail.Send not admin-consented &mdash; Day 75+</div><div class="flag-desc">All routine summary emails failing HTTP 403 ErrorAccessDenied. Delivered via Gmail fallback every run since late June. Affects: COO brief, post approval workflow, summary reports. Owner: Mohaina/IT Admin.</div><span class="flag-next">&rarr; Admin consent: M365 admin portal &rarr; App registrations &rarr; BPOAS automation &rarr; API permissions &rarr; Grant admin consent</span></div></div>
+    <div class="flag-item"><div><div class="flag-dot dot-amber"></div></div><div><div class="flag-title">LinkedIn Post &mdash; HELD pending approval</div><div class="flag-desc">Post &ldquo;There are three numbers on your P&amp;L&hellip;&rdquo; sent for approval 04:04 UAE. No reply by 08:15 timeout. Reminder sent 08:16 UAE. Rei on standby. Pinned Comment 1 cites UAE CIT law &mdash; requires explicit approval per compliance-citation rule.</div><span class="flag-next">&rarr; Reply &ldquo;approved&rdquo; to the approval email to release to Rei</span></div></div>
+  </div>
+</div>
+
+<div class="card section">
+  <div class="card-head">
+    <h2>Today's LinkedIn Post</h2>
+    <span class="status-badge badge-hold">HELD &mdash; Awaiting Approval</span>
+  </div>
+  <div class="card-body">
+    <div class="post-hold-banner">Post held since 08:15 UAE. Reminder sent at 08:16. Reply <strong>&ldquo;approved&rdquo;</strong> to release to Rei.</div>
+    <div class="post-meta">
+      <span class="meta-chip">Pillar: What the Numbers Are Telling You</span>
+      <span class="meta-chip">Intent: Educating</span>
+      <span class="meta-chip">Format: Framework List (Variation A)</span>
+      <span class="meta-chip">Hook: Curiosity Gap</span>
+    </div>
+    <div class="post-body"><span class="post-hook">There are three numbers on your P&amp;L most owners have never actually looked at.</span>
+
+I think most owners open their P&amp;L, see the bottom line, and close it again. That&rsquo;s the number banks want. It&rsquo;s not the number that tells you how the business is actually doing.
+
+Here are three we check first, before the bottom line even matters.
+
+1. Gross margin by product or service line, not the blended average. We had a trading client who looked profitable overall, until we split it out. One line was losing money every month. It was hiding behind two others that were carrying it.
+
+2. Accounts receivable ageing. Not just how much is owed, how long it&rsquo;s been owed. Your P&amp;L can look fine while your actual cash is stuck in invoices nobody has chased in ninety days.
+
+3. Owner and related-party expenses running through the business. They sit quietly inside your costs and bring your real profit down, and most owners have never separated them out to see the true number.
+
+None of this shows up when you&rsquo;re just watching your bank balance. That&rsquo;s the visibility gap that gets owners in trouble. Not because they&rsquo;re careless. Because a healthy balance feels like proof, and it isn&rsquo;t.
+
+We think like owners here, so we build reports that show these three numbers every month, not just the bottom line.
+
+Save this for your next board or bank conversation.
+
+P.S. A good bank balance and a good business are not always the same thing.</div>
+    <div class="score-row">Invisibility Diagnostic <span class="score-val">4 / 4</span> <span style="font-size:0.78rem; color:var(--text-muted);">Voice &middot; POV &middot; Specificity &middot; Asking</span></div>
+    <h3 style="margin-bottom:8px;">3 Pinned Comments</h3>
+    <div class="pinned-grid">
+      <div class="pinned-item"><div class="p-label">1. Extend (&mdash; Compliance flag &mdash; requires approval)</div>Worth adding: under Article 20 of the UAE Corporate Tax Law (Federal Decree-Law No. 47 of 2022), your taxable income starts from the accounting profit in your own financial statements. If those three numbers are wrong, your CIT filing is wrong before the FTA even looks at it.</div>
+      <div class="pinned-item"><div class="p-label">2. Humanise</div>I still see owners hand me a bank statement and call it their financials. I get why. It feels simpler. It just isn&rsquo;t the same thing.</div>
+      <div class="pinned-item"><div class="p-label">3. CTA Amplifier</div>If you&rsquo;ve never split your margins by line or aged your receivables, a 30-minute compliance review will show you exactly where the gaps are, before your next filing does.</div>
+    </div>
+    <div class="compliance-note">Compliance flag: Main post cites no UAE law, penalty, or deadline &mdash; clear. Pinned Comment 1 cites Article 20, Federal Decree-Law No. 47 of 2022 &mdash; requires your explicit approval before release per the compliance-citation rule.</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>BPOAS Daily Start &middot; Friday 11 September 2026 &middot; Lean Run (Steps 1 + 4)</p>
+  <p style="margin-top:4px;">Routine executed: 07:00 UAE (GST UTC+4) &middot; bpoas-daily-start-2026-09-11.html</p>
+  <p style="margin-top:4px;">Brand: <span style="color:var(--accent);">&#9632;</span> #E8294C &middot; BPOAS &mdash; BPO Accounting Services &middot; Dubai, UAE</p>
+</div>
+
+</body>
+</html>
