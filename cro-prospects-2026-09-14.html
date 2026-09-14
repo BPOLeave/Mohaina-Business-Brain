@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2E5B88; --primary-light:#5C8AC0; --navy:#1F3A5F;
+    --bg:#0A0A0A; --panel:#141518; --panel-2:#191b1f; --ink:#F3F5F7; --ink-dim:#A7ADB6;
+    --line:#232629; --line-soft:#1c1e22;
+    --good:#34D399; --warn:#F0B84E; --bad:#F1685E;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.35);
+    --grad:linear-gradient(135deg, #142A45 0%, var(--navy) 48%, var(--primary) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:880px;margin:0 auto;padding:34px 20px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px rgba(46,91,136,.28);position:relative;overflow:hidden;border:1px solid #2c3f57;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.06);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin:28px 0 12px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:14px;border-bottom:1px solid var(--line-soft);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-red{background:rgba(241,104,94,.14);color:var(--bad);} .t-amb{background:rgba(240,184,78,.14);color:var(--warn);}
+  .t-grey{background:#1e2126;color:var(--ink-dim);} .t-grn{background:rgba(52,211,153,.14);color:var(--good);} .t-blue{background:rgba(92,138,192,.16);color:var(--primary-light);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-dim);} .stat .n{font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:linear-gradient(135deg,var(--primary-light),var(--good));-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .pcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-top:4px solid var(--primary);}
+  .ph{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+  .ph .nm{font-weight:800;font-size:16px;color:#fff;} .ph .rl{font-size:12.5px;color:var(--ink-dim);width:100%;}
+  .ph .rl a{color:var(--primary-light);text-decoration:none;} .ph .rl a:hover{text-decoration:underline;}
+  .meta{font-size:12.5px;color:var(--ink-dim);margin:8px 0 4px;}
+  .meta b{color:var(--ink);}
+  .hook{font-size:14px;background:var(--panel-2);border:1px solid var(--line-soft);border-radius:10px;padding:9px 12px;margin:8px 0;}
+  .flag{font-size:12px;background:rgba(240,184,78,.10);border:1px solid rgba(240,184,78,.3);color:var(--warn);border-radius:10px;padding:8px 12px;margin:8px 0;}
+  .seqlbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--primary-light);font-weight:700;margin:12px 0 6px;}
+  .dm{font-size:13.5px;border-left:3px solid var(--line);background:var(--panel-2);border-radius:0 10px 10px 0;padding:9px 12px;margin:7px 0;color:#DADDE1;}
+  .dm .t{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;display:block;margin-bottom:3px;}
+  .fit{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);}
+
+  .note{background:linear-gradient(135deg, #101114 0%, #16283f 100%);border:1px solid #223350;color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:10px;box-shadow:0 14px 36px rgba(0,0,0,.4);}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-dim);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead"><div class="k">BPOAS · CRO weekly prospect pack</div><h1>10 sourced. 7 qualified. 3 held.</h1><div class="d">Monday, 14 September 2026 · sourced via web search and verified individually · every DM is a draft, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Sourced (UAE ICP search)</div><div class="n">10</div></div>
+      <div class="stat"><div class="l">ICP qualified (fit 6+)</div><div class="n">7</div></div>
+      <div class="stat"><div class="l">Messages drafted</div><div class="n">35</div></div>
+    </div>
+
+    <div class="sec">The prospects · ranked by fit</div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Muhammad Ashfaq-Ur-Rehman</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Founder &amp; CEO, Finmaal · FinTech · Dubai (DIFC-adjacent) · <a href="https://www.linkedin.com/in/ashfaqurrehman/" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver · <b>Opener:</b> Authority Flip · <b>Compliance signal:</b> None observed directly; fintech plus structured carbon-credit instruments sit close to AML/DNFBP scrutiny</div>
+      <div class="hook"><b>Human hook:</b> Turned a carbon-credit partnership and a GITEX fintech award into the same news cycle.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Muhammad, a carbon-credit partnership and a GITEX Best Fintech award landing close together is not a common combination. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. Finmaal's been building fintech tools for SMEs while also closing a carbon-credit financing partnership, two very different problems to solve at once. Which one is actually taking up more of your time right now?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the FTA set September 30 as the corporate tax filing deadline for anyone whose financial year closed December 31. Fintechs structuring partnerships like the carbon-credit one usually have more moving pieces in their own filing than a typical SME. Is that side already locked down on your end, or still being pulled together?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Muhammad. Winning recognition like the GITEX award usually means more people are watching how Finmaal runs now, not less. What's changed in how you operate since that recognition landed?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Muhammad. What you've built with Finmaal, the partnership and the recognition both, is a genuinely strong run. Glad our paths crossed either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Masood Naseeb</span><span class="fit t-grn">Fit 7/10</span><span class="rl">Founder &amp; CEO, Elysian Real Estate · Real Estate · Dubai (Sheikh Zayed Road) · <a href="https://www.linkedin.com/in/masood-naseeb-657196b3/" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> Rapid headcount growth (new office, hiring wave) often outpaces back-office and payroll compliance capacity</div>
+      <div class="hook"><b>Human hook:</b> Just opened a 16,000 square foot office and is hiring an entire new broker team.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Masood, opening a 16,000 square foot office and building an entire new broker team at the same time is a serious bet on this market. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. Elysian's expanding fast, new office, new brokers, and a spot on the CEO Property Power List all at once. What's the hardest part of scaling the team right now, finding the right brokers or just keeping pace operationally?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the FTA set September 30 as the corporate tax filing deadline for anyone whose financial year closed December 31. Brokerages adding this many people this fast usually see payroll and commission reporting get more complicated before anyone notices. Is that side keeping up with how quickly the team's growing?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Masood. Building a team this size from scratch changes what your actual job is day to day. What's the part of running Elysian now that looks nothing like it did before this expansion?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Masood. Building out an office and a broker team at this pace is a real undertaking, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Umer Shauket</span><span class="fit t-grn">Fit 7/10</span><span class="rl">Founder &amp; CEO, Cresco Real Estate LLC · Real Estate · Dubai + US offices · <a href="https://www.linkedin.com/in/umershauket/" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> Cross-border expansion into the US raises permanent-establishment and CIT exposure questions</div>
+      <div class="hook"><b>Human hook:</b> Runs a Dubai luxury brokerage while opening new offices in California and Florida.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Umer, running a Dubai luxury brokerage while opening offices in California and Florida at the same time is not a small stretch. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. You're active on both the Dubai and US real estate conversations right now, which is a different kind of balancing act. Which market is pulling more of your attention these days, Dubai or the new US offices?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the FTA set September 30 as the corporate tax filing deadline for anyone whose financial year closed December 31. Running an entity here while also operating in the US usually raises its own questions about where profit actually sits and gets taxed. Is that something you've had to think through yet, or still early days on the US side?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Umer. Running a brokerage across two very different markets at once means you're explaining Dubai to Americans and America to Dubai, probably every week. What's the thing people misunderstand most about one market when you're standing in the other?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Umer. Building a brokerage that spans Dubai and the US at the same time is genuinely ambitious, and I'm glad we connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Tolga Neftci</span><span class="fit t-blue">Fit 7/10</span><span class="rl">Co-Founder &amp; CEO, Shorages · Logistics (e-commerce fulfillment) · Dubai HQ + Saudi Arabia · <a href="https://ae.linkedin.com/in/tolganeftci/en" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Analytical · <b>Opener:</b> Pattern Interrupt · <b>Compliance signal:</b> Multi-country fulfillment (UAE + Saudi) usually means a fragmented VAT/CIT picture across borders</div>
+      <div class="hook"><b>Human hook:</b> Runs fulfillment centers across the UAE and Saudi Arabia from one Dubai headquarters.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Tolga, running fulfillment centers across the UAE and Saudi Arabia from one Dubai base is a different scale of logistics problem than most people take on. Would be good to connect, I'm Dubai based too.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. Shorages is handling fulfillment across two countries at once, which usually means two different sets of rules to work around. Is the Saudi side run as a fully separate operation, or does it stay tied closely to what you're doing here in Dubai?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the Ministry of Finance issued a VAT update this month changing input tax apportionment and cash payment rules. Fulfillment operations running across the UAE and Saudi at once usually carry a more complicated input tax position than a single-country business. Is that something reviewed regularly on your end, or handled separately in each market?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Tolga. Running fulfillment in two countries at once means solving the same problem twice, just under different rules each time. What's the part of running it in Saudi that surprised you most compared to here?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Tolga. Running fulfillment across two markets at this stage is a real operational achievement, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Abdul Sadaf</span><span class="fit t-blue">Fit 7/10</span><span class="rl">Managing Director, Freight Factor Cargo LLC · Logistics (freight forwarding) · Dubai · <a href="https://www.linkedin.com/in/abdul-sadaf-0032b7103/" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> Freight forwarders typically carry the most complex cross-border input-VAT positions of any SME</div>
+      <div class="hook"><b>Human hook:</b> Built a freight forwarding company from zero into air, ocean, and land cargo.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Abdul, building a freight forwarding company from scratch into air, ocean, and land cargo is a wide business to run well. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. Freight Factor covers air, ocean, and land freight, which is a broader mix than most forwarders take on. Which of the three keeps you busiest day to day?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the Ministry of Finance issued a VAT update this month changing input tax apportionment and cash payment rules. Freight forwarders usually carry the most complicated input tax position of any business I come across, everything crosses borders. Is that side reviewed closely, or mostly left to whoever's handling the books?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Abdul. Running freight across air, ocean, and land at once means a different operational headache in each lane. Which one took the longest to actually get right?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Abdul. Building a forwarding business covering all three modes from the ground up is a real achievement, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">M Alaa Mahmoud Askar</span><span class="fit t-blue">Fit 6/10</span><span class="rl">Owner &amp; Managing Director, Royal Techno Foodstuff Trading L.L.C. · Trading (F&amp;B foodstuff) · Dubai · <a href="https://ae.linkedin.com/in/m-alaa-mahmoud-askar-390317a4" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Amiable · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> None observed directly</div>
+      <div class="hook"><b>Human hook:</b> Runs an ISO-certified foodstuff trading house supplying hotels and supermarkets across Dubai.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Alaa, running an ISO-certified foodstuff trading house supplying hotels and supermarkets across Dubai takes real consistency. I'm Dubai based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. Royal Techno's been supplying hotels and supermarkets since 2019 with ISO 22000 certification behind it. What's been the hardest part of keeping that certification and the supply chain both running smoothly?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the Ministry of Finance issued a VAT update this month changing input tax apportionment and cash payment rules. Import and distribution businesses like yours tend to feel changes like this first, since so much of the VAT sits on the input side. Is that something you track closely yourself, or does someone else own it?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Alaa. Keeping a certified operation running for this many hotels and supermarkets since 2019 means consistency matters more than speed. What's the one thing you still check yourself instead of leaving to someone else?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Alaa. Running a certified trading operation at this scale since 2019 says a lot, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Taher Abu Asbeh</span><span class="fit t-blue">Fit 6/10</span><span class="rl">Managing Director, Reetaj General Trading · Trading (HVAC ducts &amp; building materials) · Sharjah · <a href="https://www.linkedin.com/in/taherabuasbeh/" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Analytical · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> None observed directly</div>
+      <div class="hook"><b>Human hook:</b> Has run the same Sharjah trading company for more than fifteen years straight.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Taher, running the same Sharjah trading company since 2010 in HVAC ducts and building materials is a long, steady run. I'm UAE based too, would be good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. Reetaj's been running since 2010 across HVAC ducts and building materials. What's changed the most about that business since you first started it?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>Saw the FTA set September 30 as the corporate tax filing deadline for anyone whose financial year closed December 31. Trading companies that have been running this long sometimes have the most established habits to double check against the newer CIT rules. Is that side already locked down, or still being worked through?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Taher. Fifteen plus years is long enough to see a lot of trading names come and go around you. What's kept Reetaj going this long when so many others haven't?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave it here, Taher. Running the same business steadily since 2010 in this market is a real track record, and I'm glad we're connected either way.</div>
+    </div>
+
+    <div class="sec">Held · revisit next cycle (fit below 6)</div>
+    <div class="card">
+      <div class="row"><b style="margin-right:6px">Sayed Hussain</b> Owner, Qarmshny Restaurants Management LLC · F&amp;B, Dubai, roughly 4 staff<span class="tagi t-amb">Fit 5/10</span></div>
+      <div class="row" style="border:none;padding-top:0;font-size:13px;color:var(--ink-dim)">Held rather than scored up: at roughly 4 employees the business sits just below the ICP's floor. The monthly revenue growth from AED 50K to 160K and an active investor search are genuine timing signals, per the compliance flag, but the flag does not move the ICP-based score. Worth a manual look next cycle.</div>
+    </div>
+    <div class="card">
+      <div class="row"><b style="margin-right:6px">Mujeeb Rahman</b> Managing Director, Empiria Business Formations · Professional Services, Dubai<span class="tagi t-amb">Fit 5/10</span></div>
+      <div class="row" style="border:none;padding-top:0;font-size:13px;color:var(--ink-dim)">Held: Empiria is a business-setup and corporate-services consultancy, adjacent to BPOAS's own referral base rather than a clean ICP target, and no timing signal was found. Worth a second look with a different service angle rather than outreach now.</div>
+    </div>
+    <div class="card">
+      <div class="row"><b style="margin-right:6px">Tariq Aslam</b> Financial Reporting Lead, Dr. Fathi Emara Medical Polyclinic · Healthcare, Dubai<span class="tagi t-amb">Fit 3/10</span></div>
+      <div class="row" style="border:none;padding-top:0;font-size:13px;color:var(--ink-dim)">Held rather than pursued: the title itself, Financial Reporting Lead, points to an in-house finance function already in place at the clinic, one of the standing disqualifiers. Not pursuing unless that changes.</div>
+    </div>
+
+    <div class="sec">Researched and disqualified (for transparency)</div>
+    <div class="card">
+      <div class="row">Sunset Hospitality Group (F&amp;B)<span class="tagi t-grey">~7,000 employees, well past ICP size</span></div>
+      <div class="row">Dr. Joy Dental Clinic (Healthcare)<span class="tagi t-grey">200+ staff, 19 years of established in-house finance</span></div>
+      <div class="row">SolitAir Holding<span class="tagi t-grey">institutional scale, past ICP</span></div>
+      <div class="row">Health Nation UAE, MEDHILLS HealthCare (Healthcare)<span class="tagi t-grey">right sector, no named decision-maker found publicly</span></div>
+    </div>
+
+    <div class="note">Open with <b>Muhammad Ashfaq-Ur-Rehman</b>, <b>Masood Naseeb</b>, or <b>Umer Shauket</b> first, all three are warm, fit 7 or 8, with a real recent hook to open on. No prospect scored 9 or 10 this week, so nothing is held for your personal review. The CIT filing deadline (30 September, for December year ends) and the new VAT input-tax apportionment rules from the Ministry of Finance this month are doing a lot of work in these value-bridge messages, both are current and genuinely worth mentioning as peer intelligence right now. Every message here is a draft. You read it, then you send it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>BPOAS · We think like owners</b></footer>
+  </div>
+</body>
+</html>
