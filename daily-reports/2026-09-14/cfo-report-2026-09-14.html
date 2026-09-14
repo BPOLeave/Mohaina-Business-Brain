@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CFO Weekly Revenue · 14 Sep 2026</title>
+<style>
+:root {
+  --bg: #0A0A0A; --surface: #141414; --surface-2: #1C1C1C;
+  --border: #252525;
+  --text: #F0EEE8; --text-muted: #7A7870; --text-dim: #4A4845;
+  --accent: #E8294C; --accent-dim: rgba(232,41,76,0.12); --accent-border: rgba(232,41,76,0.3);
+  --green: #22C55E; --green-dim: rgba(34,197,94,0.1);
+  --amber: #F59E0B; --amber-dim: rgba(245,158,11,0.1);
+  --red: #EF4444; --red-dim: rgba(239,68,68,0.1);
+  --radius: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system,"Segoe UI",system-ui,sans-serif; font-size: 14px; line-height: 1.5; padding: 24px 20px; max-width: 860px; margin: 0 auto; }
+.run-stamp { color: var(--text-dim); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 24px; }
+h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.subtitle { color: var(--text-muted); font-size: 13px; margin-bottom: 28px; }
+h2 { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+.revenue-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 4px; }
+@media(max-width:640px) { .revenue-grid { grid-template-columns: 1fr 1fr; } }
+.rev-tile { background: var(--surface-2,#1C1C1C); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+.rev-label { font-size: 11px; color: var(--text-muted); letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px; }
+.rev-value { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.rev-note { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+.status-red { color: var(--red); }
+.status-amber { color: var(--amber); }
+.status-green { color: var(--green); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th { color: var(--text-dim); font-weight: 600; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+.data-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.data-table td:first-child { color: var(--text); }
+.data-table tr:last-child td { border-bottom: none; }
+.alert-box { background: var(--amber-dim); border: 1px solid rgba(245,158,11,.25); border-radius: var(--radius); padding: 14px; margin-bottom: 16px; }
+.alert-box p { color: var(--amber); font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+.alert-box span { color: var(--text-muted); font-size: 12px; }
+.source-note { font-size: 11px; color: var(--text-dim); margin-top: 12px; border-top: 1px solid var(--border); padding-top: 10px; }
+</style>
+</head>
+<body>
+<div class="run-stamp">CFO Weekly Revenue · Monday 14 September 2026 · Week 38</div>
+<h1>CFO Revenue Report</h1>
+<p class="subtitle">BPOAS · BPO Accounting Services · Week ending 14 Sep 2026 · Data from 7 Sep 2026 Notion report</p>
+<div class="alert-box">
+  <p>⚠ Data is 7 days old — Zoho Books not directly connected to this session</p>
+  <span>Revenue figures sourced from Sep 7, 2026 Notion CFO Revenue Report. Emirates NBD credit of AED 10,500 (Sep 11) is unreconciled. Connect Zoho Books to get real-time figures. This is Week 10 with no monthly revenue target on file.</span>
+</div>
+<h2>September 2026 Revenue Pulse</h2>
+<div class="card" style="padding:16px;">
+  <div class="revenue-grid">
+    <div class="rev-tile"><div class="rev-label">Sep MTD Collected</div><div class="rev-value status-red">AED 0</div><div class="rev-note">No collections confirmed in Zoho as of Sep 7</div></div>
+    <div class="rev-tile"><div class="rev-label">Sep MTD Invoiced</div><div class="rev-value status-amber">AED 109,218</div><div class="rev-note">Invoices raised Sep 1–7</div></div>
+    <div class="rev-tile"><div class="rev-label">Monthly Target</div><div class="rev-value status-red">Not Set</div><div class="rev-note">Week 10 — no target on file</div></div>
+    <div class="rev-tile"><div class="rev-label">Overdue AR</div><div class="rev-value status-red">AED 390,534</div><div class="rev-note">74 invoices · ages unconfirmed</div></div>
+    <div class="rev-tile"><div class="rev-label">Unreconciled Credit</div><div class="rev-value status-amber">AED 10,500</div><div class="rev-note">Emirates NBD Sep 11 — not in Zoho</div></div>
+    <div class="rev-tile"><div class="rev-label">Sep Days Remaining</div><div class="rev-value">16</div><div class="rev-note">CT deadline also 30 Sep</div></div>
+  </div>
+</div>
+<h2>AR Aging — Outstanding Receivables</h2>
+<div class="card">
+  <table class="data-table">
+    <thead><tr><th>Bucket</th><th>Amount (AED)</th><th>Invoices</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Total Overdue AR</td><td>390,534</td><td>74</td><td><span style="color:var(--red)">Action Required</span></td></tr>
+      <tr><td>Sep MTD Invoiced</td><td>109,218</td><td>—</td><td><span style="color:var(--amber)">Current</span></td></tr>
+      <tr><td>Unreconciled (NBD Sep 11)</td><td>10,500</td><td>1</td><td><span style="color:var(--amber)">Reconcile in Zoho</span></td></tr>
+    </tbody>
+  </table>
+  <p class="source-note">Aging buckets not available — Zoho Books not directly connected. Reconcile Emirates NBD credit manually.</p>
+</div>
+<h2>Action Items This Week</h2>
+<div class="card">
+  <table class="data-table">
+    <thead><tr><th>Priority</th><th>Action</th><th>Owner</th></tr></thead>
+    <tbody>
+      <tr><td><span style="color:var(--red)">Critical</span></td><td>Set September (and Q4) monthly revenue target — Week 10 without one</td><td>Mohaina</td></tr>
+      <tr><td><span style="color:var(--red)">Critical</span></td><td>Chase top 5 overdue AR accounts — AED 390K at risk</td><td>Mohaina / Raihana</td></tr>
+      <tr><td><span style="color:var(--amber)">High</span></td><td>Reconcile Emirates NBD Sep 11 credit (AED 10,500) in Zoho Books</td><td>Mohaina</td></tr>
+      <tr><td><span style="color:var(--amber)">High</span></td><td>Approve Zoho Books renewal payment before subscription lapses</td><td>Mohaina</td></tr>
+      <tr><td>Standard</td><td>Connect Zoho Books to automation pipeline for real-time CFO data</td><td>IT / Admin</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="card" style="border-color:rgba(232,41,76,.2);">
+  <p style="color:var(--accent);font-size:13px;font-weight:600;margin-bottom:6px;">Persistent Flag: No Revenue Target — Week 10</p>
+  <p style="color:var(--text-muted);font-size:12px;">A monthly revenue target has not been set since this routine began tracking on 2 July 2026. Without a target, CFO reports cannot show gap, daily run rate, or trajectory. Setting a target takes 5 minutes and makes every future report actionable. This flag will persist until a target is recorded in the Notion Hub or positioning file.</p>
+  <p class="source-note">Source: Notion CFO Revenue Report (7 Sep 2026) · Emirates NBD alert (11 Sep 2026) · Zoho Books not directly connected · Run 07:01 GST</p>
+</div>
+</body>
+</html>

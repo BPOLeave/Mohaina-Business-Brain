@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CRO Pipeline · 14 Sep 2026</title>
+<style>
+:root {
+  --bg: #0A0A0A; --surface: #141414; --surface-2: #1C1C1C;
+  --border: #252525;
+  --text: #F0EEE8; --text-muted: #7A7870; --text-dim: #4A4845;
+  --accent: #E8294C; --accent-dim: rgba(232,41,76,0.12); --accent-border: rgba(232,41,76,0.3);
+  --green: #22C55E; --green-dim: rgba(34,197,94,0.1);
+  --amber: #F59E0B; --amber-dim: rgba(245,158,11,0.1);
+  --red: #EF4444; --red-dim: rgba(239,68,68,0.1);
+  --radius: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system,"Segoe UI",system-ui,sans-serif; font-size: 14px; line-height: 1.5; padding: 24px 20px; max-width: 860px; margin: 0 auto; }
+.run-stamp { color: var(--text-dim); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 24px; }
+h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.subtitle { color: var(--text-muted); font-size: 13px; margin-bottom: 28px; }
+h2 { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th { color: var(--text-dim); font-weight: 600; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+.data-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.data-table td:first-child { color: var(--text); }
+.data-table tr:last-child td { border-bottom: none; }
+.badge { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; white-space: nowrap; display: inline-block; }
+.badge-red { background: var(--red-dim); color: var(--red); border: 1px solid rgba(239,68,68,.2); }
+.badge-amber { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,.2); }
+.badge-green { background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,197,94,.2); }
+.badge-blue { background: rgba(59,130,246,.1); color: #60A5FA; border: 1px solid rgba(59,130,246,.2); }
+.stat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+@media(max-width:640px) { .stat-row { grid-template-columns: 1fr 1fr; } }
+.stat-tile { background: var(--surface-2,#1C1C1C); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
+.stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: .05em; text-transform: uppercase; margin-bottom: 6px; }
+.stat-value { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.alert-box { background: var(--red-dim); border: 1px solid rgba(239,68,68,.25); border-radius: var(--radius); padding: 14px; margin-bottom: 16px; }
+.alert-box p { color: var(--red); font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+.alert-box span { color: var(--text-muted); font-size: 12px; }
+.info-box { background: var(--amber-dim); border: 1px solid rgba(245,158,11,.2); border-radius: var(--radius); padding: 14px; margin-bottom: 16px; }
+.info-box p { color: var(--amber); font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+.info-box span { color: var(--text-muted); font-size: 12px; }
+.source-note { font-size: 11px; color: var(--text-dim); margin-top: 12px; border-top: 1px solid var(--border); padding-top: 10px; }
+.days-stall { color: var(--red); font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="run-stamp">CRO Weekly Prospects · Monday 14 September 2026 · Week 38</div>
+<h1>CRO Pipeline Report</h1>
+<p class="subtitle">BPOAS · BPO Accounting Services · Raihana's Warm Pipeline · Apify LinkedIn scraper not available</p>
+<div class="alert-box">
+  <p>⚠ LinkedIn Prospect Scraper Unavailable — Week 10+ consecutive failure</p>
+  <span>Apify LinkedIn actors require profile URLs as direct input — not usable for general prospect discovery without a pre-configured target list. No new LinkedIn prospects generated this week. Report falls back to warm pipeline management from Notion data. Set up a structured prospect URL list to enable automated scraping.</span>
+</div>
+<div class="info-box">
+  <p>⚠ Pipeline Status Report — 57 Days Overdue</p>
+  <span>Raihana's formal Pipeline Status Report has not been submitted for 57 days. 19 leads in backlog. 80 DM drafts ready to send, 0 sent. Monday queue identified below. This structural gap means BPOAS has no formal view of pipeline health or projected revenue.</span>
+</div>
+<h2>Raihana's Monday Queue</h2>
+<div class="card">
+  <div class="stat-row" style="margin-bottom:16px;">
+    <div class="stat-tile"><div class="stat-label">Leads in Backlog</div><div class="stat-value" style="color:var(--amber)">19</div></div>
+    <div class="stat-tile"><div class="stat-label">DM Drafts Ready</div><div class="stat-value" style="color:var(--amber)">80</div></div>
+    <div class="stat-tile"><div class="stat-label">DMs Sent</div><div class="stat-value" style="color:var(--red)">0</div></div>
+    <div class="stat-tile"><div class="stat-label">Pipeline Report Overdue</div><div class="stat-value" style="color:var(--red)">57d</div></div>
+  </div>
+  <p style="color:var(--text-muted);font-size:13px;">Raihana has 80 DM drafts sitting unexecuted. Monday queue: send the first 10 highest-priority DMs. Prioritise leads with recent FTA or CT activity signals. Track replies by end of week.</p>
+</div>
+<h2>Active BD Pipeline</h2>
+<div class="card">
+  <table class="data-table">
+    <thead><tr><th>Company</th><th>Stage</th><th>Stall</th><th>Priority Action</th></tr></thead>
+    <tbody>
+      <tr><td>The Concept Lab</td><td><span class="badge badge-red">EL Stalled</span></td><td><span class="days-stall">83d</span></td><td>Decide today — proceed or close. Kora Zoho training is today; use that meeting to test engagement temperature.</td></tr>
+      <tr><td>Brilliant Telecom</td><td><span class="badge badge-red">CT Letters Overdue</span></td><td><span class="days-stall">61d</span></td><td>Send outstanding CT engagement letters before 30 Sep deadline. Flag as lost if no response by end of week.</td></tr>
+      <tr><td>Kora</td><td><span class="badge badge-amber">Training</span></td><td>Active</td><td>EL decision required at today's Zoho training (11AM–1PM). Confirm whether to proceed to full engagement.</td></tr>
+      <tr><td>FIAT</td><td><span class="badge badge-amber">Document Scan</span></td><td>Active</td><td>4PM scan today. Confirm what follow-up action is required after the scan.</td></tr>
+      <tr><td>Sukoon Insurance</td><td><span class="badge badge-amber">EL Renewal</span></td><td>18d to deadline</td><td>Engagement letter renewal due 2 Oct. Prepare and send for signature this week.</td></tr>
+      <tr><td>Legends InvestHack</td><td><span class="badge badge-blue">BD Event</span></td><td>Tomorrow</td><td>Attend 5PM Tue. Identify 3 target conversations in advance from attendee list.</td></tr>
+      <tr><td>Citi Forum</td><td><span class="badge badge-blue">BD Event</span></td><td>Tomorrow</td><td>7–9PM Tue. Back-to-back with InvestHack. Plan arrival time.</td></tr>
+    </tbody>
+  </table>
+</div>
+<h2>Prospect Discovery — Setup Required</h2>
+<div class="card">
+  <p style="color:var(--text-muted);font-size:13px;line-height:1.6;">To enable automated LinkedIn prospect discovery, BPOAS needs a structured list of target company LinkedIn profile URLs. The Apify scraper can then extract contact, role, and company data automatically each Monday.</p>
+  <p style="color:var(--text-muted);font-size:13px;margin-top:10px;line-height:1.6;">Recommended action: Raihana compiles 50–100 target UAE SME LinkedIn profile URLs (trading, services, retail sectors matching ICP). Store in Notion Hub. Pipeline will then run automated discovery weekly.</p>
+  <p class="source-note">Source: Notion Raihana Daily Brief (13 Sep 2026) · Apify LinkedIn actor unavailable for general discovery · Run 07:01 GST</p>
+</div>
+</body>
+</html>
