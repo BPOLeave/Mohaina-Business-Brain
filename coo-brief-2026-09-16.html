@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS COO Morning Brief · 16 September 2026</title>
+<style>
+  :root {
+    --brand: #E8294C;
+    --bg: #0A0A0A;
+    --card: #161616;
+    --card-border: #262626;
+    --text: #F2F2F2;
+    --muted: #9A9A9A;
+    --green: #2ECC71;
+    --amber: #F5A623;
+    --red: #E8294C;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 32px 16px 80px;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  header { margin-bottom: 28px; }
+  header .tag {
+    color: var(--brand);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  header h1 { margin: 6px 0 4px; font-size: 26px; }
+  header .meta { color: var(--muted); font-size: 13px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--brand);
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card h2 .num {
+    background: var(--brand);
+    color: #fff;
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .flags-card {
+    background: linear-gradient(180deg, rgba(232,41,76,0.10), rgba(232,41,76,0.03));
+    border: 1px solid rgba(232,41,76,0.45);
+  }
+  .flags-card h2 { color: var(--brand); }
+  .flag-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 14px;
+  }
+  .flag-item:last-child { border-bottom: none; }
+  .dot { flex-shrink: 0; margin-top: 3px; font-size: 12px; }
+
+  .event {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .event:last-child { border-bottom: none; }
+  .event .time {
+    color: var(--brand);
+    font-weight: 600;
+    font-size: 13px;
+    width: 120px;
+    flex-shrink: 0;
+  }
+  .event .details .title { font-weight: 600; font-size: 14px; }
+  .event .details .sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .event .details a { color: var(--brand); text-decoration: none; }
+  .event .details a:hover { text-decoration: underline; }
+
+  .mail-item { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+  .mail-item:last-child { border-bottom: none; }
+  .mail-item .subj { font-weight: 600; }
+  .mail-item .sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 5px;
+    margin-right: 6px;
+  }
+  .b-red { background: rgba(232,41,76,0.18); color: #ff6b85; }
+  .b-amber { background: rgba(245,166,35,0.18); color: var(--amber); }
+  .b-green { background: rgba(46,204,113,0.18); color: var(--green); }
+  .b-gray { background: rgba(255,255,255,0.08); color: var(--muted); }
+
+  .task-group { margin-bottom: 18px; }
+  .task-group h3 { font-size: 12px; text-transform: uppercase; color: var(--muted); letter-spacing: 0.05em; margin: 0 0 8px; }
+  .task { padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+  .task:last-child { border-bottom: none; }
+  .task .owner { color: var(--muted); font-size: 12px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  th { color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 11px; letter-spacing: 0.04em; }
+  tr:last-child td { border-bottom: none; }
+
+  .metric-headline { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .metric-sub { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+
+  .content-slot .pillar-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .content-slot .topic { font-size: 16px; font-weight: 600; margin: 10px 0 6px; }
+  .content-slot .cta { color: var(--muted); font-size: 13px; }
+
+  footer { color: var(--muted); font-size: 12px; text-align: center; margin-top: 32px; }
+  footer a { color: var(--brand); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="tag">BPOAS · COO Morning Brief</div>
+    <h1>Wednesday, 16 September 2026</h1>
+    <div class="meta">Generated 09:00 UAE (GST, UTC+4) · Auto-generated via /coo-morning-brief</div>
+  </header>
+
+  <!-- FLAGS FOR MOHAINA -->
+  <div class="card flags-card">
+    <h2>🚩 Flags for Mohaina's Review</h2>
+    <div class="flag-item"><span class="dot">🔴</span><div><span class="badge b-red">CT</span>Brilliant Telecom LLC — CIT partner confirmation letters ~63 days overdue. CIT filing window now <strong>14 days</strong> (30 Sep deadline). Owner: Raihana → escalate to you.</div></div>
+    <div class="flag-item"><span class="dot">🔴</span><div><span class="badge b-red">CT</span>The Concept Lab / Mr. George — engagement letter ~86 days stalled, CIT window 14 days. Blocked on your call-or-close decision.</div></div>
+    <div class="flag-item"><span class="dot">🔴</span><div><span class="badge b-red">CT</span>GL Middle East / Nandhu (TRC) — engagement letter ~87 days stalled. Blocked on your call-or-close decision.</div></div>
+    <div class="flag-item"><span class="dot">🔴</span><div><span class="badge b-red">CLIENT</span>Kora Corporate Services (Joelle Link) — EL decision needed, HOT inbound 30+ days. Today's 3–5 PM Zoho training call with the Kora team is a live window to resolve it.</div></div>
+    <div class="flag-item"><span class="dot">🔴</span><div><span class="badge b-red">CLIENT</span>MENASTAR DMCC Audit Requirements FY2025 — Michelle Pacis sent a 2nd follow-up to Excellence Auditing on an overdue draft; the review/approval window is closing.</div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><span class="badge b-amber">VAT</span>Orlen S.A RAK Branch (liquidation) — client's HQ is asking about a Private Clarification Request to the FTA for a VAT refund. Needs a tax-team response.</div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><span class="badge b-amber">AML</span>AML/CFT Programme H2 2026 review still unscheduled, ~Day 49.</div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><span class="badge b-amber">AML</span>Real Estate / Intl Trade lead in Raihana's queue carries an AML/DNFBP flag — needs your review before any outreach.</div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><span class="badge b-amber">INTERNAL</span>Raihana's Pipeline Status Report — 60+ days overdue (due 17 Jul). Blocking 19 leads + 80 DM drafts.</div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><span class="badge b-amber">CONTENT</span>Today's LinkedIn post (Tech &amp; Automation / Soft-Sell) needs your sign-off before release — see Content Slot below.</div></div>
+    <div class="flag-item"><span class="dot">🟡</span><div><span class="badge b-amber">INFRA</span>M365 Mail.Send still not admin-consented, Day 78+ — this brief is being delivered by email via Gmail as a workaround.</div></div>
+  </div>
+
+  <!-- 1. TODAY'S SCHEDULE -->
+  <div class="card">
+    <h2><span class="num">1</span>Today's Schedule</h2>
+    <div class="event">
+      <div class="time">10:30–12:00</div>
+      <div class="details">
+        <div class="title">Slot 1: Zia Agent Studio &amp; Agent Store Use Cases (Ramki)</div>
+        <div class="sub">Zoho Partner Academy · AI Accelerator Series · <a href="https://partner-training.trainercentralsite.in/course/ai-accelerator-series-for-zoho-partners-2026/attend/#/course/21133000001752007/attend/section/21133000001797080/lesson/21133000001752150" target="_blank">Join session</a></div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="time">15:00–17:00</div>
+      <div class="details">
+        <div class="title">Kora UAE — Zoho Training</div>
+        <div class="sub">Microsoft Teams · Attendees: joelle@korauae.com, andreea@korauae.com, nadine@korauae.com (accepted) — live window to close the Kora EL decision flagged above</div>
+      </div>
+    </div>
+    <div class="event">
+      <div class="time">16:00–16:15</div>
+      <div class="details">
+        <div class="title">FIAT Monday &amp; Friday Call Options Screen</div>
+        <div class="sub">Personal recurring reminder (stock scan), not a client meeting — overlaps the tail end of the Kora call above</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. INBOX PRIORITIES -->
+  <div class="card">
+    <h2><span class="num">2</span>Inbox Priorities</h2>
+    <div class="mail-item">
+      <span class="badge b-amber">Content</span><span class="badge b-gray">Approval needed</span>
+      <div class="subj">BPOAS Daily Post — Approval Needed · September 16, 2026</div>
+      <div class="sub">From your own address (moanne.asira@gmail.com) — the established content-approval routine, verified legitimate. Awaiting your compliance sign-off before release.</div>
+    </div>
+    <div class="mail-item">
+      <span class="badge b-red">Client</span><span class="badge b-gray">Audit</span>
+      <div class="subj">Re: MENASTAR DMCC Audit Requirements FY 2025</div>
+      <div class="sub">Michelle Pacis (2nd follow-up, marked High importance) chasing Excellence Auditing for the draft — no reply yet.</div>
+    </div>
+    <div class="mail-item">
+      <span class="badge b-amber">Client</span><span class="badge b-gray">VAT</span>
+      <div class="subj">RE: Orlen S.A RAK Branch | Liquidation</div>
+      <div class="sub">Client HQ asking whether a Private Clarification Request on the FTA portal is the right path for their VAT refund.</div>
+    </div>
+    <div class="mail-item">
+      <span class="badge b-green">BD</span>
+      <div class="subj">Potential Collaboration – ADGM Audits and UAE E-Invoicing</div>
+      <div class="sub">ECOVIS JRB (member of ECOVIS International) proposing a partnership conversation — worth a reply.</div>
+    </div>
+    <div class="mail-item">
+      <span class="badge b-gray">FTA</span>
+      <div class="subj">Tax Residency Certificate</div>
+      <div class="sub">Internal (c.suyom → you, w.dy, Finance) — confirms the document set submitted to the FTA for the TRC application. Informational.</div>
+    </div>
+  </div>
+
+  <!-- 3. TASKS & DEADLINES -->
+  <div class="card">
+    <h2><span class="num">3</span>Tasks &amp; Deadlines</h2>
+
+    <div class="task-group">
+      <h3>Notion Tasks database — overdue</h3>
+      <div class="task"><span class="badge b-amber">Overdue 3d</span>Move Voice DNA, GBI, and positioning docs into the Knowledge Library <span class="owner">— Owner: Mohaina · due 13 Sep</span><br><span class="sub" style="color:var(--muted);font-size:12px;">Note: positioning &amp; voice-dna docs already show as filed under Knowledge Library — this looks done in practice; recommend marking it Done in Notion.</span></div>
+      <div class="task"><span class="badge b-amber">Overdue 2d</span>Draft next 3 LinkedIn posts <span class="owner">— Owner: Mohaina · due 14 Sep</span><br><span class="sub" style="color:var(--muted);font-size:12px;">Note: the Content Calendar shows all 5 posts for this week already drafted and scheduled — recommend marking Done.</span></div>
+    </div>
+
+    <div class="task-group">
+      <h3>AML · VAT · CT · Engagement Letters</h3>
+      <div class="task"><span class="badge b-red">CT</span>Brilliant Telecom LLC — CIT partner confirmation letters ~63 days overdue; CIT window 14 days <span class="owner">— Owner: Raihana → Mohaina</span></div>
+      <div class="task"><span class="badge b-red">CT</span>The Concept Lab / Mr. George — approve call or close, EL ~86 days stalled <span class="owner">— Owner: Mohaina</span></div>
+      <div class="task"><span class="badge b-red">CT</span>GL Middle East / Nandhu (TRC) — approve call or close, EL ~87 days stalled <span class="owner">— Owner: Mohaina</span></div>
+      <div class="task"><span class="badge b-red">Client</span>Kora Corporate Services — confirm EL decision, HOT 30+ days <span class="owner">— Owner: Mohaina</span></div>
+      <div class="task"><span class="badge b-amber">VAT</span>MMG Art Production LLC — VAT filing EL signature chase, Day 36+ <span class="owner">— Owner: Raihana</span></div>
+      <div class="task"><span class="badge b-amber">CT</span>Ratiolex (Timo Ylikantola) — CIT onboarding status check, Day 33+ <span class="owner">— Owner: Raihana</span></div>
+      <div class="task"><span class="badge b-amber">VAT</span>Montfort Trading FZE — VAT EL still missing UBO Emirates ID <span class="owner">— Owner: Raihana</span></div>
+      <div class="task"><span class="badge b-amber">AML</span>AML/CFT Programme H2 2026 review — schedule it, ~Day 49 <span class="owner">— Owner: Mohaina</span></div>
+      <div class="task"><span class="badge b-amber">CT</span>PICPA NE CHAPTER FZE — CT return status still unconfirmed <span class="owner">— Owner: Mohaina/Warren</span></div>
+      <div class="task"><span class="badge b-amber">VAT</span>Orlen S.A RAK Branch — respond on FTA Private Clarification Request for VAT refund <span class="owner">— Owner: Mohaina/tax team</span></div>
+    </div>
+
+    <div class="task-group">
+      <h3>Operational · Client · Finance · Content</h3>
+      <div class="task"><span class="badge b-amber">Internal</span>Raihana's Pipeline Status Report — 60+ days overdue; blocking 19 leads + 80 DM drafts <span class="owner">— Owner: Raihana</span></div>
+      <div class="task"><span class="badge b-amber">Client</span>MCM Products (Joanne Oquendo, 8/10 lead) — ~67 days silent, close decision needed <span class="owner">— Owner: Mohaina</span></div>
+      <div class="task"><span class="badge b-amber">Client</span>MENASTAR DMCC audit draft — 2nd follow-up sent, awaiting Excellence Auditing's response <span class="owner">— Owner: Michelle Pacis/Mohaina</span></div>
+      <div class="task"><span class="badge b-amber">Finance</span>Richemont (Dubai) FZE — AED 58,537.50 overdue across 2 invoices <span class="owner">— Owner: Mohaina/Raihana</span></div>
+      <div class="task"><span class="badge b-gray">EL</span>Engagement letters awaiting countersignature — Avola, Silvergate, W-Service Maritime, Proscientific <span class="owner">— Owner: Raihana</span></div>
+      <div class="task"><span class="badge b-amber">Content</span>Today's CMO Daily Post — awaiting Mohaina's compliance sign-off <span class="owner">— Owner: Mohaina</span></div>
+      <div class="task"><span class="badge b-gray">Infra</span>M365 Mail.Send admin consent — still not granted, Day 78+ <span class="owner">— Owner: Mohaina/IT</span></div>
+    </div>
+  </div>
+
+  <!-- 4. CONTENT SLOT -->
+  <div class="card content-slot">
+    <h2><span class="num">4</span>Content Slot · Wednesday</h2>
+    <div class="pillar-row">
+      <span class="badge b-gray">Pillar: Tech &amp; Automation</span>
+      <span class="badge b-gray">Intent: Soft Selling</span>
+      <span class="badge b-gray">Format: Soft-Sell Framework</span>
+    </div>
+    <div class="topic">"Your Zoho Books setup has a CIT countdown built into it — most owners never open that tab"</div>
+    <div class="cta">CTA: DM me "CIT-ready" · Status: drafted, sitting in your inbox (moanne.asira@gmail.com) awaiting sign-off — recommended publish time may already have passed by this run.</div>
+  </div>
+
+  <!-- 5. BD PIPELINE PULSE -->
+  <div class="card">
+    <h2><span class="num">5</span>BD Pipeline Pulse</h2>
+    <p style="font-size:13px;color:var(--muted);margin-top:0;">Source: Raihana's Daily Brief · 15 September 2026 (16 Sep edition not yet posted at run time).</p>
+    <p style="font-size:14px;">Send queue carried over: Brilliant Telecom CIT partner letters <span class="badge b-red">Escalate</span> · MMG Art VAT EL <span class="badge b-green">Send</span> · Ratiolex CIT onboarding <span class="badge b-green">Send</span> · Kora/Joelle EL decision <span class="badge b-amber">Mohaina first</span> · Montfort UBO EID <span class="badge b-gray">Log outcome</span>. Hold: Chadi Nasreddine/Cartier Fragrance (client asked today if the proposed approach is workable). Blocked: GL Middle East/Nandhu, The Concept Lab/Mr. George.</p>
+
+    <h3 style="font-size:12px;text-transform:uppercase;color:var(--muted);letter-spacing:0.05em;margin:16px 0 8px;">Raihana's Queue</h3>
+    <table>
+      <tr><th>Item</th><th>Detail</th></tr>
+      <tr><td>Leads to verify</td><td>19 pending your CRM go/no-go · 80 DM drafts ready · 0 sent — blocked on the overdue Pipeline Status Report</td></tr>
+      <tr><td>Highest-scored</td><td>Successful Star General Trading (7.5) · Interlogistics-FZCO (7.5) · Real Estate/Intl Trade lead (7.0, AML/DNFBP flag)</td></tr>
+      <tr><td>Outreach to send today</td><td>See send queue above</td></tr>
+      <tr><td>Follow-ups overdue</td><td>Pipeline Status Report (60+d) · Brilliant Telecom CIT confirmation (~63d) · GL Middle East (~87d)/Concept Lab (~86d) EL decisions · Kora EL decision (30+d)</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. KEY METRIC -->
+  <div class="card">
+    <h2><span class="num">6</span>Key Metric</h2>
+    <div class="metric-headline">🟡 Outstanding AR: AED 104,312.50</div>
+    <div class="metric-sub">Across 18 overdue invoices · live Zoho Books pull, BPO Service Group FZE · flat vs. Tuesday 15 Sep</div>
+    <table>
+      <tr><th>Cluster</th><th>Amount (AED)</th><th>Share</th><th>Oldest</th></tr>
+      <tr><td>Richemont (Dubai) FZE — 2 invoices</td><td>58,537.50</td><td>56.1%</td><td>212 days 🔴</td></tr>
+      <tr><td>Amadeus IT FZCO — 4 invoices</td><td>22,050.00</td><td>21.1%</td><td>308 days</td></tr>
+      <tr><td>IGEM Group FZE — 7 invoices</td><td>5,875.00</td><td>5.6%</td><td>203 days</td></tr>
+      <tr><td>MCM Products ME — 2 invoices</td><td>7,350.00</td><td>7.0%</td><td>41 days</td></tr>
+      <tr><td>Middletel Information Technology — 1 invoice</td><td>6,300.00</td><td>6.0%</td><td>77 days</td></tr>
+      <tr><td>BPOAS internal — 2 invoices</td><td>4,200.00</td><td>4.0%</td><td>107 days</td></tr>
+    </table>
+  </div>
+
+  <footer>
+    Auto-generated · BPOAS COO Morning Brief · Wednesday 16 September 2026 · 09:00 UAE<br>
+    Sources: Outlook Calendar &amp; Mail, Notion (Tasks, Content Calendar, Daily Briefs), Zoho Books (live AR pull), Mohaina-Business-Brain reference docs
+  </footer>
+
+</div>
+</body>
+</html>
