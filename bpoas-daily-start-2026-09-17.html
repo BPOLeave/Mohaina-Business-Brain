@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start</title>
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --card: #141414;
+    --card2: #181818;
+    --border: #222;
+    --primary: #E8294C;
+    --text: #F0F0F0;
+    --muted: #888;
+    --green: #22c55e;
+    --amber: #f59e0b;
+    --red: #ef4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.65; padding: 20px 16px 40px; max-width: 800px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 2px; }
+  h2 { font-size: 0.8rem; color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 12px; }
+  h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 18px; }
+  .hero { background: linear-gradient(135deg, #1a0008 0%, #0f0a0a 100%); border-color: #3a0f1a; }
+  .flag-card { border-color: #3f0f12; background: #120508; }
+  .flag-card h2 { color: var(--red); }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin: 2px 4px 2px 0; }
+  .tag-red { background: #3f0f12; color: var(--red); }
+  .tag-amber { background: #3b2a0a; color: var(--amber); }
+  .tag-green { background: #0b2e1a; color: var(--green); }
+  .tag-muted { background: #1e1e1e; color: var(--muted); }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .metric-big { font-size: 2rem; font-weight: 800; color: var(--primary); }
+  .metric-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .metric-value { font-size: 1.1rem; font-weight: 600; }
+  .metric-box { flex: 1; min-width: 160px; background: var(--card2); border-radius: 8px; padding: 14px 16px; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+  .item { padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .item:last-child { border-bottom: none; }
+  .item-title { font-weight: 600; margin-bottom: 3px; }
+  .item-meta { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .flag-item { padding: 12px 0; border-bottom: 1px solid #2a0f10; }
+  .flag-item:last-child { border-bottom: none; }
+  .flag-priority { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 4px; }
+  .flag-title { font-weight: 600; margin-bottom: 4px; }
+  .flag-why { font-size: 13px; color: #ccc; margin-bottom: 4px; }
+  .flag-next { font-size: 13px; color: var(--amber); }
+  .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+  .dot-green { background: var(--green); }
+  .dot-amber { background: var(--amber); }
+  .dot-red { background: var(--red); }
+  .log-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .log-row:last-child { border-bottom: none; }
+  .post-card { background: #100a0c; border: 1px solid #3a1520; border-radius: 10px; padding: 18px 20px; margin-bottom: 8px; }
+  .post-text { font-size: 14px; line-height: 1.7; white-space: pre-wrap; }
+  .hook { color: var(--primary); font-weight: 700; }
+  .cta { font-weight: 700; }
+  .link-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+  a { color: #7ec8f5; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .badge-score { display: inline-block; background: #0b2e1a; color: var(--green); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+  .muted { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="card hero">
+  <h2>BPOAS Daily Start</h2>
+  <h1>Thursday, 17 September 2026</h1>
+  <p class="muted" style="margin-bottom:18px; font-size:13px;">Lean Run (Thu) · Steps 1 + 4 · 07:00 UAE</p>
+
+  <h2 style="margin-bottom:10px;">Revenue Pulse</h2>
+  <div class="row">
+    <div class="metric-box">
+      <div class="metric-label">Account Balance (16 Sep)</div>
+      <div class="metric-value">AED 172,410.72</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">Yesterday's Credit</div>
+      <div class="metric-value" style="color:var(--green);">+ AED 60,393.07</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">Monthly Target</div>
+      <div class="metric-value muted">Not found in positioning doc</div>
+    </div>
+  </div>
+  <p style="font-size:12px; color:var(--muted); margin-top:10px;">CFO report runs Mondays only. Last CFO run: Week of 7 Sep 2026. Next full revenue breakdown: Monday 21 Sep. Bank figure from Emirates NBD alert (16 Sep 14:35 UAE).</p>
+</div>
+
+<div class="card flag-card">
+  <h2>Flags for Mohaina — Action Required Today</h2>
+
+  <div class="flag-item">
+    <div class="flag-priority"><span class="tag tag-red">1 · COMPLIANCE</span></div>
+    <div class="flag-title">MOHRE: Upload Missing Documents for Academic Degree Recognition</div>
+    <div class="flag-why">MOHRE issued notice to BPO Accounting Services on 16 Sep. Missing documents required for employee academic degree recognition — may affect staffing licences if ignored.</div>
+    <div class="flag-next">→ Log into MOHRE portal today. Identify required documents. Submit or delegate to HR/PRO.</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-priority"><span class="tag tag-red">2 · COMPLIANCE + FTA</span></div>
+    <div class="flag-title">Vida Voyage Travel FTA Account: 3 Security Events in 5 Minutes (16 Sep)</div>
+    <div class="flag-why">Two password resets + one email-change OTP on the FTA EmaraTax account for Vida Voyage Travel &amp; Tours LLC FZ — all within ~5 minutes. Could be client-authorised or could be a security breach. CT deadline 30 Sep is 13 days away.</div>
+    <div class="flag-next">→ Call Vida Voyage contact today. Confirm they authorised these changes. If not, alert FTA immediately and lock account access.</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-priority"><span class="tag tag-red">3 · CASH · URGENT — 2 DAYS</span></div>
+    <div class="flag-title">Zoho Books Subscription Renewal Failing — Card Invalid — Renewal: 19 Sep</div>
+    <div class="flag-why">Zoho Books will charge AED 99.00 on 19 Sep. Card on file is invalid. Multiple failed renewal attempts. Support ticket open (#167385660) but card update still pending. Losing Zoho Books access right before the 30 Sep CT deadline would be critical.</div>
+    <div class="flag-next">→ Update card details on Zoho today. Screenshot error and send to Zoho Partner Ops as instructed (ticket #167385660).</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-priority"><span class="tag tag-amber">4 · CLIENT · HIGH</span></div>
+    <div class="flag-title">XIXCompany — Engagement Letters Still Unsigned + EXLBRIS AFS Review Requested</div>
+    <div class="flag-why">XIXCompany (HIGH importance) flagged that signed ELs for CIT Filing 2025, Reconstruction &amp; AFS 2025 have not been returned. EXLBRIS draft financials shared by John Paolo Joson on 16 Sep for client review.</div>
+    <div class="flag-next">→ Coordinate with Raihana on EL status. Reply to accounting@xixcompany.com. John Paolo to chase EXLBRIS client for AFS approval.</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-priority"><span class="tag tag-amber">5 · CONTENT</span></div>
+    <div class="flag-title">LinkedIn Post Awaiting Approval — Timeout 08:15 UAE</div>
+    <div class="flag-why">Today's post (VAT/cheap accounting — 4/4 score) sent for approval at 04:04 UAE. No reply. 4th consecutive day without approval reply. 29+ posts backlogged unpublished over 9+ weeks.</div>
+    <div class="flag-next">→ Reply "approved" or "revise" by 08:15 UAE. Address the approval-reply gap and Rei delivery channel.</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-priority"><span class="tag tag-red">6 · IT · 84 DAYS</span></div>
+    <div class="flag-title">M365 Mail.Send Not Admin-Consented — Blocking All Routine Emails</div>
+    <div class="flag-why">Every email goes via Gmail fallback. Day 84 of the same blocker. One-time Entra/Graph admin-consent grant fixes this permanently.</div>
+    <div class="flag-next">→ Entra Admin Center → Enterprise Apps → consent Mail.Send for this app. 5-minute fix.</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Run Log</h2>
+  <div class="log-row"><span>Step 1 · COO Morning Brief</span><span style="color:var(--green);">Complete · coo-brief-2026-09-17.html</span></div>
+  <div class="log-row"><span>Step 2 · CFO Weekly Revenue</span><span style="color:var(--muted);">Skipped — CFO brief runs Mondays only</span></div>
+  <div class="log-row"><span>Step 3 · CRO Weekly Prospects</span><span style="color:var(--muted);">Skipped — CRO brief runs Mondays only</span></div>
+  <div class="log-row"><span>Step 4 · CMO Daily Post</span><span style="color:var(--green);">Complete (prior run 04:04 UAE) · cmo-post-2026-09-17.html · Pending Approval</span></div>
+  <div class="log-row"><span>Step 5 · Content Calendar</span><span style="color:var(--muted);">Skipped — Content calendar runs Mondays only</span></div>
+  <div class="log-row"><span>M365 Mail.Send</span><span style="color:var(--red);">FAILED — FORBIDDEN (Day 84)</span></div>
+  <div class="log-row"><span>Apify LinkedIn Analytics</span><span style="color:var(--muted);">Unavailable — 18+ weeks</span></div>
+</div>
+
+<div class="card">
+  <h2>Today's LinkedIn Post <span class="badge-score">4/4 Invisibility Score</span></h2>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">Pillar: The True Cost of Cheap Accounting · Intent: Engagement · Format: Contrarian Text Post · Publish: 08:30 UAE</p>
+  <span class="tag tag-red">COMPLIANCE FLAG</span>
+  <div class="post-card" style="margin-top:12px;">
+    <div class="post-text">The most expensive accountant I have ever seen a business hire was also the cheapest one.
+
+He was paying his secretary a few hundred dirhams extra a month to handle the books alongside her actual job. No qualifications, no real system, just someone willing to do it cheap. For two years the owner thought he was saving money.
+
+Then we came in to review his books before a VAT filing. His secretary had been closing periods wrong, missing input tax that was fully claimable, and marking invoices as paid when they were not. The reconstruction alone cost him more than three years of what he thought he was saving.
+
+I think most owners still see accounting as a line item to cut, not a decision that protects everything else they built. We are dedicated in a way that makes us feel that if a client loses a dirham, it is something that also comes from our pocket. A cheap accountant who does not think that way is not actually cheap. You just have not been billed for the mistake yet.
+
+We go to a client's office, check the supporting documents physically, and a second person reviews every submission before it goes to the FTA. Nobody in our process is quietly guessing on your behalf.
+
+At the end of the day, the real cost of an accountant was never the invoice you paid them. It is the one you did not see coming.
+
+Tag a founder who needs to see this before their next VAT filing.</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Quick Links</h2>
+  <div class="link-row">
+    <a href="coo-brief-2026-09-17.html">COO Brief</a>
+    <a href="https://app.notion.com/p/3de8a33e7fd181aeabb5efe565e24e88">CMO Post (Notion)</a>
+    <a href="https://app.notion.com/p/3db8a33e7fd181ce8373fba09d8915a5">Content Calendar</a>
+    <a href="https://app.notion.com/p/38e8a33e7fd181d0b9c7e1716e43305a">BPOAS Team Hub</a>
+  </div>
+</div>
+
+<p style="font-size:12px; color:var(--muted); text-align:center; padding-top:8px;">
+  Auto-generated · BPOAS Daily Start · Thursday 17 September 2026 · 07:00 UAE
+</p>
+</body>
+</html>
