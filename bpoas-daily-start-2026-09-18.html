@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start</title>
+<style>
+  :root {
+    --brand: #E8294C;
+    --bg: #0A0A0A;
+    --card: #141414;
+    --border: #1E1E1E;
+    --text: #E8E8E8;
+    --muted: #888;
+    --green: #22C55E;
+    --amber: #F59E0B;
+    --red: #EF4444;
+    --blue: #3B82F6;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #F5F5F5; --card: #FFFFFF; --border: #E0E0E0; --text: #111; --muted: #555;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 16px; max-width: 800px; margin: 0 auto; }
+  .hero { background: var(--card); border: 1px solid var(--border); border-top: 3px solid var(--brand); border-radius: 8px; padding: 24px; margin-bottom: 20px; }
+  .hero h1 { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+  .hero .sub { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+  .run-type { display: inline-block; background: rgba(232,41,76,0.12); color: var(--brand); border: 1px solid var(--brand); border-radius: 20px; padding: 3px 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+  .revenue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 16px; }
+  .rev-tile { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; }
+  .rev-tile .rtl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .rev-tile .rtv { font-size: 18px; font-weight: 700; }
+  .rev-tile .rts { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .stale-note { font-size: 11px; color: var(--amber); margin-top: 12px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+  .card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand); margin-bottom: 14px; }
+  .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; margin-top: 10px; }
+  .value { font-size: 14px; color: var(--text); }
+  .log-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .log-row:last-child { border-bottom: none; }
+  .log-skill { font-weight: 600; }
+  .log-note { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .badge { display: inline-block; border-radius: 20px; padding: 2px 10px; font-size: 11px; font-weight: 700; }
+  .badge-complete { background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid var(--green); }
+  .badge-skipped { background: rgba(136,136,136,0.12); color: var(--muted); border: 1px solid var(--muted); }
+  .badge-pending { background: rgba(245,158,11,0.12); color: var(--amber); border: 1px solid var(--amber); }
+  .flags-card { background: var(--card); border: 1px solid rgba(232,41,76,0.4); border-left: 4px solid var(--brand); border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+  .flags-card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand); margin-bottom: 14px; }
+  .flag-item { padding: 12px 14px; border-radius: 6px; margin-bottom: 8px; font-size: 13px; line-height: 1.5; }
+  .flag-compliance { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.3); }
+  .flag-compliance .flag-tag { color: var(--red); font-weight: 700; }
+  .flag-cash { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.3); }
+  .flag-cash .flag-tag { color: var(--amber); font-weight: 700; }
+  .flag-bd { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.3); }
+  .flag-bd .flag-tag { color: var(--blue); font-weight: 700; }
+  .flag-infra { background: rgba(136,136,136,0.08); border: 1px solid rgba(136,136,136,0.3); }
+  .flag-infra .flag-tag { color: var(--muted); font-weight: 700; }
+  .next-step { margin-top: 6px; font-size: 12px; color: var(--muted); }
+  .next-step strong { color: var(--text); }
+  .email-row { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .email-row:last-child { border-bottom: none; }
+  .email-subject { font-weight: 600; }
+  .email-from { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .email-note { color: var(--muted); font-size: 12px; margin-top: 4px; font-style: italic; }
+  .post-body { font-size: 14px; line-height: 1.8; white-space: pre-wrap; }
+  .cta-line { font-weight: 700; color: var(--brand); }
+  .score-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid var(--green); border-radius: 20px; padding: 3px 10px; font-size: 13px; font-weight: 700; }
+  .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+  .link-tile { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; font-size: 13px; }
+  .link-tile .lt { font-weight: 600; margin-bottom: 4px; }
+  .link-tile a { color: var(--brand); text-decoration: none; font-size: 12px; word-break: break-all; }
+  .footer { font-size: 11px; color: var(--muted); margin-top: 28px; line-height: 1.6; border-top: 1px solid var(--border); padding-top: 16px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:6px;">
+    <h1>BPOAS Daily Start</h1>
+    <span class="run-type">Friday · Lean Run</span>
+  </div>
+  <div class="sub">Friday, 18 September 2026 · 07:00 UAE (GST, UTC+4)</div>
+  <div style="font-size:13px; color:var(--muted); margin-bottom:4px; margin-top:16px;">REVENUE PULSE</div>
+  <div class="revenue-grid">
+    <div class="rev-tile"><div class="rtl">MTD Revenue Received</div><div class="rtv">—</div><div class="rts">CFO data Mondays only</div></div>
+    <div class="rev-tile"><div class="rtl">Monthly Target</div><div class="rtv">—</div><div class="rts">From positioning doc</div></div>
+    <div class="rev-tile"><div class="rtl">Gap to Target</div><div class="rtv">—</div></div>
+    <div class="rev-tile"><div class="rtl">Status</div><div class="rtv" style="color:var(--amber)">No Data</div><div class="rts">Carry from Monday</div></div>
+  </div>
+  <div class="stale-note">Last updated: Monday 14 September 2026 — CFO brief runs Mondays only.</div>
+</div>
+
+<div class="flags-card">
+  <h2>Flags for Mohaina</h2>
+  <div class="flag-item flag-compliance">
+    <span class="flag-tag">COMPLIANCE</span> — Establishment Card expires 03 October 2026 (15 days)<br>
+    <span style="font-size:12px;">BPO Service Group FZE Establishment Card with SPC Free Zone expires in 15 days. Late renewal carries penalties.</span>
+    <div class="next-step"><strong>Next step:</strong> Start SPC Free Zone renewal this week. Contact cx@spcfz.ae or log into the SPC portal.</div>
+  </div>
+  <div class="flag-item flag-cash">
+    <span class="flag-tag">CASH</span> — Travelfusion tfPay balance low: AED 2,898.94 (Menastar DMCC)<br>
+    <span style="font-size:12px;">Balance below threshold, immediate transfer requested by Travelfusion. Email received 17:33 UAE yesterday.</span>
+    <div class="next-step"><strong>Next step:</strong> Verify Menastar DMCC has been notified and is actioning the top-up.</div>
+  </div>
+  <div class="flag-item flag-bd">
+    <span class="flag-tag">BD</span> — Partnership proposal: Comfi (UAE SME fintech lender)<br>
+    <span style="font-size:12px;">alisher@comfihq.me — fund UAE SMEs in 55 min on 4 docs, $200M+ disbursed, backed by top VCs. Seeking BPOAS referral partnership.</span>
+    <div class="next-step"><strong>Next step:</strong> 15-minute exploratory call if referral fee terms work — SME funding is a real client pain point.</div>
+  </div>
+  <div class="flag-item flag-infra">
+    <span class="flag-tag">INFRA · Day 79+</span> — M365 Mail.Send still not admin-consented<br>
+    <div class="next-step"><strong>Next step:</strong> Escalate to IT admin this week. One Entra admin-consent grant fixes all routines permanently.</div>
+  </div>
+  <div class="flag-item flag-infra">
+    <span class="flag-tag">INFRA · 9+ weeks</span> — Post delivery to Rei Nald Onella broken — 28+ posts backlogged, 0 published<br>
+    <div class="next-step"><strong>Next step:</strong> Decision required — fix the channel or bulk-publish the backlog.</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Run Log · Friday 18 September 2026</h2>
+  <div class="log-row"><div><div class="log-skill">Step 1 · COO Morning Brief</div><div class="log-note">Earlier session sent brief ~04:05–05:15 UAE via Gmail. This session confirms inbox/calendar data. Output: coo-brief-2026-09-18.html</div></div><span class="badge badge-complete">Complete</span></div>
+  <div class="log-row"><div><div class="log-skill">Step 2 · CFO Weekly Revenue</div><div class="log-note">Skipped — CFO brief runs Mondays only.</div></div><span class="badge badge-skipped">Skipped</span></div>
+  <div class="log-row"><div><div class="log-skill">Step 3 · CRO Weekly Prospects</div><div class="log-note">Skipped — CRO brief runs Mondays only.</div></div><span class="badge badge-skipped">Skipped</span></div>
+  <div class="log-row"><div><div class="log-skill">Step 4 · CMO Daily Post</div><div class="log-note">Complete. Approval email sent earlier (~04:05 UAE via Gmail). Awaiting approval — timeout 08:15 UAE. Output: cmo-post-2026-09-18.html</div></div><span class="badge badge-pending">Pending Approval</span></div>
+  <div class="log-row"><div><div class="log-skill">Step 5 · Content Calendar</div><div class="log-note">Skipped — Content calendar runs Mondays only.</div></div><span class="badge badge-skipped">Skipped</span></div>
+</div>
+
+<div class="card">
+  <h2>COO Morning Brief · Today's Inbox Priorities</h2>
+  <div class="email-row"><div class="email-subject">Establishment Card renewal 15 days reminder — BPO Service Group FZE</div><div class="email-from">cx@spcfz.ae · 05:01 UAE · ACTION REQUIRED</div><div class="email-note">Expires 03/10/2026. Start renewal process this week.</div></div>
+  <div class="email-row"><div class="email-subject">Partnership proposal — capital partner for your SME clients (Comfi)</div><div class="email-from">alisher@comfihq.me · 04:54 UAE · UNREAD</div><div class="email-note">BD opportunity — see flag above.</div></div>
+  <div class="email-row"><div class="email-subject">Travelfusion tfPay Warning Alert — Menastar DMCC New</div><div class="email-from">noreply@travelfusion.com · 17:33 UAE yesterday · UNREAD</div><div class="email-note">Client account low balance — AED 2,898.94.</div></div>
+  <div class="email-row"><div class="email-subject">Scheduled Weekly Report: Profit and Loss (10–16 Sep 2026)</div><div class="email-from">no-reply@zohobooks.com · 14:09 UAE yesterday · UNREAD · HAS ATTACHMENT</div><div class="email-note">Weekly P&amp;L attached — review for last week's financial figures.</div></div>
+  <div class="email-row"><div class="email-subject">No calendar events today. Clear day.</div><div class="email-from">Outlook Calendar · 18 Sep 2026</div></div>
+</div>
+
+<div class="card">
+  <h2>Today's LinkedIn Post · <span class="score-badge">4 / 4</span></h2>
+  <div style="font-size:12px; color:var(--muted); margin-bottom:12px;">Pillar: What the Numbers Are Telling You · Educating · Framework List · No compliance flag</div>
+  <div style="background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:6px; padding:16px; margin-bottom:16px;">
+    <div class="post-body">I think most owners look at their P&L once a month, see whether the number at the bottom is positive, and move on.
+
+That works until it doesn't.
+
+There are three numbers your P&L generates every month that most people never look at, and they're the ones that usually explain why things feel wrong even when the profit looks fine.
+
+1. Gross profit margin by revenue line, not just overall.
+Your total gross margin can look healthy while one product or service is quietly bleeding. The blended number masks it. If you sell two or three things, you need to see the margin on each one separately, every month.
+
+2. The gap between your invoiced revenue and your collected revenue.
+Your P&L shows revenue when it's billed, not when it lands in your account. A company can be technically profitable and genuinely cash-short at the same time. That gap is the first thing a bank or investor will ask about.
+
+3. Fixed costs as a percentage of revenue, not as a flat number.
+When revenue dips 15%, your fixed costs don't. The percentage goes up fast. Owners who track the flat number think they know their exposure. Owners who track the percentage see the risk before it becomes a problem.
+
+None of this requires a finance degree. It just requires someone to set it up and show you where to look.
+
+<span class="cta-line">Save this for your next board or bank conversation.</span>
+
+P.S. If your accountant is not showing you these three on a monthly basis, that is worth raising at your next review.</div>
+  </div>
+  <div style="font-size:12px; color:var(--muted); font-weight:600; margin-bottom:6px;">3 PINNED COMMENTS</div>
+  <div style="font-size:13px; color:var(--muted); line-height:1.6; padding-left:12px; border-left:2px solid var(--border);">
+    <p style="margin-bottom:8px;">1. The number that surprises people most is usually the fixed-cost percentage. Most owners think their cost base is manageable until revenue drops and they watch it jump.</p>
+    <p style="margin-bottom:8px;">2. I have had this conversation in a bank meeting where the owner could not explain the gap between their profit and their cash balance. The bank could. It is a better meeting when you know the number before they ask.</p>
+    <p>3. If your accountant is not showing you these three on a monthly basis, that is worth asking about at your next review.</p>
+  </div>
+  <div style="margin-top:14px; font-size:12px; color:var(--amber);">Approval pending — timeout 08:15 UAE. Recommended post time: 08:30–09:00 UAE.</div>
+</div>
+
+<div class="card">
+  <h2>Quick Links</h2>
+  <div class="links-grid">
+    <div class="link-tile"><div class="lt">CMO Daily Post</div><a href="cmo-post-2026-09-18.html">cmo-post-2026-09-18.html</a></div>
+    <div class="link-tile"><div class="lt">Content Calendar (Week of 14 Sep)</div><a href="https://app.notion.com/p/3db8a33e7fd181ce8373fba09d8915a5">Notion</a></div>
+    <div class="link-tile"><div class="lt">BPOAS Team Hub</div><a href="https://app.notion.com/p/38e8a33e7fd181d0b9c7e1716e43305a">Notion</a></div>
+    <div class="link-tile"><div class="lt">Mohaina's Second Brain</div><a href="https://app.notion.com/p/3d78a33e7fd181ca949cfec46bbb3edd">Notion</a></div>
+  </div>
+</div>
+
+<div class="footer">
+  BPOAS Daily Start · Friday 18 September 2026 · Auto-generated at 07:00 UAE<br>
+  Lean run (Friday) — Steps 1 + 4 only · Steps 2, 3, 5 skipped (Monday-only)<br>
+  M365 Mail.Send blocked (Day 79+) — summary via Gmail fallback
+</div>
+
+</body>
+</html>
