@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRO Weekly Prospect Pack · BPOAS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2E5B88; --primary-light:#5C8AC0; --navy:#1F3A5F;
+    --bg:#0A0A0A; --panel:#141518; --panel-2:#191b1f; --ink:#F3F5F7; --ink-dim:#A7ADB6;
+    --line:#232629; --line-soft:#1c1e22;
+    --good:#34D399; --warn:#F0B84E; --bad:#F1685E;
+    --r-md:14px; --r-lg:22px; --pill:9999px;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.35);
+    --grad:linear-gradient(135deg, #142A45 0%, var(--navy) 48%, var(--primary) 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Rethink Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:880px;margin:0 auto;padding:34px 20px 70px;}
+
+  .ohead{border-radius:var(--r-md);padding:26px 28px;margin-bottom:22px;color:#fff;background:var(--grad);box-shadow:0 16px 42px rgba(46,91,136,.28);position:relative;overflow:hidden;border:1px solid #2c3f57;}
+  .ohead::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.06);top:-120px;right:-60px;pointer-events:none;}
+  .ohead .k{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.82;font-weight:600;}
+  .ohead h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:5px 0 3px;}
+  .ohead .d{font-size:13px;opacity:.85;}
+
+  .sec{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;margin:28px 0 12px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-left:4px solid var(--primary);}
+  .card h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:12px;}
+  .row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:14px;border-bottom:1px solid var(--line-soft);}
+  .row:last-child{border-bottom:none;}
+  .tagi{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;}
+  .t-red{background:rgba(241,104,94,.14);color:var(--bad);} .t-amb{background:rgba(240,184,78,.14);color:var(--warn);}
+  .t-grey{background:#1e2126;color:var(--ink-dim);} .t-grn{background:rgba(52,211,153,.14);color:var(--good);} .t-blue{background:rgba(92,138,192,.16);color:var(--primary-light);}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
+  .stat .l{font-size:12px;color:var(--ink-dim);} .stat .n{font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:4px;background:linear-gradient(135deg,var(--primary-light),var(--good));-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+  .pcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh);padding:18px 20px;margin-bottom:14px;border-top:4px solid var(--primary);}
+  .ph{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+  .ph .nm{font-weight:800;font-size:16px;color:#fff;} .ph .rl{font-size:12.5px;color:var(--ink-dim);width:100%;}
+  .ph .rl a{color:var(--primary-light);text-decoration:none;} .ph .rl a:hover{text-decoration:underline;}
+  .meta{font-size:12.5px;color:var(--ink-dim);margin:8px 0 4px;}
+  .meta b{color:var(--ink);}
+  .hook{font-size:14px;background:var(--panel-2);border:1px solid var(--line-soft);border-radius:10px;padding:9px 12px;margin:8px 0;}
+  .flag{font-size:12px;background:rgba(240,184,78,.10);border:1px solid rgba(240,184,78,.3);color:var(--warn);border-radius:10px;padding:8px 12px;margin:8px 0;}
+  .seqlbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--primary-light);font-weight:700;margin:12px 0 6px;}
+  .dm{font-size:13.5px;border-left:3px solid var(--line);background:var(--panel-2);border-radius:0 10px 10px 0;padding:9px 12px;margin:7px 0;color:#DADDE1;}
+  .dm .t{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-dim);font-weight:700;display:block;margin-bottom:3px;}
+  .fit{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);}
+
+  .note{background:linear-gradient(135deg, #101114 0%, #16283f 100%);border:1px solid #223350;color:#fff;border-radius:var(--r-md);padding:18px 22px;font-size:15px;margin-top:10px;box-shadow:0 14px 36px rgba(0,0,0,.4);}
+  .note b{color:var(--primary-light);}
+
+  footer{text-align:center;padding:30px 22px 10px;color:var(--ink-dim);font-size:13px;}
+  footer b{color:var(--ink);}
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="ohead"><div class="k">BPOAS · CRO weekly prospect pack</div><h1>9 verified prospects. 0 held for score. 0 flagged for review.</h1><div class="d">Monday, 21 September 2026 · sourced via Apify/LinkedIn and cross-checked individually against public company records · every DM is a draft, nothing sent</div></div>
+
+    <div class="grid3">
+      <div class="stat"><div class="l">Profiles reviewed (Apify/LinkedIn)</div><div class="n">70+</div></div>
+      <div class="stat"><div class="l">Verified UAE SME owners (fit 6+)</div><div class="n">9</div></div>
+      <div class="stat"><div class="l">Messages drafted</div><div class="n">45</div></div>
+    </div>
+
+    <div class="sec">The prospects · ranked by fit</div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Aadil Datta</span><span class="fit t-grn">Fit 8/10</span><span class="rl">CEO &amp; Founder, Elite Horizon General Trading LLC · Trading · Dubai · <a href="https://ae.linkedin.com/in/aadildatta" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Grew Elite Horizon from three people to thirty eight in under four years.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Aadil, three people to thirty eight in under four years is a real build, not luck. I'm Dubai based too, always good to connect with people scaling something themselves.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Aadil. Reading about Elite Horizon growing that fast made me curious, at what point did you realise the business had outgrown how you were running it day to day?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's corporate tax return deadline lands September 30 for anyone whose financial year closed in December, and the Tax Procedures Law that took effect this year gives the authority tighter timelines and more power to act on late filings. Trading companies growing as fast as Elite Horizon usually feel that kind of deadline the most. Is that something you keep an eye on yourself, or does someone else own it?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Aadil. Going from three people to thirty eight means you stopped being able to do everything yourself at some point, what was the hardest part of the business to hand over?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll stop here, Aadil. Four years to build what you've built with Elite Horizon is not a small thing, glad our paths crossed either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Suraj Gautam</span><span class="fit t-grn">Fit 8/10</span><span class="rl">Founder, Far Way General Trading LLC · Trading / FMCG · Dubai · <a href="https://ae.linkedin.com/in/surajgautamdubai" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Says he still starts every day at four thirty in the morning.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Suraj, four thirty starts and five hundred plus brands across forty countries is a routine most people talk about and don't actually keep. I'm Dubai based too, good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Suraj. You wrote about the early mornings and the conviction that Dubai was always going to be something for global trade. Was that conviction there from day one, or did it build up as Far Way grew?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA has set September 30 as the corporate tax return deadline for businesses whose year closed in December, and this year's Tax Procedures Law rewrite gives them tighter deadlines and more power on late filings. Re-export and FMCG distribution across forty countries usually means a more complicated set of books than most trading companies carry. Is that side handled centrally, or does it sit with a few different people?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Suraj. Building a re-export hub story out of Dubai from your own routine rather than someone else's playbook, what part of that story do people usually get wrong when they ask about it?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>Leaving it there, Suraj. What you've built with Far Way, and the routine behind it, is genuinely rare to see written down honestly. Glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Bhupender Nath</span><span class="fit t-grn">Fit 7/10</span><span class="rl">Founder, Passion F&amp;B · F&amp;B · Dubai, Mumbai &amp; Kuwait · <a href="https://ae.linkedin.com/in/bhupender-nath-631a908" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Expressive · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Turned one foodie's dream into Passion F&amp;B across Dubai, Mumbai, and Kuwait.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Bhupender, running Passion F&amp;B across Dubai, Mumbai and Kuwait at once is a different kind of business than most single city F&amp;B names. I'm Dubai based too, good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. You described Passion F&amp;B as what started as a dream becoming a journey. Which of the three cities felt the least like a dream and the most like hard work to actually get running?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's corporate tax return deadline is September 30 for businesses with a December year end, and the rules changed this year to give the authority tighter timelines on late filings. Running F&amp;B across three countries usually means three different sets of numbers that all need to line up. Is that kept separate by country, or pulled together in one place?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Bhupender. Twenty five years across hospitality before landing on your own F&amp;B group, what's the one thing from those earlier years you still catch yourself doing?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll stop here, Bhupender. Turning one dream into three cities of business is not a common outcome, glad we're connected regardless.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Muhammad Afifi</span><span class="fit t-grn">Fit 7/10</span><span class="rl">CEO &amp; Managing Director, ONYX Global Partners · Real Estate / Hospitality · Dubai HQ, also Paris &amp; Riyadh · <a href="https://ae.linkedin.com/in/muhammad-afifi2023" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Analytical · <b>Opener:</b> Authority Flip · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Took ONYX from a Lyon consultancy in 2018 to a three country group.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Muhammad, I don't send many of these. A consultancy built in Lyon in 2018 now running out of Dubai, Paris and Riyadh isn't the usual path, and it stood out. Good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. ONYX now spans real estate, hospitality, luxury and retail across three countries from a single consultancy start. Which of those sectors came first by accident rather than by plan?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's corporate tax return deadline is September 30 for anyone with a December year end, and the Tax Procedures Law that came into force this year gives the authority tighter deadlines and wider powers on the whole filing process. Groups running across three jurisdictions like ONYX usually carry the most complicated version of this problem, not the simplest. Is that reporting centralised out of Dubai, or handled separately by market?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Muhammad. Scaling platforms across real estate, hospitality and retail at once means you're rarely the expert in the room, what's the part of running a diversified group people underestimate the most?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>Closing this out, Muhammad. Building ONYX across three countries from a 2018 start in Lyon is a genuinely uncommon trajectory. Glad we connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Jasna Savic</span><span class="fit t-blue">Fit 7/10</span><span class="rl">Partner, International Business Development, Darahim Properties &amp; Investment LLC · Real Estate · Abu Dhabi &amp; Dubai · <a href="https://www.linkedin.com/in/jasnasavic" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Analytical · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Handles high value real estate deals across both Abu Dhabi and Dubai.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Jasna, I'll skip the small talk. Darahim's high value transaction work spanning both Abu Dhabi and Dubai caught my attention, not many boutique firms cover both markets properly. Good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting, Jasna. Covering both Abu Dhabi and Dubai on high value deals means two very different buyer bases in one week sometimes. Which market do you find takes more work to close in practice?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's corporate tax return deadline is September 30 for anyone with a December year end, and this year's Tax Procedures Law rewrite gave the authority tighter timelines on late filings. High value real estate transactions across two emirates usually mean commission and VAT timing questions that don't line up neatly. Is that something reviewed closely on your side, or left to the numbers team?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Jasna. International business development sits differently at a boutique firm than at a large brokerage, what's the trade off you made choosing Darahim's size over a bigger name?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll wrap this up, Jasna. Covering two of the region's toughest property markets well is not something many firms manage at once. Glad we connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Muhammad Alam</span><span class="fit t-blue">Fit 7/10</span><span class="rl">CEO &amp; Founder, Xsite Real Estate Brokers · Real Estate · Dubai · <a href="https://www.linkedin.com/in/muhammad-alam-21b54a106" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Warm · <b>Style:</b> Driver · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Left a property consultant job in 2019 to found his own brokerage by 2022.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Muhammad, going from Senior Property Consultant to founding Xsite and growing it past sixty staff in three years is a fast climb. I'm Dubai based too, good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. You were still selling for someone else in 2019, and by 2022 Xsite was yours. What made that specific year feel like the right time to go out on your own?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's corporate tax return deadline is September 30 for a December year end, and this year's Tax Procedures Law rewrite means tighter timelines and more power to act on late filings. Brokerages that scaled as fast as Xsite usually outgrow their own back office before anyone notices. Is the reporting side keeping pace with how fast the sales side has grown?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Muhammad. Sixty plus people now answer to you who didn't exist three years ago, what's the part of being the boss that surprised you most?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll leave this where it is, Muhammad. Building Xsite from scratch to where it is now in three years is a genuinely fast build. Glad we connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Rajesh Lakhwani</span><span class="fit t-blue">Fit 6/10</span><span class="rl">CEO, Arch Home Real Estate · Real Estate · Al Barsha 1, Dubai · <a href="https://www.linkedin.com/in/rajesh-lakhwani-26558779" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Driver · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Has run Arch Home Real Estate from the same Al Barsha office since 2018.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Rajesh, I'll get straight to it. Eight years running Arch Home from the same Al Barsha office says something in a market where most brokerages don't last that long. Good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. Eight years is long enough to see plenty of brokerages open and close around you. What's changed the most about running Arch Home since you first started it?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's corporate tax return deadline is September 30 for a December year end, and this year's Tax Procedures Law rewrite gives the authority tighter timelines and more power to act on late filings. Brokerages with steady deal flow like Arch Home tend to notice these changes fastest because commission timing affects when tax actually falls due. Is that something you track yourself, or does someone else own it?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Rajesh. Eight years in the same spot in this market takes more than good timing, what's the one thing you've refused to change about how Arch Home operates?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>Stopping here, Rajesh. Eight steady years in Dubai real estate is a real track record. Glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">Farhad Nizam</span><span class="fit t-blue">Fit 6/10</span><span class="rl">Managing Director, Anchor Global Foodstuff Trading · F&amp;B Trading · Dubai · <a href="https://www.linkedin.com/in/farhad-nizam-69843819" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Analytical · <b>Opener:</b> Directness Play · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Has managed Anchor Global Foodstuff Trading for eleven straight years, still hands on.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Farhad, I'll skip the build up. Eleven years running the same foodstuff trading business is a longer run than most in that sector manage. I'm Dubai based too, good to connect.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. Eleven years as MD at Anchor Global is a long stretch in foodstuff trading. What's the part of the business that has changed the least since you started?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's corporate tax return deadline is September 30 for a December year end, and this year's Tax Procedures Law rewrite means tighter timelines and more authority to act on late filings. Foodstuff trading businesses usually carry more moving parts on the input side than most people expect, imports, spoilage, margins that shift by the week. Is that reviewed regularly, or mostly left to whoever handles the books?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Farhad. Eleven years is long enough to know exactly what actually matters in this business, what's the one thing you still check yourself instead of leaving to someone else?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>Closing the loop, Farhad. Eleven steady years running the same trading business in this city is not common. Glad we're connected either way.</div>
+    </div>
+
+    <div class="pcard">
+      <div class="ph"><span class="nm">M Alaa Askar</span><span class="fit t-blue">Fit 6/10</span><span class="rl">Co-owner, Royal Techno Foodstuff Trading LLC · F&amp;B Trading · Deira, Dubai · <a href="https://ae.linkedin.com/in/m-alaa-mahmoud-askar-390317a4" target="_blank" rel="noopener">profile</a></span></div>
+      <div class="meta"><b>Temp:</b> Cold · <b>Style:</b> Amiable · <b>Opener:</b> Peer Opener · <b>Compliance signal:</b> None observed</div>
+      <div class="hook"><b>Human hook:</b> Co-built Royal Techno Foodstuff Trading in Deira with a business partner, not alone.</div>
+      <div class="seqlbl">5-message sequence</div>
+      <div class="dm"><span class="t">Day 0 · Connection request</span>Hi Alaa, building Royal Techno in Deira with a partner rather than going solo is its own kind of hard. I'm Dubai based too, good to connect either way.</div>
+      <div class="dm"><span class="t">Day 0 · Icebreaker</span>Thanks for connecting. Running Royal Techno as two seasoned entrepreneurs rather than one owner is a set up that works for some and not others. How do you two usually split what each of you owns day to day?</div>
+      <div class="dm"><span class="t">Day 2-3 · Value bridge</span>The FTA's corporate tax return deadline is September 30 for a December year end, and this year's Tax Procedures Law rewrite gives the authority tighter timelines on late filings. Partnerships in foodstuff trading sometimes end up with the numbers side sitting between two people instead of clearly owned by either. Is that side handled together, or does one of you take the lead on it?</div>
+      <div class="dm"><span class="t">Day 3-4 · The pivot</span>Different question, Alaa. Two seasoned entrepreneurs running one company together for years is rarer than people think, what's kept that partnership working?</div>
+      <div class="dm"><span class="t">Day 5-7 · Clean exit</span>I'll stop here, Alaa. A partnership that's lasted this long in Deira trading says something good about how you two work together. Glad we're connected either way.</div>
+    </div>
+
+    <div class="sec">Not sourced this cycle</div>
+    <div class="card">
+      <div class="row">Healthcare, FinTech, Professional Services, E-commerce, Logistics<span class="tagi t-grey">no verifiable named SME owner found</span></div>
+      <div class="row" style="border:none;padding-top:0;font-size:13px;color:var(--ink-dim)">Real clinics, freight forwarders and consultancies exist in every one of these categories, but this week's search either returned a company page with no named owner, or a name that could not be independently confirmed against a second public source. Worth a follow up pass through DED/DHA directories rather than guessing at a name.</div>
+    </div>
+
+    <div class="sec">Researched and dropped (for transparency)</div>
+    <div class="card">
+      <div class="row">Abdul Rafeeque, "Managing Director at FLI Forwarding"<span class="tagi t-amb">conflicting identity, dropped</span></div>
+      <div class="row" style="border:none;padding-top:0;font-size:13px;color:var(--ink-dim)">Public sources show two different senior roles under this name, one Dubai based at FLI Forwarding, one a chairman role in Saudi Arabia with a different company. Could not confirm these are the same person, so dropped rather than risk sending to the wrong Abdul Rafeeque.</div>
+      <div class="row">Zia Habib, The Lakes Clinic, Dubai<span class="tagi t-grey">could not independently verify</span></div>
+      <div class="row">Milton Campos Jr, freight forwarding, and Fuaad J, freight forwarding<span class="tagi t-grey">profile could not be verified against a second source</span></div>
+    </div>
+
+    <div class="note">Open with <b>Aadil Datta</b> or <b>Suraj Gautam</b> first, both are warm, fit 8, and carry a hook grounded in something they said themselves rather than a directory listing. No prospect scored 9 or 10 this week, so nothing is held for your personal review. Every message references the real FTA corporate tax deadline of September 30 as peer intelligence, not a pitch, BPOAS is not named once in any of these 45 messages. You read each one, then you decide whether to send it.</div>
+
+    <footer>The brain thinks. The team works. You approve. · <b>BPOAS · We think like owners</b></footer>
+  </div>
+</body>
+</html>
