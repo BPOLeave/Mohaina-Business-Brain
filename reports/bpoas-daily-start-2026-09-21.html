@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BPOAS Daily Start · 21 Sep 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #0A0A0A;
+  --surface: #141414;
+  --surface-2: #1C1C1C;
+  --surface-3: #242424;
+  --brand: #E8294C;
+  --brand-dim: rgba(232,41,76,0.15);
+  --brand-border: rgba(232,41,76,0.3);
+  --green: #22C55E;
+  --green-dim: rgba(34,197,94,0.12);
+  --green-border: rgba(34,197,94,0.25);
+  --amber: #F59E0B;
+  --amber-dim: rgba(245,158,11,0.12);
+  --amber-border: rgba(245,158,11,0.25);
+  --red: #EF4444;
+  --red-dim: rgba(239,68,68,0.12);
+  --red-border: rgba(239,68,68,0.25);
+  --blue: #3B82F6;
+  --blue-dim: rgba(59,130,246,0.12);
+  --text-primary: #F2F2F2;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  --border: #2A2A2A;
+  --divider: #1E1E1E;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100%;
+}
+
+body {
+  padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+  max-width: 900px;
+  margin: 0 auto;
+  padding-inline: 16px;
+  padding-block: 24px;
+}
+
+h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; }
+h3 { font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+.mono { font-family: 'JetBrains Mono', 'Courier New', monospace; font-variant-numeric: tabular-nums; }
+
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--divider);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--surface) 0%, #1a0a0e 100%);
+  border: 1px solid var(--brand-border);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 8px;
+}
+.hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.hero-brand {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--brand);
+  margin-bottom: 4px;
+}
+.hero-date {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.hero-sub {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.badge-critical { background: var(--red-dim); color: var(--red); border: 1px solid var(--red-border); }
+.badge-warning { background: var(--amber-dim); color: var(--amber); border: 1px solid var(--amber-border); }
+.badge-ok { background: var(--green-dim); color: var(--green); border: 1px solid var(--green-border); }
+.badge-info { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(59,130,246,0.25); }
+.badge-brand { background: var(--brand-dim); color: var(--brand); border: 1px solid var(--brand-border); }
+
+.revenue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+.rev-tile {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+.rev-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.rev-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.rev-value.critical { color: var(--red); }
+.rev-value.warning { color: var(--amber); }
+.rev-value.neutral { color: var(--text-primary); }
+.rev-sub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.run-log { display: flex; flex-direction: column; gap: 2px; }
+.run-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 5px;
+  font-size: 0.82rem;
+}
+.run-row:hover { background: var(--surface-2); }
+.run-icon { font-size: 1rem; flex-shrink: 0; width: 20px; text-align: center; }
+.run-name { flex: 1; font-weight: 500; }
+.run-time { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); flex-shrink: 0; }
+.run-status { font-size: 0.7rem; font-weight: 600; flex-shrink: 0; padding: 2px 8px; border-radius: 3px; }
+.rs-complete { background: var(--green-dim); color: var(--green); }
+.rs-skipped { background: rgba(107,114,128,0.15); color: var(--text-muted); }
+.rs-pending { background: var(--amber-dim); color: var(--amber); }
+.run-note { font-size: 0.72rem; color: var(--text-secondary); margin-left: 30px; margin-top: 2px; padding-bottom: 4px; }
+
+.flags-list { display: flex; flex-direction: column; gap: 10px; }
+.flag-item {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 6px;
+  border-left: 3px solid transparent;
+}
+.flag-item.flag-red { background: var(--red-dim); border-color: var(--red); }
+.flag-item.flag-amber { background: var(--amber-dim); border-color: var(--amber); }
+.flag-dot { flex-shrink: 0; margin-top: 3px; font-size: 0.8rem; }
+.flag-body { flex: 1; min-width: 0; }
+.flag-title { font-weight: 600; font-size: 0.85rem; margin-bottom: 3px; }
+.flag-red .flag-title { color: var(--red); }
+.flag-amber .flag-title { color: var(--amber); }
+.flag-detail { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }
+.flag-action { font-size: 0.75rem; font-weight: 600; color: var(--text-primary); margin-top: 5px; }
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+}
+.link-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+.link-chip:hover { border-color: var(--brand); color: var(--text-primary); }
+.link-chip .chip-icon { font-size: 0.9rem; }
+.link-chip .chip-label { flex: 1; min-width: 0; }
+.link-chip .chip-arrow { color: var(--text-muted); font-size: 0.7rem; }
+
+.post-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.post-pillar { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+.post-body {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  font-family: inherit;
+  overflow-x: auto;
+}
+.comments-list { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+.comment-item {
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.comment-num {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.approval-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--amber-dim);
+  border: 1px solid var(--amber-border);
+  border-radius: 6px;
+  margin-bottom: 14px;
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+}
+.approval-bar strong { color: var(--amber); }
+
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--divider);
+  margin: 4px 0;
+}
+
+.footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  padding-top: 8px;
+  line-height: 1.8;
+}
+.footer a { color: var(--text-muted); text-decoration: none; }
+.footer a:hover { color: var(--text-secondary); }
+
+.cit-countdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  background: rgba(232,41,76,0.2);
+  border: 1px solid var(--brand-border);
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--brand);
+}
+
+@media (max-width: 480px) {
+  .hero-date { font-size: 1.25rem; }
+  .revenue-grid { grid-template-columns: 1fr 1fr; }
+  .links-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-top">
+    <div>
+      <div class="hero-brand">BPO Accounting Services</div>
+      <div class="hero-date">Monday, 21 September 2026</div>
+      <div class="hero-sub">BPOAS Daily Start · Full Monday Run (Steps 1–5) · Generated 07:00 UAE</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <span class="status-badge badge-critical">⚠ 7 Red Flags</span>
+      <span class="status-badge badge-warning">● 5 Amber Flags</span>
+      <span class="cit-countdown">⏱ CIT Deadline: 9 days</span>
+    </div>
+  </div>
+
+  <h3 style="margin-bottom:10px;">Revenue Pulse</h3>
+  <div class="revenue-grid">
+    <div class="rev-tile">
+      <div class="rev-label">Collected MTD</div>
+      <div class="rev-value critical">AED 0</div>
+      <div class="rev-sub">Sep 1–21 · Possible recon lag</div>
+    </div>
+    <div class="rev-tile">
+      <div class="rev-label">Invoiced MTD</div>
+      <div class="rev-value neutral">AED 223,393</div>
+      <div class="rev-sub">34 invoices · Org A + B</div>
+    </div>
+    <div class="rev-tile">
+      <div class="rev-label">Invoiced This Week</div>
+      <div class="rev-value neutral">AED 50,400</div>
+      <div class="rev-sub">11 invoices · 15–21 Sep</div>
+    </div>
+    <div class="rev-tile">
+      <div class="rev-label">Monthly Target</div>
+      <div class="rev-value warning">NOT SET</div>
+      <div class="rev-sub">11 consecutive weeks missing</div>
+    </div>
+    <div class="rev-tile">
+      <div class="rev-label">Overdue AR</div>
+      <div class="rev-value critical">AED 374,388</div>
+      <div class="rev-sub">63 invoices · Combined</div>
+    </div>
+    <div class="rev-tile">
+      <div class="rev-label">Sep Projection</div>
+      <div class="rev-value neutral">AED ~319,133</div>
+      <div class="rev-sub">Straight-line to month-end</div>
+    </div>
+  </div>
+</div>
+
+<div class="stack">
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">📋 Run Log</div>
+    <span class="status-badge badge-brand">Full Monday Run</span>
+  </div>
+  <div class="run-log">
+    <div>
+      <div class="run-row">
+        <span class="run-icon">✅</span>
+        <span class="run-name">Step 1 · COO Morning Brief</span>
+        <span class="run-status rs-complete">COMPLETE</span>
+        <span class="run-time">01:05 UAE</span>
+      </div>
+      <div class="run-note">11 flags · 22 inbox messages · 2 calendar events reviewed · M365 Calendar + Outlook + Notion</div>
+    </div>
+    <div>
+      <div class="run-row">
+        <span class="run-icon">✅</span>
+        <span class="run-name">Step 2 · CFO Weekly Revenue</span>
+        <span class="run-status rs-complete">COMPLETE</span>
+        <span class="run-time">02:10 UAE</span>
+      </div>
+      <div class="run-note">Zoho Books (Org A + B) · Notion · AR aging + pipeline · M365 disabled</div>
+    </div>
+    <div>
+      <div class="run-row">
+        <span class="run-icon">⏭</span>
+        <span class="run-name">Step 3 · CRO Weekly Prospects</span>
+        <span class="run-status rs-skipped">SKIPPED</span>
+        <span class="run-time">—</span>
+      </div>
+      <div class="run-note">Apify LinkedIn scraper unavailable · 16+ consecutive weeks · 19 leads pending Mohaina go/no-go · 80 DM drafts blocked · Manual review required</div>
+    </div>
+    <div>
+      <div class="run-row">
+        <span class="run-icon">⏳</span>
+        <span class="run-name">Step 4 · CMO Daily Post</span>
+        <span class="run-status rs-pending">PENDING APPROVAL</span>
+        <span class="run-time">00:08 UAE</span>
+      </div>
+      <div class="run-note">Post generated · CIT 30 Sep deadline + AED 500/month penalty cited · 08:15 approval window EXPIRED · Post held · Mohaina reminder sent · Rei notified</div>
+    </div>
+    <div>
+      <div class="run-row">
+        <span class="run-icon">✅</span>
+        <span class="run-name">Step 5 · Content Calendar</span>
+        <span class="run-status rs-complete">COMPLETE</span>
+        <span class="run-time">02:13 UAE</span>
+      </div>
+      <div class="run-note">5-post week planned · Mon–Fri 21–25 Sep · Compliance Pulse: CIT + Cabinet Decision 149 (VAT) · Notion updated</div>
+    </div>
+  </div>
+  <hr class="section-divider" style="margin:14px 0;">
+  <div style="font-size:0.75rem;color:var(--text-muted);display:flex;gap:16px;flex-wrap:wrap;">
+    <span>M365 Mail.Send: <span style="color:var(--red)">BLOCKED · Day 81+</span></span>
+    <span>Zoho Books: <span style="color:var(--text-secondary)">Connected · Not enabled in chat</span></span>
+    <span>Apify scraper: <span style="color:var(--red)">FAILING · Week 16+</span></span>
+    <span>Rei delivery: <span style="color:var(--red)">BROKEN · Week 9+</span></span>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">🚨 Flags for Mohaina</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;">
+      <span class="status-badge badge-critical">7 Red</span>
+      <span class="status-badge badge-warning">5 Amber</span>
+    </div>
+  </div>
+  <div class="flags-list">
+    <div class="flag-item flag-red">
+      <div class="flag-dot">🔴</div>
+      <div class="flag-body">
+        <div class="flag-title">CIT Filing Deadline — 9 Days</div>
+        <div class="flag-detail">FTA Corporate Tax return due 30 September 2026 for FY ending 31 Dec 2025. Late penalty: AED 500/month. Marina Marketing CIT Engagement Letter unsigned. Brilliant Telecom CIT letters 68 days overdue.</div>
+        <div class="flag-action">→ Action: Chase Marina Marketing EL sign-off today. Escalate Brilliant Telecom via phone/WhatsApp.</div>
+      </div>
+    </div>
+    <div class="flag-item flag-red">
+      <div class="flag-dot">🔴</div>
+      <div class="flag-body">
+        <div class="flag-title">Overdue AR — AED 374,388 / 63 Invoices</div>
+        <div class="flag-detail">Combined Org A + B. Top exposure: Richemont (Dubai) FZE AED 76,914.90 — oldest 217 days (INV-000086). Asia Transit INV-2026-000060 AED 10,875 · 213 days. AR down AED 16,146 from last week.</div>
+        <div class="flag-action">→ Action: Immediate collections call on Richemont (217d + 52d). Escalate Asia Transit (213d).</div>
+      </div>
+    </div>
+    <div class="flag-item flag-red">
+      <div class="flag-dot">🔴</div>
+      <div class="flag-body">
+        <div class="flag-title">AED 0 Collected — Sep MTD</div>
+        <div class="flag-detail">No collections recorded since Sep 7 (last payment Org A). Two consecutive zero-payment weeks. AED 223,393.07 invoiced this month with nothing matched to payments.</div>
+        <div class="flag-action">→ Action: Confirm with bookkeeping whether payments are sitting unreconciled in Zoho.</div>
+      </div>
+    </div>
+    <div class="flag-item flag-red">
+      <div class="flag-dot">🔴</div>
+      <div class="flag-body">
+        <div class="flag-title">Kora Corporate Services — VAT Dispute Escalating</div>
+        <div class="flag-detail">Engagement Letter not issued (34+ days). VAT dispute active and escalating. Mohaina must review before any pipeline communication.</div>
+        <div class="flag-action">→ Action: Mohaina reviews Kora/Joelle situation before any team outreach. EL + VAT dispute position needed.</div>
+      </div>
+    </div>
+    <div class="flag-item flag-red">
+      <div class="flag-dot">🔴</div>
+      <div class="flag-body">
+        <div class="flag-title">Menastar DMCC — tfPay AED 2,898.94 Warning</div>
+        <div class="flag-detail">System flag on Menastar DMCC account via tfPay. Possible payment dispute or compliance flag.</div>
+        <div class="flag-action">→ Action: Review tfPay warning immediately. Contact client if payment dispute.</div>
+      </div>
+    </div>
+    <div class="flag-item flag-red">
+      <div class="flag-dot">🔴</div>
+      <div class="flag-body">
+        <div class="flag-title">BD Pipeline — 19 Leads Blocked 66+ Days</div>
+        <div class="flag-detail">Raihana has 19 leads pending Mohaina's go/no-go. Status report 66 days overdue. 80 DM drafts blocked. Apify down 16+ weeks.</div>
+        <div class="flag-action">→ Action: Schedule 30-min session with Raihana this week. Batch review the 19 leads.</div>
+      </div>
+    </div>
+    <div class="flag-item flag-red">
+      <div class="flag-dot">🔴</div>
+      <div class="flag-body">
+        <div class="flag-title">Calendar Event — Embedded Trading Instructions (Not Acted On)</div>
+        <div class="flag-detail">FIAT Options screen 16:00–16:15 UAE — calendar event contained embedded automated trading instructions. Treated as untrusted content. Claude did NOT act on these instructions.</div>
+        <div class="flag-action">→ Action: Review this calendar event personally before any action.</div>
+      </div>
+    </div>
+    <div class="flag-item flag-amber">
+      <div class="flag-dot">🟡</div>
+      <div class="flag-body">
+        <div class="flag-title">Monthly Revenue Target — Still Not Set (Week 11)</div>
+        <div class="flag-detail">No monthly target recorded in Notion for 11 consecutive weeks. Sep projection AED ~319,133 but no benchmark to measure against.</div>
+        <div class="flag-action">→ Action: Set Sep and Q4 monthly targets in Notion this week.</div>
+      </div>
+    </div>
+    <div class="flag-item flag-amber">
+      <div class="flag-dot">🟡</div>
+      <div class="flag-body">
+        <div class="flag-title">Richemont Contract Renewal — Close Expected This Week</div>
+        <div class="flag-detail">Contract in final review. Highest single AR exposure at AED 76,914.90. Do not escalate collections until renewal signed.</div>
+        <div class="flag-action">→ Action: Confirm renewal status today.</div>
+      </div>
+    </div>
+    <div class="flag-item flag-amber">
+      <div class="flag-dot">🟡</div>
+      <div class="flag-body">
+        <div class="flag-title">GL Middle East + Concept Lab — Stalled ~92 Days</div>
+        <div class="flag-detail">Two pipeline deals, no movement ~92 days. No deal-value tracking in Notion (11 weeks).</div>
+        <div class="flag-action">→ Action: Qualify or close. Remove from active pipeline if no path forward.</div>
+      </div>
+    </div>
+    <div class="flag-item flag-amber">
+      <div class="flag-dot">🟡</div>
+      <div class="flag-body">
+        <div class="flag-title">LinkedIn Post Delivery Broken — 9+ Consecutive Weeks</div>
+        <div class="flag-detail">0/5 posts published last week. 28+ backlogged. Rei delivery channel broken. M365 Mail.Send blocked Day 81. Today's post held — approval expired 08:15.</div>
+        <div class="flag-action">→ Action: Resolve M365 Mail.Send admin consent or give Rei direct Notion access.</div>
+      </div>
+    </div>
+    <div class="flag-item flag-amber">
+      <div class="flag-dot">🟡</div>
+      <div class="flag-body">
+        <div class="flag-title">UAE VAT Cabinet Decision 149 of 2026 — Client Impact Review Needed</div>
+        <div class="flag-detail">Effective Sep 8: restricts input tax recovery on large cash payments. Thursday's content post covers this — needs accuracy check.</div>
+        <div class="flag-action">→ Action: Review client exposure before end of week. Validate Thursday's content post.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">🔗 Quick Links</div>
+    <span style="font-size:0.75rem;color:var(--text-muted)">Sub-reports · Today's run</span>
+  </div>
+  <div class="links-grid">
+    <a href="#" class="link-chip"><span class="chip-icon">📄</span><span class="chip-label">COO Morning Brief</span><span class="chip-arrow">→</span></a>
+    <a href="#" class="link-chip"><span class="chip-icon">📊</span><span class="chip-label">CFO Revenue Report</span><span class="chip-arrow">→</span></a>
+    <a href="#" class="link-chip"><span class="chip-icon">📱</span><span class="chip-label">CMO Daily Post</span><span class="chip-arrow">→</span></a>
+    <a href="#" class="link-chip"><span class="chip-icon">📋</span><span class="chip-label">Content Calendar</span><span class="chip-arrow">→</span></a>
+    <a href="#" class="link-chip"><span class="chip-icon">🏢</span><span class="chip-label">Notion Team Hub</span><span class="chip-arrow">→</span></a>
+    <a href="#" class="link-chip"><span class="chip-icon">📈</span><span class="chip-label">Zoho Books Org A</span><span class="chip-arrow">→</span></a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-title">💼 Today's LinkedIn Post</div>
+    <span class="status-badge badge-warning">⏸ HELD — AWAITING APPROVAL</span>
+  </div>
+  <div class="approval-bar">
+    <span>⚠</span>
+    <span><strong>Approval window expired at 08:15 UAE.</strong> Post held. Mohaina reminder sent. Rei Nald notified: "Post delayed — awaiting approval."</span>
+  </div>
+  <div class="post-meta">
+    <span class="status-badge badge-brand">Monday</span>
+    <span class="post-pillar" style="color:var(--text-muted)">Compliance Without the Panic</span>
+    <span style="font-size:0.72rem;color:var(--text-muted)">Invisibility Diagnostic: 4/4 ✅</span>
+  </div>
+  <div class="post-body">Your CIT return is due in 9 days.
+
+Most owners think "ready" just means the return gets filed.
+
+Last month, a client called me four days before their deadline. Confident. "We're ready," they said.
+
+We sat down together and found AED 90,000 in invoices that hadn't been reconciled. Three supplier payments recorded in the wrong period. Two transactions with no supporting documents.
+
+The return would have gone in. But it wouldn't have been right.
+
+Being CIT-ready means four things:
+
+1. Your books are reconciled to the last dirham — not just "mostly done"
+2. Every transaction has supporting documentation the FTA can verify
+3. Period cut-offs are clean — income and expenses sit in the right year
+4. Your accountant has reviewed for any elections or positions that affect your liability
+
+Filing a return is the easy part. Getting the numbers right first — that's where the work is.
+
+The penalty for a late return is AED 500 per month. But the cost of filing an inaccurate return goes beyond the fine.
+
+9 days is enough time to get this right, if you start today.
+
+If you're not sure where your books stand — book a 30-minute compliance review with us before the 30th.
+
+Link in bio.
+
+#CIT #CorporateTax #UAE #FTA #SME #AccountingUAE #BPOAccounting</div>
+  <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-top:14px;margin-bottom:8px;">Pinned Comments (3)</div>
+  <div class="comments-list">
+    <div class="comment-item">
+      <div class="comment-num">📌 Pinned Comment 1 · Technical Clarifier</div>
+      Even if you qualify for Small Business Relief, you still need to file a CIT return. The relief reduces your liability to zero — it doesn't remove the filing obligation. Don't let that assumption cost you AED 500/month.
+    </div>
+    <div class="comment-item">
+      <div class="comment-num">📌 Pinned Comment 2 · Humanise</div>
+      I think what surprised me most about that client call wasn't the AED 90,000. It was how confident they felt going in. Good intentions don't close the gap between "filed" and "correct." That's what a second pair of eyes is for.
+    </div>
+    <div class="comment-item">
+      <div class="comment-num">📌 Pinned Comment 3 · CTA Amplifier</div>
+      9 days left. If you haven't confirmed your books are reconciled, your documents are in order, and your cut-offs are clean — that's the conversation to have this week, not next week. DM me or book through the link in bio.
+    </div>
+  </div>
+  <div style="margin-top:14px;padding:10px 12px;background:var(--surface-2);border:1px solid var(--border);border-radius:5px;font-size:0.75rem;color:var(--text-secondary);">
+    <strong style="color:var(--amber);">⚠ Compliance Flag:</strong> Post cites FTA 30 Sep CIT filing deadline and AED 500/month late penalty. Requires Mohaina Asira sign-off before publishing. Reply with APPROVE to release.
+  </div>
+</div>
+
+<div class="footer">
+  <div>BPOAS Daily Start · Monday 21 September 2026 · Generated 07:00 UAE (GST, UTC+4)</div>
+  <div>BPO Accounting Services · Managed by Claude Code</div>
+  <div style="margin-top:4px;color:#444;">Run complete · Steps: 1 ✅ 2 ✅ 3 ⏭ 4 ⏳ 5 ✅ · Next run: Tuesday 22 Sep 07:00 UAE</div>
+</div>
+
+</body>
+</html>
