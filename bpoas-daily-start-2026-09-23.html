@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPOAS Daily Start · 23 Sep 2026</title>
+<style>
+:root {
+  --bg: #0A0A0A; --surface: #141414; --surface-2: #1C1C1C; --border: #2A2A2A;
+  --brand: #E8294C; --brand-dim: rgba(232,41,76,0.15);
+  --text: #F0F0F0; --text-2: #A0A0A0;
+  --green: #22C55E; --amber: #F59E0B; --red: #EF4444;
+  --green-dim: rgba(34,197,94,0.12); --amber-dim: rgba(245,158,11,0.12); --red-dim: rgba(239,68,68,0.12);
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'SF Mono', 'Fira Code', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 15px; line-height: 1.6; padding: 0 0 40px; }
+.hero { background: linear-gradient(135deg, #0f0f0f 0%, #1a0a10 100%); border-bottom: 1px solid var(--border); padding: 28px 20px; }
+.hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand); margin-bottom: 6px; }
+.hero-title { font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+.hero-sub { font-size: 13px; color: var(--text-2); }
+.pulse { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin: 20px 16px 0; padding: 20px; }
+.pulse-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-2); margin-bottom: 14px; }
+.pulse-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 480px) { .pulse-grid { grid-template-columns: 1fr; } }
+.metric { background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+.metric-label { font-size: 11px; color: var(--text-2); margin-bottom: 4px; }
+.metric-value { font-size: 20px; font-weight: 700; font-family: var(--mono); }
+.metric-value.red { color: var(--red); }
+.metric-value.amber { color: var(--amber); }
+.metric-value.dim { color: var(--text-2); font-size: 15px; }
+.status-bar { display: flex; align-items: flex-start; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.status-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--red); flex-shrink: 0; margin-top: 5px; }
+.status-text { font-size: 13px; color: var(--text-2); }
+.pulse-note { font-size: 11px; color: var(--text-2); margin-top: 10px; font-style: italic; }
+.page { padding: 0 16px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-top: 16px; }
+.card-title { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); margin-bottom: 14px; }
+.flag-card { background: var(--red-dim); border: 1px solid rgba(239,68,68,0.35); border-radius: 10px; padding: 20px; margin-top: 16px; }
+.flag-card .card-title { color: var(--red); }
+.log-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+.log-row:last-child { border-bottom: none; }
+.log-status { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 99px; white-space: nowrap; }
+.log-status.complete { background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+.log-status.skipped { background: var(--surface-2); color: var(--text-2); border: 1px solid var(--border); }
+.log-status.pending { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+.log-name { flex: 1; font-size: 13px; color: var(--text); min-width: 160px; }
+.log-file { font-size: 11px; color: var(--text-2); font-family: var(--mono); }
+.log-reason { font-size: 11px; color: var(--text-2); font-style: italic; }
+.flag-item { padding: 14px 0; border-bottom: 1px solid rgba(239,68,68,0.2); }
+.flag-item:last-child { border-bottom: none; }
+.flag-priority { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; display: block; }
+.p-compliance { color: var(--red); }
+.p-cash { color: var(--amber); }
+.p-bd { color: #38BDF8; }
+.flag-title { font-weight: 600; color: var(--text); font-size: 14px; margin-bottom: 4px; }
+.flag-why { font-size: 13px; color: var(--text-2); margin-bottom: 6px; line-height: 1.5; }
+.flag-next { font-size: 13px; color: var(--amber); font-weight: 500; }
+.post-card { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-top: 16px; }
+.post-hook { font-size: 15px; font-weight: 700; color: var(--brand); margin-bottom: 12px; padding: 10px; background: var(--brand-dim); border-radius: 6px; border-left: 3px solid var(--brand); }
+.post-body { font-size: 14px; color: var(--text); line-height: 1.8; white-space: pre-wrap; }
+.post-score { display: block; margin-top: 12px; font-size: 12px; color: var(--green); font-weight: 600; }
+.post-flag { margin-top: 10px; padding: 8px 12px; background: var(--red-dim); border: 1px solid rgba(239,68,68,0.3); border-radius: 6px; font-size: 12px; color: var(--red); }
+.post-status { margin-top: 8px; font-size: 12px; color: var(--amber); }
+.comment { padding: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; margin-top: 8px; }
+.comment-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); margin-bottom: 6px; }
+.comment-body { font-size: 13px; color: var(--text); line-height: 1.6; }
+.link-row { display: flex; align-items: center; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 6px; }
+.link-row:last-child { border-bottom: none; }
+.link-name { font-size: 13px; color: var(--text); }
+.link-file { font-size: 12px; color: var(--brand); font-family: var(--mono); }
+.section-note { font-size: 11px; color: var(--text-2); font-style: italic; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+footer { font-size: 11px; color: var(--text-2); text-align: center; padding: 24px 16px 0; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">BPOAS Daily Start · Lean Run (Wednesday)</div>
+  <div class="hero-title">Wednesday, 23 September 2026</div>
+  <div class="hero-sub">Steps run: 1 (COO Brief) + 4 (CMO Post) &nbsp;|&nbsp; Skipped: 2 (CFO) · 3 (CRO) · 5 (Calendar) — Monday only</div>
+</div>
+
+<div class="pulse">
+  <div class="pulse-label">Revenue Pulse · First Number Mohaina Sees Every Morning</div>
+  <div class="pulse-grid">
+    <div class="metric"><div class="metric-label">MTD Revenue Received</div><div class="metric-value red">AED 0</div></div>
+    <div class="metric"><div class="metric-label">MTD Invoiced</div><div class="metric-value amber">AED 223,393</div></div>
+    <div class="metric"><div class="metric-label">Monthly Target</div><div class="metric-value dim">Not Set ⚠️</div></div>
+    <div class="metric"><div class="metric-label">Days Remaining in Sep</div><div class="metric-value">7</div></div>
+    <div class="metric"><div class="metric-label">Overdue AR</div><div class="metric-value red">AED 374,388</div></div>
+    <div class="metric"><div class="metric-label">Overdue Invoice Count</div><div class="metric-value red">63 invoices</div></div>
+  </div>
+  <div class="status-bar">
+    <div class="status-dot"></div>
+    <div class="status-text"><strong>🔴 Below Target</strong> — AED 0 collected in September. Zoho Books shows no payments posted for 2 consecutive weeks. Possible reconciliation lag: Marina Marketing and DMG Mori payments were acknowledged in the 18 Sep EOW review but have not been posted in Zoho. Zoho Analytics sync currently suspended (96h failure).</div>
+  </div>
+  <div class="pulse-note">Revenue data last updated: Monday 21 September 2026 · CFO Weekly Report · Zoho Books (both entities). Monthly target not set — gap to target and daily run rate cannot be calculated. Reconcile Zoho Books against bank feed this week.</div>
+</div>
+
+<div class="page">
+
+<div class="card">
+  <div class="card-title">🗂 Run Log · Wednesday 23 September 2026</div>
+  <div class="log-row"><div class="log-status complete">Complete</div><div class="log-name">Step 1 · COO Morning Brief</div><div class="log-file">coo-brief-2026-09-23.html</div></div>
+  <div class="log-row"><div class="log-status skipped">Skipped</div><div class="log-name">Step 2 · CFO Weekly Revenue</div><div class="log-reason">Monday only · Last run: 21 Sep 2026</div></div>
+  <div class="log-row"><div class="log-status skipped">Skipped</div><div class="log-name">Step 3 · CRO Weekly Prospects</div><div class="log-reason">Monday only</div></div>
+  <div class="log-row"><div class="log-status pending">Pending Approval</div><div class="log-name">Step 4 · CMO Daily Post</div><div class="log-file">cmo-post-2026-09-23.html (branch: claude/confident-newton-2szne1)</div></div>
+  <div class="log-row"><div class="log-status skipped">Skipped</div><div class="log-name">Step 5 · Content Calendar</div><div class="log-reason">Monday only · Last run: 21 Sep 2026</div></div>
+  <div class="section-note">Connectors: M365 calendar ✓ · M365 inbox ✓ · Notion ✓ · GitHub ref docs ✓ · Zoho Books (Monday data) · Apify LinkedIn analytics (down 14+ consecutive weeks) · Zoho Analytics (sync suspended 96h) · M365 Mail.Send FORBIDDEN (Day 78+ — Entra admin consent required)</div>
+</div>
+
+<div class="flag-card">
+  <div class="card-title">🚨 Flags for Mohaina · Sorted by Priority: Compliance · Cash · Client · BD</div>
+
+  <div class="flag-item">
+    <span class="flag-priority p-compliance">🔴 Compliance · FTA · Client Escalation</span>
+    <div class="flag-title">Kora VAT Reconsideration status conflict — must resolve before 14:30 GST today</div>
+    <div class="flag-why">Kora's VAT Reconsideration (FTA Ref 100000058611, submitted 18 Sep by BPOAS) has conflicting status signals: Joelle Link (Kora Co-Founder) received an FTA notification suggesting the case was closed; Cristina Suyom's portal screenshot from the same day shows it under review. Nadine Assaad found the actual FTA response email in her junk folder this morning and escalated at 08:39 GST. You have a MENA Closure meeting with Kora's directors at 14:30 GST — Andreea Daescu and Joelle Link will both be in the room.</div>
+    <div class="flag-next">→ Ask Cristina for a fresh FTA portal check now. Know whether the reconsideration is open or decided before walking into that meeting.</div>
+  </div>
+
+  <div class="flag-item">
+    <span class="flag-priority p-compliance">🔴 Compliance · CIT</span>
+    <div class="flag-title">CIT filing deadline 30 Sep — 7 days. Marina Marketing EL unsigned. Concept Lab stalled.</div>
+    <div class="flag-why">All UAE entities with FY ending 31 Dec 2025 must file and pay Corporate Tax by 30 Sep 2026. Late penalty: AED 500/month. Marina Marketing's CIT Engagement Letter is unsigned — BPOAS cannot file without it. The Concept Lab/George proposal has been stalled ~92 days; the deadline creates close-now urgency.</div>
+    <div class="flag-next">→ Chase Marina Marketing for the signed EL today. Make the call on Concept Lab/George this week — 7 days left to use the compliance urgency as a close trigger.</div>
+  </div>
+
+  <div class="flag-item">
+    <span class="flag-priority p-compliance">🔴 Compliance · Post Approval</span>
+    <div class="flag-title">Today's LinkedIn post awaits your explicit approval — references UAE regulatory deadline</div>
+    <div class="flag-why">Post covers the eInvoicing ASP appointment deadline (30 Oct 2026) and the AED 50M turnover threshold. Scores 4/4 on Invisibility Diagnostic. Flagged per routine rules: any post citing a UAE law, penalty figure, or regulatory deadline requires Mohaina's explicit approval before it goes to Rei. Approval email sent to moanne.asira@gmail.com. Timeout: 08:15 GST — if no reply, post is held and Rei is notified to stand by.</div>
+    <div class="flag-next">→ Reply to the approval email. Post text is displayed in full below in this report.</div>
+  </div>
+
+  <div class="flag-item">
+    <span class="flag-priority p-cash">🟡 Cash · Reconciliation Lag</span>
+    <div class="flag-title">AED 374,388 overdue · AED 0 collected MTD — Zoho may not reflect reality</div>
+    <div class="flag-why">Zoho Books shows AED 0 payments received for two consecutive weeks (8–21 Sep). The 18 Sep EOW review logged Marina Marketing and DMG Mori payments as received that week — neither is posted in Zoho three days later, pointing to a reconciliation lag rather than confirmed zero cash. Zoho Analytics sync suspended for 96h adds to reporting uncertainty. Largest single exposure: Richemont (Dubai) FZE at AED 76,914.90 combined (oldest invoice 217 days).</div>
+    <div class="flag-next">→ Ask Junaifa or Warren to reconcile both Zoho Books entities against the bank feed and post the missing payments. Reconnect Zoho Analytics integration.</div>
+  </div>
+
+  <div class="flag-item">
+    <span class="flag-priority p-bd">🔵 BD · Client Risk</span>
+    <div class="flag-title">Kora EL stalled 32+ days + VAT dispute — today's MENA Closure meeting is the window</div>
+    <div class="flag-why">Kora Corporate Services has been at EL stage for 32+ days with no EL issued and an escalating VAT start-date dispute. The MENA Closure meeting today (14:30 GST) with Kora's founders (Andreea + Joelle) is the natural moment to resolve both the EL and the VAT dispute — if you know the FTA reconsideration status going in.</div>
+    <div class="flag-next">→ Bring the EL ready to issue at the meeting if the VAT dispute can be resolved in the room.</div>
+  </div>
+
+  <div class="flag-item">
+    <span class="flag-priority p-bd">🔵 BD · Standing Issue</span>
+    <div class="flag-title">Monthly revenue target not set — 11 consecutive weeks</div>
+    <div class="flag-why">The Revenue Pulse at the top of this report cannot show gap to target, status (On Track / At Risk / Below Target by amount), or daily run rate needed because no monthly AED target is on file in positioning-mohaina-asira.md. This has been flagged in every report since 2 July 2026.</div>
+    <div class="flag-next">→ Add one line to positioning-mohaina-asira.md in the GitHub repo: your monthly AED revenue target. 60 seconds. Resolves 11 weeks of missing data across every CFO report and daily brief.</div>
+  </div>
+
+</div>
+
+<div class="post-card">
+  <div class="card-title">📱 Today's LinkedIn Post · Copy-Ready · Pending Approval</div>
+  <div class="post-hook">The UAE just moved an eInvoicing deadline. Most SME owners still haven't heard about it.</div>
+  <div class="post-body">I think most owners hear "eInvoicing mandate" and assume it doesn't apply to them yet, so they stop reading.
+
+Here's what changed. The Ministry of Finance pushed the deadline for appointing an Accredited Service Provider, the ASP, from 31 July to 30 October 2026. Right now that applies to businesses turning over above AED 50 million, fully compliant by 1 January 2027.
+
+Under that threshold? Not your deadline yet. But three things are worth knowing before it is.
+
+1. The mandate rolls out in phases, not all at once.
+Large businesses go first. The rest follow on a timeline the FTA hasn't finalized. "Not yet" isn't "not coming."
+
+2. ASP capacity is limited.
+As of August, the Ministry lists 50 accredited and pre-approved providers total. When the mandate widens to thousands of SMEs, slots won't be instant.
+
+3. Your accounting system needs to be ready before your ASP is.
+An ASP connects to your invoicing data. If your books aren't structured to produce clean, compliant invoices, the ASP can't fix that for you.
+
+We're already getting clients' Zoho and Odoo systems ready, months early. Second eyes on your invoicing setup now costs a lot less than a rushed appointment later.
+
+DM me "ASP-ready" and I'll walk you through what your business needs.
+
+P.S. The businesses moving early aren't doing it because the FTA is asking. They're doing it because waiting has a cost too.</div>
+  <div class="post-score">✅ Invisibility Diagnostic 4/4 — Voice (I think opener, plain language, no em dashes, "second eyes") · POV (clear stance: move early) · Specificity (30 Oct 2026, AED 50M, 1 Jan 2027, 50 ASPs) · Single CTA (DM "ASP-ready")</div>
+  <div class="post-flag">🔴 References UAE regulatory deadline (eInvoicing ASP appointment, 30 Oct 2026) — requires Mohaina's explicit approval before release. Approval email sent to moanne.asira@gmail.com.</div>
+  <div class="post-status">Status: Pending Approval · Timeout 08:15 GST · Recommended publish time: 08:30 GST (if approved)</div>
+</div>
+
+<div class="card">
+  <div class="card-title">📌 3 Pinned Comments — Ready to Send to Rei on Approval</div>
+  <div class="comment">
+    <div class="comment-label">Pinned Comment 1 · Extend</div>
+    <div class="comment-body">For context, this sits under the FTA's eInvoicing data dictionary and guidelines, Version 1.1. The AED 50 million threshold is turnover, not profit, so it catches more businesses than owners expect once trading volume picks up.</div>
+  </div>
+  <div class="comment">
+    <div class="comment-label">Pinned Comment 2 · Humanise</div>
+    <div class="comment-body">I've had this exact conversation with a client who assumed "large business" meant someone else. It didn't. We had six weeks to get his system compliant instead of six months. That's not a position I want any client caught in again.</div>
+  </div>
+  <div class="comment">
+    <div class="comment-label">Pinned Comment 3 · CTA Amplifier</div>
+    <div class="comment-body">50 ASPs for a market this size. If the rollout timeline holds, appointment slots move fast once the mandate widens. DM me "ASP-ready" now and we'll map your Zoho or Odoo setup before the queue forms.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔗 Quick Links · Today's Outputs</div>
+  <div class="link-row"><div class="link-name">COO Morning Brief</div><div class="link-file">coo-brief-2026-09-23.html</div></div>
+  <div class="link-row"><div class="link-name">CMO Daily Post</div><div class="link-file">cmo-post-2026-09-23.html (branch: claude/confident-newton-2szne1)</div></div>
+  <div class="link-row"><div class="link-name">CFO Revenue Report (Mon)</div><div class="link-file">cfo-report-2026-09-21.html (branch: claude/blissful-darwin-313j2z)</div></div>
+  <div class="link-row"><div class="link-name">Content Calendar (Mon)</div><div class="link-file">content-calendar-week-2026-09-21.html (branch: claude/dreamy-edison-e33jxb)</div></div>
+  <div class="section-note">M365 Mail.Send not admin-consented (HTTP 403, Day 78+). Summary email could not be sent via Outlook. Entra admin center → Enterprise applications → this app → Permissions → Grant admin consent for Mail.Send permanently resolves this.</div>
+</div>
+
+</div>
+
+<footer>
+  Auto-generated · BPOAS /bpoas-daily-start · Wednesday 23 September 2026 · 07:00 GST<br>
+  Lean run — Steps 1 + 4 · Steps 2, 3, 5 skipped (Monday only)
+</footer>
+
+</body>
+</html>
