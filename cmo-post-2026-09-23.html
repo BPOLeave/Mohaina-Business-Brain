@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMO Daily Post · Wednesday 23 September 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#E8294C; --brand-light:#FF5C7A;
+    --bg:#0A0A0A; --panel:#141416; --panel-2:#1B1B1F;
+    --border:#2A2A2E; --text:#F3F3F4; --muted:#9A9AA2; --muted-2:#6E6E76;
+    --good:#22C55E; --warn:#F5A524; --bad:#F04747;
+    --r-sm:10px; --r-md:16px; --r-lg:22px; --pill:9999px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:
+      radial-gradient(60% 40% at 90% -10%, color-mix(in srgb, var(--brand) 20%, transparent), transparent 60%),
+      radial-gradient(50% 35% at 5% 0%, color-mix(in srgb, var(--brand) 10%, transparent), transparent 55%),
+      var(--bg);
+    background-attachment:fixed;
+    color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .doc{max-width:820px;margin:0 auto;padding:32px 20px 64px;}
+
+  .flag{background:color-mix(in srgb, var(--warn) 16%, var(--panel));border:1px solid color-mix(in srgb, var(--warn) 50%, var(--border));border-radius:var(--r-sm);padding:12px 16px;font-size:13px;color:var(--warn);font-weight:600;margin-bottom:18px;display:flex;gap:8px;align-items:center;}
+
+  .head{border-radius:var(--r-lg);padding:26px 28px;margin-bottom:20px;color:#fff;background:linear-gradient(135deg, color-mix(in srgb, var(--brand) 85%, black) 0%, var(--brand) 55%, var(--brand-light) 100%);box-shadow:0 20px 48px color-mix(in srgb, var(--brand) 35%, transparent);position:relative;overflow:hidden;}
+  .head::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.08);top:-130px;right:-60px;}
+  .head .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:700;}
+  .head h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:6px 0 4px;}
+  .head .d{font-size:13px;opacity:.88;}
+
+  .sec{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:26px 0 12px;}
+
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 20px;margin-bottom:12px;}
+  .card h4{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:700;}
+  .kv{display:grid;grid-template-columns:120px 1fr;gap:6px 12px;font-size:14px;}
+  .kv div:nth-child(odd){color:var(--muted);}
+
+  .lipost{background:var(--panel);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px;}
+  .lihead{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .av{width:46px;height:46px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0;}
+  .lihead .nm{font-weight:700;font-size:15px;} .lihead .mt{font-size:12px;color:var(--muted);}
+  .lipost .post{font-size:15.5px;line-height:1.65;white-space:pre-line;color:var(--text);}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+  .chip{font-size:12px;font-weight:600;background:var(--panel-2);border:1px solid var(--border);color:var(--muted);padding:5px 11px;border-radius:var(--pill);}
+
+  .row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;font-size:14px;border-bottom:1px solid var(--border);color:var(--text);}
+  .row:last-child{border-bottom:none;}
+  .row .lbl{color:var(--muted);font-weight:600;flex-shrink:0;min-width:88px;}
+  .tag{font-size:11px;font-weight:700;padding:2px 9px;border-radius:var(--pill);margin-left:auto;white-space:nowrap;flex-shrink:0;}
+  .t-grn{background:color-mix(in srgb, var(--good) 18%, transparent);color:var(--good);}
+  .t-mut{background:var(--panel-2);color:var(--muted-2);}
+
+  .score{display:inline-flex;align-items:center;gap:8px;background:color-mix(in srgb, var(--good) 16%, var(--panel));color:var(--good);font-weight:700;font-size:13px;padding:7px 14px;border-radius:var(--pill);border:1px solid color-mix(in srgb, var(--good) 40%, var(--border));}
+
+  .comment{border-left:3px solid var(--brand);padding:10px 0 10px 14px;margin-bottom:10px;font-size:14px;color:var(--text);}
+  .comment b{color:var(--brand-light);}
+
+  .status{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--warn);flex-shrink:0;}
+
+  footer{text-align:center;padding:30px 20px 8px;color:var(--muted-2);font-size:12px;}
+  footer b{color:var(--muted);}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="flag">⚠ Contains a UAE regulatory deadline (eInvoicing ASP appointment) — requires Mohaina's explicit approval before release.</div>
+
+    <div class="head">
+      <div class="k">CMO · Daily post · Wednesday 23 September 2026</div>
+      <h1>Your eInvoicing ASP appointment has a deadline most owners haven't clocked</h1>
+      <div class="d">Pillar: Tech &amp; Automation · Intent: Soft Selling · Format: Soft-Sell Framework (Variation A, Framework-Heavy)</div>
+    </div>
+
+    <div class="sec">Content calendar source</div>
+    <div class="card">
+      <div class="row"><span class="lbl">Pillar</span> Tech &amp; Automation</div>
+      <div class="row"><span class="lbl">Intent</span> Soft Selling</div>
+      <div class="row"><span class="lbl">Format</span> Soft-Sell Framework → Variation A (Framework-Heavy)</div>
+      <div class="row"><span class="lbl">Hook direction</span> Curiosity gap on the 30 Oct 2026 ASP appointment deadline (Version 1.1 eInvoicing guidelines)</div>
+      <div class="row"><span class="lbl">CTA direction</span> DM me "ASP-ready"</div>
+      <div class="row"><span class="lbl">Source</span> Notion Content Calendar, Week of 2026-09-21, Wednesday row</div>
+    </div>
+
+    <div class="sec">LinkedIn analytics</div>
+    <div class="card">
+      <div class="row">Apify LinkedIn analytics unavailable this run — no configured BPOAS scraping pipeline (down 14+ consecutive weeks per Notion history).<span class="tag t-mut">fallback used</span></div>
+      <div class="row">Hook selection defaulted to ICP pain-match, weighted toward the calendar's specified Curiosity Gap direction.</div>
+    </div>
+
+    <div class="sec">Today's post</div>
+    <div class="lipost">
+      <div class="lihead"><div class="av">MA</div><div><div class="nm">Mohaina Asira · 1st</div><div class="mt">Managing Partner, BPO Accounting Services (BPOAS) · now</div></div></div>
+      <div class="post">The UAE just moved an eInvoicing deadline. Most SME owners still haven't heard about it.
+
+I think most owners hear "eInvoicing mandate" and assume it doesn't apply to them yet, so they stop reading.
+
+Here's what changed. The Ministry of Finance pushed the deadline for appointing an Accredited Service Provider, the ASP, from 31 July to 30 October 2026. Right now that applies to businesses turning over above AED 50 million, fully compliant by 1 January 2027.
+
+Under that threshold? Not your deadline yet. But three things are worth knowing before it is.
+
+1. The mandate rolls out in phases, not all at once.
+Large businesses go first. The rest follow on a timeline the FTA hasn't finalized. "Not yet" isn't "not coming."
+
+2. ASP capacity is limited.
+As of August, the Ministry lists 50 accredited and pre-approved providers total. When the mandate widens to thousands of SMEs, slots won't be instant.
+
+3. Your accounting system needs to be ready before your ASP is.
+An ASP connects to your invoicing data. If your books aren't structured to produce clean, compliant invoices, the ASP can't fix that for you.
+
+We're already getting clients' Zoho and Odoo systems ready, months early. Second eyes on your invoicing setup now costs a lot less than a rushed appointment later.
+
+DM me "ASP-ready" and I'll walk you through what your business needs.
+
+P.S. The businesses moving early aren't doing it because the FTA is asking. They're doing it because waiting has a cost too.</div>
+      <div class="chips"><span class="chip">1,472 chars</span><span class="chip">Hook: Curiosity Gap</span><span class="chip">Zero em dashes</span><span class="chip">One CTA</span></div>
+    </div>
+
+    <div class="sec">Hook options</div>
+    <div class="card">
+      <div class="row"><span class="lbl">Curiosity Gap</span> "The UAE just moved an eInvoicing deadline. Most SME owners still haven't heard about it."<span class="tag t-grn">chosen</span></div>
+      <div class="row"><span class="lbl">Result Lead</span> "The businesses that appointed their ASP early aren't scrambling in October."</div>
+      <div class="row"><span class="lbl">Confession</span> "I think most owners skim past eInvoicing news the moment they see 'not yet mandatory.'"</div>
+      <div class="row"><span class="lbl">Contrarian</span> "The eInvoicing deadline that doesn't apply to you yet is still worth reading about."</div>
+      <div class="row"><span class="lbl">Pattern Interrupt</span> "This eInvoicing post isn't about penalties. It's about a shortage."</div>
+    </div>
+    <div class="card">
+      <div class="row">Selection reason: analytics unavailable, so selection defaulted to ICP pain-match per the routine's fallback rule, weighted toward the calendar's Curiosity Gap direction. It names ICP core problem #3 directly — owners who "want to be compliant with FTA regulations... but don't have the internal expertise to know if they're actually compliant" — the gap between what's changing and what owners actually know.</div>
+    </div>
+
+    <div class="sec">Invisibility diagnostic</div>
+    <div class="card">
+      <div class="row"><span class="lbl">Voice</span> "I think" opener, plain language, situation-first, signature phrase "second eyes"<span class="tag t-grn">✓</span></div>
+      <div class="row"><span class="lbl">POV</span> Clear stance: move early, don't wait for the deadline to widen<span class="tag t-grn">✓</span></div>
+      <div class="row"><span class="lbl">Specificity</span> 30 Oct 2026, AED 50M threshold, 1 Jan 2027, 50 accredited providers<span class="tag t-grn">✓</span></div>
+      <div class="row"><span class="lbl">Asking</span> Single CTA: DM me "ASP-ready"<span class="tag t-grn">✓</span></div>
+    </div>
+    <div style="text-align:center;margin:14px 0 6px"><span class="score">Invisibility Diagnostic: 4 / 4</span></div>
+
+    <div class="sec">3 pinned comments (post immediately after publishing)</div>
+    <div class="card">
+      <div class="comment"><b>1 · Extend —</b> For context, this sits under the FTA's eInvoicing data dictionary and guidelines, Version 1.1. The AED 50 million threshold is turnover, not profit, so it catches more businesses than owners expect once trading volume picks up.</div>
+      <div class="comment"><b>2 · Humanise —</b> I've had this exact conversation with a client who assumed "large business" meant someone else. It didn't. We had six weeks to get his system compliant instead of six months. That's not a position I want any client caught in again.</div>
+      <div class="comment"><b>3 · CTA amplifier —</b> 50 ASPs for a market this size. If the rollout timeline holds, appointment slots move fast once the mandate widens. DM me "ASP-ready" now and we'll map your Zoho or Odoo setup before the queue forms.</div>
+    </div>
+
+    <div class="sec">Approval workflow</div>
+    <div class="card">
+      <div class="status"><span class="dot"></span> Approval email sent to Mohaina via Microsoft 365 Outlook · flagged for regulatory content (UAE eInvoicing/ASP deadline) · explicit approval required before release.</div>
+      <div class="row" style="margin-top:10px"><span class="lbl">Timeout</span> 08:15 UAE — if no reply, post is held, Mohaina gets a reminder, Rei is told to stand by.</div>
+      <div class="row"><span class="lbl">On approval</span> Forward plain-text post + 3 pinned comments to Rei Nald Onella. Recommended publish time: 08:30 UAE (Wednesday, soft-selling window).</div>
+      <div class="row"><span class="lbl">Notion log</span> Content Calendar status and CMO Daily Post log page updated to reflect current status.</div>
+    </div>
+
+    <footer>Auto-generated · BPOAS /cmo-daily-post → /linkedin-caption-writer · Wednesday 23 September 2026 · <b>BPOAS</b></footer>
+  </div>
+</body>
+</html>
