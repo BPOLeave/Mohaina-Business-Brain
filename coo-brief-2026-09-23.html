@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 23 Sep 2026</title>
+<style>
+:root {
+  --bg: #0A0A0A; --surface: #141414; --surface-2: #1C1C1C; --border: #2A2A2A;
+  --brand: #E8294C; --brand-dim: rgba(232,41,76,0.15);
+  --text: #F0F0F0; --text-2: #A0A0A0;
+  --green: #22C55E; --amber: #F59E0B; --red: #EF4444;
+  --green-dim: rgba(34,197,94,0.12); --amber-dim: rgba(245,158,11,0.12); --red-dim: rgba(239,68,68,0.12);
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'SF Mono', 'Fira Code', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: var(--font); font-size: 15px; line-height: 1.6; padding: 16px; }
+.header { border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 24px; }
+.header-label { color: var(--brand); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+.header-title { font-size: 24px; font-weight: 700; }
+.header-meta { color: var(--text-2); font-size: 13px; margin-top: 4px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+.card-title { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); margin-bottom: 14px; }
+.flag-card { background: var(--red-dim); border: 1px solid rgba(239,68,68,0.3); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
+.flag-card .card-title { color: var(--red); }
+.event { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.event:last-child { border-bottom: none; }
+.event-time { color: var(--brand); font-size: 13px; font-weight: 600; font-family: var(--mono); min-width: 50px; padding-top: 2px; }
+.event-body { flex: 1; }
+.event-title { font-weight: 600; }
+.event-meta { font-size: 12px; color: var(--text-2); margin-top: 2px; }
+.pill { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 99px; margin-top: 4px; }
+.pill-red { background: var(--red-dim); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+.pill-amber { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+.email-item { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.email-item:last-child { border-bottom: none; }
+.email-subject { font-weight: 600; font-size: 14px; }
+.email-from { font-size: 12px; color: var(--text-2); margin: 2px 0 4px; }
+.email-preview { font-size: 13px; color: var(--text-2); line-height: 1.5; }
+.flag-item { padding: 14px 0; border-bottom: 1px solid rgba(239,68,68,0.2); }
+.flag-item:last-child { border-bottom: none; }
+.flag-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--red); margin-bottom: 6px; }
+.flag-desc { color: var(--text); font-size: 14px; margin-bottom: 6px; }
+.flag-why { color: var(--text-2); font-size: 13px; margin-bottom: 6px; }
+.flag-action { font-size: 13px; color: var(--amber); font-weight: 500; }
+.row { display: flex; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.label { color: var(--text-2); font-size: 13px; min-width: 110px; }
+.value { color: var(--text); font-size: 13px; font-weight: 500; flex: 1; }
+.section-note { font-size: 11px; color: var(--text-2); font-style: italic; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+footer { font-size: 11px; color: var(--text-2); text-align: center; padding-top: 16px; border-top: 1px solid var(--border); margin-top: 24px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">BPOAS · COO Morning Brief</div>
+  <div class="header-title">Wednesday, 23 September 2026</div>
+  <div class="header-meta">Generated 07:00 GST · Auto-generated via /coo-morning-brief · M.Asira@bposervicegroup.com</div>
+</div>
+
+<div class="flag-card">
+  <div class="card-title">🚨 Flags Requiring Your Attention</div>
+
+  <div class="flag-item">
+    <div class="flag-label">FTA · Client Escalation — Kora VAT Reconsideration</div>
+    <div class="flag-desc">Kora's VAT Reconsideration (FTA Ref: 100000058611, submitted 18 Sep by Warren Dy/BPOAS) has a status conflict. Joelle Link (Kora Co-Founder) received an FTA notification suggesting the case was <em>closed</em>. Cristina Suyom's portal screenshot from the same day shows it <em>under review</em>. Nadine Assaad (Kora Co-Founder) found the actual FTA email in her junk folder only this morning and escalated to the team at 08:39 GST.</div>
+    <div class="flag-why">Why it matters: You have a MENA Closure meeting with Kora directors (Andreea Daescu + Joelle Link) at 14:30 GST today. If the FTA closed the case unfavourably, an appeal window may be open. If still open, the reconsideration continues — but the status needs confirming before that room.</div>
+    <div class="flag-action">→ Before 14:30 GST: Ask Cristina to pull a fresh FTA portal status and send you a screenshot. Walk into the MENA Closure meeting knowing whether the case is open or decided.</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-label">Compliance · CIT Filing Deadline — 7 Days Out</div>
+    <div class="flag-desc">30 September 2026 — CIT return and payment deadline for all UAE entities with FY ending 31 Dec 2025. Marina Marketing CIT Engagement Letter still unsigned. Concept Lab/George proposal stalled ~92 days — CIT deadline makes this a close-now situation. Late filing penalty: AED 500/month.</div>
+    <div class="flag-action">→ Chase Marina Marketing for signed EL today. Make the call-or-close decision on Concept Lab/George this week.</div>
+  </div>
+
+  <div class="flag-item">
+    <div class="flag-label">Systems · Zoho Analytics Finance Sync Suspended</div>
+    <div class="flag-desc">Zoho Finance data synchronisation has been failing for 96+ hours. Scheduler stopped automatically. Financial dashboard data is stale until reconnected. This affects visibility into cash and revenue.</div>
+    <div class="flag-action">→ Assign to Warren or Junaifa to reconnect the Zoho Books integration today.</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📅 Today's Schedule — Wednesday 23 Sep · GST (UTC+4)</div>
+
+  <div class="event">
+    <div class="event-time">14:30</div>
+    <div class="event-body">
+      <div class="event-title">MENA Closure</div>
+      <div class="event-meta">With: Yiannis Papadonikolakis + Darren Rozowsky (lastminute.com) · Andreea Daescu + Joelle Link (Kora UAE) · Google Meet: mff-bssi-ywf</div>
+      <span class="pill pill-red">🚨 Prepare Kora VAT Reconsideration status before entering this meeting</span>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">15:00</div>
+    <div class="event-body">
+      <div class="event-title">UAE eInvoicing with Zoho Books: A Partner's Guide</div>
+      <div class="event-meta">Zoho Trainer Central · Partner Training · Organiser: You (M.Asira@bposervicegroup.com)</div>
+      <span class="pill pill-amber">Directly relevant to today's LinkedIn post — eInvoicing ASP deadline</span>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">16:00</div>
+    <div class="event-body">
+      <div class="event-title">FIAT Options Screen · Mon &amp; Fri Scan</div>
+      <div class="event-meta">Personal · 15 min · Automated recurring</div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="event-time">20:00</div>
+    <div class="event-body">
+      <div class="event-title">New Event (No Title)</div>
+      <div class="event-meta">15 min · No meeting details recorded</div>
+      <span class="pill pill-amber">Review in calendar to confirm</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📬 Inbox Priorities</div>
+
+  <div class="email-item">
+    <div class="email-subject">RE: VAT Reconsideration submitted <span class="pill pill-red">HIGH · FTA · Client</span></div>
+    <div class="email-from">From: Nadine Assaad (nadine@korauae.com) · Received 08:39 GST · HIGH importance</div>
+    <div class="email-preview">Nadine found an FTA email in her junk folder related to Kora's VAT Reconsideration (FTA Ref 100000058611). Thread history: Warren Dy submitted reconsideration 18 Sep. Joelle Link asked if FTA closed it (she received a closure notification). Cristina's portal screenshot showed "under review." Now Nadine has the actual FTA email from junk — she needs the team to review and advise. Has attachments including the FTA portal screenshot and the original FTA email (forwarded as .eml).</div>
+    <div class="flag-action" style="margin-top:6px; font-size:13px; color:var(--amber);">→ Review before 14:30 GST. Ask Cristina for fresh portal check.</div>
+  </div>
+
+  <div class="email-item">
+    <div class="email-subject">[Action Required] Zoho Analytics — Finance Data Synchronization Suspended <span class="pill pill-amber">SYSTEMS</span></div>
+    <div class="email-from">From: support@zohoanalytics.com · Received 04:02 GST</div>
+    <div class="email-preview">Continuous sync failure for 96 hours. Zoho Finance integration scheduler stopped. Must reconnect Zoho Books integration to restore dashboard reporting accuracy.</div>
+  </div>
+
+  <div class="email-item">
+    <div class="email-subject">Multiple Bark.com UK Leads</div>
+    <div class="email-from">From: team@bark-mail.com · Various times overnight</div>
+    <div class="email-preview">UK accountant/bookkeeper lead notifications (Colin in Nottingham, John in Preston, Tooba, Daniel, Ola, Ibrahim, James, Hannah, Joe, Gary, Debbie, Tony). Low relevance to UAE SME pipeline — consider setting a filter rule.</div>
+  </div>
+
+  <div class="section-note">Note: M365 Mail.Send not admin-consented (HTTP 403, Day 78+). This routine cannot send email via Outlook until an Entra administrator grants consent. One admin-consent grant in Entra admin center permanently resolves this for all routines.</div>
+</div>
+
+<div class="card">
+  <div class="card-title">✅ Tasks &amp; Deadlines · Critical This Week</div>
+  <div class="row"><div class="label">Today · urgent</div><div class="value">Check Kora VAT Reconsideration portal status before 14:30 GST MENA Closure meeting</div></div>
+  <div class="row"><div class="label">Today</div><div class="value">Approve today's LinkedIn post (eInvoicing ASP deadline) — timeout 08:15 GST, reply to approval email</div></div>
+  <div class="row"><div class="label">This week</div><div class="value">Marina Marketing CIT EL signature — 30 Sep deadline in 7 days</div></div>
+  <div class="row"><div class="label">This week</div><div class="value">Call-or-close decision on Concept Lab/George (92 days stalled, CIT deadline adds urgency)</div></div>
+  <div class="row"><div class="label">This week</div><div class="value">Reconcile Zoho Books against bank feed — 2 weeks of zero receipts recorded, likely lag</div></div>
+  <div class="row"><div class="label">This week</div><div class="value">Reconnect Zoho Analytics Finance sync (96h suspended)</div></div>
+  <div class="row"><div class="label">30 Sep · 7 days</div><div class="value">CIT filing deadline for all UAE FY2025 entities · Late penalty AED 500/month</div></div>
+  <div class="row"><div class="label">Standing</div><div class="value">Kora EL: issue EL decision (32+ days chasing, VAT dispute escalating — today's meeting is the window)</div></div>
+  <div class="row"><div class="label">Standing</div><div class="value">Add monthly AED revenue target to positioning-mohaina-asira.md — 11 consecutive weeks unset</div></div>
+  <div class="row"><div class="label">Standing</div><div class="value">Fix content delivery channel to Rei Nald — 33+ approved posts backlogged, 10+ weeks undelivered</div></div>
+  <div class="row"><div class="label">Standing</div><div class="value">Get M365 Mail.Send admin-consented (Entra admin center) — Day 78+</div></div>
+</div>
+
+<div class="card">
+  <div class="card-title">📈 BD Pipeline Pulse · From Monday CFO Report (21 Sep)</div>
+  <div class="row"><div class="label">Kora Corporate</div><div class="value">EL stage — 32+ days stalled, VAT start-date dispute escalating. MENA Closure meeting today is the natural window to resolve both.</div></div>
+  <div class="row"><div class="label">Marina Marketing</div><div class="value">CIT EL still unsigned. 30 Sep deadline = 7 days. Chase today — cannot file without signed EL.</div></div>
+  <div class="row"><div class="label">GL Middle East</div><div class="value">~92 days stalled. Call-or-close decision overdue. CIT urgency.</div></div>
+  <div class="row"><div class="label">Concept Lab/George</div><div class="value">~92 days stalled. CIT deadline 30 Sep = call-or-close this week or lose the urgency window.</div></div>
+  <div class="row"><div class="label">Richemont Group</div><div class="value">Contract renewal in final review. Close expected this week.</div></div>
+  <div class="row"><div class="label">Raihana's Queue</div><div class="value">No data available — no deal-value tracking in Notion pipeline (flagged 11 consecutive weeks).</div></div>
+  <div class="section-note">No deal-value tracking in Notion pipeline. Cannot confirm which deals exceed AED 15,000 stall threshold. Recommend adding a deal-value field to the Notion BD database this week.</div>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 Content Slot · Today's Post Status</div>
+  <div class="row"><div class="label">Topic</div><div class="value">UAE eInvoicing ASP appointment deadline (30 Oct 2026)</div></div>
+  <div class="row"><div class="label">Pillar</div><div class="value">Tech &amp; Automation · Soft Selling · Curiosity Gap hook</div></div>
+  <div class="row"><div class="label">Score</div><div class="value">4/4 Invisibility Diagnostic ✓</div></div>
+  <div class="row"><div class="label">Status</div><div class="value" style="color:var(--amber);">⏳ Pending Mohaina's Approval</div></div>
+  <div class="row"><div class="label">Timeout</div><div class="value">08:15 GST — post held if no reply · Rei notified to stand by</div></div>
+  <div class="row"><div class="label">Flag</div><div class="value" style="color:var(--red);">References UAE regulatory deadline + AED 50M threshold — explicit approval required</div></div>
+  <div class="row"><div class="label">If approved</div><div class="value">Forward to reinald.onella1@gmail.com · Recommended publish: 08:30 GST</div></div>
+</div>
+
+<footer>Auto-generated · BPOAS /coo-morning-brief · Wednesday 23 September 2026 · 07:00 GST</footer>
+
+</body>
+</html>
