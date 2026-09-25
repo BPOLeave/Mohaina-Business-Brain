@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COO Morning Brief · 25 Sep 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#E8294C; --brand-light:#FF5D78;
+    --bg:#0A0A0A; --card:#151517; --card-border:#26262a;
+    --ink:#F5F5F7; --sub:#9A9AA2; --muted:#6f6f78;
+    --good:#22C55E; --good-bg:rgba(34,197,94,.12);
+    --amb:#F5A524; --amb-bg:rgba(245,165,36,.12);
+    --bad:#F0435A; --bad-bg:rgba(240,67,90,.14);
+    --r:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .doc{max-width:860px;margin:0 auto;padding:36px 20px 80px;}
+  .head{border-radius:var(--r);padding:28px 30px;margin-bottom:24px;background:linear-gradient(135deg,#1a1013 0%, #0A0A0A 60%);border:1px solid var(--card-border);position:relative;overflow:hidden;}
+  .head::after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle, var(--brand) 0%, transparent 70%);opacity:.18;top:-160px;right:-80px;}
+  .head .k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-light);font-weight:700;}
+  .head h1{font-size:clamp(22px,4vw,30px);font-weight:800;letter-spacing:-.02em;margin:8px 0 4px;}
+  .head .d{font-size:13px;color:var(--sub);}
+
+  .sec{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);font-weight:700;margin:30px 0 12px;display:flex;align-items:center;gap:8px;}
+  .sec::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--brand);}
+
+  .card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r);padding:18px 20px;margin-bottom:12px;}
+  .card h4{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .card .meta{font-size:12px;color:var(--sub);margin-bottom:8px;}
+  .card p{font-size:14.5px;color:#d8d8dc;}
+
+  .flags{border:1px solid rgba(240,67,90,.35);border-radius:var(--r);padding:20px 22px;background:linear-gradient(180deg, rgba(240,67,90,.08), rgba(240,67,90,.02));}
+  .flags h3{font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-light);margin-bottom:14px;}
+  .flagrow{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:14.5px;}
+  .flagrow:last-child{border-bottom:none;}
+  .flagrow .dot{flex-shrink:0;}
+  .flagrow b{color:var(--ink);}
+  .flagrow .owner{color:var(--sub);font-size:13px;}
+
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;margin-left:6px;white-space:nowrap;vertical-align:middle;}
+  .p-red{background:var(--bad-bg);color:var(--bad);} .p-amb{background:var(--amb-bg);color:var(--amb);} .p-grn{background:var(--good-bg);color:var(--good);}
+
+  .row{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:14.5px;align-items:baseline;}
+  .row:last-child{border-bottom:none;}
+  .row .when{color:var(--sub);font-size:12.5px;width:82px;flex-shrink:0;}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);padding:8px 10px;border-bottom:1px solid var(--card-border);}
+  td{padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.06);color:#d8d8dc;vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+
+  .stat{background:var(--card);border:1px solid var(--card-border);border-radius:var(--r);padding:20px 22px;position:relative;overflow:hidden;}
+  .stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand),var(--brand-light));}
+  .stat .l{font-size:12px;color:var(--sub);}
+  .stat .n{font-size:32px;font-weight:800;letter-spacing:-.02em;margin-top:4px;color:var(--bad);}
+  .stat .sub2{font-size:13px;color:var(--sub);margin-top:6px;}
+
+  footer{text-align:center;padding:34px 20px 10px;color:var(--muted);font-size:12.5px;}
+</style>
+</head>
+<body>
+  <div class="doc">
+
+    <div class="head">
+      <div class="k">BPOAS · COO Morning Brief</div>
+      <h1>Friday, 25 September 2026</h1>
+      <div class="d">Generated 09:00 UAE (GST/UTC+4) · Auto-generated via /coo-morning-brief · CIT filing window: 5 days</div>
+    </div>
+
+    <div class="flags">
+      <h3>🚩 Flags for Mohaina's Review</h3>
+      <div class="flagrow"><span class="dot">🔴</span><div><b>CT</b> — Brilliant Telecom LLC CIT partner confirmation letters ~73 days overdue; CIT filing window now <b>5 days</b> (30 Sep deadline). <div class="owner">Owner: Raihana → Mohaina</div></div></div>
+      <div class="flagrow"><span class="dot">🔴</span><div><b>CT</b> — The Concept Lab / Mr. George EL ~96 days stalled, CIT window critically short (5 days). BLOCKED on your call-or-close decision. <div class="owner">Owner: Mohaina</div></div></div>
+      <div class="flagrow"><span class="dot">🔴</span><div><b>CT</b> — MENASTAR DMCC Corporate Tax Return 2025: client (ISSTA) approved the FS and requested the latest work paper version today; draft still on hold pending the finalized audit report ahead of 30 Sep. <div class="owner">Owner: Mohaina</div></div></div>
+      <div class="flagrow"><span class="dot">🔴</span><div><b>CLIENT / VAT</b> — Kora Corporate Services (Joelle Link): Engagement Letter decision HOT 39+ days, unprompted inbound chasing. <div class="owner">Owner: Mohaina</div></div></div>
+      <div class="flagrow"><span class="dot">🔴</span><div><b>CLIENT / VAT</b> — Orlen S.A RAK Branch (Liquidation): board resolution now attested at MOFA and shared by counsel; VAT refund AED 2.5M+ still "In progress" with FTA, and Camille needs the liquidation resolution from you to proceed with October VAT deregistration. <div class="owner">Owner: Mohaina / tax team</div></div></div>
+      <div class="flagrow"><span class="dot">🟡</span><div><b>AML</b> — AML/CFT Programme H2 2026 review still unscheduled, ~Day 56. <div class="owner">Owner: Mohaina</div></div></div>
+      <div class="flagrow"><span class="dot">🟡</span><div><b>AML</b> — Real Estate / Intl Trade lead in Raihana's queue carries an AML/DNFBP flag, pending your review before any contact. <div class="owner">Owner: Mohaina</div></div></div>
+      <div class="flagrow"><span class="dot">🟡</span><div><b>CT</b> — PICPA NE CHAPTER FZE CT return status still unconfirmed. <div class="owner">Owner: Mohaina / Warren</div></div></div>
+      <div class="flagrow"><span class="dot">🟡</span><div><b>ENGAGEMENT</b> — Raihana's Pipeline Status Report ~70 days overdue, blocking 19 leads + 80 DM drafts from moving. <div class="owner">Owner: Raihana</div></div></div>
+      <div class="flagrow"><span class="dot">🟡</span><div><b>CONTENT</b> — Content delivery to Rei Nald remains broken, 12+ consecutive weeks, 0 of 5 posts published. <div class="owner">Owner: Mohaina</div></div></div>
+      <div class="flagrow"><span class="dot">🟡</span><div><b>OPS</b> — PICPA NE website flagged a fatal theme error by its host overnight (WordPress/Blocksy) — new today, needs a look. <div class="owner">Owner: Mohaina / IT</div></div></div>
+      <div class="flagrow"><span class="dot">🟡</span><div><b>INFRA</b> — M365 Mail.Send still not admin-consented (~Day 86+); this brief is delivered by delegated send, but Raihana's routine remains blocked. <div class="owner">Owner: Mohaina</div></div></div>
+    </div>
+
+    <div class="sec">1 · Today's Schedule</div>
+    <div class="card">
+      <div class="row"><span class="when">12:00 PM</span> Business Accelerator Bootcamp — Zoom (recurring 25–27 Sep, 12:00 Dubai daily) <span class="pill p-amb">~6.5 hrs</span></div>
+      <div class="row"><span class="when">—</span> No other events on the UAE calendar today (24:00 GST window searched). Guard the morning for the Flags above before the bootcamp starts.</div>
+    </div>
+
+    <div class="sec">2 · Inbox Priorities</div>
+    <div class="card">
+      <table>
+        <tr><th>Thread</th><th>Why it matters</th><th></th></tr>
+        <tr><td>Orlen S.A RAK Branch — Liquidation (3-message thread, pgnig.pl + Camille)</td><td>Board resolution attested at MOFA now in hand; VAT deregistration due in October needs the resolution passed to Camille</td><td><span class="pill p-red">VAT · client</span></td></tr>
+        <tr><td>RE: FOR APPROVAL — MENASTAR FY2025 Financial Statements</td><td>Client approved the FS, now requesting the latest work paper — feeds the CT return due 30 Sep</td><td><span class="pill p-red">CT · client</span></td></tr>
+        <tr><td>Menastar DMCC — Wenrix invoice, June 2026 (312.50 USD)</td><td>Payment reminder resurfaced; team plans to send with BPO fee + salary on Monday</td><td><span class="pill p-amb">client · overdue</span></td></tr>
+        <tr><td>Re: [EXT] Bookkeeping Services (Cartier)</td><td>Recyline Ramos formally introduced as new POC while Chadi is away — smooth continuity, no action needed</td><td><span class="pill p-grn">client</span></td></tr>
+        <tr><td>Share Your Insights on AML — AML UAE survey</td><td>Industry survey request; low urgency but keyword-flagged</td><td><span class="pill p-amb">AML</span></td></tr>
+      </table>
+      <p style="margin-top:10px;color:var(--sub);font-size:13px;">Searched M.Asira@bposervicegroup.com Inbox, last 24 hours (~72 messages). Remainder is mostly Bark.com UK lead-gen notices (geography mismatch, recurring) and newsletters.</p>
+    </div>
+
+    <div class="sec">3 · Tasks &amp; Deadlines</div>
+    <div class="card">
+      <table>
+        <tr><th>Task</th><th>Due</th><th>Owner</th><th>Status</th></tr>
+        <tr><td>Move Voice DNA, GBI, and positioning docs into Knowledge Library</td><td>13 Sep — <b>12 days overdue</b></td><td>Mohaina</td><td><span class="pill p-amb">To Do</span></td></tr>
+        <tr><td>Draft next 3 LinkedIn posts</td><td>14 Sep — <b>11 days overdue</b></td><td>Mohaina</td><td><span class="pill p-amb">To Do</span></td></tr>
+      </table>
+      <p style="margin-top:10px;color:var(--sub);font-size:13px;">Notion "Second Brain" Tasks database, queried directly. Both docs already exist in the Mohaina-Business-Brain repo, so this task line is likely stale/done in practice — worth closing.</p>
+      <p style="margin-top:10px;"><b>Compliance actions flagged separately (see Flags above):</b> AML/CFT H2 review scheduling · CT filings for Brilliant Telecom, The Concept Lab, and MENASTAR ahead of 30 Sep · Engagement Letter decisions for Kora and Montfort.</p>
+    </div>
+
+    <div class="sec">4 · Content Slot · Friday</div>
+    <div class="card">
+      <h4>What your balance sheet is hiding that your bank balance won't show you</h4>
+      <div class="meta">Pillar: What the Numbers Are Telling You · Intent: Educating · Format: Framework List <span class="pill p-amb">Planned</span></div>
+      <p>CTA direction: "Save this for your next board or bank conversation." Forwards to Rei Nald Onella on approval — flag: that channel hasn't published in 12+ weeks (see Flags).</p>
+    </div>
+
+    <div class="sec">5 · BD Pipeline Pulse</div>
+    <div class="card">
+      <p style="margin-bottom:10px;color:var(--sub);font-size:13px;">Source: Raihana's Daily Brief · 24 September 2026 (no 25 Sep edition posted yet at run time).</p>
+      <table>
+        <tr><th>Item</th><th>Action</th></tr>
+        <tr><td>Brilliant Telecom LLC — CIT partner letters</td><td><span class="pill p-red">ESCALATE</span></td></tr>
+        <tr><td>MMG Art Production LLC — VAT EL</td><td><span class="pill p-grn">SEND</span></td></tr>
+        <tr><td>Ratiolex — CIT onboarding</td><td><span class="pill p-grn">SEND</span></td></tr>
+        <tr><td>Kora / Joelle Link — EL decision</td><td><span class="pill p-amb">MOHAINA FIRST</span></td></tr>
+        <tr><td>Montfort Trading — UBO EID outcome</td><td><span class="pill p-amb">LOG OUTCOME</span></td></tr>
+      </table>
+      <p style="margin-top:10px;">Hold: Chadi Nasreddine / Cartier Fragrance — today's inbox shows a new POC (Recyline Ramos) now introduced, may unblock this. Blocked: GL Middle East/Nandhu (~97d), The Concept Lab/Mr. George (~96d, CIT window 5 days).</p>
+
+      <h4 style="margin-top:16px;">Raihana's Queue</h4>
+      <p><b>19 leads</b> pending Mohaina's CRM go/no-go · <b>80 DM drafts</b> ready · <b>0 sent</b>, blocked on the 70-day-overdue Pipeline Status Report. Highest-scored: Successful Star General Trading (7.5) · Interlogistics-FZCO (7.5) · Real Estate/Intl Trade lead (7.0, AML/DNFBP flag — needs review before any contact).</p>
+    </div>
+
+    <div class="sec">6 · Key Metric</div>
+    <div class="stat">
+      <div class="l">Outstanding Accounts Receivable</div>
+      <div class="n">AED 107,725.00</div>
+      <div class="sub2">Across 20 overdue invoices · live Zoho Books pull, BPO Service Group FZE · flat vs 24 Sep. Largest single exposure: Richemont (Dubai) FZE, AED 58,537.50 across 2 invoices (oldest 221 days). Oldest overall: Amadeus IT FZCO, 287 days overdue.</div>
+    </div>
+
+    <footer>BPOAS COO Morning Brief · Auto-generated · Friday 25 September 2026</footer>
+  </div>
+</body>
+</html>
